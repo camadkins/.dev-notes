@@ -1,7 +1,7 @@
 ---
 title: Racket
 description: "MoC for Racket—language design experiments, macros, and course-related artifacts."
-draft: true
+draft: false
 tags:
   - cs
   - languages

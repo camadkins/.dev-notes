@@ -1,7 +1,7 @@
 ---
 title: Programming Languages
 description: "Hub for language-specific notes and implementations. Use this area for per-language MoCs and shared syntax/semantics conventions."
-draft: true
+draft: false
 tags:
   - cs
   - languages
