@@ -2,8 +2,7 @@
 title: Home
 description: Entry to Cam’s Cyberspace — CS notes, diagrams, and experiments.
 draft: false
-tags:
-  - cs
+tags: []
 ---
 
 Welcome! This is my open CS garden. 
