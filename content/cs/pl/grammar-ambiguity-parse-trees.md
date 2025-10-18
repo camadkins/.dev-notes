@@ -9,26 +9,27 @@ date: 2025-10-17
 updated:
 aliases: []
 ---
-**Why:** Ambiguous grammars make semantics unclear; compilers need a *single* parse.
+## Why:
+Ambiguous grammars make semantics unclear; compilers need a *single* parse.
 
-**Core definitions**
+## Core definitions
 - *Ambiguity*: ∃ string `w` with ≥2 distinct parse trees.
 - Typical fix: precedence/associativity declarations or grammar refactoring.
 
-**Idea (classic cases)**
+## Idea (classic cases)
 - Arithmetic: ensure `*` > `+`, right precedence/associativity rules.
 - *Dangling else*: force `else` to pair with nearest unmatched `if`.
 
-**Pitfalls**
+## Pitfalls
 - Hidden ambiguity reappears after adding constructs.
 - Relying solely on parser defaults (tool-specific behavior).
 
-**Mini-example**
+## Mini-example
 - `1 + 2 * 3`  
   - Tree A (wrong precedence): `(1 + 2) * 3`  
   - Tree B (correct precedence): `1 + (2 * 3)`.
 
-**Diagram**
+## Diagram
   ![Two parse trees for the same string](/cs/pl/assets/ambiguity-two-parses.svg)
 
 **See also**
