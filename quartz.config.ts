@@ -13,7 +13,7 @@ const config: QuartzConfig = {
     enableSPA: true,
     enablePopovers: true,
     analytics: {
-      provider: "null",
+      provider: "vercel",
     },
     locale: "en-US",
     baseUrl: "notes.camadkins.com",

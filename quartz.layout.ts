@@ -13,6 +13,7 @@ export const sharedPageComponents: SharedLayout = {
         repoId: "R_kgDOQEDKCQ",
         category: "Comments",
         categoryId: "DIC_kwDOQEDKCc4CwxwK",
+        mapping: "pathname",
         lang: "en"
       }
     })
