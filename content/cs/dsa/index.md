@@ -2,6 +2,7 @@
 title: Data Structures & Algorithms
 description: Foundations for efficient computation—data representations, runtime/space analysis, and classic strategies (searching, sorting, trees/heaps/hashes, graphs, DP/greedy/backtracking).
 draft: false
+comments: false
 tags:
   - cs
   - dsa

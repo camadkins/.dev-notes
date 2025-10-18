@@ -2,6 +2,7 @@
 title: Programming Language Concepts
 description: Core ideas behind language design and semantics — grammars, evaluation, types, effects, and modules.
 draft: false
+comments: false
 tags:
   - cs
   - pl

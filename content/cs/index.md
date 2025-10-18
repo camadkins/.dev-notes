@@ -2,6 +2,7 @@
 title: Computer Science
 description: Hub for DS&A, PL Concepts, and Language-specific notes.
 draft: false
+comments: false
 tags:
   - cs
 permalink: /cs/

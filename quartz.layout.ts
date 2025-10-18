@@ -5,7 +5,18 @@ import * as Component from "./quartz/components"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
-  afterBody: [],
+  afterBody: [
+    Component.Comments({
+      provider: "giscus",
+      options: {
+        repo: "camadkins/.dev-notes",
+        repoId: "R_kgDOQEDKCQ",
+        category: "Comments",
+        categoryId: "DIC_kwDOQEDKCc4CwxwK",
+        lang: "en"
+      }
+    })
+  ],
   footer: Component.Footer({
     links: {
       Main: "https://camadkins.com",
