@@ -1,0 +1,86 @@
+<svg width="1400" height="800" viewBox="0 0 1400 800" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#000" flood-opacity="0.15"></feDropShadow>
+    </filter>
+    <style>
+      .title{font-size:22px;font-weight:700;fill:#111}
+      .subtitle{font-size:14px;fill:#444}
+      .op{fill:#0b5ed7;stroke:#083b8a;stroke-width:2}
+      .num{fill:#e9ecef;stroke:#adb5bd;stroke-width:2}
+      .lbl{fill:#fff;font-weight:700;font-size:16px}
+      .nbl{fill:#111;font-weight:600;font-size:16px}
+      .note{fill:#7a6b00}
+    </style>
+  </defs>
+
+  <!-- Header -->
+  <text x="700" y="44" text-anchor="middle" class="title">Ambiguity: Two Different Parse Trees for "1 + 2 * 3"</text>
+  <text x="700" y="68" text-anchor="middle" class="subtitle">When precedence/associativity aren’t encoded, the same token sequence can parse in multiple ways</text>
+
+  <!-- The input string -->
+  <rect x="560" y="90" width="280" height="40" rx="8" fill="#f1f3f5" stroke="#adb5bd"></rect>
+  <text x="700" y="115" text-anchor="middle" font-size="16" fill="#222">String: 1 + 2 * 3</text>
+
+  <!-- LEFT TREE: (1+2) * 3  (root is *) -->
+  <g transform="translate(160,170)" filter="url(#shadow)">
+    <text x="210" y="-20" text-anchor="middle" font-size="16" font-weight="700" fill="#111">Parse A: (1 + 2) * 3</text>
+    <!-- edges from root -->
+    <line x1="210" y1="60" x2="90" y2="150" stroke="#444" stroke-width="2"></line>
+    <line x1="210" y1="60" x2="330" y2="150" stroke="#444" stroke-width="2"></line>
+    <!-- root '*' -->
+    <rect x="190" y="20" width="40" height="40" rx="8" class="op"></rect>
+    <text x="210" y="46" text-anchor="middle" class="lbl">*</text>
+    <!-- left child '+' subtree -->
+    <line x1="90" y1="150" x2="40" y2="230" stroke="#444" stroke-width="2"></line>
+    <line x1="90" y1="150" x2="140" y2="230" stroke="#444" stroke-width="2"></line>
+    <rect x="70" y="130" width="40" height="40" rx="8" class="op"></rect>
+    <text x="90" y="156" text-anchor="middle" class="lbl">+</text>
+    <rect x="20" y="230" width="40" height="40" rx="8" class="num"></rect>
+    <text x="40" y="256" text-anchor="middle" class="nbl">1</text>
+    <rect x="120" y="230" width="40" height="40" rx="8" class="num"></rect>
+    <text x="140" y="256" text-anchor="middle" class="nbl">2</text>
+    <!-- right child '3' -->
+    <rect x="310" y="150" width="40" height="40" rx="8" class="num"></rect>
+    <text x="330" y="176" text-anchor="middle" class="nbl">3</text>
+    <!-- note -->
+    <rect x="20" y="300" width="360" height="64" rx="10" fill="#fffcef" stroke="#ffe08a"></rect>
+    <text x="40" y="326" class="note" font-size="14">Here, “+” binds first, then “*” multiplies the sum.</text>
+  </g>
+
+  <!-- RIGHT TREE: 1 + (2 * 3)  (root is +) -->
+  <g transform="translate(900,170)" filter="url(#shadow)">
+    <text x="210" y="-20" text-anchor="middle" font-size="16" font-weight="700" fill="#111">Parse B: 1 + (2 * 3)</text>
+    <!-- edges from root -->
+    <line x1="210" y1="60" x2="90" y2="150" stroke="#444" stroke-width="2"></line>
+    <line x1="210" y1="60" x2="330" y2="150" stroke="#444" stroke-width="2"></line>
+    <!-- root '+' -->
+    <rect x="190" y="20" width="40" height="40" rx="8" class="op"></rect>
+    <text x="210" y="46" text-anchor="middle" class="lbl">+</text>
+    <!-- left child '1' -->
+    <rect x="70" y="150" width="40" height="40" rx="8" class="num"></rect>
+    <text x="90" y="176" text-anchor="middle" class="nbl">1</text>
+    <!-- right child '*' subtree -->
+    <line x1="330" y1="150" x2="280" y2="230" stroke="#444" stroke-width="2"></line>
+    <line x1="330" y1="150" x2="380" y2="230" stroke="#444" stroke-width="2"></line>
+    <rect x="310" y="130" width="40" height="40" rx="8" class="op"></rect>
+    <text x="330" y="156" text-anchor="middle" class="lbl">*</text>
+    <rect x="260" y="230" width="40" height="40" rx="8" class="num"></rect>
+    <text x="280" y="256" text-anchor="middle" class="nbl">2</text>
+    <rect x="360" y="230" width="40" height="40" rx="8" class="num"></rect>
+    <text x="380" y="256" text-anchor="middle" class="nbl">3</text>
+    <!-- note -->
+    <rect x="20" y="300" width="360" height="64" rx="10" fill="#fffcef" stroke="#ffe08a"></rect>
+    <text x="40" y="326" class="note" font-size="14">Here, “*” binds tighter than “+” (the usual rule), so multiply first.</text>
+  </g>
+
+  <!-- Precedence banner -->
+  <g transform="translate(280,560)">
+    <rect x="0" y="0" width="840" height="100" rx="12" fill="#f8f9fa" stroke="#ced4da"></rect>
+    <text x="420" y="36" text-anchor="middle" font-size="16" font-weight="700" fill="#111">What the grammar must encode</text>
+    <text x="20" y="68" font-size="14" fill="#222">• Operator precedence: typically <tspan font-weight="700">*</tspan> over <tspan font-weight="700">+</tspan> ⇒ choose Parse B</text>
+    <text x="520" y="68" font-size="14" fill="#222">• Associativity: e.g., <tspan font-weight="700">+</tspan> is left-associative</text>
+  </g>
+
+  <metadata>Intended path: /cs/plc/assets/ambiguity-two-parses.svg; canvas 1400x800; spacing fixed</metadata>
+</svg>
