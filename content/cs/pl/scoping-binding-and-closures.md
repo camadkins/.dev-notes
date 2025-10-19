@@ -1,6 +1,6 @@
 ---
 title: Scoping, Binding, and Closures
-description: Lexical scope, environments, and how functions capture variables.
+description: Understanding lexical environments and variable capture in language semantics.
 draft: false
 tags:
   - cs
@@ -8,30 +8,75 @@ tags:
 date: 2025-10-17
 updated:
 aliases: []
+# potential-diagram: closure environment chain (already embedded)
 ---
-## Why:
-Scope rules determine what names mean; closures carry their environments to preserve meaning.
 
-## Core definitions
-- *Binding*: association of a name to a value/location.
-- *Scope*: region where a binding is visible (lexical vs dynamic).
-- *Closure*: `(code, env)` pair capturing free variables of a function.
+## Why
+Scope defines *where* names are visible.  
+Binding defines *which* entity a name refers to.  
+Together, they ensure consistent interpretation of variables across execution contexts.
 
-## Idea (lexical scope)
-- Name resolution looks up through *static* nesting of blocks/modules, not the call stack.
+---
 
-## Pitfalls
-- Shadowing hides outer bindings.
-- Simulating closures without capturing the right environment (bugs in callbacks).
+## Recap
+- **Static (lexical) scope:** resolved by textual position.  
+- **Dynamic scope:** resolved by call history.  
+- **Binding:** links identifiers to values or storage locations.  
 
-## Mini-example
-- Let `x=10`. Define `f = λy. x + y`. Return a function `g = λz. f(z)`.  
-  Calling `g(5)` yields `15` because `x` in `f` resolves to the lexical `x=10` captured in the closure.
+---
+
+## Grammar connection
+Grammar nonterminals create syntactic scopes:  
+- Declarations introduce symbols (`let`, `lambda`).  
+- Blocks limit visibility (`{}` or `begin ... end`).  
+- Nested rules mirror nested scopes.
+
+> In CFG design, scope resembles nonterminal lifetimes — each expansion defines a valid name region.
+
+Example CFG fragment:
+```
+<block> ::= "{" <decls> <stmts> "}"
+<decls> ::= <decl> | <decl> <decls>
+<decl> ::= "let" <id> "=" <expr> ";"
+```
+
+This models local bindings that vanish after block completion.
+
+---
+
+## Closures
+A **closure** packages a function with its environment — preserving the scope in which it was defined.
+
+```
+let makeAdder(x) = lambda y. x + y
+```
+Returns a closure capturing `x`.
+
+At runtime, the function retains access to `x` even outside the defining scope.
+
+---
 ## Diagram
 
-  ![Closure over lexical environment](/cs/pl/assets/closure-env-chain.svg)
+  
+
+  ![Closure over lexical environment](/cs/pl/assets/closure-env-chain.svg)
+
+---
+
+## Pitfalls
+- Capturing mutable variables leads to unintended side effects.  
+- Copying environments incorrectly breaks variable references.  
+- Recursive bindings must reference partially initialized closures.
+
+---
+
+## TODOs
+- Add example tracing lexical scope with nested lambdas.  
+- Annotate closure diagram with captured variables.
+
+---
 
 **See also**
 - [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]
-- [[cs/pl/language-design-values-variables-environments|Language Design — Values, Vars, Environments]]
+- [[cs/pl/cfg-design-refactoring|CFG Design & Refactoring]]
 - [[cs/pl/index|Programming Language Concepts]]

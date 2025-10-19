@@ -8,39 +8,81 @@ tags:
 date: 2025-10-16
 updated:
 aliases: []
+# potential-diagram: simple illustration of atomic → composition → abstraction pipeline
 ---
-## Why:
-Paradigms shape how we think (state & commands vs expressions & evaluation). Models define *what counts* as a computation.
+## Why
+Paradigms define *styles of thought* in programming.  
+Computation models supply the mathematical foundation for those styles.
 
-## Core definitions
-- *Imperative*: explicit state `σ` and commands mutate `σ_{t}→σ_{t+1}`.
-- *Functional*: evaluation by expression rewriting; functions are values; referential transparency.
-- *Logic*: computation as proof search (goals, facts, rules).
-- *OO*: objects encapsulate state + behavior; dynamic dispatch.
-- *Models of computation*: λ-calculus, Turing machines, abstract machines (CEK/SECD).
+---
 
-## Idea (compare by invariants)
-- Imperative: invariant = correctness over *mutable state transitions*.
-- Functional: invariant = *no observable effects*; evaluation order shouldn’t change results.
-- Logic: invariant = *sound derivations* under inference rules.
-- OO: invariant = *class/representation contracts* respected under substitution.
+## Constituents of Programming
+- **Atomic computation** – smallest operations the language allows (arithmetic, boolean ops, assignment).  
+- **Composition** – sequencing or combining atomic steps (conditionals, loops).  
+- **Abstraction** – packaging compositions into reusable units (functions, procedures, objects).
 
-## Pitfalls
-- Confusing syntax with paradigm (a language may support multiple paradigms).
-- Assuming “more features ⇒ more expressive” (often just more convenient).
+> [!tip] Three C’s  
+> **Compute → Compose → Conceal** — the recurring pattern in language design.
 
-## Mini-example
-- Sum 1..n  
-  - Imperative: `s:=0; for i=1..n: s:=s+i`  
-  - Functional: `fold (+) 0 [1..n]`  
-  - Logic: `sum(0, [], 0). sum(N, [H|T], S) :- sum(N1, T, S1), N is N1+1, S is S1+H.`
+---
 
-## Diagram
-  
-  ![Paradigms taxonomy](/cs/pl/assets/paradigms-taxonomy.svg)
+## Core computation models
+| Model | Origin | Foundation | Used by |
+|-------|--------|------------|---------|
+| **Turing Machine** | 1936 – Turing | stepwise state transitions on tape | Imperative languages |
+| **Lambda Calculus** | 1930s – Church | function abstraction & application | Functional languages |
+| **Predicate Logic** | 1950s | rule-based inference / proof search | Logic programming |
 
-**See also**
-- [[cs/pl/language-overview-syntax-semantics|Language Overview — Syntax vs Semantics]]
-- [[cs/pl/levels-of-artificial-languages|Levels of Artificial Languages]]
-- [[cs/pl/compilation-vs-interpretation|Compilation vs Interpretation]]
+These models are **equivalent in power** (Church-Turing Thesis) but emphasize different *ways of expressing* computation.
+
+---
+
+## Paradigms overview
+- **Imperative** → commands + mutable memory  
+- **Functional** → expression evaluation, no side effects  
+- **Logic** → goals and rules, proof search  
+- **OO** → objects with identity, encapsulated state
+
+| Paradigm | Invariant | Strength | Weakness |
+|----------|-----------|----------|----------|
+| Imperative | correctness over state transitions | efficient, intuitive | side-effects, mutability |
+| Functional | referential transparency | modular, parallel | less natural for stateful tasks |
+| Logic | sound inference | declarative clarity | performance, control |
+| OO | behavioral contracts | encapsulation | complex hierarchies |
+
+---
+
+## Composition example
+    Imperative:
+    x = 0
+    while x < 5:
+        x += 1
+
+    Functional:
+    (define (count n) (if (= n 5) 'done (count (+ n 1))))
+
+---
+
+## What makes a good language
+- **Simplicity** – few basic constructs, minimal exceptions  
+- **Compositional semantics** – parts combine predictably  
+- **Portability** – consistent behavior across machines  
+- **Maintainability** – avoid redundant constructs  
+
+A “good” design balances *machine efficiency* with *human clarity*.
+
+---
+
+## Why study functional ideas
+- Encourage precise, mathematical reasoning.  
+- Emphasize immutability → predictable behavior.  
+- Facilitate parallelism → no shared mutable state.  
+- Reduce ambiguity → clear semantics for evaluation.
+
+---
+
+**See also**  
+- [[cs/pl/language-overview-syntax-semantics|Language Overview — Syntax vs Semantics]]  
+- [[cs/pl/grammar-ambiguity-parse-trees|Grammar Ambiguity & Parse Trees]]  
+- [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]  
 - [[cs/pl/index|Programming Language Concepts]]
