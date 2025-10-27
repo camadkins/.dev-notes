@@ -1,104 +1,154 @@
 ---
 title: Grammar Ambiguity & Parse Trees
-description: Detect when one string has multiple parse trees and how to resolve ambiguity.
+description: How ambiguity arises in grammars, how to visualize it with parse trees, and how to refactor rules using precedence and associativity.
 draft: false
 tags:
   - cs
   - pl
-date: 2025-10-17
+date: 2025-10-24
 updated:
 aliases: []
-# potential-diagram: side-by-side parse trees for 1+2*3 and dangling else
+# diagram: grammar_ambiguity_parse_trees.svg — show two parse trees for "a + b * c" and a refactored unambiguous grammar with precedence layers.
 ---
 
-## Why
-Ambiguous grammars lead to multiple interpretations of the same sentence — making computations undefined or implementation-dependent.  
-A parser must yield a *unique parse tree* to ensure consistent semantics.
+## Why Ambiguity Matters
+An ambiguous grammar allows multiple valid parse trees for the same input string — meaning the language can’t assign a single, deterministic meaning.  
+In compilers, ambiguity is fatal: the parser cannot decide which structure to build, and downstream stages (like semantic analysis or code generation) may interpret the same program differently.
+
+> [!note]
+> Ambiguity is a property of the grammar, *not* the language itself.  
+> Some languages can be described by both ambiguous and unambiguous grammars — it’s the grammar’s job to enforce unique structure.
 
 ---
 
-## Parse Trees & Derivations
-A **parse tree** is a hierarchical representation of how a string is derived from grammar rules:
-- **Root**: start symbol  
-- **Internal nodes**: nonterminals  
-- **Leaves**: terminals (tokens)
+## Derivations and Parse Trees
+A grammar defines how to build valid sentences by applying **production rules** from a start symbol.  
+Each complete derivation can be visualized as a **parse tree**.
 
-Each application of a production rule adds new branches.
+- **Leftmost derivation:** always expand the leftmost nonterminal first.  
+- **Rightmost derivation:** expand the rightmost first.  
+- For an *unambiguous grammar*, both yield the same parse tree for every string.
 
-> Semantics are computed from leaves upward — the tree defines structure and therefore meaning.
+> [!example]
+> **Grammar**
+> ```
+> E → E + E | E * E | ( E ) | id
+> ```
+> **Input:** `a + b * c`  
+> Two valid trees exist:
+> 1. `(a + b) * c`
+> 2. `a + (b * c)`  
+> This grammar is ambiguous because both trees produce the same string but with different structure.
 
-Example grammar:
+---
+
+## Diagram — Ambiguous Parse Trees
+The diagram (`grammar_ambiguity_parse_trees.svg`) should show:
+1. Two trees side by side for `a + b * c`:  
+   - Left tree: `E → E + E → (a + b) * c`  
+   - Right tree: `E → E * E → a + (b * c)`  
+2. Highlight operator nodes (`+` and `*`) and show how precedence changes structure.  
+3. Below, a clean refactored grammar layering precedence levels (`Expr`, `Term`, `Factor`).
+
+This visual reinforces that ambiguity arises from unclear operator precedence and associativity.
+
+---
+
+## Fixing Ambiguity — Precedence and Associativity
+To eliminate ambiguity, we split the grammar by operator *precedence* and define *associativity* explicitly.
+
+### Precedence Hierarchy
 ```
-S → P | S + S | S - S | S * S | S / S
-P → D | DP
-D → 0 | 1 | … | 9
+
+Expr → Expr + Term | Expr - Term | Term  
+Term → Term * Factor | Term / Factor | Factor  
+Factor → ( Expr ) | id | num
+
+```
+- Operators defined lower bind tighter (`*` before `+`).  
+- Each nonterminal level corresponds to one precedence group.  
+- Parentheses reintroduce explicit grouping.
+
+### Associativity
+The recursion direction determines grouping order:
+- **Left-associative:** `Expr → Expr + Term`  → groups left to right.  
+- **Right-associative:** `Pow → Base ^ Pow`  → groups right to left.
+
+> [!tip]
+> Associativity resolves *ties* within the same precedence level.  
+> Precedence resolves *conflicts* between levels.
+
+---
+
+## Alternative Forms
+| Form | Example | Ambiguity |
+|------|----------|------------|
+| Infix | `a + b * c` | Ambiguous without rules |
+| Prefix | `+ a * b c` | Unambiguous |
+| Postfix | `a b c * +` | Unambiguous and easier for machines |
+
+Prefix and postfix forms avoid ambiguity by encoding precedence directly in syntax.
+
+---
+
+## Classic Example — Dangling Else
+A textbook case of ambiguity:
 ```
 
-String `1 + 2 + 3` produces *two valid trees* — depending on grouping:
+Stmt → if Expr then Stmt | if Expr then Stmt else Stmt | other
+
 ```
-(S + S) + S     vs     S + (S + S)
+For:
 ```
 
----
+if E1 then if E2 then S1 else S2
 
-## Ambiguity definition
-A grammar **G** is *ambiguous* if ∃ string `w` that has ≥ 2 distinct parse trees.  
-This causes compilers to interpret the same input in multiple ways.
+```
+Two parses are possible:
+1. Else matches inner `if`
+2. Else matches outer `if`
 
----
+### Solution
+Add an optional nonterminal:
+```
 
-## Classic cases
-- **Arithmetic precedence:**  
-  `"1 + 2 * 3"` → `(1 + 2) * 3` vs `1 + (2 * 3)`
-- **Dangling else:**  
-  ```
-  if x > 0
-    if y > 0
-      print("A");
-    else
-      print("B");
-  ```
-  Which `if` does `else` pair with?
+Stmt → if Expr then Stmt OptElse | other  
+OptElse → else Stmt | ε
 
----
+```
+Now the structure is deterministic: each `else` matches the closest unmatched `if`.
 
-## Strategies to eliminate ambiguity
-1. Define **precedence** and **associativity** in grammar.  
-2. Restrict recursive rules to one direction (left or right).  
-3. Introduce explicit grouping (parentheses).  
-4. Refactor grammar hierarchy (`Expr → Term | Term + Expr`).
+> [!note]
+> Parser generators like YACC or ANTLR use *disambiguation rules* (like associativity or precedence declarations) to enforce this automatically.
 
 ---
 
-## Connection to computation models
-Precision in grammar mirrors the precision required in computation models:
-- Deterministic parsing → deterministic computation.  
-- Ambiguity at syntax level → semantic uncertainty.
+## Sources of Ambiguity
+1. **Operator precedence gaps** — multiple rules compete for the same syntax.  
+2. **Overlapping productions** — shared prefixes that create multiple derivations.  
+3. **Implicit optionality** — missing explicit `ε` productions can lead to multiple parses.  
+4. **Grammar extensions** — adding new rules without revisiting existing ones can silently reintroduce ambiguity.
+
+> [!warning]
+> Parser tools often choose one parse arbitrarily without warning.  
+> Always check grammar ambiguity manually or with diagnostic flags (`-Wall` in ANTLR, `--ambiguity` in Bison).
 
 ---
 
-## Pitfalls
-- Hidden ambiguity when adding new constructs.  
-- Parser generator defaults may silently alter behavior.  
-- Precedence rules vary by tool (Yacc/Bison vs ANTLR).
+## Practical Guidelines
+1. **Design for hierarchy:** organize grammars by operator precedence early.  
+2. **Check associativity:** make it explicit for every binary operator.  
+3. **Use parentheses liberally:** they anchor precedence clearly.  
+4. **Visualize parse trees:** ambiguity is easier to see than to reason about abstractly.  
+5. **Validate with examples:** ambiguous grammars often fail at predictable edge cases.
+
+> [!tip]
+> Ambiguity is a design smell — it hints your grammar doesn’t communicate intent clearly.  
+> A clean grammar is one whose structure mirrors how programmers naturally think about the language.
 
 ---
 
-## Mini-example
-`1 + 2 * 3`
-- Tree A (wrong precedence): `(1 + 2) * 3`
-- Tree B (correct precedence): `1 + (2 * 3)`
-
-Ambiguity makes expression evaluation order undefined.
-
----
-
-## Visualization
-![Two parse trees for the same string](/cs/pl/assets/ambiguity-two-parses.svg)
-
----
-
-**See also**
+## See also
 - [[cs/pl/grammars-notation-bnfebnf|Grammars — BNF & EBNF]]
 - [[cs/pl/cfg-design-refactoring|CFG Design & Refactoring]]
-- [[cs/pl/index|Programming Language Concepts]]
+- [[cs/pl/programming-paradigms-models-of-computation|Programming Paradigms & Models of Computation]]

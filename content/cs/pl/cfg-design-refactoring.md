@@ -1,146 +1,282 @@
 ---
 title: CFG Design & Refactoring
-description: Building and refining context-free grammars for clarity, precedence, and parser compatibility.
-draft: false
+description: How to construct, analyze, and refine context-free grammars for clarity, correctness, and parser compatibility.
+draft: true
 tags:
   - cs
   - pl
-date: 2025-10-19
+date: 2025-10-21
 updated:
 aliases: []
-# potential-diagram: before/after grammar refactor showing left recursion elimination
+# diagrams:
+#  - left_recursion_removal.svg — show how A → Aα | β converts to right recursion.
+#  - left_factoring_example.svg — visualize factoring of shared prefixes.
+#  - precedence_hierarchy.svg — depict layered grammar levels for + and * precedence.
+#  - ambiguity_parse_trees.svg — compare ambiguous and refactored parse trees.
 ---
 
-## Why
-Designing grammars for real programming languages requires balancing **clarity**, **precision**, and **parser compatibility**.  
-A theoretically correct grammar may still fail to parse efficiently or unambiguously.  
-Refactoring helps ensure deterministic parsing and modular syntax evolution.
+## Overview
+Context-free grammars (CFGs) define the **syntactic structure** of programming languages.  
+Every compiler, interpreter, or parser generator starts here — determining what *forms* of code are valid before assigning meaning.
+
+But a functional grammar is not necessarily a good one.  
+Ambiguities, left recursion, and unclear naming can make grammars hard to parse, reason about, or extend.  
+Refactoring addresses these problems while preserving language meaning.
+
+> [!note]
+> A *good grammar* is both formal and human-readable — it describes not just the machine’s structure of code, but the designer’s intent.
 
 ---
 
-## Goals of CFG Design
-- Express valid structures unambiguously.  
-- Encode **precedence** and **associativity** directly in the grammar.  
-- Eliminate **left recursion** for recursive-descent parsers.  
-- Factor shared prefixes for efficient predictive parsing.  
-- Preserve *readability* and *modularity* for human maintenance.
+## Why CFG Design Matters
+A clean grammar enables:
+- **Unambiguous parsing** — one syntax tree per valid input.  
+- **Efficient parsing** — LL(1), LR(1), or PEG-compatible rules.  
+- **Maintainability** — readable nonterminals that reflect roles, not tokens.  
+- **Extensibility** — adding constructs without rewriting everything.
 
-> [!tip] Many compiler bugs stem from grammar drift — a mismatch between what the parser accepts and what the language designers intended.
+In practice, CFG design shapes how every compiler phase — parsing, AST construction, type checking — perceives a program’s structure.
 
 ---
 
-## Common Grammar Issues
+## Refactoring Goals
+> **Simplify structure without changing the language it defines.**
 
-### 1. **Left Recursion**
-A rule like:
+Grammar refactoring doesn’t add new constructs; it improves clarity, modularity, and performance.  
+A refactored grammar:
+- Resolves ambiguities  
+- Eliminates unneeded recursion  
+- Uses meaningful rule names  
+- Works with target parser algorithms (LL or LR)  
+- Expresses precedence and associativity directly in structure
+
+---
+
+## Common Design Problems
+
+### 1. Left Recursion
+Rules that call themselves on the left cause infinite loops in top-down parsers:
 ```
+
 Expr → Expr + Term | Term
-```
-causes infinite recursion in a top-down parser.
 
-**Refactor (Right Recursion):**
 ```
-Expr → Term Expr'
-Expr' → + Term Expr' | ε
+The recursive call to `Expr` prevents consumption of input tokens.
+
+### 2. Ambiguity
+Ambiguous grammars generate multiple parse trees for the same input.  
+Example: without clear precedence, `num + num * num` may parse in two ways — one grouping `+` first, the other `*`.
+
+### 3. Left Factoring Conflicts
+If two productions share a prefix, LL(1) parsers cannot decide which rule to follow:
 ```
 
-This converts recursion into iterative expansion, allowing LL(1) parsing.
+Stmt → if Expr then Stmt else Stmt | if Expr then Stmt
+
+```
+
+### 4. Excessive ε-Rules
+While ε (empty) rules support optional constructs, overuse causes hidden ambiguities or infinite loops.
+
+> [!example]
+> **Diagram (`ambiguity_parse_trees.svg`)**  
+> Side-by-side trees showing how ambiguity arises and how refactoring resolves it.
 
 ---
 
-### 2. **Left Factoring**
-If two rules share a prefix, predictive parsers can’t decide which to apply.
+## Core Refactoring Techniques
 
-**Before:**
-```
-Stmt → if Expr then Stmt else Stmt
-Stmt → if Expr then Stmt
+### Removing Left Recursion
+Convert:
 ```
 
-**After (Factored):**
+A → A α | β
+
 ```
-Stmt → if Expr then Stmt Stmt'
-Stmt' → else Stmt | ε
+to:
 ```
 
-This eliminates the classic **dangling else** ambiguity.
+A → β A'  
+A' → α A' | ε
+
+```
+This retains meaning but enables top-down parsing.
+
+### Left Factoring
+Extract shared prefixes:
+```
+
+Stmt → if Expr then Stmt else Stmt  
+| if Expr then Stmt
+
+```
+becomes:
+```
+
+Stmt → if Expr then Stmt Tail  
+Tail → else Stmt | ε
+
+```
+
+### Enforcing Operator Precedence
+Layer nonterminals by binding strength:
+```
+
+Expr → Term Expr'  
+Expr' → + Term Expr' | ε  
+Term → Factor Term'  
+Term' → * Factor Term' | ε  
+Factor → (Expr) | num
+
+```
+Each level isolates a precedence tier — multiplication binds tighter than addition.
+
+> [!example]
+> **Diagram (`precedence_hierarchy.svg`)**  
+> Three stacked tiers: Factor → Term → Expr, showing binding order and associativity.
 
 ---
 
-### 3. **Operator Precedence**
-To encode precedence levels:
-```
-Expr → Term | Expr + Term | Expr - Term
-Term → Factor | Term * Factor | Term / Factor
-Factor → (Expr) | id | num
-```
+## Naming and Readability
+Grammar readability equals maintainability.  
+Use descriptive nonterminals:
+- ✅ `Condition`, `Statement`, `Expression`
+- ❌ `A`, `B`, `C`
 
-Higher-precedence rules appear deeper in the derivation hierarchy.  
-Parentheses enforce grouping explicitly.
+Names should reflect *semantic roles*, not merely structure.
+
+> [!tip]
+> A well-named grammar serves as executable documentation for language syntax.
 
 ---
 
-### 4. **Epsilon and Empty Productions**
-ε-productions enable optional constructs but may introduce ambiguity.  
-Prefer explicit alternatives when possible.
-
-Example:
+## Managing ε-Productions
+Use ε only when meaningfully optional:
 ```
+
 OptElse → else Stmt | ε
+
 ```
+If many ε rules appear across unrelated constructs, they may mask structural issues.
 
 ---
 
-### 5. **Grammar Modularity**
-Separate concerns:
-- **Expressions** → arithmetic / boolean.  
-- **Statements** → assignment, control flow.  
-- **Declarations** → variable/function definitions.
+## A Design Workflow
+1. **Collect examples and counterexamples.**  
+   What should and shouldn’t parse?
+2. **Identify atomic symbols.**  
+   Keywords, operators, literals, identifiers.
+3. **Compose recursively.**  
+   Build higher constructs by repetition and nesting.
+4. **Factor and name.**  
+   Add helper nonterminals for readability or precedence.
+5. **Validate unambiguity.**  
+   Trace multiple parses manually or via parser generators.
+6. **Iterate.**  
+   Grammar design is an evolutionary process.
 
-Each can evolve independently while preserving integration via nonterminals.
-
----
-
-## CFG Refactoring Workflow
-1. Identify **recursion and prefix conflicts**.  
-2. Apply **left recursion elimination**.  
-3. **Factor prefixes** to simplify parser decisions.  
-4. Validate grammar with sample programs.  
-5. Document assumptions (ε, precedence, associativity).
-
-> Grammar evolution is iterative — each pass trades off clarity vs parser simplicity.
+> [!note]
+> Real compiler grammars go through dozens of iterations before stabilizing.
 
 ---
 
-## Micro Example
-Before:
-```
-Expr → Expr + Expr | Expr * Expr | id
-```
-Ambiguous: order of operations undefined.
-
-After refactor:
-```
-Expr → Term ExprTail
-ExprTail → + Term ExprTail | ε
-Term → Factor TermTail
-TermTail → * Factor TermTail | ε
-Factor → id
+## Grammar Simplification in Practice
+Refactoring often means *recognizing duplication* and abstracting it away:
 ```
 
-Now `*` binds tighter than `+`.
+Decl → Type id ;  
+Assign → id = Expr ;
+
+```
+can refactor to:
+```
+
+Stmt → Decl | Assign
+
+```
+or unify delimiters:
+```
+
+Stmt → (Type id | id = Expr) ;
+
+```
+Simpler grammars are faster, clearer, and produce cleaner ASTs.
 
 ---
 
-## TODOs
-- Add diagram of LL(1) parse steps.  
-- Include FIRST/FOLLOW sets example for Expr grammar.  
-- Add example of EBNF grouping vs explicit rules.
+## Closure Properties of Context-Free Languages
+Useful for reasoning about grammar combinations and refactoring safety.
+
+| Operation | CFL Closed? | Example |
+|------------|--------------|---------|
+| Union | ✅ | Combine two disjoint syntaxes |
+| Concatenation | ✅ | Sequence of two sublanguages |
+| Kleene Star | ✅ | Repetition (`List → Item List | ε`) |
+| Reversal | ✅ | Reverse all strings |
+| Intersection | ❌ | Not closed |
+| Complement | ❌ | Not closed |
+
+These properties explain why static analysis (like type checking) often moves *beyond* CFGs.
 
 ---
 
-**See also**
-- [[cs/pl/grammars-notation-bnfebnf|BNF & EBNF]]
-- [[cs/pl/grammar-ambiguity-parse-trees|Ambiguity & Parse Trees]]
-- [[cs/pl/scoping-binding-and-closures|Scoping & Closures]]
-- [[cs/pl/index|Programming Language Concepts]]
+## Example — Clean Expression Grammar
+Final, LL(1)-compatible form:
+```
+
+Expr → Term Expr'  
+Expr' → + Term Expr' | ε  
+Term → Factor Term'  
+Term' → * Factor Term' | ε  
+Factor → ( Expr ) | num
+
+```
+### Key Qualities
+- Captures precedence and associativity structurally.  
+- Uses meaningful names and minimal ε rules.  
+- Easy to extend with new operators.
+
+> [!example]
+> **Diagram (`left_recursion_removal.svg`)**  
+> Shows the rewrite from `A → Aα | β` to `A → βA'`.
+
+---
+
+## In Real Compilers
+Automated parser generators (ANTLR, Menhir, yacc) still rely on human-designed grammars.  
+Poor CFG design leads to:
+- Shift/reduce conflicts  
+- Unclear parse trees  
+- Difficult debugging and error recovery  
+
+> [!tip]
+> Grammar refactoring is a design discipline — not a one-time cleanup.  
+> It shapes how a language evolves, both syntactically and conceptually.
+
+---
+
+## Conceptual Summary
+| Concept | Purpose |
+|----------|----------|
+| **CFG** | Defines valid program syntax |
+| **Left Recursion** | Must be removed for LL parsers |
+| **Factoring** | Resolves prefix ambiguity |
+| **Precedence Rules** | Clarify operator order |
+| **Naming** | Increases readability and maintainability |
+| **ε Rules** | Used sparingly for optional constructs |
+| **Closure Properties** | Ensure reasoning consistency |
+
+---
+
+## Diagram Concepts
+- `left_recursion_removal.svg`: Transform recursion into iterative form.  
+- `left_factoring_example.svg`: Shared prefix resolution.  
+- `precedence_hierarchy.svg`: Operator hierarchy layers.  
+- `ambiguity_parse_trees.svg`: Ambiguous vs refactored parse trees.
+
+---
+
+## See also
+- [[cs/pl/grammar-ambiguity-parse-trees|Grammar Ambiguity & Parse Trees]]
+- [[cs/pl/grammars-notation-bnfebnf|Grammars & Notation (BNF and EBNF)]]
+- [[cs/pl/programming-paradigms-models-of-computation|Programming Paradigms & Models of Computation]]
