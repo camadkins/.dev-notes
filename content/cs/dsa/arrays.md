@@ -233,6 +233,6 @@ function reverse(A, n):
     
 - [[cs/dsa/stacks|Stacks]]
     
-- [[cs/dsa/queues|Queues]]
+- [[queue|Queues]]
     
 - [[cs/dsa/memory-allocation|Memory Allocation]]
