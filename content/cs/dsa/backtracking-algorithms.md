@@ -1,196 +1,208 @@
 ---
-title: Backtracking Algorithms — Systematic Search with Pruning
-description: Depth-first exploration of combinatorial search spaces using recursion and constraint-based pruning to eliminate infeasible paths.
-draft: true
+title: Backtracking Algorithms  
+description: Systematic search over decision trees with recursion and pruning; solves CSPs and combinatorial enumeration with correctness by invariants.  
+draft: true  
+updated: 2025-10-29  
+aliases: []  
 tags:
-  - cs
-  - dsa
+- cs
+- dsa
 date: 2025-10-16
-updated:
-aliases: []
 # diagrams:
-#  - backtracking_tree.svg — recursion tree showing explored and pruned branches for N-Queens.
-#  - backtracking_callstack.svg — function call stack illustrating decisions and reversions.
+# - name: backtracking-recursion-tree
+# brief: Recursion tree with partial solutions and prune branches
+# - name: n-queens-pruning
+# brief: N-Queens example showing row/col/diag constraints and pruned subtrees
 ---
 
-## Overview
-**Backtracking** is a general algorithmic technique for solving **constraint satisfaction** or **combinatorial search** problems by **incrementally building candidates** and **abandoning (pruning)** partial solutions as soon as they violate constraints.
+## Definition
 
-It performs a **depth-first search (DFS)** over the solution space, exploring one possibility at a time and “backtracking” when a dead end is reached.
+**Backtracking** is a general algorithmic technique for solving **constraint satisfaction** and **combinatorial enumeration** problems by **incrementally building a partial solution** and abandoning branches as soon as they can no longer lead to a valid (or improved) solution (**pruning**). It performs a **depth-first exploration** of a decision tree, undoing choices (“backtracking”) when a dead end is reached.
 
-> [!note]
-> Backtracking provides an organized way to explore exponentially large solution spaces while avoiding full enumeration when constraints can prune large regions.
-
----
-
-## Conceptual Model
-
-At each decision level:
-1. Choose a variable or position.
-2. Assign a candidate value.
-3. Check whether partial assignment satisfies constraints.
-4. If valid, recurse to the next level.
-5. If not, **backtrack** — undo the choice and try the next option.
-
-The process continues until all variables are assigned or all possibilities are exhausted.
-
-```pseudo
-function backtrack(state):
-    if isGoal(state):
-        record(state)
-        return
-    for choice in validChoices(state):
-        make(choice)
-        if isValid(state):
-            backtrack(state)
-        undo(choice)
-````
-
-> [!example]  
-> **Diagram (`backtracking_tree.svg`)** — recursion tree showing explored branches and pruned subtrees when constraints fail.
+> [!note] Core idea  
+> Explore a **decision tree** with recursion; abandon partial assignments that cannot lead to a valid solution (**pruning**), and backtrack to try alternatives.
 
 ---
 
-## Example: N-Queens Problem
+## Strategy
 
-Place `n` queens on an `n×n` chessboard such that no two queens attack each other.
-
-### Recursive Approach
-
-```pseudo
-function solveNQueens(row):
-    if row == n:
-        print(board)
-        return
-    for col in 0..n-1:
-        if isSafe(row, col):
-            placeQueen(row, col)
-            solveNQueens(row + 1)
-            removeQueen(row, col)
-```
-
-- **isSafe(row, col)** checks column and diagonal conflicts.
+- Maintain a **partial solution** (S).
     
-- The recursion explores row by row.
+- At each step, **choose** a candidate, **check** feasibility, **recurse**, then **unchoose** (undo).
     
-- Backtracking removes the queen when no valid position exists in the current row.
+- Stop when you reach a **goal** (e.g., size-n assignment, first solution, or all solutions collected).
     
 
-> [!tip]  
-> The N-Queens search tree prunes early — as soon as a queen threatens another, the subtree under that placement is skipped.
+**Typical loop:**
 
----
-
-## Example: Subset Sum Problem
-
-Find all subsets of an array that sum to a target value.
-
-```pseudo
-function subsetSum(arr, i, currentSum, target):
-    if currentSum == target:
-        print(currentSubset)
-        return
-    if i == len(arr) or currentSum > target:
-        return
-    include(arr[i])
-    subsetSum(arr, i + 1, currentSum + arr[i], target)
-    exclude(arr[i])
-    subsetSum(arr, i + 1, currentSum, target)
-```
-
-Here pruning occurs when `currentSum > target`.
-
----
-
-## State Space Representation
-
-Each node in the recursion tree corresponds to a **partial assignment**.  
-Edges represent decisions, and leaves correspond to completed assignments.
-
-|Term|Meaning|
-|---|---|
-|**Decision Variable**|Element or step being assigned|
-|**Constraint**|Rule that prunes invalid branches|
-|**Partial Solution**|Current progress in recursion|
-|**Backtrack Step**|Undoing last assignment and trying the next|
-
-> [!example]  
-> **Diagram (`backtracking_callstack.svg`)** — illustrates recursive call stack evolution and undo operations.
-
----
-
-## Optimization & Variants
-
-### 1. Branch and Bound
-
-Extends backtracking by maintaining the **best solution found so far** and pruning subtrees that cannot improve it.
-
-Example: Knapsack or Traveling Salesman Problem with upper-bound estimates.
-
-### 2. Constraint Propagation
-
-Before branching, use constraint logic to eliminate impossible values (e.g., Sudoku or graph coloring).
-
-### 3. Heuristic Ordering
-
-Choosing variables or values strategically reduces search time:
-
-- Minimum Remaining Values (MRV)
+1. Pick a variable/position to assign.
     
-- Least Constraining Value (LCV)
+2. Iterate through candidate values in an order (heuristic).
     
-- Depth-first with heuristic pruning
+3. If adding a candidate keeps constraints satisfied, recurse.
+    
+4. After recursion returns, **undo** the change and continue.
+    
+
+---
+
+## Template
+
+> [!example] Generic backtracking skeleton
+> 
+> ```pseudo
+> def solve(state):
+>   if goal(state): record(state); return  # or continue for all solutions
+>   for choice in ordered_choices(state):
+>     if feasible(state, choice):         # pruning guard
+>       apply(state, choice)              # choose
+>       solve(state)                      # explore
+>       undo(state, choice)               # unchoose
+> ```
+
+> [!example] Diagram: recursion tree & pruning
+
+---
+
+## Correctness & Invariants
+
+- **Feasibility invariant**: `feasible(state)` ensures every recorded solution satisfies all constraints.
+    
+- **No-skip argument**: with a deterministic ordering of variables/choices, every viable branch is eventually explored (DFS completeness).
+    
+- **No-duplicate argument**: enforce a canonical generation order (e.g., fix positions, maintain `visited` sets/bitmasks, or enforce nondecreasing indices) so each solution appears once.
     
 
 ---
 
 ## Complexity
 
-Backtracking has **exponential worst-case time** but often performs well in practice due to pruning.
+Backtracking is often **exponential in the worst case**, but pruning can reduce the **effective branching factor**.
 
-|Problem|Theoretical Time|Typical Reduction|
-|---|---|---|
-|N-Queens|O(n!)|O(n log n) with pruning|
-|Subset Sum|O(2ⁿ)|Prunes early on large sums|
-|Sudoku Solver|O(9⁸¹)|Reduced via constraint propagation|
+- Worst-case time: (O(b^d)) where (b) is branching factor and (d) is depth.
+    
+- Space: (O(d)) for the recursion stack plus problem-specific auxiliary state.
+    
+
+> [!note] Cost model
+> 
+> - Worst case often (O(b^d)) with branching factor (b) and depth (d).
+>     
+> - Pruning reduces the **effective** branching factor; report empirical bounds for concrete problems (e.g., N-Queens solutions for small (n)).
+>     
+
+---
+
+## Heuristics & Pruning
+
+> [!tip] Useful heuristics
+> 
+> - **Ordering**: try most-constrained variables/choices first (fail fast; MRV/LCV in CSPs).
+>     
+> - **Constraint propagation**: maintain domains and eliminate inconsistent options early (forward checking, arc consistency).
+>     
+> - **Bounding**: if current score + optimistic bound < best, cut branch (bridges to [[cs/dsa/branch-and-bound|Branch and Bound]]).
+>     
+
+Other practical tactics:
+
+- **Symmetry breaking** (e.g., fix the first queen’s column to reduce symmetric solutions).
+    
+- **Memoization** for repeated subproblems (careful to include enough state in the key).
+    
+- **Iterative deepening** to cap depth and progressively widen search.
+    
+
+---
+
+## Examples
+
+### N-Queens (tiny)
+
+State: row index `r` and a placement array `col[r]`.  
+Feasibility: no two queens share a **column** or **diagonal**.
+
+```pseudo
+def place(r):
+  if r == n: record(col); return
+  for c in 0..n-1:
+    if ok(r, c):      # column, diag checks
+      col[r] = c
+      place(r+1)
+      col[r] = ⊥
+```
+
+- `ok(r,c)` checks `c` against used columns and `|c - col[i]| != |r - i|` for diagonals.
+    
+- Pruning happens immediately on conflict to avoid exploring doomed subtrees.
+    
+
+> [!example] Diagram: N-Queens pruning
+
+### Subset Sum (nonnegative set)
+
+Include/exclude element `i`; track partial sum.
+
+```pseudo
+def dfs(i, sum):
+  if sum == T: record(); return
+  if i == n or sum > T: return       # prune
+  choose A[i]; dfs(i+1, sum + A[i]); # include
+  unchoose;   dfs(i+1, sum)          # exclude
+```
+
+- With sorted `A`, you can bound: if `sum + remaining_max_possible < T`, prune.
+    
+
+### Permutations (in-place)
+
+Swap `a[k]` with `a[i]` for `i ≥ k` and recurse; swap back to unchoose.
+
+```pseudo
+def perm(k):
+  if k == n: record(a); return
+  for i in k..n-1:
+    if use(a[i]):                # optional dedup guard
+      swap(a[k], a[i])
+      perm(k+1)
+      swap(a[k], a[i])           # undo
+```
 
 ---
 
 ## Pitfalls
 
-> [!warning]  
-> **Ordering matters:** Poor variable ordering can multiply the search space by orders of magnitude.
+> [!warning] Common pitfalls
+> 
+> - Missing **undo** step corrupts state and produces wrong results.
+>     
+> - Weak feasibility checks cause **late rejection** and exponential blowups.
+>     
+> - Duplicates from symmetric choices; fix with ordering, `visited` sets, or canonical forms.
+>     
+> - Global state not restored on return (e.g., forgetting to pop from helper stacks/sets).
+>     
 
-> [!warning]  
-> **Missing undo step:** Forgetting to revert a decision corrupts recursion state and leads to incorrect results.
+Engineering notes:
 
-> [!tip]  
-> Combine pruning with memoization when subproblems repeat — e.g., in subset-based problems.
-
----
-
-## When to Use Backtracking
-
-- Combinatorial enumeration (permutations, combinations)
+- Validate base cases first to avoid unnecessary recursion.
     
-- Constraint satisfaction (Sudoku, N-Queens, graph coloring)
+- Keep `state` mutations localized; prefer RAII/`defer`-style guards when available.
     
-- Optimization via pruning (Knapsack, TSP)
-    
-- Pathfinding and configuration problems with constraints
+- Benchmark with/without specific pruners to quantify benefit.
     
 
 ---
 
 ## Summary
 
-- Backtracking explores search spaces **recursively**.
+- Backtracking builds solutions **incrementally** and prunes as early as possible.
     
-- Prunes infeasible paths early to reduce computation.
+- Correctness hinges on a **feasibility invariant** and duplicate-avoidance strategy.
     
-- Core for constraint-solving, decision problems, and puzzles.
+- Performance depends on **branching factor** and the strength of **heuristics/propagation**.
     
-- Enhanced via **branch-and-bound** and **heuristic ordering**.
+- Many CSPs and combinatorial tasks are naturally expressed with this template.
     
 
 ---
@@ -201,6 +213,6 @@ Backtracking has **exponential worst-case time** but often performs well in prac
     
 - [[cs/dsa/branch-and-bound|Branch and Bound]]
     
-- [[cs/dsa/graph-traversals-bfs-dfs|Graph Traversals (BFS & DFS)]]
+- [[cs/dsa/depth-first-search-algorithms|Depth-First Search]]
     
 - [[cs/dsa/constraint-satisfaction-problems|Constraint Satisfaction Problems]]
