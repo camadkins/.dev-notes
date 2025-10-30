@@ -221,7 +221,7 @@ Insert sequence:
 
 - [[cs/dsa/b-tree|B-Tree]]
     
-- [[cs/dsa/binary-search-tree|Binary Search Tree]]
+- [[bst|Binary Search Tree]]
     
 - [[cs/dsa/hash-tables|Hash Tables]]
     

@@ -1,269 +1,156 @@
 ---
-title: Adjacency Lists — Sparse Graph Representation
-description: Per-vertex neighbor containers for representing sparse graphs efficiently; operations, complexity, and design trade-offs.
+title: Adjacency List
+description: Sparse graph representation with efficient neighbor iteration; trade-offs vs adjacency matrix.
 draft: true
 tags:
   - cs
   - dsa
 date: 2025-10-16
-updated:
+updated: 2025-10-29
 aliases: []
 # diagrams:
-#  - adjacency_list_layout.svg — array/map of vertices; each entry points to a container of (neighbor, weight) pairs.
-#  - add_edge_trace.svg — directed vs undirected insertion; highlight symmetric update for undirected graphs.
-#  - remove_edge_cases.svg — removing an edge from a singly linked adjacency list (middle/tail).
-#  - bfs_queue_on_adjlist.svg — BFS frontier expansion touching only existing edges (sparse advantage).
-#  - duplicates_and_multigraphs.svg Q— simple graphs vs multigraphs; how duplicate edges are treated.
+#   - name: list-vs-matrix-toy
+#     brief: Same toy graph rendered as list and matrix to highlight memory vs query trade-offs
 ---
 
-## Overview
-An **adjacency list** stores, for each vertex `u`, a container of its outgoing neighbors `N⁺(u)`. It excels on **sparse graphs** where the edge count `m` is much smaller than `n²`. Traversal-based algorithms (**BFS**, **DFS**, **Dijkstra**, **Prim**) benefit because work is proportional to the number of *present* edges.
+## Definition
+An **adjacency list** stores, for each vertex `u`, a container of its outgoing neighbors `Adj[u] = {v : (u,v) ∈ E}` (optionally with edge attributes like weights or ids). For **undirected** graphs, each undirected edge `{u,v}` is represented twice: once in `Adj[u]` and once in `Adj[v]`.
 
-> [!note]
-> Intuition: keep an array (or map) from each vertex `u` to a compact container of its neighbors. Total storage is Θ(n + m), not Θ(n²).
+## Invariants
+- Each directed edge `(u,v)` appears **exactly once** in `Adj[u]` (twice overall for undirected graphs).
+- The chosen **graph policy** is consistent:
+  - *Simple graph*: no parallel edges; self-loops optional/forbidden by policy.
+  - *Multigraph*: parallel edges allowed (distinguished by ids or payloads).
+- If maintaining **inDegree/outDegree** arrays, updates mirror insertions/deletions in the lists.
 
----
+## Operations
+Typical surface API (names vary by codebase):
 
-## Model & Invariants
+- `addVertex()` — allocate a new, initially empty neighbor container.
+- `addEdge(u, v, w?)` — insert `(v, w?)` into `Adj[u]` (and `(u, w?)` into `Adj[v]` if undirected).
+- `removeEdge(u, v)` — delete one `(u,v)` occurrence (and `(v,u)` if undirected); in multigraphs, delete by edge-id.
+- `neighbors(u)` — return an iterator over `Adj[u]`.
 
-Let `G = (V, E)` with `|V| = n`, `|E| = m`.
+> Minimal sketch:
+> ```pseudo
+> function addEdge(Adj, u, v, directed = true, simple = true):
+>     if simple and contains(Adj[u], v): return
+>     push_back(Adj[u], v)
+>     if not directed and not (simple and contains(Adj[v], u)):
+>         push_back(Adj[v], u)
+> ```
 
-- **Representation:** `Adj[u]` contains tuples `(v, w)` for each edge `(u, v) ∈ E` with optional attribute `w` (weight, capacity, id).  
-  - **Unweighted:** store just `v`.  
-  - **Undirected:** store edge symmetrically: insert `(u, v)` into `Adj[u]` and `(v, u)` into `Adj[v]`.
+> [!tip] Choose containers by your access pattern
+> - **Append-heavy, occasional deletion**: `vector<int>` per bucket with *swap-pop* deletions.
+> - **Frequent membership tests**: `unordered_set<int>` per bucket (expected O(1) test).
+> - **Need order (by id)**: `std::set<int>` or `std::vector<int>` kept sorted (binary search).
 
-- **Policy (choose up front):**  
-  - **Simple graph:** forbid parallel edges; optionally forbid self-loops; at most one `(u, v)`.  
-  - **Multigraph:** allow parallel edges (possibly distinct weights or ids).
+> [!example] Insert & Remove (vector buckets)
+> ```cpp
+> // insert edge u->v if absent
+> auto& L = adj[u];
+> if (std::find(L.begin(), L.end(), v) == L.end()) L.push_back(v);
+>
+> // remove edge u->v using swap-pop (order not preserved)
+> auto it = std::find(L.begin(), L.end(), v);
+> if (it != L.end()) { std::swap(*it, L.back()); L.pop_back(); }
+> ```
 
-**Space:** Θ(n + m) overall (headers plus one record per **directed** edge; two for undirected symmetric storage).
+> [!example] Maintain degrees in O(1)
+> ```cpp
+> out_deg[u]++;           // on successful insert u->v
+> in_deg[v]++;
+> // ...and decrement on deletion
+> ```
 
----
+## Complexity
+- **Space:** `O(n + m)` overall (headers for `n` vertices plus one record per **directed** edge; two per undirected edge).
+- **Edge existence test `hasEdge(u,v)`:** `O(deg(u))` with vector/list; expected `O(1)` with a hash-set bucket; `O(log deg(u))` with a tree-set bucket.
+- **Neighbor iteration:** `O(deg(u))` to visit all of `u`’s neighbors.
 
-## Operations & Complexity
+> Compared with an adjacency matrix (`O(n²)` space, `O(1)` membership, `O(n)` neighbor scan), adjacency lists dominate **sparse** workloads.
 
-Each bucket `Adj[u]` can be implemented by a **singly linked list**, **dynamic array/vector**, **hash set**, or **balanced tree**. Pick to match your workload.
+> [!note] Typical costs at a glance
+> - **Space**: O(n + m)
+> - **hasEdge(u,v)**: O(deg(u)) for vector/list; expected O(1) for hash-set
+> - **neighbors(u) iteration**: O(deg(u))
+> - **degree(u)**: O(1) if maintained; else O(deg(u))
+> - **removeEdge(u,v)**: O(deg(u)) vector/list; expected O(1) hash-set
 
-### Add edge
-```pseudo
-function addEdge(Adj, u, v, w = None, directed = true, simple = true):
-    if simple and contains(Adj[u], v): 
-        return
-    push_back(Adj[u], (v, w))
-    if not directed:           // undirected symmetry
-        if not (simple and contains(Adj[v], u)):
-            push_back(Adj[v], (u, w))
-````
+## Implementations
+Common per-vertex bucket choices (pick to match workload):
+- `vector<vector<int>>` — contiguous buckets; fast iteration and good cache locality; membership is linear unless kept sorted.
+- `vector<list<int>>` — easy deletions; weaker locality; iterators stable.
+- `unordered_map<int, vector<int>>` (or `unordered_map<Vertex, Container>`) — supports sparse vertex ids; flexible for dynamic graphs.
+- Alternatives: `vector<unordered_set<int>>` (expected `O(1)` membership), `vector<set<int>>` (ordered iteration; `O(log deg)` ops).
 
-- **Time:** list/vector with linear `contains`: O(deg(u)); hash set: expected O(1); tree: O(log deg(u)).
-    
-- **Space:** O(1) amortized per inserted edge (twice for undirected).
-    
+> [!tip] Iteration order
+> - `vector<int>` preserves insertion order (unless swap-pop is used).
+> - `std::set<int>` iterates in ascending order.
+> - `unordered_set<int>` has no stable order (implementation-dependent).
+>
+> [!warning] Dedup policy
+> In **simple graphs**, avoid parallel edges by checking for membership before insert (or periodically `sort + unique` vector buckets if order matters).
 
-> [!warning]  
-> **Undirected symmetry:** Mirror inserts and deletes in both `Adj[u]` and `Adj[v]`, or degree counts and traversals become inconsistent.
+## Examples
+Tiny undirected simple graph `V={0,1,2,3,4}`, `E={{0,1},{0,2},{1,2},{2,3}}`:
 
-### Remove edge
-
-```pseudo
-function removeEdge(Adj, u, v, directed = true):
-    removed = remove_one(Adj[u], v)     // or by edge-id in multigraphs
-    if not directed:
-        removed2 = remove_one(Adj[v], u)
-        return removed and removed2
-    return removed
 ```
 
-- **Time:** list/vector: O(deg(u)) (search + remove); hash: expected O(1); tree: O(log deg(u)).
-    
-- **Note:** In arrays, removal may shift elements; use swap-with-last if order does not matter.
-    
+Adj[0] = [1, 2]  
+Adj[1] = [0, 2]  
+Adj[2] = [0, 1, 3]  
+Adj[3] = [2]  
+Adj[4] = []
 
-### Membership / Degree / Iteration
-
-```pseudo
-function hasEdge(Adj, u, v): return contains(Adj[u], v)
-function neighbors(Adj, u):  return iterator(Adj[u])
-function outDegree(Adj, u):  return size(Adj[u])
-function inDegree(Adj, v):
-    // Maintain indeg[v] in O(1) per update, or compute by scanning all lists in O(n + m).
 ```
 
-- `hasEdge`: O(deg(u)) for list/vector, expected O(1) for hash, O(log deg(u)) for tree.
-    
-- `neighbors`: Θ(deg(u)) to iterate.
-    
-- `inDegree`: O(1) with maintained counter; else O(n + m).
-    
-
----
-
-## Container Choices (Per-Bucket)
-
-|Container|Insert|Remove|Membership|Iteration|Notes|
-|---|---|---|---|---|---|
-|Singly linked|O(1)|O(deg)|O(deg)|Θ(deg)|Simple; poor locality|
-|Dynamic array|Amort. O(1)|O(deg) (shift)|O(deg) or O(log deg) if kept sorted|Θ(deg)|Great cache behavior|
-|Hash set|exp. O(1)|exp. O(1)|exp. O(1)|Θ(deg) (unordered)|Extra memory; fastest membership|
-|Balanced tree|O(log deg)|O(log deg)|O(log deg)|Θ(deg) (ordered)|Deterministic order|
-
-> [!tip]  
-> **Cache behavior:** vectors typically beat pointer-heavy lists in practice, even with the same big-O, due to spatial locality.
-
----
-
-## Example Walkthrough
-
-Undirected simple graph `V = {0,1,2,3}`, edges `{(0,1), (0,2), (1,2), (2,3)}`.
-
-1. Start `Adj = [[], [], [], []]`
-    
-2. Insert `(0,1)` → `Adj[0]=[1]`, `Adj[1]=[0]`
-    
-3. Insert `(0,2)` → `Adj[0]=[1,2]`, `Adj[2]=[0]`
-    
-4. Insert `(1,2)` → `Adj[1]=[0,2]`, `Adj[2]=[0,1]`
-    
-5. Insert `(2,3)` → `Adj[2]=[0,1,3]`, `Adj[3]=[2]`
-    
-
-Queries:
-
-- `neighbors(2)` iterates `[0,1,3]` in Θ(deg(2)).
-    
-- `hasEdge(0,3)` scans `Adj[0]=[1,2]` → `false`.
-    
-
-> [!example]  
-> **Diagram (`adjacency_list_layout.svg`)** — `Adj` as an array; each cell points to a neighbor container. Symmetric entries shown for undirected edges.
-
----
-
-## Adjacency List vs Adjacency Matrix
-
-|Criterion|Adjacency List|Adjacency Matrix|
-|---|---|---|
-|Space|Θ(n + m)|Θ(n²)|
-|`hasEdge(u, v)`|O(deg(u)) / exp. O(1)*|O(1)|
-|Iterate neighbors|Θ(deg(u))|Θ(n)|
-|Sparse graphs|**Preferred**|Wasteful|
-|Dense graphs|Acceptable|Often better|
-
-* Using a hash-based bucket.
-
-> [!warning]  
-> For BFS/DFS, O(1) membership in a matrix doesn’t help: neighbor iteration from a matrix costs Θ(n) per vertex. Adjacency lists keep the overall runtime Θ(n + m).
-
----
-
-## Example Algorithms on Adjacency Lists
-
-### Breadth-First Search (BFS)
-
-```pseudo
-function BFS(Adj, s):
-    n = length(Adj)
-    dist = array(n, INF)
-    parent = array(n, -1)
-    dist[s] = 0
-    Q = queue()
-    enqueue(Q, s)
-    while not empty(Q):
-        u = dequeue(Q)
-        for (v, _) in neighbors(Adj, u):
-            if dist[v] == INF:
-                dist[v] = dist[u] + 1
-                parent[v] = u
-                enqueue(Q, v)
-    return dist, parent
+Directed variant (edges `0→1, 0→2, 1→2, 2→3`) would store only out-neighbors:
 ```
 
-- **Time:** Θ(n + m)
-    
-- **Space:** Θ(n)
-    
+Adj[0] = [1, 2]  
+Adj[1] = [2]  
+Adj[2] = [3]  
+Adj[3] = []  
+Adj[4] = []
 
-> [!example]  
-> **Diagram (`bfs_queue_on_adjlist.svg`)** — Frontier expansion level-by-level; the list representation touches only existing edges.
-
-### Dijkstra (sketch)
-
-```pseudo
-function Dijkstra(Adj, s):
-    n = length(Adj)
-    dist = array(n, INF); dist[s] = 0
-    parent = array(n, -1)
-    PQ = minheap()
-    push(PQ, (0, s))
-    while not empty(PQ):
-        (du, u) = pop(PQ)
-        if du != dist[u]: continue     // stale entry
-        for (v, w) in neighbors(Adj, u):
-            if dist[u] + w < dist[v]:
-                dist[v] = dist[u] + w
-                parent[v] = u
-                push(PQ, (dist[v], v))
-    return dist, parent
 ```
 
-- **Time:** Θ((n + m) log n) with a binary heap; Θ(m + n log n) with Fibonacci heap
-    
-- **Space:** Θ(n) auxiliary (edges live in `Adj`)
-    
+> [!example] Undirected example (5 nodes)
+> ```
+> 0: 1 2
+> 1: 0 3
+> 2: 0 3 4
+> 3: 1 2
+> 4: 2
+> ```
+> - In an undirected simple graph, store both (u→v) and (v→u).
 
----
-
-## Dynamic & Weighted Graphs
-
-- Maintain `inDegree[]` / `outDegree[]` for O(1) degree queries.
-    
-- For **O(1) deletions** in array buckets, keep an edge-id → `(u, index)` map and **swap-with-last** on remove.
-    
-- Weighted graphs: store `(v, w)` tuples or a compact struct for cache-friendly scans.
-    
-
-> [!tip]  
-> Prefer POD-style edge records `(neighbor, weight, id)` for predictable layout and SIMD-friendly scans.
-
----
+> [!example] Directed, weighted example
+> ```
+> 0: (1, w=5) (3, w=2)
+> 1: (2, w=1)
+> 2:
+> 3: (2, w=7)
+> 4:
+> ```
+> - Represent edges as tuples `(neighbor, weight[, id])` if you need payloads.
 
 ## Pitfalls
+- **Duplicate edges** in *simple* graphs inflate degrees and double-count relaxations—deduplicate on insert or via a cleanup pass.
+- **Undirected symmetry** must be maintained on insert/delete, or degrees and traversals become inconsistent.
+- **Self-loops & parallel edges**: decide policy up front; loops affect degree counts and some heuristics.
+- **Iterator invalidation**: removing from a vector while iterating can invalidate indices/iterators; prefer two-phase delete or stable containers.
+- **Mixed vertex id spaces**: if vertex ids are sparse/non-contiguous, prefer maps over raw arrays to avoid large unused buckets.
 
-> [!warning]  
-> **Duplicate edges (simple graphs):** either check on insert or run a dedup pass; duplicates distort degrees and can multiply relaxations.
+> [!warning] Concurrency
+> Multi-writer updates to shared buckets require synchronization (per-vertex locks or immutable snapshots). Traversals over a mutating graph can observe torn buckets unless you guard access.
 
-> [!warning]  
-> **Iterator invalidation:** removing during iteration may invalidate indices/iterators. Use two-phase delete or stable-iterator containers.
-
-> [!warning]  
-> **Self-loops:** decide policy early; loops skew degree counts and some heuristics (e.g., clustering).
-
----
-
-## Summary
-
-- **When to use:** sparse graphs; traversal-heavy workloads; memory-sensitive settings.
-    
-- **Core cost model:** Θ(n + m) space; traversal cost proportional to actual edges touched.
-    
-- **Key choice:** per-bucket container (hash for membership speed, tree/sorted array for order, vector for locality).
-    
-- **Undirected graphs:** keep symmetric updates consistent across operations.
-    
-
----
+## When to use
+Choose adjacency lists for **sparse graphs** and algorithms that **iterate neighbors** (BFS/DFS/Dijkstra/Prim). They minimize memory, keep work proportional to **present edges**, and provide flexible bucket choices (locality vs membership speed) for your workload.
 
 ## See also
-
-- [[cs/dsa/adjacency-matrix|Adjacency Matrix]]
-    
-- [[cs/dsa/graphs|Graphs]]
-    
 - [[cs/dsa/graph-representations|Graph Representations]]
-    
-- [[cs/dsa/breadth-first-search-algorithms|Breadth-First Search (BFS)]]
-    
-- [[cs/dsa/depth-first-search-algorithms|Depth-First Search (DFS)]]
-    
-- [[cs/dsa/dijkstras-algorithm|Dijkstra’s Algorithm]]
-    
+- [[cs/dsa/adjacency-matrix|Adjacency Matrix]]
+- [[cs/dsa/breadth-first-search-algorithms|Breadth-First Search]]
+- [[cs/dsa/depth-first-search-algorithms|Depth-First Search]]

@@ -171,7 +171,7 @@ Used primarily for **complete** trees (e.g., heaps).
 
 ## See also
 
-- [[cs/dsa/binary-search-tree|Binary Search Tree]]
+- [[bst|Binary Search Tree]]
     
 - [[cs/dsa/binary-heap|Binary Heap]]
     

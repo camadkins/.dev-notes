@@ -119,6 +119,6 @@ Language designers pick execution strategies based on priorities:
 ---
 
 ## See also
-- [[cs/pl/abstract-machines-ceksecd|Abstract Machines — CEK and SECD]]
+- [[abstract-machines-cek-secd|Abstract Machines — CEK and SECD]]
 - [[cs/pl/operational-semantics-big-step-small-step|Operational Semantics — Big-Step & Small-Step]]
 - [[cs/pl/history-genealogy-of-languages|History & Genealogy of Languages]]

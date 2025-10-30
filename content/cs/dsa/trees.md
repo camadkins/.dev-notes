@@ -108,7 +108,7 @@ See [[cs/dsa/tree-traversal-overview|Tree Traversal — Overview]] for detailed 
 
 - **Preorder** (Root, Left, Right)
     
-- **Inorder** (Left, Root, Right) — meaningful for [[cs/dsa/binary-search-tree|Binary Search Tree]]
+- **Inorder** (Left, Root, Right) — meaningful for [[bst|Binary Search Tree]]
     
 - **Postorder** (Left, Right, Root)
     

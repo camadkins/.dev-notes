@@ -208,4 +208,4 @@ function buildHeap(H):
     
 - [[cs/dsa/d-ary-heap|d-ary Heap]]
     
-- [[cs/dsa/binary-search-tree|Binary Search Tree]]
+- [[bst|Binary Search Tree]]

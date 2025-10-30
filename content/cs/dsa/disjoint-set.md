@@ -7,7 +7,8 @@ tags:
 - dsa
 date: 2025-10-16
 updated:
-aliases: []
+aliases:
+- union-find
 # diagrams:
 # - uf-parent-pointers.svg — Forest of parent pointers with representative roots; show ranks/sizes and path compression effect after finds.
 # - uf-kruskal-trace.svg — Kruskal step trace: edges in weight order, unions that connect components, and a cycle-reject example.

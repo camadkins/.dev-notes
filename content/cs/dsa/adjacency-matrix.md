@@ -1,216 +1,201 @@
 ---
-title: Adjacency Matrix — Dense Graph Representation
-description: Boolean or weighted matrix storing edges in O(1) lookup time; optimal for dense graphs but memory-expensive for sparse ones.
+title: Adjacency Matrix
+description: Dense graph representation for O(1) edge queries; memory/time trade-offs vs adjacency list.
 draft: true
 tags:
   - cs
   - dsa
+  - graphs
 date: 2025-10-16
-updated:
+updated: 2025-10-29
 aliases: []
 # diagrams:
-#  - adjacency_matrix_layout.svg — square V×V grid; rows = sources, columns = destinations.
-#  - directed_vs_undirected_matrix.svg — symmetric vs asymmetric entries in the matrix.
-#  - matrix_vs_list_density.svg — contrast storage cost between adjacency matrix and adjacency list as density increases.
+#   - name: nxn-layout
+#     brief: NxN boolean/weight matrix; symmetry (undirected) and density example
 ---
 
-## Overview
-An **adjacency matrix** represents a graph as a square table `M` of size `V × V`, where each cell `M[u][v]` indicates whether an edge from vertex `u` to `v` exists.  
-It provides **constant-time edge queries** and clean mathematical properties, but uses **Θ(V²)** memory even if few edges exist.  
-This makes it ideal for **dense graphs**, small networks, and graph algorithms that require direct algebraic manipulation.
+## Definition
+An **adjacency matrix** represents a graph as a square table `A` of size `n × n` (with `n = |V|`), where each cell `A[u][v]` indicates whether an edge from `u` to `v` exists (and optionally stores its **weight**). It provides **constant-time** membership tests and a numerics-friendly layout at the cost of **Θ(n²)** memory.
 
-> [!note]
-> Think of the adjacency matrix as the *truth table* of connectivity: fast to read, expensive to store.
+> [!note] What “dense” means here
+> If the expected number of edges `m` is on the order of `n²` (or large enough that bucket iteration dominates), a matrix can simplify logic and speed up **edge tests**.
 
----
+## Invariants
+- **Directed vs undirected:** for undirected graphs enforce **symmetry** `A[u][v] == A[v][u]`.
+- **Weighted edges:** store weights in `W[u][v]`; use a sentinel (e.g., `0` or `∞`) to mean “no edge.”
+- **Simple vs multigraph:** matrices typically encode **simple** graphs; multigraphs need either **counts** per cell or a **hybrid** (e.g., per-cell lists of edge ids).
+- **Domain conventions:** treat self-loops consistently (`A[u][u]`) and document whether `0` is a valid weight distinct from “no edge.”
+- **Mask + weight split (alt design):** keep `M[u][v] ∈ {0,1}` for topology and `W[u][v]` for weights. This avoids sentinel ambiguity when `0` is a valid weight.
 
-## Model & Representation
+## Operations
+Typical surface API:
 
-Let `G = (V, E)` where `|V| = n`.
+- `hasEdge(u, v)` — check membership via direct lookup.
+- `addEdge(u, v, w?)` — set `A[u][v]` (and `A[v][u]` if undirected).
+- `removeEdge(u, v)` — clear the entry to the sentinel.
+- `degree(u)` — count non-sentinel entries in row `u` (out-degree) or column `u` (in-degree).
 
-- For **unweighted graphs**, each entry is boolean:  
-  `M[u][v] = 1` if `(u, v) ∈ E`, else `0`.
+> [!example] O(1) membership and updates (bool matrix)
+> ```cpp
+> // hasEdge(u,v)
+> bool hasEdge = A[u][v];
+>
+> // addEdge(u,v) directed
+> A[u][v] = true;
+>
+> // addEdge(u,v) undirected
+> A[u][v] = A[v][u] = true;
+>
+> // removeEdge(u,v)
+> A[u][v] = false;       // mirror for undirected
+> ```
+>
+> [!tip] Degree in O(n)
+> - **Out-degree(u)**: count `A[u][*]`.
+> - **In-degree(u)**: count `A[*][u]`.
+> Maintain degree arrays if you need O(1) queries (update them on edge add/remove).
 
-- For **weighted graphs**, each entry stores the weight or cost:  
-  `M[u][v] = w` if edge `(u, v)` exists, else `∞` or `0`.
+## Complexity
+- **Space:** `Θ(n²)` regardless of `m`.
+- **Membership `hasEdge(u,v)`:** `O(1)`.
+- **Neighbor iteration:** `O(n)` for a row/column scan.
+- **Insert/remove edge:** `O(1)`.
 
-- For **undirected graphs**, the matrix is **symmetric**:  
-  `M[u][v] = M[v][u]`.
+> [!note] Typical costs at a glance
+> - **Space**: O(n^2) (bitset rows reduce constants)
+> - **hasEdge(u,v)**: O(1)
+> - **neighbors(u) iteration**: O(n)
+> - **add/remove edge**: O(1)
+> - **degree(u)**: O(n) (or O(1) if maintained)
 
-> [!example]
-> **Diagram (`adjacency_matrix_layout.svg`)** — Square `V×V` grid; rows represent source vertices, columns represent destinations; shaded cells show existing edges.
-
-### Initialization
-```pseudo
-function newMatrix(n, weighted = false, default = 0 or ∞):
-    M = 2D array of size n×n
-    for i in 0..n-1:
-        for j in 0..n-1:
-            M[i][j] = default
-    return M
-````
-
-**Space complexity:** Θ(n²)  
-**Edge existence test:** O(1)  
-**Iteration:** O(n²) if scanning all entries; O(deg(u)) if row-iterating with sparse check.
-
----
-
-## Operations & Complexity
-
-|Operation|Time|Space|Description|
-|---|---|---|---|
-|`hasEdge(u, v)`|O(1)|Θ(1)|Direct index lookup|
-|`addEdge(u, v)`|O(1)|Θ(1)|Assign entry `M[u][v]` = `1` or `w`|
-|`removeEdge(u, v)`|O(1)|Θ(1)|Set entry to `0` or `∞`|
-|`neighbors(u)`|Θ(n)|—|Scan row `M[u][*]`|
-|`degree(u)`|Θ(n)|—|Count non-zero entries in row|
-|`memory`|—|Θ(n²)|Independent of edge count `m`|
-
-> [!warning]  
-> For sparse graphs (`m ≪ n²`), Θ(n²) memory can overwhelm caches and dramatically reduce performance.
-
----
-
-## Example
-
-Consider directed weighted graph `V = {A, B, C}` with edges:  
-`A→B (2)`, `A→C (5)`, `B→C (1)`.
-
-||A|B|C|
-|---|---|---|---|
-|**A**|0|2|5|
-|**B**|0|0|1|
-|**C**|0|0|0|
-
-- `hasEdge(A, C)` → `true`
-    
-- `hasEdge(B, A)` → `false`
-    
-- `outDegree(A)` = 2
-    
-- `inDegree(C)` = 2
-    
-
-> [!example]  
-> **Diagram (`directed_vs_undirected_matrix.svg`)** — Compare directed (asymmetric) vs undirected (symmetric) matrices.
-
----
-
-## Iteration Example (Row Scan)
-
-```pseudo
-function neighbors(M, u):
-    result = []
-    for v in 0..n-1:
-        if M[u][v] != 0 and M[u][v] != ∞:
-            append(result, v)
-    return result
-```
-
-- **Time:** Θ(n)
-    
-- Works well for dense graphs (`m ≈ n²`); wasteful for sparse.
-    
-
----
-
-## Matrix Properties & Uses
-
-### Graph density and choice
-
-- **Dense graphs** (`m > n log n`): adjacency matrix preferred.
-    
-- **Sparse graphs**: adjacency list is more memory efficient (Θ(n + m)).
-    
-
-### Algebraic graph theory
-
-- **Powers of `M`** give **path counts**:
-    
-    - `(M²)[u][v]` = number of 2-step paths from `u` to `v`.
-        
-    - More generally: `(Mᵏ)[u][v]` counts k-length walks.
-        
-- Enables vectorized algorithms (matrix multiplication, eigenvector centrality, etc).
-    
-
-### Shortest paths
-
-- Suits **Floyd–Warshall** (Θ(n³)) and **transitive closure** algorithms.
-    
-- Works poorly for Dijkstra/BFS on sparse graphs due to row scanning cost.
-    
-
----
-
-## Comparison with Adjacency Lists
+**Matrix vs list (quick contrast):**
 
 |Feature|Adjacency Matrix|Adjacency List|
 |---|---|---|
 |Space|Θ(n²)|Θ(n + m)|
-|`hasEdge(u, v)`|O(1)|O(deg(u)) or O(1)*|
+|`hasEdge(u,v)`|O(1)|O(deg(u)) or expected O(1)\*|
 |Neighbor iteration|Θ(n)|Θ(deg(u))|
-|Edge insertion|O(1)|O(1) amortized|
-|Edge deletion|O(1)|O(deg(u))|
-|Weighted graphs|Direct entry value|Edge tuple `(v, w)`|
-|Sparse graphs|Wasteful|Efficient|
-|Dense graphs|Ideal|Overhead from containers|
+|Edge insert/remove|O(1)/O(1)|O(1) amortized / O(deg(u))|
+|Best for|Dense, fixed-n|Sparse, dynamic|
 
-* Using hash-based buckets.
+\* with hash-based buckets.
 
-> [!tip]  
-> Adjacency matrices enable simple **parallelization** and **GPU acceleration** since they fit naturally in dense numeric arrays.
+> [!note] Memory model sanity check
+> - Unweighted bool matrix: ~n² **bits** (packed) or n² **bytes** (byte array).
+> - Weighted matrix: n² · sizeof(weight).
+> - Bitset rows often cut memory by 8× vs byte-per-cell while enabling word-wise ops.
 
----
+## Implementations
+- **2D array (bool/char):** simplest; branchless tests; higher byte cost.
+- **Bitset-packed rows:** compress each row into a bitset; supports wide-word ops (e.g., `AND` to intersect neighbor sets).
+- **Weight matrices:** `W[u][v]` holds weights with sentinel for “no edge”.
+
+> [!tip] Memory layout
+> Store rows **contiguously** (row-major) to make per-row neighbor scans cache-friendly; pre-allocate to avoid costly resizes.
+
+**Initialization (sketch):**
+```pseudo
+function newMatrix(n, weighted = false, default = 0 or ∞):
+    A = 2D array n×n
+    for i in 0..n-1:
+        for j in 0..n-1:
+            A[i][j] = default
+    return A
+````
+
+> [!example] Bitset row intersections (common neighbors)
+> 
+> ```
+> // Pseudocode: count common neighbors of u and v
+> count = popcount( bitset_row[u] AND bitset_row[v] )
+> ```
+> 
+> This is useful for triangle counting and clustering metrics.
+> 
+> [!tip] Symmetric update helper
+> 
+> ```cpp
+> inline void addUndirected(int u, int v) {
+>   A[u][v] = A[v][u] = true;  // or weight W[u][v] = W[v][u] = w
+> }
+> inline void removeUndirected(int u, int v) {
+>   A[u][v] = A[v][u] = false;
+> }
+> ```
+
+## Examples
+
+**Directed, weighted example** `V = {A,B,C}` with edges `A→B(2)`, `A→C(5)`, `B→C(1)`:
+
+||A|B|C|  
+|---|---|---|  
+|**A**|0|2|5|  
+|**B**|0|0|1|  
+|**C**|0|0|0|
+
+- `hasEdge(A, C) = true`, `hasEdge(B, A) = false`
+    
+- `outDegree(A) = 2`, `inDegree(C) = 2`
+    
+
+> [!example] 4-node undirected matrix (simple graph)
+> 
+> ```
+>      0 1 2 3
+>   0  0 1 1 0
+>   1  1 0 0 1
+>   2  1 0 0 1
+>   3  0 1 1 0
+> ```
+> 
+> Symmetric across the diagonal. Replace 0/1 with weights for weighted graphs.
+
+**Neighbor iteration (row scan):**
+
+```pseudo
+function neighbors(A, u):
+    result = []
+    for v in 0..n-1:
+        if A[u][v] != 0 and A[u][v] != ∞:
+            append(result, v)
+    return result
+```
+
+> [!note] Algebraic hint (Boolean closure)  
+> Repeated Boolean matrix multiplication (or Warshall’s algorithm) computes reachability (transitive closure) directly on the matrix.
 
 ## Pitfalls
 
-> [!warning]  
-> **Sparse explosion:** Memory scales with `n²` regardless of actual edges.  
-> Even 10⁴ vertices yield 10⁸ entries (~400 MB for booleans, several GB for floats).
-
-> [!warning]  
-> **Iteration cost:** Even if vertex `u` has 3 edges, its row has `n` entries to scan.
-
-> [!warning]  
-> **Edge symmetry mistakes:** For undirected graphs, forgetting to mirror `M[u][v] = M[v][u]` breaks degree calculations.
-
----
-
-## When to Use
-
-- Graph is **dense** or **small** (`n ≤ 1000`).
+- **Space blow-up** on large **sparse** graphs; Θ(n²) can exceed memory/caches quickly.
     
-- Frequent `hasEdge(u, v)` queries or **matrix algebra** (e.g., transitive closure).
+- **Symmetry drift** in undirected graphs if only one side is updated.
     
-- **Static graphs** where edge count rarely changes.
+- **Sentinel misuse** in weighted matrices (e.g., conflating `0` weight with “no edge”).
     
-- Memory capacity is not a bottleneck.
+- **Vertex addition cost:** resizing an `n×n` matrix can be expensive without a fixed maximum `n`.
+    
+- **Growth strategy:** adding vertices requires resizing n×n; prefer a fixed **max n** or grow in **blocks** (e.g., +K rows/cols) to amortize copies.
     
 
----
+## When to use
 
-## Summary
+Choose an adjacency matrix when:
 
-- **Space:** Θ(n²); **Time:** O(1) edge operations.
+- The graph is **dense** or `n` is modest and bounded (Θ(n²) is acceptable).
     
-- Excellent for **dense**, **static**, or **algebraically analyzed** graphs.
+- You need frequent **O(1) membership** checks.
     
-- Poor for **sparse**, **dynamic**, or **iterative traversal** workloads.
+- Algorithms benefit from random access and dense math (e.g., [[cs/dsa/floyd-warshall|Floyd–Warshall]] or algebraic methods).
     
-
-> [!example]  
-> **Diagram (`matrix_vs_list_density.svg`)** — Visualize memory vs density; list storage grows with `m`, matrix with `n²`.
-
----
+- The graph is relatively **static** (few vertex insertions), or you can **pre-allocate** to the maximum size.
+    
+- When set operations on neighbor sets (e.g., intersections for triangles) benefit from **bitset rows** and word-wise arithmetic.
+    
 
 ## See also
 
-- [[cs/dsa/adjacency-list|Adjacency List]]
-    
 - [[cs/dsa/graph-representations|Graph Representations]]
     
-- [[cs/dsa/floyd-warshall|Floyd–Warshall Algorithm]]
+- [[cs/dsa/adjacency-list|Adjacency List]]
     
-- [[cs/dsa/graphs|Graphs]]
+- [[cs/dsa/floyd-warshall|Floyd–Warshall]]

@@ -1,16 +1,19 @@
 ---
-title: AVL Trees — Balance & Rotations
+title: AVL Rotations
 description: Understanding AVL balance factors, rotation types, and how rebalancing preserves the binary search property.
 draft: true
 tags:
   - cs
   - dsa
 date: 2025-10-16
-updated:
-aliases: []
+updated: 2025-10-29
+aliases:
+  - avl-rotations
+  - avl-trees-balance-rotations
 # diagrams:
 #  - avl_rotations.svg — visualizes LL, RR, LR, RL rotation patterns.
 #  - avl_height_balance.svg — shows subtree height differences and balance factors.
+#  - avl-rotation-cases — Step-by-step transforms for LL/LR/RL/RR with height/balance updates
 ---
 
 ## Overview
@@ -22,26 +25,7 @@ When this condition is violated, **rotations** restore balance while keeping the
 
 ---
 
-## The Balance Factor
-
-For any node `v`:
-```
-
-balance_factor(v) = height(v.left) − height(v.right)
-
-````
-
-- Balanced if `balance_factor ∈ {−1, 0, +1}`  
-- Left-heavy if `balance_factor = +2`  
-- Right-heavy if `balance_factor = −2`
-
-> [!example]
-> **Diagram (`avl_height_balance.svg`)** — show nodes annotated with height and balance factor values, highlighting when rotation triggers occur.
-
----
-
-## Detecting Imbalance
-
+## Cases
 When inserting or deleting a node:
 1. Recompute height and balance factor up the tree.
 2. Identify the **first node** that violates the AVL condition (`|balance_factor| > 1`).
@@ -54,12 +38,10 @@ When inserting or deleting a node:
 | LR | Right subtree of left child grew | Left rotation on child, then right rotation |
 | RL | Left subtree of right child grew | Right rotation on child, then left rotation |
 
----
-
-## Single Rotations
+> [!example]
+> **Diagram (`avl_height_balance.svg`)** — show nodes annotated with height and balance factor values, highlighting when rotation triggers occur.
 
 ### Right Rotation (LL Case)
-
 Occurs when inserting into the **left subtree** of a node’s left child.
 
 ```pseudo
@@ -83,8 +65,6 @@ After rotation:
 > [!example]  
 > **Diagram (`avl_rotations.svg`)** — show LL rotation sequence restoring balance.
 
----
-
 ### Left Rotation (RR Case)
 
 Occurs when inserting into the **right subtree** of a node’s right child.
@@ -104,10 +84,6 @@ function rotateLeft(x):
     
 - Subtree heights become balanced (`balance_factor = 0`).
     
-
----
-
-## Double Rotations
 
 ### Left-Right (LR Case)
 
@@ -135,7 +111,12 @@ Triggered when inserting into the **left subtree of the right child**:
 
 ---
 
-## Rebalancing Algorithm (Insert)
+## Transition Rules
+
+**Detecting imbalance and choosing the fix.** Use the sign of the ancestor’s balance factor and the direction of growth in the child to select LL, RR, LR, or RL. Rotations restructure subtrees while preserving the in-order sequence.
+
+> [!tip] Height updates after rotation  
+> Update child heights first, then parent/root of the rotated subtree; verify bf() ∈ {-1,0,+1}.
 
 ```pseudo
 function insert(node, key):
@@ -167,11 +148,7 @@ function insert(node, key):
 > [!tip]  
 > Track heights as integers and only recompute from children—never traverse entire subtrees.
 
----
-
-## Rebalancing on Deletion
-
-Deletions may cause _cascading imbalance_ upward, so after removing a node:
+**Rebalancing on deletion.** Deletions may cause _cascading imbalance_ upward, so after removing a node:
 
 - Recompute height.
     
@@ -185,9 +162,9 @@ Deletions may cause _cascading imbalance_ upward, so after removing a node:
 
 ---
 
-## Rotation Intuition
+## Examples
 
-Rotations don’t reorder values — they **restructure subtrees** so height differences shrink while key ordering stays intact.
+**Rotation intuition.** Rotations don’t reorder values — they **restructure subtrees** so height differences shrink while key ordering stays intact.
 
 |Rotation|Restores|Description|
 |---|---|---|
@@ -197,18 +174,29 @@ Rotations don’t reorder values — they **restructure subtrees** so height dif
 > [!example]  
 > Visualize how a “leaning” subtree becomes upright after rotation — the parent node moves downward, and the child moves up.
 
+**Minimal worked examples (one per case):**
+
+- **LL:** Insert sequence `30, 20, 10` → imbalance at `30` (left-left) → `rotateRight(30)`.
+    
+- **RR:** Insert sequence `10, 20, 30` → imbalance at `10` (right-right) → `rotateLeft(10)`.
+    
+- **LR:** Insert sequence `30, 10, 20` → imbalance at `30` (left-right) → `rotateLeft(10)`, then `rotateRight(30)`.
+    
+- **RL:** Insert sequence `10, 30, 20` → imbalance at `10` (right-left) → `rotateRight(30)`, then `rotateLeft(10)`.
+    
+
 ---
 
-## Summary
+## Pitfalls
 
-- AVL trees balance via **local rotations** guided by **balance factors**.
-    
-- Four rotation cases cover all imbalance patterns.
-    
-- Rebalancing keeps operations in O(log n).
-    
-- Rotations preserve BST order and structure.
-    
+> [!warning] Common pitfalls
+> 
+> - Wrong pivot order on LR/RL (double rotations).
+>     
+> - Forgetting to recompute heights after each sub-rotation.
+>     
+> - Not rechecking ancestors on the search path for further imbalance.
+>     
 
 ---
 
@@ -216,8 +204,6 @@ Rotations don’t reorder values — they **restructure subtrees** so height dif
 
 - [[cs/dsa/avl-tree|AVL Tree]]
     
-- [[cs/dsa/binary-search-tree|Binary Search Tree]]
-    
-- [[cs/dsa/red-black-tree|Red-Black Tree]]
+- [[cs/dsa/rb-tree|Red-Black Tree]]
     
 - [[cs/dsa/tree-traversal|Tree Traversal]]

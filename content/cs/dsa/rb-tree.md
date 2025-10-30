@@ -368,7 +368,7 @@ Red–black trees are **height-balanced BSTs** that guarantee `O(log n)` operati
 
 ## See also
 
-- [[cs/dsa/binary-search-tree|Binary Search Tree]]
+- [[bst|Binary Search Tree]]
     
 - [[cs/dsa/avl-tree|AVL Tree]]
     

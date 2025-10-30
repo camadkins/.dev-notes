@@ -214,7 +214,7 @@ Inorder traversal is the canonical **Left → Root → Right** visit order. It r
 
 - [[cs/dsa/binary-tree|Binary Tree]]
     
-- [[cs/dsa/binary-search-tree|Binary Search Tree]]
+- [[bst|Binary Search Tree]]
     
 - [[cs/dsa/preorder|Traversal — Preorder]]
     

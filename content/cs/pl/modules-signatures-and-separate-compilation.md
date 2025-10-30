@@ -261,6 +261,6 @@ Steps:
     
 - [[cs/pl/type-systems-goals-guarantees|Type Systems — Goals & Guarantees]]
     
-- [[cs/pl/abstract-machines-ceksecd|Abstract Machines — CEK & SECD]]
+- [[abstract-machines-cek-secd|Abstract Machines — CEK & SECD]]
     
 - [[cs/pl/compilation-vs-interpretation|Compilation vs Interpretation]]

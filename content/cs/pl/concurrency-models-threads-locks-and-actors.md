@@ -186,7 +186,7 @@ CSP strikes a middle ground: it enforces communication discipline like actors bu
 
 ## See also
 
-- [[cs/pl/abstract-machines-ceksecd|Abstract Machines — CEK and SECD]]
+- [[abstract-machines-cek-secd|Abstract Machines — CEK and SECD]]
     
 - [[cs/pl/operational-semantics-big-step-small-step|Operational Semantics — Big-Step & Small-Step]]
     

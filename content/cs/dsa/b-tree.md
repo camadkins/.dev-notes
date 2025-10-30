@@ -222,11 +222,11 @@ function insertNonFull(x, k):
 
 ## See also
 
-- [[cs/dsa/binary-search-tree|Binary Search Tree]]
+- [[bst|Binary Search Tree]]
     
 - [[cs/dsa/avl-tree|AVL Tree]]
     
-- [[cs/dsa/red-black-tree|Red-Black Tree]]
+- [[cs/dsa/rb-tree|Red-Black Tree]]
     
 - [[cs/dsa/bplus-tree|B+ Tree]]
     

@@ -228,7 +228,7 @@ Splay trees are **metadata-free, self-adjusting BSTs**: every access performs **
 
 ## See also
 
-- [[cs/dsa/binary-search-tree|Binary Search Tree]]
+- [[bst|Binary Search Tree]]
     
 - [[cs/dsa/avl-tree|AVL Tree]]
     

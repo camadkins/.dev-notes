@@ -256,6 +256,6 @@ These machines provide formal grounding for reasoning about correctness, equival
     
 - [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]
     
-- [[cs/pl/abstract-machines-ceksecd|Abstract Machines — CEK & SECD]]
+- [[abstract-machines-cek-secd|Abstract Machines — CEK & SECD]]
     
 - [[cs/pl/history-genealogy-of-languages|History & Genealogy of Languages]]

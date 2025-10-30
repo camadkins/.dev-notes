@@ -305,6 +305,6 @@ Following this discipline avoids capture and keeps reductions valid.
 
 ## See also
 - [[cs/pl/lambda-calculus-evaluation-strategies|Lambda Calculus — Evaluation Strategies]]
-- [[cs/pl/abstract-machines-ceksecd|Abstract Machines — CEK and SECD]]
+- [[abstract-machines-cek-secd|Abstract Machines — CEK and SECD]]
 - [[cs/pl/continuations-cps|Continuations & CPS]]
 - [[cs/pl/evaluation-order-and-strictness|Evaluation Order & Strictness]]

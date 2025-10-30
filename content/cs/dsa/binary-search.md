@@ -233,4 +233,4 @@ Always ensure the search space **strictly shrinks** each iteration.
     
 - [[cs/dsa/searching-operations|Searching Operations]]
     
-- [[cs/dsa/binary-search-tree|Binary Search Tree]]
+- [[bst|Binary Search Tree]]

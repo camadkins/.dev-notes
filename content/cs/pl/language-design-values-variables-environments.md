@@ -404,7 +404,7 @@ Together, they form the conceptual bridge from _syntax_ to _execution_.
     
 - [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]
     
-- [[cs/pl/abstract-machines-ceksecd|Abstract Machines — CEK & SECD]]
+- [[abstract-machines-cek-secd|Abstract Machines — CEK & SECD]]
     
 - [[cs/pl/continuations-cps|Continuations & CPS]]
     
