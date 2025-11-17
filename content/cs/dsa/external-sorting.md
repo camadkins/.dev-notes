@@ -136,9 +136,9 @@ External sorting’s cost is usually measured in **block I/Os**:
 
 So total I/O cost is roughly:
 
-[  
-O!\left(\frac{N}{B} \cdot \left(1 + \log_{k}\frac{N}{M}\right)\right)  
-]
+$$
+O\!\left(\frac{N}{B} + \frac{N}{B}\log_{k}\!\frac{N}{M}\right)
+$$
 
 Key takeaway: **larger memory and larger merge fan-in → fewer passes**, hence fewer I/Os.
 
