@@ -1,7 +1,7 @@
 ---
 title: Asymptotic Notation — Describing Growth Rates
 description: Landau symbols O, Θ, and Ω for bounding algorithm efficiency and reasoning about limiting behavior.
-draft: true
+draft: false
 tags:
   - cs
   - dsa
@@ -10,10 +10,6 @@ updated: 2025-10-29
 aliases:
   - algorithm-efficiency
   - complexity-growth
-# diagrams:
-#  - asymptotic_bounds.svg — plots functions f(n), g(n), and constants c₁, c₂ to visualize Θ bounds.
-#  - bigo_relationships.svg — nested curves showing inclusion: O(n) ⊃ Θ(n) ⊃ Ω(n).
-#  - limit_comparison.svg — illustrates ratio-based reasoning for comparing functions.
 ---
 
 ## Definition
@@ -53,10 +49,6 @@ Means *f and g grow at the same rate* asymptotically.
 
 > [!example]
 > `f(n) = 3n² + 2n + 1 = Θ(n²)` (choose `c₁ = 3`, `c₂ = 6`).
-
-> [!example]
-> **Diagram (`asymptotic_bounds.svg`)** — plot f(n) between c₁g(n) and c₂g(n), showing that both scale similarly for large n.
-
 ### Other Notations
 
 | Symbol | Meaning | Bound Type | Example |
@@ -119,9 +111,6 @@ lim (n→∞) f(n)/g(n) = L
 > For `f(n) = 3n² + 5n`, `g(n) = n²`  
 > `lim (f(n)/g(n)) = 3` → `f(n) = Θ(g(n))`.
 
-> [!example]
-> **Diagram (`limit_comparison.svg`)** — plot f(n)/g(n) approaching constant L for large n.
-
 ### Simplification Rules
 
 | Expression | Simplified As | Reason |
@@ -141,8 +130,6 @@ Imagine plotting `f(n)` and `g(n)`:
 - Ω(g(n)) bounds *below*  
 - Θ(g(n)) traps f(n) *between* both bounds.
 
-> [!example]
-> **Diagram (`bigo_relationships.svg`)** — nested areas showing inclusion: O ⊃ Θ ⊃ Ω.
 
 ### Practical Interpretation — Why Θ(n log n) Sorts Are “Optimal”
 All **comparison-based sorting algorithms** must perform at least `Ω(n log n)` comparisons in the worst case.  

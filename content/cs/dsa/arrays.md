@@ -1,18 +1,13 @@
 ---
 title: Arrays — Fixed-Size Contiguous Storage
 description: Linear data structure offering constant-time random access; foundation for static and dynamic sequences.
-draft: true
+draft: false
 tags:
   - cs
   - dsa
 date: 2025-10-16
 updated: 2025-10-29
 aliases: []
-# diagrams:
-#  - array_layout.svg — shows contiguous memory cells with base + i × elemSize addressing.
-#  - array_insert_shift.svg — visualizes insertion causing element shifts.
-#  - array_reverse_trace.svg — demonstrates in-place reversal with two-pointer swap.
-#  - contiguous-layout — addr(A[i]) = base + i * stride; shows why indexing is O(1)
 ---
 
 ## Definition
@@ -51,8 +46,6 @@ Let `A[0 … n−1]` be an array of `n` elements, each occupying `s` bytes.
 
 > [!warning]
 > In languages like C, no bounds check occurs at runtime; in Java or Python, an `IndexError` is raised.
-
-**Diagram (`array_layout.svg`)** — Shows contiguous memory cells with calculated addresses `B + i × s`.
 
 ### Memory Layout & Addressing
 Given base address `B`, element size `s`, and index `i`, the address of `A[i]` is `B + i×s`.
@@ -120,8 +113,7 @@ function delete(A, n, i):
 - Shifts all subsequent elements left; may leave garbage at the tail if unmanaged.
     
 
-> [!example]  
-> **Diagram (`array_insert_shift.svg`)** — Insert at index `i` shifts trailing elements one cell to the right.
+
 
 > [!example] Insert at position k by shifting right
 > 
@@ -200,9 +192,6 @@ function reverse(A, n):
         left = left + 1
         right = right - 1
 ```
-
-> [!example]  
-> **Diagram (`array_reverse_trace.svg`)** — Two-pointer swaps showing the reversal progress.
 
 ### When to Use
 
