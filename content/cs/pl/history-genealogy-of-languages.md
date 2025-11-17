@@ -1,7 +1,7 @@
 ---
 title: History & Genealogy of Languages
 description: From early high-level languages to structured, object-oriented, and modern multiparadigm design lines — tracing the lineage and evolution of programming languages.
-draft: true
+draft: false
 tags:
   - cs
   - pl

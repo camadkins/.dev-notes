@@ -1,7 +1,7 @@
 ---
 title: Evaluation Order & Strictness
 description: How evaluation strategy affects when expressions are computed, whether functions are strict, and how non-strictness shapes language behavior.
-draft: true
+draft: false
 tags:
   - cs
   - pl

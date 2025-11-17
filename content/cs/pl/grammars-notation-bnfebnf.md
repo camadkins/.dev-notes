@@ -1,7 +1,7 @@
 ---
 title: Grammars — BNF & EBNF
 description: Understanding context-free grammar notation, BNF and EBNF syntax, and how they formally define language structure.
-draft: true
+draft: false
 tags:
   - cs
   - pl

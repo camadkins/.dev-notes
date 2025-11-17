@@ -6,7 +6,7 @@ tags:
   - cs
   - dsa
 date: 2025-10-16
-updated:
+updated: 2025-11-07
 aliases: []
 # diagrams:
 #  - array-ops-crud.svg — Visual catalog: index, iterate, insert (shift right), delete (shift left) on A[0..n-1].

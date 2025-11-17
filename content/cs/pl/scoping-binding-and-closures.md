@@ -1,7 +1,7 @@
 ---
 title: Scoping, Binding, and Closures
 description: How lexical environments determine variable resolution, and how closures capture bindings to preserve computation context across function calls.
-draft: true
+draft: false
 tags:
   - cs
   - pl

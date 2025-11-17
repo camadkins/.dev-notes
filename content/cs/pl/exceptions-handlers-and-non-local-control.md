@@ -1,7 +1,7 @@
 ---
 title: Exceptions, Handlers, and Non-Local Control
 description: How exceptions provide structured non-local control flow, propagate through call stacks, and relate to continuations and resource cleanup.
-draft: true
+draft: false
 tags:
   - cs
   - pl

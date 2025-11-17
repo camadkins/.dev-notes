@@ -9,11 +9,6 @@ date: 2025-10-16
 updated: 2025-11-15
 aliases:
   - amortized-analysis
-# diagrams:
-#   - name: dynamic-array-growth
-#     brief: Size vs capacity and cost spikes; shows why amortized append is O(1)
-#   - name: potential-method
-#     brief: Φ(state) example for a dynamic array; ΔΦ and actual vs amortized cost
 ---
 
 ## Definition
@@ -21,11 +16,16 @@ aliases:
 
 - **Aggregate method.** Analyze a batch of \(k\) operations together; divide total cost by \(k\).
 - **Accounting method.** Overcharge cheap operations by a small **credit** that pays for future expensive ones.
-- **Potential method.** Define a nonnegative **potential** \( \Phi(\text{state}) \) so the **amortized cost** is  
-  \[
-  \hat{c}_i = c_i + \Phi(S_i) - \Phi(S_{i-1}),
-  \]
-  ensuring \( \sum_{i=1}^k \hat{c}_i \) upper-bounds total actual work.
+- **Potential method.** Define a nonnegative potential $\Phi(\text{state})$ so the amortized cost is
+
+$$
+\hat{c}_i \;=\; c_i \;+\; \Phi(S_i) \;-\; \Phi(S_{i-1}) \,,
+$$
+
+ensuring (with $\Phi(S_0)\le \Phi(S_k)$) that the total amortized cost upper-bounds total actual work:
+$$
+\sum_{i=1}^{k} \hat{c}_i \;\ge\; \sum_{i=1}^{k} c_i \,.
+$$
 
 > [!note] Three lenses, same result
 > - **Aggregate**: analyze k operations together.

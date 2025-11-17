@@ -1,7 +1,7 @@
 ---
 title: Type Systems — Goals & Guarantees
 description: Why programming languages enforce types, how static typing ensures safety through soundness, and what guarantees emerge from progress and preservation.
-draft: true
+draft: false
 tags:
   - cs
   - pl

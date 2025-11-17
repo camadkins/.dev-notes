@@ -1,7 +1,7 @@
 ---
 title: Language Design — Values, Variables, and Environments
 description: How programming languages define, represent, and resolve variables; the role of environments, stores, and closures in execution models.
-draft: true
+draft: false
 tags:
   - cs
   - pl

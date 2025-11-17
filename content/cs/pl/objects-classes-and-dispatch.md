@@ -1,7 +1,7 @@
 ---
 title: Objects, Classes, and Dispatch
 description: How object-oriented languages structure data and behavior through classes, inheritance, and dynamic method dispatch.
-draft: true
+draft: false
 tags:
   - cs
   - pl

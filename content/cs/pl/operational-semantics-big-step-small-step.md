@@ -1,7 +1,7 @@
 ---
 title: Operational Semantics — Big-Step & Small-Step
 description: How structural operational semantics models computation step-by-step or as complete evaluations, using inference rules to define program behavior precisely.
-draft: true
+draft: false
 tags:
   - cs
   - pl

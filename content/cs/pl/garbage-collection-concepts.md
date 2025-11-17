@@ -1,7 +1,7 @@
 ---
 title: Garbage Collection — Concepts
 description: Core principles of automatic memory management, from reachability and tracing to performance trade-offs and tuning.
-draft: true
+draft: false
 tags:
   - cs
   - pl

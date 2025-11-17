@@ -1,7 +1,7 @@
 ---
 title: Lambda Calculus — Encodings of Booleans, Pairs, and Church Numerals
 description: How core data and operations emerge purely from λ-abstraction — Booleans, pairs, and arithmetic via Church encodings.
-draft: true
+draft: false
 tags:
   - cs
   - pl

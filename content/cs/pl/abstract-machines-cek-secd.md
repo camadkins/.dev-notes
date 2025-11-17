@@ -1,7 +1,7 @@
 ---
 title: Abstract Machines — CEK & SECD
 description: How abstract machines model the step-by-step execution of programs through environments, continuations, and control structures.
-draft: true
+draft: false
 tags:
   - cs
   - pl
@@ -163,6 +163,6 @@ Operand pushes to **S**, code in **C**, and call/return via **D**; mirrors a sta
 ---
 
 ## See also
-- [[cs/pl/operational-semantics|Operational Semantics]]
-- [[cs/pl/lambda-calculus-basics|Lambda Calculus — Basics]]
+- [[operational-semantics-big-step-small-step|Operational Semantics]]
+- [[lambda-calculus-encodings-booleans-pairs-church-numerals|Lambda Calculus — Basics]]
 - [[cs/pl/continuations-cps|Continuations & CPS]]

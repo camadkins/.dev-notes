@@ -1,7 +1,7 @@
 ---
 title: Levels of Artificial Languages
 description: The hierarchy from machine code to high-level and domain-specific languages — how abstraction, expressiveness, and efficiency evolve across language generations.
-draft: true
+draft: false
 tags:
   - cs
   - pl

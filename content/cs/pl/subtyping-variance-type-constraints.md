@@ -1,7 +1,7 @@
 ---
 title: Subtyping, Variance & Type Constraints
 description: How subtyping extends type systems with inheritance-like relationships, and how variance rules maintain safety in generic and functional contexts.
-draft: true
+draft: false
 tags:
   - cs
   - pl

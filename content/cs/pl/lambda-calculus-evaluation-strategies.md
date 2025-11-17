@@ -1,7 +1,7 @@
 ---
 title: Lambda Calculus — Evaluation Strategies
 description: Call-by-value, call-by-name, normal-order, and call-by-need; how strategy shapes reduction, termination, and language semantics.
-draft: true
+draft: false
 tags:
   - cs
   - pl

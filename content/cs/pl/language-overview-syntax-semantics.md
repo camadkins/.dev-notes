@@ -1,7 +1,7 @@
 ---
 title: Language Overview — Syntax vs Semantics
 description: Distinguishing syntax, static semantics, and dynamic semantics — how programming languages define structure, constraints, and meaning.
-draft: true
+draft: false
 tags:
   - cs
   - pl

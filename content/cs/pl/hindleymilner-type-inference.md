@@ -1,7 +1,7 @@
 ---
 title: Hindley–Milner & Type Inference
 description: How the Hindley–Milner (HM) type system infers principal types using unification, let-polymorphism, and Algorithm W.
-draft: true
+draft: false
 tags:
   - cs
   - pl

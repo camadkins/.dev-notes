@@ -1,7 +1,7 @@
 ---
 title: GC Algorithms — Mark-Sweep, Copying, and Generational
 description: How common garbage collection algorithms work, what trade-offs they make, and how write barriers maintain heap invariants.
-draft: true
+draft: false
 tags:
   - cs
   - pl

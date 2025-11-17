@@ -1,7 +1,7 @@
 ---
 title: Lambda Calculus — Syntax & Substitution
 description: The core syntax of λ-terms, free/bound variables, α-equivalence, and capture-avoiding substitution as the engine of β-reduction.
-draft: true
+draft: false
 tags:
   - cs
   - pl

@@ -1,7 +1,7 @@
 ---
 title: Parametric Polymorphism & Algebraic Data Types
 description: How parametric polymorphism enables generic programming and how algebraic data types structure data through products, sums, and pattern matching.
-draft: true
+draft: false
 tags:
   - cs
   - pl

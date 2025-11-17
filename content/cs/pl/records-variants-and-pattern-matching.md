@@ -1,7 +1,7 @@
 ---
 title: Records, Variants, and Pattern Matching
 description: Structural aggregates and sum types; how pattern matching decomposes them and ensures type-safe exhaustive handling.
-draft: true
+draft: false
 tags:
   - cs
   - pl

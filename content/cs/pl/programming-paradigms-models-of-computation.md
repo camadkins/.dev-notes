@@ -1,7 +1,7 @@
 ---
 title: Programming Paradigms & Models of Computation
 description: How programming paradigms structure computation, and how abstract models like Turing machines, lambda calculus, and logic systems define their semantics.
-draft: true
+draft: false
 tags:
   - cs
   - pl

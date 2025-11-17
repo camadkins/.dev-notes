@@ -1,7 +1,7 @@
 ---
 title: CFG Design & Refactoring
 description: How to construct, analyze, and refine context-free grammars for clarity, correctness, and parser compatibility.
-draft: true
+draft: false
 tags:
   - cs
   - pl

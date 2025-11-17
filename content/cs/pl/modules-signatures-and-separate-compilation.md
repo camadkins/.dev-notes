@@ -1,7 +1,7 @@
 ---
 title: Modules, Signatures, and Separate Compilation
 description: How modules define boundaries between implementation and interface, enabling encapsulation, abstraction, and scalable compilation.
-draft: true
+draft: false
 tags:
   - cs
   - pl

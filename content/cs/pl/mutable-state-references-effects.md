@@ -1,7 +1,7 @@
 ---
 title: Mutable State, References & Effects
 description: Understanding how locations, stores, and reference semantics model mutation, sequencing, and side effects in programming languages.
-draft: true
+draft: false
 tags:
   - cs
   - pl

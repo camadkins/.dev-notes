@@ -1,7 +1,7 @@
 ---
 title: Type Soundness — Progress & Preservation
 description: How type systems ensure that well-typed programs don’t “get stuck,” linking static typing rules to dynamic execution behavior through the key theorems of progress and preservation.
-draft: true
+draft: false
 tags:
   - cs
   - pl
