@@ -17,7 +17,7 @@ const config: QuartzConfig = {
     },
     locale: "en-US",
     baseUrl: "notes.camadkins.com",
-    ignorePatterns: ["private", "templates", ".obsidian", "archive", ".excalidraw"],
+    ignorePatterns: ["private", "templates", ".obsidian", "archive", ".excalidraw.md"],
     defaultDateType: "modified",
     theme: {
       fontOrigin: "googleFonts",

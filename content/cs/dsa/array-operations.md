@@ -1,16 +1,13 @@
 ---
 title: Array Operations — Canonical Patterns and Costs
 description: Indexing, iteration, insertion/deletion with shifts, and searching on contiguous fixed-stride arrays with practical tips and pitfalls.
-draft: true
+draft: false
 tags:
   - cs
   - dsa
 date: 2025-10-16
 updated: 2025-11-07
 aliases: []
-# diagrams:
-#  - array-ops-crud.svg — Visual catalog: index, iterate, insert (shift right), delete (shift left) on A[0..n-1].
-#  - array-sentinel-vs-bounds.svg — Linear search with explicit bounds vs sentinel slot; control-flow comparison.
 ---
 
 ## Overview
@@ -56,25 +53,66 @@ Let `A` be a contiguous array with logical length `n` (`0 ≤ n ≤ capacity`). 
 \* In **dynamic arrays**, appends are amortized O(1); see [[cs/dsa/dynamic-arrays|Dynamic Arrays]] and [[cs/dsa/amortized-analysis-methods|Amortized Analysis]].
 
 ---
+### **Index**
 
-## Example or Illustration
+```cpp
+use(A[i]);    // 0 <= i < n
+```
 
-### Safe forward iteration
+```
+Indexing (O(1)):
+
+┌────┬────┬────┬────┬──────┐
+│ A0 │ A1 │ Ai │ ...│ A[n-1]│
+└────┴────┴────┴────┴──────┘
+             ↑
+          use(A[i])
+```
+
+---
+
+### **Safe forward iteration**
+
 ```cpp
 for (int i = 0; i < n; ++i) {
     use(A[i]);
 }
-````
+```
 
-### Reverse iteration (two-pointer idiom)
+```
+Forward iteration (Θ(n)):
+
+┌────┬────┬────┬──────┐
+│ A0 │ A1 │ ...│ A[n-1]│
+└────┴────┴────┴──────┘
+  ↑ → → → → → → → → → ↑
+ i = 0            i = n-1
+```
+
+---
+
+### **Reverse iteration (two-pointer idiom)**
 
 ```cpp
 for (int l = 0, r = n - 1; l < r; ++l, --r) {
-    std::swap(A[l], A[r]); // in-place reverse sketch
+    std::swap(A[l], A[r]);
 }
 ```
 
-### Insert at position `i` (shift right)
+```
+Reverse scan (swapping ends):
+
+l →      increasing
+      ┌────┬────┬────┬──────┐
+      │ A0 │ A1 │ ...│ A[n-1]│
+      └────┴────┴────┴──────┘
+                     ← r
+                      decreasing
+```
+
+---
+
+### **Insert at position i (shift right)**
 
 ```cpp
 // pre: 0 <= i <= n, n < capacity
@@ -83,17 +121,79 @@ A[i] = x;
 ++n;
 ```
 
-### Delete at position `i` (shift left)
+#### Before:
+
+```
+Before (capacity available):
+
+┌────┬────┬────┬────┬────┬──────┬──────┐
+│ A0 │ A1 │ ...│ Ai │ Ai+1│ ...  │ A[n-1]│ [ ] 
+└────┴────┴────┴────┴────┴──────┴──────┘
+                           empty slot →
+```
+
+#### Shift:
+
+```
+Shift right (Θ(n−i)):
+
+A[n-1] → A[n]
+A[n-2] → A[n-1]
+...
+A[i]   → A[i+1]
+```
+
+#### After:
+
+```
+After insertion:
+
+┌────┬────┬────┬────┬────┬──────┐
+│ A0 │ A1 │ ...│  x │ Ai │ ... │
+└────┴────┴────┴────┴────┴──────┘
+```
+
+---
+
+### **Delete at position i (shift left)**
 
 ```cpp
 // pre: 0 <= i < n
 for (int j = i; j + 1 < n; ++j) A[j] = A[j+1];
 --n;
-// optional: clear A[n] if your language observes stale values
 ```
 
-> [!example] Diagram cue  
-> **`array-ops-crud.svg`** should show: (1) direct index, (2) sequential scan, (3) insert shift right, (4) delete shift left.
+#### Before:
+
+```
+Before:
+
+┌────┬────┬────┬────┬────┬──────┐
+│ A0 │ A1 │ ...│ Ai │ Ai+1│ ...  │ A[n-1]
+└────┴────┴────┴────┴────┴──────┘
+```
+
+#### Shift:
+
+```
+Shift left (Θ(n−i)):
+
+A[i+1] → A[i]
+A[i+2] → A[i+1]
+...
+A[n-1] → A[n-2]
+```
+
+#### After:
+
+```
+After deletion:
+
+┌────┬────┬────┬────┬────┬──────┐
+│ A0 │ A1 │ ...│ Ai+1│ Ai+2│ ... │ [ ]
+└────┴────┴────┴────┴────┴──────┘
+                          empty slot
+```
 
 ---
 
