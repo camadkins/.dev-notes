@@ -1,46 +1,69 @@
 ---
-title: Bitwise Operators — Core Logic and Low-Level Tricks
-description: Foundational binary operators (AND, OR, XOR, NOT, shifts) and their applications in optimization, masking, and data encoding.
-draft: true
+title: Bitwise Operators — Core Logic and Low-Level Tricks  
+description: Foundational binary operators (AND, OR, XOR, NOT, shifts) and their applications in optimization, masking, and data encoding.  
+draft: true  
 tags:
-  - cs
-  - dsa
-date: 2025-10-16
-updated:
-aliases: []
+- cs
+- dsa  
+date: 2025-10-16  
+updated: 2025-10-29  
+aliases:
+- bitwise-operator
+- bitwise_ops
+- bitwise-operations
+
 # diagrams:
-#  - bitwise_truth_tables.svg — visualize AND, OR, XOR, and NOT across aligned binary digits.
-#  - bitmask_operations.svg — show masking, clearing, toggling, and checking individual bits.
-#  - signed_vs_logical_shift.svg — contrast signed right shift with logical shift.
+# - name: bitwise-truth-tables
+# brief: AND/OR/XOR/NOT evaluated per-bit on aligned binary inputs
+
+# - name: bitmask-operations
+# brief: Set/clear/toggle/check of a single bit using masks
+
+# - name: signed-vs-logical-shift
+# brief: Arithmetic (signed) vs logical right shifts illustrated
 ---
 
-## Overview
+## Definition
+
 Bitwise operators directly manipulate binary digits (bits) of integers.  
 They form the foundation of **low-level computation**, **hardware interaction**, and **high-performance algorithms**.  
 Mastering them allows for efficient **state encoding**, **compression**, and **arithmetic tricks**.
 
-> [!note]
+## Why it matters
+
+> [!note]  
 > Bitwise operations are constant time, making them extremely fast for encoding flags, implementing sets, and writing compact algorithms.
 
----
+## Model & Assumptions
 
-## The Core Bitwise Operators
+> [!tip] Be explicit about the machine model
+> 
+> - **Word size**: use fixed-width types (`uint32_t`, `uint64_t`) when shifts depend on width.
+>     
+> - **Signed right shift**: implementation-defined in C/C++; prefer unsigned for portable logical shifts.
+>     
+> - **Shift range**: shifting by ≥ word size is undefined; guard indices.
+>     
+> - **Two’s complement**: most platforms use it; tricks like `x & -x` rely on two’s complement.
+>     
 
-| Operator | Symbol | Example | Result | Description |
-|-----------|---------|----------|----------|--------------|
-| AND | `&` | `1010 & 1100` | `1000` | 1 only if both bits are 1 |
-| OR | `\|` | `1010 | 1100` | `1110` | 1 if either bit is 1 |
-| XOR | `^` | `1010 ^ 1100` | `0110` | 1 if bits differ |
-| NOT | `~` | `~1010` | `0101` | Flips all bits |
-| Left Shift | `<<` | `0011 << 1` | `0110` | Moves bits left, inserts 0s |
-| Right Shift | `>>` | `1010 >> 1` | `0101` | Moves bits right, discards rightmost |
+## Operators
 
-> [!example]
-> **Diagram (`bitwise_truth_tables.svg`)** — each operator evaluated per bit; highlight where output becomes 1.
+### The Core Bitwise Operators
 
----
+|Operator|Symbol|Example|Result|Description|
+|---|---|---|---|---|
+|AND|`&`|`1010 & 1100`|`1000`|1 only if both bits are 1|
+|OR|`\|`|`1010|1100`|`1110`|
+|XOR|`^`|`1010 ^ 1100`|`0110`|1 if bits differ|
+|NOT|`~`|`~1010`|`0101`|Flips all bits|
+|Left Shift|`<<`|`0011 << 1`|`0110`|Moves bits left, inserts 0s|
+|Right Shift|`>>`|`1010 >> 1`|`0101`|Moves bits right, discards rightmost|
 
-## Working Example
+> [!example] Diagram: Per-bit truth tables for AND/OR/XOR/NOT
+
+### Working Example
+
 ```text
 A = 60 → 0011 1100  
 B = 13 → 0000 1101
@@ -49,15 +72,15 @@ A & B = 0000 1100 (12)
 A | B = 0011 1101 (61)
 A ^ B = 0011 0001 (49)
 ~A    = 1100 0011 (-61 in 2’s complement)
-````
+```
 
----
+## Masks
 
-## Bit Masking — The Swiss Army Knife
+### Bit Masking — The Swiss Army Knife
 
 A **bitmask** is a pattern used to isolate, set, or clear specific bits in a value.
 
-### Common Bit Mask Patterns
+#### Common Bit Mask Patterns
 
 |Action|Expression|Effect|
 |---|---|---|
@@ -73,12 +96,9 @@ x &= ~(1 << 3);  // Clear bit 3 → 00100011
 x ^= (1 << 0);   // Toggle bit 0
 ```
 
-> [!example]  
-> **Diagram (`bitmask_operations.svg`)** — illustrate how a mask highlights a specific bit position being modified.
+> [!example] Diagram: Masking to set/clear/toggle/check a bit
 
----
-
-## Isolating and Manipulating Bits
+## Isolating & Manipulating Bits
 
 ### Isolate Least Significant Bit (LSB)
 
@@ -107,9 +127,7 @@ bool isPowerOfTwo(int n) {
 > [!tip]  
 > `(x & -x)` isolates; `(x & (x - 1))` clears — these two lines appear in countless algorithms.
 
----
-
-## Bit Packing and Field Manipulation
+## Bit Packing & Fields
 
 Packing multiple small values into one integer saves space and improves cache performance.
 
@@ -127,9 +145,9 @@ int b = packed & 0xFF;
 
 Used heavily in **graphics**, **network protocols**, and **compression**.
 
----
+## Shifts
 
-## Shifts — Signed vs Logical
+### Shifts — Signed vs Logical
 
 - **Left shift (`<<`)** → multiplies by powers of two (if no overflow).
     
@@ -144,12 +162,9 @@ Used heavily in **graphics**, **network protocols**, and **compression**.
 > [!warning]  
 > In C/C++, right-shifting negative values is **implementation-defined**. Always use unsigned integers for portable bit shifts.
 
-> [!example]  
-> **Diagram (`signed_vs_logical_shift.svg`)** — illustrate left and right shifts, signed vs unsigned.
+> [!example] Diagram: Signed vs logical right shift
 
----
-
-## Common Pitfalls
+## Pitfalls
 
 > [!warning]  
 > **Overflow**: `(1 << 31)` in 32-bit signed int is undefined — use unsigned types or 64-bit integers.
@@ -159,8 +174,6 @@ Used heavily in **graphics**, **network protocols**, and **compression**.
 
 > [!tip]  
 > Always clarify intent with parentheses — bitwise precedence can differ subtly across languages.
-
----
 
 ## Applications
 
@@ -177,14 +190,10 @@ Used heavily in **graphics**, **network protocols**, and **compression**.
 - **Error detection (checksums, parity bits)**
     
 
----
-
 ## Summary
 
 Bitwise operators provide fine-grained control over data representation, enabling optimization beyond what high-level arithmetic can achieve.  
 They remain critical in systems, algorithms, and performance engineering contexts.
-
----
 
 ## See also
 
@@ -194,4 +203,3 @@ They remain critical in systems, algorithms, and performance engineering context
     
 - [[cs/dsa/dynamic-programming|Dynamic Programming]]
     
-- [[cs/dsa/logarithmic-functions|Logarithmic Functions]]

@@ -1,12 +1,12 @@
 ---
 title: Amortized Analysis
 description: Bounding the average cost per operation over a sequence via aggregate, accounting, and potential methods.
-draft: true
+draft: false
 tags:
   - cs
   - dsa
 date: 2025-10-16
-updated: 2025-10-29
+updated: 2025-11-15
 aliases:
   - amortized-analysis
 # diagrams:

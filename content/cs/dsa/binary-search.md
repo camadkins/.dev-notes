@@ -1,34 +1,54 @@
 ---
-title: Binary Search — Divide and Conquer on Sorted Sequences
-description: Efficient search in sorted arrays using interval halving and loop invariants to guarantee correctness and logarithmic time complexity.
-draft: true
+title: Binary Search — Divide and Conquer on Sorted Sequences  
+description: Efficient search in sorted arrays using interval halving and loop invariants to guarantee correctness and logarithmic time complexity.  
+draft: true  
+updated: 2025-10-29  
+aliases:
+- binary-search-algorithm
+- binarysearch
+- binary_search  
 tags:
-  - cs
-  - dsa
+- cs
+- dsa  
 date: 2025-10-16
-aliases: []
+
 # diagrams:
-#  - binary_search_intervals.svg — shows shrinking [lo, hi) search range per iteration.
-#  - binary_search_mid_overflow.svg — demonstrates safe midpoint calculation and interval updates.
+# - name: binary-search-intervals
+# brief: Shrinking [lo, hi) interval across iterations
+# - name: binary-search-mid-overflow
+# brief: Safe midpoint computation and interval updates
 ---
 
-## Overview
+## Definition
+
 **Binary Search** is a fundamental **divide-and-conquer** algorithm used to efficiently find elements in a **sorted sequence**.  
 It repeatedly halves the search space until the target value is found or the search interval becomes empty.
 
-> [!note]
+> [!note]  
 > Binary search provides **O(log n)** lookup time on sorted arrays, making it a cornerstone of algorithms involving sorted data, monotonic predicates, or search bounds.
 
 ---
 
-## Core Idea
+## Strategy
+
+Binary search maintains a shrinking **candidate interval** and uses a consistent boundary convention (`[lo, hi)` or `[lo, hi]`) to guarantee progress and correctness.
+
 Given a sorted array `A[0 … n−1]`, we maintain a search interval `[lo, hi)` (half-open) or `[lo, hi]` (closed).  
 At each step:
+
 1. Compute midpoint `mid`.
+    
 2. Compare `A[mid]` with the target value.
+    
 3. Shrink the interval toward the half that could contain the value.
+    
+
+---
+
+## Template
 
 ### Pseudocode (Half-Open Interval)
+
 ```pseudo
 function binarySearch(A, target):
     lo = 0
@@ -42,14 +62,16 @@ function binarySearch(A, target):
         else:
             hi = mid
     return -1  // not found
-````
+```
+
+> [!example] Diagram: Intervals shrink each iteration
 
 > [!example]  
 > **Diagram (`binary_search_intervals.svg`)** — show shrinking search interval [lo, hi) as iterations proceed.
 
 ---
 
-## Invariants and Correctness
+## Correctness & Invariants
 
 Binary search correctness depends on **loop invariants** — properties that hold before and after each iteration.
 
@@ -96,8 +118,6 @@ function lowerBound(A, target):
 - Used in sorted containers like `std::lower_bound()` (C++ STL).
     
 
----
-
 ### 2. Upper Bound
 
 Find the **first index** `i` such that `A[i] > target`.
@@ -117,8 +137,6 @@ function upperBound(A, target):
 
 > [!note]  
 > The difference between upper and lower bound is the **inequality direction**.
-
----
 
 ### 3. Monotone Predicate Search
 
@@ -166,6 +184,11 @@ Always ensure the search space **strictly shrinks** each iteration.
 |`[lo, hi)`|`lo < hi`|`lo = mid + 1`|`hi = mid`|
 |`[lo, hi]`|`lo ≤ hi`|`lo = mid + 1`|`hi = mid - 1`|
 
+> [!example] Diagram: Overflow-safe midpoint and updates
+
+> [!example]  
+> **Diagram (`binary_search_mid_overflow.svg`)** — demonstrates safe midpoint calculation and interval updates.
+
 ---
 
 ## Complexity
@@ -192,7 +215,7 @@ Always ensure the search space **strictly shrinks** each iteration.
 
 ---
 
-## Example Traces
+## Examples
 
 ### Example 1: Searching for 7 in `[1, 3, 5, 7, 9]`
 
@@ -227,10 +250,8 @@ Always ensure the search space **strictly shrinks** each iteration.
 
 ## See also
 
-- [[cs/dsa/recurrence-relations|Recurrence Relations]]
-    
 - [[cs/dsa/asymptotic-notation|Asymptotic Notation]]
     
-- [[cs/dsa/searching-operations|Searching Operations]]
+- [[cs/dsa/array-operations|Array Operations]]
     
-- [[bst|Binary Search Tree]]
+- [[cs/dsa/bst|Binary Search Tree]]

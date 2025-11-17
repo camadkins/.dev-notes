@@ -1,85 +1,83 @@
 ---
-title: B+ Tree — Balanced Index for Database and Filesystem Storage
-description: Extension of B-trees optimized for range queries and disk-based indexing; all keys stored in leaves with linked leaf chaining.
-draft: true
+title: B+ Tree — Balanced Index for Database and Filesystem Storage  
+description: Extension of B-trees optimized for range queries and disk-based indexing; all keys stored in leaves with linked leaf chaining.  
+draft: true  
 tags:
-  - cs
-  - dsa
-date: 2025-10-16
-updated:
-aliases: []
+- cs
+- dsa  
+date: 2025-10-16  
+updated: 2025-10-29  
+aliases:
+- bplus-tree
+- b+tree
+
 # diagrams:
-#  - bplus_tree_structure.svg — show internal vs leaf nodes; leaves linked sequentially.
-#  - bplus_tree_insertion.svg — trace insertion propagation and node split.
-#  - bplus_tree_range_query.svg — visualize linked leaf traversal for range lookup.
+# - name: bplus-tree-structure
+# brief: Internal vs leaf nodes; all data in leaves; leaves linked sequentially
+
+# - name: bplus-tree-insertion
+# brief: Leaf overflow, split, and key promotion to parent with upward propagation
+
+# - name: bplus-tree-range-query
+# brief: Range scan across linked leaves from k1 to k2
+
 ---
 
-## Overview
+## Definition
+
 A **B+ Tree** is a **self-balancing multi-level search tree** commonly used in **databases**, **filesystems**, and **storage engines**.  
 It extends the **B-tree** by ensuring that **all actual data (records)** reside in the **leaf nodes**, while **internal nodes** store only keys for navigation.
 
-> [!note]
+> [!note]  
 > B+ Trees are optimized for **disk-based access patterns** — minimizing expensive I/O by maximizing branching factors and supporting **sequential traversal** through leaf linkage.
 
 ---
 
-## Structure
+## Invariants
 
-| Component | Description |
-|------------|--------------|
-| **Internal Nodes** | Contain keys and child pointers only (no actual data). |
-| **Leaf Nodes** | Contain all records and pointers to next leaf (linked list). |
-| **Order (m)** | Maximum number of children for any internal node. |
-| **Height (h)** | Determines search cost; typically small due to high fan-out. |
-
-### Key Properties
-1. All leaves appear at the same level (balanced).  
-2. Internal nodes store **up to m−1 keys** and **m child pointers**.  
-3. Leaf nodes store **keys + data pointers**, and one **next-leaf pointer**.  
-4. Root may have fewer keys (at least two children unless empty).  
-
-> [!example]
-> **Diagram (`bplus_tree_structure.svg`)** — Internal keys act as routing indexes, leaves hold actual data with rightward links for sequential traversal.
+1. All leaves appear at the same level (balanced).
+    
+2. Internal nodes store **up to m−1 keys** and **m child pointers**.
+    
+3. Leaf nodes store **keys + data pointers**, and one **next-leaf pointer**.
+    
+4. Root may have fewer keys (at least two children unless empty).
+    
 
 ---
 
-## Why B+ Trees?
+## Operations
 
-Compared to B-trees:
-- **Better range queries** (thanks to leaf chaining)
-- **Higher fan-out** (internal nodes smaller, only keys)
-- **Predictable I/O** (fewer disk pages to touch)
-- **Efficient iteration** (ordered, sequential leaves)
-
-These advantages make B+ trees ideal for large datasets that cannot fit entirely into memory.
-
----
-
-## Operations and Algorithms
-
-### 1. Search
+### Search
 
 To search for key `k`:
+
 1. Start from the root.
+    
 2. Repeatedly descend to the appropriate child pointer until reaching a leaf.
+    
 3. Perform a linear or binary search in the leaf node.
+    
 
-**Time Complexity:**  
-`O(log_m n)` — logarithmic with respect to total keys and branching factor `m`.
+**Time Complexity:** `O(log_m n)` — logarithmic with respect to total keys and branching factor `m`.
 
-> [!tip]
+> [!tip]  
 > Each disk page read corresponds to one level — minimizing height is critical.
 
----
-
-### 2. Insertion
+### Insertion
 
 1. Locate the leaf where `k` should be inserted.
+    
 2. Insert key and value in sorted order.
+    
 3. If the leaf overflows (too many keys), **split** it:
-   - Half the keys move to a new sibling leaf.
-   - Middle key is **promoted** to the parent.
+    
+    - Half the keys move to a new sibling leaf.
+        
+    - Middle key is **promoted** to the parent.
+        
 4. Propagate splits upward recursively if necessary.
+    
 
 ```pseudo
 function insert(node, key, value):
@@ -92,16 +90,13 @@ function insert(node, key, value):
         insert(child, key, value)
         if overflow(child):
             splitInternal(child)
-````
+```
 
-> [!example]  
-> **Diagram (`bplus_tree_insertion.svg`)** — visualize leaf overflow, split, and key promotion to parent.
+> [!example] Diagram: Leaf split and key promotion
 
 **Cost:** O(log_m n) I/O operations.
 
----
-
-### 3. Deletion
+### Deletion
 
 1. Locate the leaf containing the key.
     
@@ -119,9 +114,7 @@ function insert(node, key, value):
 > [!warning]  
 > Deletion in B+ Trees is more complex than insertion because rebalancing may cascade up multiple levels.
 
----
-
-### 4. Range Queries and Sequential Access
+### Range Queries and Sequential Access
 
 Range queries (e.g., `find all keys in [k1, k2]`) are where B+ Trees excel:
 
@@ -130,14 +123,56 @@ Range queries (e.g., `find all keys in [k1, k2]`) are where B+ Trees excel:
 2. Follow the **leaf-level linked list** until `k2` is reached.
     
 
-> [!example]  
-> **Diagram (`bplus_tree_range_query.svg`)** — demonstrate scanning linked leaves for a range query.
+> [!example] Diagram: Range scan across linked leaves
 
 This design supports efficient **ordered scans** — a major reason B+ Trees dominate database indexing.
 
 ---
 
-## Comparison with Other Structures
+## Complexity
+
+|Operation|Time Complexity|I/O Notes|
+|---|---|---|
+|Search|O(log_m n)|1 disk read per level|
+|Insert|O(log_m n)|Split propagation may add 1–2 writes|
+|Delete|O(log_m n)|May require merge or redistribution|
+|Range Query|O(log_m n + k)|`k` = number of records in range|
+
+> [!tip]  
+> Since m (order) is large (hundreds per node), the height `h` is small — often 2–4 even for millions of records.
+
+---
+
+## Implementations
+
+### Structure (components)
+
+|Component|Description|
+|---|---|
+|**Internal Nodes**|Contain keys and child pointers only (no actual data).|
+|**Leaf Nodes**|Contain all records and pointers to next leaf (linked list).|
+|**Order (m)**|Maximum number of children for any internal node.|
+|**Height (h)**|Determines search cost; typically small due to high fan-out.|
+
+> [!example] Diagram: Internal vs leaf nodes; linked leaves
+
+### Practical Notes
+
+- Disk blocks (usually 4 KB) dictate node size.
+    
+- Leaves contain **record pointers**; internal nodes only **key pointers**.
+    
+- Linked leaves enable **cursor traversal** and **bulk scanning**.
+    
+- Rebalancing keeps operations logarithmic over time.
+    
+
+> [!warning]  
+> **Caching is essential**: root and top levels often kept in memory to minimize I/O cost.
+
+---
+
+## Comparison
 
 |Feature|B-Tree|B+ Tree|
 |---|---|---|
@@ -153,10 +188,9 @@ This design supports efficient **ordered scans** — a major reason B+ Trees dom
 
 ---
 
-## Example Walkthrough
+## Examples
 
-Insert sequence:  
-`[10, 20, 5, 6, 12, 30, 7, 17]` into a B+ Tree of order 3.
+**Insert sequence:** `[10, 20, 5, 6, 12, 30, 7, 17]` into a B+ Tree of order 3.
 
 1. Start empty — insert `[10, 20, 5]` into first leaf.
     
@@ -174,33 +208,42 @@ Insert sequence:
 
 ---
 
-## Complexity Summary
+## Pitfalls
 
-|Operation|Time Complexity|I/O Notes|
-|---|---|---|
-|Search|O(log_m n)|1 disk read per level|
-|Insert|O(log_m n)|Split propagation may add 1–2 writes|
-|Delete|O(log_m n)|May require merge or redistribution|
-|Range Query|O(log_m n + k)|`k` = number of records in range|
+- Deletion rebalancing can cascade up multiple levels.
+    
+- Caching strategy matters for performance.
+    
+- Node size should align with storage page size.
+    
 
-> [!tip]  
-> Since m (order) is large (hundreds per node), the height `h` is small — often 2–4 even for millions of records.
+> [!warning] Common pitfalls
+> 
+> - Mixing B-Tree vs B+ Tree semantics (storing records in internal nodes).
+>     
+> - Forgetting to maintain **leaf links** after splits/merges (breaks range scans).
+>     
+> - Inconsistent min/max keys per node when switching between “order m” and “degree t” definitions.
+>     
+> - Node size not aligned to page size → reduced fanout and extra I/O.
+>     
 
 ---
 
-## Practical Notes
+## When to use
 
-- Disk blocks (usually 4 KB) dictate node size.
+Compared to B-trees, choose B+ Trees when you need:
+
+- **Better range queries** (thanks to leaf chaining)
     
-- Leaves contain **record pointers**; internal nodes only **key pointers**.
+- **Higher fan-out** (internal nodes smaller, only keys)
     
-- Linked leaves enable **cursor traversal** and **bulk scanning**.
+- **Predictable I/O** (fewer disk pages to touch)
     
-- Rebalancing keeps operations logarithmic over time.
+- **Efficient iteration** (ordered, sequential leaves)
     
 
-> [!warning]  
-> **Caching is essential**: root and top levels often kept in memory to minimize I/O cost.
+These advantages make B+ trees ideal for large datasets that cannot fit entirely into memory.
 
 ---
 
@@ -221,11 +264,10 @@ Insert sequence:
 
 - [[cs/dsa/b-tree|B-Tree]]
     
-- [[bst|Binary Search Tree]]
+- [[cs/dsa/bst|Binary Search Tree]]
     
 - [[cs/dsa/hash-tables|Hash Tables]]
     
 - [[cs/dsa/graph-representations|Graph Representations]]
     
 - [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]
-    

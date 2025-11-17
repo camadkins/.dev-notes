@@ -1,16 +1,13 @@
 ---
 title: Adjacency List
 description: Sparse graph representation with efficient neighbor iteration; trade-offs vs adjacency matrix.
-draft: true
+draft: false
 tags:
   - cs
   - dsa
 date: 2025-10-16
-updated: 2025-10-29
+updated: 2025-11-16
 aliases: []
-# diagrams:
-#   - name: list-vs-matrix-toy
-#     brief: Same toy graph rendered as list and matrix to highlight memory vs query trade-offs
 ---
 
 ## Definition
@@ -88,7 +85,7 @@ Common per-vertex bucket choices (pick to match workload):
 > - `vector<int>` preserves insertion order (unless swap-pop is used).
 > - `std::set<int>` iterates in ascending order.
 > - `unordered_set<int>` has no stable order (implementation-dependent).
->
+
 > [!warning] Dedup policy
 > In **simple graphs**, avoid parallel edges by checking for membership before insert (or periodically `sort + unique` vector buckets if order matters).
 

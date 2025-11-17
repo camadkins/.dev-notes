@@ -1,211 +1,212 @@
 ---
-title: Binary Heap — Priority Queue Backed by Array-Based Tree
-description: Complete binary tree supporting O(log n) insertion and deletion through array-based parent-child relationships and heap-order property.
-draft: true
+
+title: Binary Heap — Priority Queue Backed by Array-Based Tree  
+description: Complete binary tree supporting O(log n) insertion and deletion through array-based parent-child relationships and heap-order property.  
+draft: true  
+updated: 2025-10-29  
+aliases: []  
 tags:
-  - cs
-  - dsa
+- cs
+- dsa
 date: 2025-10-16
-aliases: []
 # diagrams:
-#  - binary_heap_structure.svg — show mapping between tree shape and array indices.
-#  - heapify_trace.svg — illustrate bottom-up heapify process restoring min-heap order.
-#  - heap_operations.svg — insertion bubble-up and removal bubble-down.
+# - name: heap-array-layout
+# brief: 0-based vs 1-based index formulas; parent/children mapping
+# - name: heapify-sift-down
+# brief: Sift-down sequence on build-heap showing swaps to restore order
+# - name: binary_heap_structure.svg
+# brief: Mapping between tree shape and array indices for a small heap
+# - name: heapify_trace.svg
+# brief: Bottom-up heapify restoring min-heap order across subtrees
+# - name: heap_operations.svg
+# brief: Insertion bubble-up and removal bubble-down animations
 ---
 
-## Overview
+## Definition
+
 A **Binary Heap** is a **complete binary tree** that satisfies the **heap-order property**:
+
 - **Min-heap:** Each parent ≤ its children.
+    
 - **Max-heap:** Each parent ≥ its children.
+    
 
 It is typically implemented using an **array**, enabling efficient index arithmetic without explicit pointers.
 
-> [!note]
-> Binary heaps are the foundation for **priority queues**, **heap sort**, and scheduling algorithms such as Dijkstra’s shortest path.
+> [!note] What it is  
+> A binary heap is a **complete binary tree** stored in an **array**, where each node satisfies the **heap-order** property (parent ≤ children in a min-heap, or ≥ in a max-heap). It is the standard in-memory **priority queue** backing.
 
 ---
 
-## Array Representation
+## Invariants
 
-For a heap stored in array `H[0 … n−1]` (0-indexed):
+- **Shape** (complete tree): nodes fill level-by-level, left-to-right; there are no holes among indices `0..n-1`.
+    
+- **Order** (heap property): for every node `i`, the parent compares before its children under the heap comparator.
+    
+- **Min vs Max**: same code structure; only the comparison direction flips.
+    
 
-| Relationship | Formula |
-|---------------|----------|
-| Parent index | `(i - 1) // 2` |
-| Left child | `2i + 1` |
-| Right child | `2i + 2` |
-
-> [!example]
-> **Diagram (`binary_heap_structure.svg`)** — show how an array `[10, 15, 20, 17, 25]` maps to a binary tree shape.
-
-This mapping guarantees that the tree remains **complete** (filled from left to right).
+**(Existing diagram reference)** **Diagram (`binary_heap_structure.svg`)** — show how an array `[10, 15, 20, 17, 25]` maps to a binary tree shape.
 
 ---
 
-## Heap Properties
+## Operations
 
-1. **Structural property:** complete binary tree.  
-2. **Heap-order property:** for min-heap, `H[parent(i)] ≤ H[i]`.
+### Supported operations
 
-These ensure efficient logarithmic insertions and deletions while maintaining compact array storage.
+- **push/insert** (sift up)
+    
+- **pop / extract-min (or max)** (sift down)
+    
+- **peek** (return root)
+    
+- **build-heap** (heapify from arbitrary array)
+    
+- **decrease-/increase-key** (optional extension, needs index location)
+    
+
+> [!example] Sift up (insert)
+> 
+> ```pseudo
+> push(x):
+>   A[n] = x; i = n; n++
+>   while i > 0 and A[i] < A[parent(i)]:
+>     swap(A[i], A[parent(i)]); i = parent(i)
+> ```
+
+> [!example] Sift down (extract-min)
+> 
+> ```pseudo
+> pop():
+>   min = A[0]; A[0] = A[n-1]; n--
+>   i = 0
+>   while left(i) < n:
+>     j = left(i)
+>     if right(i) < n and A[right(i)] < A[j]: j = right(i)
+>     if A[i] <= A[j]: break
+>     swap(A[i], A[j]); i = j
+>   return min
+> ```
+
+> [!note] Build-heap (heapify)  
+> Build in **O(n)** by sifting down from the last parent: `for i in reverse(parent(n-1)..0): siftDown(i)`.
+
+**(Existing diagram reference)** **Diagram (`heap_operations.svg`)** — visualize upward swaps as new elements bubble up.  
+**(Existing diagram reference)** **Diagram (`heapify_trace.svg`)** — show bottom-up restoration of order across subtrees.
+
+> [!example] Diagram: Sift-down during build-heap
 
 ---
 
-## Operations & Complexity
+## Complexity
 
-| Operation | Time | Description |
-|------------|------|-------------|
-| `insert(x)` | O(log n) | Add new element, bubble up to restore order. |
-| `extractMin()` | O(log n) | Remove smallest element (root), move last element to root, bubble down. |
-| `peekMin()` | O(1) | Return smallest element without removing. |
-| `heapify()` | O(n) | Build heap from unsorted array. |
+|Operation|Time|Notes|
+|---|---|---|
+|push/insert|O(log n)|Sift-up along a root-to-leaf path|
+|pop/extract-min(max)|O(log n)|Sift-down to restore order|
+|peek|O(1)|Root access|
+|build-heap|**O(n)**|Bottom-up heapify|
+|decrease-/increase-key|O(log n)|Requires locating the element’s index|
 
----
-
-## Insertion (Bubble Up)
-
-### Algorithm
-1. Append new key at end.
-2. Compare with parent.
-3. Swap if violates heap property.
-4. Repeat until heap-order restored.
-
-```pseudo
-function insert(H, x):
-    H.append(x)
-    i = size(H) - 1
-    while i > 0 and H[parent(i)] > H[i]:
-        swap(H[i], H[parent(i)])
-        i = parent(i)
-````
-
-> [!tip]  
-> In a max-heap, reverse the comparison (`<` instead of `>`).
-
-> [!example]  
-> **Diagram (`heap_operations.svg`)** — visualize upward swaps as new elements bubble up.
+> [!note] Costs at a glance
+> 
+> - push/insert: O(log n)
+>     
+> - pop/extract-min(max): O(log n)
+>     
+> - peek: O(1)
+>     
+> - build-heap from n items: **O(n)**
+>     
+> - decrease/increase-key: O(log n) (assuming you can locate the element’s index)
+>     
 
 ---
 
-## Extract Minimum (Bubble Down)
+## Implementations
 
-### Algorithm
+### Array layout (0-based vs 1-based)
 
-1. Store `min = H[0]`.
-    
-2. Move last element to root.
-    
-3. Remove last element.
-    
-4. **Heapify down** from root until heap-order restored.
-    
+For a heap stored in array `A[0..n-1]` (0-based):
 
-```pseudo
-function extractMin(H):
-    if size(H) == 0: return null
-    min = H[0]
-    H[0] = H[last]
-    delete last element
-    heapifyDown(H, 0)
-    return min
+|Relationship|Formula|
+|---|---|
+|parent(i)|`(i - 1) // 2`|
+|left(i)|`2*i + 1`|
+|right(i)|`2*i + 2`|
 
-function heapifyDown(H, i):
-    left = 2*i + 1
-    right = 2*i + 2
-    smallest = i
-    if left < size(H) and H[left] < H[smallest]:
-        smallest = left
-    if right < size(H) and H[right] < H[smallest]:
-        smallest = right
-    if smallest != i:
-        swap(H[i], H[smallest])
-        heapifyDown(H, smallest)
-```
+For 1-based indexing, use `parent(i)=i//2`, `left(i)=2*i`, `right(i)=2*i+1`.
 
----
+> [!tip] Array layout (0-based vs 1-based)  
+> **0-based** indexing:
+> 
+> - parent(i) = (i - 1) // 2
+>     
+> - left(i) = 2*i + 1
+>     
+> - right(i) = 2*i + 2  
+>     **1-based** indexing:
+>     
+> - parent(i) = i // 2
+>     
+> - left(i) = 2*i
+>     
+> - right(i) = 2*i + 1
+>     
+> 
+> [!example] Diagram: Array layout and mapping
 
-## Heapify (Bottom-Up Construction)
-
-Building a heap from an arbitrary array can be done in **O(n)** by heapifying from the last non-leaf down to the root:
-
-```pseudo
-function buildHeap(H):
-    n = size(H)
-    for i = (n // 2) - 1 downto 0:
-        heapifyDown(H, i)
-```
-
-> [!example]  
-> **Diagram (`heapify_trace.svg`)** — show bottom-up restoration of order across subtrees.
-
-> [!note]  
-> This is more efficient than inserting each element individually (O(n log n)).
+**Comparator strategy.** Implement min-heap or max-heap by parameterizing the comparison; ensure the comparator is **consistent with equality** to avoid violating transitivity at ties.
 
 ---
 
-## Heap Variants
+## Examples
 
-- **Min-Heap / Max-Heap:** depending on order relation.
-    
-- **d-ary Heap:** generalization where each node has `d` children (used in high-degree priority queues).
-    
-- **Binary Max-Heap:** used in **heap sort** for efficient in-place sorting.
-    
+> [!example] Top-k with a heap  
+> Maintain a size-`k` **max-heap** of the smallest seen values (or a min-heap of the largest). For each new element, push then pop if size exceeds `k`. Total time **O(n log k)**.
 
----
-
-## Applications
-
-- **Priority queues** (task scheduling, event simulation)
-    
-- **Dijkstra’s algorithm** (extract-min queue)
-    
-- **Heap sort**
-    
-- **Median maintenance** (min + max heap combination)
-    
-
-> [!tip]  
-> The heap structure’s compactness and guaranteed O(log n) operations make it ideal for performance-critical scheduling systems.
+**Use in algorithms.** Dijkstra/Prim priority queues, event simulation, streaming quantiles (with dual heaps), and heapsort (using a max-heap).
 
 ---
 
 ## Pitfalls
 
-> [!warning]  
-> **Off-by-one errors** — mixing 0-based and 1-based index formulas leads to broken child/parent mapping.
-
-> [!warning]  
-> **Forgetting to re-heapify after extraction** — root replacement must always be followed by `heapifyDown()`.
+> [!warning] Common pitfalls
+> 
+> - Mixing **0-based and 1-based** formulas (off-by-one bugs).
+>     
+> - Forgetting the **shape** step on pop (move last element to root before sift-down).
+>     
+> - Assuming **stability**: binary heaps are _not stable_; equal keys can reorder.
+>     
+> - Using a comparator **inconsistent with equality**, which can break the heap invariant around ties.
+>     
 
 > [!tip]  
-> Always verify heap property after operations — each parent must satisfy ordering with its children.
+> Verify the heap property after each operation, and prefer encapsulating `siftUp/siftDown` as private helpers to centralize invariants.
 
 ---
 
-## Summary
+## When to use
 
-- Binary Heap is a complete binary tree stored in an array.
-    
-- Supports logarithmic insertions and deletions.
-    
-- Built efficiently with `heapify()` in O(n).
-    
-- Foundation for priority queues and heapsort.
-    
-- Simple, compact, and cache-efficient structure.
-    
+> Use a binary heap when:
+> 
+> - You need a fast **priority queue** (Dijkstra, Prim, A*, schedulers).
+>     
+> - You want **heapsort** (in-place, O(n log n), not stable).
+>     
+> - You need **top-k** or **streaming** selection with bounded memory.  
+>     Consider **[[cs/dsa/d-ary-heap|d-ary Heap]]** or pairing/Fibonacci variants when `decrease-key` dominates.
+>     
 
 ---
 
 ## See also
 
-- [[cs/dsa/heaps|Heaps Overview]]
-    
-- [[cs/dsa/heapify|Heapify]]
-    
 - [[cs/dsa/priority-queue|Priority Queue]]
+    
+- [[cs/dsa/heapsort|Heapsort]]
     
 - [[cs/dsa/d-ary-heap|d-ary Heap]]
     
-- [[bst|Binary Search Tree]]

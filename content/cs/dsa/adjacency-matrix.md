@@ -1,17 +1,13 @@
 ---
 title: Adjacency Matrix
 description: Dense graph representation for O(1) edge queries; memory/time trade-offs vs adjacency list.
-draft: true
+draft: false
 tags:
   - cs
   - dsa
-  - graphs
 date: 2025-10-16
 updated: 2025-10-29
 aliases: []
-# diagrams:
-#   - name: nxn-layout
-#     brief: NxN boolean/weight matrix; symmetry (undirected) and density example
 ---
 
 ## Definition
@@ -49,7 +45,7 @@ Typical surface API:
 > // removeEdge(u,v)
 > A[u][v] = false;       // mirror for undirected
 > ```
->
+
 > [!tip] Degree in O(n)
 > - **Out-degree(u)**: count `A[u][*]`.
 > - **In-degree(u)**: count `A[*][u]`.
@@ -111,7 +107,7 @@ function newMatrix(n, weighted = false, default = 0 or ∞):
 > ```
 > 
 > This is useful for triangle counting and clustering metrics.
-> 
+
 > [!tip] Symmetric update helper
 > 
 > ```cpp

@@ -1,47 +1,35 @@
 ---
-title: Binary Tree — Foundational Two-Child Hierarchy
-description: Hierarchical structure where each node has up to two children; basis for BSTs, Heaps, and Tree Traversals.
-draft: true
+title: Binary Tree — Foundational Two-Child Hierarchy  
+description: Hierarchical structure where each node has up to two children; basis for BSTs, Heaps, and Tree Traversals.  
+draft: true  
 tags:
-  - cs
-  - dsa
-date: 2025-10-16
-updated:
+- cs
+- dsa  
+date: 2025-10-16  
+updated: 2025-10-29  
 aliases: []
+
 # diagrams:
-#  - binary_tree_structure.svg — visualize nodes with left/right children, labeled levels.
-#  - binary_tree_array_mapping.svg — show how complete binary trees map to arrays.
+# - name: binary-tree-structure
+# brief: Nodes arranged in levels with left/right children labeled
+# - name: binary-tree-array-mapping
+# brief: Complete binary tree indices mapped to array positions
+
 ---
 
-## Overview
+## Definition
+
 A **Binary Tree** is a **hierarchical data structure** where each node has at most two children: **left** and **right**.  
 It serves as the foundation for many advanced structures like **Binary Search Trees**, **Heaps**, and **Expression Trees**.
 
-> [!note]
+> [!note]  
 > Binary trees are used when hierarchical relationships or ordered branching is required — e.g., parsing, searching, and structural recursion.
 
----
-
-## Node Structure
-
-Each node typically contains:
-- A **key or value**
-- A **left** pointer
-- A **right** pointer
-
-```text
-struct Node {
-    key
-    left, right
-}
-````
-
-> [!example]  
-> **Diagram (`binary_tree_structure.svg`)** — Show nodes arranged in levels: each parent connected to at most two children.
+> [!example] Diagram: Binary tree levels and child pointers
 
 ---
 
-## Basic Terminology
+## Terminology
 
 |Term|Definition|
 |---|---|
@@ -60,7 +48,7 @@ struct Node {
 
 ---
 
-## Types of Binary Trees
+## Variants
 
 |Type|Description|Notes|
 |---|---|---|
@@ -70,8 +58,64 @@ struct Node {
 |**Skewed Binary Tree**|Every node has only one child (left or right).|Degenerates into linked list.|
 |**Balanced Binary Tree**|Height = O(log n) due to balancing rules.|Includes AVL, Red-Black, etc.|
 
-> [!example]  
-> **Diagram (`binary_tree_array_mapping.svg`)** — Show complete tree `[A, B, C, D, E, F, G]` mapped to array indices.
+---
+
+## Representations
+
+### Pointer-Based (Linked)
+
+- Each node stores references to its children.
+    
+- Flexible for sparse or irregular trees.
+    
+- Common for BSTs, expression trees, and tries.
+    
+
+### Array-Based (Index Mapping)
+
+Used primarily for **complete** trees (e.g., heaps).
+
+|Node i|Left Child|Right Child|Parent|
+|---|---|---|---|
+|i|2i + 1|2i + 2|(i − 1) // 2|
+
+> [!note]  
+> This layout eliminates pointers and improves cache locality.
+
+> [!example] Diagram: Complete tree mapped to array indices
+
+---
+
+## Implementations
+
+Each node typically contains:
+
+- A **key or value**
+    
+- A **left** pointer
+    
+- A **right** pointer
+    
+
+```text
+struct Node {
+    key
+    left, right
+}
+```
+
+---
+
+## Traversals
+
+1. **Preorder (Root → Left → Right)**
+    
+2. **Inorder (Left → Root → Right)**
+    
+3. **Postorder (Left → Right → Root)**
+    
+
+These traversals define the **order of visiting** nodes and serve different purposes (expression evaluation, sorting, etc.).
 
 ---
 
@@ -95,44 +139,9 @@ function height(node):
     return 1 + max(height(node.left), height(node.right))
 ```
 
-### Traversals
-
-1. **Preorder (Root → Left → Right)**
-    
-2. **Inorder (Left → Root → Right)**
-    
-3. **Postorder (Left → Right → Root)**
-    
-
-These traversals define the **order of visiting** nodes and serve different purposes (expression evaluation, sorting, etc.).
-
 ---
 
-## Array vs Pointer Representation
-
-### Pointer-Based (Linked)
-
-- Each node stores references to its children.
-    
-- Flexible for sparse or irregular trees.
-    
-- Common for BSTs, expression trees, and tries.
-    
-
-### Array-Based (Index Mapping)
-
-Used primarily for **complete** trees (e.g., heaps).
-
-|Node i|Left Child|Right Child|Parent|
-|---|---|---|---|
-|i|2i + 1|2i + 2|(i − 1) // 2|
-
-> [!note]  
-> This layout eliminates pointers and improves cache locality.
-
----
-
-## Common Pitfalls
+## Pitfalls
 
 > [!warning]  
 > **Cycle creation:** Never let two nodes reference each other as parent/child — breaks acyclicity assumption.
@@ -145,7 +154,7 @@ Used primarily for **complete** trees (e.g., heaps).
 
 ---
 
-## Example Use Cases
+## Examples / Use Cases
 
 - **Expression Trees** — Represent arithmetic expressions hierarchically.
     
@@ -171,12 +180,13 @@ Used primarily for **complete** trees (e.g., heaps).
 
 ## See also
 
-- [[bst|Binary Search Tree]]
+- [[cs/dsa/bst|Binary Search Tree]]
     
 - [[cs/dsa/binary-heap|Binary Heap]]
     
-- [[cs/dsa/tree-traversal|Tree Traversal]]
+- [[cs/dsa/tree-traversal|Tree Traversals]]
     
 - [[cs/dsa/recursion|Recursion]]
     
-- [[cs/dsa/graphs|Graphs]]
+- [[cs/dsa/graph-representations|Graph Representations]]
+    

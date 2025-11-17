@@ -1,16 +1,13 @@
 ---
 title: Algorithm Efficiency — Bridging Theory and Practice
 description: Understanding how algorithmic complexity, constants, and hardware behavior interact to define real performance.
-draft: true
+draft: false
 tags:
   - cs
   - dsa
 date: 2025-10-16
 updated: 2025-10-29
 aliases: []
-# diagrams:
-#  - efficiency_layers.svg — layered model showing asymptotic theory, constant factors, and system-level effects.
-#  - performance_vs_inputsize.svg — plot showing crossover points between two algorithms with different constants.
 ---
 
 ## Definition
@@ -35,11 +32,8 @@ Efficient algorithms scale to larger inputs, reduce resource usage, and deliver 
 > - **RAM model** with unit-cost integer arithmetic is standard for intro analysis.
 > - For large integers, hashing, I/O, or cache effects, annotate what counts as O(1) vs variable.
 
-> [!example]
-> **Diagram (`efficiency_layers.svg`)** — Three stacked layers:  
-> 1️⃣ *Theoretical complexity* (O, Θ, Ω)  
-> 2️⃣ *Implementation constants* (loops, comparisons, overhead)  
-> 3️⃣ *System behavior* (memory, cache, CPU, I/O).
+>[!Example]
+![[efficiency_layers.svg]]
 
 ### 1. Asymptotic Growth
 Describes how runtime grows with input size `n`:
@@ -109,7 +103,7 @@ Examples:
     
 
 > [!example]  
-> **Diagram (`performance_vs_inputsize.svg`)** — Two curves showing algorithm crossover where one surpasses the other beyond a certain `n`.
+> ![[performance_vs_inputsize.svg]]
 
 > [!tip]  
 > Benchmark on realistic workloads, not just random data.

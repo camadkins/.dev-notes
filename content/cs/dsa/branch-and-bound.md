@@ -1,42 +1,55 @@
 ---
-title: Branch and Bound — Systematic Search with Pruning
-description: Optimization framework that explores solution spaces through branching and bounds, pruning subproblems guaranteed not to improve the best solution.
-draft: true
+title: Branch and Bound — Systematic Search with Pruning  
+description: Optimization framework that explores solution spaces through branching and bounds, pruning subproblems guaranteed not to improve the best solution.  
+draft: true  
 tags:
-  - cs
-  - dsa
-date: 2025-10-16
-updated:
-aliases: []
+- cs
+- dsa  
+date: 2025-10-16  
+updated: 2025-10-29  
+aliases:    
+- branch_and_bound
+- branch-bound
+
 # diagrams:
-#  - branch_and_bound_tree.svg — show exploration tree with nodes labeled (bound, feasible, pruned).
-#  - knapsack_example_trace.svg — illustrate bounding decisions in a 0/1 knapsack search.
-#  - bounding_functions.svg — compare optimistic vs pessimistic bounds in pruning decisions.
+# - name: branch-and-bound-tree
+# brief: Exploration tree with node bounds labeled and pruned branches crossed out
+
+# - name: knapsack-example-trace
+# brief: 0/1 knapsack branching with fractional bound and pruning marks
+
+# - name: bounding-functions
+# brief: Loose vs tight bounds and their pruning effect
 ---
 
-## Overview
+## Definition
+
 **Branch and Bound (B&B)** is a **general algorithm design paradigm** for solving **combinatorial optimization** problems.  
 It systematically explores the solution space as a **search tree**, but uses **bounds** to prune subproblems that cannot lead to a better solution.
 
-> [!note]
+> [!note]  
 > B&B is not a specific algorithm — it’s a **meta-strategy** applied to problems such as **Knapsack**, **Traveling Salesman (TSP)**, **Job Scheduling**, and **Integer Programming**.
 
 ---
 
-## Core Idea
+## Strategy
 
-1. **Branch** — Divide the problem into smaller subproblems (partition the search space).  
-2. **Bound** — Compute an upper or lower bound on the best possible solution within each subproblem.  
+1. **Branch** — Divide the problem into smaller subproblems (partition the search space).
+    
+2. **Bound** — Compute an upper or lower bound on the best possible solution within each subproblem.
+    
 3. **Prune** — Discard any subproblem whose bound proves it cannot improve on the current best (incumbent).
+    
 
 The process repeats recursively until all remaining nodes are pruned or solved.
 
-> [!example]
-> **Diagram (`branch_and_bound_tree.svg`)** — show branching of nodes with bounds labeled; crossed-out branches represent pruned subspaces.
+> [!example] Diagram: Branching with bounds and pruning
 
 ---
 
-## Algorithm Outline
+## Template
+
+### Algorithm Outline
 
 ```pseudo
 function branchAndBound(problem):
@@ -54,7 +67,7 @@ function branchAndBound(problem):
                 if bound(c) >= best:
                     push(queue, c)
     return best
-````
+```
 
 ### Key Design Choices
 
@@ -83,57 +96,11 @@ If a node’s upper bound ≤ current best (incumbent), it is **pruned**.
 > [!tip]  
 > The strength of a B&B algorithm depends heavily on how tight the bounding function is — tighter bounds → less exploration.
 
-> [!example]  
-> **Diagram (`bounding_functions.svg`)** — show comparison between loose and tight bounds; tighter ones prune more subtrees.
+> [!example] Diagram: Loose vs tight bounds and their pruning power
 
 ---
 
-## Example — 0/1 Knapsack Problem
-
-Given weights `w[i]`, values `v[i]`, and capacity `W`, maximize total value without exceeding capacity.
-
-### Branching
-
-At each level `i`, decide whether to:
-
-- **Include item i**, or
-    
-- **Exclude item i**
-    
-
-### Bounding
-
-Compute a **fractional knapsack upper bound**:
-
-```text
-bound(node) = current_value + remaining_capacity * (next_item_value / next_item_weight)
-```
-
-### Pruning
-
-If the bound ≤ current best value, skip this branch.
-
-```pseudo
-function knapsackB&B(i, currW, currV):
-    if currW > W:
-        return  // infeasible
-    if currV > best:
-        best = currV
-    if i == n:
-        return
-    ub = currV + (W - currW) * (v[i] / w[i])  // optimistic bound
-    if ub <= best:
-        return  // prune
-    knapsackB&B(i+1, currW + w[i], currV + v[i])  // include
-    knapsackB&B(i+1, currW, currV)                // exclude
-```
-
-> [!example]  
-> **Diagram (`knapsack_example_trace.svg`)** — visualize branching decisions for 4 items, showing bounds and pruned paths.
-
----
-
-## Node Selection Strategies
+## Node Selection
 
 |Strategy|Description|Use Case|
 |---|---|---|
@@ -143,7 +110,7 @@ function knapsackB&B(i, currW, currV):
 
 ---
 
-## Termination and Correctness
+## Correctness & Termination
 
 B&B terminates when:
 
@@ -169,7 +136,7 @@ Despite its exponential nature, **effective pruning** can make B&B practical for
 
 ---
 
-## Practical Optimizations
+## Optimizations
 
 - **Variable ordering:** Choose branches likely to prune early.
     
@@ -185,7 +152,42 @@ Despite its exponential nature, **effective pruning** can make B&B practical for
 
 ---
 
-## Real-World Applications
+## Examples
+
+### 0/1 Knapsack Problem
+
+Given weights `w[i]`, values `v[i]`, and capacity `W`, maximize total value without exceeding capacity.
+
+**Branching:** at each level `i`, decide **include** or **exclude** item `i`.
+
+**Bounding:** fractional knapsack upper bound:
+
+```text
+bound(node) = current_value + remaining_capacity * (next_item_value / next_item_weight)
+```
+
+**Pruning:** if bound ≤ current best value, skip this branch.
+
+```pseudo
+function knapsackB&B(i, currW, currV):
+    if currW > W:
+        return  // infeasible
+    if currV > best:
+        best = currV
+    if i == n:
+        return
+    ub = currV + (W - currW) * (v[i] / w[i])  // optimistic bound
+    if ub <= best:
+        return  // prune
+    knapsackB&B(i+1, currW + w[i], currV + v[i])  // include
+    knapsackB&B(i+1, currW, currV)                // exclude
+```
+
+> [!example] Diagram: Knapsack branching and pruning trace
+
+---
+
+## Applications
 
 - **Traveling Salesman Problem (TSP)** — prune routes exceeding best path length.
     
@@ -225,4 +227,3 @@ Despite its exponential nature, **effective pruning** can make B&B practical for
 - [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]
     
 - [[cs/dsa/knapsack-problem|Knapsack Problem]]
-    
