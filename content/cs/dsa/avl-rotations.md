@@ -13,7 +13,6 @@ aliases:
 # diagrams:
 #  - avl_rotations.svg — visualizes LL, RR, LR, RL rotation patterns.
 #  - avl_height_balance.svg — shows subtree height differences and balance factors.
-#  - avl-rotation-cases — Step-by-step transforms for LL/LR/RL/RR with height/balance updates
 ---
 
 ## Overview
@@ -61,10 +60,6 @@ After rotation:
     
 - The order property is preserved: all keys in `T2` remain between `x` and `y`.
     
-
-> [!example]  
-> **Diagram (`avl_rotations.svg`)** — show LL rotation sequence restoring balance.
-
 ### Left Rotation (RR Case)
 
 Occurs when inserting into the **right subtree** of a node’s right child.
@@ -94,9 +89,6 @@ Triggered when inserting into the **right subtree of the left child**:
 2. Then perform a **right rotation** on the root.
     
 
-> [!example]  
-> **Diagram (`avl_rotations.svg`)** — depict LR rotation as two-step fix for diagonal imbalance.
-
 ### Right-Left (RL Case)
 
 Triggered when inserting into the **left subtree of the right child**:
@@ -108,6 +100,9 @@ Triggered when inserting into the **left subtree of the right child**:
 
 > [!note]  
 > LR and RL rotations are effectively _mirror images_ of each other.
+
+> [!example]  
+> **Diagram (`avl_rotations.svg`)** — show rotations so above cases can be visualized.
 
 ---
 
