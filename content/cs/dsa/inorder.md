@@ -1,37 +1,27 @@
 ---
-
-title: Traversal — Inorder  
-description: Visit Left → Root → Right; yields sorted order precisely on binary search trees; includes recursive, iterative (stack), and Morris (O(1) space) variants.  
-draft: true  
+title: Traversal — Inorder
+description: Visit Left -> Root -> Right; yields sorted order precisely on binary search trees; includes recursive, iterative (stack), and Morris (O(1) space) variants.
+draft: false
 tags:
 - cs
-- dsa  
-date: 2025-10-16  
-updated:  
+- dsa
+date: 2025-10-16
+updated: 2025-11-21
 aliases: []
-# diagrams:
-
-# - inorder-threading.svg — A small BST with temporary Morris “threads” from each node’s inorder predecessor back to the node; arrows show create→visit→remove cycle.
-
-# - stack-vs-recursion.svg — Side-by-side trace of recursive vs iterative inorder on the same tree; shows call stack frames vs explicit stack contents after each step.
-
 ---
 
 ## Overview
 
-**Inorder traversal** visits a binary tree’s nodes in **Left → Root → Right** order. On a **binary search tree (BST)**, this yields the keys in **nondecreasing (sorted) order**, which makes inorder the default for enumerating BST contents, verifying ordering invariants, and exporting keys. There are three standard implementations:
+**Inorder traversal** visits a binary tree's nodes in **Left -> Root -> Right** order. On a **binary search tree (BST)**, this yields the keys in **nondecreasing (sorted) order**, which makes inorder the default for enumerating BST contents, verifying ordering invariants, and exporting keys. There are three standard implementations:
 
 - **Recursive** (short, idiomatic; uses call stack).
-    
+
 - **Iterative with an explicit stack** (control over space and stack use).
-    
+
 - **Morris traversal** (temporarily threads the tree to achieve **O(1)** auxiliary space).
-    
 
-All variants visit each node exactly once → **O(n)** time. Space is **O(h)** for recursion/stack, with `h` the tree height, or **O(1)** extra for Morris (besides the output).
 
-> [!example]  
-> **Diagram (`stack-vs-recursion.svg`)** — On tree `{4 as root with left 2 (1,3) and right 6 (5,7)}`, show the recursive call stack vs an explicit stack after each push/pop until the output `1,2,3,4,5,6,7` is produced.
+All variants visit each node exactly once -> **O(n)** time. Space is **O(h)** for recursion/stack, with `h` the tree height, or **O(1)** extra for Morris (besides the output).
 
 ## Core Idea
 
@@ -50,9 +40,9 @@ function INORDER_RECURSIVE(Node):
 ```
 
 - **Time:** O(n)
-    
-- **Extra space:** O(h) call stack (worst-case `h=n` for a degenerate chain; `h=⌊log2 n⌋` for balanced trees)
-    
+
+- **Extra space:** O(h) call stack (worst-case `h=n` for a degenerate chain; `h=floor(log2 n)` for balanced trees)
+
 
 ### Iterative inorder with explicit stack
 
@@ -73,15 +63,15 @@ function INORDER_ITERATIVE(root):
 ```
 
 - Push all the way left; when you hit `NIL`, pop, **visit**, and go right once.
-    
+
 - **Time:** O(n)
-    
+
 - **Extra space:** O(h) for the stack
-    
+
 
 ### Morris inorder (O(1) auxiliary space)
 
-Morris uses temporary **threads**: for a node `curr` with a left subtree, find its **inorder predecessor** `pred` (rightmost node in `curr.left`). If `pred.right` is `NIL`, set `pred.right = curr` (create a thread) and go left. If `pred.right == curr`, remove the thread, **visit** `curr`, and go right. No recursion, no stack; the tree’s structure is temporarily reused and **restored**.
+Morris uses temporary **threads**: for a node `curr` with a left subtree, find its **inorder predecessor** `pred` (rightmost node in `curr.left`). If `pred.right` is `NIL`, set `pred.right = curr` (create a thread) and go left. If `pred.right == curr`, remove the thread, **visit** `curr`, and go right. No recursion, no stack; the tree's structure is temporarily reused and **restored**.
 
 ```pseudo
 function INORDER_MORRIS(root):
@@ -104,13 +94,13 @@ function INORDER_MORRIS(root):
 ```
 
 - **Time:** O(n) (each edge is traversed at most twice)
-    
-- **Extra space:** O(1)
-    
-- Restores the tree by removing every temporary thread.
-    
 
-> [!tip]  
+- **Extra space:** O(1)
+
+- Restores the tree by removing every temporary thread.
+
+
+> [!tip]
 > Prefer **iterative with stack** in production when you need predictable behavior and debuggability. Use **Morris** when minimizing memory is paramount and you can safely modify and restore the structure during traversal.
 
 ## Example or Trace
@@ -118,104 +108,101 @@ function INORDER_MORRIS(root):
 Consider the BST built from keys `4,2,6,1,3,5,7`.
 
 - **Recursive/Iterative output:** `1, 2, 3, 4, 5, 6, 7`.
-    
-- **Morris trace (high level):**
-    
-    1. `curr=4`, predecessor is `3` → create thread `3.right=4`, go left to `2`.
-        
-    2. `curr=2`, predecessor is `1` → create thread `1.right=2`, go left to `1`.
-        
-    3. `curr=1`, no left → **visit 1**, go right via thread back to `2`; remove thread.
-        
-    4. **Visit 2**, go right to `3`; `3.left` is `NIL` → **visit 3**, right via thread to `4`; remove thread.
-        
-    5. **Visit 4**; go right to `6`, and symmetrical steps produce `5,6,7`.
-        
 
-> [!example]  
-> **Diagram (`inorder-threading.svg`)** — Show threads from `1→2` and `3→4` during the left spine of the tree and their removal right before visiting the target node.
+- **Morris trace (high level):**
+
+    1. `curr=4`, predecessor is `3` -> create thread `3.right=4`, go left to `2`.
+
+    2. `curr=2`, predecessor is `1` -> create thread `1.right=2`, go left to `1`.
+
+    3. `curr=1`, no left -> **visit 1**, go right via thread back to `2`; remove thread.
+
+    4. **Visit 2**, go right to `3`; `3.left` is `NIL` -> **visit 3**, right via thread to `4`; remove thread.
+
+    5. **Visit 4**; go right to `6`, and symmetrical steps produce `5,6,7`.
+
 
 ## Complexity Analysis
 
-- **Time:** All variants are **O(n)**; each node is visited once, and Morris’s inner “find predecessor” loop across all iterations touches each edge at most twice.
-    
+- **Time:** All variants are **O(n)**; each node is visited once, and Morris's inner "find predecessor" loop across all iterations touches each edge at most twice.
+
 - **Space:**
-    
-    - Recursive / explicit stack: **O(h)** auxiliary; for a balanced tree `h=Θ(log n)`.
-        
+
+    - Recursive / explicit stack: **O(h)** auxiliary; for a balanced tree `h=Theta(log n)`.
+
     - Morris: **O(1)** auxiliary (but temporarily writes pointers).
-        
+
 
 **I/O cost.** The `VISIT` operation (e.g., printing or appending) dominates when producing large outputs; traversal overhead becomes negligible relative to I/O.
 
 ## Optimizations or Variants
 
 - **Early exit / range queries on BSTs.** If you only need keys in `[L, R]`, prune subtrees:
-    
+
     ```pseudo
     function INORDER_RANGE(node, L, R):
         if node == NIL: return
         if node.key > L: INORDER_RANGE(node.left, L, R)
-        if L ≤ node.key ≤ R: VISIT(node)
+        if L <= node.key <= R: VISIT(node)
         if node.key < R: INORDER_RANGE(node.right, L, R)
     ```
-    
+
     This returns results in sorted order while skipping irrelevant branches.
-    
+
 - **K-th smallest (BST).** Augment nodes with `size` of left subtree; navigate by comparing `k` to `size(left)+1` to get **O(h)** select without full traversal.
-    
-- **Threaded trees (persistent).** Morris’s temporary links inspire **threaded binary trees**, which permanently store predecessor/successor pointers in place of `NIL` links to support efficient inorder without recursion or a stack.
-    
+
+- **Threaded trees (persistent).** Morris's temporary links inspire **threaded binary trees**, which permanently store predecessor/successor pointers in place of `NIL` links to support efficient inorder without recursion or a stack.
+
 - **Iterative with color/marker.** Some frameworks simulate traversal using a stack of `(node, state)` to unify preorder/inorder/postorder in one loop, which can simplify generic tree walkers.
-    
+
 
 ## Applications
 
 - **BST enumeration:** Sorted listing, merging two BSTs (two-pointer merge over inorder outputs), verifying BST property (check monotonicity).
-    
+
 - **Range reporting:** Enumerate all keys in a numeric window in sorted order (see pruning above).
-    
+
 - **Serialization & UI:** Building sorted menus or ordered reports from tree-based indices.
-    
+
 - **Algorithm building block:** Convert a tree to a sorted array/list as a precursor to balanced-tree rebuilding or deduplication.
-    
+
 
 ## Common Pitfalls or Edge Cases
 
-> [!warning]  
+> [!warning]
 > **Assuming sorted output on non-BSTs.** Inorder only guarantees sorted output if the tree is a **BST** with a consistent comparator.
 
-> [!warning]  
-> **Null handling.** Always check `NIL` before dereferencing children. In iterative code, the inner “drill left” loop must stop on `NIL` to avoid pushing garbage.
+> [!warning]
+> **Null handling.** Always check `NIL` before dereferencing children. In iterative code, the inner "drill left" loop must stop on `NIL` to avoid pushing garbage.
 
-> [!warning]  
-> **Stack/recursion overflow.** Deeply skewed trees (`h≈n`) can overflow the call stack or allocate large explicit stacks. Consider rebalancing, tail recursion elimination where applicable, or Morris traversal.
+> [!warning]
+> **Stack/recursion overflow.** Deeply skewed trees (`h approximately n`) can overflow the call stack or allocate large explicit stacks. Consider rebalancing, tail recursion elimination where applicable, or Morris traversal.
 
-> [!warning]  
+> [!warning]
 > **Morris pointer restoration.** Forgetting to remove a thread (`pred.right = NIL`) **corrupts the tree**. Ensure each created thread is removed exactly once.
 
-> [!warning]  
+> [!warning]
 > **Concurrent modification.** Traversing while mutating (insert/delete) breaks invariants. Freeze updates or traverse a snapshot.
 
 ## Implementation Notes or Trade-offs
 
-- **Comparator consistency.** For BSTs, maintain a strict weak ordering; inconsistencies can break “sorted by inorder” guarantees.
-    
+- **Comparator consistency.** For BSTs, maintain a strict weak ordering; inconsistencies can break "sorted by inorder" guarantees.
+
 - **Visit action.** Keep `VISIT` small (e.g., append to buffer) to avoid skewing performance measurements; batch I/O where possible.
-    
+
 - **Memory profile.** Recursive version is simplest and usually fastest for balanced trees; iterative is safer for worst-case depth; Morris minimizes memory but is more error-prone.
-    
+
 
 ## Summary
 
-Inorder traversal is the canonical **Left → Root → Right** visit order. It runs in **O(n)** time, uses **O(h)** space (or **O(1)** via Morris), and produces **sorted output** for BSTs. Choose recursive for clarity, iterative for control and worst-case safety, and Morris when auxiliary memory must be minimized and temporary pointer rewiring is acceptable.
+Inorder traversal is the canonical **Left -> Root -> Right** visit order. It runs in **O(n)** time, uses **O(h)** space (or **O(1)** via Morris), and produces **sorted output** for BSTs. Choose recursive for clarity, iterative for control and worst-case safety, and Morris when auxiliary memory must be minimized and temporary pointer rewiring is acceptable.
 
 ## See also
 
 - [[cs/dsa/binary-tree|Binary Tree]]
-    
+
 - [[bst|Binary Search Tree]]
-    
+
 - [[cs/dsa/preorder|Traversal — Preorder]]
-    
+
 - [[cs/dsa/postorder|Traversal — Postorder]]

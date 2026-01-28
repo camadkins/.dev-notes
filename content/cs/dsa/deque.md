@@ -1,16 +1,13 @@
 ---
 title: Deque (Double-Ended Queue)
 description: A double-ended queue supporting insertion and removal at both ends; implemented via ring buffers or linked lists for predictable O(1) operations.
-draft: true
+draft: false
 tags:
 - cs
 - dsa
 date: 2025-10-16
-updated:
+updated: 2025-11-03
 aliases: []
-# diagrams:
-# - deque-ring-buffer.svg — Array-backed deque as a circular buffer showing head/tail movement for push/pop at both ends and full/empty states.
-# - deque-linked-vs-array.svg — Side-by-side nodes of a doubly linked list deque vs a ring-buffer layout, with time/space trade-offs called out.
 ---
 
 ## Overview
@@ -19,9 +16,6 @@ A **deque** (double-ended queue) is a sequence container that supports **inserti
 Two common implementations dominate:
 - **Array-backed ring buffer** (circular array with modular indices) offering compact storage, excellent cache locality, and predictable timing.
 - **Doubly linked list** offering unbounded growth and stable references to elements, at the cost of extra pointers and poorer locality.
-
-> [!example]
-> **Diagram (`deque-ring-buffer.svg`)** — Show a fixed-size array `Q[0..N-1]` with `head` and `tail` indices. Illustrate `push_front`, `push_back`, `pop_front`, `pop_back` and how `head`/`tail` wrap modulo `N`. Include the empty state (`head == tail`) and a full-state convention (reserved slot or `size` counter).
 
 ## Structure Definition
 A deque provides these primitives on elements `x`:
@@ -128,41 +122,38 @@ function BACK():  if last == null:  error else return last.value
 Consider an array deque with `N = 8`, initially empty (`head = tail = 0`).
 
 1. `push_back(A)`: write at `tail=0`, advance `tail→1`.
-    
+
 2. `push_back(B)`: write at `1`, `tail→2`.
-    
+
 3. `push_front(Z)`: move `head→7`, write at `7`. Contents (from front to back): `Z, A, B`.
-    
+
 4. `pop_back()`: decrement `tail→1`, returns `B`.
-    
+
 5. `pop_front()`: returns `Z`, `head→0`. Now contents: `A`.
-    
+
 
 The same sequence on a linked deque adjusts `first`/`last` and a few pointers without modulo arithmetic.
-
-> [!example]  
-> **Diagram (`deque-linked-vs-array.svg`)** — Left: three-node linked deque showing pointer rewrites for `push_front` and `pop_back`. Right: a ring buffer with indices moving under `push_front`/`push_back` and wrap-around at array boundaries. Annotate each with which fields change on each operation.
 
 ## Complexity and Performance
 
 Let `n` be the number of elements currently stored and `N` the capacity for fixed-size arrays.
 
 - **Time per op (both ends):** `O(1)` worst-case (linked) or `O(1)` amortized/worst-case (array, absent resizing).
-    
+
 - **Space:** Linked: `O(n)` nodes with 2 pointers each. Array: `O(N)` pre-allocated; optional dynamic growth adds temporary reallocation cost.
-    
+
 
 **Locality & Throughput.**
 
 - Array deques exhibit contiguous memory access patterns, boosting cache performance relative to linked lists.
-    
+
 - Linked deques incur pointer chasing; performance depends on allocator behavior and branch prediction.
-    
+
 
 **Resizing policy (dynamic arrays).**
 
 - When full, allocate a larger array (often ×2), **linearize** existing elements into the new buffer starting at index 0, and reset `head=0`, `tail=n`. Future ops return to `O(1)`.
-    
+
 
 ## Implementation Details or Trade-offs
 
@@ -171,71 +162,71 @@ Let `n` be the number of elements currently stored and `N` the capacity for fixe
 **Indexing correctness.** For arrays:
 
 - Use `head = (head - 1 + N) % N` and `tail = (tail + 1) % N` to avoid negative indices.
-    
-- Consider replacing `%` with conditional add/sub if `%` is slow and `N` isn’t a power of two; or use `& (N-1)` when `N` is a power of two.
-    
+
+- Consider replacing `%` with conditional add/sub if `%` is slow and `N` isn't a power of two; or use `& (N-1)` when `N` is a power of two.
+
 
 **Concurrency.**
 
 - **Single-producer/single-consumer rings** (one end per thread) can be written **lock-free** with acquire/release semantics (see [[cs/dsa/circular-queue|Circular Queue]] for memory-ordering notes).
-    
+
 - True multi-producer/multi-consumer deques require locks or specialized designs (e.g., work-stealing deques use split indices and memory fences).
-    
+
 
 **Iterator stability.**
 
 - Linked deques keep node addresses stable across pushes/pops at ends (unless the referenced node is removed).
-    
+
 - Array deques invalidate raw pointers across **resize**, but offset-based indices remain valid after a stable rebase.
-    
+
 
 **Middle operations.**
 
 - Classic deques focus on ends. If frequent middle insertions/removals are required, consider a **linked list** or a **gap buffer/rope** depending on workload.
-    
+
 
 **Memory footprint.**
 
 - Linked: overhead is `2 * pointer_size` per element plus allocator metadata.
-    
+
 - Array: no per-element pointer overhead; peak memory equals capacity.
-    
+
 
 ## Practical Use Cases
 
 - **Sliding window algorithms.** Maintain a window over a stream with `push_back` for arrivals and `pop_front` for expirations. The **monotonic deque** pattern yields `O(n)` solutions for running minimum/maximum in windows.
-    
-- **Task schedulers / event loops.** Support head/tail policies (LIFO for urgent tasks at the front, FIFO at the back).
-    
-- **Undo/redo stacks.** Keep recent history at one end while trimming from the other.
-    
-- **Parser/token buffers.** Efficient lookahead by pushing tokens to the back and occasionally pushing corrections to the front.
-    
 
-**Worked window-max sketch (monotonic deque).**  
+- **Task schedulers / event loops.** Support head/tail policies (LIFO for urgent tasks at the front, FIFO at the back).
+
+- **Undo/redo stacks.** Keep recent history at one end while trimming from the other.
+
+- **Parser/token buffers.** Efficient lookahead by pushing tokens to the back and occasionally pushing corrections to the front.
+
+
+**Worked window-max sketch (monotonic deque).**
 Maintain a deque of **indices** whose corresponding values are **non-increasing** from front to back. For each new index `i`:
 
 1. Pop from **back** while `A[i] > A[back]`.
-    
+
 2. Push `i` to back.
-    
+
 3. Pop from **front** if `front_index` is outside the window.
-    
+
 4. The current maximum is at the **front**.
-    
+
 
 This uses deque operations only and runs in linear time over the sequence.
 
 ## Limitations / Pitfalls
 
-> [!warning]  
+> [!warning]
 > **Underflow at both ends.** Because two remove operations exist, clients must guard against calling `pop_front`/`pop_back` on an empty deque. Define a consistent error policy.
 
-> [!warning]  
-> **Off-by-one in ring buffers.** Mismanaging the full/empty tests (`head == tail` vs `(tail+1)%N == head`) causes silent overwrites or false “full” signals. Write these predicates once and reuse them.
+> [!warning]
+> **Off-by-one in ring buffers.** Mismanaging the full/empty tests (`head == tail` vs `(tail+1)%N == head`) causes silent overwrites or false "full" signals. Write these predicates once and reuse them.
 
-> [!warning]  
-> **Resizing invalidates addresses.** Array-based deques that resize will move storage; don’t store raw pointers into elements across operations that may trigger growth.
+> [!warning]
+> **Resizing invalidates addresses.** Array-based deques that resize will move storage; don't store raw pointers into elements across operations that may trigger growth.
 
 ## Summary
 
@@ -244,10 +235,9 @@ A deque is a versatile, end-efficient container that unifies queue and stack beh
 ## See also
 
 - [[cs/dsa/circular-queue|Circular Queue]]
-    
+
 - [[cs/dsa/doubly-linked-list|Doubly Linked List]]
-    
+
 - [[cs/dsa/queue|Queue]]
-    
+
 - [[cs/dsa/stack|Stack]]
-    

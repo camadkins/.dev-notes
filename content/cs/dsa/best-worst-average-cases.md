@@ -1,22 +1,17 @@
 ---
 title: Best, Worst & Average Cases
 description: Different input families and their effect on algorithm behavior; how to reason about guarantees, expectations, and adversarial instances.
-draft: true
+draft: false
 tags:
   - cs
   - dsa
 date: 2025-10-16
 updated: 2025-10-29
 aliases: []
-# diagrams:
-#   - name: input-families-vs-cost
-#     brief: Side-by-side traces showing best/worst/average behavior for the same algorithm under different input families
-#   - name: adversarial-vs-randomized
-#     brief: Adversary picking worst pivots vs randomized pivot selection; effect on quicksort recursion shape
 ---
 
 ## Definition
-“Best”, “worst”, and “average” cases classify an algorithm’s running time or space usage over **families of inputs** of the same size \(n\).
+"Best", "worst", and "average" cases classify an algorithm's running time or space usage over **families of inputs** of the same size \(n\).
 
 - **Worst case**: An upper bound over **all** inputs of size \(n\). Guarantees performance even under adversarial conditions.
 - **Best case**: A lower bound achieved by the **most favorable** inputs of size \(n\). Rarely used for guarantees; helpful for understanding adaptability.
@@ -35,9 +30,9 @@ Mathematically, for a cost function \(T(x)\) on inputs \(x\) with \(|x|=n\):
 ---
 
 ## Why it matters
-Engineers need to know **how performance degrades** when inputs are unfavorable, and **what to expect** on typical data.  
-- Systems with tight SLOs prioritize **worst-case** guarantees (e.g., real-time schedulers, safety-critical code).  
-- Data-processing apps often rely on **average-case** behavior when inputs are well-modeled (e.g., randomized quicksort on shuffled data).  
+Engineers need to know **how performance degrades** when inputs are unfavorable, and **what to expect** on typical data.
+- Systems with tight SLOs prioritize **worst-case** guarantees (e.g., real-time schedulers, safety-critical code).
+- Data-processing apps often rely on **average-case** behavior when inputs are well-modeled (e.g., randomized quicksort on shuffled data).
 - **Best-case** behavior highlights adaptability (e.g., insertion sort is fast on nearly-sorted data).
 
 > [!note] Practical takeaway
@@ -46,13 +41,13 @@ Engineers need to know **how performance degrades** when inputs are unfavorable,
 ---
 
 ## Model & Assumptions
-A statement like “average \(O(f(n))\)” is **meaningless** without:
+A statement like "average \(O(f(n))\)" is **meaningless** without:
 - A **distribution** over inputs (e.g., uniform over all permutations, random hash function, i.i.d. keys).
 - A **cost model** (e.g., RAM with unit-cost arithmetic, how comparisons and cache misses are counted).
-- Clear **preconditions** (e.g., “array is randomly shuffled”, or “hash function is universal/independent”).
+- Clear **preconditions** (e.g., "array is randomly shuffled", or "hash function is universal/independent").
 
 > [!tip] Be explicit about assumptions
-> - If you randomize the algorithm (e.g., randomized pivot), you can analyze **expected runtime over the algorithm’s coins** for **any fixed input**—this sidesteps unknown input distributions.
+> - If you randomize the algorithm (e.g., randomized pivot), you can analyze **expected runtime over the algorithm's coins** for **any fixed input**—this sidesteps unknown input distributions.
 > - If you rely on input randomness, document the **source of randomness** (real-world shuffles? adversary likely?).
 
 ---
@@ -66,9 +61,6 @@ A statement like “average \(O(f(n))\)” is **meaningless** without:
 > [!example] Recursion shapes
 > - Worst case: highly unbalanced recursion (depth \(n\)).
 > - Average case: roughly balanced recursion (depth \(\Theta(\log n)\)).
->
-> **Diagram (adversarial-vs-randomized)** — show a chain vs balanced recursion tree.  
-> <!-- DIAGRAM CALL: adversarial-vs-randomized -->
 
 ### Hash table lookups (chaining)
 - **Worst**: \(O(n)\) if all keys collide in one bucket (adversarial or poor hash).
@@ -91,16 +83,12 @@ A statement like “average \(O(f(n))\)” is **meaningless** without:
 ### Graph algorithms (BFS/DFS)
 - **Worst/Average/Best**: \(O(n+m)\) for traversal itself—insensitive to input ordering, but **graph density** \(m\) vs \(n\) heavily influences actual running time.
 
-> [!note] Diagram: input families vs cost
-> Show quicksort trees (balanced vs chain), insertion-sort shifts for low inversion count, and hash table bucketings from uniform to pathological.  
-> <!-- DIAGRAM CALL: input-families-vs-cost -->
-
 ---
 
 ## Model & Assumptions (worked patterns)
 - **Uniform over inputs**: average over all permutations/graphs/etc. Often unrealistic without justification.
 - **Stochastic process for inputs**: e.g., keys are i.i.d. from a distribution \(D\) (state \(D\) explicitly).
-- **Randomized algorithms**: expected runtime is over the algorithm’s **own randomness** for **any input** (Yao’s principle relates this to distributional inputs).
+- **Randomized algorithms**: expected runtime is over the algorithm's **own randomness** for **any input** (Yao's principle relates this to distributional inputs).
 
 Concrete examples:
 - **Randomized quicksort**: expectation over random pivot choices; average \(O(n\log n)\) for every fixed input.
@@ -111,7 +99,7 @@ Concrete examples:
 ## Properties & Relationships
 - **Worst-case dominates**: For asymptotic guarantees, worst-case bounds are **sufficient** (but sometimes pessimistic).
 - **Average-case depends on modeling**: Changing the input or hash distribution can change the bound.
-- **Best-case rarely drives design**: It’s a sanity check or highlights adaptability (e.g., partially sorted inputs).
+- **Best-case rarely drives design**: It's a sanity check or highlights adaptability (e.g., partially sorted inputs).
 
 Connections:
 - [[cs/dsa/asymptotic-notation|Asymptotic Notation]] formalizes \(O,\Omega,\Theta\).
@@ -121,7 +109,7 @@ Connections:
 ---
 
 ## Heuristics & Design Guidance
-- If the **worst case matters**, prefer algorithms with strong worst-case guarantees (e.g., heapsort \(O(n\log n)\) vs quicksort’s \(O(n^2)\)).
+- If the **worst case matters**, prefer algorithms with strong worst-case guarantees (e.g., heapsort \(O(n\log n)\) vs quicksort's \(O(n^2)\)).
 - If inputs are **well-mixed** and latency spikes are tolerable, exploit **average-case** winners (randomized quicksort, hash tables).
 - Use **randomization** to defend against adversarial inputs (e.g., randomized pivoting, randomized hashing).
 - Detect structure at runtime: switch to **insertion sort** on tiny subarrays or nearly sorted data; use **introsort** (quicksort → heapsort fallback) to combine average-case speed with worst-case safety.
@@ -129,14 +117,14 @@ Connections:
 ---
 
 ## Common Pitfalls
-> [!warning] Conflating “average” with “expected”
-> “Average case” is an **expectation with respect to a specified distribution**. If the real inputs don’t match that distribution, the claim may not hold.
+> [!warning] Conflating "average" with "expected"
+> "Average case" is an **expectation with respect to a specified distribution**. If the real inputs don't match that distribution, the claim may not hold.
 
 > [!warning] Ignoring adversaries
 > Deterministic choices (first/last-element pivot) are exploitable; an attacker can force worst-case \(O(n^2)\) in quicksort or \(O(n)\) in hash tables.
 
 > [!warning] Misusing best-case
-> Best-case bounds do not imply typical fast performance; they only show what’s **possible**, not what’s **likely**.
+> Best-case bounds do not imply typical fast performance; they only show what's **possible**, not what's **likely**.
 
 > [!tip] Prefer transparent assumptions
 > State the input model (uniform permutations, i.i.d. draws, or algorithmic randomization). If in doubt, **prove** a worst-case bound and **measure** empirical averages.

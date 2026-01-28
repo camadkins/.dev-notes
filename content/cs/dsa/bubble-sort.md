@@ -1,24 +1,21 @@
 ---
 title: Bubble Sort — Adjacent Swaps and Stability
 description: Elementary comparison-based sort using repeated passes and adjacent swaps; simple, stable, but inefficient for large arrays.
-draft: true
+draft: false
 tags:
   - cs
   - dsa
 date: 2025-10-16
-updated:
+updated: 2025-11-03
 aliases: []
-# diagrams:
-#  - bubble_sort_passes.svg — show successive passes pushing the largest element to the end.
-#  - bubble_sort_early_exit.svg — illustrate early stop when no swaps occur in a full pass.
 ---
 
 ## Overview
-**Bubble Sort** is a simple **comparison-based sorting algorithm** that repeatedly **swaps adjacent elements** if they are out of order.  
-After each full pass, the **largest unsorted element “bubbles up”** to its correct position at the end of the array.
+**Bubble Sort** is a simple **comparison-based sorting algorithm** that repeatedly **swaps adjacent elements** if they are out of order.
+After each full pass, the **largest unsorted element "bubbles up"** to its correct position at the end of the array.
 
 > [!note]
-> Though rarely used in practice, Bubble Sort’s clarity and traceability make it a common **teaching algorithm** for introducing sorting, comparison models, and asymptotic reasoning.
+> Though rarely used in practice, Bubble Sort's clarity and traceability make it a common **teaching algorithm** for introducing sorting, comparison models, and asymptotic reasoning.
 
 ---
 
@@ -28,11 +25,8 @@ Imagine **bubbles rising through water**: heavier (larger) elements move upward 
 
 Each pass over the array:
 - Compares every adjacent pair `(A[i], A[i+1])`
-- Swaps if they’re out of order
+- Swaps if they're out of order
 - Reduces the unsorted portion by one
-
-> [!example]
-> **Diagram (`bubble_sort_passes.svg`)** — visualize each pass shrinking the unsorted zone, with the largest item moving rightward each time.
 
 ---
 
@@ -54,11 +48,10 @@ function bubbleSort(A):
 ### Key Details
 
 - The **inner loop** scans unsorted elements and performs adjacent swaps.
-    
+
 - The **outer loop** runs until the array is sorted or no swaps occur (optimization).
-    
+
 - After each pass `i`, the last `i` elements are in their correct positions.
-    
 
 ---
 
@@ -73,9 +66,6 @@ Input: `[5, 2, 9, 1, 5, 6]`
 |3|`[1, 2, 5, 5, 6, 9]`|✓|5|
 |4|`[1, 2, 5, 5, 6, 9]`|✗ (early exit)|—|
 
-> [!example]  
-> **Diagram (`bubble_sort_early_exit.svg`)** — highlight the moment when no swaps occur, triggering early termination.
-
 ---
 
 ## Time Complexity
@@ -86,42 +76,41 @@ Input: `[5, 2, 9, 1, 5, 6]`
 |**Average**|Random order|≈ n²/2|≈ n²/4|**O(n²)**|
 |**Worst**|Reverse order|≈ n²/2|≈ n²/2|**O(n²)**|
 
-**Space:** `O(1)` (in-place)  
+**Space:** `O(1)` (in-place)
 **Stability:** Yes (equal elements maintain order)
 
-> [!tip]  
-> Bubble Sort’s only redeeming property is **stability** and **simplicity** — ideal for visual or educational contexts but poor for large datasets.
+> [!tip]
+> Bubble Sort's only redeeming property is **stability** and **simplicity** — ideal for visual or educational contexts but poor for large datasets.
 
 ---
 
 ## Optimizations
 
 1. **Early Exit:** Stop if no swaps occur in a full pass.
-    
+
 2. **Reduced Range:** After each pass, ignore the sorted suffix.
-    
+
 3. **Bidirectional Bubble Sort (Cocktail Shaker):**
-    
+
     - Sweep forward to bubble up the largest,
-        
+
     - Sweep backward to bubble down the smallest.
-        
+
     - Useful for nearly sorted arrays.
-        
 
 ---
 
 ## Common Pitfalls
 
-> [!warning]  
+> [!warning]
 > **Forgetting the swapped flag:** Without it, the algorithm always performs `n` passes, even on sorted input (O(n²) every time).
 
-> [!warning]  
-> **Off-by-one errors:**  
+> [!warning]
+> **Off-by-one errors:**
 > The inner loop should stop at `n - i - 2`, not `n - i - 1`, since you compare `A[j]` with `A[j+1]`.
 
-> [!warning]  
-> **Misplaced early break:**  
+> [!warning]
+> **Misplaced early break:**
 > Breaking before completing a pass misses potential swaps in the tail region.
 
 ---
@@ -129,11 +118,10 @@ Input: `[5, 2, 9, 1, 5, 6]`
 ## Use Cases
 
 - Teaching basic sorting and **in-place algorithm design**
-    
+
 - Introducing **asymptotic notation** and algorithm analysis
-    
+
 - Demonstrating **stability** and **adjacent exchange sorting**
-    
 
 ---
 
@@ -145,7 +133,7 @@ Input: `[5, 2, 9, 1, 5, 6]`
 | **Selection Sort** | O(n²) | O(n²)   | O(n²) | ❌      | ✅        |
 | **Insertion Sort** | O(n)  | O(n²)   | O(n²) | ✅      | ✅        |
 
-> [!note]  
+> [!note]
 > Insertion Sort generally outperforms Bubble Sort on nearly sorted data because it makes fewer swaps and shifts.
 
 ---
@@ -153,22 +141,21 @@ Input: `[5, 2, 9, 1, 5, 6]`
 ## Summary
 
 - **Bubble Sort** iteratively swaps adjacent out-of-order pairs.
-    
+
 - Early termination can reduce runtime to O(n) on sorted input.
-    
+
 - Despite its inefficiency, it illustrates **loop invariants**, **stability**, and **complexity growth** intuitively.
-    
 
 ---
 
 ## See also
 
 - [[cs/dsa/insertion-sort|Insertion Sort]]
-    
+
 - [[cs/dsa/selection-sort|Selection Sort]]
-    
+
 - [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]
-    
+
 - [[cs/dsa/asymptotic-notation|Asymptotic Notation]]
-    
+
 - [[cs/dsa/time-complexity-analysis|Time Complexity Analysis]]

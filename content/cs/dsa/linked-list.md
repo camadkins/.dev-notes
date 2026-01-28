@@ -1,30 +1,20 @@
 ---
 
-title: Linked Lists  
-description: Node-based dynamic sequences with next pointers; options for sentinel heads, tail tracking, and size fields.  
-draft: true  
+title: Linked Lists
+description: Node-based dynamic sequences with next pointers; options for sentinel heads, tail tracking, and size fields.
+draft: false
 tags:
 - cs
-- dsa  
-date: 2025-10-16  
-updated:  
+- dsa
+date: 2025-10-16
+updated: 2025-12-21
 aliases: []
-# diagrams:
-
-# - sll-head-tail-sentinel.svg — Side-by-side singly list with/without a sentinel head; arrows show head, optional tail, and next pointers.
-
-# - reverse-in-place.svg — Three-frame trace of in-place reversal: (prev,curr,next) triples and pointer flips.
-
-# - slow-fast-middle-cycle.svg — Slow/fast pointers finding the middle and detecting a cycle (meeting point vs NIL).
 
 ---
 
 ## Overview
 
 A **linked list** is a dynamic sequence built from **nodes**. Each node stores a **value** and a pointer to the **next** node (singly linked list, SLL). The list container maintains a pointer to the **head** (first node), and optionally a **tail** (last node) and a **size** counter. The shape naturally supports **O(1)** insertion and deletion **once the predecessor is known**, and **O(n)** traversal. Unlike arrays, linked lists avoid contiguous memory and shifting costs, but pay overhead in **pointers, cache misses, and indirection**.
-
-> [!example]  
-> **Diagram (`sll-head-tail-sentinel.svg`)** — Show two SLLs: (A) “plain” with `head` possibly `NIL`; (B) “sentinel-head” where `head` points to a permanent dummy node whose `next` is the first real node. Both label an optional `tail` pointer.
 
 ## Structure Definition
 
@@ -44,18 +34,18 @@ List:
 ### Invariants
 
 - `head == NIL ⇔ tail == NIL ⇔ size == 0` (when `size` is tracked).
-    
-- If `tail != NIL` then `tail.next == NIL`.
-    
-- Following `next` from `head` ends at `NIL` (no cycles) unless explicitly using a circular variant (see [[cs/dsa/circular-linked-list|Circular Linked List]]).
-    
 
-> [!tip]  
+- If `tail != NIL` then `tail.next == NIL`.
+
+- Following `next` from `head` ends at `NIL` (no cycles) unless explicitly using a circular variant (see [[cs/dsa/circular-linked-list|Circular Linked List]]).
+
+
+> [!tip]
 > **Sentinel head.** Introduce a **dummy head** whose `next` points to the first real node. Many edge cases (insert/delete at front) become ordinary middle cases because `head` is never `NIL`. Store the dummy in the `List` object and keep `tail` pointing to the last **real** node.
 
 ## Core Operations
 
-Below, “SLL” means a singly linked list without cycles. Operations are `O(1)` when the **predecessor** is available; otherwise, locating it costs `O(n)`.
+Below, "SLL" means a singly linked list without cycles. Operations are `O(1)` when the **predecessor** is available; otherwise, locating it costs `O(n)`.
 
 ### Insert at front (push-front)
 
@@ -83,7 +73,7 @@ function PUSH_BACK(L, x):
     L.size = L.size + 1
 ```
 
-> [!tip]  
+> [!tip]
 > Without a `tail`, appending requires a full traversal to the last node (**O(n)**). Maintain `tail` for queues.
 
 ### Insert after node `p`
@@ -160,7 +150,7 @@ function FIND(L, pred):
     return (NIL, -1)
 ```
 
-> [!warning]  
+> [!warning]
 > **Do not lose the list.** When deleting `curr` during traversal, **save** `nxt = curr.next` before unlinking, then continue with `curr = nxt`.
 
 ## Example (Stepwise)
@@ -168,33 +158,30 @@ function FIND(L, pred):
 Start with empty list: `head=tail=NIL`.
 
 1. `PUSH_FRONT(3)` → `[3]` (`head=tail=3`).
-    
-2. `PUSH_BACK(5)` → `[3 → 5]` (`tail=5`).
-    
-3. `INSERT_AFTER(node(3), 4)` → `[3 → 4 → 5]` (`tail=5`).
-    
-4. `ERASE_FIRST(4)` → `[3 → 5]`.
-    
-5. `POP_FRONT()` → `[5]` (`head=tail=5`).
-    
-6. `FOR_EACH(print)` prints `5`.
-    
 
-> [!example]  
-> **Diagram (`reverse-in-place.svg`)** — Show `(prev, curr, next)` while reversing: rewire `curr.next = prev`, then advance `prev=curr`, `curr=next`; final `head=prev`.
+2. `PUSH_BACK(5)` → `[3 → 5]` (`tail=5`).
+
+3. `INSERT_AFTER(node(3), 4)` → `[3 → 4 → 5]` (`tail=5`).
+
+4. `ERASE_FIRST(4)` → `[3 → 5]`.
+
+5. `POP_FRONT()` → `[5]` (`head=tail=5`).
+
+6. `FOR_EACH(print)` prints `5`.
+
 
 ## Complexity and Performance
 
 - **Traversal/Search:** `O(n)` time, `O(1)` extra space.
-    
+
 - **Insert at head / insert after / delete at head / delete after:** `O(1)`.
-    
+
 - **Insert at tail:** `O(1)` with `tail`; `O(n)` without.
-    
+
 - **Delete by value:** `O(n)` to find predecessor.
-    
+
 - **Space:** `Θ(n)` nodes plus pointer overhead (one pointer per node in SLL).
-    
+
 
 **Cache behavior.** SLLs suffer from **poor locality** vs arrays; each step is a pointer chase. Arrays dominate when random access and iteration speed matter (see [[cs/dsa/dynamic-arrays|Dynamic Arrays]]).
 
@@ -203,16 +190,16 @@ Start with empty list: `head=tail=NIL`.
 ### Sentinel vs plain head
 
 - **Plain head:** Fewer objects; must special-case front operations when `head==NIL`.
-    
-- **Sentinel head:** `head` always non-`NIL`; simplifies code paths (deletes/insert-at-front become “erase/insert after sentinel”). Slight memory overhead for one dummy node.
-    
+
+- **Sentinel head:** `head` always non-`NIL`; simplifies code paths (deletes/insert-at-front become "erase/insert after sentinel"). Slight memory overhead for one dummy node.
+
 
 ### Tail and size fields
 
 - **Tail** enables `O(1)` append and helps with queue-like workloads. Keep `tail` updated **whenever** the last node changes.
-    
+
 - **Size** makes length queries `O(1)` and aids invariants/tests; increment/decrement with each mutation.
-    
+
 
 ### Reversal in place (classic)
 
@@ -241,7 +228,7 @@ function MIDDLE(L):
     return slow    // middle (left-middle on even length)
 ```
 
-### Cycle detection (Floyd’s tortoise & hare)
+### Cycle detection (Floyd's tortoise & hare)
 
 ```pseudo
 function HAS_CYCLE(L):
@@ -254,45 +241,45 @@ function HAS_CYCLE(L):
     return false
 ```
 
-> [!tip]  
+> [!tip]
 > To **locate** the cycle entry after a meet: move one pointer to `head`, advance both by one until they meet again; that node is the entry.
 
 ### Memory management & safety
 
 - **Manual memory (C/C++):** Pair every `new` with `destroy`. After unlinking a node, **never** read from it. Set its `next` to `NIL` before freeing to catch accidental double frees in debug builds.
-    
+
 - **GC languages:** Dropped nodes are collected automatically; be mindful of payload references if they are shared elsewhere.
-    
+
 
 ## Practical Use Cases
 
 - **Queues / Producer–Consumer:** SLL with `head`/`tail` supports `enqueue`/`dequeue` in `O(1)` (see [[cs/dsa/queue|Queue]]).
-    
+
 - **Adjacency lists:** Graph representations often store neighbors in linked nodes when memory fragmentation is acceptable.
-    
+
 - **Hash table buckets:** Separate chaining uses SLL per bucket (see [[cs/dsa/hash-tables|Hash Tables]]).
-    
+
 - **Streaming logs / editors:** Gap buffers and rope-like structures may embed linked chunks for insert-heavy workloads.
-    
+
 
 ## Limitations / Pitfalls
 
-> [!warning]  
+> [!warning]
 > **Random access is slow.** No `A[i]`. Accessing the i-th element is `O(i)`. If you need indexing or range scans with locality, prefer arrays or balanced trees.
 
-> [!warning]  
+> [!warning]
 > **Lost head/tail.** Always update `head`/`tail` when removing or adding at ends; stale `tail` causes infinite loops or crashes.
 
-> [!warning]  
-> **Cycles** (accidental or intended): Plain SLL algorithms assume acyclic lists; introduce cycle-aware variants (e.g., Floyd’s) when needed.
+> [!warning]
+> **Cycles** (accidental or intended): Plain SLL algorithms assume acyclic lists; introduce cycle-aware variants (e.g., Floyd's) when needed.
 
-> [!warning]  
+> [!warning]
 > **Concurrent mutation.** Traversing while another thread mutates the list is unsafe without synchronization.
 
-> [!warning]  
+> [!warning]
 > **Space overhead.** One pointer per node (two for DLLs) plus allocator metadata; for small payloads, overhead can dominate.
 
-> [!warning]  
+> [!warning]
 > **Comparator/equality.** When removing by value, define value equality carefully (e.g., string content vs reference, floating-point tolerance).
 
 ## Summary
@@ -302,9 +289,9 @@ Linked lists provide **O(1)** local updates with simple pointer rewiring and **O
 ## See also
 
 - [[cs/dsa/singly-linked-list|Singly Linked List]]
-    
+
 - [[cs/dsa/doubly-linked-list|Doubly Linked List]]
-    
+
 - [[cs/dsa/circular-linked-list|Circular Linked List]]
-    
+
 - [[cs/dsa/dynamic-arrays|Dynamic Arrays]]

@@ -1,18 +1,13 @@
 ---
-title: Counting Sort  
-description: Frequency array for small integer keys; stable variant builds prefix sums.  
-draft: true  
+title: Counting Sort
+description: Frequency array for small integer keys; stable variant builds prefix sums.
+draft: false
 tags:
 - cs
-- dsa  
-date: 2025-10-16  
-updated:
+- dsa
+date: 2025-10-16
+updated: 2025-11-08
 aliases: []
-# diagrams:
-# - counting-sort-flow.svg — Three-panel flow: (1) count frequencies, (2) prefix-sum to cumulative counts, (3) stable placement right-to-left into output.
-# - prefix-sum-stability.svg — Visual trace showing how equal keys preserve relative order when placing from the end while decrementing counts.
-# - range-vs-memory.svg — Plot/table relating key range (U), input size (n), and auxiliary array size; highlights when counting sort is practical.
-# - counting-vs-radix-bucket.svg — Concept map linking counting sort as a subroutine in radix sort and as in-bucket sorter for small ranges.
 ---
 
 ## Overview
@@ -22,14 +17,11 @@ aliases: []
 ## Core Idea
 
 1. **Count** how many items have each key value `k` in `0..U` → array `C[0..U]`.
-    
-2. **Prefix-sum** `C` so that `C[k]` becomes the **1-past-last index** of key `k` in the output.
-    
-3. **Stable place** items into output array `B` by scanning the input **from right to left**: decrement `C[key(x)]` and write `x` into `B[C[key(x)] - 1]`.
-    
 
-> [!example]  
-> **Diagram (`counting-sort-flow.svg`)** — Show a toy input, its frequency counts, the cumulative counts after prefix-sum, and a right-to-left placement into the output that yields a stable ordering.
+2. **Prefix-sum** `C` so that `C[k]` becomes the **1-past-last index** of key `k` in the output.
+
+3. **Stable place** items into output array `B` by scanning the input **from right to left**: decrement `C[key(x)]` and write `x` into `B[C[key(x)] - 1]`.
+
 
 ## Algorithm Steps / Pseudocode
 
@@ -61,7 +53,7 @@ function COUNTING_SORT(A, U):            // stable variant
     return B
 ```
 
-> [!tip]  
+> [!tip]
 > To **count only**, skip the prefix-sum and placement phases when you just need a histogram (e.g., for selecting quantile cut points before [[cs/dsa/bucket-sort|Bucket Sort]]).
 
 ## Example or Trace
@@ -69,78 +61,70 @@ function COUNTING_SORT(A, U):            // stable variant
 Consider records with keys `A = [2, 5, 3, 0, 2, 3, 0, 3]`, with `U = 5`.
 
 - **Count:** `C = [2, 0, 2, 3, 0, 1]`
-    
-- **Prefix-sum:** `C = [2, 2, 4, 7, 7, 8]` (`C[k]` = 1-past-last index for key `k`)
-    
-- **Stable placement (right-to-left):**
-    
-    - Read `3`: `C[3]→6`, place at `B[6]`
-        
-    - … continue …
-        
-    - Final `B = [0, 0, 2, 2, 3, 3, 3, 5]` (stable among equal keys)
-        
 
-> [!example]  
-> **Diagram (`prefix-sum-stability.svg`)** — Two equal keys (e.g., `3a` then `3b`) keep their input order in the output because the rightmost one is placed last into the highest index reserved for `3`.
+- **Prefix-sum:** `C = [2, 2, 4, 7, 7, 8]` (`C[k]` = 1-past-last index for key `k`)
+
+- **Stable placement (right-to-left):**
+
+    - Read `3`: `C[3]→6`, place at `B[6]`
+
+    - … continue …
+
+    - Final `B = [0, 0, 2, 2, 3, 3, 3, 5]` (stable among equal keys)
 
 ## Complexity Analysis
 
 - **Time:** $O(n + U)$ (one pass to count, one pass to prefix-sum size `U+1`, one pass to place).
-    
+
 - **Space:** $O(n + U)$ (output array `B` plus counts `C`).
-    
+
 - **Stability:** Achieved by **right-to-left** placement while decrementing `C[k]`.
-    
+
 - **Not comparison-based:** Does not incur the $Ω(n \log n)$ lower bound; instead depends on `U`.
-    
 
 ## Optimizations or Variants
 
-- **In-place-ish variant:** When stability isn’t required and only keys are stored, you can overwrite `A` if you emit keys in ascending order based on `C`. (Unstable; usually not suitable for use in radix.)
-    
-- **Partial range:** If keys lie within `[a, b]`, offset by `a` and set `U = b - a`.
-    
-- **Sparse keys:** When `U` is large but only a small subset of keys actually appear, consider a **sparse map** for counts, then compress to a dense array for placement (trades off constant factors).
-    
-- **Byte/word specialization:** For small fixed-width keys (e.g., 8-bit), unroll loops and use vectorized prefix sums.
-    
-- **Parallel prefix:** Parallel counting by thread-local histograms + reduction; then parallel prefix-scan and scatter.
-    
+- **In-place-ish variant:** When stability isn't required and only keys are stored, you can overwrite `A` if you emit keys in ascending order based on `C`. (Unstable; usually not suitable for use in radix.)
 
-> [!example]  
-> **Diagram (`counting-vs-radix-bucket.svg`)** — Place counting sort at the center, with arrows to: “digit pass in radix” and “in-bucket sort when bucket’s local range is small”; annotate stability requirements.
+- **Partial range:** If keys lie within `[a, b]`, offset by `a` and set `U = b - a`.
+
+- **Sparse keys:** When `U` is large but only a small subset of keys actually appear, consider a **sparse map** for counts, then compress to a dense array for placement (trades off constant factors).
+
+- **Byte/word specialization:** For small fixed-width keys (e.g., 8-bit), unroll loops and use vectorized prefix sums.
+
+- **Parallel prefix:** Parallel counting by thread-local histograms + reduction; then parallel prefix-scan and scatter.
+
 
 ## Applications
 
 - **Digit sorting** in [[cs/dsa/radix-sort|Radix Sort]] (must be **stable**).
-    
+
 - **Small-range numeric data** (e.g., grades `0..100`, byte values).
-    
+
 - **Histogram-based preprocessing** (bucketing/quantiles) before [[cs/dsa/bucket-sort|Bucket Sort]] or other range partitioning.
-    
+
 
 ## Common Pitfalls or Edge Cases
 
-> [!warning]  
+> [!warning]
 > **Range too large.** If `U` is much larger than `n`, the `C` array dominates memory/time. Prefer [[cs/dsa/radix-sort|Radix Sort]] or a comparison sort.
 
-> [!warning]  
-> **Unknown or shifting range.** If `a..b` isn’t known, compute `min/max` first; outliers can balloon `U`. Consider clipping or mapping rare outliers to a separate bucket.
+> [!warning]
+> **Unknown or shifting range.** If `a..b` isn't known, compute `min/max` first; outliers can balloon `U`. Consider clipping or mapping rare outliers to a separate bucket.
 
-> [!warning]  
+> [!warning]
 > **Unstable placement.** Scanning left-to-right during placement **breaks stability**; radix will fail if digit passes are unstable.
 
 ## Implementation Notes or Trade-offs
 
 - **Records vs. keys:** If records are large, count by key but **scatter indices**; perform a final gather to move records once.
-    
-- **Prefix-sum semantics:** Using **1-past-last** indices simplifies placement; alternative “first index” conventions work if consistent.
-    
+
+- **Prefix-sum semantics:** Using **1-past-last** indices simplifies placement; alternative "first index" conventions work if consistent.
+
 - **Cache behavior:** Keep `C` small (fit in cache) by choosing an appropriate key encoding or chunking.
-    
+
 - **Memory bounds:** For bounded embedded systems, verify `U+1` counts fit in memory; otherwise chunk keys and merge.
-    
+
 
 ## Summary
 
@@ -149,7 +133,7 @@ Counting sort achieves **$O(n + U)$** sorting by **counting frequencies**, compu
 ## See also
 
 - [[cs/dsa/radix-sort|Radix Sort]]
-    
+
 - [[cs/dsa/bucket-sort|Bucket Sort]]
-    
+
 - [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]

@@ -1,17 +1,13 @@
 ---
 title: AVL Tree — Height-Balanced Binary Search Tree
 description: Self-balancing BST that maintains O(log n) height via single and double rotations based on balance factors.
-draft: true
+draft: false
 tags:
   - cs
   - dsa
 date: 2025-10-16
 updated: 2025-10-29
 aliases: []
-# diagrams:
-#  - avl_rotations.svg — visualize LL, LR, RL, RR rotation patterns.
-#  - avl_insert_trace.svg — insertion sequence showing rebalancing propagation.
-#  - avl_balance_factor.svg — tree annotated with balance factors (-1, 0, +1).
 ---
 
 ## Definition
@@ -80,9 +76,9 @@ height(node) = 1 + max(height(left), height(right))
 **Recursive vs iterative updates.** Implement rebalancing either:
 
 - **Recursively** (natural propagation of height fixes), or
-    
+
 - **Iteratively** with parent pointers or an explicit stack to walk back up and rotate where needed.
-    
+
 
 ### Trade-offs vs other trees
 
@@ -94,7 +90,7 @@ height(node) = 1 + max(height(left), height(right))
 |Insert/Delete constants|Slightly higher|Often lower|
 |Typical use|Memory-sensitive, read-heavy|Write-heavy or map/set libraries|
 
-> [!note]  
+> [!note]
 > AVL trees often outperform Red-Black Trees in search-heavy workloads thanks to tighter height bounds, at the cost of more frequent rebalancing.
 
 ## Examples
@@ -104,13 +100,9 @@ height(node) = 1 + max(height(left), height(right))
 Insert sequence `[10, 20, 30, 25, 28]`:
 
 - After inserting `30`, an **RR**-type imbalance near the root triggers a **left rotation**.
-    
-- Inserting `25` then `28` can produce **RL/LR**-type patterns; apply the appropriate **double rotation**.  
-    See full step-by-step transformations in [[cs/dsa/avl-rotations|AVL Rotations]].
-    
 
-> [!example]  
-> **Diagram (`avl_insert_trace.svg`)** — show insertion steps with heights and rebalance highlights.
+- Inserting `25` then `28` can produce **RL/LR**-type patterns; apply the appropriate **double rotation**.
+    See full step-by-step transformations in [[cs/dsa/avl-rotations|AVL Rotations]].
 
 ### Short delete narrative
 
@@ -125,31 +117,31 @@ Delete(10)
 ## Pitfalls
 
 > [!warning] Common pitfalls
-> 
+>
 > - Forgetting to update heights after rotation.
->     
+>
 > - Propagating height updates in the wrong order.
->     
+>
 > - Mixing up LR vs RL cases.
->     
+>
 
-> [!warning]  
+> [!warning]
 > **Forgetting to update heights:** Heights must be updated bottom-up after rotations or insertion; skipping one leads to incorrect balancing.
 
-> [!warning]  
-> **Incorrect balance propagation:** After fixing one imbalance, continue updating parent nodes—rotations don’t automatically restore the entire path.
+> [!warning]
+> **Incorrect balance propagation:** After fixing one imbalance, continue updating parent nodes—rotations don't automatically restore the entire path.
 
-> [!tip]  
+> [!tip]
 > Use recursion or explicit parent pointers to propagate updates cleanly.
 
 ## See also
 
 - [[cs/dsa/bst|Binary Search Tree]]
-    
+
 - [[cs/dsa/avl-rotations|AVL Rotations]]
-    
+
 - [[rb-tree | Red Black Tree]]
-    
+
 - [[cs/dsa/tree-traversal|Tree Traversal]]
-    
+
 - [[cs/dsa/splay-tree|Splay Tree]]

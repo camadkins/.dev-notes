@@ -1,16 +1,13 @@
 ---
 title: Stack
 description: LIFO discipline with push, pop, and optional peek; array- or list-backed with clear invariants and well-defined error handling.
-draft: true
+draft: false
 tags:
   - cs
   - dsa
 date: 2025-10-16
-updated:
+updated: 2025-11-22
 aliases: []
-# diagrams:
-# - stack-top-movement.svg — Show an array-backed stack with top index moving on push/pop; highlight underflow/overflow boundaries.
-# - parentheses-matching-trace.svg — Stepwise trace of parentheses matching using a stack, illustrating pushes on '(' and pops on ')'.
 ---
 
 ## Overview
@@ -98,9 +95,6 @@ class LinkedStack<T>:
 
 ## Example (Stepwise)
 
-> [!example]  
-> **Diagram (`stack-top-movement.svg`)** — Depict an array with `top` moving right on `push` and left on `pop`, marking valid region `A[0..top-1]` and the **overflow** boundary at `cap`.
-
 **Parentheses matching** (well-formedness of a string with `(` and `)`):
 
 ```pseudo
@@ -116,93 +110,90 @@ function PAREN_MATCH(s):
 ```
 
 - Push on `'('`, pop on `')'`. At the end, stack must be empty to be balanced.
-    
 
-> [!example]  
-> **Diagram (`parentheses-matching-trace.svg`)** — Show the stack’s content evolving as you read `(()())`: pushes on `(` and pops on matching `)` until empty.
 
 ## Complexity and Performance
 
 Let `n` be the number of operations.
 
 - **Array-backed**: `push`/`pop`/`peek` in **O(1)**; with dynamic resizing by a factor (e.g., ×2), `push` is **amortized O(1)**; `pop` is O(1). `size` and `isEmpty` are O(1).
-    
+
 - **Linked**: all core ops are **O(1)** worst-case; each element adds a node allocation.
-    
+
 - **Space**:
-    
+
     - Array: `Θ(cap)` reserved; load factor near 1 if growth policy is geometric.
-        
+
     - Linked: `Θ(n)` plus per-node overhead (pointers, allocator headers).
-        
+
 
 Cache and locality:
 
 - Arrays are **cache-friendly**, often outperforming lists due to contiguous memory.
-    
+
 - Linked stacks suffer **pointer chasing**, but avoid reallocation on growth.
-    
+
 
 ## Implementation Details or Trade-offs
 
 ### Fixed vs dynamic capacity (arrays)
 
 - **Fixed** `cap` yields predictable memory and can prevent reallocation in constrained settings. You must decide on **overflow behavior** (error/exception, discard, or overwrite in a circular-buffer variant—though wrap-around violates strict LIFO semantics unless designed as a ring stack for bounded history).
-    
+
 - **Dynamic growth** (e.g., doubling capacity) gives amortized O(1) pushes but temporarily allocates and copies `Θ(n)` elements during a resize.
-    
+
 
 ### Shrink policy
 
 - Shrinking when `top < cap/4` reduces memory but risks **thrash** on workloads that hover near thresholds. Many libraries **do not shrink automatically**; expose a `trimToSize()` method instead.
-    
+
 
 ### Error handling
 
 - **Underflow** on `pop()` or `peek()` from an empty stack must be defined: throw, return sentinel, or return status plus out-parameter. In C-like APIs, consider `bool pop(T* out)` and return false on empty.
-    
+
 
 ### Thread safety
 
 - A simple stack is **not** thread-safe by default. For concurrent use, wrap with a mutex or use a specialized **lock-free** stack (e.g., Treiber stack with ABA handling via hazard pointers or tagged pointers). Note: lock-free stacks can suffer **contention** on the top pointer under high concurrency.
-    
+
 
 ### Memory model
 
 - **Linked** stacks: per-op heap alloc/free can dominate time and fragment memory; use **object pools**/arenas to amortize costs.
-    
-- **Array** stacks: reallocation copies elements; for large objects, store **handles/indices** instead of full objects to minimize copy costs.
-    
 
-> [!tip]  
+- **Array** stacks: reallocation copies elements; for large objects, store **handles/indices** instead of full objects to minimize copy costs.
+
+
+> [!tip]
 > In languages without bounds-checked arrays, guard every `push` against overflow (array full) and every `pop/peek` against underflow. Add assertions in debug builds to catch misuse.
 
 ## Practical Use Cases
 
 - **Call stacks (recursion)**: function frames are effectively a stack; recursion depth corresponds to stack height. See [[cs/dsa/recursion|Recursion]] for depth concerns.
-    
+
 - **Expression evaluation**: postfix (RPN) evaluators push operands and pop on operators; infix-to-postfix conversion uses **operator stacks**.
-    
+
 - **Backtracking**: DFS paths, undo logs, and state snapshots are naturally stacked.
-    
+
 - **Language parsing**: parentheses/bracket matching, operator precedence parsing (shunting-yard), and LR parser stacks.
-    
-- **Algorithms**: iterative DFS replaces recursion with an explicit stack; Tarjan’s SCC uses a stack to manage active vertices.
-    
+
+- **Algorithms**: iterative DFS replaces recursion with an explicit stack; Tarjan's SCC uses a stack to manage active vertices.
+
 
 ## Limitations / Pitfalls
 
-> [!warning]  
+> [!warning]
 > **Underflow/overflow**: empty pops/peeks and capacity overflows are the most common bugs. Define clear API behavior and test boundary conditions.
 
-> [!warning]  
+> [!warning]
 > **Iterator invalidation**: popping elements while iterating a backing container can invalidate references/pointers; avoid exposing raw internals.
 
-> [!warning]  
+> [!warning]
 > **Recursion depth**: relying on the language call stack can overflow for deep inputs (e.g., skewed trees); use an explicit stack and iterative algorithms when needed.
 
-> [!warning]  
-> **LIFO mismatch**: not all “undo” semantics are strictly LIFO once you introduce branching histories; you may need a **stack of stacks** or a DAG of states.
+> [!warning]
+> **LIFO mismatch**: not all "undo" semantics are strictly LIFO once you introduce branching histories; you may need a **stack of stacks** or a DAG of states.
 
 ## Example (Additional)
 
@@ -222,7 +213,7 @@ function UNDO(state, undoStack):
 ```
 
 - Each forward action pushes an inverse. Undo becomes a single `pop()+apply()`.
-    
+
 
 ## Summary
 
@@ -231,9 +222,9 @@ Stacks implement **LIFO** access with a minimal, efficient API. Array-backed sta
 ## See also
 
 - [[cs/dsa/stack-using-array|Stack Using Array]]
-    
+
 - [[cs/dsa/stack-using-linked-list|Stack Using Linked List]]
-    
+
 - [[cs/dsa/recursion|Recursion]]
-    
+
 - [[cs/dsa/depth-first-search-algorithms|Depth-First Search Algorithms]]

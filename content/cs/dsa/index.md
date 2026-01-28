@@ -7,7 +7,7 @@ tags:
   - cs
   - dsa
 date: 2025-10-16
-updated:
+updated: 2026-01-01
 aliases:
   - Data Structures & Algorithms
 ---

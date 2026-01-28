@@ -1,6 +1,6 @@
 ---
 title: Home
-description: Entry to Cam’s Cyberspace — CS notes, diagrams, and experiments.
+description: Entry to Cam’s Cyberspace - CS notes, diagrams, and experiments.
 draft: false
 comments: false
 tags: []
