@@ -1,17 +1,14 @@
 ---
 title: Time Complexity Calculation
 description: Deriving running-time bounds by translating code to counts, summations, and recurrences with clear assumptions.
-draft: true
+draft: false
 tags:
   - cs
   - dsa
 date: 2025-10-16
-updated:
+updated: 2025-12-05
 aliases: []
-# diagrams:
-# - series-cheatsheet.svg — Visual crib of arithmetic, geometric, and harmonic sums with Big-Theta forms and common derivations.
-# - recurrence-tree.svg — Recursion tree for T(n)=aT(n/b)+f(n) with per-level work and total accumulation; examples for merge sort and quicksort.
-# - loop-shape-gallery.svg — Linear, triangular, logarithmic, and exponential loop “shapes” with iteration counts n, n(n+1)/2, ⌊log₂n⌋, 2^k.
+
 ---
 
 ## Overview
@@ -51,7 +48,7 @@ Count: `n` → `$Θ(n)$`.
 
 **Constant loops** (e.g., `for k in 1..100`) are `$Θ(1)$`.
 
-### Nested “square” loops
+### Nested "square" loops
 
 ```pseudo
 for i in 0..n-1:
@@ -103,28 +100,25 @@ phaseB(n)   // Θ(n)
 
 Total: `Θ(n log n + n) = Θ(n log n)` (dominant term wins).
 
-> [!example]  
-> **Diagram (`loop-shape-gallery.svg`)** — Place the four loop “shapes” with their iteration counts to build intuition: linear `n`, triangular `~n²/2`, logarithmic `~log n`, exponential `2^k`.
-
 ## Properties and Relationships
 
 ### 1) Translate → Sum → Simplify
 
 - Replace loop bodies with a step bound (often `1`).
-    
+
 - Turn loop nests into **sums**.
-    
+
 - Use arithmetic/geometric/harmonic identities to simplify.
-    
+
 
 Common identities (Big-Theta forms):
 
 - `1 + 2 + … + n = Θ(n^2)`
-    
+
 - `1 + 1/2 + … + 1/n = Θ(log n)` (harmonic)
-    
+
 - `1 + r + r^2 + … + r^k = Θ(1)` if `|r|<1`, else `Θ(r^k)` when `r>1`
-    
+
 
 ### 2) Max vs sum
 
@@ -137,7 +131,7 @@ else:
     costB(n)
 ```
 
-Worst-case: `max(costA, costB)`.  
+Worst-case: `max(costA, costB)`.
 Average-case: weight by `P(cond)`.
 
 ### 3) Independent parameters
@@ -147,27 +141,27 @@ Prefer `Θ(n + m)` over collapsing to `Θ(n^2)` when `m` (edges) governs cost, a
 ## Implementation or Practical Context
 
 - **Cache effects:** Arrays vs pointers can change constants by 10× without changing Big-O.
-    
-- **Branching:** Data-dependent branches degrade predictability; branchless patterns may shrink constants.
-    
-- **Vectorization/parallelism:** Still `Θ(n)`, but much smaller constant or divided wall time; separately report **work** and **span** for parallel routines.
-    
 
-> [!note]  
+- **Branching:** Data-dependent branches degrade predictability; branchless patterns may shrink constants.
+
+- **Vectorization/parallelism:** Still `Θ(n)`, but much smaller constant or divided wall time; separately report **work** and **span** for parallel routines.
+
+
+> [!note]
 > Asymptotics **do not** predict wall time. After deriving bounds, **measure** critical paths.
 
 ## Common Misunderstandings
 
-> [!warning]  
+> [!warning]
 > **Counting every statement literally.** You only need a bound for the **dominant** action per iteration, then sum.
 
-> [!warning]  
+> [!warning]
 > **Ignoring the model.** Adding `b`-bit integers is `$Θ(1)$` in RAM but `$Θ(b)$` in the bit model.
 
-> [!warning]  
+> [!warning]
 > **Wrong loop limits.** Off-by-one in `0..n-1` vs `1..n` does **not** change Big-O, but matters for **correctness** and for edge-case counts in proofs.
 
-> [!warning]  
+> [!warning]
 > **Hiding parameters.** Prefer `Θ(n + m)` or `Θ(n + m log n)` over vague `Θ(n^2)` when graphs/strings are involved.
 
 ## Definition and Formalism (Recurrences)
@@ -205,16 +199,13 @@ T(n) = a T(n/b) + f(n)
 ```
 
 - If `f(n) = O(n^{log_b a - ε})` → `Θ(n^{log_b a})`
-    
+
 - If `f(n) = Θ(n^{log_b a} log^k n)` → `Θ(n^{log_b a} log^{k+1} n)`
-    
+
 - If `f(n) = Ω(n^{log_b a + ε})` + regularity → `Θ(f(n))`
-    
+
 
 See [[cs/dsa/recurrence-relations|Recurrence Relations]] and [[cs/dsa/recurrences-master-theorem|Recurrences — Master Theorem]].
-
-> [!example]  
-> **Diagram (`recurrence-tree.svg`)** — Label per-level work for `2T(n/2)+n`: each level costs `n`, depth `log n`, total `n log n`.
 
 ## Example or Illustration (Worked Patterns)
 
@@ -266,39 +257,39 @@ Nodes visited: `1 + b + b^2 + … + b^d = Θ(b^d)` (geometric). See [[cs/dsa/bac
 ## Implementation Notes
 
 - **Tighten to Θ when possible.** Provide both upper and lower bounds if trivial: e.g., linear scans are `Θ(n)`.
-    
-- **State preconditions.** Many “logarithmic” bounds (e.g., binary search) **require ordering** and **random access**.
-    
+
+- **State preconditions.** Many "logarithmic" bounds (e.g., binary search) **require ordering** and **random access**.
+
 - **Use sentinels/invariants** to simplify counts (e.g., sentinel in insertion sort avoids inner bound checks but not the `Θ(n^2)` total).
-    
+
 
 ## Broader Implications
 
 - **Algorithm selection by regime:** Use insertion sort for tiny `n`, switch to `O(n log n)` sort as `n` grows. Hybrids like **introsort** pick the best behavior across regimes (see [[cs/dsa/quick-sort|Quick Sort]] and [[cs/dsa/heapsort|Heapsort]]).
-    
+
 - **From asymptotics to engineering:** Once the class is acceptable, focus on **layout, caches, branches, and parallelization** to shrink constants.
-    
+
 
 ## Summary
 
 To calculate time complexity:
 
 1. **Choose a model** (RAM/bit/I-O).
-    
+
 2. **Rewrite code as counts**: per-iteration cost × iterations → **sums**.
-    
+
 3. **Solve or bound** sums with known series; for recursion, set up a **recurrence** and apply **Master/recursion tree**.
-    
-4. **Simplify** to `$O/Ω/Θ$`, naming the **case** and **parameters**.  
+
+4. **Simplify** to `$O/Ω/Θ$`, naming the **case** and **parameters**.
     This pipeline yields consistent, communicable bounds you can pair with measurement for real-world performance.
-    
+
 
 ## See also
 
 - [[cs/dsa/asymptotic-notation|Asymptotic Notation]]
-    
+
 - [[cs/dsa/time-complexity-analysis|Time Complexity Analysis]]
-    
+
 - [[cs/dsa/recurrence-relations|Recurrence Relations]]
-    
+
 - [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]

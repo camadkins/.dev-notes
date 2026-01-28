@@ -1,20 +1,13 @@
 ---
-title: Radix Sort  
-description: Sort fixed-width keys by processing digits from least or most significant using a stable subroutine; linear-time in key length.  
-draft: true  
+title: Radix Sort
+description: Sort fixed-width keys by processing digits from least or most significant using a stable subroutine; linear-time in key length.
+draft: false
 tags:
 - cs
-- dsa  
-date: 2025-10-16  
-updated:  
+- dsa
+date: 2025-10-16
+updated: 2026-01-23
 aliases: []
-# diagrams:
-
-# - radix-lsd-passes.svg — Pass-by-pass illustration of LSD radix on base-10 numbers; shows buckets 0..9 and stable concatenation after each digit.
-
-# - radix-msd-trie-view.svg — MSD view as a recursive partitioning/trie expansion with buckets by leading digit and depth-first concatenation.
-
-# - base-choice-vs-cost.svg — Table/plot sketch comparing passes (d=⌈w/log_b⌉) vs per-pass cost for different bases (b=2, 10, 256, 2^k).
 
 ---
 
@@ -25,29 +18,26 @@ aliases: []
 Key strengths:
 
 - **Data-independent runtime** (no comparisons) and predictable throughput.
-    
+
 - **Excellent for integers and fixed-length byte strings**; widely used in systems pipelines and indexing.
-    
 
 Key constraints:
 
 - Requires **known digit structure** and benefits from **fixed widths**; extra care for **negatives**, **variable lengths**, or **locale/collation**.
-    
 
-> [!note]  
+> [!note]
 > Radix sort is non-comparative; it can beat the `Ω(n log n)` lower bound that applies to **comparison** sorts like [[cs/dsa/merge-sort|Merge Sort]] or [[cs/dsa/quicksort|Quick Sort]].
 
 ## Core Idea
 
-Represent each key `K` as a sequence of `d` digits in base `b`:  
+Represent each key `K` as a sequence of `d` digits in base `b`:
 `K = (k_{d-1}, k_{d-2}, …, k_1, k_0)`, with `k_i ∈ {0, …, b−1}`.
 
 Two organizing strategies:
 
 - **LSD radix**: perform stable passes from `k_0` (least significant) to `k_{d-1}`; final order is sorted.
-    
+
 - **MSD radix**: **partition** by `k_{d-1}` first, then recursively sort each bucket by the next digit; mirrors a trie on key prefixes.
-    
 
 Choosing **LSD or MSD** depends on key distribution, variable lengths, and memory behavior.
 
@@ -114,7 +104,7 @@ function RADIX_MSD(A, l, r, i, b):
         start += cnt
 ```
 
-> [!tip]  
+> [!tip]
 > **LSD** is usually simpler and more cache-friendly for fixed-width integers. **MSD** shines for **strings** (common prefixes) and when you want to short-circuit recursion once buckets become small or uniform.
 
 ## Example or Trace
@@ -122,130 +112,115 @@ function RADIX_MSD(A, l, r, i, b):
 Consider 8-bit base-10 numbers and **LSD** radix with `b=10` and `d=3` for `[329, 457, 657, 839, 436, 720, 355, 66]`.
 
 1. **On ones** (`k_0`): stable bucket/concat by last digit → …
-    
+
 2. **On tens** (`k_1`): stable process preserves ones-order within each tens-bucket → …
-    
+
 3. **On hundreds** (`k_2`): final array is sorted.
-    
 
-> [!example]  
-> **Diagram (`radix-lsd-passes.svg`)** — Three rows, buckets 0..9 each pass, arrows showing stable concatenation; emphasize that stability across passes yields global order.
-
-For **MSD** on fixed-length ASCII strings with `b=256`, the first pass groups by the first byte; each group recurses on the next byte. If a bucket’s range is size 1 (or all equal), recursion halts early.
+For **MSD** on fixed-length ASCII strings with `b=256`, the first pass groups by the first byte; each group recurses on the next byte. If a bucket's range is size 1 (or all equal), recursion halts early.
 
 ## Complexity Analysis
 
 Let `n` items, radix `b`, `d` digit passes (e.g., for w-bit integers with `k` bits per digit, `d=⌈w/k⌉`, `b=2^k`):
 
 - **Time:** `Θ(n · d + b · d)` for counting-based passes; the `b · d` term builds prefix sums (often negligible for moderate `b`).
-    
+
 - **Space:** One **auxiliary array** `B` of size `n` plus a **count array** `C` of size `b`. MSD variants may allocate temporary buffers per recursion level but reuse a shared workspace.
-    
 
 Comparisons with comparison-based sorts:
 
 - For fixed-width 32-bit integers (`w=32`) and `k=8` (so `d=4`, `b=256`), radix runs in `~4n` bucket writes, typically outperforming `n log n` sorts for large `n`.
-    
-- When keys are very short (e.g., 16 bits), radix is particularly fast. When keys are long or variable, MSD with early termination can still be efficient.
-    
 
-> [!note]  
-> The asymptotic lower bound `Ω(n log n)` doesn’t apply because radix doesn’t rely on comparisons; it’s a **distribution** sort.
+- When keys are very short (e.g., 16 bits), radix is particularly fast. When keys are long or variable, MSD with early termination can still be efficient.
+
+> [!note]
+> The asymptotic lower bound `Ω(n log n)` doesn't apply because radix doesn't rely on comparisons; it's a **distribution** sort.
 
 ## Optimizations or Variants
 
 ### Base and digit width
 
 - **Power-of-two bases (`b=2^k`)**: digit extraction is fast via masking and shifting; `k=8` (bytes) is a sweet spot on modern CPUs (cache-friendly, `C` fits L1/L2).
-    
+
 - **Larger `k`** reduces the number of passes `d` but inflates `C` and can hurt cache locality; prefer `k` so that `b*sizeof(count)` fits comfortably in cache (e.g., `b=256` or `b=4096`).
-    
 
 ### Stability and stable subroutine
 
 - Every LSD pass must be **stable**. Counting sort is the standard choice: `count → prefix → stable scatter`.
-    
+
 - For MSD, each partition step must keep **relative order** within buckets if later levels depend on it (or simply rewrite contiguous segments per bucket).
-    
 
 ### Handling negatives (integers)
 
-- **Two-bucket trick for signed integers** with LSD: treat the sign bit as the **final pass** and **rotate** negatives ahead of non-negatives, or run all passes unsigned and then **stable rotate** the final array so that negative keys come before non-negative (with two’s-complement order preserved if you process bytes MSB last).
-    
-- Alternatively for MSD: process the **sign-most-significant** group first with custom ordering: “negative group” precedes “non-negative group”.
-    
+- **Two-bucket trick for signed integers** with LSD: treat the sign bit as the **final pass** and **rotate** negatives ahead of non-negatives, or run all passes unsigned and then **stable rotate** the final array so that negative keys come before non-negative (with two's-complement order preserved if you process bytes MSB last).
+
+- Alternatively for MSD: process the **sign-most-significant** group first with custom ordering: "negative group" precedes "non-negative group".
 
 ### Variable-length strings
 
 - **MSD with sentinel**: define `DIGIT_OR_SENTINEL(s, i, b)` to return a **sentinel** value for positions beyond the string end (e.g., 0) and map real bytes to `1..b`. Reserve the sentinel bucket as **terminal** (no deeper recursion).
-    
+
 - **LSD on strings** works only if all strings are **padded** to the same length with a padding byte ordered **before** all real characters (and you know max length).
-    
 
 ### Cutoffs and hybrids
 
 - **Insertion sort cutoff** for small subarrays in MSD recursion improves constants.
-    
+
 - **In-place radix** variants exist but are complex; the classic two-buffer approach is simpler and fast in practice.
-    
 
 ### Parallelism
 
 - Each pass builds counts which can be **parallel reduced**, and buckets can be **scattered** with prefix sums per thread and offset correction. MSD recursion can be parallelized per bucket.
-    
 
-> [!tip]  
+> [!tip]
 > On large datasets, prefer **byte-wise (`k=8`) LSD** with a **single reusable output buffer** and **streaming-friendly** memory access. It tends to be both simple and fast.
 
 ## Applications
 
 - **Indexing and databases**: sorting fixed-size keys (IDs, timestamps).
-    
+
 - **Systems pipelines**: log/session sorting by fixed-width fields.
-    
+
 - **String processing**: lexicographic order for fixed-length codes, or MSD for variable-length ASCII/UTF-8 (byte-wise with sentinel).
-    
-- **Graphics/GPU**: key–value sorts (e.g., Morton codes) using byte-wise radix with parallel prefix-sum.
-    
+
+- **Graphics/GPU**: key-value sorts (e.g., Morton codes) using byte-wise radix with parallel prefix-sum.
 
 Radix complements and often feeds:
 
 - [[cs/dsa/counting-sort|Counting Sort]] as the per-pass stable routine.
-    
+
 - [[cs/dsa/bucket-sort|Bucket Sort]] when distribution is known and continuous.
-    
+
 - [[cs/dsa/heapsort|Heapsort]]/[[cs/dsa/merge-sort|Merge Sort]] when keys are comparison-only or need stability with arbitrary comparators.
-    
 
 ## Common Pitfalls or Edge Cases
 
-> [!warning]  
-> **Unstable passes break correctness (LSD).** If a single pass isn’t stable, earlier digit ordering is destroyed and the final result may be incorrect.
+> [!warning]
+> **Unstable passes break correctness (LSD).** If a single pass isn't stable, earlier digit ordering is destroyed and the final result may be incorrect.
 
-> [!warning]  
+> [!warning]
 > **Base too large for cache.** Oversized `C` (e.g., `b=2^16`) thrashes caches and slows down despite fewer passes. Align `b` to cache capacity.
 
-> [!warning]  
+> [!warning]
 > **Negatives mishandled.** Treat signedness consistently. A naive unsigned interpretation can place negatives after positives incorrectly.
 
-> [!warning]  
+> [!warning]
 > **Variable-length strings in LSD.** Padding with the wrong sentinel (or inconsistent padding) breaks lexicographic order. Either use **MSD** with a sentinel bucket or pad with a byte ordered strictly less than all valid characters.
 
-> [!warning]  
+> [!warning]
 > **Stable scatter order.** In counting sort, use **exclusive prefix sums** and **forward** scatter for stability (or inclusive sums with **reverse** scatter). Mixing these silently destabilizes.
 
 ## Implementation Notes or Trade-offs
 
 - **Buffers**: Reuse one output buffer `B` across passes to avoid repeated allocations. Swap roles `A ↔ B` each pass.
-    
+
 - **Counting array layout**: Keep `C` aligned and in a separate cache line from hot data to avoid false sharing when parallelized.
-    
+
 - **Digit extraction**: For integers, `DIGIT(x,i,2^k) = (x >> (k·i)) & ((1<<k)−1)`. For bytes, read directly. For endianness concerns, define digits consistently (LSD = least significant byte first).
-    
-- **Key–value pairs**: Carry the **payload** alongside the key during stable scatter; keep structs compact to maximize memory bandwidth.
-    
+
+- **Key-value pairs**: Carry the **payload** alongside the key during stable scatter; keep structs compact to maximize memory bandwidth.
+
 - **Cutoffs**: For small arrays, fall back to [[cs/dsa/insertion-sort|Insertion Sort]] to reduce overhead.
-    
 
 ## Summary
 
@@ -254,9 +229,9 @@ Radix sort organizes keys by **digits** and performs **stable bucket passes** to
 ## See also
 
 - [[cs/dsa/counting-sort|Counting Sort]]
-    
+
 - [[cs/dsa/bucket-sort|Bucket Sort]]
-    
+
 - [[cs/dsa/heapsort|Heapsort]]
-    
+
 - [[cs/dsa/insertion-sort|Insertion Sort]]

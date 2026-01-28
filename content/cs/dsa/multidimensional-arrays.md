@@ -1,22 +1,13 @@
 ---
-title: Multidimensional Arrays  
-description: Row-major vs column-major layouts, linearization formulas, and cache-friendly traversal patterns for 2D and higher dimensions.  
-draft: true  
+title: Multidimensional Arrays
+description: Row-major vs column-major layouts, linearization formulas, and cache-friendly traversal patterns for 2D and higher dimensions.
+draft: false
 tags:
 - cs
-- dsa  
-date: 2025-10-16  
-updated:  
+- dsa
+date: 2025-10-16
+updated: 2025-12-09
 aliases: []
-# diagrams:
-
-# - row-vs-column-major.svg — 2D grid annotated with contiguous directions; stride arrows for row-major and column-major.
-
-# - linearization-formulas.svg — Derive offsets for A[i][j] and D-D arrays; show base + offset computation.
-
-# - transpose-tiling.svg — Blocked transpose tiles in row-major; heatmap of cache reuse vs naive approach.
-
-# - jagged-vs-rectangular.svg — Contrast contiguous rectangular block with array-of-pointers jagged layout.
 
 ---
 
@@ -25,13 +16,13 @@ aliases: []
 **Multidimensional arrays** store elements in a 1D memory region and use **linearization** to map `(i, j, k, …)` indices to byte offsets. Two canonical layouts dominate:
 
 - **Row-major** (C/C++ default): rows are contiguous.
-    
+
 - **Column-major** (Fortran/MATLAB default): columns are contiguous.
-    
+
 
 Performance hinges on **strides** and **access order**. Traversing along the **contiguous dimension** maximizes cache locality and memory bandwidth. This note gives exact offset formulas, common pitfalls, and practical traversal patterns for transposes, convolutions, and higher dimensions.
 
-> [!note]  
+> [!note]
 > Treat layout as part of the **data structure contract**. Many bugs and slowdowns arise when code assumes the wrong layout or ignores strides.
 
 ## Motivation
@@ -39,11 +30,11 @@ Performance hinges on **strides** and **access order**. Traversing along the **c
 Algorithms on tables—dynamic programming, image filters, matrix ops, adjacency matrices—are limited by **memory throughput** more than arithmetic. Knowing how indices map to addresses lets you:
 
 - Write loops that hit **contiguous cache lines**.
-    
+
 - Implement **transpose** and **stencil** passes that avoid strided misses.
-    
+
 - Safely interoperate with libraries expecting specific layouts.
-    
+
 
 ## Definition and Formalism
 
@@ -52,31 +43,28 @@ Consider a rectangular `rows × cols` array `A` of element size `elem` bytes wit
 ### Row-major (C-style)
 
 - **Offset (2D)**: `off = (i*cols + j) * elem`
-    
+
 - **Address**: `addr = base + off`
-    
+
 - **Strides**:
-    
+
     - Increment `j` (across columns): stride = `elem` (contiguous)
-        
+
     - Increment `i` (down rows): stride = `cols * elem` (row jump)
-        
+
 
 ### Column-major (Fortran-style)
 
 - **Offset (2D)**: `off = (j*rows + i) * elem`
-    
-- **Address**: `addr = base + off`
-    
-- **Strides**:
-    
-    - Increment `i`: stride = `elem` (contiguous)
-        
-    - Increment `j`: stride = `rows * elem`
-        
 
-> [!example]  
-> **Diagram (`linearization-formulas.svg`)** — Count how many full lines precede `(i,j)`, multiply by that line’s length, then add the within-line index and scale by `elem`.
+- **Address**: `addr = base + off`
+
+- **Strides**:
+
+    - Increment `i`: stride = `elem` (contiguous)
+
+    - Increment `j`: stride = `rows * elem`
+
 
 ### General D-dimensional row-major
 
@@ -88,12 +76,12 @@ off = ((((i0*N1 + i1)*N2 + i2) * ... * N{D-1} + i{D-1}) * elem)
 
 Column-major reverses the nesting order (earlier indices vary fastest in column-major).
 
-> [!tip]  
+> [!tip]
 > For bounds checking, use **half-open ranges** `[0..Ni)` per dimension. Out-of-range indices produce incorrect offsets and memory errors in unchecked languages.
 
 ## Example or Trace
 
-Let `A` be `3×4` doubles (`elem=8`) in **row-major**. For `(i=2, j=1)`,  
+Let `A` be `3×4` doubles (`elem=8`) in **row-major**. For `(i=2, j=1)`,
 `off = (2*4 + 1)*8 = 72` bytes → `addr = base + 72`.
 
 **Cache-friendly sum (row-major):**
@@ -114,19 +102,19 @@ for j in 0..cols-1:
         sum += A[i][j]
 ```
 
-> [!warning]  
+> [!warning]
 > Walking the **non-contiguous** dimension in the inner loop (columns for row-major, rows for column-major) causes **strided access**, frequent cache misses, and TLB churn.
 
 ## Properties and Relationships
 
 - **Layout dictates stride**: inner-loop dimension should be the **contiguous** one for best locality.
-    
+
 - **Matrix operations** intertwine with layout: naive transpose or multiply can be memory-bound unless tiled.
-    
+
 - **Rectangular vs jagged**: a rectangular array is one contiguous block; a **jagged** array is an array of pointers to rows (extra indirection, poorer cross-row locality).
-    
+
 - **Interoperability**: FFI between C (row-major) and Fortran (column-major) must agree on layout or use explicit transposes.
-    
+
 
 ## Implementation or Practical Context
 
@@ -146,12 +134,9 @@ function TRANSPOSE_BLOCKED(B, A, rows, cols, BS):
 ```
 
 - Pick `BS` so that two `BS×BS` tiles fit in cache (e.g., 32–128 depending on element size and cache).
-    
-- For **square** matrices and row-major layout, this reduces conflict misses dramatically.
-    
 
-> [!example]  
-> **Diagram (`transpose-tiling.svg`)** — Tiles indicate high reuse regions; compare to a heatmap of cache misses in the naive column-walk.
+- For **square** matrices and row-major layout, this reduces conflict misses dramatically.
+
 
 ### Convolution and Stencil Walks
 
@@ -165,9 +150,9 @@ for i in 1..rows-2:
 ```
 
 - Maintain a sliding window of `W` rows; advance by evicting the oldest.
-    
+
 - Unroll the inner loop modestly to help the compiler vectorize.
-    
+
 
 ### Dynamic Programming Tables
 
@@ -176,36 +161,36 @@ DP tables (e.g., edit distance) benefit from picking the **inner varying dimensi
 ### Rectangular vs Jagged Layouts
 
 - **Rectangular**: one `rows*cols*elem` block. Good for BLAS-style kernels; simple pointer arithmetic.
-    
-- **Jagged** (`T**` or `vector<vector<T>>`): each row allocated separately.
-    
-    - Pros: flexible per-row lengths; cheap row insert/delete.
-        
-    - Cons: extra pointer chasing, poorer cross-row locality, harder to vectorize.
-        
 
-> [!note]  
+- **Jagged** (`T**` or `vector<vector<T>>`): each row allocated separately.
+
+    - Pros: flexible per-row lengths; cheap row insert/delete.
+
+    - Cons: extra pointer chasing, poorer cross-row locality, harder to vectorize.
+
+
+> [!note]
 > Many high-level languages expose **jagged** by default. For performance-critical paths, prefer a **flat buffer** with manual indexing.
 
 ### Padding, Alignment, and SIMD
 
 - **Row padding**: widen each row so `row_bytes` is a multiple of cache-line or SIMD width. Formula becomes `addr = base + i*row_stride + j*elem`.
-    
+
 - **Alignment**: align base and row starts (e.g., 32 bytes for AVX). Misalignment hurts vector loads/stores.
-    
+
 - **Prefetching**: moderate prefetch distance on the inner loop can help long rows.
-    
+
 
 ### Bounds & Safety
 
 - Index checks in safe languages prevent OOB but add overhead; hoist checks or use slices when possible.
-    
+
 - In C/C++, stick to **half-open** loops and compute linear indices carefully:
-    
+
     - Row-major: `idx = i*cols + j`
-        
+
     - Column-major: `idx = j*rows + i`
-        
+
 
 ### Higher Dimensions (3D and beyond)
 
@@ -218,42 +203,42 @@ off = ((z*Y + y)*X + x) * elem
 Common access patterns:
 
 - 3D stencils: tile by slabs or bricks (`Z×Y×X` blocks) to keep working sets in cache.
-    
+
 - Transform orders to make the **innermost** loop the **unit stride** dimension.
-    
+
 
 ## Complexity and Performance
 
 - **Address computation** is `O(1)`. The bottleneck is **memory**: bandwidth, cache, and TLB.
-    
+
 - Well-tiled transposes and stencils achieve **2–10×** speedups over naive loops by improving **spatial** and **temporal** locality.
-    
+
 - Matrix–matrix multiply can be made compute-bound with **blocking** and **register tiling** even in plain languages.
-    
+
 
 ## Common Pitfalls or Edge Cases
 
-> [!warning]  
+> [!warning]
 > **Wrong layout assumption.** Passing row-major buffers into column-major libraries (or vice versa) silently scrambles results unless transposed or flagged correctly.
 
-> [!warning]  
+> [!warning]
 > **Transposed inner loops.** Inner loop over non-contiguous dimension causes strided access; swap loop order or tile.
 
-> [!warning]  
+> [!warning]
 > **Jagged vs rectangular confusion.** `A[i][j]` on a jagged array incurs extra pointer reads and can degrade performance vs a flat buffer.
 
-> [!warning]  
+> [!warning]
 > **In-place transpose for non-square arrays.** Requires permutation cycles over linear indices; easier and typically faster to use an out-of-place buffer.
 
-> [!warning]  
+> [!warning]
 > **Element size changes.** When switching `T`, recompute strides: `row_stride = cols * sizeof(T)` (row-major), `col_stride = rows * sizeof(T)` (column-major).
 
 ## Example (Matrix Transpose and Convolution Walk)
 
 - **Transpose**: use `TRANSPOSE_BLOCKED` with `BS` tuned to cache. For small square matrices, unroll inner loops; for large ones, add **software prefetch** on `A`.
-    
+
 - **Convolution**: iterate `j` as the inner loop in row-major; keep a 3-row ring buffer; maintain coefficients in registers; consider padding to avoid line aliasing.
-    
+
 
 ## Summary
 
@@ -262,9 +247,9 @@ Multidimensional arrays are **1D buffers with a view** defined by layout and str
 ## See also
 
 - [[cs/dsa/matries|Matrices]]
-    
+
 - [[cs/dsa/arrays|Arrays]]
-    
+
 - [[cs/dsa/graph-representations|Graph Representations]]
-    
+
 - [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]

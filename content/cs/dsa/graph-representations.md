@@ -1,24 +1,18 @@
 ---
-title: Graph Representations — Adjacency List vs Matrix  
-description: When to store a graph as adjacency lists or as an adjacency matrix, with space/time costs, examples, and practical guidance for sparse vs dense graphs.  
-draft: true
+title: Graph Representations — Adjacency List vs Matrix
+description: When to store a graph as adjacency lists or as an adjacency matrix, with space/time costs, examples, and practical guidance for sparse vs dense graphs.
+draft: false
 tags:
 - cs
 - dsa
-date: 2025-10-16  
-updated:
+date: 2025-10-16
+updated: 2025-10-31
 aliases: []
-# diagrams:
-# - graph-reps.svg — Side-by-side: small graph shown as an adjacency list and as an adjacency matrix; arrows highlight where each shines (neighbor scan vs edge lookup).
-# - matrix-blocking-and-list-layout.svg — Cache-friendly matrix blocking vs array-of-vectors adjacency layout; shows how access patterns affect throughput.
 ---
 
 ## Overview
 
-Graphs are commonly stored as either **adjacency lists** or an **adjacency matrix**. Lists store, for each vertex `u`, the neighbors `Adj[u]`. A matrix stores a `V×V` table where entry `(i,j)` indicates the weight/existence of edge `i→j`. The choice drives **space**, **iteration cost**, and **edge lookup cost**, and it shapes how algorithms like [[cs/dsa/dijkstras-algorithm|Dijkstra's Algorithm]] or [[cs/dsa/graph-traversals-bfs-dfs|Graph Traversals (BFS & DFS)]] behave in practice.
-
-> [!example]  
-> **Diagram (`graph-reps.svg`)** — Show the same 5-vertex graph as (1) `Adj[u]` lists and (2) a `5×5` matrix with `0/1` or weights; annotate: “scan neighbors” on the list side; “constant-time `hasEdge(u,v)`” on the matrix side.
+Graphs are commonly stored as either **adjacency lists** or an **adjacency matrix**. Lists store, for each vertex `u`, the neighbors `Adj[u]`. A matrix stores a `V x V` table where entry `(i,j)` indicates the weight/existence of edge `i->j`. The choice drives **space**, **iteration cost**, and **edge lookup cost**, and it shapes how algorithms like [[cs/dsa/dijkstras-algorithm|Dijkstra's Algorithm]] or [[cs/dsa/graph-traversals-bfs-dfs|Graph Traversals (BFS & DFS)]] behave in practice.
 
 ## Motivation
 
@@ -28,20 +22,20 @@ No single representation dominates. Use **lists** to keep memory linear in the n
 
 Let `n = |V|` and `m = |E|` (directed edges count separately).
 
-- **Adjacency list (AL):**  
-    Data shape: `Adj[u]` is a container of neighbors (and, for weighted graphs, `(v,w)` pairs).  
-    Space: `Θ(n + m)` (plus container overhead).  
-    Typical ops: iterate neighbors of `u` in `Θ(deg(u))`.
-    
-- **Adjacency matrix (AM):**  
-    Data shape: `n×n` table `M` with `M[u][v] = weight` (or `1/true`) if edge exists, else `0/false/∞`.  
-    Space: `Θ(n^2)` regardless of `m`.  
-    Typical ops: `hasEdge(u,v)` and `weight(u,v)` in `Θ(1)`.
-    
+- **Adjacency list (AL):**
+    Data shape: `Adj[u]` is a container of neighbors (and, for weighted graphs, `(v,w)` pairs).
+    Space: `Theta(n + m)` (plus container overhead).
+    Typical ops: iterate neighbors of `u` in `Theta(deg(u))`.
+
+- **Adjacency matrix (AM):**
+    Data shape: `n x n` table `M` with `M[u][v] = weight` (or `1/true`) if edge exists, else `0/false/infinity`.
+    Space: `Theta(n^2)` regardless of `m`.
+    Typical ops: `hasEdge(u,v)` and `weight(u,v)` in `Theta(1)`.
+
 
 ## Example or Illustration
 
-Consider the directed graph with edges: `0→1`, `0→3`, `1→2`, `2→3`, `3→0`. Weights omitted (unweighted) for brevity.
+Consider the directed graph with edges: `0->1`, `0->3`, `1->2`, `2->3`, `3->0`. Weights omitted (unweighted) for brevity.
 
 **Adjacency list**
 
@@ -64,19 +58,19 @@ Adj[4]: {}
 4: 0 0 0 0 0
 ```
 
-> [!tip]  
-> For **weighted** graphs, store weights in `Adj[u]` as pairs `(v,w)` or in `M[u][v]` as the numeric weight with a sentinel (e.g., `+∞` or `0`) for “no edge”. Be consistent across the codebase.
+> [!tip]
+> For **weighted** graphs, store weights in `Adj[u]` as pairs `(v,w)` or in `M[u][v]` as the numeric weight with a sentinel (e.g., `+infinity` or `0`) for "no edge". Be consistent across the codebase.
 
 ## Properties and Relationships
 
-- **Sparsity vs density.** If `m` is much smaller than `n^2` (e.g., `m = O(n)` or `O(n log n)`), lists typically win on both space and neighbor iteration time. When `m ≈ n^2`, the matrix cost `Θ(n^2)` is proportional to actual edges; constant-time lookups pay off.
-    
-- **Iteration pattern.** Many algorithms need “for each neighbor `v` of `u` …” (BFS/DFS, Dijkstra). Lists match this pattern directly; matrices require scanning a full row (cost `Θ(n)` regardless of `deg(u)`).
-    
-- **Edge tests.** When code frequently asks “is `(u,v)` an edge?” without iterating neighbors, matrices provide `Θ(1)` answers; lists require searching `Adj[u]` (`Θ(deg(u))`).
-    
+- **Sparsity vs density.** If `m` is much smaller than `n^2` (e.g., `m = O(n)` or `O(n log n)`), lists typically win on both space and neighbor iteration time. When `m` is approximately `n^2`, the matrix cost `Theta(n^2)` is proportional to actual edges; constant-time lookups pay off.
+
+- **Iteration pattern.** Many algorithms need "for each neighbor `v` of `u` ..." (BFS/DFS, Dijkstra). Lists match this pattern directly; matrices require scanning a full row (cost `Theta(n)` regardless of `deg(u)`).
+
+- **Edge tests.** When code frequently asks "is `(u,v)` an edge?" without iterating neighbors, matrices provide `Theta(1)` answers; lists require searching `Adj[u]` (`Theta(deg(u))`).
+
 - **Transitive closure / algebraic methods.** Matrix-based algorithms (Warshall, fast boolean matrix multiplies) benefit from AM and bit-packing.
-    
+
 
 ## Implementation or Practical Context
 
@@ -84,90 +78,87 @@ Adj[4]: {}
 
 |Operation|Adjacency List|Adjacency Matrix|
 |---|---|---|
-|Space|`Θ(n + m)`|`Θ(n^2)`|
-|Iterate neighbors of `u`|`Θ(deg(u))`|`Θ(n)`|
-|Check/Fetch weight of `(u,v)`|`Θ(deg(u))` (or `log deg(u)` with a set/map)|`Θ(1)`|
-|Insert edge `(u,v)`|Amortized `Θ(1)` (push)|`Θ(1)`|
-|Delete edge `(u,v)`|`Θ(deg(u))` unless indexed|`Θ(1)`|
-|Add vertex|`Θ(1)` (push empty list)|`Θ(n)` to expand each row/col|
-|Remove vertex|`Θ(deg(u) +` #in-edges`)`|`Θ(n)` to clear row/col|
-
-> [!example]  
-> **Diagram (`matrix-blocking-and-list-layout.svg`)** — Left: AM with cache-friendly **row-major blocking** for triple loops (e.g., Floyd–Warshall). Right: AL implemented as **array-of-vectors** so `Adj[u]` is contiguous; highlight that iterating neighbors uses sequential memory, improving cache hits.
+|Space|`Theta(n + m)`|`Theta(n^2)`|
+|Iterate neighbors of `u`|`Theta(deg(u))`|`Theta(n)`|
+|Check/Fetch weight of `(u,v)`|`Theta(deg(u))` (or `log deg(u)` with a set/map)|`Theta(1)`|
+|Insert edge `(u,v)`|Amortized `Theta(1)` (push)|`Theta(1)`|
+|Delete edge `(u,v)`|`Theta(deg(u))` unless indexed|`Theta(1)`|
+|Add vertex|`Theta(1)` (push empty list)|`Theta(n)` to expand each row/col|
+|Remove vertex|`Theta(deg(u) +` #in-edges`)`|`Theta(n)` to clear row/col|
 
 ### Directed vs Undirected
 
-- **Adjacency list:** For undirected graphs, store both directions (`u→v` and `v→u`). Degrees: `deg(u)` counts neighbors; total edges stored = `2m`.
-    
+- **Adjacency list:** For undirected graphs, store both directions (`u->v` and `v->u`). Degrees: `deg(u)` counts neighbors; total edges stored = `2m`.
+
 - **Adjacency matrix:** Mirror entries: `M[u][v] = M[v][u]` for undirected graphs.
-    
+
 
 ### Weighted Graphs
 
 - **Lists:** Use structs `{to, weight}`; optional secondary index if frequent `(u,v)` lookups are needed (e.g., sort or hash neighbors).
-    
-- **Matrix:** Natural place to keep weights; initialize with `∞` (or `0` for boolean reachability).
-    
+
+- **Matrix:** Natural place to keep weights; initialize with `infinity` (or `0` for boolean reachability).
+
 
 ### Cache/Memory Considerations
 
 - **AL:** `array<vector<int>>` (or similar) yields contiguous blocks per vertex; iteration is cache-friendly. Hash-based neighbor sets speed edge checks but hurt iteration latency.
-    
-- **AM:** Dense `n×n` blocks traverse well in row-major order; for large `n`, tile/block loops to keep working sets in cache.
-    
+
+- **AM:** Dense `n x n` blocks traverse well in row-major order; for large `n`, tile/block loops to keep working sets in cache.
+
 
 ### Algorithmic Fit
 
-- **BFS/DFS:** Prefer **AL** for sparse graphs: time `Θ(n + m)` vs `Θ(n^2)` for AM (since AM scans each row).
-    
-- **Dijkstra:** AL with a priority queue is `Θ((n + m) log n)`; AM version is `Θ(n^2)` and is competitive only when the graph is dense or `n` is small.
-    
-- **Floyd–Warshall / Warshall:** Naturally matrix-based; initializing `dist`/`reach` comes “for free” with AM. See [[cs/dsa/floyd-warshall|Floyd–Warshall Algorithm]].
-    
+- **BFS/DFS:** Prefer **AL** for sparse graphs: time `Theta(n + m)` vs `Theta(n^2)` for AM (since AM scans each row).
+
+- **Dijkstra:** AL with a priority queue is `Theta((n + m) log n)`; AM version is `Theta(n^2)` and is competitive only when the graph is dense or `n` is small.
+
+- **Floyd–Warshall / Warshall:** Naturally matrix-based; initializing `dist`/`reach` comes "for free" with AM. See [[cs/dsa/floyd-warshall|Floyd–Warshall Algorithm]].
+
 - **Edge-existence-heavy workloads:** AM shines (e.g., constraint checking, dense DP transitions).
-    
+
 
 ## Common Misunderstandings
 
-> [!warning]  
-> **Using a matrix for a very sparse graph.** The `Θ(n^2)` blow-up wastes memory and makes neighbor scans `Θ(n)` instead of `Θ(deg(u))`. Prefer AL unless density or `hasEdge` needs dominate.
+> [!warning]
+> **Using a matrix for a very sparse graph.** The `Theta(n^2)` blow-up wastes memory and makes neighbor scans `Theta(n)` instead of `Theta(deg(u))`. Prefer AL unless density or `hasEdge` needs dominate.
 
-> [!warning]  
-> **Mismatched degree logic.** In undirected graphs stored as AL, each undirected edge appears twice. Be careful when computing totals like `∑ deg(u) = 2m`.
+> [!warning]
+> **Mismatched degree logic.** In undirected graphs stored as AL, each undirected edge appears twice. Be careful when computing totals like `Sum deg(u) = 2m`.
 
-> [!warning]  
-> **Inconsistent sentinels.** With AM for weighted graphs, pick a single “no edge” sentinel (e.g., `INF`) and check it **before** arithmetic to avoid overflow.
+> [!warning]
+> **Inconsistent sentinels.** With AM for weighted graphs, pick a single "no edge" sentinel (e.g., `INF`) and check it **before** arithmetic to avoid overflow.
 
-> [!warning]  
-> **Unindexed deletions.** Removing `(u,v)` from `Adj[u]` can be `Θ(deg(u))`. If deletions are common, maintain positions (e.g., swap-remove) or an auxiliary hash for neighbors.
+> [!warning]
+> **Unindexed deletions.** Removing `(u,v)` from `Adj[u]` can be `Theta(deg(u))`. If deletions are common, maintain positions (e.g., swap-remove) or an auxiliary hash for neighbors.
 
 ## Broader Implications
 
 Representation choices ripple into:
 
-- **Asymptotic bounds** (e.g., `Θ(n+m)` vs `Θ(n^2)` traversals).
-    
+- **Asymptotic bounds** (e.g., `Theta(n+m)` vs `Theta(n^2)` traversals).
+
 - **Engineering constraints** (RAM usage for large `n`; locality; ease of dynamic updates).
-    
+
 - **Parallelization:** AM supports SIMD/bitset tricks and straightforward blocking; AL provides natural task parallelism over vertices/edges but requires careful scheduling to avoid contention.
-    
+
 
 ## Summary
 
 - Use **adjacency lists** when the graph is **sparse**, you often **iterate neighbors**, or memory is tight.
-    
+
 - Use an **adjacency matrix** when the graph is **dense**, when **edge checks** dominate, or when matrix-style algorithms/bitsets are a win.
-    
-- Match algorithms to representation: BFS/DFS/Dijkstra typically prefer AL; Floyd–Warshall and transitive closure like AM.  
+
+- Match algorithms to representation: BFS/DFS/Dijkstra typically prefer AL; Floyd–Warshall and transitive closure like AM.
     Choosing the right form improves both **big-O** and **real-world performance**.
-    
+
 
 ## See also
 
 - [[cs/dsa/adjacency-list|Adjacency List]]
-    
+
 - [[cs/dsa/adjacency-matrix|Adjacency Matrix]]
-    
+
 - [[cs/dsa/graph-traversals-bfs-dfs|Graph Traversals (BFS & DFS)]]
-    
+
 - [[cs/dsa/dijkstras-algorithm|Dijkstra's Algorithm]]

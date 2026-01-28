@@ -1,17 +1,14 @@
 ---
 title: Recursion
 description: Define solutions in terms of smaller instances with explicit base cases and guaranteed termination; structure call trees and manage state.
-draft: true
+draft: false
 tags:
   - cs
   - dsa
 date: 2025-10-16
-updated:
+updated: 2025-11-01
 aliases: []
-# diagrams:
-# - recursion-call-tree.svg — Call tree for a sample recursive function, labeling depth, branching factor, and base-case leaves.
-# - stack-frames.svg — Execution stack during recursive calls showing parameters, locals, and return addresses over time.
-# - tail-recursion-vs-general.svg — Contrast of tail-recursive vs non-tail-recursive shapes and their stack usage.
+
 ---
 
 ## Overview
@@ -74,7 +71,7 @@ function SOLVE(state):
     return false
 ```
 
-> [!tip]  
+> [!tip]
 > Always identify a **measure** `μ(x)` that strictly decreases on each recursive step (e.g., `n`, remaining elements, distance-to-goal). This is your termination argument.
 
 ## Example or Illustration
@@ -82,47 +79,43 @@ function SOLVE(state):
 ### Factorial (simple numeric)
 
 - **Base:** `0! = 1`.
-    
+
 - **Step:** `n! = n × (n−1)!` for `n ≥ 1`.
-    
+
 - **Measure:** `n` decreases by 1 each call → termination.
-    
+
 - **Call tree:** a single chain of depth `n`.
-    
+
 
 ### Tree traversal (structural)
 
 - **Base:** empty subtree contributes `0`.
-    
+
 - **Step:** process node; recurse into `left` and `right`.
-    
+
 - **Shape:** a branching call tree that mirrors the data shape.
-    
+
 - **Time:** `Θ(n)` for visiting `n` nodes when each is processed `O(1)`.
-    
+
 
 ### Backtracking (combinatorial search)
 
 - **Base:** found a complete assignment consistent with constraints.
-    
-- **Step:** choose a variable/value, recurse; backtrack on failure.
-    
-- **Pruning:** constraints cut branches early; **memoization**/caching can avoid revisiting equivalent states.
-    
 
-> [!example]  
-> **Diagram (`recursion-call-tree.svg`)** — Draw a depth-labeled call tree with leaves at base cases, showing how the number of calls grows with branching factor and depth.
+- **Step:** choose a variable/value, recurse; backtrack on failure.
+
+- **Pruning:** constraints cut branches early; **memoization**/caching can avoid revisiting equivalent states.
 
 ## Properties and Relationships
 
 - **Equivalence to iteration.** Any recursion that does not require multiple active frames can be transformed into iteration with an explicit stack or accumulator.
-    
+
 - **Tail recursion.** A call is **tail-recursive** if the recursive call is the final action; it can be compiled into a loop in languages or compilers with **tail-call elimination (TCE)**. Many mainstream languages (e.g., typical C/Java VMs) **do not guarantee** TCE.
-    
+
 - **Mutual recursion.** Two or more functions call each other; termination still follows from a common decreasing measure.
-    
+
 - **Memoization vs recomputation.** Overlapping subproblems (e.g., naive Fibonacci) lead to exponential recomputation unless results are cached or a bottom-up DP is used. See [[cs/dsa/dynamic-programming|Dynamic Programming]].
-    
+
 
 ### Recurrence relations for cost
 
@@ -133,30 +126,30 @@ Recursive algorithms often yield cost recurrences such as `T(n) = aT(n/b) + f(n)
 ### Recipe for a safe recursive function
 
 1. **Define base cases first.** Include corner cases: empty input, single element, `NIL` node.
-    
+
 2. **Prove progress.** Identify a measure and check each path decreases it.
-    
+
 3. **Limit work per frame.** Keep local allocations small; avoid large by-value parameters when possible.
-    
+
 4. **Consider tail recursion.** When feasible, rearrange to tail position or switch to an iterative loop with an accumulator.
-    
+
 5. **For shared-state problems,** keep mutations localized and undo them on backtrack (RAII, `defer`, or `try/finally` patterns).
-    
+
 6. **Bound the depth.** On deep data (linked lists of length `n`, degenerate trees), stack depth can reach `Θ(n)`. Use iterative forms when `n` can exceed typical call-stack limits.
-    
+
 
 ### Typical patterns
 
 - **Accumulator style (tail-recursive):**
-    
+
     ```pseudo
     function SUM_LIST(xs, acc=0):
         if xs == []: return acc
         return SUM_LIST(tail(xs), acc + head(xs))
     ```
-    
+
 - **Explicit stack (iterative DFS) vs recursive DFS:**
-    
+
     ```pseudo
     function DFS_ITER(Graph, s):
         push(S, s); mark s
@@ -166,11 +159,11 @@ Recursive algorithms often yield cost recurrences such as `T(n) = aT(n/b) + f(n)
                 if not marked v:
                     push(S, v); mark v
     ```
-    
+
     This avoids deep recursion on large graphs and gives precise control over stack memory.
-    
+
 - **Divide-and-conquer skeleton:**
-    
+
     ```pseudo
     function DC(A):
         if SMALL(A): return SOLVE_SMALL(A)
@@ -179,35 +172,35 @@ Recursive algorithms often yield cost recurrences such as `T(n) = aT(n/b) + f(n)
         yR = DC(R)
         return COMBINE(yL, yR)
     ```
-    
 
-> [!tip]  
+
+> [!tip]
 > When converting recursion to iteration, map **call stack frames** to an explicit **stack structure** holding the same state (parameters, partial results, program counter). This is how language runtimes implement recursion under the hood.
 
 ### Performance considerations
 
 - **Function-call overhead** is small but nonzero; for tiny base problems, consider hybrid approaches (recurse until size ≤ k, then switch to iterative code).
-    
+
 - **Cache locality** can improve with recursion that processes contiguous chunks (e.g., divide arrays in halves).
-    
+
 - **Parallel recursion**: independent subproblems can run concurrently; analyze **work vs span** separately.
-    
+
 
 ## Common Misunderstandings
 
-> [!warning]  
+> [!warning]
 > **Missing or too-broad base case.** A base condition like `if n==0` must actually be **reachable** from all inputs; multiple base cases may be needed (e.g., `n<=1`).
 
-> [!warning]  
+> [!warning]
 > **No progress on some branches.** Ensure every path decreases the measure; otherwise infinite recursion occurs.
 
-> [!warning]  
+> [!warning]
 > **Overlapping subproblems ignored.** Naive recursive Fibonacci is `Θ(φ^n)` time. Add **memoization** or write a bottom-up DP to get `Θ(n)`.
 
-> [!warning]  
+> [!warning]
 > **Assuming tail-call optimization.** Many production runtimes do **not** guarantee TCE; deep tail recursion can still overflow the stack.
 
-> [!warning]  
+> [!warning]
 > **Hidden global state.** Recursion with global mutations (shared arrays, sets) is brittle without careful scoping and backtracking discipline.
 
 ## Summary
@@ -217,9 +210,9 @@ Recursion expresses solutions by **reducing** problems to **smaller instances** 
 ## See also
 
 - [[cs/dsa/divide-and-conquer|Divide and Conquer]]
-    
+
 - [[cs/dsa/dynamic-programming|Dynamic Programming]]
-    
+
 - [[cs/dsa/time-complexity-analysis|Time Complexity Analysis]]
-    
+
 - [[cs/dsa/recurrence-relations|Recurrence Relations]]

@@ -1,25 +1,19 @@
 ---
 title: Dynamic Arrays
 description: Resizable contiguous arrays that grow geometrically to provide amortized O(1) append while preserving cache-friendly iteration and random access.
-draft: true
+draft: false
 tags:
 - cs
 - dsa
 date: 2025-10-16
-updated:
+updated: 2025-11-22
 aliases: []
-# diagrams:
-# - dynamic-array-resize.svg — Visualize size vs capacity, a push that triggers reallocation, and element copying into the new buffer.
-# - growth-factor-tradeoff.svg — Plot memory overhead and resize frequency for growth factors (1.25×, 1.5×, 2×), highlighting throughput vs space.
 ---
 
 ## Overview
 A **dynamic array** is a contiguous sequence container that supports **random access in O(1)** and **amortized O(1) append (push-back)** by allocating extra capacity ahead of use and **growing geometrically** when full. Unlike fixed-size [[cs/dsa/arrays|Arrays]], dynamic arrays automatically **reallocate** and **copy** elements to a larger buffer when the logical size reaches capacity. This design underpins `std::vector` (C++), `ArrayList` (Java), Python lists, and many runtime arrays in managed languages.
 
 Dynamic arrays provide excellent **cache locality** for iteration and numeric kernels but have non-trivial **resize costs**, **iterator invalidation** on growth, and potentially large **peak memory** due to over-allocation.
-
-> [!example]
-> **Diagram (`dynamic-array-resize.svg`)** — Show `size = n`, `capacity = C`. A push at `n == C` allocates a new array of `⌈α·C⌉` (e.g., `2C`), copies/moves `C` elements, writes the new element, and updates pointers. Depict old vs new buffers and the single expensive step surrounded by many cheap pushes.
 
 ## Structure Definition
 A dynamic array maintains:
@@ -99,7 +93,7 @@ function SHRINK_TO_FIT():
         reallocate_to(n)
 ```
 
-> [!tip]  
+> [!tip]
 > If you know the target size in advance (e.g., reading `m` items), call **`RESERVE(m)`** to avoid multiple reallocations and copies. This preserves amortized guarantees and improves throughput.
 
 ## Example (Stepwise)
@@ -107,35 +101,32 @@ function SHRINK_TO_FIT():
 **Scenario:** Start empty; `alpha = 2` (doubling). Push elements `a, b, c, d, e`.
 
 1. `n=0, C=0`. `push(a)`: grow to `C'=1`, place `a` → `n=1`.
-    
+
 2. `push(b)`: `n==C` (`1==1`) → grow `C'=2`, copy 1 element, place `b` → `n=2`.
-    
+
 3. `push(c)`: grow `C'=4`, move 2, place `c` → `n=3`.
-    
+
 4. `push(d)`: fits in `C=4` → place `d` → `n=4`.
-    
+
 5. `push(e)`: grow `C'=8`, move 4, place `e` → `n=5`.
-    
+
 
 Between expensive growths, pushes are **cheap O(1)**; the occasional growth is **O(n)**, but amortization keeps the average constant.
-
-> [!example]  
-> **Diagram (`growth-factor-tradeoff.svg`)** — Three curves: memory overhead `(C−n)/n` vs time steps for `α=1.25, 1.5, 2.0`. Small `α` lowers overhead but triggers frequent copies; large `α` increases slack but reduces reallocation frequency.
 
 ## Complexity and Performance
 
 Let `n` be the number of elements, `C` capacity.
 
 - **Random access (`A[i]`):** O(1).
-    
+
 - **Append (`push_back`):** Amortized **O(1)**; occasional reallocation costs O(n) when growing.
-    
+
 - **Insert/erase at arbitrary position:** O(n) due to shifting; at **end** these are amortized O(1).
-    
+
 - **Reserve/shrink:** O(n) when they reallocate; O(1) if capacity unchanged.
-    
+
 - **Space:** O(C) words; overhead is `C − n` slack.
-    
+
 
 **Amortized analysis (accounting method).** Charge each append a small **tax** to prepay future moves. With doubling (`α = 2`), each element moves at most **O(1)** times per lifetime (1 on its insertion growth, then again at later doublings), so total cost over `n` appends is O(n), yielding **O(1)** per append amortized.
 
@@ -144,94 +135,94 @@ Let `n` be the number of elements, `C` capacity.
 **Iterator/pointer invalidation.**
 
 - **On growth:** all pointers/iterators/references usually **invalidate** (buffer relocates).
-    
+
 - **On non-growth insertion/erase:** pointers **after** the modified position may invalidate due to shifts.
-    
+
 
 ## Implementation Details or Trade-offs
 
 **Choice of growth factor `α`.**
 
 - `α = 2.0` (doubling): fewer reallocations, higher memory slack; common in academic proofs and some production vectors.
-    
+
 - `α = 1.5` (≈3/2): better peak memory behavior with slightly more reallocations; common in runtimes seeking balance.
-    
+
 - `α < 1.3`: many reallocations; may degrade throughput.
-    
+
 
 **Element move vs copy.**
 
 - Prefer **move construction** when `T` supports it to reduce data traffic.
-    
+
 - For trivially copyable `T` (POD), use bulk `memcpy`/vectorized moves.
-    
+
 
 **Allocator strategy.**
 
 - **Monotonic/arena allocators** minimize per-allocation overhead for bulk lifetimes.
-    
+
 - **Over-alignment** (SIMD, cache lines) can improve numeric kernels.
-    
+
 - **Zero-initialization**: Some languages allocate raw but uninitialized capacity; others zero-fill—be aware of costs.
-    
+
 
 **Bounds checking.**
 
 - Many APIs expose both `at(i)` (checked) and `operator[]` (unchecked). Use checked access in debug paths; elide in hot loops.
-    
+
 
 **Exception safety (move/copy may throw).**
 
 - Strong guarantee for `insert/erase`: if move/copy throws during reallocation, roll back and leave the original array intact.
-    
+
 - Growth that fails allocation should not leak partially constructed elements.
-    
+
 
 **Shrink policy.**
 
 - Automatic shrink on erase can cause **pathological thrashing** for oscillating sizes. Prefer **explicit `shrink_to_fit()`** or hysteresis (e.g., shrink when `n ≤ C/4` and grow when `n == C`).
-    
+
 
 **Small-Buffer Optimization (SBO).**
 
 - Store a small **inline** array inside the container object (e.g., 8–32 bytes) to avoid heap allocation for tiny `n`. On growth beyond SBO, spill to heap.
-    
+
 
 **Concurrency.**
 
 - Single-writer with multiple readers requires **external** synchronization; internal reallocation is non-atomic and invalidates readers.
-    
+
 - Lock-free dynamic arrays are non-trivial; prefer specialized concurrent vectors or chunked structures.
-    
+
 
 **Stable references.**
 
 - If you require **stable addresses** across growth, dynamic arrays are unsuitable; consider [[cs/dsa/doubly-linked-list|Doubly Linked List]] or node-based containers. For stable indices but movable storage, expose **indices** rather than raw pointers.
-    
+
 
 ## Practical Use Cases
 
 - **General-purpose sequence storage** with frequent appends and scans (logs, event buffers, parsed tokens).
-    
+
 - **Batch-building** results where final size is unknown but roughly estimable (use `reserve`).
-    
+
 - **Numeric arrays** and **image buffers** where SIMD and cache locality dominate.
-    
+
 - **Stacks/queues** at the end(s) when middle insertions are rare; for bidirectional end operations, see [[cs/dsa/deque|Deque (Double-Ended Queue)]].
-    
+
 
 ## Limitations / Pitfalls
 
-> [!warning]  
+> [!warning]
 > **Middle insert/erase is O(n).** If your workload frequently edits the middle, a rope, gap buffer, or linked structure may be more appropriate.
 
-> [!warning]  
+> [!warning]
 > **Iterator invalidation on growth.** Retain **indices** or **offsets** rather than raw pointers if clients keep references across appends.
 
-> [!warning]  
+> [!warning]
 > **Over-aggressive shrinking.** Automatic shrink on transient dips can trigger reallocation churn. Prefer hysteresis or explicit control.
 
-> [!warning]  
+> [!warning]
 > **Large element types.** Moving/copying heavy objects at growth can dominate runtime; consider indirection (store handles) or specialized containers.
 
 ## Summary
@@ -241,9 +232,9 @@ Dynamic arrays deliver **contiguous storage**, **O(1) random access**, and **amo
 ## See also
 
 - [[cs/dsa/arrays|Arrays]]
-    
+
 - [[cs/dsa/deque|Deque (Double-Ended Queue)]]
-    
+
 - [[cs/dsa/linked-list|Linked List]]
-    
+
 - [[cs/dsa/memory-allocation|Memory Allocation]]

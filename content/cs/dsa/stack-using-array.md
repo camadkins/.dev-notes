@@ -1,16 +1,13 @@
 ---
 title: Stack Using Array
 description: Index-based top with geometric resize for amortized O(1) push/pop and clear underflow/overflow semantics.
-draft: true
+draft: false
 tags:
   - cs
   - dsa
 date: 2025-10-16
-updated:
+updated: 2025-12-06
 aliases: []
-# diagrams:
-# - array-stack-layout.svg — Fixed-capacity array with top as count; show valid segment A[0..top-1], overflow boundary at cap, and effect of push/pop on top.
-# - resize-doubling-trace.svg — Geometric growth (×2) timeline: pushes fill capacity, trigger reallocation/copy, then continue; annotate amortized cost per operation.
 ---
 
 ## Overview
@@ -97,36 +94,33 @@ class ArrayStack<T>:
             cap = newCap
 ````
 
-> [!warning]  
+> [!warning]
 > **Underflow/overflow** are logic errors. Always check `top == 0` before `pop/peek`, and `top == cap` before writing. In unsafe languages, these checks prevent memory corruption.
 
 ## Example (Stepwise)
 
-> [!example]  
-> **Diagram (`array-stack-layout.svg`)** — Show indices `0..cap-1`, the filled range `0..top-1`, and `top` as the next write index. Animate one `push` (write at `top`, then `top++`) and one `pop` (`top--`, then read at new `top`).
-
 **Trace: push until resize, then pop**
 
 1. Start with `cap=4`, `top=0`, `A=[_,_,_,_]`.
-    
+
 2. `push(7)` → write at `A[0]`, `top=1`.
-    
+
 3. `push(3)` → `A=[7,3,_,_]`, `top=2`.
-    
+
 4. `push(9)` → `A=[7,3,9,_]`, `top=3`.
-    
+
 5. `push(1)` → `A=[7,3,9,1]`, `top=4` (now full).
-    
+
 6. `push(5)` → triggers `grow()` to `cap=8`, copy 4 slots, then store `5` at `A[4]`, `top=5`.
-    
+
 7. `pop()` → `top=4`, returns `5`.
-    
+
 8. `pop()` → `top=3`, returns `1`. If shrinking is on and `top ≤ cap/4` (here `3 ≤ 2` is false), no shrink.
-    
+
 
 This illustrates **rare expensive operations** (resizes) amortized across many constant-time pushes/pops.
 
-> [!tip]  
+> [!tip]
 > If your workload oscillates around a threshold, you might disable automatic shrinking and expose a manual `trimToSize()` to avoid resize thrashing.
 
 ## Complexity and Performance
@@ -134,11 +128,11 @@ This illustrates **rare expensive operations** (resizes) amortized across many c
 Let `n` be the number of operations and `N` the final number of elements.
 
 - **Time per op (amortized):** `push` is **amortized `O(1)`** with doubling growth; `pop`, `peek`, `isEmpty`, `size` are **`O(1)`** worst-case.
-    
+
 - **Space usage:** `Θ(cap)` with `N ≤ cap < 2N` under doubling (no shrinking). With optional halving, `N ≤ cap ≤ 4N` at steady state; tighter if you shrink more aggressively.
-    
+
 - **Locality:** contiguous memory yields **cache-friendly** access and predictable prefetching; often faster than a linked stack even with the same asymptotic bounds.
-    
+
 
 ### Amortized analysis (brief)
 
@@ -149,83 +143,80 @@ Each resize from `cap` to `2·cap` copies `cap` elements. Charge an **amortized 
 ### Growth factor
 
 - **×2 (doubling):** classical; minimizes the number of resizes (`O(log N)` resizes for `N` pushes).
-    
+
 - **×1.5:** reduces peak memory but increases the number of resizes; still amortized `O(1)`.
-    
+
 - **Exact fits:** avoid (linear-time behavior due to frequent resizes).
-    
+
 
 ### Shrinking policy
 
 - **No auto-shrink:** avoids thrash; use `trimToSize()` explicitly.
-    
+
 - **Halve when `top ≤ cap/4`:** introduces **hysteresis** (growth at full, shrink when ≤ 25%), preventing oscillation.
-    
+
 - **Move semantics:** for large objects, prefer moving handles/references rather than deep copies on resize.
-    
+
 
 ### Error handling & API surface
 
 Define clear behavior for:
 
 - `pop/peek` on empty → return status + out-param, throw exception, or sentinel (language-dependent).
-    
+
 - `push` allocation failure → propagate error; do not partially modify state.
-    
+
 - Optional: batch operations (`pushAll`, `popN`) to reduce bounds checks overhead.
-    
+
 
 ### Type considerations
 
 - **Value types (POD):** direct storage is fastest; copying cost matters on resize.
-    
+
 - **Reference/handle types:** store pointers/indices; may require destructor/finalizer awareness on pop and during shrink/grow.
-    
+
 
 ### Memory & concurrency
 
 - **Allocator:** frequent resizes allocate large blocks; using growth-friendly allocators reduces fragmentation.
-    
+
 - **Concurrency:** a plain array stack is **not** thread-safe. For multi-producer/consumer use cases, guard with a mutex or adopt specialized concurrent stacks. Lock-free designs on arrays exist but are nontrivial (ABA issues, hazard pointers).
-    
+
 
 ### Diagnostics
 
 Add **assertions** in debug builds:
 
 - `0 ≤ top ≤ cap` after every public method.
-    
+
 - On `peek/pop`, assert `top > 0`.
-    
+
 - On `push`, assert capacity or that `grow()` succeeded.
-    
+
 
 ## Practical Use Cases
 
 - **Expression evaluation:** operands stack for postfix (RPN) evaluators; operator stack in shunting-yard parsing.
-    
-- **Backtracking/undo:** store inverse operations and pop to revert state.
-    
-- **Algorithmic recursion elimination:** iterative DFS, tree traversals, and state machines.
-    
-- **VM/interpreters:** evaluation stacks (values, return addresses).
-    
 
-> [!example]  
-> **Diagram (`resize-doubling-trace.svg`)** — Timeline of `push` operations: markers at capacities 4→8→16 illustrate that expensive copies are infrequent; annotate average cost per push trending to constant.
+- **Backtracking/undo:** store inverse operations and pop to revert state.
+
+- **Algorithmic recursion elimination:** iterative DFS, tree traversals, and state machines.
+
+- **VM/interpreters:** evaluation stacks (values, return addresses).
+
 
 ## Limitations / Pitfalls
 
-> [!warning]  
+> [!warning]
 > **Underflow/overflow.** Always guard `pop/peek` on empty and `push` on full (pre-grow). In unsafe languages, missing checks cause UB.
 
-> [!warning]  
+> [!warning]
 > **Thrashing due to eager shrink.** Shrinking at `top == cap/2` can oscillate on alternating push/pop patterns. Use a **¼ threshold** (or disable auto-shrink).
 
-> [!warning]  
+> [!warning]
 > **Large-object copies on resize.** Copying big structs can dominate time. Store **references** or use **move semantics** to keep resizes cheap.
 
-> [!warning]  
+> [!warning]
 > **Iterator invalidation.** Any resize invalidates raw pointers/iterators into `A`. Avoid exposing internals or document invalidation rules.
 
 ## Summary
@@ -235,9 +226,9 @@ An array-backed stack offers a **simple, fast, and cache-efficient** LIFO contai
 ## See also
 
 - [[cs/dsa/stack|Stack]]
-    
+
 - [[cs/dsa/push-and-pop-operations|Push & Pop Operations]]
-    
+
 - [[cs/dsa/stack-using-linked-list|Stack Using Linked List]]
-    
+
 - [[cs/dsa/dynamic-arrays|Dynamic Arrays]]
