@@ -8,12 +8,14 @@ tags:
 permalink: /cs/
 aliases:
   - Computer Science
-date: 2025-10-16        # created/published date (YYYY-MM-DD)
-updated: 2025-10-16     # (optional) last updated; omit to use Git timestamp
+date: 2025-10-16
+updated: 2026-03-12
 ---
 
+Top-level hub for all CS notes. Each domain below has its own index page with further breakdown — click through to explore, or use the sidebar to browse directly.
 
 ### Domains
-- [[/cs/dsa/index | Data Structures & Algorithms]] 
-- [[cs/pl/index| Programming Language Concepts]] 
-- [[/cs/languages/index | Languages (Python, Rust, etc.)]]
+
+- [[cs/dsa/index | Data Structures & Algorithms]] — representations, complexity analysis, and classic algorithm strategies (sorting, searching, graphs, DP, greedy, backtracking)
+- [[cs/pl/index | Programming Language Concepts]] — grammars, evaluation, type systems, effects, and modules
+- [[cs/languages/index | Languages]] — per-language notes and implementations (Racket, and more to come)
