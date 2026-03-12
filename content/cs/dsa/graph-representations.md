@@ -84,7 +84,7 @@ Adj[4]: {}
 |Insert edge `(u,v)`|Amortized `Theta(1)` (push)|`Theta(1)`|
 |Delete edge `(u,v)`|`Theta(deg(u))` unless indexed|`Theta(1)`|
 |Add vertex|`Theta(1)` (push empty list)|`Theta(n)` to expand each row/col|
-|Remove vertex|`Theta(deg(u) +` #in-edges`)`|`Theta(n)` to clear row/col|
+|Remove vertex|`Theta(deg(u) + in-edges)`|`Theta(n)` to clear row/col|
 
 ### Directed vs Undirected
 
