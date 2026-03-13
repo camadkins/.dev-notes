@@ -1,7 +1,8 @@
 ---
-title: Tries — Types
-description: Standard (explicit-edge), compressed/radix (path-compressed), and suffix tries—trade-offs in memory, depth, and operations.
+title: Tries - Types
+description: Standard (explicit-edge), compressed/radix (path-compressed), and suffix tries - trade-offs in memory, depth, and operations.
 draft: false
+comments: true
 tags:
   - cs
   - dsa
@@ -9,8 +10,8 @@ date: 2025-10-16
 updated:
 aliases: []
 # diagrams:
-# - path-compression.svg — Show a standard trie with a long single-child chain compressed into a single labeled edge ("international" → "inter" + "national").
-# - suffix-trie-fanout.svg — Suffix trie for "banana$" highlighting all suffix starts and duplicated substrings via shared paths.
+# - path-compression.svg - Show a standard trie with a long single-child chain compressed into a single labeled edge ("international" → "inter" + "national").
+# - suffix-trie-fanout.svg - Suffix trie for "banana$" highlighting all suffix starts and duplicated substrings via shared paths.
 ---
 
 ## Overview
@@ -59,7 +60,7 @@ Consider keys `{to, tea, ted, ten, in, inn}` over lowercase ASCII.
 - **Suffix trie** (for `"banana$"`): Insert `$`, `a$`, `na$`, `ana$`, `nana$`, `anana$`, `banana$`. Substring `"ana"` appears as a path multiple times via different suffix starts.
 
 > [!example]
-> **Diagram (`path-compression.svg`)** — Show a long single-child run (“inter…” keys) collapsed into one edge `"inter"`, with a branch at `"national"` vs `"net"`.
+> **Diagram (`path-compression.svg`)** - Show a long single-child run (“inter…” keys) collapsed into one edge `"inter"`, with a branch at `"national"` vs `"net"`.
 
 ## Properties and Relationships
 - **Depth and branching:**
@@ -98,7 +99,7 @@ Consider keys `{to, tea, ted, ten, in, inn}` over lowercase ASCII.
 
 ## Common Misunderstandings
 > [!warning]
-> **“Radix tries change big-O of lookup.”** No—the big-O in key length remains `Θ(L)`. They reduce *depth* and *pointer traversals*, often improving constants.
+> **“Radix tries change big-O of lookup.”** No - the big-O in key length remains `Θ(L)`. They reduce *depth* and *pointer traversals*, often improving constants.
 
 > [!warning]
 > **“Suffix tries are practical for large texts.”** They are not; space is quadratic in the worst case. Use a **suffix tree** or **suffix array**.
@@ -111,7 +112,7 @@ Consider keys `{to, tea, ted, ten, in, inn}` over lowercase ASCII.
 
 ## Broader Implications
 - **Data-engineering fit:** Domain-specific **normalization** (case-folding, tokenization to bytes) shrinks effective `|Σ|`, improving both memory and speed for all trie variants.
-- **Persistence and versioning:** Path-copying tries (standard or compressed) enable **immutable** versions with structural sharing—useful for configuration maps and IDE index snapshots.
+- **Persistence and versioning:** Path-copying tries (standard or compressed) enable **immutable** versions with structural sharing - useful for configuration maps and IDE index snapshots.
 - **Ranking and top-k:** Augment nodes with `subtreeWeight` or frequency counters to support ranked autocomplete; costs apply equally to standard and compressed structures.
 
 ## Summary
@@ -121,8 +122,8 @@ Consider keys `{to, tea, ted, ten, in, inn}` over lowercase ASCII.
 
 The right choice hinges on alphabet size, key length/distribution, memory budget, and query mix (exact, prefix, substring). All retain the trie hallmark: predictable, prefix-aware behavior that general-purpose maps cannot match.
 
-## See also
+## Related Notes
 - [[standard-trie|Standard Trie]]
 - [[compressed-trie|Compressed Trie]]
 - [[suffix-trie|Suffix Trie]]
-- [[tries|Tries — Overview]]
+- [[tries|Tries - Overview]]

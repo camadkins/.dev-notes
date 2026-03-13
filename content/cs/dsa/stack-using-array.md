@@ -2,6 +2,7 @@
 title: Stack Using Array
 description: Index-based top with geometric resize for amortized O(1) push/pop and clear underflow/overflow semantics.
 draft: false
+comments: true
 tags:
   - cs
   - dsa
@@ -223,7 +224,7 @@ Add **assertions** in debug builds:
 
 An array-backed stack offers a **simple, fast, and cache-efficient** LIFO container. With `top` as the element count and geometric growth on demand, pushes are **amortized `O(1)`**, while pops and peeks are **`O(1)`**. Thoughtful policies for growth and (optional) shrink, plus clear underflow/overflow semantics, yield a robust implementation suitable for parsers, evaluators, backtracking, and recursion elimination. Prefer arrays when you want performance and predictable locality; consider linked stacks only when per-operation allocations are acceptable and you need pointer-stable nodes.
 
-## See also
+## Related Notes
 
 - [[stack|Stack]]
 

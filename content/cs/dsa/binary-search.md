@@ -1,7 +1,8 @@
 ---
-title: Binary Search — Divide and Conquer on Sorted Sequences
+title: Binary Search - Divide and Conquer on Sorted Sequences
 description: Efficient search in sorted arrays using interval halving and loop invariants to guarantee correctness and logarithmic time complexity.
 draft: false
+comments: true
 updated: 2025-10-29
 aliases:
 - binary-search-algorithm
@@ -62,7 +63,7 @@ function binarySearch(A, target):
 
 ## Correctness & Invariants
 
-Binary search correctness depends on **loop invariants** — properties that hold before and after each iteration.
+Binary search correctness depends on **loop invariants** - properties that hold before and after each iteration.
 
 ### Invariant (Half-Open Form `[lo, hi)`)
 
@@ -79,7 +80,7 @@ When the loop exits (`lo == hi`), these invariants guarantee:
 
 
 > [!tip]
-> Choosing between `[lo, hi)` and `[lo, hi]` forms is arbitrary — but consistency is crucial throughout all conditions and updates.
+> Choosing between `[lo, hi)` and `[lo, hi]` forms is arbitrary - but consistency is crucial throughout all conditions and updates.
 
 ---
 
@@ -129,7 +130,7 @@ function upperBound(A, target):
 
 ### 3. Monotone Predicate Search
 
-Binary search extends beyond numeric arrays — it can find the first index satisfying any **monotonic condition**.
+Binary search extends beyond numeric arrays - it can find the first index satisfying any **monotonic condition**.
 
 Example: _Find first bad version_ problem.
 
@@ -156,7 +157,7 @@ Two common pitfalls in binary search implementations:
 
 ### 1. Overflow in Midpoint
 
-Avoid `(lo + hi) // 2` — it can overflow when `lo` and `hi` are large.
+Avoid `(lo + hi) // 2` - it can overflow when `lo` and `hi` are large.
 Instead use:
 
 ```
@@ -232,7 +233,7 @@ Always ensure the search space **strictly shrinks** each iteration.
 
 ---
 
-## See also
+## Related Notes
 
 - [[asymptotic-notation|Asymptotic Notation]]
 

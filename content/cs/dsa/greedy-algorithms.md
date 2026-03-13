@@ -2,6 +2,7 @@
 title: Greedy Algorithms
 description: Locally optimal choices that yield globally optimal solutions when specific structure (e.g., matroids, exchange/optimal-substructure) holds.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -25,7 +26,7 @@ Greedy algorithms often beat dynamic programming and backtracking in **simplicit
 - a **structure** that ensures **exchanges** can fix any deviation from greedy without harming optimality.
 
 
-They are the right fit for many scheduling, spanning tree, data compression, and selection problems. When greedy fails, it often fails **spectacularly**—so proofs and counterexamples matter.
+They are the right fit for many scheduling, spanning tree, data compression, and selection problems. When greedy fails, it often fails **spectacularly** - so proofs and counterexamples matter.
 
 ## Definition and Formalism
 
@@ -66,7 +67,7 @@ function INTERVAL_SCHEDULING(intervals):
     return S
 ```
 
-**Why it works (exchange sketch):** Let `G` be the greedy set and `O` any optimal set. Compare both in finish-time order. The first time they differ, replace `O`'s earlier-finished conflicting interval with `G`'s choice—this never reduces the room for future intervals. Repeating yields a set the same size as `O` but beginning with `G`'s choices, hence greedy is optimal.
+**Why it works (exchange sketch):** Let `G` be the greedy set and `O` any optimal set. Compare both in finish-time order. The first time they differ, replace `O`'s earlier-finished conflicting interval with `G`'s choice - this never reduces the room for future intervals. Repeating yields a set the same size as `O` but beginning with `G`'s choices, hence greedy is optimal.
 
 ### Huffman Coding (optimal prefix-free compression)
 
@@ -94,10 +95,10 @@ Both are greedy:
 - **Kruskal:** add the **lightest** edge that doesn't create a cycle (by union–find).
 
 - **Prim:** grow a tree by repeatedly adding the lightest edge **cutting** from the tree to a new vertex.
-    **Cut property:** the minimum edge crossing any cut of the graph is safe to take—an exchange/cut argument proves correctness.
+    **Cut property:** the minimum edge crossing any cut of the graph is safe to take - an exchange/cut argument proves correctness.
 
 
-See [[minimum-spanning-trees-kruskal-prim|Minimum Spanning Trees — Kruskal & Prim]] and [[huffman-coding|Huffman Coding]].
+See [[minimum-spanning-trees-kruskal-prim|Minimum Spanning Trees - Kruskal & Prim]] and [[huffman-coding|Huffman Coding]].
 
 ## Properties and Relationships
 
@@ -171,11 +172,11 @@ Greedy methods are favored in **real-time systems** (fast, low memory), **stream
 
 ## Summary
 
-Greedy algorithms succeed when **local choices are globally safe**. Prove that property with an **exchange** or **cut** argument (or by appealing to matroid structure), then implement with the right **priority structure**. Use sorting or heaps to keep complexity near `O(n log n)`; specify ties and invariants precisely. When in doubt, test against **counterexamples**—and switch to dynamic programming if local choices don't compose.
+Greedy algorithms succeed when **local choices are globally safe**. Prove that property with an **exchange** or **cut** argument (or by appealing to matroid structure), then implement with the right **priority structure**. Use sorting or heaps to keep complexity near `O(n log n)`; specify ties and invariants precisely. When in doubt, test against **counterexamples** - and switch to dynamic programming if local choices don't compose.
 
-## See also
+## Related Notes
 
-- [[minimum-spanning-trees-kruskal-prim|Minimum Spanning Trees — Kruskal & Prim]]
+- [[minimum-spanning-trees-kruskal-prim|Minimum Spanning Trees - Kruskal & Prim]]
 
 - [[huffman-coding|Huffman Coding]]
 

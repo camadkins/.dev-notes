@@ -2,6 +2,7 @@
 title: HCF and LCM Algorithms
 description: Practical computation of gcd/hcf and lcm, including overflow-safe formulas, zero/sign handling, and array-wise reductions.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -32,7 +33,7 @@ GCD and LCM are building blocks for:
 - **Programming tasks:** normalizing step sizes, aligning strides, checking coprimality.
 
 
-A few careful choices—**signs**, **zeros**, and **overflow control**—make implementations robust instead of buggy.
+A few careful choices - **signs**, **zeros**, and **overflow control** - make implementations robust instead of buggy.
 
 ## Definition and Identities
 
@@ -141,7 +142,7 @@ function LCM_ARRAY(A):
 > **Integer division traps.** Ensure you use **integer** division when computing `a/g` and that `g` divides `a` (it does by definition).
 
 > [!warning]
-> **Empty arrays.** Define `gcd([])=0` (neutral for `gcd(g, x)` with `g=0`), and **decide** what `lcm([])` should be in your API—often `1` (multiplicative identity) or raise an error; document the choice.
+> **Empty arrays.** Define `gcd([])=0` (neutral for `gcd(g, x)` with `g=0`), and **decide** what `lcm([])` should be in your API - often `1` (multiplicative identity) or raise an error; document the choice.
 
 ## Implementation Notes or Trade-offs
 
@@ -158,7 +159,7 @@ function LCM_ARRAY(A):
 
 Compute `gcd` with **Euclid**; compute `lcm` via the identity `|a·b| = gcd·lcm` but **divide before multiply** to avoid overflow. Normalize results to **nonnegative** values, handle **zeros** carefully, and fold pairwise for arrays. With these patterns, HCF/LCM code is short, fast, and safe.
 
-## See also
+## Related Notes
 
 - [[euclidean-algorithms|Euclidean Algorithms]]
 

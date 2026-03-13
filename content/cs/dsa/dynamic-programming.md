@@ -2,6 +2,7 @@
 title: Dynamic Programming
 description: Solve problems by decomposing into overlapping subproblems with optimal substructure; reuse solutions via memoization or tabulation.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -181,7 +182,7 @@ return DP[target]
 > **Illegal order.** Filling `DP[i][j]` before `DP[i-1][j]` or `DP[i][j-1]` when they are required creates uninitialized reads and nondeterministic bugs.
 
 > [!warning]
-> **Double counting.** In counting problems (e.g., number of paths), ensure each distinct solution is counted **once**—avoid symmetric states or ensure symmetry-breaking in the state.
+> **Double counting.** In counting problems (e.g., number of paths), ensure each distinct solution is counted **once** - avoid symmetric states or ensure symmetry-breaking in the state.
 
 > [!warning]
 > **Overfitting base cases.** Over-constraining base values can block valid transitions; base cases should express identity/neutral conditions only.
@@ -210,9 +211,9 @@ Connections to other paradigms:
 
 ## Summary
 
-Dynamic programming converts recursive formulations with **overlapping subproblems** and **optimal substructure** into efficient algorithms by **remembering** results. A good DP solution hinges on **state design**, **sound transitions**, **proper base cases**, and a **valid computation order**. Mastery comes from practicing the patterns—1D/2D table DPs, DAG/topological DPs, tree DPs, and bitmask/subset DPs—and learning when to **optimize space**, **recover decisions**, or **switch paradigms** (greedy, divide-and-conquer) when appropriate.
+Dynamic programming converts recursive formulations with **overlapping subproblems** and **optimal substructure** into efficient algorithms by **remembering** results. A good DP solution hinges on **state design**, **sound transitions**, **proper base cases**, and a **valid computation order**. Mastery comes from practicing the patterns - 1D/2D table DPs, DAG/topological DPs, tree DPs, and bitmask/subset DPs - and learning when to **optimize space**, **recover decisions**, or **switch paradigms** (greedy, divide-and-conquer) when appropriate.
 
-## See also
+## Related Notes
 
 - [[greedy-algorithms|Greedy Algorithms]]
 

@@ -1,12 +1,13 @@
 ---
 title: Expected Value
-description: The probability-weighted average outcome of a random variable—the center of its distribution and the foundation of average-case analysis.
+description: The probability-weighted average outcome of a random variable - the center of its distribution and the foundation of average-case analysis.
 draft: false
-comments: false
+comments: true
 tags:
   - cs
   - statistics
 date: 2026-03-12
+updated:
 aliases: []
 ---
 
@@ -14,9 +15,9 @@ aliases: []
 
 If you could repeat an experiment infinitely many times and average the results, you would get the **expected value**. It is the long-run average, the balance point of the distribution, the single number that summarizes where outcomes tend to land.
 
-Expected value does not have to be a value the random variable can actually take. A fair die has $E[X] = 3.5$—you will never roll a 3.5, but over thousands of rolls the average converges to it. This is the essence of the law of large numbers.
+Expected value does not have to be a value the random variable can actually take. A fair die has $E[X] = 3.5$ - you will never roll a 3.5, but over thousands of rolls the average converges to it. This is the essence of the law of large numbers.
 
-The power of expected value lies in its **linearity**: you can break complex quantities into simpler pieces, compute each expectation separately, and add them up—no independence required.
+The power of expected value lies in its **linearity**: you can break complex quantities into simpler pieces, compute each expectation separately, and add them up - no independence required.
 
 ## Definition
 
@@ -43,7 +44,7 @@ $$E[g(X)] = \sum_{x} g(x)\, f(x) \qquad \text{(discrete)}$$
 
 $$E[g(X)] = \int_{-\infty}^{\infty} g(x)\, f(x)\, dx \qquad \text{(continuous)}$$
 
-This is used constantly—for instance, setting $g(X) = X^2$ gives $E[X^2]$, which appears in the [[variance-and-covariance|variance]] formula.
+This is used constantly - for instance, setting $g(X) = X^2$ gives $E[X^2]$, which appears in the [[variance-and-covariance|variance]] formula.
 
 ### Linearity of expectation
 
@@ -92,7 +93,7 @@ This directly informs maintenance scheduling and spare-parts inventory.
 
 ## Related Notes
 
-- [[variance-and-covariance|Variance and Covariance]] — measures how far outcomes spread around the expected value
-- [[probability-distributions|Probability Distributions]] — each distribution has characteristic expected values
-- [[best-worst-average-cases|Best, Worst, and Average Cases]] — expected value defines the average case
-- [[quick-sort|Quick Sort]] — average-case $O(n \log n)$ derived via linearity of expectation
+- [[variance-and-covariance|Variance and Covariance]] - measures how far outcomes spread around the expected value
+- [[probability-distributions|Probability Distributions]] - each distribution has characteristic expected values
+- [[best-worst-average-cases|Best, Worst, and Average Cases]] - expected value defines the average case
+- [[quick-sort|Quick Sort]] - average-case $O(n \log n)$ derived via linearity of expectation

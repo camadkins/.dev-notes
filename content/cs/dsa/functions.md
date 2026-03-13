@@ -2,6 +2,7 @@
 title: Functions
 description: Procedure abstraction with parameters, return values, and well-defined contracts; covers call stacks, parameter passing, purity, and tail calls.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -65,7 +66,7 @@ function SAFE_AT(A, i):
 
 - **Composition:** `h(x) = g(f(x))` composes two functions; associativity of composition supports pipeline designs.
 
-- **Equational reasoning:** For pure functions, `f(a)` can be replaced with its value anywhere—no side effects to worry about.
+- **Equational reasoning:** For pure functions, `f(a)` can be replaced with its value anywhere - no side effects to worry about.
 
 
 ## Implementation or Practical Context
@@ -164,7 +165,7 @@ Define failure behavior:
 
 Functions encapsulate behavior with a clean **interface** and, ideally, clear **contracts**. Prefer **pure**, **total** functions for core logic; push validation and effects to the edges. Understand the **call stack** and when depth matters; use **tail recursion** or iterative forms to control space. Choose parameter passing deliberately (value vs reference), and make side effects and failure modes explicit. These habits yield code that is easier to test, reason about, and maintain.
 
-## See also
+## Related Notes
 
 - [[recursion|Recursion]]
 

@@ -2,6 +2,7 @@
 title: Strings
 description: Encodings and storage layouts; null-terminated vs length-prefixed; safe slicing, iteration, and search patterns.
 draft: false
+comments: true
 tags:
   - cs
   - dsa
@@ -129,7 +130,7 @@ Validate input (reject overlong encodings, invalid surrogates).
 
 ## Performance Considerations
 
-- **UTF-8** dominates storage and wire formats—compact for ASCII-heavy text, cache-friendly for western languages.
+- **UTF-8** dominates storage and wire formats - compact for ASCII-heavy text, cache-friendly for western languages.
 
 - **UTF-16** shines with East Asian texts where many characters become single 16-bit units; but surrogate pairs still occur.
 
@@ -259,7 +260,7 @@ Never cut in the middle of a grapheme; ensures UI correctness.
 
 ## Applications
 
-- **Parsers & tokenizers**: protocol messages, programming languages—prefer normalized, validated Unicode.
+- **Parsers & tokenizers**: protocol messages, programming languages - prefer normalized, validated Unicode.
 
 - **Search & indexing**: substring search over normalized text; for prefix systems, consider [[standard-trie|Standard Trie]]; for heavy-duty indexing, suffix structures.
 
@@ -272,7 +273,7 @@ Never cut in the middle of a grapheme; ensures UI correctness.
 
 Strings combine **encoding**, **layout**, and **semantics**. Choose a clear **encoding** (UTF-8 by default), a safe **layout** (length-prefixed where possible), and iterate/slice on the correct **boundary type** (code points or graphemes, not arbitrary bytes). Normalize for comparisons and hashing, validate on input, and design APIs that make misuse hard. With these habits, you can write string-heavy code that is fast, correct, and robust across languages and platforms.
 
-## See also
+## Related Notes
 
 - [[standard-trie|Standard Trie]]
 

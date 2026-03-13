@@ -7,11 +7,12 @@ tags:
   - cs
   - software-engineering
 date: 2026-03-12
+updated:
 aliases:
   - Software Engineering
 ---
 
-Software engineering is where computer science meets craft — the discipline of turning ideas into reliable, maintainable systems. These notes cover the recurring patterns, architectural decisions, testing strategies, and tooling that shape professional software development.
+Software engineering is where computer science meets craft - the discipline of turning ideas into reliable, maintainable systems. These notes cover the recurring patterns, architectural decisions, testing strategies, and tooling that shape professional software development.
 
 ### Design Principles
 
@@ -32,7 +33,7 @@ Software engineering is where computer science meets craft — the discipline of
 
 ### DevOps & Deployment
 
-Coming soon — CI/CD pipelines, containerization, infrastructure as code, and observability.
+Coming soon - CI/CD pipelines, containerization, infrastructure as code, and observability.
 
 ---
 

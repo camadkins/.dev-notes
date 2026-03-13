@@ -2,19 +2,20 @@
 title: Discrete Probability
 description: Sample spaces, conditional probability, Bayes' theorem, and expected value for algorithm analysis and randomized methods.
 draft: false
-comments: false
+comments: true
 tags:
   - cs
   - math
 date: 2026-03-12
+updated:
 aliases: []
 ---
 
 ## Intuition
 
-Probability quantifies uncertainty. In CS, we use it constantly: analyzing average-case performance, designing randomized algorithms, reasoning about hash collisions, training machine learning models, and modeling network reliability. Discrete probability — where outcomes are countable — covers the majority of what algorithm analysis requires.
+Probability quantifies uncertainty. In CS, we use it constantly: analyzing average-case performance, designing randomized algorithms, reasoning about hash collisions, training machine learning models, and modeling network reliability. Discrete probability - where outcomes are countable - covers the majority of what algorithm analysis requires.
 
-Without probability, we could only talk about worst-case and best-case performance — extremes that often misrepresent typical behavior. Average-case analysis via expected value gives a far more realistic picture. Randomized algorithms (quicksort with random pivots, randomized primality testing, sketching algorithms) explicitly use probability to achieve better expected performance or simpler implementations than their deterministic counterparts.
+Without probability, we could only talk about worst-case and best-case performance - extremes that often misrepresent typical behavior. Average-case analysis via expected value gives a far more realistic picture. Randomized algorithms (quicksort with random pivots, randomized primality testing, sketching algorithms) explicitly use probability to achieve better expected performance or simpler implementations than their deterministic counterparts.
 
 ## Core Idea
 
@@ -44,7 +45,7 @@ $$E[X] = \sum_{x} x \cdot P(X = x)$$
 
 Key properties:
 
-- **Linearity of expectation**: $E[X + Y] = E[X] + E[Y]$, always — even when $X$ and $Y$ are dependent.
+- **Linearity of expectation**: $E[X + Y] = E[X] + E[Y]$, always - even when $X$ and $Y$ are dependent.
 - **Variance**: $\text{Var}(X) = E[X^2] - (E[X])^2$, measures spread.
 
 **Useful distributions in CS:**
@@ -57,7 +58,7 @@ Key properties:
 
 - **Markov's inequality**: for non-negative $X$, $P(X \geq a) \leq \frac{E[X]}{a}$.
 - **Chebyshev's inequality**: $P(|X - E[X]| \geq k\sigma) \leq \frac{1}{k^2}$.
-- **Chernoff bounds**: exponentially tight bounds for sums of independent random variables — the workhorse for analyzing randomized algorithms.
+- **Chernoff bounds**: exponentially tight bounds for sums of independent random variables - the workhorse for analyzing randomized algorithms.
 
 ## Example
 
@@ -73,7 +74,7 @@ $$P(S \mid W) = \frac{0.8 \cdot 0.3}{0.8 \cdot 0.3 + 0.1 \cdot 0.7} = \frac{0.24
 
 An email containing "free" has about a 77% chance of being spam under this model.
 
-**Linearity of expectation (coupon collector).** To collect all $n$ distinct coupons when each draw is uniform random, the expected draws needed is $n \cdot H_n \approx n \ln n$, proved by decomposing into geometric waiting times and summing expectations — no independence needed thanks to linearity.
+**Linearity of expectation (coupon collector).** To collect all $n$ distinct coupons when each draw is uniform random, the expected draws needed is $n \cdot H_n \approx n \ln n$, proved by decomposing into geometric waiting times and summing expectations - no independence needed thanks to linearity.
 
 **Randomized quicksort.** Choosing a pivot uniformly at random makes quicksort's expected comparisons $2n \ln n \approx 1.39 n \log_2 n$ regardless of input order. The analysis uses linearity of expectation: define indicator variables $X_{ij} = 1$ if elements $i$ and $j$ are ever compared, compute $E[X_{ij}] = \frac{2}{j - i + 1}$, and sum over all pairs.
 
@@ -81,7 +82,7 @@ An email containing "free" has about a 77% chance of being spam under this model
 
 ## Related Notes
 
-- [[best-worst-average-cases|Best, Worst & Average Cases]] — probability underpins average-case complexity analysis
-- [[combinatorics|Combinatorics]] — counting outcomes is the foundation of computing probabilities
-- [[linear-algebra-fundamentals|Linear Algebra Fundamentals]] — Markov chains connect probability with matrix methods
-- [[graph-theory|Graph Theory]] — random graphs and probabilistic methods in combinatorics
+- [[best-worst-average-cases|Best, Worst & Average Cases]] - probability underpins average-case complexity analysis
+- [[combinatorics|Combinatorics]] - counting outcomes is the foundation of computing probabilities
+- [[linear-algebra-fundamentals|Linear Algebra Fundamentals]] - Markov chains connect probability with matrix methods
+- [[graph-theory|Graph Theory]] - random graphs and probabilistic methods in combinatorics

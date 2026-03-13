@@ -1,18 +1,19 @@
 ---
 title: Network Protocols
-description: OSI and TCP/IP models, TCP vs UDP, DNS resolution, and HTTP — the layered abstractions that let machines communicate.
+description: OSI and TCP/IP models, TCP vs UDP, DNS resolution, and HTTP - the layered abstractions that let machines communicate.
 draft: false
-comments: false
+comments: true
 tags:
   - cs
   - systems
 date: 2026-03-12
+updated:
 aliases: []
 ---
 
 ## Intuition
 
-Networking is a stack of agreements. At the bottom, electrical signals or light pulses travel over wires and fiber. At the top, a browser fetches a web page. In between, each layer solves one problem — framing, addressing, routing, reliability, naming, or application semantics — and presents a clean interface to the layer above. The two dominant models that describe this layering are OSI (7 layers, conceptual) and TCP/IP (4 layers, practical).
+Networking is a stack of agreements. At the bottom, electrical signals or light pulses travel over wires and fiber. At the top, a browser fetches a web page. In between, each layer solves one problem - framing, addressing, routing, reliability, naming, or application semantics - and presents a clean interface to the layer above. The two dominant models that describe this layering are OSI (7 layers, conceptual) and TCP/IP (4 layers, practical).
 
 ## Core Idea
 
@@ -60,7 +61,7 @@ Content-Length: 1256
 <!DOCTYPE html>...
 ```
 
-Key evolution: HTTP/1.1 (persistent connections, chunked transfer), HTTP/2 (binary framing, multiplexed streams, header compression), HTTP/3 (QUIC — UDP-based, built-in TLS, eliminates head-of-line blocking at the transport layer).
+Key evolution: HTTP/1.1 (persistent connections, chunked transfer), HTTP/2 (binary framing, multiplexed streams, header compression), HTTP/3 (QUIC - UDP-based, built-in TLS, eliminates head-of-line blocking at the transport layer).
 
 ## Example
 
@@ -76,5 +77,5 @@ At the IP layer, routers forward packets hop by hop using routing tables. At the
 
 ## Related Notes
 
-- [[distributed-consensus|Distributed Consensus]] — what happens when networked machines must agree on shared state
-- [[processes-and-threads|Processes & Threads]] — servers use processes or threads to handle concurrent network connections
+- [[distributed-consensus|Distributed Consensus]] - what happens when networked machines must agree on shared state
+- [[processes-and-threads|Processes & Threads]] - servers use processes or threads to handle concurrent network connections

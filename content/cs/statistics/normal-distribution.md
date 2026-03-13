@@ -1,18 +1,19 @@
 ---
 title: Normal Distribution
-description: The Gaussian bell curve—parameterized by mean and standard deviation, foundation for statistical inference and machine learning.
+description: The Gaussian bell curve - parameterized by mean and standard deviation, foundation for statistical inference and machine learning.
 draft: false
-comments: false
+comments: true
 tags:
   - cs
   - statistics
 date: 2026-03-12
+updated:
 aliases: []
 ---
 
 ## Intuition
 
-The normal distribution is the symmetric **bell curve** that shows up whenever many small, independent effects add together. Heights, measurement errors, exam scores—all tend to cluster around a central value with symmetric tails. The curve is entirely described by two numbers: where it is centered and how wide it spreads. This simplicity, combined with the [[central-limit-theorem|Central Limit Theorem]], makes it the single most important distribution in statistics.
+The normal distribution is the symmetric **bell curve** that shows up whenever many small, independent effects add together. Heights, measurement errors, exam scores - all tend to cluster around a central value with symmetric tails. The curve is entirely described by two numbers: where it is centered and how wide it spreads. This simplicity, combined with the [[central-limit-theorem|Central Limit Theorem]], makes it the single most important distribution in statistics.
 
 ## Definition
 
@@ -28,7 +29,7 @@ The **standard normal** distribution is the special case $Z \sim \mathcal{N}(0, 
 
 ## Key Formulas
 
-**Standardizing transformation** — convert any normal variable to standard normal:
+**Standardizing transformation** - convert any normal variable to standard normal:
 
 $$Z = \frac{X - \mu}{\sigma}$$
 
@@ -60,9 +61,9 @@ By symmetry, the proportion outside tolerance is:
 
 $$P(|X - 10| > 0.05) = 2\,[1 - \Phi(2.5)] = 2(0.0062) \approx 1.24\%$$
 
-So about 1.24% of production is scrapped—a number that directly informs cost analysis and quality control decisions.
+So about 1.24% of production is scrapped - a number that directly informs cost analysis and quality control decisions.
 
-If the process variance drifted to $\sigma = 0.03$ mm, the scrap rate would jump to $2[1 - \Phi(1.67)] \approx 9.5\%$—demonstrating how sensitive quality is to the spread parameter.
+If the process variance drifted to $\sigma = 0.03$ mm, the scrap rate would jump to $2[1 - \Phi(1.67)] \approx 9.5\%$ - demonstrating how sensitive quality is to the spread parameter.
 
 ## Why It Matters in CS
 
@@ -74,7 +75,7 @@ If the process variance drifted to $\sigma = 0.03$ mm, the scrap rate would jump
 
 ## Related Notes
 
-- [[central-limit-theorem|Central Limit Theorem]] — explains *why* the normal distribution appears so often
-- [[probability-distributions|Probability Distributions]] — the normal in context with other distribution families
-- [[regression-fundamentals|Regression Fundamentals]] — normality assumption on residuals
-- [[bayesian-inference|Bayesian Inference]] — normal priors and conjugate updating
+- [[central-limit-theorem|Central Limit Theorem]] - explains *why* the normal distribution appears so often
+- [[probability-distributions|Probability Distributions]] - the normal in context with other distribution families
+- [[regression-fundamentals|Regression Fundamentals]] - normality assumption on residuals
+- [[bayesian-inference|Bayesian Inference]] - normal priors and conjugate updating

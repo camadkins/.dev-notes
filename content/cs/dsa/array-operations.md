@@ -1,7 +1,8 @@
 ---
-title: Array Operations — Canonical Patterns and Costs
+title: Array Operations - Canonical Patterns and Costs
 description: Indexing, iteration, insertion/deletion with shifts, and searching on contiguous fixed-stride arrays with practical tips and pitfalls.
 draft: false
+comments: true
 tags:
   - cs
   - dsa
@@ -11,7 +12,7 @@ aliases: []
 ---
 
 ## Overview
-Arrays provide **O(1) indexed access** via fixed-stride addressing, making them the default substrate for many algorithms and data structures. This note gathers the **canonical operations** on arrays—**index, iterate, insert/delete (with shifts), and search**—with their **standard costs**, **safe idioms**, and **gotchas**. It complements the structural properties in [[arrays|Arrays — Fixed-Size Contiguous Storage]] and focuses on *how to do the work correctly and efficiently*.
+Arrays provide **O(1) indexed access** via fixed-stride addressing, making them the default substrate for many algorithms and data structures. This note gathers the **canonical operations** on arrays - **index, iterate, insert/delete (with shifts), and search** - with their **standard costs**, **safe idioms**, and **gotchas**. It complements the structural properties in [[arrays|Arrays - Fixed-Size Contiguous Storage]] and focuses on *how to do the work correctly and efficiently*.
 
 > [!note] Mental model
 > For fixed-size elements:
@@ -285,15 +286,15 @@ for (int i = 0; i < n; ++i) if (A[i] == x) { idx = i; break; }
 
 > [!warning] Common pitfalls
 > 
-> - **“Append is always O(1)”** — only _amortized_ in dynamic arrays; worst-case append may be Θ(n) due to resize.
+> - **“Append is always O(1)”** - only _amortized_ in dynamic arrays; worst-case append may be Θ(n) due to resize.
 >     
-> - **Sentinels are universally safe** — not in bounds-checked languages or when capacity equals length.
+> - **Sentinels are universally safe** - not in bounds-checked languages or when capacity equals length.
 >     
-> - **Binary search on unsorted data** — precondition is violated; results are undefined.
+> - **Binary search on unsorted data** - precondition is violated; results are undefined.
 >     
-> - **Copy direction errors** — shifting with the wrong loop direction corrupts data.
+> - **Copy direction errors** - shifting with the wrong loop direction corrupts data.
 >     
-> - **Iterator invalidation** — after a dynamic-array reallocation, pointers/iterators to old storage are invalid.
+> - **Iterator invalidation** - after a dynamic-array reallocation, pointers/iterators to old storage are invalid.
 >     
 
 > [!tip] Test harness checklist
@@ -322,9 +323,9 @@ for (int i = 0; i < n; ++i) if (A[i] == x) { idx = i; break; }
 
 ---
 
-## See also
+## Related Notes
 
-- [[arrays|Arrays — Fixed-Size Contiguous Storage]]
+- [[arrays|Arrays - Fixed-Size Contiguous Storage]]
     
 - [[dynamic-arrays|Dynamic Arrays]]
     

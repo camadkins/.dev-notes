@@ -1,20 +1,21 @@
 ---
 title: Mathematical Induction
-description: Weak, strong, and structural induction — the primary proof technique for recursive definitions and algorithm correctness.
+description: Weak, strong, and structural induction - the primary proof technique for recursive definitions and algorithm correctness.
 draft: false
-comments: false
+comments: true
 tags:
   - cs
   - math
 date: 2026-03-12
+updated:
 aliases: []
 ---
 
 ## Intuition
 
-Induction is the formal version of a domino argument: if the first domino falls, and each domino knocks over the next, then every domino falls. In CS, induction is the proof technique that matches recursion — whenever a function or data structure is defined recursively, induction is the natural way to prove properties about it. If you can write a recursive algorithm, you can structure an inductive proof with the same shape.
+Induction is the formal version of a domino argument: if the first domino falls, and each domino knocks over the next, then every domino falls. In CS, induction is the proof technique that matches recursion - whenever a function or data structure is defined recursively, induction is the natural way to prove properties about it. If you can write a recursive algorithm, you can structure an inductive proof with the same shape.
 
-Understanding induction is not optional in CS — it is the primary method for proving algorithm correctness, verifying loop invariants, and establishing properties of recursive data structures. Type theorists and programming language researchers use structural induction so routinely that it becomes second nature: the shape of the proof follows the shape of the data.
+Understanding induction is not optional in CS - it is the primary method for proving algorithm correctness, verifying loop invariants, and establishing properties of recursive data structures. Type theorists and programming language researchers use structural induction so routinely that it becomes second nature: the shape of the proof follows the shape of the data.
 
 ## Core Idea
 
@@ -77,13 +78,13 @@ which is the formula with $n = k+1$. QED.
 **Common mistakes in induction proofs:**
 
 - Forgetting to verify the base case (the proof is vacuous without it).
-- Using $P(k+1)$ in the proof of $P(k+1)$ — circular reasoning.
+- Using $P(k+1)$ in the proof of $P(k+1)$ - circular reasoning.
 - Choosing the wrong inductive variable (e.g., inducting on $n$ when the recursion decreases a different quantity).
 - Off-by-one errors in the base case that leave a gap.
 
 ## Related Notes
 
-- [[recursion|Recursion]] — induction is the proof technique that mirrors recursive computation
-- [[recurrence-relations|Recurrence Relations]] — induction verifies closed-form solutions to recurrences
-- [[graph-theory|Graph Theory]] — many graph proofs proceed by induction on vertices or edges
-- [[discrete-probability|Discrete Probability]] — inductive arguments establish properties of random processes
+- [[recursion|Recursion]] - induction is the proof technique that mirrors recursive computation
+- [[recurrence-relations|Recurrence Relations]] - induction verifies closed-form solutions to recurrences
+- [[graph-theory|Graph Theory]] - many graph proofs proceed by induction on vertices or edges
+- [[discrete-probability|Discrete Probability]] - inductive arguments establish properties of random processes

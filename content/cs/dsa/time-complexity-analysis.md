@@ -2,6 +2,7 @@
 title: Time Complexity Analysis
 description: Rigorous techniques to bound running time using cost models, asymptotics, and recurrences.
 draft: false
+comments: true
 tags:
   - cs
   - dsa
@@ -12,7 +13,7 @@ aliases: []
 ---
 
 ## Overview
-**Time complexity analysis** predicts how an algorithm's running time scales with input size `n`. The goal is not to count literal CPU cycles but to obtain **asymptotic bounds**—usually `$O(\cdot)$`, `$Ω(\cdot)$`, `$Θ(\cdot)$`—that remain stable across machines and implementations. A disciplined analysis uses a **cost model**, **dominant-term extraction**, and (when needed) **recurrences** for recursive algorithms.
+**Time complexity analysis** predicts how an algorithm's running time scales with input size `n`. The goal is not to count literal CPU cycles but to obtain **asymptotic bounds** - usually `$O(\cdot)$`, `$Ω(\cdot)$`, `$Θ(\cdot)$` - that remain stable across machines and implementations. A disciplined analysis uses a **cost model**, **dominant-term extraction**, and (when needed) **recurrences** for recursive algorithms.
 
 > [!note]
 > Complexity is a *function of input size and structure*. For many algorithms, best, worst, and average cases differ. Report the one most relevant to the use case and model assumptions.
@@ -120,7 +121,7 @@ Many recursive algorithms are captured by a **recurrence relation**. Common patt
     `$T(n) = T(n-1) + Θ(n) ⇒ T(n) = Θ(n^2)$`.
 
 
-> See [[recurrence-relations|Recurrence Relations]] and [[recurrences-master-theorem|Recurrences — Master Theorem]] for systematic solutions.
+> See [[recurrence-relations|Recurrence Relations]] and [[recurrences-master-theorem|Recurrences - Master Theorem]] for systematic solutions.
 
 ### Master Theorem (quick recall)
 
@@ -181,7 +182,7 @@ Spread the cost of occasional expensive operations over many cheap ones (dynamic
 - Union–Find with path compression + union by rank: sequence of `m` ops on `n` elements in `$Θ(m α(n))$`, where `α` is the inverse Ackermann function (practically ≤ 5).
 
 
-See [[dynamic-arrays|Dynamic Arrays]] and [[disjoint-set-union-union-find|Disjoint Set Union — Union–Find]].
+See [[dynamic-arrays|Dynamic Arrays]] and [[disjoint-set-union-union-find|Disjoint Set Union - Union–Find]].
 
 ## Common Misunderstandings
 
@@ -213,7 +214,7 @@ See [[dynamic-arrays|Dynamic Arrays]] and [[disjoint-set-union-union-find|Disjoi
 
 Time complexity analysis abstracts machine details to compare algorithms by **growth rates**. Choose an appropriate **cost model**, perform **dominant-term** simplification for straight-line and loop code, and use **recurrences** for divide-and-conquer. Incorporate **amortized** and **parameterized** analyses when operations or inputs demand it. Pair the theoretical result with empirical profiling and model-aware implementation to ensure performance that holds both **in principle** and **in production**.
 
-## See also
+## Related Notes
 
 - [[asymptotic-notation|Asymptotic Notation]]
 

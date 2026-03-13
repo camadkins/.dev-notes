@@ -1,7 +1,8 @@
 ---
-title: Tree Traversal — Overview
+title: Tree Traversal - Overview
 description: Systematic ways to visit tree nodes; depth-first (pre/in/post), breadth-first (level order), with recursive and iterative patterns.
 draft: false
+comments: true
 tags:
   - cs
   - dsa
@@ -9,8 +10,8 @@ date: 2025-10-16
 updated:
 aliases: []
 # diagrams:
-# - traversal-skeletons.svg — Unified boxes for Preorder (Root, Left, Right), Inorder (Left, Root, Right), Postorder (Left, Right, Root), and Level Order (by depth), showing control flow arrows.
-# - recursion-vs-iteration.svg — Side-by-side of a call stack expanding/contracting vs an explicit stack/queue driving the same visit order.
+# - traversal-skeletons.svg - Unified boxes for Preorder (Root, Left, Right), Inorder (Left, Root, Right), Postorder (Left, Right, Root), and Level Order (by depth), showing control flow arrows.
+# - recursion-vs-iteration.svg - Side-by-side of a call stack expanding/contracting vs an explicit stack/queue driving the same visit order.
 ---
 
 ## Overview
@@ -22,11 +23,11 @@ aliases: []
 Each order admits a **recursive** version (via the program stack) and an **iterative** version (using an explicit **stack** or **queue**). The choice affects stack depth, memory use, and control over side effects.
 
 > [!note]
-> Throughout, assume a binary-tree node with fields `Node.left`, `Node.right`, and possibly `Node.children[]` for general trees. For binary search trees (BSTs), **inorder** yields keys in sorted order; see [[inorder|Traversal — Inorder]] and [[binary-tree|Binary Tree]].
+> Throughout, assume a binary-tree node with fields `Node.left`, `Node.right`, and possibly `Node.children[]` for general trees. For binary search trees (BSTs), **inorder** yields keys in sorted order; see [[inorder|Traversal - Inorder]] and [[binary-tree|Binary Tree]].
 
 ## Motivation
 Picking the right traversal gives you:
-- **Correctness by construction:** e.g., postorder naturally ensures children are processed **before** their parent—ideal for deletion or bottom-up DP.
+- **Correctness by construction:** e.g., postorder naturally ensures children are processed **before** their parent - ideal for deletion or bottom-up DP.
 - **Clarity of intent:** preorder aligns with **serialization** (“emit root before its subtree”), inorder with **BST iteration**, level order with **shortest number of edges from root** properties.
 - **Performance predictability:** DFS uses at most the **height** of the tree in extra memory; BFS uses at most the size of the **widest level**.
 
@@ -65,7 +66,7 @@ Consider a binary tree with values:
 - **Level order:** 8, 3, 10, 1, 6, 14, 4, 7, 13
 
 > [!example]
-> **Diagram (`traversal-skeletons.svg`)** — Show the same small tree annotated four times with arrows indicating the exact visiting order for preorder/inorder/postorder/level-order.
+> **Diagram (`traversal-skeletons.svg`)** - Show the same small tree annotated four times with arrows indicating the exact visiting order for preorder/inorder/postorder/level-order.
 
 ## Recursive Skeletons (Binary Trees)
 ```pseudo
@@ -197,7 +198,7 @@ function LEVEL_ORDER_WITH_LEVELS(root):
 
 ## Accumulation Patterns (What to Do During `visit`)
 
-- **Aggregates:** subtree sizes, sums, min/max—often simplest in **postorder** (children computed first).
+- **Aggregates:** subtree sizes, sums, min/max - often simplest in **postorder** (children computed first).
     
 - **Structural checks:** BST validity (inorder should be non-decreasing), heap property, balance factors.
     
@@ -244,7 +245,7 @@ For `n` nodes:
 > **Mixing orders accidentally.** Tiny changes in push order flip traversal results (e.g., pushing left before right vs the reverse). Write small tests asserting expected sequences.
 
 > [!warning]  
-> **Stateful visits with side effects.** If `visit` mutates structure (e.g., deleting nodes), ensure the traversal order still visits all intended nodes safely—**postorder** is safest for destructive operations.
+> **Stateful visits with side effects.** If `visit` mutates structure (e.g., deleting nodes), ensure the traversal order still visits all intended nodes safely - **postorder** is safest for destructive operations.
 
 > [!warning]  
 > **Inorder assumptions outside BSTs.** Only BSTs guarantee sorted order under inorder; for arbitrary binary trees, inorder is just a convention.
@@ -266,29 +267,29 @@ For `n` nodes:
 > When exposing iteration APIs, provide all four: `preorder()`, `inorder()`, `postorder()`, `levelOrder()`. For BSTs, make `inorder()` the **default iterator** so `for x in bst` yields sorted keys.
 
 > [!example]  
-> **Diagram (`recursion-vs-iteration.svg`)** — Left: recursive call stack frames expanding and unwinding; Right: explicit stack/queue snapshots evolving step-by-step for the same visit order.
+> **Diagram (`recursion-vs-iteration.svg`)** - Left: recursive call stack frames expanding and unwinding; Right: explicit stack/queue snapshots evolving step-by-step for the same visit order.
 
 ## Summary
 
 Traversal orders are **contracts** about when a node is visited relative to its children:
 
-- **Preorder**: visit **before** children — ideal for cloning, serialization, and pre-compute passes.
+- **Preorder**: visit **before** children - ideal for cloning, serialization, and pre-compute passes.
     
-- **Inorder**: visit **between** children — exposes sorted order in BSTs.
+- **Inorder**: visit **between** children - exposes sorted order in BSTs.
     
-- **Postorder**: visit **after** children — natural for deletions, frees, and bottom-up DP.
+- **Postorder**: visit **after** children - natural for deletions, frees, and bottom-up DP.
     
-- **Level order (BFS)**: visit by **depth** — best for breadth properties, shortest-edge layers, and level-wise aggregation.
+- **Level order (BFS)**: visit by **depth** - best for breadth properties, shortest-edge layers, and level-wise aggregation.
     
 
 All run in `Θ(n)` time; pick recursive vs iterative to balance simplicity, depth safety, and memory. Combine traversal with **accumulation** to implement practical algorithms cleanly and safely.
 
-## See also
+## Related Notes
 
-- [[preorder|Traversal — Preorder]]
+- [[preorder|Traversal - Preorder]]
     
-- [[inorder|Traversal — Inorder]]
+- [[inorder|Traversal - Inorder]]
     
-- [[postorder|Traversal — Postorder]]
+- [[postorder|Traversal - Postorder]]
     
-- [[graph-traversals-bfs-dfs|Graph Traversals — BFS & DFS]]
+- [[graph-traversals-bfs-dfs|Graph Traversals - BFS & DFS]]

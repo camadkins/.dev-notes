@@ -2,9 +2,10 @@
 title: Binomial Distribution
 description: Counting successes in a fixed number of independent Bernoulli trials with constant probability.
 draft: false
-comments: false
+comments: true
 tags: [cs, statistics]
 date: 2026-03-12
+updated:
 aliases: []
 ---
 
@@ -74,8 +75,8 @@ So there is about a 74% chance that 3 or more components survive the test.
 
 ## Related Notes
 
-- [[probability-distributions|Probability Distributions]] — overview that introduces the binomial alongside other distributions
-- [[geometric-distribution|Geometric Distribution]] — models trials until the *first* success rather than counting successes in $n$ trials
-- [[poisson-distribution|Poisson Distribution]] — approximates the binomial when $n$ is large and $p$ is small
+- [[probability-distributions|Probability Distributions]] - overview that introduces the binomial alongside other distributions
+- [[geometric-distribution|Geometric Distribution]] - models trials until the *first* success rather than counting successes in $n$ trials
+- [[poisson-distribution|Poisson Distribution]] - approximates the binomial when $n$ is large and $p$ is small
 
 > **Note:** [[probability-distributions|Probability Distributions]] covers the binomial at an overview level. This note provides a deeper treatment with worked examples and CS applications.

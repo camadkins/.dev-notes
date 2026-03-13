@@ -1,7 +1,8 @@
 ---
-title: Linked Lists — Insertion, Deletion, Traversal
+title: Linked Lists - Insertion, Deletion, Traversal
 description: Singly linked list operations with pointer rewiring invariants, edge cases, and testable pseudocode for head, tail, and middle updates.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -222,7 +223,7 @@ Start with `L = []` (empty: `head=tail=NIL`).
 
 ## Implementation Notes or Trade-offs
 
-- **Memory management.** In manual-memory languages, every `new` must pair with a `destroy`. Deleting a node **must not** lose the pointer to the rest of the list—save `next` first if needed.
+- **Memory management.** In manual-memory languages, every `new` must pair with a `destroy`. Deleting a node **must not** lose the pointer to the rest of the list - save `next` first if needed.
 
 - **Sentinel (dummy) head.** Using a **dummy head** (`head` always non-NIL) removes special cases for deleting/inserting at the start:
 
@@ -329,7 +330,7 @@ Create a small, deterministic suite:
 
 Singly linked lists enable **O(1)** local updates when the predecessor is known and **O(n)** traversal/search. The crux is **pointer rewiring** while maintaining simple invariants (`head`, `tail`, `size`). Prefer `tail` for O(1) appends, use a **dummy head** to simplify edge cases, and write tests for empty/one-element operations. With these patterns, insertion, deletion, and traversal are reliable, readable, and safe.
 
-## See also
+## Related Notes
 
 - [[linked-list|Linked List]]
 

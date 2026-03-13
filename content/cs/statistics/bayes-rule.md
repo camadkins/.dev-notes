@@ -1,18 +1,19 @@
 ---
 title: Bayes' Rule
-description: The formula for reversing conditional probability—computing the probability of a cause given an observed effect.
+description: The formula for reversing conditional probability - computing the probability of a cause given an observed effect.
 draft: false
-comments: false
+comments: true
 tags:
   - cs
   - statistics
 date: 2026-03-12
+updated:
 aliases: []
 ---
 
 ## Intuition
 
-You observe an effect and want to know which cause produced it. The trouble is that you know the probability in the **forward** direction—how likely each cause is to produce the effect—but you need the **reverse**: how likely each cause is, given that the effect occurred.
+You observe an effect and want to know which cause produced it. The trouble is that you know the probability in the **forward** direction - how likely each cause is to produce the effect - but you need the **reverse**: how likely each cause is, given that the effect occurred.
 
 Bayes' rule is the bridge. It takes a forward conditional probability $P(A \mid B)$, combines it with how common each cause is on its own (the prior), and flips the direction to give $P(B \mid A)$. The more strongly a cause predicts the observed evidence, and the more common that cause is a priori, the more posterior probability it receives.
 
@@ -22,7 +23,7 @@ Given a partition $\{B_1, B_2, \ldots, B_k\}$ of the sample space and an observe
 
 $$P(B_r \mid A) = \frac{P(B_r)\, P(A \mid B_r)}{\sum_{i=1}^{k} P(B_i)\, P(A \mid B_i)}$$
 
-The denominator is the **law of total probability**—it ensures the posterior sums to 1 across all $B_i$.
+The denominator is the **law of total probability** - it ensures the posterior sums to 1 across all $B_i$.
 
 > [!tip]
 > The denominator is often the hardest part to compute. In practice, you can evaluate the numerator for each $B_i$ and then normalize. This is exactly what many inference algorithms do.
@@ -33,7 +34,7 @@ When the "cause" is a continuous parameter $\theta$ with prior density $\pi(\the
 
 $$\pi(\theta \mid x) = \frac{f(x \mid \theta)\, \pi(\theta)}{g(x)}, \qquad g(x) = \int f(x \mid \theta)\, \pi(\theta)\, d\theta$$
 
-This is the starting point of [[bayesian-inference|Bayesian Inference]], which builds a full framework around this formula—prior selection, conjugacy, sequential updating, and computational methods like MCMC.
+This is the starting point of [[bayesian-inference|Bayesian Inference]], which builds a full framework around this formula - prior selection, conjugacy, sequential updating, and computational methods like MCMC.
 
 ## Key Formulas
 
@@ -88,6 +89,6 @@ Machine $M_3$ is the most likely source despite producing only 25% of bolts, bec
 
 ## Related Notes
 
-- [[conditional-probability|Conditional Probability]] — the foundation Bayes' rule rearranges
-- [[bayesian-inference|Bayesian Inference]] — the full inference framework built around this rule
-- [[probability-distributions|Probability Distributions]] — priors and likelihoods are distributions
+- [[conditional-probability|Conditional Probability]] - the foundation Bayes' rule rearranges
+- [[bayesian-inference|Bayesian Inference]] - the full inference framework built around this rule
+- [[probability-distributions|Probability Distributions]] - priors and likelihoods are distributions

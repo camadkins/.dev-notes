@@ -1,7 +1,8 @@
 ---
-title: Booleans & Conditionals — Semantics and Evaluation
+title: Booleans & Conditionals - Semantics and Evaluation
 description: How programming languages define, represent, and evaluate Boolean values and conditional control flow.
 draft: false
+comments: true
 tags:
   - cs
   - pl
@@ -9,18 +10,18 @@ date: 2025-10-24
 updated:
 aliases: []
 # diagrams:
-#  - boolean_short_circuit.svg — depict short-circuit evaluation trees for ∧ and ∨.
-#  - conditional_reduction_steps.svg — trace small-step evaluation of an `if` expression.
-#  - truth_domains.svg — illustrate two-valued vs three-valued logic systems.
+#  - boolean_short_circuit.svg - depict short-circuit evaluation trees for ∧ and ∨.
+#  - conditional_reduction_steps.svg - trace small-step evaluation of an `if` expression.
+#  - truth_domains.svg - illustrate two-valued vs three-valued logic systems.
 ---
 
 ## Overview
 Booleans form the logical foundation of decision-making in programming languages.  
-Though represented by only two values — `true` and `false` — they define the branching behavior that determines how every computation proceeds.  
+Though represented by only two values - `true` and `false` - they define the branching behavior that determines how every computation proceeds.  
 Their semantics specify not only what constitutes truth, but *how* truth is computed and propagated through control structures.
 
 > [!note]
-> Boolean semantics is not about syntax (`&&`, `||`, `!`), but about **how truth values drive evaluation** — the basis for understanding control flow, optimization, and type soundness.
+> Boolean semantics is not about syntax (`&&`, `||`, `!`), but about **how truth values drive evaluation** - the basis for understanding control flow, optimization, and type soundness.
 
 ---
 
@@ -35,7 +36,8 @@ However, implementation varies by language:
 
 | Language | Representation | Notes |
 |-----------|----------------|-------|
-| **C / Java** | Integers (`0`, `1`) | Boolean-as-int; coercion may blur semantics |
+| **C** | Integers (`0`, `1`) | Boolean-as-int; coercion may blur semantics |
+| **Java** | Distinct `boolean` type | Not an integer; no implicit conversion to/from `int` |
 | **Python / Haskell** | Distinct `Bool` type | Strict typing, no implicit conversion |
 | **Lisp / Scheme** | Anything not `#f` is “truthy” | Semantics extend to all non-false values |
 | **SQL** | `{ TRUE, FALSE, UNKNOWN }` | Ternary logic (three-valued semantics) |
@@ -45,7 +47,7 @@ This distinction matters for evaluation: in permissive systems (like JavaScript)
 ---
 
 ## Evaluation Rules
-Boolean operations (`and`, `or`, `not`) follow **short-circuit semantics** — the minimal evaluation needed to determine a result.
+Boolean operations (`and`, `or`, `not`) follow **short-circuit semantics** - the minimal evaluation needed to determine a result.
 
 Formal rules (small-step form):
 ```
@@ -64,7 +66,7 @@ These express that:
 > **Diagram (`boolean_short_circuit.svg`)**  
 > Two trees showing the evaluation paths for `true ∧ e` and `false ∨ e`, highlighting where evaluation stops.
 
-Short-circuiting reduces unnecessary computation and supports side-effect control — one reason Boolean semantics is often the first topic in operational semantics courses.
+Short-circuiting reduces unnecessary computation and supports side-effect control - one reason Boolean semantics is often the first topic in operational semantics courses.
 
 ---
 
@@ -89,7 +91,7 @@ Conditionals therefore act as **branching evaluators** over Boolean domains.
 - In **non-strict languages** (Haskell, ML), branch evaluation is *deferred* until chosen.
 
 > [!tip]
-> Treating `if` as an *expression* (not a statement) aligns semantics with pure λ-calculus — `if` returns a value.
+> Treating `if` as an *expression* (not a statement) aligns semantics with pure λ-calculus - `if` returns a value.
 
 ---
 
@@ -142,12 +144,15 @@ B' = { true, false, ⊥ }
 |Domain Theory|`⊥`|Nontermination or error|
 |Three-Valued Logic|`N`|Indeterminate truth|
 
-Rule adjustments handle these:
+In Kleene's strong three-valued logic, the truth tables extend naturally:
 
 ```
-E ⊢ ⊥ ∧ e → ⊥
-E ⊢ ⊥ ∨ e → e
+⊥ ∧ true  → ⊥       ⊥ ∨ true  → true
+⊥ ∧ false → false    ⊥ ∨ false → ⊥
+⊥ ∧ ⊥    → ⊥       ⊥ ∨ ⊥    → ⊥
 ```
+
+The key point: `⊥ ∨ e` is only `true` when `e` is `true`, not simply `e`.
 
 > [!warning]  
 > Undefined truth can propagate: a single `⊥` may halt evaluation entirely unless language rules specify continuation.
@@ -205,7 +210,7 @@ This explicit environment + continuation form is crucial for modeling control co
 |**Operational relevance**|Core to semantic modeling and runtime evaluation|
 
 > [!tip]  
-> Booleans are not “simple primitives” — they are _control mechanisms encoded as values_.
+> Booleans are not “simple primitives” - they are _control mechanisms encoded as values_.
 
 ---
 
@@ -220,10 +225,10 @@ This explicit environment + continuation form is crucial for modeling control co
 
 ---
 
-## See also
+## Related Notes
 
-- [[operational-semantics-big-step-small-step|Operational Semantics — Big-Step & Small-Step]]
+- [[operational-semantics-big-step-small-step|Operational Semantics - Big-Step & Small-Step]]
     
-- [[abstract-machines-cek-secd|Abstract Machines — CEK and SECD]]
+- [[abstract-machines-cek-secd|Abstract Machines - CEK and SECD]]
     
 - [[evaluation-order-and-strictness|Evaluation Order & Strictness]]

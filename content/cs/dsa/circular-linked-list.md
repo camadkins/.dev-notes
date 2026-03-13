@@ -2,6 +2,7 @@
 title: Circular Linked List
 description: A linked list whose tail connects back to the head; supports constant-time rotations and round-robin iteration with careful termination logic.
 draft: false
+comments: true
 tags:
  - cs
  - dsa
@@ -275,7 +276,7 @@ Circular lists can back a **cyclic scheduler** or a **round-robin queue** by mai
 
 Circular linked lists form a **ring** by connecting the tail to the head. They preserve linked-list flexibility and enable **natural rotation** and **round-robin** patterns. SCLL is memory-light and works well with predecessor-based updates; DCLL pays one extra pointer per node to enable uniform O(1) deletion with just a node reference. Correct usage hinges on **explicit termination conditions**, careful handling of **empty/singleton** states, and optionally maintaining a **tail** pointer (or using a **sentinel**) to keep head operations O(1).
 
-## See also
+## Related Notes
 
 - [[linked-list|Linked List]]
 

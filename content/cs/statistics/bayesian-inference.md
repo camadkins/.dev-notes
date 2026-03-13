@@ -1,18 +1,19 @@
 ---
 title: Bayesian Inference
-description: Reasoning under uncertainty via Bayes' theorem—prior beliefs, likelihood functions, posterior distributions, and updating with data.
+description: Reasoning under uncertainty via Bayes' theorem - prior beliefs, likelihood functions, posterior distributions, and updating with data.
 draft: false
-comments: false
+comments: true
 tags:
   - cs
   - statistics
 date: 2026-03-12
+updated:
 aliases: []
 ---
 
 ## Intuition
 
-Bayesian inference treats **probability as a measure of belief** rather than a long-run frequency. You start with a belief about how the world works (a prior), observe data, and then update that belief proportionally to how well each possible explanation predicts what you saw. The result is a full distribution over possible answers—not just a single point estimate—so you always know how certain or uncertain you are.
+Bayesian inference treats **probability as a measure of belief** rather than a long-run frequency. You start with a belief about how the world works (a prior), observe data, and then update that belief proportionally to how well each possible explanation predicts what you saw. The result is a full distribution over possible answers - not just a single point estimate - so you always know how certain or uncertain you are.
 
 The core mechanic is simple: explanations that predicted the data well gain probability mass; explanations that predicted poorly lose it. As more data arrives, the prior matters less and the data dominates. This is the self-correcting property of Bayesian reasoning.
 
@@ -68,7 +69,7 @@ Then upon observing $D_2$:
 
 $$P(\theta \mid D_1, D_2) \propto P(D_2 \mid \theta)\, P(\theta \mid D_1)$$
 
-The final result is identical to updating on both datasets at once—order does not matter. This makes Bayesian methods natural for **streaming data** and **online learning**.
+The final result is identical to updating on both datasets at once - order does not matter. This makes Bayesian methods natural for **streaming data** and **online learning**.
 
 ### Bayesian vs. frequentist
 
@@ -90,12 +91,12 @@ Prior parameters: $\alpha = 2$, $\beta = 2$. After updating:
 
 $$\theta \mid D \sim \text{Beta}(2 + 7,\; 2 + 3) = \text{Beta}(9, 5)$$
 
-The posterior mean is $\frac{9}{9+5} = 0.643$, pulled toward 0.5 from the naive MLE of $0.7$ by the prior. The 95% **credible interval** (the Bayesian analogue of a confidence interval) is approximately $[0.39, 0.85]$—wide, reflecting genuine uncertainty from a small sample.
+The posterior mean is $\frac{9}{9+5} = 0.643$, pulled toward 0.5 from the naive MLE of $0.7$ by the prior. The 95% **credible interval** (the Bayesian analogue of a confidence interval) is approximately $[0.39, 0.85]$ - wide, reflecting genuine uncertainty from a small sample.
 
 With 100 flips and 70 heads, the posterior becomes $\text{Beta}(72, 32)$ with mean $0.692$ and a much tighter credible interval $[0.60, 0.78]$. The data now dominate the prior.
 
 ## Related Notes
 
-- [[probability-distributions|Probability Distributions]] — priors and posteriors are distributions
-- [[hypothesis-testing|Hypothesis Testing]] — frequentist alternative; Bayesian methods compute $P(H \mid D)$ directly
-- [[regression-fundamentals|Regression Fundamentals]] — Bayesian regression places priors on coefficients
+- [[probability-distributions|Probability Distributions]] - priors and posteriors are distributions
+- [[hypothesis-testing|Hypothesis Testing]] - frequentist alternative; Bayesian methods compute $P(H \mid D)$ directly
+- [[regression-fundamentals|Regression Fundamentals]] - Bayesian regression places priors on coefficients

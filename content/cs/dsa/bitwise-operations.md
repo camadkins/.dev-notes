@@ -1,7 +1,8 @@
 ---
-title: Bitwise Operations — Core Logic, Manipulation, and Low-Level Tricks
+title: Bitwise Operations - Core Logic, Manipulation, and Low-Level Tricks
 description: Foundational binary operators (AND, OR, XOR, NOT, shifts) and bit manipulation techniques for optimization, masking, set representation, and data encoding.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -20,7 +21,7 @@ Bitwise operators directly manipulate binary digits (bits) of integers.
 They form the foundation of **low-level computation**, **hardware interaction**, and **high-performance algorithms**.
 Mastering them allows for efficient **state encoding**, **compression**, and **arithmetic tricks**.
 
-**Bit manipulation** leverages these operators and binary representations to perform fast, memory-efficient computations — foundational in **low-level programming**, **competitive algorithms**, and **system design**.
+**Bit manipulation** leverages these operators and binary representations to perform fast, memory-efficient computations - foundational in **low-level programming**, **competitive algorithms**, and **system design**.
 
 ## Why it matters
 
@@ -102,7 +103,7 @@ Extracts only the rightmost 1-bit (two's complement trick).
 x &= (x - 1);
 ```
 
-Removes the lowest set bit — useful for subset enumeration or counting bits.
+Removes the lowest set bit - useful for subset enumeration or counting bits.
 
 ### Power of Two Test
 
@@ -127,10 +128,10 @@ int popcount(int n) {
 }
 ```
 
-Each iteration clears the **lowest 1-bit** — making it run in O(k), where k = number of set bits.
+Each iteration clears the **lowest 1-bit** - making it run in O(k), where k = number of set bits.
 
 > [!tip]
-> These four patterns — **power of two**, **popcount**, **clear bit**, and **extract bit** — form the "bit-hack core" of many algorithms.
+> These four patterns - **power of two**, **popcount**, **clear bit**, and **extract bit** - form the "bit-hack core" of many algorithms.
 
 ## Bit Packing & Fields
 
@@ -150,7 +151,7 @@ int b = packed & 0xFF;
 
 Used heavily in **graphics**, **network protocols**, and **compression**.
 
-## Shifts — Signed vs Logical
+## Shifts - Signed vs Logical
 
 - **Left shift (`<<`)** → multiplies by powers of two (if no overflow).
 - **Right shift (`>>`)** → divides by powers of two (depends on sign).
@@ -189,22 +190,22 @@ for (int sub = mask; sub; sub = (sub - 1) & mask) {
 
 ## Applications
 
-- **Dynamic Programming** — encode states as bitmasks
-- **Graph problems** — represent adjacency and visited sets
-- **Set operations** — union/intersection via OR/AND
-- **Flag management** — configuration bits, permissions
-- **Cryptographic primitives** — fast XOR-based transformations
-- **Compression and encoding** — compact data representations
-- **Graphics and color channels** — RGB packing, alpha blending
-- **Error detection** — checksums, parity bits
+- **Dynamic Programming** - encode states as bitmasks
+- **Graph problems** - represent adjacency and visited sets
+- **Set operations** - union/intersection via OR/AND
+- **Flag management** - configuration bits, permissions
+- **Cryptographic primitives** - fast XOR-based transformations
+- **Compression and encoding** - compact data representations
+- **Graphics and color channels** - RGB packing, alpha blending
+- **Error detection** - checksums, parity bits
 
 ## Edge Cases & Pitfalls
 
 > [!warning]
-> **0 value**: Always handle separately — some bit tricks assume at least one bit is set.
+> **0 value**: Always handle separately - some bit tricks assume at least one bit is set.
 
 > [!warning]
-> **Overflow**: `(1 << 31)` in 32-bit signed int is undefined — use unsigned types or 64-bit integers. `(1 << n)` overflows if `n ≥ word size`.
+> **Overflow**: `(1 << 31)` in 32-bit signed int is undefined - use unsigned types or 64-bit integers. `(1 << n)` overflows if `n ≥ word size`.
 
 > [!warning]
 > **Precedence confusion**: `a & 1 << k` means `(a & 1) << k`, not `a & (1 << k)`. Use parentheses explicitly.
@@ -219,7 +220,7 @@ for (int sub = mask; sub; sub = (sub - 1) & mask) {
 - Learn patterns: `x & (x - 1)` for clearing, `x & -x` for extraction, `(n & (n - 1)) == 0` for powers of two.
 - Bitmasks unify logic, speed, and compact data representation across low-level and algorithmic contexts.
 
-## See also
+## Related Notes
 
 - [[algorithm-efficiency|Algorithm Efficiency]]
 - [[dynamic-programming|Dynamic Programming]]

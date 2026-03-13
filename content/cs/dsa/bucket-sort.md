@@ -1,7 +1,8 @@
 ---
-title: Bucket Sort — Distribution Sorting with Quantile-Friendly Buckets
+title: Bucket Sort - Distribution Sorting with Quantile-Friendly Buckets
 description: Distribute elements into ordered ranges, sort inside each bucket, then concatenate; linear-time expected on well-spread inputs.
 draft: false
+comments: true
 tags:
  - cs
  - dsa
@@ -66,7 +67,7 @@ Array `A = [0.78, 0.17, 0.39, 0.26, 0.72, 0.94, 0.21, 0.12, 0.23, 0.68]`, with `
 |--:|---|---|---|
 |B[0]|[0.00, 0.20)|0.17, 0.12|0.12, 0.17|
 |B[1]|[0.20, 0.40)|0.39, 0.26, 0.21, 0.23|0.21, 0.23, 0.26, 0.39|
-|B[2]|[0.40, 0.60)|—|—|
+|B[2]|[0.40, 0.60)| - | - |
 |B[3]|[0.60, 0.80)|0.72, 0.68, 0.78|0.68, 0.72, 0.78|
 |B[4]|[0.80, 1.00)|0.94|0.94|
 
@@ -162,7 +163,7 @@ Concatenation in bucket order yields the globally sorted array.
 
 ---
 
-## See also
+## Related Notes
 
 - [[counting-sort|Counting Sort]]
 

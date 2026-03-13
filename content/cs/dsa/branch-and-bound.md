@@ -1,7 +1,8 @@
 ---
-title: Branch and Bound — Systematic Search with Pruning
+title: Branch and Bound - Systematic Search with Pruning
 description: Optimization framework that explores solution spaces through branching and bounds, pruning subproblems guaranteed not to improve the best solution.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -18,17 +19,17 @@ aliases:
 It systematically explores the solution space as a **search tree**, but uses **bounds** to prune subproblems that cannot lead to a better solution.
 
 > [!note]
-> B&B is not a specific algorithm — it's a **meta-strategy** applied to problems such as **Knapsack**, **Traveling Salesman (TSP)**, **Job Scheduling**, and **Integer Programming**.
+> B&B is not a specific algorithm - it's a **meta-strategy** applied to problems such as **Knapsack**, **Traveling Salesman (TSP)**, **Job Scheduling**, and **Integer Programming**.
 
 ---
 
 ## Strategy
 
-1. **Branch** — Divide the problem into smaller subproblems (partition the search space).
+1. **Branch** - Divide the problem into smaller subproblems (partition the search space).
 
-2. **Bound** — Compute an upper or lower bound on the best possible solution within each subproblem.
+2. **Bound** - Compute an upper or lower bound on the best possible solution within each subproblem.
 
-3. **Prune** — Discard any subproblem whose bound proves it cannot improve on the current best (incumbent).
+3. **Prune** - Discard any subproblem whose bound proves it cannot improve on the current best (incumbent).
 
 
 The process repeats recursively until all remaining nodes are pruned or solved.
@@ -81,7 +82,7 @@ A **bound** provides an optimistic estimate of the best solution reachable from 
 If a node's upper bound ≤ current best (incumbent), it is **pruned**.
 
 > [!tip]
-> The strength of a B&B algorithm depends heavily on how tight the bounding function is — tighter bounds → less exploration.
+> The strength of a B&B algorithm depends heavily on how tight the bounding function is - tighter bounds → less exploration.
 
 ---
 
@@ -105,7 +106,7 @@ B&B terminates when:
 
 
 > [!note]
-> Correctness depends on **bounding function validity** — bounds must never underestimate the true maximum (for maximization problems).
+> Correctness depends on **bounding function validity** - bounds must never underestimate the true maximum (for maximization problems).
 
 ---
 
@@ -113,7 +114,7 @@ B&B terminates when:
 
 |Aspect|Description|
 |---|---|
-|**Worst-case**|Exponential (O(2ⁿ)) — explores all subsets if no pruning occurs|
+|**Worst-case**|Exponential (O(2ⁿ)) - explores all subsets if no pruning occurs|
 |**Average-case**|Depends on bounding tightness and problem structure|
 |**Space**|O(depth) for DFS; O(nodes) for BFS or best-bound search|
 
@@ -172,11 +173,11 @@ function knapsackB&B(i, currW, currV):
 
 ## Applications
 
-- **Traveling Salesman Problem (TSP)** — prune routes exceeding best path length.
+- **Traveling Salesman Problem (TSP)** - prune routes exceeding best path length.
 
-- **Integer Linear Programming (ILP)** — relaxation provides bounding.
+- **Integer Linear Programming (ILP)** - relaxation provides bounding.
 
-- **Scheduling and Resource Allocation** — enforce constraints while minimizing total cost.
+- **Scheduling and Resource Allocation** - enforce constraints while minimizing total cost.
 
 - **Knapsack, Job Assignment, Set Cover, Sudoku solving**, etc.
 
@@ -198,7 +199,7 @@ function knapsackB&B(i, currW, currV):
 
 ---
 
-## See also
+## Related Notes
 
 - [[backtracking-algorithms|Backtracking Algorithms]]
 

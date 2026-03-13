@@ -1,23 +1,24 @@
 ---
-title: Grammars — BNF & EBNF
+title: Grammars - BNF & EBNF
 description: Understanding context-free grammar notation, BNF and EBNF syntax, and how they formally define language structure.
 draft: false
+comments: true
 tags:
   - cs
   - pl
 date: 2025-10-18
 updated:
 aliases: []
-# diagram: grammar_hierarchy_and_bnf_example.svg — illustrate grammar hierarchy (regular → CFG → CSL → recursive enumerable) and show a BNF vs EBNF comparison with example parse expansion.
+# diagram: grammar_hierarchy_and_bnf_example.svg - illustrate grammar hierarchy (regular → CFG → CSL → recursive enumerable) and show a BNF vs EBNF comparison with example parse expansion.
 ---
 
 ## Overview
-A **grammar** defines the valid sentences of a language — whether natural or programming. In computer science, grammars formally specify how sequences of symbols (like source code) can be constructed.  
+A **grammar** defines the valid sentences of a language - whether natural or programming. In computer science, grammars formally specify how sequences of symbols (like source code) can be constructed.  
 
 BNF (Backus–Naur Form) and EBNF (Extended Backus–Naur Form) are the most common notations used to express **context-free grammars (CFGs)**, which underlie programming languages and most compiler front ends.
 
 > [!note]
-> Grammars aren’t just about syntax — they define structure, which allows parsers, compilers, and interpreters to *understand* code rather than just recognize keywords.
+> Grammars aren’t just about syntax - they define structure, which allows parsers, compilers, and interpreters to *understand* code rather than just recognize keywords.
 
 ---
 
@@ -29,14 +30,14 @@ Every programming language, from C to Python to Rust, relies on a grammar to def
 - How to parse programs automatically.
 
 Without grammars, compiler design would be ad hoc and error-prone.  
-A formal grammar gives structure to language design — and guarantees that the same syntax can be recognized by multiple tools consistently.
+A formal grammar gives structure to language design - and guarantees that the same syntax can be recognized by multiple tools consistently.
 
 > [!tip]
-> Learning BNF and EBNF helps you not only understand how compilers work but also how to **design DSLs, configuration parsers, and interpreters** — or reason about ambiguity, recursion, and precedence.
+> Learning BNF and EBNF helps you not only understand how compilers work but also how to **design DSLs, configuration parsers, and interpreters** - or reason about ambiguity, recursion, and precedence.
 
 ---
 
-## Chomsky Hierarchy — Where BNF Fits
+## Chomsky Hierarchy - Where BNF Fits
 Grammars fall into a formal hierarchy based on expressive power:
 
 | Type | Name | Production Form | Recognized By |
@@ -87,7 +88,7 @@ BNF expresses grammar rules in a simple, recursive, and machine-readable way.
 | `|` | Alternation (OR) |
 | Terminals | Usually written as literal tokens (`id`, `+`, `if`) |
 
-### Example — Arithmetic Expressions
+### Example - Arithmetic Expressions
 ```
 
 ::= | + | -  
@@ -100,7 +101,7 @@ This grammar describes the structure of simple arithmetic expressions.
 Each nonterminal recursively defines valid combinations of lower-level forms.
 
 > [!note]
-> Recursive definitions like `<expr> ::= <expr> + <term>` are *left-recursive* — a hallmark of context-free grammars that can describe nested and chained constructs naturally.
+> Recursive definitions like `<expr> ::= <expr> + <term>` are *left-recursive* - a hallmark of context-free grammars that can describe nested and chained constructs naturally.
 
 ---
 
@@ -130,7 +131,7 @@ EBNF’s `{ ... }` and `[ ... ]` make it more expressive for human readers and p
 
 ---
 
-## BNF vs EBNF — Expressiveness and Readability
+## BNF vs EBNF - Expressiveness and Readability
 While both describe the same class of languages (context-free), **EBNF** is more compact and expressive.
 
 | Feature | BNF | EBNF |
@@ -147,7 +148,7 @@ While both describe the same class of languages (context-free), **EBNF** is more
 
 ---
 
-## EBNF Example — Conditional Statements
+## EBNF Example - Conditional Statements
 A snippet of a small language:
 ```
 
@@ -164,7 +165,7 @@ A parser can automatically generate a syntax tree directly from these rules.
 ---
 
 ## Grammar Design and Readability
-Good grammars communicate meaning clearly — both to compilers and to humans.  
+Good grammars communicate meaning clearly - both to compilers and to humans.  
 
 When writing or studying grammars:
 1. **Keep rules short and specific.** Each rule should define one clear syntactic category.  
@@ -174,7 +175,7 @@ When writing or studying grammars:
 5. **Validate with examples.** Try expanding derivations to ensure the grammar behaves as expected.
 
 > [!warning]
-> Ambiguous grammars can still be syntactically correct — but your parser might interpret the same input differently on separate passes.
+> Ambiguous grammars can still be syntactically correct - but your parser might interpret the same input differently on separate passes.
 
 ---
 
@@ -237,11 +238,11 @@ expr = term { "+" term } ;
 This version is better for predictive parsing and clearer for human readers.
 
 > [!tip]
-> EBNF makes left-recursion removal trivial — its `{}` and `[]` constructs directly express repetition and optionality.
+> EBNF makes left-recursion removal trivial - its `{}` and `[]` constructs directly express repetition and optionality.
 
 ---
 
-## Diagram Explanation — Grammar Hierarchy & BNF Comparison
+## Diagram Explanation - Grammar Hierarchy & BNF Comparison
 `grammar_hierarchy_and_bnf_example.svg` should contain two panels:
 1. **Top:** Chomsky hierarchy pyramid (Regular → CFG → CSL → Unrestricted).  
    - Highlight “Context-Free” and label “BNF / EBNF live here.”  
@@ -307,7 +308,7 @@ Both share the same expressive power but differ in **clarity and convenience**.
 
 ---
 
-## See also
+## Related Notes
 - [[grammar-ambiguity-parse-trees|Grammar Ambiguity & Parse Trees]]
 - [[cfg-design-refactoring|CFG Design & Refactoring]]
 - [[programming-paradigms-models-of-computation|Programming Paradigms & Models of Computation]]

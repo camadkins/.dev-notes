@@ -1,7 +1,8 @@
 ---
-title: Stack — Push & Pop
+title: Stack - Push & Pop
 description: Implement and reason about push/pop operations and invariants for array- and list-backed stacks.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -203,7 +204,7 @@ Stacks usually **do not** guarantee stable iteration order beyond LIFO semantics
 ## Limitations / Pitfalls
 
 > [!warning]
-> **Off-by-one on `top`.** In array stacks, the top index is `n-1` when `n>0`. Accessing `A[n]` after `PUSH` but before incrementing or after `POP` but before decrementing is a classic bug—update `n` in the right order.
+> **Off-by-one on `top`.** In array stacks, the top index is `n-1` when `n>0`. Accessing `A[n]` after `PUSH` but before incrementing or after `POP` but before decrementing is a classic bug - update `n` in the right order.
 
 > [!warning]
 > **Underflow/overflow.** Always guard `POP` on empty and `PUSH` on full when capacity is fixed.
@@ -229,7 +230,7 @@ Stacks usually **do not** guarantee stable iteration order beyond LIFO semantics
 
 Stacks give **LIFO** access with minimal API: `PUSH`, `POP`, and `PEEK`. Array-backed stacks offer **amortized constant-time** operations and good locality; list-backed stacks give **strict constant-time** operations with higher overhead. Clean implementations hinge on three rules: guard **underflow**, maintain the **top invariant** (`top=n-1`), and manage **resizing** predictably. With those in place, stacks are a robust building block for parsers, traversal algorithms, backtracking, and runtime call modeling.
 
-## See also
+## Related Notes
 
 - [[stack|Stack]]
 

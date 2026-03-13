@@ -1,7 +1,8 @@
 ---
-title: Lambda Calculus — Syntax & Substitution
+title: Lambda Calculus - Syntax & Substitution
 description: The core syntax of λ-terms, free/bound variables, α-equivalence, and capture-avoiding substitution as the engine of β-reduction.
 draft: false
+comments: true
 tags:
   - cs
   - pl
@@ -9,13 +10,13 @@ date: 2025-10-24
 updated:
 aliases: []
 # diagrams:
-#  - lambda_syntax_overview.svg — abstract syntax (variables, abstractions, applications) with binding scopes shaded.
-#  - capture_avoidance_example.svg — worked example showing naive substitution vs α-renaming to avoid capture.
-#  - beta_reduction_trace.svg — side-by-side β-reduction traces under normal-order and call-by-value.
+#  - lambda_syntax_overview.svg - abstract syntax (variables, abstractions, applications) with binding scopes shaded.
+#  - capture_avoidance_example.svg - worked example showing naive substitution vs α-renaming to avoid capture.
+#  - beta_reduction_trace.svg - side-by-side β-reduction traces under normal-order and call-by-value.
 ---
 
 ## Overview
-The untyped λ-calculus is a minimal calculus of functions. It has only three syntactic forms — **variables**, **abstractions**, and **applications** — yet it can express every computable function. Computation is modeled by **β-reduction**, which in turn depends on **substitution**. Getting substitution right (especially avoiding **variable capture**) is the essential technical detail that makes the calculus coherent.
+The untyped λ-calculus is a minimal calculus of functions. It has only three syntactic forms - **variables**, **abstractions**, and **applications** - yet it can express every computable function. Computation is modeled by **β-reduction**, which in turn depends on **substitution**. Getting substitution right (especially avoiding **variable capture**) is the essential technical detail that makes the calculus coherent.
 
 > [!note]
 > The λ-calculus is a rewriting system. Its results and meta-theory (confluence, normalization properties for certain fragments, etc.) rely on a precise definition of substitution and α-equivalence.
@@ -94,7 +95,7 @@ The last case is the heart of **capture-avoiding substitution**.
 
 ### Worked Counterexample (Naive)
 Let `M = λy. x` and we substitute `x := y`:
-- If we naively apply inside the λ, we get `λy. y` — but the original free `y` in the argument would now be **bound**. Incorrect!
+- If we naively apply inside the λ, we get `λy. y` - but the original free `y` in the argument would now be **bound**. Incorrect!
 
 ### Correct (Capture-Avoiding)
 Rename the binder first:
@@ -107,7 +108,7 @@ Rename the binder first:
 Now the `y` in the result is free (as intended). No capture.
 
 > [!example]
-> **Diagram idea** (`capture_avoidance_example.svg`): Two panels — the left shows naive substitution with a red “capture” highlight; the right shows α-renaming to a fresh `y'` before substitution, preventing capture.
+> **Diagram idea** (`capture_avoidance_example.svg`): Two panels - the left shows naive substitution with a red “capture” highlight; the right shows α-renaming to a fresh `y'` before substitution, preventing capture.
 
 ---
 
@@ -123,7 +124,7 @@ Reduction replaces the formal parameter `x` by the actual argument `N` in the bo
 ### Examples
 1. `(λx. x) z   →  z`
 2. `(λx. λy. x) N   →  λy. N`  (assuming `y ∉ FV(N)`)
-3. `(λx. x x) (λx. x x)` — the classic diverging term (Ω): it β-reduces to itself.
+3. `(λx. x x) (λx. x x)` - the classic diverging term (Ω): it β-reduces to itself.
 
 ---
 
@@ -137,7 +138,7 @@ Although β-reduction is a single rule, we can apply it at many positions in a t
 > [!note]
 > **Normal-order** is standard: if a term has a normal form, normal-order reduction will reach it.
 
-See the dedicated note on **Lambda Calculus — Evaluation Strategies** for a deeper comparison.
+See the dedicated note on **Lambda Calculus - Evaluation Strategies** for a deeper comparison.
 
 ---
 
@@ -204,7 +205,7 @@ A common practice in formal proofs: assume all bound variables are chosen **fres
 
 ## Worked Substitution Examples
 
-### Example 1 — Simple Application
+### Example 1 - Simple Application
 ```
 
 (λx. x y) z →β z y
@@ -212,23 +213,23 @@ A common practice in formal proofs: assume all bound variables are chosen **fres
 ```
 - `x` is replaced by `z`; `y` remains free.
 
-### Example 2 — Binder with Potential Capture
+### Example 2 - Binder with Potential Capture
 ```
 
-(λy. λx. y) x →β λx. x (WRONG if done naively)
+(λy. λx. y) x →β λx. x (WRONG - naive substitution captures the free x)
 
 ```
 Correct approach:
-1. α-rename `λy. λx. y  ≡α  λy'. λx. y'`
-2. Now substitute `x` for `y'`:
+1. α-rename the inner binder to avoid capture: `λy. λx. y  ≡α  λy. λx'. y`
+2. Now substitute `x` for `y`:
 ```
 
-(λy'. λx. y') x →β λx. x
+(λy. λx'. y) x →β λx'. x
 
 ```
-Here the result is the same, but only after α-renaming to avoid capture.
+The free `x` stays free. Without renaming, the inner `λx` would capture it, changing the meaning entirely.
 
-### Example 3 — Nested Abstractions
+### Example 3 - Nested Abstractions
 ```
 
 (λx. λy. x y) (λz. z)  
@@ -285,7 +286,7 @@ Everything in the untyped λ-calculus flows from substitution:
 ## Common Pitfalls
 > [!warning]
 > - **Forgetting α-renaming** before substitution into a binder → variable capture.  
-> - **Assuming CBV finds normal forms** — it may diverge when normal-order would terminate.  
+> - **Assuming CBV finds normal forms** - it may diverge when normal-order would terminate.  
 > - **Mixing free and bound variables** in proofs without checking side conditions.  
 > - **Over-reducing under lambdas** in a strategy that forbids it (e.g., CBV evaluators).  
 > - **Ignoring FV side conditions** in substitution lemmas, breaking proofs.
@@ -303,8 +304,8 @@ Following this discipline avoids capture and keeps reductions valid.
 
 ---
 
-## See also
-- [[lambda-calculus-evaluation-strategies|Lambda Calculus — Evaluation Strategies]]
-- [[abstract-machines-cek-secd|Abstract Machines — CEK and SECD]]
+## Related Notes
+- [[lambda-calculus-evaluation-strategies|Lambda Calculus - Evaluation Strategies]]
+- [[abstract-machines-cek-secd|Abstract Machines - CEK and SECD]]
 - [[continuations-cps|Continuations & CPS]]
 - [[evaluation-order-and-strictness|Evaluation Order & Strictness]]

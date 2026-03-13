@@ -2,6 +2,7 @@
 title: Time Complexity Calculation
 description: Deriving running-time bounds by translating code to counts, summations, and recurrences with clear assumptions.
 draft: false
+comments: true
 tags:
   - cs
   - dsa
@@ -136,7 +137,7 @@ Average-case: weight by `P(cond)`.
 
 ### 3) Independent parameters
 
-Prefer `Θ(n + m)` over collapsing to `Θ(n^2)` when `m` (edges) governs cost, as in BFS/DFS. See [[graph-traversals-bfs-dfs|Graph Traversals — BFS & DFS]].
+Prefer `Θ(n + m)` over collapsing to `Θ(n^2)` when `m` (edges) governs cost, as in BFS/DFS. See [[graph-traversals-bfs-dfs|Graph Traversals - BFS & DFS]].
 
 ## Implementation or Practical Context
 
@@ -205,11 +206,11 @@ T(n) = a T(n/b) + f(n)
 - If `f(n) = Ω(n^{log_b a + ε})` + regularity → `Θ(f(n))`
 
 
-See [[recurrence-relations|Recurrence Relations]] and [[recurrences-master-theorem|Recurrences — Master Theorem]].
+See [[recurrence-relations|Recurrence Relations]] and [[recurrences-master-theorem|Recurrences - Master Theorem]].
 
 ## Example or Illustration (Worked Patterns)
 
-### Example 1 — Mixed loops
+### Example 1 - Mixed loops
 
 ```pseudo
 function F(A):               // |A| = n
@@ -223,7 +224,7 @@ function F(A):               // |A| = n
 
 Cost: `Θ(n)` + `Θ(n log n)` = `Θ(n log n)`.
 
-### Example 2 — Two-pointer contraction
+### Example 2 - Two-pointer contraction
 
 ```pseudo
 i = 0; j = n-1
@@ -234,7 +235,7 @@ while i < j:
 
 Each iteration moves `i` or `j` **once**; total moves ≤ `n` → `$Θ(n)$`.
 
-### Example 3 — Factor-finding loop
+### Example 3 - Factor-finding loop
 
 ```pseudo
 for d in 1..⌊√n⌋:
@@ -243,7 +244,7 @@ for d in 1..⌊√n⌋:
 
 Iterations: `⌊√n⌋` → `$Θ(√n)$` (RAM model). In **bit** model, include the cost of `%` on `b`-bit numbers.
 
-### Example 4 — Exponential backtracking (branch factor `b`, depth `d`)
+### Example 4 - Exponential backtracking (branch factor `b`, depth `d`)
 
 ```pseudo
 search(depth):
@@ -284,7 +285,7 @@ To calculate time complexity:
     This pipeline yields consistent, communicable bounds you can pair with measurement for real-world performance.
 
 
-## See also
+## Related Notes
 
 - [[asymptotic-notation|Asymptotic Notation]]
 

@@ -23,4 +23,4 @@ How to represent data and design algorithms that scale. Covers arrays, linked li
 How languages are defined and evaluated. Covers grammars and parsing, lambda calculus, operational semantics, type systems, effects, garbage collection, concurrency, and module systems.
 
 **[[cs/languages/index | Languages]]**
-Language-specific notes — implementations, idioms, and design patterns tied to individual languages. Currently covers Racket, with more to come.
+Language-specific notes - implementations, idioms, and design patterns tied to individual languages. Currently covers Racket, with more to come.

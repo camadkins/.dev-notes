@@ -2,9 +2,10 @@
 title: Poisson Distribution
 description: Modelling the count of independent events occurring in a fixed interval at a constant average rate.
 draft: false
-comments: false
+comments: true
 tags: [cs, statistics]
 date: 2026-03-12
+updated:
 aliases: []
 ---
 
@@ -81,6 +82,6 @@ So there is about a 37% chance of a quiet half-hour with no aircraft arrivals.
 
 ## Related Notes
 
-- [[exponential-distribution|Exponential Distribution]] — models the continuous time *between* Poisson events
-- [[binomial-distribution|Binomial Distribution]] — the Poisson approximates the binomial for large $n$ and small $p$
-- [[probability-distributions|Probability Distributions]] — broader taxonomy of discrete and continuous distributions
+- [[exponential-distribution|Exponential Distribution]] - models the continuous time *between* Poisson events
+- [[binomial-distribution|Binomial Distribution]] - the Poisson approximates the binomial for large $n$ and small $p$
+- [[probability-distributions|Probability Distributions]] - broader taxonomy of discrete and continuous distributions

@@ -1,7 +1,8 @@
 ---
-title: Traversal — Postorder
+title: Traversal - Postorder
 description: Left–Right–Root visit order for trees; ideal for delete/free, structural evaluation, and bottom-up dynamic programming.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -73,7 +74,7 @@ Postorder yields `D, E, B, F, C, A`.
 - **Parent-after-children** implies postorder is suitable for **safe teardown** and **folds/reductions** on trees.
 
 
-See also [[preorder|Traversal — Preorder]] and [[inorder|Traversal — Inorder]] for contrasts.
+See also [[preorder|Traversal - Preorder]] and [[inorder|Traversal - Inorder]] for contrasts.
 
 ## Implementation or Practical Context
 
@@ -90,7 +91,7 @@ function POSTORDER_RECURSIVE(root):
 - Clear and concise; may overflow the call stack on very deep trees.
 
 
-### Iterative — Two Stacks (conceptually simple)
+### Iterative - Two Stacks (conceptually simple)
 
 Idea: one stack for processing, one stack for output (effectively reversing a modified preorder).
 
@@ -111,7 +112,7 @@ function POSTORDER_TWO_STACKS(root):
 - `S2` collects nodes in **Root->Right->Left**; popping yields **Left->Right->Root**.
 
 
-### Iterative — One Stack + lastVisited (memory-lean)
+### Iterative - One Stack + lastVisited (memory-lean)
 
 Track the last node that was visited to know when a right subtree has been processed.
 
@@ -137,7 +138,7 @@ function POSTORDER_ONE_STACK(root):
 - Avoids the second stack; commonly used in interviews and production.
 
 
-### Iterative — Reverse-Preorder Trick
+### Iterative - Reverse-Preorder Trick
 
 Push **left then right** but prepend to output (or push right first and collect to a list that you reverse at the end). This is isomorphic to the two-stack method but uses a dynamic array.
 
@@ -216,7 +217,7 @@ function EVAL(u):
 
 ## Complexity Analysis
 
-- **Time**: `Theta(n)` — each node is pushed/popped a constant number of times (or visited once in recursive/Morris forms).
+- **Time**: `Theta(n)` - each node is pushed/popped a constant number of times (or visited once in recursive/Morris forms).
 
 - **Space**:
 
@@ -263,11 +264,11 @@ function EVAL(u):
 
 Postorder traversal visits **children before parent**, enabling bottom-up algorithms, safe resource **teardown**, and **expression evaluation**. It runs in `Theta(n)` time with `Theta(h)` space for standard implementations, with a specialized **Morris** variant achieving **O(1)** extra space by temporary threading. Choose between recursive (simple) and iterative (robust) forms; test against small examples to confirm ordering.
 
-## See also
+## Related Notes
 
-- [[preorder|Traversal — Preorder]]
+- [[preorder|Traversal - Preorder]]
 
-- [[inorder|Traversal — Inorder]]
+- [[inorder|Traversal - Inorder]]
 
 - [[tree-traversal|Tree Traversal]]
 

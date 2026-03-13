@@ -2,6 +2,7 @@
 title: Square Root Algorithms
 description: Integer and real square roots via binary search and Newton's method; correctness, rounding, and overflow-safe implementations.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -24,7 +25,7 @@ Computing a square root appears simple but hides details: **integer vs real** re
 Use these patterns to implement `floor_sqrt(n)`, `ceil_sqrt(n)`, a floating `sqrt(x)`, and checks like "is `n` a perfect square?" while avoiding overflow and off-by-one traps.
 
 > [!note]
-> Domain is **nonnegative** inputs. For negative `x`, real `sqrt(x)` is undefined (NaN); integer sqrt is undefined. In complex arithmetic, `√x` is multi-valued—outside this note's scope.
+> Domain is **nonnegative** inputs. For negative `x`, real `sqrt(x)` is undefined (NaN); integer sqrt is undefined. In complex arithmetic, `√x` is multi-valued - outside this note's scope.
 
 ## Core Idea
 
@@ -204,11 +205,11 @@ Square roots can be computed reliably with:
 
 Correctness hinges on **overflow-safe comparisons**, **clear rounding semantics**, and **explicit termination**. Choose the method that fits the numeric model, performance constraints, and platform capabilities.
 
-## See also
+## Related Notes
 
 - [[binary-search|Binary Search]]
 
-- [[recurrences-master-theorem|Recurrences — Master Theorem]]
+- [[recurrences-master-theorem|Recurrences - Master Theorem]]
 
 - [[time-complexity-analysis|Time Complexity Analysis]]
 

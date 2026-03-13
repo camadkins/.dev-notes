@@ -1,42 +1,43 @@
 ---
 title: Distributed Consensus
-description: CAP theorem, Paxos, Raft, and Byzantine fault tolerance — how distributed systems agree on shared state despite failures.
+description: CAP theorem, Paxos, Raft, and Byzantine fault tolerance - how distributed systems agree on shared state despite failures.
 draft: false
-comments: false
+comments: true
 tags:
   - cs
   - systems
 date: 2026-03-12
+updated:
 aliases: []
 ---
 
 ## Intuition
 
-When data lives on a single machine, agreement is trivial — there is one copy, one truth. The moment you replicate data across machines (for availability or performance), you face a fundamental question: how do N nodes agree on the same value when messages can be delayed, reordered, or lost, and nodes can crash? **Distributed consensus** is the family of algorithms that answer this question, and the **CAP theorem** defines the trade-off space they operate in.
+When data lives on a single machine, agreement is trivial - there is one copy, one truth. The moment you replicate data across machines (for availability or performance), you face a fundamental question: how do N nodes agree on the same value when messages can be delayed, reordered, or lost, and nodes can crash? **Distributed consensus** is the family of algorithms that answer this question, and the **CAP theorem** defines the trade-off space they operate in.
 
 ## Core Idea
 
 **CAP theorem (Brewer, 2000; Gilbert & Lynch, 2002).** In a distributed system, you can guarantee at most two of three properties simultaneously:
 
-- **Consistency** — every read returns the most recent write.
-- **Availability** — every non-failing node returns a response.
-- **Partition tolerance** — the system operates despite network partitions.
+- **Consistency** - every read returns the most recent write.
+- **Availability** - every non-failing node returns a response.
+- **Partition tolerance** - the system operates despite network partitions.
 
-Since network partitions are unavoidable in practice, real systems choose between **CP** (sacrifice availability during partitions — e.g., most consensus protocols) and **AP** (sacrifice strict consistency — e.g., Dynamo, Cassandra with eventual consistency).
+Since network partitions are unavoidable in practice, real systems choose between **CP** (sacrifice availability during partitions - e.g., most consensus protocols) and **AP** (sacrifice strict consistency - e.g., Dynamo, Cassandra with eventual consistency).
 
-**Paxos (Lamport, 1989).** The foundational consensus protocol. A proposer sends a proposal to a quorum of acceptors; if a majority accepts, the value is chosen. Key insight: two-phase protocol (prepare/promise, then accept/accepted) ensures safety even with concurrent proposers. Paxos is notoriously hard to implement correctly; Multi-Paxos extends it to a sequence of decisions (a replicated log).
+**Paxos (Lamport, written 1989, published 1998).** The foundational consensus protocol. A proposer sends a proposal to a quorum of acceptors; if a majority accepts, the value is chosen. Key insight: two-phase protocol (prepare/promise, then accept/accepted) ensures safety even with concurrent proposers. Paxos is notoriously hard to implement correctly; Multi-Paxos extends it to a sequence of decisions (a replicated log).
 
 **Raft (Ongaro & Ousterhout, 2014).** Designed for understandability. Decomposes consensus into three sub-problems:
 
-1. **Leader election** — nodes vote; a candidate with a majority becomes leader. Leaders send heartbeats; if followers miss them, they start a new election.
-2. **Log replication** — the leader appends entries to its log and replicates to followers. An entry is **committed** once a majority has acknowledged it.
-3. **Safety** — a candidate cannot win an election unless its log is at least as up-to-date as a majority's, preventing committed entries from being lost.
+1. **Leader election** - nodes vote; a candidate with a majority becomes leader. Leaders send heartbeats; if followers miss them, they start a new election.
+2. **Log replication** - the leader appends entries to its log and replicates to followers. An entry is **committed** once a majority has acknowledged it.
+3. **Safety** - a candidate cannot win an election unless its log is at least as up-to-date as a majority's, preventing committed entries from being lost.
 
 Raft guarantees that committed entries are never lost and that all nodes eventually converge to the same log.
 
-**Byzantine fault tolerance (BFT).** Paxos and Raft tolerate **crash faults** — nodes that simply stop responding. **Byzantine faults** are worse: nodes can lie, send conflicting messages, or act arbitrarily. PBFT (Castro & Liskov, 1999) tolerates up to `f` Byzantine nodes out of `3f + 1` total, at higher message complexity (`O(n^2)` per decision). Blockchain consensus (Nakamoto, Tendermint) is a specialized form of BFT for open networks.
+**Byzantine fault tolerance (BFT).** Paxos and Raft tolerate **crash faults** - nodes that simply stop responding. **Byzantine faults** are worse: nodes can lie, send conflicting messages, or act arbitrarily. PBFT (Castro & Liskov, 1999) tolerates up to `f` Byzantine nodes out of `3f + 1` total, at higher message complexity (`O(n^2)` per decision). Blockchain consensus (Nakamoto, Tendermint) is a specialized form of BFT for open networks.
 
-**FLP impossibility (Fischer, Lynch, Paterson, 1985).** No deterministic consensus algorithm can guarantee both safety and liveness in an asynchronous system with even one crash fault. Practical systems sidestep this with partial synchrony assumptions (timeouts, failure detectors) — they may stall during bad timing but never produce incorrect results.
+**FLP impossibility (Fischer, Lynch, Paterson, 1985).** No deterministic consensus algorithm can guarantee both safety and liveness in an asynchronous system with even one crash fault. Practical systems sidestep this with partial synchrony assumptions (timeouts, failure detectors) - they may stall during bad timing but never produce incorrect results.
 
 **Replication strategies.**
 
@@ -70,6 +71,6 @@ Most production systems (etcd, ZooKeeper, Consul) choose CP for coordination dat
 
 ## Related Notes
 
-- [[graphs|Graphs]] — distributed systems are modeled as graphs of communicating nodes; graph connectivity determines partition behavior
-- [[network-protocols|Network Protocols]] — the transport layer that consensus messages travel over
-- [[processes-and-threads|Processes & Threads]] — each node in a distributed system is itself a process or set of threads
+- [[graphs|Graphs]] - distributed systems are modeled as graphs of communicating nodes; graph connectivity determines partition behavior
+- [[network-protocols|Network Protocols]] - the transport layer that consensus messages travel over
+- [[processes-and-threads|Processes & Threads]] - each node in a distributed system is itself a process or set of threads

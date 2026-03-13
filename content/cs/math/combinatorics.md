@@ -1,12 +1,13 @@
 ---
 title: Combinatorics
-description: Permutations, combinations, pigeonhole principle, and inclusion-exclusion — counting techniques for algorithm analysis and design.
+description: Permutations, combinations, pigeonhole principle, and inclusion-exclusion - counting techniques for algorithm analysis and design.
 draft: false
-comments: false
+comments: true
 tags:
   - cs
   - math
 date: 2026-03-12
+updated:
 aliases: []
 ---
 
@@ -59,7 +60,7 @@ This generalizes combinations and counts arrangements of items with repeated typ
 
 **Counting binary strings.** How many binary strings of length $n$ contain at least one `1`? Total strings: $2^n$. Strings with no `1`: $1$ (the all-zero string). By complement counting: $2^n - 1$.
 
-**Pigeonhole in hashing.** A hash table with $m$ slots and $n > m$ keys must have at least one collision — there is no injective hash function when the domain exceeds the range.
+**Pigeonhole in hashing.** A hash table with $m$ slots and $n > m$ keys must have at least one collision - there is no injective hash function when the domain exceeds the range.
 
 **Inclusion-exclusion for derangements.** A derangement is a permutation with no fixed point. For $n$ elements, let $A_i$ = "element $i$ is fixed." By inclusion-exclusion:
 
@@ -67,7 +68,7 @@ $$D_n = n! \sum_{k=0}^{n} \frac{(-1)^k}{k!} \approx \frac{n!}{e}$$
 
 **Combinations in algorithm analysis.** The brute-force approach to the subset-sum problem examines all $2^n$ subsets. Backtracking prunes this space, but the $2^n$ baseline comes directly from the count of subsets of an $n$-element set: $\sum_{k=0}^{n} \binom{n}{k} = 2^n$.
 
-**Catalan numbers in parsing.** The number of distinct binary trees with $n$ internal nodes is $C_n$, the $n$th Catalan number. This directly relates to the number of ways to fully parenthesize a product of $n+1$ factors — a question that arises in optimizing matrix chain multiplication via dynamic programming.
+**Catalan numbers in parsing.** The number of distinct binary trees with $n$ internal nodes is $C_n$, the $n$th Catalan number. This directly relates to the number of ways to fully parenthesize a product of $n+1$ factors - a question that arises in optimizing matrix chain multiplication via dynamic programming.
 
 **Permutations with constraints.** Many CS problems involve counting restricted permutations. For example, the number of permutations of $n$ elements with exactly $k$ inversions (pairs out of order) is given by the Mahonian distribution. Sorting algorithms that perform adjacent swaps (bubble sort, insertion sort) take exactly as many swaps as there are inversions.
 
@@ -75,8 +76,8 @@ $$D_n = n! \sum_{k=0}^{n} \frac{(-1)^k}{k!} \approx \frac{n!}{e}$$
 
 ## Related Notes
 
-- [[dynamic-programming|Dynamic Programming]] — many DP problems count combinatorial objects or optimize over them
-- [[backtracking-algorithms|Backtracking]] — systematically enumerates combinatorial structures with pruning
-- [[discrete-probability|Discrete Probability]] — probability computations require counting favorable outcomes
-- [[mathematical-induction|Mathematical Induction]] — induction proves combinatorial identities like the binomial theorem
-- [[graph-theory|Graph Theory]] — graph enumeration and coloring rely on combinatorial arguments
+- [[dynamic-programming|Dynamic Programming]] - many DP problems count combinatorial objects or optimize over them
+- [[backtracking-algorithms|Backtracking]] - systematically enumerates combinatorial structures with pruning
+- [[discrete-probability|Discrete Probability]] - probability computations require counting favorable outcomes
+- [[mathematical-induction|Mathematical Induction]] - induction proves combinatorial identities like the binomial theorem
+- [[graph-theory|Graph Theory]] - graph enumeration and coloring rely on combinatorial arguments

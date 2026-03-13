@@ -2,6 +2,7 @@
 title: Adjacency Matrix
 description: Dense graph representation for O(1) edge queries; memory/time trade-offs vs adjacency list.
 draft: false
+comments: true
 tags:
   - cs
   - dsa
@@ -26,10 +27,10 @@ An **adjacency matrix** represents a graph as a square table `A` of size `n × n
 ## Operations
 Typical surface API:
 
-- `hasEdge(u, v)` — check membership via direct lookup.
-- `addEdge(u, v, w?)` — set `A[u][v]` (and `A[v][u]` if undirected).
-- `removeEdge(u, v)` — clear the entry to the sentinel.
-- `degree(u)` — count non-sentinel entries in row `u` (out-degree) or column `u` (in-degree).
+- `hasEdge(u, v)` - check membership via direct lookup.
+- `addEdge(u, v, w?)` - set `A[u][v]` (and `A[v][u]` if undirected).
+- `removeEdge(u, v)` - clear the entry to the sentinel.
+- `degree(u)` - count non-sentinel entries in row `u` (out-degree) or column `u` (in-degree).
 
 > [!example] O(1) membership and updates (bool matrix)
 > ```cpp
@@ -188,7 +189,7 @@ Choose an adjacency matrix when:
 - When set operations on neighbor sets (e.g., intersections for triangles) benefit from **bitset rows** and word-wise arithmetic.
     
 
-## See also
+## Related Notes
 
 - [[graph-representations|Graph Representations]]
     

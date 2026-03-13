@@ -2,9 +2,10 @@
 title: Geometric Distribution
 description: Modelling the number of independent Bernoulli trials needed to obtain the first success.
 draft: false
-comments: false
+comments: true
 tags: [cs, statistics]
 date: 2026-03-12
+updated:
 aliases: []
 ---
 
@@ -75,7 +76,7 @@ So after 14 attempts, you have at least a 50% cumulative chance of having connec
 
 ## Related Notes
 
-- [[binomial-distribution|Binomial Distribution]] — counts total successes in $n$ trials; the geometric focuses on time to first success
-- [[probability-distributions|Probability Distributions]] — overview of discrete and continuous distributions
-- [[expected-value|Expected Value]] — the geometric mean $1/p$ is a foundational example of expectation
-- [[hash-tables|Hash Tables]] — collision resolution analyzed via geometric waiting times
+- [[binomial-distribution|Binomial Distribution]] - counts total successes in $n$ trials; the geometric focuses on time to first success
+- [[probability-distributions|Probability Distributions]] - overview of discrete and continuous distributions
+- [[expected-value|Expected Value]] - the geometric mean $1/p$ is a foundational example of expectation
+- [[hash-tables|Hash Tables]] - collision resolution analyzed via geometric waiting times

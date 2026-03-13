@@ -2,6 +2,7 @@
 title: Memory Allocation
 description: How programs request, manage, and free memory; stack vs heap, allocator strategies, fragmentation, locality, safety, and practical patterns.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -63,7 +64,7 @@ Backed by OS **virtual memory** via **pages** (commonly 4 KiB) and system calls 
 
 ## Example or Illustration
 
-Imagine a server that frequently creates small request objects (24–128 bytes) and a few big buffers (64 KiB). A **size-class slab allocator** handles small objects with near-zero per-object overhead and great locality, while big buffers go directly to the OS (page-aligned). On shutdown, an **arena** used for per-request temporaries is freed via a single `reset()` call — no walking thousands of individual frees.
+Imagine a server that frequently creates small request objects (24–128 bytes) and a few big buffers (64 KiB). A **size-class slab allocator** handles small objects with near-zero per-object overhead and great locality, while big buffers go directly to the OS (page-aligned). On shutdown, an **arena** used for per-request temporaries is freed via a single `reset()` call - no walking thousands of individual frees.
 
 ## Properties and Relationships
 
@@ -294,7 +295,7 @@ Memory allocation connects OS pages to application objects through policies that
     Harden with guard pages, canaries, quarantines, and sanitizers; measure fragmentation and cache behavior. The right allocator policy often yields order-of-magnitude improvements with cleaner code.
 
 
-## See also
+## Related Notes
 
 - [[dynamic-memory-allocation|Dynamic Memory Allocation]]
 

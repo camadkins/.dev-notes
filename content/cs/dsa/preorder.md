@@ -1,7 +1,8 @@
 ---
-title: Traversal — Preorder
+title: Traversal - Preorder
 description: Root–Left–Right visit order for trees; useful for serialization, cloning, and prefix expression generation.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -67,7 +68,7 @@ Preorder yields `A, B, D, E, C, F`.
     - **Inorder**: Left->Root->Right (sorted output for BSTs).
 
     - **Postorder**: Left->Right->Root (bottom-up; good for deletion/evaluation).
-        See [[inorder|Traversal — Inorder]] and [[postorder|Traversal — Postorder]].
+        See [[inorder|Traversal - Inorder]] and [[postorder|Traversal - Postorder]].
 
 - **Serialization correctness:** With **null sentinels** for missing children, preorder is sufficient to reconstruct the unique binary tree.
 
@@ -87,7 +88,7 @@ function PREORDER_RECURSIVE(root):
 - Simple and clear; may overflow call stack on deep/skewed trees.
 
 
-### Iterative — Single Stack (robust, common)
+### Iterative - Single Stack (robust, common)
 
 Push **right first**, then **left**, so left is processed next.
 
@@ -106,7 +107,7 @@ function PREORDER_ITERATIVE(root):
 - Time `Theta(n)`, auxiliary space `Theta(h)` where `h` is tree height.
 
 
-### Iterative — "Unwind left spine" variant
+### Iterative - "Unwind left spine" variant
 
 Walk down the left spine, visiting as you go; keep a stack of right children to process later.
 
@@ -194,7 +195,7 @@ function PREORDER_KARY(root):
 
 ## Complexity Analysis
 
-- **Time:** `Theta(n)` — each node is processed once.
+- **Time:** `Theta(n)` - each node is processed once.
 
 - **Space:** `Theta(h)` for recursive and stack-based forms; **O(1)** for Morris (transient threading).
 
@@ -205,18 +206,18 @@ function PREORDER_KARY(root):
 
 - **Determinism:** define a fixed child order; nondeterministic iteration yields nondeterministic traversals.
 
-- **Interoperability:** for BST tasks that also need sorted output, combine with [[inorder|Traversal — Inorder]]; for teardown or DP folds use [[postorder|Traversal — Postorder]].
+- **Interoperability:** for BST tasks that also need sorted output, combine with [[inorder|Traversal - Inorder]]; for teardown or DP folds use [[postorder|Traversal - Postorder]].
 
 
 ## Summary
 
 Preorder is a **parent-first** traversal: **Root -> Left -> Right** for binary trees and **node -> children** for general trees. It excels at **serialization**, **cloning**, **prefix expression** construction, and **pruning** scenarios. Use the simple recursive version when depth is modest, the **single-stack** iterative version for robustness, or **Morris preorder** for strict `O(1)` space with pointer-threading care.
 
-## See also
+## Related Notes
 
-- [[inorder|Traversal — Inorder]]
+- [[inorder|Traversal - Inorder]]
 
-- [[postorder|Traversal — Postorder]]
+- [[postorder|Traversal - Postorder]]
 
 - [[tree-traversal|Tree Traversal]]
 

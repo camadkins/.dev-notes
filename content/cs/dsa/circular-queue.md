@@ -2,6 +2,7 @@
 title: Circular Queue
 description: Fixed-size ring buffer with wrap-around indexing for bounded FIFO; supports constant-time enqueue/dequeue with predictable memory and timing.
 draft: false
+comments: true
 tags:
  - cs
  - dsa
@@ -12,7 +13,7 @@ aliases: []
 
 ## Overview
 
-A **circular queue** (ring buffer) is a bounded **FIFO** implemented on a fixed-size array where the **head** and **tail** indices advance **modulo** the capacity. This yields **O(1)** enqueue and dequeue with predictable memory usage and steady cache locality—ideal for embedded systems, device drivers, real-time pipelines, and producer–consumer handoffs.
+A **circular queue** (ring buffer) is a bounded **FIFO** implemented on a fixed-size array where the **head** and **tail** indices advance **modulo** the capacity. This yields **O(1)** enqueue and dequeue with predictable memory usage and steady cache locality - ideal for embedded systems, device drivers, real-time pipelines, and producer–consumer handoffs.
 
 Unlike dynamically growing queues, a circular queue **never reallocates**; instead, it enforces a policy when full: **reject**, **block**, or **overwrite** the oldest element. Correctness hinges on unambiguous full/empty detection, careful boundary handling, and, in concurrent settings, **memory ordering** and **single-producer/single-consumer** discipline.
 
@@ -106,7 +107,7 @@ Let `N = 8`, initial `head = 0`, `tail = 0` (empty). Enqueue `A, B, C, D, E, F, 
 4. ENQ `G`: `Q[6]=G`, `tail=7`
 
 
-Now **size** is 7; since reserved-slot design holds, **full** occurs when `(tail+1)%8 == head` i.e., `7+1 ≡ 0 == head`—true—so the next ENQ without overwrite fails.
+Now **size** is 7; since reserved-slot design holds, **full** occurs when `(tail+1)%8 == head` i.e., `7+1 ≡ 0 == head` - true - so the next ENQ without overwrite fails.
 
 - DEQ twice → remove `A` at `0` (`head=1`), `B` at `1` (`head=2`).
 
@@ -123,7 +124,7 @@ For **overwrite** mode, if full before ENQ `X`, advancing `head` first discards 
 |Dequeue|O(1)|O(N)|Returns oldest|
 |Peek|O(1)|O(N)|No mutation|
 |Size (calc)|O(1)|O(1)|Formula above; or maintain a counter|
-|Memory|—|O(N)|Fixed, cache-friendly array|
+|Memory| - |O(N)|Fixed, cache-friendly array|
 
 - **Predictable latency:** constant-time pointer arithmetic only; excellent for real-time/embedded.
 
@@ -222,7 +223,7 @@ For **overwrite** mode, if full before ENQ `X`, advancing `head` first discards 
 
 Circular queues implement a bounded, array-backed FIFO with **wrap-around indices** for **O(1)** operations and predictable performance. The key design choices are **full/empty policy** (no-overwrite vs overwrite-oldest), **reserved-slot vs counted capacity**, and, in concurrent or ISR contexts, **SPSC discipline with proper memory ordering**. With careful boundary handling and a clear policy, ring buffers are robust, cache-friendly building blocks for real-time and systems programming.
 
-## See also
+## Related Notes
 
 - [[queue|Queue]]
 

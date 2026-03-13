@@ -3,6 +3,7 @@
 title: Pass-by-Value vs Reference
 description: Parameter passing models and aliasing; when a callee's mutations affect the caller and when they do not.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -63,7 +64,7 @@ Related terms:
 
 ## Example or Trace
 
-### Swap — value vs reference
+### Swap - value vs reference
 
 **Pass-by-value (fails to swap the caller's variables):**
 
@@ -78,7 +79,7 @@ swap_value(x, y)
 // x == 1, y == 2  (caller unchanged)
 ```
 
-**Pass-by-reference (or pointer) — succeeds:**
+**Pass-by-reference (or pointer) - succeeds:**
 
 ```pseudo
 function swap_ref(ref a, ref b):
@@ -112,7 +113,7 @@ This is **call-by-sharing**: aliasing on the object, isolation on the variable b
 
 - **Aliasing**: two names refer to the **same location**. Reference passing introduces aliasing; value passing does not (unless deep structure shares sub-objects).
 
-- **Deep vs shallow copies**: pass-by-value typically makes a **shallow** copy (copy top-level fields, but pointers still alias). "Deep copy" duplicates the entire reachable structure—expensive and uncommon by default.
+- **Deep vs shallow copies**: pass-by-value typically makes a **shallow** copy (copy top-level fields, but pointers still alias). "Deep copy" duplicates the entire reachable structure - expensive and uncommon by default.
 
 - **Escape analysis**: compilers may elide copies or heap allocations if references don't escape the function.
 
@@ -157,9 +158,9 @@ This is **call-by-sharing**: aliasing on the object, isolation on the variable b
 
 #### In-place vs out-of-place APIs
 
-- **In-place** (mutating): `void sort_in_place(vec&)` — fast, alloc-free, but surprises callers if undocumented.
+- **In-place** (mutating): `void sort_in_place(vec&)` - fast, alloc-free, but surprises callers if undocumented.
 
-- **Out-of-place** (pure): `vec sorted(vec)` — simpler reasoning, may allocate.
+- **Out-of-place** (pure): `vec sorted(vec)` - simpler reasoning, may allocate.
 
 
 #### Borrow/Mutate/Return (Rust-style thinking in any language)
@@ -209,7 +210,7 @@ This is **call-by-sharing**: aliasing on the object, isolation on the variable b
 
 - **"Everything is by value" mantras**: true at the level of **bits passed**, but many bits are **references**; treat them as aliases.
 
-- **Slice/map descriptors (Go)**: passing a slice **by value** still shares its backing array; appends may or may not reallocate—document expectations.
+- **Slice/map descriptors (Go)**: passing a slice **by value** still shares its backing array; appends may or may not reallocate - document expectations.
 
 - **Copy-on-write semantics** (Swift/C++ libs): apparent aliasing until a write triggers a copy; can hide `O(n)` costs behind a single mutation.
 
@@ -229,7 +230,7 @@ This is **call-by-sharing**: aliasing on the object, isolation on the variable b
 
 "Pass-by-value vs reference" is about **who owns what** and **who can mutate what**. Value passing isolates the caller from callee mutations; reference passing shares storage and enables in-place updates. Many mainstream languages pass **reference values** by value, yielding **call-by-sharing** behavior: **rebinding is local, mutation is shared**. Design your APIs to make mutability explicit, use defensive copying or immutability to prevent surprises, and pick the passing mode that balances **clarity, performance, and safety** for your data size and lifetime.
 
-## See also
+## Related Notes
 
 - [[functions|Functions]]
 

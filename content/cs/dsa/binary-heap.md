@@ -1,8 +1,9 @@
 ---
 
-title: Binary Heap — Priority Queue Backed by Array-Based Tree  
+title: Binary Heap - Priority Queue Backed by Array-Based Tree  
 description: Complete binary tree supporting O(log n) insertion and deletion through array-based parent-child relationships and heap-order property.  
 draft: false
+comments: true
 updated: 2025-10-29  
 aliases: []  
 tags:
@@ -47,7 +48,7 @@ It is typically implemented using an **array**, enabling efficient index arithme
 - **Min vs Max**: same code structure; only the comparison direction flips.
     
 
-**(Existing diagram reference)** **Diagram (`binary_heap_structure.svg`)** — show how an array `[10, 15, 20, 17, 25]` maps to a binary tree shape.
+**(Existing diagram reference)** **Diagram (`binary_heap_structure.svg`)** - show how an array `[10, 15, 20, 17, 25]` maps to a binary tree shape.
 
 ---
 
@@ -92,8 +93,8 @@ It is typically implemented using an **array**, enabling efficient index arithme
 > [!note] Build-heap (heapify)  
 > Build in **O(n)** by sifting down from the last parent: `for i in reverse(parent(n-1)..0): siftDown(i)`.
 
-**(Existing diagram reference)** **Diagram (`heap_operations.svg`)** — visualize upward swaps as new elements bubble up.  
-**(Existing diagram reference)** **Diagram (`heapify_trace.svg`)** — show bottom-up restoration of order across subtrees.
+**(Existing diagram reference)** **Diagram (`heap_operations.svg`)** - visualize upward swaps as new elements bubble up.  
+**(Existing diagram reference)** **Diagram (`heapify_trace.svg`)** - show bottom-up restoration of order across subtrees.
 
 > [!example] Diagram: Sift-down during build-heap
 
@@ -202,7 +203,7 @@ For 1-based indexing, use `parent(i)=i//2`, `left(i)=2*i`, `right(i)=2*i+1`.
 
 ---
 
-## See also
+## Related Notes
 
 - [[priority-queue|Priority Queue]]
     

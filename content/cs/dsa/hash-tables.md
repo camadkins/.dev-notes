@@ -2,6 +2,7 @@
 title: Hash Tables
 description: Key–value dictionaries that provide expected O(1) lookup/insert/delete using hashing, collision handling, and periodic resizing.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -97,13 +98,13 @@ function DELETE(T, k):
 ```
 
 > [!tip]
-> For open addressing, **do not** shift elements after a deletion—use a **tombstone** so later probes don't stop early. Tombstones are reclaimed during periodic **rehashing**.
+> For open addressing, **do not** shift elements after a deletion - use a **tombstone** so later probes don't stop early. Tombstones are reclaimed during periodic **rehashing**.
 
 ## Example (Stepwise)
 
 **Chaining.** Let `m=5`, keys `{17, 42, 9, 14}` with `h(k)=k mod 5`.
 Buckets: `B[0]={}`, `B[1]={}`, `B[2]={17}`, `B[3]={}`, `B[4]={9,14,42}` (after inserts).
-Searching `42` inspects `B[2]`? No—`42 mod 5 = 2`? Actually `42 mod 5 = 2`, so it lives in `B[2]` (correcting the example): insert order yields `B[2]={17,42}`, `B[4]={9,14}`. Average chain length `α = n/m = 4/5 = 0.8`.
+Searching `42` inspects `B[2]`? No - `42 mod 5 = 2`? Actually `42 mod 5 = 2`, so it lives in `B[2]` (correcting the example): insert order yields `B[2]={17,42}`, `B[4]={9,14}`. Average chain length `α = n/m = 4/5 = 0.8`.
 
 **Open addressing (linear probing, `m=7`).** Insert keys `{10, 24, 31, 18}` with `h(k)=k mod 7`.
 
@@ -227,7 +228,7 @@ For chaining, rehash all entries bucket by bucket. For open addressing, **avoid*
 
 Hash tables give near-constant-time operations by mapping keys to array indices and **controlling collisions**. Choose between **chaining** (simpler deletes, tolerant of high `α`) and **open addressing** (better locality, needs careful deletion and lower `α`). A good **hash function**, a sensible **resize policy**, and attention to **probe/chain lengths** keep performance predictable. For heavy-duty workloads, consider modern variants like **Robin Hood** or **cuckoo** hashing to tame tail latencies and improve cache behavior.
 
-## See also
+## Related Notes
 
 - [[maps-and-hashtable|Maps and Hashtable]]
 

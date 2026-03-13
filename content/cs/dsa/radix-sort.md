@@ -2,6 +2,7 @@
 title: Radix Sort
 description: Sort fixed-width keys by processing digits from least or most significant using a stable subroutine; linear-time in key length.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -13,7 +14,7 @@ aliases: []
 
 ## Overview
 
-**Radix sort** orders keys by examining their **digits** (or fixed-size **radices**) from either the **Least Significant Digit (LSD)** upward or the **Most Significant Digit (MSD)** downward. Each pass uses a **stable** subroutine—commonly [[counting-sort|Counting Sort]]—to bucket and concatenate elements based on the current digit. For **fixed-width keys** (e.g., 32-bit integers, 128-bit UUIDs, fixed-length strings/bytes), radix achieves near-linear time, typically `Θ(n · d + b)` where `n` is the number of elements, `d` the number of digit passes, and `b` the radix (alphabet) size per pass.
+**Radix sort** orders keys by examining their **digits** (or fixed-size **radices**) from either the **Least Significant Digit (LSD)** upward or the **Most Significant Digit (MSD)** downward. Each pass uses a **stable** subroutine - commonly [[counting-sort|Counting Sort]] - to bucket and concatenate elements based on the current digit. For **fixed-width keys** (e.g., 32-bit integers, 128-bit UUIDs, fixed-length strings/bytes), radix achieves near-linear time, typically `Θ(n · d + b)` where `n` is the number of elements, `d` the number of digit passes, and `b` the radix (alphabet) size per pass.
 
 Key strengths:
 
@@ -226,7 +227,7 @@ Radix complements and often feeds:
 
 Radix sort organizes keys by **digits** and performs **stable bucket passes** to achieve **linear-time** behavior in key length. Use **LSD** for fixed-width integers and byte sequences (simple, cache-friendly), and **MSD** for strings or when early termination on shared prefixes saves work. Choose a **base** that fits cache (often `b=256`), ensure **stability**, handle **signedness** and **variable lengths** carefully, and reuse buffers for speed. With these choices, radix is a robust, high-throughput default for fixed-structure keys.
 
-## See also
+## Related Notes
 
 - [[counting-sort|Counting Sort]]
 

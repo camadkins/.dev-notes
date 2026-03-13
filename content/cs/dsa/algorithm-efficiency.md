@@ -1,7 +1,8 @@
 ---
-title: Algorithm Efficiency — Bridging Theory and Practice
+title: Algorithm Efficiency - Bridging Theory and Practice
 description: Understanding how algorithmic complexity, constants, and hardware behavior interact to define real performance.
 draft: false
+comments: true
 tags:
   - cs
   - dsa
@@ -15,7 +16,7 @@ aliases: []
 While asymptotic notation (O, Θ, Ω) describes *growth rates*, true efficiency depends on **constants, data access patterns, cache locality, and implementation choices**.
 
 > [!note]
-> Two Θ(n log n) algorithms may perform drastically differently in practice — asymptotic bounds only tell part of the story.
+> Two Θ(n log n) algorithms may perform drastically differently in practice - asymptotic bounds only tell part of the story.
 
 ---
 
@@ -85,7 +86,7 @@ Plot runtime vs. n to confirm theoretical growth.
 
 ### Profiling
 
-Profilers (like `gprof`, `perf`, or Python’s `cProfile`) identify hotspots — functions consuming the most time or memory.
+Profilers (like `gprof`, `perf`, or Python’s `cProfile`) identify hotspots - functions consuming the most time or memory.
 
 > [!note]  
 > Efficiency ≠ speed. Sometimes slower operations (e.g., precomputation, caching) improve overall efficiency for repeated runs.
@@ -108,7 +109,7 @@ Examples:
 
 ### Space Efficiency
 
-Runtime isn’t everything — some algorithms trade speed for memory.
+Runtime isn’t everything - some algorithms trade speed for memory.
 
 |Algorithm|Time|Space|Trade-off|
 |---|---|---|---|
@@ -128,7 +129,7 @@ Choose based on _context_: memory-constrained systems (embedded) may prioritize 
     
 
 > [!tip]  
-> On modern CPUs, cache misses can cost hundreds of cycles — a Θ(n) algorithm with poor locality can lose to a Θ(n log n) algorithm with sequential access.
+> On modern CPUs, cache misses can cost hundreds of cycles - a Θ(n) algorithm with poor locality can lose to a Θ(n log n) algorithm with sequential access.
 
 ### Practical Optimization Patterns
 
@@ -184,7 +185,7 @@ Choose based on _context_: memory-constrained systems (embedded) may prioritize 
 
 ---
 
-## See also
+## Related Notes
 
 - [[asymptotic-notation|Asymptotic Notation]]
     

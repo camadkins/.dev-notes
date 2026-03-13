@@ -1,18 +1,19 @@
 ---
 title: History of the Internet
-description: From Cold War research networks to the modern web — packet switching, TCP/IP, DNS, and the invention of the World Wide Web.
+description: From Cold War research networks to the modern web - packet switching, TCP/IP, DNS, and the invention of the World Wide Web.
 draft: false
-comments: false
+comments: true
 tags:
   - cs
   - history
 date: 2026-03-12
+updated:
 aliases: []
 ---
 
 ## Intuition
 
-The internet is not one invention — it is a stack of inventions layered over decades. It began as a US defense research project to build a communication network that could survive partial destruction, evolved into a protocol suite connecting heterogeneous networks worldwide, and was transformed by a physicist at CERN who added hyperlinks on top. Understanding the internet's history means understanding why it was designed as a decentralized, packet-switched, layered system — and why those design choices still matter.
+The internet is not one invention - it is a stack of inventions layered over decades. It began as a US defense research project to build a communication network that could survive partial destruction, evolved into a protocol suite connecting heterogeneous networks worldwide, and was transformed by a physicist at CERN who added hyperlinks on top. Understanding the internet's history means understanding why it was designed as a decentralized, packet-switched, layered system - and why those design choices still matter.
 
 Think of it this way: the telephone network was circuit-switched (a dedicated line for each call). The internet's founders asked, "What if we break messages into small packets, route each one independently, and let the endpoints reassemble them?" That question produced a fundamentally more resilient and flexible network.
 
@@ -28,13 +29,13 @@ The foundational insight came independently from Paul Baran (RAND Corporation, 1
 - Packets travel independently through the network, potentially along different routes.
 - The destination reassembles packets in order.
 
-Packet switching uses network capacity more efficiently than circuit switching and survives node failures gracefully — if one router goes down, packets route around it.
+Packet switching uses network capacity more efficiently than circuit switching and survives node failures gracefully - if one router goes down, packets route around it.
 
 ### ARPANET (1969)
 
 The US Advanced Research Projects Agency (ARPA) funded the first packet-switched network. Key milestones:
 
-- **1969**: First message sent between UCLA and Stanford Research Institute — the system crashed after transmitting "LO" (of "LOGIN").
+- **1969**: First message sent between UCLA and Stanford Research Institute - the system crashed after transmitting "LO" (of "LOGIN").
 - **1970**: ARPANET connected four nodes (UCLA, SRI, UC Santa Barbara, University of Utah).
 - **1971**: Email invented by Ray Tomlinson (the `@` sign convention).
 - **1973**: ARPANET goes international (connections to University College London and NORSAR in Norway).
@@ -43,11 +44,11 @@ ARPANET used the Network Control Protocol (NCP), a host-to-host protocol that as
 
 ### TCP/IP (1974–1983)
 
-Vint Cerf and Bob Kahn designed TCP/IP to connect **different** networks — ARPANET, satellite networks, radio networks — into an **internetwork**:
+Vint Cerf and Bob Kahn designed TCP/IP to connect **different** networks - ARPANET, satellite networks, radio networks - into an **internetwork**:
 
 - **IP (Internet Protocol)**: Handles addressing and routing. Each host gets an IP address; routers forward packets hop-by-hop toward the destination.
 - **TCP (Transmission Control Protocol)**: Provides reliable, ordered, connection-oriented delivery on top of IP. Handles retransmission, flow control, and congestion control.
-- **UDP**: A lighter alternative to TCP — no reliability guarantees, lower overhead, useful for real-time applications.
+- **UDP**: A lighter alternative to TCP - no reliability guarantees, lower overhead, useful for real-time applications.
 
 On January 1, 1983 ("Flag Day"), ARPANET switched from NCP to TCP/IP. This is often considered the birth of the internet as we know it.
 
@@ -59,7 +60,7 @@ As the network grew, remembering numeric IP addresses became impractical. Paul M
 - Root servers, TLD servers (.com, .org, .edu), and authoritative name servers form the hierarchy.
 - Caching at every level keeps the system fast despite billions of queries per day.
 
-DNS is sometimes called "the internet's phone book," but it is really a globally distributed, eventually consistent key-value store — one of the earliest large-scale distributed systems.
+DNS is sometimes called "the internet's phone book," but it is really a globally distributed, eventually consistent key-value store - one of the earliest large-scale distributed systems.
 
 ### The World Wide Web (1989–1991)
 
@@ -69,19 +70,19 @@ Tim Berners-Lee at CERN proposed a hypertext system built on top of the internet
 - **HTTP**: A stateless request-response protocol for fetching resources.
 - **URLs**: A uniform addressing scheme combining protocol, host, and path.
 
-The first website went live in December 1990. The web made the internet accessible to non-technical users and triggered explosive growth. Mosaic (1993) and Netscape (1994) brought graphical browsing to the mainstream.
+The first website was created at CERN in late 1990 and became publicly accessible in August 1991. The web made the internet accessible to non-technical users and triggered explosive growth. Mosaic (1993) and Netscape (1994) brought graphical browsing to the mainstream.
 
 > [!note]
-> The web is not the internet. The internet is the network infrastructure (TCP/IP, routing, DNS). The web is an application layer built on top of it — just as email, FTP, and streaming are.
+> The web is not the internet. The internet is the network infrastructure (TCP/IP, routing, DNS). The web is an application layer built on top of it - just as email, FTP, and streaming are.
 
 ### From Web 1.0 to the Modern Internet
 
 - **Mid-1990s**: The dot-com boom. E-commerce, search engines (AltaVista, Google), and the browser wars.
-- **2000s**: Web 2.0 — user-generated content, social media, AJAX-driven interactivity, cloud computing.
+- **2000s**: Web 2.0 - user-generated content, social media, AJAX-driven interactivity, cloud computing.
 - **2010s**: Mobile-first internet, HTTPS everywhere, CDNs, streaming dominance, IoT.
 - **2020s**: Edge computing, HTTP/3 (QUIC), increasing centralization tension vs. decentralization efforts.
 
-Throughout this evolution, the core design — packet switching, layered protocols, end-to-end principle — has remained remarkably stable.
+Throughout this evolution, the core design - packet switching, layered protocols, end-to-end principle - has remained remarkably stable.
 
 ---
 
@@ -96,7 +97,7 @@ You type `https://example.com` into a browser. Here is what happens, layer by la
 3. **TLS handshake**: Since the URL uses `https`, a TLS session is negotiated for encryption.
 4. **HTTP request**: The browser sends `GET / HTTP/1.1` (or an HTTP/2 stream) with headers.
 5. **Server response**: The server returns an HTML document with status 200.
-6. **Rendering**: The browser parses HTML, fetches linked resources (CSS, JS, images) — each requiring its own DNS/TCP/HTTP cycle — and renders the page.
+6. **Rendering**: The browser parses HTML, fetches linked resources (CSS, JS, images) - each requiring its own DNS/TCP/HTTP cycle - and renders the page.
 
 Every step in this chain traces back to a design decision made between 1969 and 1991. Packet switching carries the data. IP routes it. TCP ensures reliability. DNS translates the name. HTTP fetches the document. HTML structures the content.
 
@@ -104,6 +105,6 @@ Every step in this chain traces back to a design decision made between 1969 and 
 
 ## Related Notes
 
-- [[turing-and-computability|Turing & Computability]] — the theoretical foundation underlying all networked computation
-- [[von-neumann-architecture|Von Neumann Architecture]] — the machines the internet connects
-- [[unix-and-open-source|Unix & Open Source]] — the OS culture that shaped internet infrastructure
+- [[turing-and-computability|Turing & Computability]] - the theoretical foundation underlying all networked computation
+- [[von-neumann-architecture|Von Neumann Architecture]] - the machines the internet connects
+- [[unix-and-open-source|Unix & Open Source]] - the OS culture that shaped internet infrastructure

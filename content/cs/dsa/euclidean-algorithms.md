@@ -2,6 +2,7 @@
 title: Euclidean Algorithms
 description: Fast GCD via repeated modulo; the extended form finds Bézout coefficients for modular inverses and Diophantine solutions.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -147,7 +148,7 @@ Check: `17·26 = 442 ≡ 1 (mod 43)`.
 
 Euclid's algorithm reduces the gcd problem to a short loop of **modulo** operations with logarithmic step count. The **extended** variant carries Bézout coefficients through the same updates, unlocking modular inverses and linear equation solutions. Implement it iteratively for constant space, normalize signs and residues carefully, and add a thin helper for `mod_inverse` that guards on `gcd(a,m)=1`.
 
-## See also
+## Related Notes
 
 - [[hcf-and-lcm-algorithms|HCF and LCM Algorithms]]
 

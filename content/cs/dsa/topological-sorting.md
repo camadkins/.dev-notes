@@ -2,6 +2,7 @@
 title: Topological Sorting
 description: Produce a linear order of DAG vertices using Kahn's indegree queue or DFS postorder; detect cycles when impossible.
 draft: false
+comments: true
 tags:
   - cs
   - dsa
@@ -200,9 +201,9 @@ Both algorithms detect cycles within the same budget.
 
 Topological sorting linearizes a DAG's precedence constraints. **Kahn's algorithm** exposes ready vertices by indegree and emits them while unlocking successors; **DFS postorder** emits vertices in reverse finishing time. Both are `Θ(n + m)` and detect cycles naturally. Choose Kahn for scheduling-style workflows and controllable tie-breaking; choose DFS when you already traverse the graph and want a compact, stack-based solution. Handle cycles explicitly, pick deterministic tie-breaks if needed, and use the resulting order to drive DAG-based dynamic programs and schedulers.
 
-## See also
+## Related Notes
 
-- [[graph-traversals-bfs-dfs|Graph Traversals — BFS & DFS]]
+- [[graph-traversals-bfs-dfs|Graph Traversals - BFS & DFS]]
 
 - [[graph-representations|Graph Representations]]
 

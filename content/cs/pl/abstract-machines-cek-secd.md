@@ -1,7 +1,8 @@
 ---
-title: Abstract Machines — CEK & SECD
+title: Abstract Machines - CEK & SECD
 description: How abstract machines model the step-by-step execution of programs through environments, continuations, and control structures.
 draft: false
+comments: true
 tags:
   - cs
   - pl
@@ -10,13 +11,13 @@ updated: 2025-10-29
 aliases:
   - abstract-machines-ceksecd
 # diagrams:
-#  - cek_state_transitions.svg — visualize transitions among ⟨C,E,K⟩ tuples for a sample λ-expression.
-#  - secd_stack_evolution.svg — stack frames and dump transitions through a function call and return.
-#  - machine_comparison.svg — side-by-side summary of CEK vs SECD components and data flow.
+#  - cek_state_transitions.svg - visualize transitions among ⟨C,E,K⟩ tuples for a sample λ-expression.
+#  - secd_stack_evolution.svg - stack frames and dump transitions through a function call and return.
+#  - machine_comparison.svg - side-by-side summary of CEK vs SECD components and data flow.
 ---
 
 ## Overview
-Abstract machines are **executable semantic models** — they show *how* a language’s semantics can be realized through explicit computation states.  
+Abstract machines are **executable semantic models** - they show *how* a language’s semantics can be realized through explicit computation states.  
 Where operational semantics specifies transitions symbolically, abstract machines **simulate execution concretely** using environments, continuations, and stacks.
 
 > [!note]
@@ -50,7 +51,7 @@ Rule sketch:
 ```
 
 > [!example]
-> **Diagram (`cek_state_transitions.svg`)** — sequence of states for `(λx. x + 1) 4`, with arrows between ⟨C,E,K⟩ tuples.
+> **Diagram (`cek_state_transitions.svg`)** - sequence of states for `(λx. x + 1) 4`, with arrows between ⟨C,E,K⟩ tuples.
 
 ### SECD (Stack, Environment, Control, Dump)
 The **SECD Machine** predates CEK but expresses similar principles (Peter Landin, 1960s).
@@ -77,7 +78,7 @@ The **SECD Machine** predates CEK but expresses similar principles (Peter Landin
 | Influence | Denotational and CPS-based semantics | Early interpreter and compiler design |
 
 > [!example]
-> **Diagram (`machine_comparison.svg`)** — data-flow comparison; CEK highlights continuations, SECD emphasizes stack/dump cycles.
+> **Diagram (`machine_comparison.svg`)** - data-flow comparison; CEK highlights continuations, SECD emphasizes stack/dump cycles.
 
 ---
 
@@ -113,7 +114,7 @@ Each state captures **expression**, **environment**, and **continuation**; the m
 - **CEK** corresponds to **call-by-value β-reduction**.  
 - **SECD** corresponds to a **stack-based CPS** execution style.
 
-A CPS transform explicitly passes continuations as functions — mirroring what CEK represents structurally.  
+A CPS transform explicitly passes continuations as functions - mirroring what CEK represents structurally.  
 CEK often bridges *theory* (λ-calculus) and *implementation* (interpreter loops).
 
 ### Relation to Modern Runtimes (from original)
@@ -154,7 +155,7 @@ Operand pushes to **S**, code in **C**, and call/return via **D**; mirrors a sta
 > - **Forgetting determinism:** every machine step must be defined for every well-formed state.
 
 > [!tip]
-> When debugging abstract machine traces, track all state components — missing one leads to apparent “nondeterminism.”
+> When debugging abstract machine traces, track all state components - missing one leads to apparent “nondeterminism.”
 
 > [!warning] Common pitfalls
 > - Mishandling environment capture leads to free-variable errors.
@@ -162,7 +163,7 @@ Operand pushes to **S**, code in **C**, and call/return via **D**; mirrors a sta
 
 ---
 
-## See also
+## Related Notes
 - [[operational-semantics-big-step-small-step|Operational Semantics]]
-- [[lambda-calculus-encodings-booleans-pairs-church-numerals|Lambda Calculus — Basics]]
+- [[lambda-calculus-encodings-booleans-pairs-church-numerals|Lambda Calculus - Basics]]
 - [[continuations-cps|Continuations & CPS]]

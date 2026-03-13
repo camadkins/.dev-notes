@@ -3,6 +3,7 @@
 title: Recurrences & the Master Theorem
 description: How to set up divide-and-conquer recurrences T(n)=aT(n/b)+f(n) and apply the Master (and Akra–Bazzi) cases safely.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -219,11 +220,11 @@ To analyze `T(n)=aT(n/b)+f(n)`:
     For unequal subproblem sizes or extra additive terms, apply **Akra–Bazzi**. Document base cases, assumptions on `n`, and any polylog factors clearly to avoid common errors.
 
 
-## See also
+## Related Notes
 
 - [[recurrence-relations|Recurrence Relations]]
 
-- [[recurrences-master-theorem|Recurrences — Master Theorem]]
+- [[recurrences-master-theorem|Recurrences - Master Theorem]]
 
 - [[divide-and-conquer|Divide and Conquer]]
 

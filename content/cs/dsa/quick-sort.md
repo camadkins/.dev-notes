@@ -2,6 +2,7 @@
 title: Quick Sort
 description: Partition an array around a pivot and recurse; average n log n with small constants, but quadratic without good pivoting or duplicate handling.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -15,11 +16,11 @@ aliases: []
 
 Quick sort is a **divide-and-conquer** sorting algorithm that repeatedly **partitions** an array segment around a chosen **pivot**, placing smaller elements to the left and larger to the right, then recursively sorts the subsegments. It is prized for:
 
-- **Average-case** time near the theoretical lower bound — typically **O(n log n)** with excellent constants.
+- **Average-case** time near the theoretical lower bound - typically **O(n log n)** with excellent constants.
 
-- **In-place** operation — **O(1)** extra space (beyond recursion stack).
+- **In-place** operation - **O(1)** extra space (beyond recursion stack).
 
-- **Cache efficiency** — linear scans over contiguous memory.
+- **Cache efficiency** - linear scans over contiguous memory.
 
 However, it can degrade to **O(n^2)** when pivots are poor (e.g., already-sorted input with naive pivot choice) or when duplicates are handled naively. Practical implementations deploy **randomization**, **median-of-three**, **3-way partitioning**, and **introspective fallbacks** to avoid pathologies.
 
@@ -252,7 +253,7 @@ Quick sort complements:
 
 Quick sort partitions an array around a pivot and sorts subarrays recursively. With good pivot selection (random or median-of-three), small-subarray cutoffs, and 3-way partitioning for duplicates, it delivers **O(n log n)** expected time, **O(1)** extra space, and outstanding real-world performance. To make it robust, add **tail recursion elimination** and an **introsort fallback** to guarantee worst-case bounds, and carefully choose partition schemes and comparator discipline.
 
-## See also
+## Related Notes
 
 - [[merge-sort|Merge Sort]]
 
@@ -260,4 +261,4 @@ Quick sort partitions an array around a pivot and sorts subarrays recursively. W
 
 - [[insertion-sort|Insertion Sort]]
 
-- [[recurrences-master-theorem|Recurrences — Master Theorem]]
+- [[recurrences-master-theorem|Recurrences - Master Theorem]]

@@ -2,6 +2,7 @@
 title: Mutable State, References & Effects
 description: Understanding how locations, stores, and reference semantics model mutation, sequencing, and side effects in programming languages.
 draft: false
+comments: true
 tags:
   - cs
   - pl
@@ -9,9 +10,9 @@ date: 2025-10-24
 updated:
 aliases: []
 # diagrams:
-#  - store_evolution.svg — show σ evolving over steps for ref, !, and :=.
-#  - aliasing_effects.svg — illustrate two identifiers pointing to the same location, showing shared mutation.
-#  - sequencing_flow.svg — depict control flow of e1 ; e2 sequencing under a changing store.
+#  - store_evolution.svg - show σ evolving over steps for ref, !, and :=.
+#  - aliasing_effects.svg - illustrate two identifiers pointing to the same location, showing shared mutation.
+#  - sequencing_flow.svg - depict control flow of e1 ; e2 sequencing under a changing store.
 ---
 
 ## Overview
@@ -20,15 +21,15 @@ However, real-world programming requires **mutation**: variables that change, da
 To reason about this, programming languages extend their semantics with **locations** and a **store (σ)**.
 
 > [!note]
-> Mutable state introduces *time* into semantics — expressions no longer evaluate to a single value, but to a value **and a new store**.
+> Mutable state introduces *time* into semantics - expressions no longer evaluate to a single value, but to a value **and a new store**.
 
 ---
 
 ## Core Concepts
 ### Values, Locations, and the Store
-- **Values** — immutable entities (integers, booleans, closures).
-- **Locations (ℓ)** — addresses in memory where values reside.
-- **Store (σ)** — mapping of locations to values:  
+- **Values** - immutable entities (integers, booleans, closures).
+- **Locations (ℓ)** - addresses in memory where values reside.
+- **Store (σ)** - mapping of locations to values:  
 ```
 
 σ : Location → Value
@@ -154,7 +155,7 @@ Final result:
 ```
 
 > [!tip]  
-> This pattern — read, modify, write — is fundamental in imperative programming.  
+> This pattern - read, modify, write - is fundamental in imperative programming.  
 > In semantics, it manifests as _store-passing_ between expressions.
 
 ---
@@ -186,7 +187,7 @@ because both `a` and `b` point to the same ℓ.
 > Show both identifiers `a` and `b` pointing to one location `ℓ1` in σ.  
 > Assignment through `b` changes the shared binding.
 
-Aliasing is powerful but dangerous — it couples parts of a program through shared state.  
+Aliasing is powerful but dangerous - it couples parts of a program through shared state.  
 Optimizations and reasoning become harder because order now matters.
 
 ---
@@ -213,7 +214,7 @@ Each step mutates the shared store.
 Effects compose _through time_, not through function return values.
 
 > [!tip]  
-> Effects break referential transparency — two identical expressions may yield different results depending on σ.
+> Effects break referential transparency - two identical expressions may yield different results depending on σ.
 
 ---
 
@@ -226,7 +227,7 @@ Effects compose _through time_, not through function return values.
 |`!r`|same result for same r|may differ if store changes|
 
 A pure function `f(x)` always yields the same result for the same input.  
-With mutable state, the meaning depends on σ — the _state of the world_.
+With mutable state, the meaning depends on σ - the _state of the world_.
 
 > [!warning]  
 > Mutation makes equational reasoning (substitution, simplification) invalid unless effects are controlled or isolated.
@@ -266,7 +267,7 @@ ref x       ↦  newRef x
 r := v      ↦  writeRef r v
 ```
 
-This bridges imperative effects and functional purity — making mutations _explicit in type signatures_.
+This bridges imperative effects and functional purity - making mutations _explicit in type signatures_.
 
 ---
 
@@ -296,12 +297,12 @@ This bridges imperative effects and functional purity — making mutations _expl
 
 ---
 
-## See also
+## Related Notes
 
-- [[language-design-values-variables-environments|Language Design — Values, Variables & Environments]]
+- [[language-design-values-variables-environments|Language Design - Values, Variables & Environments]]
     
 - [[scoping-binding-and-closures|Scoping, Binding, and Closures]]
     
-- [[operational-semantics-big-step-small-step|Operational Semantics — Big-Step & Small-Step]]
+- [[operational-semantics-big-step-small-step|Operational Semantics - Big-Step & Small-Step]]
     
 - [[evaluation-order-and-strictness | Evaluation Order & Strictness]]

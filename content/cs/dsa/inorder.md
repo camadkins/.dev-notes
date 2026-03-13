@@ -1,7 +1,8 @@
 ---
-title: Traversal — Inorder
+title: Traversal - Inorder
 description: Visit Left -> Root -> Right; yields sorted order precisely on binary search trees; includes recursive, iterative (stack), and Morris (O(1) space) variants.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -197,12 +198,12 @@ Consider the BST built from keys `4,2,6,1,3,5,7`.
 
 Inorder traversal is the canonical **Left -> Root -> Right** visit order. It runs in **O(n)** time, uses **O(h)** space (or **O(1)** via Morris), and produces **sorted output** for BSTs. Choose recursive for clarity, iterative for control and worst-case safety, and Morris when auxiliary memory must be minimized and temporary pointer rewiring is acceptable.
 
-## See also
+## Related Notes
 
 - [[binary-tree|Binary Tree]]
 
 - [[bst|Binary Search Tree]]
 
-- [[preorder|Traversal — Preorder]]
+- [[preorder|Traversal - Preorder]]
 
-- [[postorder|Traversal — Postorder]]
+- [[postorder|Traversal - Postorder]]

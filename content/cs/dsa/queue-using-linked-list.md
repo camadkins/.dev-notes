@@ -3,6 +3,7 @@
 title: Queue Using Linked List
 description: Singly linked nodes with head/tail pointers for O(1) enqueue/dequeue and stable FIFO semantics.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -229,7 +230,7 @@ Iteration from `head` to `tail` preserves **arrival order**. Avoid exposing raw 
 
 A linked-list queue provides **FIFO** with **constant-time** appends/removals via `head`/`tail` pointers. It shines when capacity is unknown or unbounded and when moving/copying elements is undesirable. To build a robust version, rigorously handle the **empty ↔ one** transitions, manage memory (pools or GC), and choose synchronization appropriate to the producer/consumer pattern. For cache-friendly, fixed-capacity pipelines, prefer an array ring; for flexible growth and stable references, the linked queue is the right tool.
 
-## See also
+## Related Notes
 
 - [[queue|Queue]]
 

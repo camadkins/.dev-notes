@@ -2,9 +2,10 @@
 title: Exponential Distribution
 description: Modelling the continuous waiting time between independent events in a Poisson process.
 draft: false
-comments: false
+comments: true
 tags: [cs, statistics]
 date: 2026-03-12
+updated:
 aliases: []
 ---
 
@@ -64,7 +65,7 @@ $$1 - e^{-m/\beta} = 0.5 \implies m = \beta \ln 2 = 5 \ln 2 \approx 3.47 \text{ 
 
 The median is always less than the mean for an exponential distribution, reflecting its right skew.
 
-**Hazard rate:** the exponential has a constant hazard (failure) rate $h(x) = 1/\beta = \lambda$. This means a 5-year-old component is no more likely to fail in the next instant than a brand-new one — a strong assumption that limits the model to components without wear-out.
+**Hazard rate:** the exponential has a constant hazard (failure) rate $h(x) = 1/\beta = \lambda$. This means a 5-year-old component is no more likely to fail in the next instant than a brand-new one - a strong assumption that limits the model to components without wear-out.
 
 ## Why It Matters in CS
 
@@ -75,6 +76,6 @@ The median is always less than the mean for an exponential distribution, reflect
 
 ## Related Notes
 
-- [[poisson-distribution|Poisson Distribution]] — counts events in an interval; the exponential models time between those events
-- [[normal-distribution|Normal Distribution]] — another foundational continuous distribution, used when many independent factors combine additively
-- [[probability-distributions|Probability Distributions]] — overview of the broader distribution taxonomy
+- [[poisson-distribution|Poisson Distribution]] - counts events in an interval; the exponential models time between those events
+- [[normal-distribution|Normal Distribution]] - another foundational continuous distribution, used when many independent factors combine additively
+- [[probability-distributions|Probability Distributions]] - overview of the broader distribution taxonomy

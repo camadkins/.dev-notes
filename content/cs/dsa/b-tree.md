@@ -1,7 +1,8 @@
 ---
-title: B-Trees — Balanced Multiway Search Structures
+title: B-Trees - Balanced Multiway Search Structures
 description: Generalized search trees that maintain logarithmic height by storing multiple keys per node and balancing via split/merge operations.
 draft: false
+comments: true
 tags:
   - cs
   - dsa
@@ -9,14 +10,14 @@ date: 2025-10-16
 updated:
 aliases: []
 # diagrams:
-#  - btree_structure.svg — example layout showing internal and leaf nodes with multiple keys.
-#  - btree_split_merge.svg — visualizing node splitting and merging during insertions and deletions.
-#  - btree_disk_blocks.svg — mapping B-tree nodes to disk pages for efficient I/O.
+#  - btree_structure.svg - example layout showing internal and leaf nodes with multiple keys.
+#  - btree_split_merge.svg - visualizing node splitting and merging during insertions and deletions.
+#  - btree_disk_blocks.svg - mapping B-tree nodes to disk pages for efficient I/O.
 ---
 
 ## Overview
 A **B-tree** is a **self-balancing multiway search tree** that generalizes binary search trees to support **multiple keys per node**.  
-It minimizes disk I/O by storing large blocks of sorted keys together—ideal for databases and filesystems where nodes map directly to disk pages.
+It minimizes disk I/O by storing large blocks of sorted keys together - ideal for databases and filesystems where nodes map directly to disk pages.
 
 > [!note]
 > B-trees are optimized for external memory: instead of minimizing CPU comparisons, they minimize the number of disk reads required to locate data.
@@ -24,7 +25,7 @@ It minimizes disk I/O by storing large blocks of sorted keys together—ideal fo
 ---
 
 ## Motivation
-Standard binary search trees degrade to height `O(n)` in the worst case, while AVL and Red-Black trees—though balanced—are inefficient for disk storage, as each node often triggers separate disk access.
+Standard binary search trees degrade to height `O(n)` in the worst case, while AVL and Red-Black trees - though balanced - are inefficient for disk storage, as each node often triggers separate disk access.
 
 A B-tree solves this by:
 - Storing many keys per node (reducing height).
@@ -55,7 +56,7 @@ All leaves appear at the same depth.
 The root can have fewer keys (≥1) and fewer children.
 
 > [!example]
-> **Diagram (`btree_structure.svg`)** — illustrate a 3rd-order B-tree with keys grouped in nodes and hierarchical child ranges.
+> **Diagram (`btree_structure.svg`)** - illustrate a 3rd-order B-tree with keys grouped in nodes and hierarchical child ranges.
 
 ---
 
@@ -78,7 +79,7 @@ Searching for 28:
 - Compare in root `[17 | 35]` → between → follow middle child `[20 | 28]` → found.
 
 > [!tip]
-> B-trees reduce the number of node visits dramatically—depth grows logarithmically with branching factor `m`.
+> B-trees reduce the number of node visits dramatically - depth grows logarithmically with branching factor `m`.
 
 ---
 
@@ -97,7 +98,7 @@ If a node exceeds `(m − 1)` keys:
 - If parent overflows, recursively split upward (possibly creating a new root).
 
 > [!example]
-> **Diagram (`btree_split_merge.svg`)** — show insertion sequence: overflow → split → promote middle key.
+> **Diagram (`btree_split_merge.svg`)** - show insertion sequence: overflow → split → promote middle key.
 
 ### Pseudocode
 ```pseudo
@@ -140,7 +141,7 @@ function insertNonFull(x, k):
         
 
 > [!warning]  
-> Deletion rebalancing can cascade upward — similar to insert splitting, but reversed.
+> Deletion rebalancing can cascade upward - similar to insert splitting, but reversed.
 
 ---
 
@@ -177,7 +178,7 @@ function insertNonFull(x, k):
     
 
 > [!example]  
-> **Diagram (`btree_disk_blocks.svg`)** — show nodes mapped to disk pages, demonstrating how reading one node loads multiple keys.
+> **Diagram (`btree_disk_blocks.svg`)** - show nodes mapped to disk pages, demonstrating how reading one node loads multiple keys.
 
 ---
 
@@ -220,7 +221,7 @@ function insertNonFull(x, k):
 
 ---
 
-## See also
+## Related Notes
 
 - [[bst|Binary Search Tree]]
     

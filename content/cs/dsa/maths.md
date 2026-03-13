@@ -2,6 +2,7 @@
 title: Math Basics for DS&A
 description: Essential arithmetic identities, integer properties, and edge-case behaviors that show up constantly in algorithms and proofs.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -157,7 +158,7 @@ There are two common conventions for `x div d` and `x mod d` (with `d>0`):
 
 - `floor((n-1)/k)` counts **full groups** of size `k` in `n` items.
 
-- `ceil(n/k)` counts groups if you **allow a partial** last group—commonly used for chunking arrays into pages of size `k`.
+- `ceil(n/k)` counts groups if you **allow a partial** last group - commonly used for chunking arrays into pages of size `k`.
 
 - `ceil(log2 n)` comparisons for binary search worst-case (on `n>=1`).
 
@@ -254,7 +255,7 @@ Keep a compact toolkit:
     Pair exact math with asymptotic bounds to move seamlessly between **proof** and **implementation**.
 
 
-## See also
+## Related Notes
 
 - [[algorithm-efficiency|Algorithm Efficiency]]
 

@@ -2,6 +2,7 @@
 title: Ternary Search
 description: Unimodal optimization by shrinking the search interval using two interior probes per iteration.
 draft: false
+comments: true
 tags:
   - cs
   - dsa
@@ -11,7 +12,7 @@ aliases: []
 ---
 
 ## Overview
-**Ternary search** is a 1-D optimization technique for **unimodal** functions—those that **strictly increase then strictly decrease** (for maxima) or the reverse for minima—on a **closed interval**. Each iteration evaluates at **two interior points** and discards the third of the interval that cannot contain the optimum, shrinking the window deterministically. It is derivative-free, simple, and numerically robust when the objective is smooth and unimodal.
+**Ternary search** is a 1-D optimization technique for **unimodal** functions - those that **strictly increase then strictly decrease** (for maxima) or the reverse for minima - on a **closed interval**. Each iteration evaluates at **two interior points** and discards the third of the interval that cannot contain the optimum, shrinking the window deterministically. It is derivative-free, simple, and numerically robust when the objective is smooth and unimodal.
 
 There are two closely related settings:
 
@@ -66,7 +67,7 @@ function PEAK_UNIMODAL(A):         // A increases then decreases (strict)
     return lo                      // index of maximum element
 ```
 
-- Uses **one** comparison per round against the neighbor—more efficient than evaluating at two trisection points.
+- Uses **one** comparison per round against the neighbor - more efficient than evaluating at two trisection points.
 
 - Works with plateaus if you extend the logic to handle `<=` vs `>=` consistently.
 
@@ -116,13 +117,13 @@ function PEAK_UNIMODAL(A):         // A increases then decreases (strict)
 
 - **Golden-section search (continuous):** Uses a fixed ratio `φ = (√5 − 1)/2` to place interior points. With careful reuse, it needs **one new evaluation per iteration** vs. two in naive ternary, while achieving the same convergence factor. Prefer it when `f` is expensive to evaluate.
 
-- **Parabolic interpolation (Brent's method):** Blends golden-section steps with quadratic fits to accelerate on smooth functions, with reliable fallbacks—often the default in numerical libraries.
+- **Parabolic interpolation (Brent's method):** Blends golden-section steps with quadratic fits to accelerate on smooth functions, with reliable fallbacks - often the default in numerical libraries.
 
 - **Plateaus & non-strict unimodality:** If `f(m1) ≈ f(m2)` within tolerance, keep the **middle third** `[m1, m2]` to avoid discarding the maximizer.
 
 - **Integer domains:** Terminate when `r - l ≤ 2`, then brute-check the remaining 2-3 points to avoid round-off misclassification.
 
-- **Derivative information (optional):** If you can compute `f'`, a bracketed **ternary** can be replaced by bisection on `f'`'s sign change or by **Newton** once close—faster but requires smoothness and care.
+- **Derivative information (optional):** If you can compute `f'`, a bracketed **ternary** can be replaced by bisection on `f'`'s sign change or by **Newton** once close - faster but requires smoothness and care.
 
 > [!tip]
 > Cache `f(m2)` from the previous round: after narrowing, one of the new trisection points coincides with a prior point. This reduces to **one fresh evaluation per iteration**, similar in spirit to golden-section.
@@ -163,7 +164,7 @@ function PEAK_UNIMODAL(A):         // A increases then decreases (strict)
 
 Ternary search is a clean **divide-and-conquer** routine for **unimodal** objectives. In the **continuous** case, it shrinks the interval by a factor of `2/3` per iteration using two interior probes; in the **discrete** case, a binary-style mid/neighbor comparison isolates the peak in `O(log n)`. Its effectiveness depends on unimodality, careful termination, and, for numeric work, tolerance to floating-point ties and noise. For evaluation-heavy objectives, prefer **golden-section** or hybrid methods that reuse function values.
 
-## See also
+## Related Notes
 
 - [[binary-search|Binary Search]]
 
@@ -171,4 +172,4 @@ Ternary search is a clean **divide-and-conquer** routine for **unimodal** object
 
 - [[time-complexity-analysis|Time Complexity Analysis]]
 
-- [[recurrences-master-theorem|Recurrences — Master Theorem]]
+- [[recurrences-master-theorem|Recurrences - Master Theorem]]

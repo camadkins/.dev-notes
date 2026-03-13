@@ -2,6 +2,7 @@
 title: Stack Using Linked List
 description: Node-based LIFO with push/pop at the head; O(1) operations and pointer-stable elements.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -13,7 +14,7 @@ aliases: []
 
 ## Overview
 
-A **linked-list stack** implements **LIFO** using nodes linked by pointers, with the **head** representing the top. Core operations—`push(x)` and `pop()`—operate on the head and run in **O(1)** worst-case time. Compared to array-backed stacks, a linked stack provides **pointer-stable elements** (nodes do not move in memory) and avoids bulk resizes, at the cost of **per-node allocation overhead** and reduced cache locality.
+A **linked-list stack** implements **LIFO** using nodes linked by pointers, with the **head** representing the top. Core operations - `push(x)` and `pop()` - operate on the head and run in **O(1)** worst-case time. Compared to array-backed stacks, a linked stack provides **pointer-stable elements** (nodes do not move in memory) and avoids bulk resizes, at the cost of **per-node allocation overhead** and reduced cache locality.
 
 > [!note]
 > Representation matters for performance but not for the LIFO **semantics**. A linked stack is ideal when you want `O(1)` operations with **no resizing** and you may need to hold **stable references** to nodes.
@@ -31,9 +32,9 @@ struct Node {
 
 Stack state:
 
-- `head: Node*` — pointer to the top node (or `NIL` if empty)
+- `head: Node*` - pointer to the top node (or `NIL` if empty)
 
-- `n: int` — optional size counter (kept consistent on every op)
+- `n: int` - optional size counter (kept consistent on every op)
 
 
 **Invariants**
@@ -147,7 +148,7 @@ When does a linked stack outperform arrays?
 
 ### Safety and error handling
 
-- **Underflow**: define clear behavior—throw/return status. In C-like APIs:
+- **Underflow**: define clear behavior - throw/return status. In C-like APIs:
 
     ```pseudo
     method tryPop(out x: T) -> bool:
@@ -265,7 +266,7 @@ class LinkedStack<T>:
 
 A **stack using a linked list** provides clean **O(1)** push/pop/peek with **no resizing**, stable node addresses, and flexible memory growth. The trade-offs are **per-node overhead**, **allocator costs**, and **poorer cache locality** versus array stacks. Use pooling to control allocation, define precise underflow semantics, and keep invariants (acyclic list, correct head, size tracking) tight. Choose the linked implementation when predictability and pointer stability outweigh the locality and memory advantages of arrays.
 
-## See also
+## Related Notes
 
 - [[stack|Stack]]
 

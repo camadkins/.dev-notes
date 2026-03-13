@@ -2,6 +2,7 @@
 title: Backtracking Algorithms
 description: Systematic search over decision trees with recursion and pruning; solves CSPs and combinatorial enumeration with correctness by invariants.
 draft: false
+comments: true
 updated: 2025-10-29
 aliases: []
 tags:
@@ -192,7 +193,7 @@ Engineering notes:
 
 ---
 
-## See also
+## Related Notes
 
 - [[recursion|Recursion]]
 

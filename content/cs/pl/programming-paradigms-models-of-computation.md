@@ -2,6 +2,7 @@
 title: Programming Paradigms & Models of Computation
 description: How programming paradigms structure computation, and how abstract models like Turing machines, lambda calculus, and logic systems define their semantics.
 draft: false
+comments: true
 tags:
   - cs
   - pl
@@ -9,12 +10,12 @@ date: 2025-10-16
 updated:
 aliases: []
 # diagrams:
-#  - computation_models_equivalence.svg — depict Turing machine, lambda calculus, and logic inference connected by Church-Turing equivalence.
-#  - paradigm_axes.svg — show paradigms positioned by state vs abstraction and imperative vs declarative axes.
+#  - computation_models_equivalence.svg - depict Turing machine, lambda calculus, and logic inference connected by Church-Turing equivalence.
+#  - paradigm_axes.svg - show paradigms positioned by state vs abstraction and imperative vs declarative axes.
 ---
 
 ## Overview
-Programming paradigms describe *how we think about programs* — the principles that shape how computation is expressed and reasoned about.  
+Programming paradigms describe *how we think about programs* - the principles that shape how computation is expressed and reasoned about.  
 A **model of computation** gives the *mathematical foundation* underlying those paradigms.
 
 Together, they define what a language can express, how it behaves, and how we prove its correctness.
@@ -27,14 +28,14 @@ Together, they define what a language can express, how it behaves, and how we pr
 ## Layers of Computation
 Languages, regardless of paradigm, rest on three conceptual layers:
 
-1. **Atomic computation** — the smallest evaluable operations (arithmetic, assignment, comparison).  
-2. **Composition** — rules for combining atomic parts (sequencing, conditionals, recursion).  
-3. **Abstraction** — mechanisms for naming, reusing, and hiding complexity (functions, objects, modules).
+1. **Atomic computation** - the smallest evaluable operations (arithmetic, assignment, comparison).  
+2. **Composition** - rules for combining atomic parts (sequencing, conditionals, recursion).  
+3. **Abstraction** - mechanisms for naming, reusing, and hiding complexity (functions, objects, modules).
 
 > [!tip]
 > The “Three C’s” of programming: **Compute → Compose → Conceal.**
 
-These layers recur in every paradigm — from procedural loops to functional recursion to logic inference.
+These layers recur in every paradigm - from procedural loops to functional recursion to logic inference.
 
 ---
 
@@ -46,7 +47,7 @@ These layers recur in every paradigm — from procedural loops to functional rec
 | **Lambda Calculus** | 1930s – Alonzo Church | Function abstraction and application | Functional languages |
 | **Predicate Logic** | 1950s | Rule-based inference and unification | Logic programming (Prolog, Datalog) |
 
-All three are **computationally equivalent** (Church–Turing thesis) — any function computable in one can be expressed in the others — but each emphasizes a different *style of reasoning*.
+All three are **computationally equivalent** (Church–Turing thesis) - any function computable in one can be expressed in the others - but each emphasizes a different *style of reasoning*.
 
 > [!example]
 > **Diagram idea (`computation_models_equivalence.svg`)**  
@@ -102,7 +103,7 @@ ancestor(X, Y) :- parent(X, Z), ancestor(Z, Y).
 
 ### 4. Object-Oriented
 
-Programs organize behavior around **objects** — entities combining data and methods.
+Programs organize behavior around **objects** - entities combining data and methods.
 
 ```java
 class Counter {
@@ -128,14 +129,14 @@ class Counter {
 |**Object-Oriented**|Identity, encapsulation|Modular, extensible|Complexity in hierarchies|
 
 > [!tip]  
-> Paradigms aren’t mutually exclusive — modern languages combine them.  
+> Paradigms aren’t mutually exclusive - modern languages combine them.  
 > Python, Scala, and Rust blend imperative, functional, and OO ideas.
 
 ---
 
 ## Composition and Abstraction
 
-The hallmark of good language design is **compositional semantics** — the meaning of the whole is determined by the meaning of its parts.
+The hallmark of good language design is **compositional semantics** - the meaning of the whole is determined by the meaning of its parts.
 
 A well-designed language:
 
@@ -171,7 +172,7 @@ Each paradigm provides a _mental model_ of computation:
     
 
 > [!note]  
-> Paradigms are not just technical; they’re pedagogical — they shape how programmers think about problems.
+> Paradigms are not just technical; they’re pedagogical - they shape how programmers think about problems.
 
 ---
 
@@ -189,7 +190,7 @@ Even for imperative programmers, these ideas offer concrete benefits:
     
 
 > [!example]  
-> Functional abstractions inspired modern tools — from query languages (SQL, LINQ) to parallel frameworks (MapReduce).
+> Functional abstractions inspired modern tools - from query languages (SQL, LINQ) to parallel frameworks (MapReduce).
 
 ---
 
@@ -246,16 +247,16 @@ These machines provide formal grounding for reasoning about correctness, equival
 |**Compositional Semantics**|Meaning of a program = meaning of its parts|
 
 > [!tip]  
-> Understanding multiple paradigms isn’t about syntax — it’s about _mental flexibility_ and _semantic precision._
+> Understanding multiple paradigms isn’t about syntax - it’s about _mental flexibility_ and _semantic precision._
 
 ---
 
-## See also
+## Related Notes
 
-- [[language-overview-syntax-semantics|Language Overview — Syntax vs Semantics]]
+- [[language-overview-syntax-semantics|Language Overview - Syntax vs Semantics]]
     
-- [[lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]
+- [[lambda-calculus-syntax-substitution|Lambda Calculus - Syntax & Substitution]]
     
-- [[abstract-machines-cek-secd|Abstract Machines — CEK & SECD]]
+- [[abstract-machines-cek-secd|Abstract Machines - CEK & SECD]]
     
 - [[history-genealogy-of-languages|History & Genealogy of Languages]]

@@ -1,12 +1,13 @@
 ---
 title: API Design
-description: Principles for designing application programming interfaces — REST, GraphQL, RPC paradigms, and the art of contract design.
+description: Principles for designing application programming interfaces - REST, GraphQL, RPC paradigms, and the art of contract design.
 draft: false
-comments: false
+comments: true
 tags:
   - cs
   - software-engineering
 date: 2026-03-12
+updated:
 aliases: []
 ---
 
@@ -14,7 +15,7 @@ aliases: []
 
 An API is a **promise**: "Send me this shape of request, and I will return that shape of response." The quality of an API is measured not by its cleverness but by how rarely its consumers need to read the documentation twice. Good APIs are predictable, consistent, and hard to misuse.
 
-The paradigm — REST, GraphQL, RPC — matters less than the discipline of thinking carefully about what you expose, what you hide, and what contracts the type system can enforce for you.
+The paradigm - REST, GraphQL, RPC - matters less than the discipline of thinking carefully about what you expose, what you hide, and what contracts the type system can enforce for you.
 
 ---
 
@@ -67,20 +68,20 @@ Expose server functions directly. The client calls a named procedure with argume
 
 Regardless of paradigm, well-designed APIs share common traits:
 
-1. **Consistency** — similar operations behave the same way everywhere.
-2. **Least surprise** — naming, error formats, and conventions match what developers expect.
-3. **Evolvability** — additive changes (new fields, new endpoints) don't break existing clients.
-4. **Explicit errors** — error responses carry enough detail to diagnose without server logs.
-5. **Versioning strategy** — URL path (`/v2/users`), header (`Accept: application/vnd.api+json;v=2`), or schema evolution (Protocol Buffers' field numbering).
+1. **Consistency** - similar operations behave the same way everywhere.
+2. **Least surprise** - naming, error formats, and conventions match what developers expect.
+3. **Evolvability** - additive changes (new fields, new endpoints) don't break existing clients.
+4. **Explicit errors** - error responses carry enough detail to diagnose without server logs.
+5. **Versioning strategy** - URL path (`/v2/users`), header (`Accept: application/vnd.api+json;v=2`), or schema evolution (Protocol Buffers' field numbering).
 
 > [!note]
-> The strongest API contracts are enforced by type systems. A `.proto` file or GraphQL schema catches breaking changes at compile time — far cheaper than discovering them in production. See [[type-systems-goals-guarantees|Type Systems — Goals & Guarantees]] for why static contracts matter.
+> The strongest API contracts are enforced by type systems. A `.proto` file or GraphQL schema catches breaking changes at compile time - far cheaper than discovering them in production. See [[type-systems-goals-guarantees|Type Systems - Goals & Guarantees]] for why static contracts matter.
 
 ---
 
 ## Example
 
-The same operation — "get a user's recent posts" — across paradigms:
+The same operation - "get a user's recent posts" - across paradigms:
 
 **REST:**
 ```http
@@ -115,7 +116,7 @@ REST returns a fixed shape. GraphQL returns exactly what was asked. gRPC returns
 
 ## Related Notes
 
-- [[type-systems-goals-guarantees|Type Systems — Goals & Guarantees]] — type-level contracts as the foundation of API safety
-- [[design-patterns|Design Patterns]] — Facade, Adapter, and Proxy patterns shape API boundaries
-- [[software-architecture|Software Architecture]] — APIs are the seams between architectural components
-- [[testing-strategies|Testing Strategies]] — contract tests validate API promises between services
+- [[type-systems-goals-guarantees|Type Systems - Goals & Guarantees]] - type-level contracts as the foundation of API safety
+- [[design-patterns|Design Patterns]] - Facade, Adapter, and Proxy patterns shape API boundaries
+- [[software-architecture|Software Architecture]] - APIs are the seams between architectural components
+- [[testing-strategies|Testing Strategies]] - contract tests validate API promises between services

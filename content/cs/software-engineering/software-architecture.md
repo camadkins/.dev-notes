@@ -1,18 +1,19 @@
 ---
 title: Software Architecture
-description: High-level structural decisions — monoliths vs microservices, layered and hexagonal architectures, and event-driven systems.
+description: High-level structural decisions - monoliths vs microservices, layered and hexagonal architectures, and event-driven systems.
 draft: false
-comments: false
+comments: true
 tags:
   - cs
   - software-engineering
 date: 2026-03-12
+updated:
 aliases: []
 ---
 
 ## Intuition
 
-Architecture is the set of decisions that are **expensive to change later** — how a system is decomposed into components, how those components communicate, and where the boundaries of responsibility lie. A function name is cheap to rename; whether your system is a monolith or a mesh of services is not.
+Architecture is the set of decisions that are **expensive to change later** - how a system is decomposed into components, how those components communicate, and where the boundaries of responsibility lie. A function name is cheap to rename; whether your system is a monolith or a mesh of services is not.
 
 Good architecture makes the system's intent legible. When you open the source tree, the folder structure should whisper what the system *does*, not just what framework it uses. The patterns below represent recurring answers to the question: "How should we carve up this system?"
 
@@ -83,19 +84,19 @@ An e-commerce system under three architectures:
 
 | Architecture | Order placement flow |
 |-------------|---------------------|
-| **Monolith** | `OrderController` calls `OrderService` calls `InventoryService` calls `PaymentService` — all in-process method calls, single transaction. |
+| **Monolith** | `OrderController` calls `OrderService` calls `InventoryService` calls `PaymentService` - all in-process method calls, single transaction. |
 | **Microservices** | Order Service receives HTTP request, sends gRPC to Inventory Service, publishes `PaymentRequested` event to a message broker, Payment Service consumes and confirms. |
 | **Hexagonal** | `PlaceOrderUseCase` (application layer) calls `OrderRepository` port and `PaymentGateway` port. In production, adapters connect to Postgres and Stripe. In tests, adapters are in-memory fakes. |
 
 The same business logic, shaped differently by where you draw the boundaries.
 
 > [!tip]
-> Start with the simplest architecture that handles your current scale and team size. Extract services at the seams where independent deployment or scaling is actually needed — not where it might theoretically be needed.
+> Start with the simplest architecture that handles your current scale and team size. Extract services at the seams where independent deployment or scaling is actually needed - not where it might theoretically be needed.
 
 ---
 
 ## Related Notes
 
-- [[design-patterns|Design Patterns]] — class-level patterns that implement architectural decisions
-- [[api-design|API Design]] — the contracts between architectural components
-- [[testing-strategies|Testing Strategies]] — architecture determines where integration boundaries fall
+- [[design-patterns|Design Patterns]] - class-level patterns that implement architectural decisions
+- [[api-design|API Design]] - the contracts between architectural components
+- [[testing-strategies|Testing Strategies]] - architecture determines where integration boundaries fall

@@ -1,12 +1,13 @@
 ---
 title: Variance and Covariance
-description: Variance quantifies spread around the mean; covariance captures how two variables move together—essential for dimensionality reduction, algorithm stability, and risk modeling.
+description: Variance quantifies spread around the mean; covariance captures how two variables move together - essential for dimensionality reduction, algorithm stability, and risk modeling.
 draft: false
-comments: false
+comments: true
 tags:
   - cs
   - statistics
 date: 2026-03-12
+updated:
 aliases: []
 ---
 
@@ -89,17 +90,17 @@ Both hit the target mean, but Company A's resistors are far more consistent ($\s
 
 $$\rho = \frac{12.5}{2.5 \times 8.0} = 0.625$$
 
-A moderately strong positive linear association—more study hours correlate with higher scores.
+A moderately strong positive linear association - more study hours correlate with higher scores.
 
 ## Why It Matters in CS
 
 - **PCA and dimensionality reduction.** Principal Component Analysis finds directions of maximum variance by computing eigenvectors of the **covariance matrix**. Features with high covariance are collapsed into single components, reducing dimensionality while preserving information.
 - **Stability of randomized algorithms.** Low variance in a randomized algorithm's runtime means its performance is predictable. Chebyshev's inequality bounds tail probabilities using variance: $P(|X - \mu| \geq k\sigma) \leq 1/k^2$.
 - **Sensor fusion and robotics.** Kalman filters propagate **covariance matrices** to track how uncertainty evolves over time. Sensor measurements with lower variance receive more weight in the fused estimate.
-- **Portfolio and resource optimization.** In distributed systems, covariance between server loads determines whether load-balancing reduces total variance or not—negatively correlated loads are ideal.
+- **Portfolio and resource optimization.** In distributed systems, covariance between server loads determines whether load-balancing reduces total variance or not - negatively correlated loads are ideal.
 
 ## Related Notes
 
-- [[expected-value|Expected Value]] — variance measures spread around the expected value
-- [[probability-distributions|Probability Distributions]] — each distribution has characteristic variance formulas
-- [[regression-fundamentals|Regression Fundamentals]] — regression coefficients are ratios of covariance to variance
+- [[expected-value|Expected Value]] - variance measures spread around the expected value
+- [[probability-distributions|Probability Distributions]] - each distribution has characteristic variance formulas
+- [[regression-fundamentals|Regression Fundamentals]] - regression coefficients are ratios of covariance to variance

@@ -2,6 +2,7 @@
 title: Constraint Satisfaction Problems
 description: Modeling decision problems as variables with domains and constraints; explores consistency, search, and local optimization techniques for efficient solution.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -14,7 +15,7 @@ aliases: []
 
 A **Constraint Satisfaction Problem (CSP)** encodes a decision problem as a set of **variables** with **domains** and a set of **constraints** restricting which combinations of values are allowed. A **solution** is a total assignment of all variables that satisfies all constraints. CSPs unify problems like map coloring, scheduling, timetabling, Sudoku, and n-queens under a common modeling and algorithmic toolkit.
 
-CSP algorithms exploit **structure**—constraint graphs, variable/constraint orderings, and local consistency—to prune search and reduce combinatorial explosion. When exact search is expensive, **local search** (e.g., min-conflicts) often finds high-quality solutions quickly.
+CSP algorithms exploit **structure** - constraint graphs, variable/constraint orderings, and local consistency - to prune search and reduce combinatorial explosion. When exact search is expensive, **local search** (e.g., min-conflicts) often finds high-quality solutions quickly.
 
 ## Motivation
 
@@ -175,7 +176,7 @@ Works spectacularly on **n-queens** and many scheduling/timetabling instances.
 
 ## Broader Implications
 
-CSP techniques appear in **SAT/SMT** (via encodings or direct propagators), **AI planning** (action as variables, preconditions/effects as constraints), **type inference** (constraints over types), and **configuration systems** (feature models). The same ideas—propagation, heuristic search, decomposition—recur across discrete optimization.
+CSP techniques appear in **SAT/SMT** (via encodings or direct propagators), **AI planning** (action as variables, preconditions/effects as constraints), **type inference** (constraints over types), and **configuration systems** (feature models). The same ideas - propagation, heuristic search, decomposition - recur across discrete optimization.
 
 ## Summary
 
@@ -192,7 +193,7 @@ CSPs model decision problems as variables, domains, and constraints. Core tools 
 
 Effective CSP solving balances **inference strength** against **search effort**, guided by problem structure.
 
-## See also
+## Related Notes
 
 - [[backtracking-algorithms|Backtracking Algorithms]]
 

@@ -1,7 +1,8 @@
 ---
 title: Best, Worst & Average Cases
-description: How input families shape algorithm behavior—what each case means, when it matters, and how to reason about them.
+description: How input families shape algorithm behavior - what each case means, when it matters, and how to reason about them.
 draft: false
+comments: true
 tags:
   - cs
   - dsa
@@ -63,7 +64,7 @@ Common modeling patterns:
 - **Cuckoo hashing**: expected $O(1)$ lookup under specific independence assumptions on hash functions.
 
 > [!tip] Be explicit about assumptions
-> - If you randomize the algorithm (e.g., randomized pivot), you can analyze **expected runtime over the algorithm's coins** for **any fixed input**—this sidesteps unknown input distributions.
+> - If you randomize the algorithm (e.g., randomized pivot), you can analyze **expected runtime over the algorithm's coins** for **any fixed input** - this sidesteps unknown input distributions.
 > - If you rely on input randomness, document the **source of randomness** (real-world shuffles? adversary likely?).
 
 ## Examples
@@ -94,7 +95,7 @@ Common modeling patterns:
 > Each insertion shifts only a few elements, so total shifts scale with **number of inversions**, not $n^2$.
 
 ### Graph algorithms (BFS/DFS)
-- **Worst/Average/Best**: $O(n+m)$ for traversal itself—insensitive to input ordering, but **graph density** $m$ vs $n$ heavily influences actual running time.
+- **Worst/Average/Best**: $O(n+m)$ for traversal itself - insensitive to input ordering, but **graph density** $m$ vs $n$ heavily influences actual running time.
 
 ## Properties and Relationships
 - **Case ordering:** `T_min(n) ≤ E[T(n)] ≤ T_max(n)` for any fixed `n`.
@@ -171,7 +172,7 @@ Common modeling patterns:
 
 Great engineering calls out the case, the assumptions, and the **mitigations** used to keep performance predictable: pivot sampling, rehashing, balancing, or hybrid fallbacks.
 
-## See also
+## Related Notes
 - [[asymptotic-notation|Asymptotic Notation]]
 - [[amortized-analysis-methods|Amortized Analysis]]
 - [[time-complexity-analysis|Time Complexity Analysis]]

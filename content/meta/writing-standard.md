@@ -2,7 +2,7 @@
 title: Writing Standard
 description: Default structure and conventions for notes in this garden.
 draft: false
-comments: false
+comments: true
 tags:
   - meta
 date: 2026-03-12
@@ -31,10 +31,10 @@ aliases: []           # alternate titles for wikilink resolution
 
 ## Body structure
 
-1. **Definition** — what the concept is, in 1-3 sentences.
-2. **Core content** — explanation, properties, mechanics. Use subsections (`##`, `###`) to break up longer topics.
-3. **Examples** — concrete instances, code, or diagrams. Prefer inline code blocks with syntax highlighting.
-4. **Connections** — wikilinks to related notes. These can be inline (in the text where relevant) or in a short "See also" list at the end.
+1. **Definition** - what the concept is, in 1-3 sentences.
+2. **Core content** - explanation, properties, mechanics. Use subsections (`##`, `###`) to break up longer topics.
+3. **Examples** - concrete instances, code, or diagrams. Prefer inline code blocks with syntax highlighting.
+4. **Connections** - wikilinks to related notes. These can be inline (in the text where relevant) or in a short "See also" list at the end.
 
 Not every section is required. Short notes may only need a definition and a few links. The goal is clarity, not uniformity.
 

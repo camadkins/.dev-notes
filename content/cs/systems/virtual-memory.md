@@ -1,12 +1,13 @@
 ---
 title: Virtual Memory
-description: Address spaces, paging, page tables, and the TLB — how the OS gives each process the illusion of a private, contiguous memory.
+description: Address spaces, paging, page tables, and the TLB - how the OS gives each process the illusion of a private, contiguous memory.
 draft: false
-comments: false
+comments: true
 tags:
   - cs
   - systems
 date: 2026-03-12
+updated:
 aliases: []
 ---
 
@@ -45,9 +46,9 @@ Physical address: [ PFN           | Offset (same 12 bits) ]
 
 **Copy-on-write (COW).** After `fork`, parent and child share the same physical pages marked read-only. A write triggers a fault; the OS copies just that page. This makes `fork` fast even for large processes.
 
-**Huge pages.** Standard 4 KB pages mean a 1 GB working set requires 262,144 TLB entries — far more than most TLBs hold. **Huge pages** (2 MB or 1 GB on x86-64) reduce TLB pressure by covering more memory per entry, at the cost of higher internal fragmentation. Linux exposes them via `mmap` with `MAP_HUGETLB` or transparently via THP (Transparent Huge Pages).
+**Huge pages.** Standard 4 KB pages mean a 1 GB working set requires 262,144 TLB entries - far more than most TLBs hold. **Huge pages** (2 MB or 1 GB on x86-64) reduce TLB pressure by covering more memory per entry, at the cost of higher internal fragmentation. Linux exposes them via `mmap` with `MAP_HUGETLB` or transparently via THP (Transparent Huge Pages).
 
-**Swapping and thrashing.** When physical memory is exhausted, the OS pages out (swaps) infrequently used pages to disk. If the working set exceeds physical memory, the system **thrashes** — spending more time swapping than executing. The classic symptom: disk I/O pegged at 100%, CPU utilization paradoxically low. Solutions include adding RAM, reducing the working set, or using memory-aware scheduling.
+**Swapping and thrashing.** When physical memory is exhausted, the OS pages out (swaps) infrequently used pages to disk. If the working set exceeds physical memory, the system **thrashes** - spending more time swapping than executing. The classic symptom: disk I/O pegged at 100%, CPU utilization paradoxically low. Solutions include adding RAM, reducing the working set, or using memory-aware scheduling.
 
 **Address space layout.** A typical process virtual address space (simplified, Linux x86-64):
 
@@ -83,6 +84,6 @@ On subsequent accesses to the same page, the TLB hits and the translation costs 
 
 ## Related Notes
 
-- [[memory-allocation|Memory Allocation]] — how user-space allocators (malloc, arenas) work on top of virtual memory
-- [[processes-and-threads|Processes & Threads]] — virtual memory provides the isolation between processes
-- [[file-systems|File Systems]] — memory-mapped files bridge virtual memory and the file system
+- [[memory-allocation|Memory Allocation]] - how user-space allocators (malloc, arenas) work on top of virtual memory
+- [[processes-and-threads|Processes & Threads]] - virtual memory provides the isolation between processes
+- [[file-systems|File Systems]] - memory-mapped files bridge virtual memory and the file system

@@ -2,17 +2,18 @@
 title: Hypothesis Testing
 description: Formulating null and alternative hypotheses, computing p-values, controlling Type I and Type II errors, and understanding statistical power.
 draft: false
-comments: false
+comments: true
 tags:
   - cs
   - statistics
 date: 2026-03-12
+updated:
 aliases: []
 ---
 
 ## Intuition
 
-Hypothesis testing is a framework for making **decisions from data**. You start with a default assumption (nothing interesting is happening) and ask: is the observed data surprising enough to reject that assumption? It is the statistical equivalent of *proof by contradiction*—assume the boring explanation and see if the evidence forces you to abandon it.
+Hypothesis testing is a framework for making **decisions from data**. You start with a default assumption (nothing interesting is happening) and ask: is the observed data surprising enough to reject that assumption? It is the statistical equivalent of *proof by contradiction* - assume the boring explanation and see if the evidence forces you to abandon it.
 
 The tension in every test is between two kinds of mistakes: declaring an effect that is not there (false alarm) and missing an effect that is real (missed detection). The entire framework is built around controlling these error rates.
 
@@ -23,7 +24,7 @@ The tension in every test is between two kinds of mistakes: declaring an effect 
 - **Null hypothesis** $H_0$: the default position. Typically "no effect" or "no difference." Example: $H_0\colon \mu = \mu_0$.
 - **Alternative hypothesis** $H_1$ (or $H_a$): the claim you are testing. Example: $H_1\colon \mu \neq \mu_0$ (two-sided) or $H_1\colon \mu > \mu_0$ (one-sided).
 
-The null is never "proven"—it is either rejected or not rejected.
+The null is never "proven" - it is either rejected or not rejected.
 
 ### Test statistic and p-value
 
@@ -86,10 +87,10 @@ Under $H_0\colon p_1 = p_2$, the pooled proportion is $\hat{p} = 0.135$. The tes
 
 $$Z = \frac{0.15 - 0.12}{\sqrt{\hat{p}(1-\hat{p})\left(\frac{1}{1000} + \frac{1}{1000}\right)}} = \frac{0.03}{0.0153} \approx 1.96$$
 
-For a two-sided test at $\alpha = 0.05$, the critical value is $z_{0.025} = 1.96$. The p-value is approximately 0.05, right at the boundary—collecting more data would resolve the ambiguity.
+For a two-sided test at $\alpha = 0.05$, the critical value is $z_{0.025} = 1.96$. The p-value is approximately 0.05, right at the boundary - collecting more data would resolve the ambiguity.
 
 ## Related Notes
 
-- [[probability-distributions|Probability Distributions]] — test statistics follow known distributions under $H_0$
-- [[regression-fundamentals|Regression Fundamentals]] — hypothesis tests on regression coefficients
-- [[bayesian-inference|Bayesian Inference]] — an alternative framework that quantifies $P(H_0 \mid \text{data})$ directly
+- [[probability-distributions|Probability Distributions]] - test statistics follow known distributions under $H_0$
+- [[regression-fundamentals|Regression Fundamentals]] - hypothesis tests on regression coefficients
+- [[bayesian-inference|Bayesian Inference]] - an alternative framework that quantifies $P(H_0 \mid \text{data})$ directly

@@ -2,6 +2,7 @@
 title: D-ary Heap
 description: Generalized heap where each node has up to d children; reduces height to speed some priority-queue operations while trading more comparisons per sift-down.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -202,7 +203,7 @@ Let `n` be the number of elements.
 
 A d-ary heap keeps the compact array layout of heaps while letting you **tune arity** to the workload. Raising `d` shrinks height and speeds operations like **decrease-key**, at the cost of more comparisons during **sift-down**. With careful choice of `d`, d-ary heaps can outperform binary heaps in priority-queue heavy algorithms.
 
-## See also
+## Related Notes
 
 - [[binary-heap|Binary Heap]]
 
