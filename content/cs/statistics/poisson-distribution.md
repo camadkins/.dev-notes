@@ -41,7 +41,7 @@ $$E[X] = \mu$$
 
 $$\text{Var}(X) = \mu$$
 
-A distinctive feature: the mean and variance are equal. If observed data show the variance much larger than the mean, a Poisson model is likely inappropriate (overdispersion).
+A distinctive (and useful) feature: the mean and variance are equal. This gives you a quick diagnostic - if your observed variance is much larger than the mean, a Poisson model probably doesn't fit (overdispersion).
 
 **Standard Deviation:**
 
@@ -75,10 +75,12 @@ So there is about a 37% chance of a quiet half-hour with no aircraft arrivals.
 
 ## Why It Matters in CS
 
-- **Queueing theory**: arrival processes in M/M/1 and M/M/c queues assume Poisson arrivals, enabling closed-form analysis of wait times and queue lengths.
-- **Network traffic modelling**: packet arrivals at a router are often modelled as Poisson, forming the basis for buffer sizing and congestion analysis.
-- **Server performance**: request rates to web servers and databases are approximated by Poisson processes to plan capacity and set autoscaling thresholds.
-- **System load prediction**: anomaly detection systems compare observed event counts against Poisson baselines to flag unusual activity (intrusion detection, error spikes).
+The entire field of queueing theory starts with "assume arrivals are Poisson." The M/M/1 queue, the M/M/c queue, basically every tractable queueing model uses this as the arrival process because it makes the math work out to closed-form solutions for wait times and queue lengths. When you size a buffer on a router or set autoscaling thresholds on a web server, there's a good chance a Poisson assumption is somewhere in the analysis.
+
+> [!warning]
+> Real network traffic is often *bursty*, which violates the independence assumption and produces overdispersion (variance >> mean). The Poisson is a starting point, not gospel. If your observed variance is three times your mean, you need a different model.
+
+The mean-equals-variance property also makes Poisson a natural baseline for anomaly detection. If your error logs normally see $\mu = 5$ errors per minute, observing 15 in a single minute is a clear signal - you can compute exactly how unlikely that is without fitting anything more complicated.
 
 ## Related Notes
 

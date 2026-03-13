@@ -15,7 +15,10 @@ aliases: []
 
 You observe an effect and want to know which cause produced it. The trouble is that you know the probability in the **forward** direction - how likely each cause is to produce the effect - but you need the **reverse**: how likely each cause is, given that the effect occurred.
 
-Bayes' rule is the bridge. It takes a forward conditional probability $P(A \mid B)$, combines it with how common each cause is on its own (the prior), and flips the direction to give $P(B \mid A)$. The more strongly a cause predicts the observed evidence, and the more common that cause is a priori, the more posterior probability it receives.
+Bayes' rule is the bridge. It takes a forward conditional probability $P(A \mid B)$, combines it with how common each cause is on its own (the prior), and flips the direction to give $P(B \mid A)$. The more strongly a cause predicts the observed evidence, and the more common that cause is a priori, the more posterior probability it gets.
+
+> [!warning]
+> The prior matters more than most people expect. When the cause is rare, even strong evidence may not make it the most probable explanation. This is the base rate fallacy, and it trips up both students and working engineers.
 
 ## Definition
 
@@ -82,10 +85,10 @@ Machine $M_3$ is the most likely source despite producing only 25% of bolts, bec
 
 ## Why It Matters in CS
 
-- **Naive Bayes classifiers.** Classify a document by computing $P(\text{class} \mid \text{words})$ using Bayes' rule with a conditional independence assumption. Fast, interpretable, and surprisingly effective for text classification and spam filtering.
-- **Spam filtering.** The original Bayesian spam filter computes $P(\text{spam} \mid \text{word appears})$ for each word, then combines evidence across the message.
-- **Recommendation systems.** Collaborative filtering can be framed as estimating $P(\text{user likes item} \mid \text{observed ratings})$ via Bayesian models.
-- **Cybersecurity and risk analysis.** Estimating $P(\text{intrusion} \mid \text{alert pattern})$ by combining base rates of attacks with the likelihood each attack type triggers the observed signature.
+The most famous application is the **Naive Bayes classifier**, which is really just this formula applied at scale. You compute $P(\text{class} \mid \text{words})$ by assuming each word contributes independently to the evidence. The "naive" part is that independence assumption, which is almost never true and yet the classifier works shockingly well for spam filtering and text categorization. Paul Graham's 2002 essay on Bayesian spam filtering basically killed first-generation spam by computing $P(\text{spam} \mid \text{word appears})$ per word and combining evidence across the message.
+
+> [!tip]
+> Bayes' rule is also the reason base rates matter so much in security. An intrusion detection system with a 99% true positive rate still generates mostly false alarms if only 0.1% of traffic is actually malicious. The prior dominates when the event is rare, and forgetting this is one of the classic mistakes in anomaly detection.
 
 ## Related Notes
 

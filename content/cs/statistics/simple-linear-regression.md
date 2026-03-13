@@ -13,7 +13,7 @@ aliases: []
 
 ## Intuition
 
-Given a scatter plot of two variables, simple linear regression draws the **single best straight line** through the points. "Best" means the line that minimizes the total squared vertical distance from each point to the line. With one predictor and one response, this is the most elementary form of regression - a building block before moving to the multiple-predictor case covered in [[regression-fundamentals|Regression Fundamentals]].
+Given a scatter plot of two variables, simple linear regression draws the **single best straight line** through the points. "Best" means the line that minimizes the total squared vertical distance from each point to the line. One predictor, one response, one line. It's the most elementary form of regression and the natural starting point before moving to the multiple-predictor case in [[regression-fundamentals|Regression Fundamentals]].
 
 ## Definition
 
@@ -70,10 +70,12 @@ The predicted chemistry grade is 78. The same technique applies to predicting fi
 
 ## Why It Matters in CS
 
-- **Supervised learning baseline:** simple linear regression is the first model to try before more complex learners - it establishes a performance floor and interpretability ceiling.
-- **Empirical complexity analysis:** plotting execution time $T$ against input size $n$ and fitting $T = b_0 + b_1 n$ tests whether an algorithm is linear. Fitting $\ln T = b_0 + b_1 \ln n$ estimates the polynomial exponent.
-- **Feature importance:** in exploratory data analysis, fitting simple regressions for each feature individually reveals which predictors have marginal predictive power before building a full model.
-- **Calibration:** simple linear regression calibrates sensor readings, maps raw pixel intensities to physical measurements, and linearizes instrument response curves.
+Simple linear regression is the "can a straight line explain this?" test. In ML, it's the first model you fit before reaching for anything fancier, because if a line already gets you 90% of the way there, a neural net is probably overkill. It sets both a performance floor and an interpretability ceiling.
+
+One underrated use: **empirical complexity analysis**. Plot execution time $T$ against input size $n$ and fit $T = b_0 + b_1 n$. If the fit is tight, your algorithm is linear. Fit $\ln T = b_0 + b_1 \ln n$ instead and $b_1$ estimates the polynomial exponent. This is often faster than deriving the complexity analytically, especially for messy real-world code.
+
+> [!tip]
+> When doing exploratory data analysis, fitting a simple regression for each feature individually is a quick way to see which predictors have any marginal relationship with the response. It's not a substitute for multiple regression (confounding is real), but it's a useful first pass.
 
 ## Related Notes
 

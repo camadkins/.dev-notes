@@ -11,7 +11,7 @@ aliases: []
 
 ## Intuition
 
-Imagine flipping a coin $n$ times and counting heads. More generally, any time you repeat a yes/no experiment a fixed number of times with the same probability of success on each trial, the total number of successes follows a **binomial distribution**. The key ingredients are: a fixed count of trials, two possible outcomes per trial, independence between trials, and a constant success probability.
+Imagine flipping a coin $n$ times and counting heads. More generally, any time you repeat a yes/no experiment a fixed number of times with the same success probability on each trial, the total number of successes follows a **binomial distribution**. It's one of those distributions you reach for almost reflexively once you recognize the setup: fixed trials, two outcomes, independence, constant $p$.
 
 ## Definition
 
@@ -68,10 +68,12 @@ So there is about a 74% chance that 3 or more components survive the test.
 
 ## Why It Matters in CS
 
-- **Network reliability**: modelling the number of packet losses across $n$ transmissions, each with independent loss probability $p$.
-- **Cryptography and coding theory**: error-correcting codes rely on binomial models to predict the number of bit errors in a block.
-- **Chip quality control**: semiconductor manufacturing uses binomial sampling to estimate defect rates across wafers.
-- **A/B testing**: conversion counts in online experiments follow a binomial model, forming the basis for statistical significance tests.
+Anytime you're counting "how many out of $n$" in a system, you're probably looking at a binomial. Packet losses across $n$ transmissions, bit errors in a block of encoded data, defective chips on a wafer - all binomial if the trials are independent with constant $p$.
+
+The place you'll encounter it most directly is **A/B testing**. When 5,000 users visit a page and 312 convert, that conversion count is $\text{Bin}(5000, p)$. The entire statistical significance calculation rests on this model. Understanding the binomial also tells you why small-sample A/B tests are so unreliable: the variance $npq$ is large relative to the mean when $n$ is small, so the observed conversion rate swings wildly between runs.
+
+> [!tip]
+> When $n$ is large and $p$ is moderate, computing $\binom{n}{x}$ directly overflows most integer types. In practice you'd use the normal approximation ($np \geq 5$ and $nq \geq 5$) or work in log-space.
 
 ## Related Notes
 
