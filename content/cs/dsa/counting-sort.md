@@ -2,6 +2,7 @@
 title: Counting Sort
 description: Frequency array for small integer keys; stable variant builds prefix sums.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -130,7 +131,7 @@ Consider records with keys `A = [2, 5, 3, 0, 2, 3, 0, 3]`, with `U = 5`.
 
 Counting sort achieves **$O(n + U)$** sorting by **counting frequencies**, computing **prefix sums**, and performing **stable placement**. It excels when the key range is **small and known**, and it is indispensable as the **stable digit pass** in [[radix-sort|Radix Sort]] and as a **local sorter** for small integer ranges.
 
-## See also
+## Related Notes
 
 - [[radix-sort|Radix Sort]]
 

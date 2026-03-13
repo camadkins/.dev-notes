@@ -2,6 +2,7 @@
 title: Divide and Conquer
 description: Recursively split a problem into smaller subproblems, solve them independently, and combine their results; analyze with recurrences and recursion trees.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -12,7 +13,7 @@ aliases: []
 
 ## Overview
 
-**Divide and conquer (D&C)** is a strategy that solves a problem by **splitting** it into smaller instances, **recursively** solving those, then **combining** the subresults into a full solution. Its performance often follows a **recurrence** such as `T(n) = a·T(n/b) + f(n)`, analyzable by recursion trees and the [[recurrences-master-theorem|Recurrences: Master Theorem]]. Many foundational algorithms—[[merge-sort|Merge Sort]], closest-pair of points, Karatsuba multiplication, and Strassen matrix multiplication—are D&C designs.
+**Divide and conquer (D&C)** is a strategy that solves a problem by **splitting** it into smaller instances, **recursively** solving those, then **combining** the subresults into a full solution. Its performance often follows a **recurrence** such as `T(n) = a·T(n/b) + f(n)`, analyzable by recursion trees and the [[recurrences-master-theorem|Recurrences: Master Theorem]]. Many foundational algorithms - [[merge-sort|Merge Sort]], closest-pair of points, Karatsuba multiplication, and Strassen matrix multiplication - are D&C designs.
 
 ## Motivation
 
@@ -140,7 +141,7 @@ function SOLVE(A, l, r):               // solves on half-open interval [l, r)
 
 - Use an empirically tuned cutoff `BASE` to switch to a simpler algorithm (e.g., insertion sort for small arrays).
 
-- Guarantee **correctness** across the threshold—ensure combine expects the base-case postconditions (e.g., "subarrays are sorted").
+- Guarantee **correctness** across the threshold - ensure combine expects the base-case postconditions (e.g., "subarrays are sorted").
 
 
 **4) Parallelization.**
@@ -198,13 +199,13 @@ D&C underlies:
 - **Parallel and external-memory algorithms:** hierarchical decomposition enables work/span bounds and I/O-efficient layouts.
 
 
-The mindset—**isolate substructure, process locally, combine globally**—translates to software design (modules) and systems engineering (sharding, map–reduce frameworks).
+The mindset - **isolate substructure, process locally, combine globally** - translates to software design (modules) and systems engineering (sharding, map–reduce frameworks).
 
 ## Summary
 
 Divide and conquer turns large problems into **manageable subproblems**, solved **recursively** and stitched together by an efficient **combine** step. Its performance is captured by **recurrences**, typically yielding `Θ(n log n)` or better when subproblems are balanced and combination is linear. Practical success relies on **clean boundaries**, a **fast combine**, **tuned base cases**, and, when available, **parallel execution**.
 
-## See also
+## Related Notes
 
 - [[merge-sort|Merge Sort]]
 

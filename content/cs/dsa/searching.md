@@ -1,7 +1,8 @@
 ---
-title: Searching — Overview
+title: Searching - Overview
 description: Patterns for linear scans and divide-and-conquer searches over ordered data; how to choose the right strategy and avoid common traps.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -264,9 +265,9 @@ Expose both:
 
 ## Summary
 
-Search strategy follows structure. Without structure, **scan**. With order and random access, **binary search** and its **lower/upper bound** variants provide predictable `Theta(log n)` performance and clean semantics for first/last occurrences and insertion points. When bounds are unknown, use **exponential search** before a binary refinement. For specialized shapes—**rotated arrays**, **unimodal functions**, **bitonic arrays**—adapt the invariant or use problem-specific searches. Avoid classic bugs by committing to a half-open range convention, guarding against overflow, and handling duplicates explicitly.
+Search strategy follows structure. Without structure, **scan**. With order and random access, **binary search** and its **lower/upper bound** variants provide predictable `Theta(log n)` performance and clean semantics for first/last occurrences and insertion points. When bounds are unknown, use **exponential search** before a binary refinement. For specialized shapes - **rotated arrays**, **unimodal functions**, **bitonic arrays** - adapt the invariant or use problem-specific searches. Avoid classic bugs by committing to a half-open range convention, guarding against overflow, and handling duplicates explicitly.
 
-## See also
+## Related Notes
 
 - [[linear-search|Linear Search]]
 
@@ -274,4 +275,4 @@ Search strategy follows structure. Without structure, **scan**. With order and r
 
 - [[maps-and-hashtable|Maps & Hash Tables]]
 
-- [[graph-traversals-bfs-dfs|Graph Traversals — BFS & DFS]]
+- [[graph-traversals-bfs-dfs|Graph Traversals - BFS & DFS]]

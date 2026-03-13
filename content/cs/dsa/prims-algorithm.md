@@ -2,6 +2,7 @@
 title: Prim's Algorithm
 description: Grow a minimum spanning tree from a seed by repeatedly adding the lightest frontier edge tracked in a priority queue.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -33,11 +34,11 @@ Key traits:
 
 Maintain a set `Tree ⊆ V` and arrays:
 
-- `inTree[v]` — whether `v` is already in the tree.
+- `inTree[v]` - whether `v` is already in the tree.
 
-- `key[v]` — weight of the **lightest** edge `(u,v)` with `u ∈ Tree`.
+- `key[v]` - weight of the **lightest** edge `(u,v)` with `u ∈ Tree`.
 
-- `parent[v]` — the `u` that achieves `key[v]`.
+- `parent[v]` - the `u` that achieves `key[v]`.
 
 Initialize `key[s]=0` for a seed `s`, all others `∞`. Repeatedly extract the minimum-key vertex outside the tree, add it, and **relax** its incident edges to update neighbors' keys. The selected edges `(parent[v], v)` form the MST.
 
@@ -209,12 +210,12 @@ Prim's classical form is hard to parallelize due to the single global frontier, 
 
 Prim grows an MST from a seed by **repeatedly picking the lightest cut edge**, tracked via **keys** in a priority queue. On sparse graphs, an **adjacency list + heap** implementation yields `O(m log n)`; on dense graphs, a simple `O(n^2)` array-based Prim is often optimal. Robust implementations manage **decrease-key** (or use a **lazy** approach), handle **disconnected graphs** by producing a forest, and store parents to reconstruct the tree.
 
-## See also
+## Related Notes
 
 - [[kruskals-algorithm|Kruskal's Algorithm]]
 
-- [[minimum-spanning-trees-kruskal-prim|Minimum Spanning Trees — Kruskal & Prim]]
+- [[minimum-spanning-trees-kruskal-prim|Minimum Spanning Trees - Kruskal & Prim]]
 
 - [[graph-representations|Graph Representations]]
 
-- [[graphs|Graphs — Overview]]
+- [[graphs|Graphs - Overview]]

@@ -1,7 +1,8 @@
 ---
-title: External Sorting — Scaling Sorts Beyond Main Memory  
+title: External Sorting - Scaling Sorts Beyond Main Memory  
 description: Techniques for sorting data that does not fit in RAM by staging work between disk and memory using runs, multiway merging, and I/O-aware algorithms.  
 draft: false  
+comments: true
 tags:
 - cs
 - dsa  
@@ -255,7 +256,7 @@ Suppose:
 > 
 > - Not handling **variable-length records** carefully (key vs payload alignment).
 >     
-> - Assuming in-memory sorts are free — they still matter when `M` is large.
+> - Assuming in-memory sorts are free - they still matter when `M` is large.
 >     
 > - Forgetting **stability** requirements; some external mergesorts are stable, others are not.
 >     
@@ -304,7 +305,7 @@ Suppose:
 
 ---
 
-## See also
+## Related Notes
 
 - [[merge-sort|Merge Sort]]
     

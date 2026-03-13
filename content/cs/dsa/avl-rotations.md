@@ -2,6 +2,7 @@
 title: AVL Rotations
 description: Understanding AVL balance factors, rotation types, and how rebalancing preserves the binary search property.
 draft: false
+comments: true
 tags:
   - cs
   - dsa
@@ -11,8 +12,8 @@ aliases:
   - avl-rotations
   - avl-trees-balance-rotations
 # diagrams:
-#  - avl_rotations.svg — visualizes LL, RR, LR, RL rotation patterns.
-#  - avl_height_balance.svg — shows subtree height differences and balance factors.
+#  - avl_rotations.svg - visualizes LL, RR, LR, RL rotation patterns.
+#  - avl_height_balance.svg - shows subtree height differences and balance factors.
 ---
 
 ## Overview
@@ -38,7 +39,7 @@ When inserting or deleting a node:
 | RL | Left subtree of right child grew | Right rotation on child, then left rotation |
 
 > [!example]
-> **Diagram (`avl_height_balance.svg`)** — show nodes annotated with height and balance factor values, highlighting when rotation triggers occur.
+> **Diagram (`avl_height_balance.svg`)** - show nodes annotated with height and balance factor values, highlighting when rotation triggers occur.
 
 ### Right Rotation (LL Case)
 Occurs when inserting into the **left subtree** of a node’s left child.
@@ -102,7 +103,7 @@ Triggered when inserting into the **left subtree of the right child**:
 > LR and RL rotations are effectively _mirror images_ of each other.
 
 > [!example]  
-> **Diagram (`avl_rotations.svg`)** — show rotations so above cases can be visualized.
+> **Diagram (`avl_rotations.svg`)** - show rotations so above cases can be visualized.
 
 ---
 
@@ -141,7 +142,7 @@ function insert(node, key):
 ```
 
 > [!tip]  
-> Track heights as integers and only recompute from children—never traverse entire subtrees.
+> Track heights as integers and only recompute from children - never traverse entire subtrees.
 
 **Rebalancing on deletion.** Deletions may cause _cascading imbalance_ upward, so after removing a node:
 
@@ -159,7 +160,7 @@ function insert(node, key):
 
 ## Examples
 
-**Rotation intuition.** Rotations don’t reorder values — they **restructure subtrees** so height differences shrink while key ordering stays intact.
+**Rotation intuition.** Rotations don’t reorder values - they **restructure subtrees** so height differences shrink while key ordering stays intact.
 
 |Rotation|Restores|Description|
 |---|---|---|
@@ -167,7 +168,7 @@ function insert(node, key):
 |LR / RL|Diagonal imbalance|Two-step correction|
 
 > [!example]  
-> Visualize how a “leaning” subtree becomes upright after rotation — the parent node moves downward, and the child moves up.
+> Visualize how a “leaning” subtree becomes upright after rotation - the parent node moves downward, and the child moves up.
 
 **Minimal worked examples (one per case):**
 
@@ -195,7 +196,7 @@ function insert(node, key):
 
 ---
 
-## See also
+## Related Notes
 
 - [[avl-tree|AVL Tree]]
     

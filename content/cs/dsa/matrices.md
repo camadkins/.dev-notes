@@ -2,6 +2,7 @@
 title: Matrices
 description: Matrix shapes, indexing conventions, core operations (transpose, mat-vec, mat-mat), and practical considerations like sparsity and cache locality.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -41,15 +42,15 @@ Understanding shapes and traversals prevents **shape mismatch**, **cache-thrashi
 
 - **Special matrices (by shape/values):**
 
-    - **Zero** `0_{m×n}` — all zeros.
+    - **Zero** `0_{m×n}` - all zeros.
 
-    - **Identity** `I_n` — square, ones on diagonal `i==j`, zeros elsewhere.
+    - **Identity** `I_n` - square, ones on diagonal `i==j`, zeros elsewhere.
 
-    - **Diagonal** — only `A[i][i]` possibly nonzero.
+    - **Diagonal** - only `A[i][i]` possibly nonzero.
 
-    - **Upper/lower triangular** — constrained to one side of diagonal.
+    - **Upper/lower triangular** - constrained to one side of diagonal.
 
-    - **Symmetric** — `A = A^T` (square).
+    - **Symmetric** - `A = A^T` (square).
 
 - **Transpose:** `B = A^T` with `B[j][i] = A[i][j]` → shape `n×m`.
 
@@ -258,7 +259,7 @@ function SPMV_CSR(y, A_csr, x):       // y = A*x
 
 Matrices combine **shape** rules, **indexing**, and **layout** realities. Know the dimension algebra, implement core transforms (transpose, identity, diagonal scaling), and write **cache-aware** mat–vec/mat–mat kernels. For large, mostly-zero problems, adopt **sparse** formats like CSR/CSC to achieve `Θ(nnz)` performance. Validate shapes, respect memory layout, and choose representations that fit the problem's **density** and **access patterns**.
 
-## See also
+## Related Notes
 
 - [[arrays|Arrays]]
 

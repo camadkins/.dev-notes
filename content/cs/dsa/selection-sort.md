@@ -2,6 +2,7 @@
 title: Selection Sort
 description: Repeatedly select the smallest element and place it at the front; minimal swaps but still quadratic time.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -150,7 +151,7 @@ Selection sort complements:
 > **Unnecessary swaps.** Always guard `if minIdx != i` before swapping to avoid writes that do nothing.
 
 > [!warning]
-> **Assuming adaptiveness.** Selection sort does **not** speed up on nearly-sorted data—comparisons remain `Θ(n^2)` regardless of presortedness. If adaptiveness is desired, use [[insertion-sort|Insertion Sort]].
+> **Assuming adaptiveness.** Selection sort does **not** speed up on nearly-sorted data - comparisons remain `Θ(n^2)` regardless of presortedness. If adaptiveness is desired, use [[insertion-sort|Insertion Sort]].
 
 > [!warning]
 > **Misusing for large datasets.** For `n` above a few thousand, `Θ(n^2)` comparisons dominate; prefer `n log n` algorithms unless write constraints are extreme.
@@ -159,7 +160,7 @@ Selection sort complements:
 
 - **Branching and comparisons:** The inner loop is branchy but predictable; compilers often vectorize poorly due to the min-index update pattern.
 
-- **Data types:** For **expensive comparisons** (e.g., strings), the `Θ(n^2)` factor hurts more—consider using a key-extraction or memoized comparator.
+- **Data types:** For **expensive comparisons** (e.g., strings), the `Θ(n^2)` factor hurts more - consider using a key-extraction or memoized comparator.
 
 - **I/O-bound variants:** When sorting **on disk**, selection's predictable access pattern (mostly sequential scans plus rare swaps) can be useful in carefully batched designs, though external merge is generally preferred.
 
@@ -169,7 +170,7 @@ Selection sort complements:
 
 Selection sort is an in-place algorithm that repeatedly **selects the minimum** from the unsorted tail and **swaps** it into the next position of the sorted prefix. It guarantees **`n−1` swaps** and **`Θ(n^2)` comparisons** across all inputs, is **not stable** in its vanilla form, and offers little adaptiveness. Its niche is **write-limited environments**, educational clarity, and tiny arrays. For performance at scale, choose `n log n` methods or specialized selection structures.
 
-## See also
+## Related Notes
 
 - [[insertion-sort|Insertion Sort]]
 

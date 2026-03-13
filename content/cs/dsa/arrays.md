@@ -1,7 +1,8 @@
 ---
-title: Arrays — Fixed-Size Contiguous Storage
+title: Arrays - Fixed-Size Contiguous Storage
 description: Linear data structure offering constant-time random access; foundation for static and dynamic sequences.
 draft: false
+comments: true
 tags:
   - cs
   - dsa
@@ -12,7 +13,7 @@ aliases: []
 
 ## Definition
 An **array** is a contiguous block of memory holding a fixed number of elements of the same type.  
-Its power lies in **direct indexing**—given a base address `B` and element size `s`, the address of element `A[i]` is:
+Its power lies in **direct indexing** - given a base address `B` and element size `s`, the address of element `A[i]` is:
 
 ```
 
@@ -226,7 +227,7 @@ function reverse(A, n):
 
 ---
 
-## See also
+## Related Notes
 
 - [[dynamic-arrays|Dynamic Arrays]]
     

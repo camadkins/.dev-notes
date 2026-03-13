@@ -1,18 +1,19 @@
 ---
-title: GC Algorithms — Mark-Sweep, Copying, and Generational
+title: GC Algorithms - Mark-Sweep, Copying, and Generational
 description: How common garbage collection algorithms work, what trade-offs they make, and how write barriers maintain heap invariants.
 draft: false
+comments: true
 tags:
   - cs
   - pl
 date: 2025-10-24
 updated:
 aliases: []
-# diagram: gc_tricolor_and_generational.svg — show mark-sweep traversal, tri-color invariant, and young/old generation layout with write barriers.
+# diagram: gc_tricolor_and_generational.svg - show mark-sweep traversal, tri-color invariant, and young/old generation layout with write barriers.
 ---
 
 ## Overview
-Garbage collection is more than freeing unused memory — it’s about managing **time, space, and safety** while keeping performance predictable.  
+Garbage collection is more than freeing unused memory - it’s about managing **time, space, and safety** while keeping performance predictable.  
 Different algorithms optimize for different workloads: responsiveness, throughput, or simplicity.  
 This note summarizes how the most common collectors work and the principles that make them correct and efficient.
 
@@ -37,7 +38,7 @@ This is the classic tracing algorithm and the foundation for most others.
 
 > [!example]
 > Suppose an application allocates 1 GB of objects but only 200 MB remains live.  
-> Mark–sweep reclaims the rest, but allocation may still fail if no contiguous 50 MB block exists — fragmentation.
+> Mark–sweep reclaims the rest, but allocation may still fail if no contiguous 50 MB block exists - fragmentation.
 
 ---
 
@@ -70,28 +71,28 @@ The **copying collector** eliminates fragmentation by compacting live data as it
 4. Swap roles: to-space becomes the new from-space.
 
 ### Benefits
-- Always leaves a contiguous free region — no fragmentation.  
+- Always leaves a contiguous free region - no fragmentation.  
 - Naturally compacts memory and improves cache locality.  
 - Collection time proportional to the number of *live* objects, not heap size.
 
 ### Costs
 - Requires 2× memory (half the heap unused at a time).  
 - Copying overhead for large object graphs.  
-- Relocation invalidates pointers — GC must patch all references.
+- Relocation invalidates pointers - GC must patch all references.
 
 > [!tip]
-> Copying collection shines when most objects are short-lived — typical in functional and object-oriented programs.
+> Copying collection shines when most objects are short-lived - typical in functional and object-oriented programs.
 
 ---
 
 ## Generational Collection
-Empirical studies show most objects die young — a principle known as the **weak generational hypothesis**.  
+Empirical studies show most objects die young - a principle known as the **weak generational hypothesis**.  
 Generational collectors exploit this by dividing the heap into **young** and **old** regions.
 
 ### Mechanism
-1. **Minor collection** — runs frequently on the young generation.  
+1. **Minor collection** - runs frequently on the young generation.  
    - Copies survivors into a *survivor space* or promotes them to the old generation.  
-2. **Major collection** — scans the entire heap, including the old generation.  
+2. **Major collection** - scans the entire heap, including the old generation.  
    - Occurs rarely.
 
 Objects that survive several minor collections are assumed long-lived and promoted.
@@ -109,7 +110,7 @@ Write barriers record such updates to a *remembered set* or *card table*, ensuri
 
 ---
 
-## Diagram Explanation — Tri-Color & Generational
+## Diagram Explanation - Tri-Color & Generational
 `gc_tricolor_and_generational.svg` should illustrate:
 1. **Tri-color marking:** white, grey, black sets with arrows showing write barriers maintaining the invariant.  
 2. **Generational layout:** two young “from” and “to” spaces beside an older generation region.  
@@ -138,14 +139,14 @@ Proper GC tuning balances:
 - **JVM (HotSpot):** generational, multi-threaded collectors (G1, ZGC, Shenandoah).  
 - **.NET CLR:** generational mark–compact with concurrent phases.  
 - **Go:** concurrent mark–sweep with small heap fragments, tuned for low pause times.  
-- **Rust:** none — relies on ownership for deterministic lifetime management.
+- **Rust:** none - relies on ownership for deterministic lifetime management.
 
 > [!tip]
-> Even in non-GC languages, these principles influence *memory-safe ownership systems* — reasoning about reachability and lifetime statically rather than dynamically.
+> Even in non-GC languages, these principles influence *memory-safe ownership systems* - reasoning about reachability and lifetime statically rather than dynamically.
 
 ---
 
-## See also
-- [[garbage-collection-concepts|Garbage Collection — Concepts]]
-- [[abstract-machines-cek-secd|Abstract Machines — CEK and SECD]]
+## Related Notes
+- [[garbage-collection-concepts|Garbage Collection - Concepts]]
+- [[abstract-machines-cek-secd|Abstract Machines - CEK and SECD]]
 - [[evaluation-order-and-strictness|Evaluation Order & Strictness]]

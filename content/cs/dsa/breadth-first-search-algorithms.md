@@ -1,7 +1,8 @@
 ---
-title: Breadth-First Search — Layered Exploration & Shortest Paths
+title: Breadth-First Search - Layered Exploration & Shortest Paths
 description: Level-order graph traversal using a queue; computes shortest paths in unweighted graphs and builds parent trees for reconstructions.
 draft: false
+comments: true
 tags:
   - cs
   - dsa
@@ -9,9 +10,9 @@ date: 2025-10-16
 updated:
 aliases: []
 # diagrams:
-#  - bfs_frontier_layers.svg — show frontier expansion by layers L0, L1, L2… with a queue visual.
-#  - bfs_parent_tree.svg — highlight parent pointers from a chosen source to form an SPT (shortest-path tree).
-#  - bfs_on_adjlist_vs_matrix.svg — contrast work when using adjacency lists vs adjacency matrix.
+#  - bfs_frontier_layers.svg - show frontier expansion by layers L0, L1, L2… with a queue visual.
+#  - bfs_parent_tree.svg - highlight parent pointers from a chosen source to form an SPT (shortest-path tree).
+#  - bfs_on_adjlist_vs_matrix.svg - contrast work when using adjacency lists vs adjacency matrix.
 ---
 
 ## Overview
@@ -31,9 +32,9 @@ Implemented with a **queue**, BFS provides:
 Let `G = (V, E)` be a directed or undirected graph. Choose a source `s ∈ V`.
 
 State tracked by BFS:
-- `dist[v]` — distance in edges from `s` to `v` (`∞` if unreached),
-- `parent[v]` — predecessor of `v` on a shortest path from `s`,
-- `visited[v]` — whether `v` has been discovered (enqueued).
+- `dist[v]` - distance in edges from `s` to `v` (`∞` if unreached),
+- `parent[v]` - predecessor of `v` on a shortest path from `s`,
+- `visited[v]` - whether `v` has been discovered (enqueued).
 
 **Invariants** maintained during the algorithm:
 1. The **queue** contains vertices in **nondecreasing `dist`**.
@@ -75,7 +76,7 @@ function BFS(Adj, s):
     
 
 > [!example]  
-> **Diagram (`bfs_frontier_layers.svg`)** — visualize frontier `L0 = {s}`, `L1 = N⁺(s)`, `L2`, … and show queue evolution as layers expand.
+> **Diagram (`bfs_frontier_layers.svg`)** - visualize frontier `L0 = {s}`, `L1 = N⁺(s)`, `L2`, … and show queue evolution as layers expand.
 
 ---
 
@@ -116,7 +117,7 @@ function reconstructPath(parent, s, t):
     
 
 > [!example]  
-> **Diagram (`bfs_parent_tree.svg`)** — draw parent pointers from each vertex to depict the SPT from source `s`.
+> **Diagram (`bfs_parent_tree.svg`)** - draw parent pointers from each vertex to depict the SPT from source `s`.
 
 ---
 
@@ -124,7 +125,7 @@ function reconstructPath(parent, s, t):
 
 Assume **adjacency lists** with `n = |V|`, `m = |E|`.
 
-- **Time:** `Θ(n + m)` — each vertex enqueued once; each edge examined at most twice (undirected) or once (directed).
+- **Time:** `Θ(n + m)` - each vertex enqueued once; each edge examined at most twice (undirected) or once (directed).
     
 - **Space:** `Θ(n)` for `dist`, `parent`, `visited`, plus the queue.
     
@@ -135,7 +136,7 @@ With an **adjacency matrix**, scanning neighbors costs `Θ(n)` per vertex, so to
 > Prefer **adjacency lists** for **sparse** graphs (`m ≪ n²`); matrices can be reasonable for dense graphs or when `hasEdge(u, v)` queries are frequent.
 
 > [!example]  
-> **Diagram (`bfs_on_adjlist_vs_matrix.svg`)** — contrast the work done per vertex using list vs matrix representations.
+> **Diagram (`bfs_on_adjlist_vs_matrix.svg`)** - contrast the work done per vertex using list vs matrix representations.
 
 ---
 
@@ -220,7 +221,7 @@ for each v in V:
 ## Worked Example
 
 Consider `G` (undirected), `V = {A, B, C, D, E, F}`, edges:  
-`A—B`, `A—C`, `B—D`, `C—E`, `E—F`.
+`A - B`, `A - C`, `B - D`, `C - E`, `E - F`.
 
 BFS from `A`:
 
@@ -285,7 +286,7 @@ Shortest path `A → F` reconstructed by chasing parents: `F ← E ← C ← A` 
 
 ---
 
-## See also
+## Related Notes
 
 - [[depth-first-search-algorithms|Depth-First Search (DFS)]]
     

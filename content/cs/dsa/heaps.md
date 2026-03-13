@@ -1,8 +1,9 @@
 ---
 
-title: Heaps — Overview
+title: Heaps - Overview
 description: The heap-order and shape properties, array representation, and why heaps power fast priority queues, schedulers, and selection.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -19,7 +20,7 @@ A **heap** is a tree-based structure that keeps the **highest-priority** (max-he
 1. **Heap-order property:** Every node compares appropriately with its children
     (max-heap: parent ≥ children; min-heap: parent ≤ children).
 
-2. **Shape property:** The tree is **complete**—all levels filled except possibly the last, which is filled left to right.
+2. **Shape property:** The tree is **complete** - all levels filled except possibly the last, which is filled left to right.
 
 
 These properties enable an efficient **array representation** with simple index arithmetic, constant extra space, and `O(log n)` updates. Heaps back priority queues, **schedulers**, **Dijkstra's algorithm** on dense-enough graphs, **median-of-stream** (with two heaps), and **top-k** selection. See also [[binary-heap|Binary Heap]] and the linear-time builder [[heapify|Heapify]].
@@ -39,7 +40,7 @@ Heaps shine when the **extreme element** matters repeatedly:
 - **Heapsort:** get an in-place `O(n log n)` sort after a linear-time build-heap.
 
 
-Heaps do **not** maintain full order like balanced BSTs—only the root has global extremal priority. If you must iterate items in order, a heap alone will perform `O(n log n)` extractions; if you need fast predecessor/successor queries, use a BST.
+Heaps do **not** maintain full order like balanced BSTs - only the root has global extremal priority. If you must iterate items in order, a heap alone will perform `O(n log n)` extractions; if you need fast predecessor/successor queries, use a BST.
 
 ## Definition and Formalism
 
@@ -72,7 +73,7 @@ Consider `A = [12, 10, 8, 5, 1, 4, 3]` as a **max-heap**:
 
 
 If we `insert(15)`, we append at the end (`A[7]=15`), then **bubble up** (swap with parent while parent < 15) until heap-order holds, placing 15 at the root in `O(log n)`.
-If we `extractMax()`, we return `A[0]=12`, move the last element to the root, and **sift down** (swap with the larger child while child > parent) to restore order—again `O(log n)`.
+If we `extractMax()`, we return `A[0]=12`, move the last element to the root, and **sift down** (swap with the larger child while child > parent) to restore order - again `O(log n)`.
 
 ## Properties and Relationships
 
@@ -176,7 +177,7 @@ The heap abstraction generalizes to **k-ary heaps** (fewer levels, more branchin
 
 Heaps pair a **local order constraint** (parent vs children) with a **complete-tree shape**, giving a compact array representation and `O(log n)` updates with `O(1)` root access. They are ideal for priority queues, schedulers, and selection problems. Use `HEAPIFY` for `O(n)` bulk builds, keep indexing conventions straight, and guard the shape property by inserting/removing at the end followed by sift operations.
 
-## See also
+## Related Notes
 
 - [[binary-heap|Binary Heap]]
 

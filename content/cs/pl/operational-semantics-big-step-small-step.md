@@ -1,7 +1,8 @@
 ---
-title: Operational Semantics — Big-Step & Small-Step
+title: Operational Semantics - Big-Step & Small-Step
 description: How structural operational semantics models computation step-by-step or as complete evaluations, using inference rules to define program behavior precisely.
 draft: false
+comments: true
 tags:
   - cs
   - pl
@@ -9,17 +10,17 @@ date: 2025-10-24
 updated:
 aliases: []
 # diagrams:
-#  - semantics_judgement_forms.svg — illustrate big-step (⇓) vs small-step (→) derivation trees.
-#  - evaluation_derivation_example.svg — show arithmetic and conditional derivations with inference rule boxes.
+#  - semantics_judgement_forms.svg - illustrate big-step (⇓) vs small-step (→) derivation trees.
+#  - evaluation_derivation_example.svg - show arithmetic and conditional derivations with inference rule boxes.
 ---
 
 ## Overview
-Operational semantics gives a **mathematical account of program execution** — describing *how* a program runs, not just *what result* it produces.  
+Operational semantics gives a **mathematical account of program execution** - describing *how* a program runs, not just *what result* it produces.  
 It forms the bridge between language syntax and implementation.
 
 Two primary variants exist:
-- **Small-step (structural operational semantics)** — defines individual computation steps.
-- **Big-step (natural semantics)** — defines the overall evaluation to a value.
+- **Small-step (structural operational semantics)** - defines individual computation steps.
+- **Big-step (natural semantics)** - defines the overall evaluation to a value.
 
 > [!note]
 > Big-step = “evaluate to completion.”  
@@ -67,7 +68,7 @@ Each rule expresses how evaluation of a complex expression depends on its sub-ex
 
 ---
 
-## Example — Arithmetic Expressions (Small-Step)
+## Example - Arithmetic Expressions (Small-Step)
 Consider:
 ```
 
@@ -98,7 +99,7 @@ n1 + n2 → n3 where n3 = n1 + n2
 
 ---
 
-## Example — Conditionals (Big-Step)
+## Example - Conditionals (Big-Step)
 For booleans:
 ```
 
@@ -121,7 +122,7 @@ if c then t else e ⇓ t if c then t else e ⇓ e
 ```
 
 > [!tip]
-> Big-step semantics collapses all intermediate steps — ideal for expressing final results or static analyses.
+> Big-step semantics collapses all intermediate steps - ideal for expressing final results or static analyses.
 
 ---
 
@@ -181,7 +182,7 @@ When we include mutable state (σ):
 ```
 
 > [!note]
-> Big-step semantics still works with stores, but small-step captures *when* updates occur — making it better suited for reasoning about effects.
+> Big-step semantics still works with stores, but small-step captures *when* updates occur - making it better suited for reasoning about effects.
 
 ---
 
@@ -211,7 +212,7 @@ t ⇓ v ⇔ t →* v
 ```
 They describe the same mapping from terms to values.
 
-However, **non-terminating programs** are captured by small-step only — big-step evaluation diverges (no derivation tree).
+However, **non-terminating programs** are captured by small-step only - big-step evaluation diverges (no derivation tree).
 
 Example:
 ```
@@ -280,8 +281,8 @@ Languages and textbooks often use hybrid styles:
 
 ---
 
-## See also
-- [[booleans-conditionals-semantics|Booleans & Conditionals — Semantics]]
+## Related Notes
+- [[booleans-conditionals-semantics|Booleans & Conditionals - Semantics]]
 - [[mutable-state-references-effects|Mutable State, References & Effects]]
 - [[language-design-values-variables-environments|Values, Variables & Environments]]
 - [[evaluation-order-and-strictness | Evaluation Order & Strictness]]

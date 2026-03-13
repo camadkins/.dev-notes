@@ -1,7 +1,8 @@
 ---
-title: AVL Tree — Height-Balanced Binary Search Tree
+title: AVL Tree - Height-Balanced Binary Search Tree
 description: Self-balancing BST that maintains O(log n) height via single and double rotations based on balance factors.
 draft: false
+comments: true
 tags:
   - cs
   - dsa
@@ -129,12 +130,12 @@ Delete(10)
 > **Forgetting to update heights:** Heights must be updated bottom-up after rotations or insertion; skipping one leads to incorrect balancing.
 
 > [!warning]
-> **Incorrect balance propagation:** After fixing one imbalance, continue updating parent nodes—rotations don't automatically restore the entire path.
+> **Incorrect balance propagation:** After fixing one imbalance, continue updating parent nodes - rotations don't automatically restore the entire path.
 
 > [!tip]
 > Use recursion or explicit parent pointers to propagate updates cleanly.
 
-## See also
+## Related Notes
 
 - [[bst|Binary Search Tree]]
 

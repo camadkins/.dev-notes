@@ -1,7 +1,8 @@
 ---
-title: Graph Traversals — BFS & DFS
+title: Graph Traversals - BFS & DFS
 description: Systematic exploration of graphs using queues (BFS) and stacks/recursion (DFS); includes discovery/finish times, edge classification, and classic applications.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -30,9 +31,9 @@ Use **BFS** when distances in **edge count** matter (unweighted shortest paths, 
 
 Let a graph be `G = (V, E)` with vertices labeled `0..n-1`. Use `Adj[u]` for neighbors of `u`. We maintain:
 
-- `visited[u]` (boolean) — whether `u` has been discovered.
+- `visited[u]` (boolean) - whether `u` has been discovered.
 
-- `parent[u]` — predecessor of `u` in the traversal tree/forest (`NIL` for roots).
+- `parent[u]` - predecessor of `u` in the traversal tree/forest (`NIL` for roots).
 
 - For DFS, **timestamps**: `d[u]` (discovery) and `f[u]` (finish), where strictly `d[u] < f[u]`.
 
@@ -232,7 +233,7 @@ function DFS_TOPO(Adj):  // returns topological order or error on cycle
 - Master the **invariants** (visited/parent/levels for BFS; WHITE/GRAY/BLACK and `d[u]/f[u]` for DFS) and you can derive solutions to many graph problems with small, reliable code.
 
 
-## See also
+## Related Notes
 
 - [[adjacency-list|Adjacency List]]
 

@@ -2,6 +2,7 @@
 title: Stack
 description: LIFO discipline with push, pop, and optional peek; array- or list-backed with clear invariants and well-defined error handling.
 draft: false
+comments: true
 tags:
   - cs
   - dsa
@@ -138,7 +139,7 @@ Cache and locality:
 
 ### Fixed vs dynamic capacity (arrays)
 
-- **Fixed** `cap` yields predictable memory and can prevent reallocation in constrained settings. You must decide on **overflow behavior** (error/exception, discard, or overwrite in a circular-buffer variant—though wrap-around violates strict LIFO semantics unless designed as a ring stack for bounded history).
+- **Fixed** `cap` yields predictable memory and can prevent reallocation in constrained settings. You must decide on **overflow behavior** (error/exception, discard, or overwrite in a circular-buffer variant - though wrap-around violates strict LIFO semantics unless designed as a ring stack for bounded history).
 
 - **Dynamic growth** (e.g., doubling capacity) gives amortized O(1) pushes but temporarily allocates and copies `Θ(n)` elements during a resize.
 
@@ -219,7 +220,7 @@ function UNDO(state, undoStack):
 
 Stacks implement **LIFO** access with a minimal, efficient API. Array-backed stacks offer **cache-friendly speed** and amortized `O(1)` growth; linked stacks offer **constant-time worst-case ops** and stable pointers at the cost of per-node overhead. Robust designs define clear behavior for **underflow/overflow**, choose sensible **resize/shrink** policies, and consider **thread safety** and **memory locality**. Stacks are a foundational tool for recursion elimination, parsing, backtracking, and many core algorithms.
 
-## See also
+## Related Notes
 
 - [[stack-using-array|Stack Using Array]]
 

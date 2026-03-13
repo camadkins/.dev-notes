@@ -1,18 +1,19 @@
 ---
 title: Central Limit Theorem
-description: Why sample averages tend toward normality—the theorem that justifies Gaussian assumptions across statistics and CS.
+description: Why sample averages tend toward normality - the theorem that justifies Gaussian assumptions across statistics and CS.
 draft: false
-comments: false
+comments: true
 tags:
   - cs
   - statistics
 date: 2026-03-12
+updated:
 aliases: []
 ---
 
 ## Intuition
 
-Take *any* population—skewed, bimodal, uniform, it doesn't matter—and repeatedly draw random samples of size $n$. Compute the sample mean each time. As $n$ grows, those sample means form a distribution that looks increasingly **normal**, regardless of what the original population looked like. This is the Central Limit Theorem (CLT), and it is the reason the [[normal-distribution|normal distribution]] dominates statistics: even when individual data aren't Gaussian, averages of enough data points are.
+Take *any* population - skewed, bimodal, uniform, it doesn't matter - and repeatedly draw random samples of size $n$. Compute the sample mean each time. As $n$ grows, those sample means form a distribution that looks increasingly **normal**, regardless of what the original population looked like. This is the Central Limit Theorem (CLT), and it is the reason the [[normal-distribution|normal distribution]] dominates statistics: even when individual data aren't Gaussian, averages of enough data points are.
 
 ## Definition
 
@@ -30,7 +31,7 @@ In practice, the approximation is considered reliable when $n \ge 30$, though th
 
 $$\text{SE} = \frac{\sigma}{\sqrt{n}}$$
 
-The standard error shrinks as $\sqrt{n}$—quadrupling the sample size halves the standard error.
+The standard error shrinks as $\sqrt{n}$ - quadrupling the sample size halves the standard error.
 
 **Standardized test statistic:**
 
@@ -45,7 +46,7 @@ $$t = \frac{\bar{X} - \mu}{s / \sqrt{n}}, \quad \text{df} = n - 1$$
 $$\frac{S_n - n\mu}{\sigma\sqrt{n}} \xrightarrow{d} \mathcal{N}(0, 1)$$
 
 > [!tip]
-> The CLT explains *why* many test statistics (z-tests, t-tests) and confidence intervals rely on the normal distribution—even when the raw data are not normal.
+> The CLT explains *why* many test statistics (z-tests, t-tests) and confidence intervals rely on the normal distribution - even when the raw data are not normal.
 
 ## Example
 
@@ -61,7 +62,7 @@ $$Z = \frac{102 - 100}{8/\sqrt{36}} = \frac{2}{1.333} = 1.50$$
 
 $$P(\bar{X} > 102) = 1 - \Phi(1.50) \approx 0.067$$
 
-About 6.7%—even though individual resistances are skewed, the CLT lets us use normal probability calculations on the sample mean.
+About 6.7% - even though individual resistances are skewed, the CLT lets us use normal probability calculations on the sample mean.
 
 Notice that increasing the sample to $n = 64$ would tighten the standard error to $8/\sqrt{64} = 1.0\;\Omega$, making the same deviation more significant ($Z = 2.0$, $p \approx 0.023$). The CLT quantifies exactly how more data sharpens inference.
 
@@ -74,7 +75,7 @@ Notice that increasing the sample to $n = 64$ would tighten the standard error t
 
 ## Related Notes
 
-- [[normal-distribution|Normal Distribution]] — the distribution the CLT converges to
-- [[hypothesis-testing|Hypothesis Testing]] — CLT justifies z-tests and t-tests
-- [[probability-distributions|Probability Distributions]] — CLT connects non-normal populations to the normal family
-- [[bayesian-inference|Bayesian Inference]] — large-sample posteriors become approximately normal (Bernstein–von Mises theorem)
+- [[normal-distribution|Normal Distribution]] - the distribution the CLT converges to
+- [[hypothesis-testing|Hypothesis Testing]] - CLT justifies z-tests and t-tests
+- [[probability-distributions|Probability Distributions]] - CLT connects non-normal populations to the normal family
+- [[bayesian-inference|Bayesian Inference]] - large-sample posteriors become approximately normal (Bernstein–von Mises theorem)

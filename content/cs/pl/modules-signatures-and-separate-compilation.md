@@ -2,6 +2,7 @@
 title: Modules, Signatures, and Separate Compilation
 description: How modules define boundaries between implementation and interface, enabling encapsulation, abstraction, and scalable compilation.
 draft: false
+comments: true
 tags:
   - cs
   - pl
@@ -9,19 +10,19 @@ date: 2025-10-16
 updated:
 aliases: []
 # diagrams:
-#  - module_interface_boundary.svg — show module signature (interface) and implementation boxes with arrows for exposed vs hidden types/values.
-#  - separate_compilation_pipeline.svg — illustrate compile-time linking of modules, showing symbol tables and type signatures.
+#  - module_interface_boundary.svg - show module signature (interface) and implementation boxes with arrows for exposed vs hidden types/values.
+#  - separate_compilation_pipeline.svg - illustrate compile-time linking of modules, showing symbol tables and type signatures.
 ---
 
 ## Overview
-Large software systems rely on **modular design** — dividing programs into components that can be developed, tested, and compiled independently.  
+Large software systems rely on **modular design** - dividing programs into components that can be developed, tested, and compiled independently.  
 Programming languages formalize this through **modules**, **signatures**, and **separate compilation**.
 
 Together, these mechanisms enable:
-- **Encapsulation** — hiding implementation details.
-- **Abstraction** — exposing only conceptual interfaces.
-- **Reusability** — compiling and linking components without re-analyzing the whole system.
-- **Safety** — type checking across module boundaries.
+- **Encapsulation** - hiding implementation details.
+- **Abstraction** - exposing only conceptual interfaces.
+- **Reusability** - compiling and linking components without re-analyzing the whole system.
+- **Safety** - type checking across module boundaries.
 
 > [!note]
 > The module system generalizes the idea of *scope* from single files to entire components.  
@@ -30,7 +31,7 @@ Together, these mechanisms enable:
 ---
 
 ## Modules
-A **module** is a named collection of related definitions — values, types, functions, and submodules.  
+A **module** is a named collection of related definitions - values, types, functions, and submodules.  
 It is both a **namespace** and a **compilation unit**.
 
 ### Example (OCaml-style)
@@ -53,12 +54,12 @@ end
     
 
 > [!tip]  
-> Modules can group any collection of types and functions — not just ADTs.  
+> Modules can group any collection of types and functions - not just ADTs.  
 > They act as logical boundaries for **cohesion** and **reuse**.
 
 ---
 
-## Signatures — The Interface Layer
+## Signatures - The Interface Layer
 
 A **signature** specifies _what_ a module exposes: the types and values that form its **public contract**.  
 It hides private details, ensuring clients depend only on the interface, not the implementation.
@@ -94,7 +95,7 @@ module Stack : STACK = struct
 end
 ```
 
-Here, the compiler ensures the implementation _matches_ the signature — every declared value and type must be defined with the correct type.
+Here, the compiler ensures the implementation _matches_ the signature - every declared value and type must be defined with the correct type.
 
 > [!note]  
 > In ML-family languages, **signature matching** is statically verified, not at runtime.  
@@ -135,9 +136,9 @@ They interact only through `new`, `inc`, and `get`.
 
 ---
 
-## Functors — Parameterized Modules
+## Functors - Parameterized Modules
 
-Modules can be **parameterized** by other modules — analogous to functions operating on modules instead of values.
+Modules can be **parameterized** by other modules - analogous to functions operating on modules instead of values.
 
 ### Example
 
@@ -174,7 +175,7 @@ end
 ```
 
 > [!tip]  
-> Functors allow **generic programming** without inheritance — each instantiation produces a specialized module.
+> Functors allow **generic programming** without inheritance - each instantiation produces a specialized module.
 
 ---
 
@@ -209,7 +210,7 @@ Steps:
     
 
 > [!note]  
-> The `.mli` file (signature) is compiled first — guaranteeing other modules can compile against it without needing implementation details.
+> The `.mli` file (signature) is compiled first - guaranteeing other modules can compile against it without needing implementation details.
 
 ---
 
@@ -217,7 +218,7 @@ Steps:
 
 |Benefit|Description|
 |---|---|
-|**Scalability**|Large projects compile faster — only changed modules rebuild.|
+|**Scalability**|Large projects compile faster - only changed modules rebuild.|
 |**Safety**|Type-checked module boundaries prevent interface mismatches.|
 |**Encapsulation**|Private data remains hidden, protecting invariants.|
 |**Reusability**|Common libraries are linked, not recompiled.|
@@ -245,7 +246,7 @@ Steps:
 ## Diagram Concepts
 
 - `module_interface_boundary.svg`:  
-    Two boxes — **Implementation** and **Signature** — with arrows showing exported identifiers and hidden internals.  
+    Two boxes - **Implementation** and **Signature** - with arrows showing exported identifiers and hidden internals.  
     Highlight that clients depend only on the interface layer.
     
 - `separate_compilation_pipeline.svg`:  
@@ -255,12 +256,12 @@ Steps:
 
 ---
 
-## See also
+## Related Notes
 
 - [[records-variants-and-pattern-matching|Records, Variants, and Pattern Matching]]
     
-- [[type-systems-goals-guarantees|Type Systems — Goals & Guarantees]]
+- [[type-systems-goals-guarantees|Type Systems - Goals & Guarantees]]
     
-- [[abstract-machines-cek-secd|Abstract Machines — CEK & SECD]]
+- [[abstract-machines-cek-secd|Abstract Machines - CEK & SECD]]
     
 - [[compilation-vs-interpretation|Compilation vs Interpretation]]

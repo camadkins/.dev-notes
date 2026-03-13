@@ -2,6 +2,7 @@
 title: Depth-First Search (DFS)  
 description: Systematic graph exploration that timestamps discovery/finish times and classifies edges; foundation for cycle detection and topological order.  
 draft: false
+comments: true
 tags:
 - cs
 - dsa  
@@ -9,8 +10,8 @@ date: 2025-10-16
 updated:  
 aliases: []
 # diagrams:
-# - dfs-forest-timestamps.svg — DFS forest with discovery/finish times (d[u], f[u]) on each vertex; tree/forward/back/cross edges highlighted.
-# - edge-types-directed-vs-undirected.svg — Side-by-side classification on a directed vs undirected graph; note that undirected graphs have only tree/back edges.
+# - dfs-forest-timestamps.svg - DFS forest with discovery/finish times (d[u], f[u]) on each vertex; tree/forward/back/cross edges highlighted.
+# - edge-types-directed-vs-undirected.svg - Side-by-side classification on a directed vs undirected graph; note that undirected graphs have only tree/back edges.
 
 ---
 
@@ -19,7 +20,7 @@ aliases: []
 **Depth-First Search (DFS)** explores a graph by recursing (or using an explicit stack) along each path as far as possible before backtracking. Classic DFS records **discovery** and **finish** timestamps for each vertex, yielding a **DFS forest** and enabling **edge classification** (tree, back, forward, cross). These artifacts power cycle detection, connectivity analyses, and [[topological-sorting|Topological Sorting]].
 
 > [!example]  
-> **Diagram (`dfs-forest-timestamps.svg`)** — Draw a small directed graph. Show the DFS forest with each vertex labeled `d[u]/f[u]` (discovery/finish). Color edges by class: tree (solid), back (red), forward (blue), cross (gray).
+> **Diagram (`dfs-forest-timestamps.svg`)** - Draw a small directed graph. Show the DFS forest with each vertex labeled `d[u]/f[u]` (discovery/finish). Color edges by class: tree (solid), back (red), forward (blue), cross (gray).
 
 ## Core Idea
 
@@ -85,7 +86,7 @@ Suppose `G` is directed with vertices `a..h`. Start from `a`; follow `a→c→d�
 Edges like `d→c` encountered while `c` is GRAY classify as **back**; an edge from `a` to already-finished `e` is **forward/cross** depending on timestamps.
 
 > [!example]  
-> **Diagram (`edge-types-directed-vs-undirected.svg`)** — Left: directed example with one tree, one back, one forward, one cross edge, annotated using `(d,f)` intervals. Right: the same structure made undirected; show that non-tree edges are back edges.
+> **Diagram (`edge-types-directed-vs-undirected.svg`)** - Left: directed example with one tree, one back, one forward, one cross edge, annotated using `(d,f)` intervals. Right: the same structure made undirected; show that non-tree edges are back edges.
 
 ## Complexity Analysis
 
@@ -142,7 +143,7 @@ Let `n = |V|` and `m = |E|`.
 
 DFS performs a **deep** exploration that yields a DFS forest, timestamps, and edge classifications in **linear time**. These outputs are the backbone for cycle detection, topological ordering, SCCs, and articulation/bridge analyses. Use timestamps to reason about ancestry (`d[]/f[]` nesting), and prefer an iterative stack on deep or adversarial inputs.
 
-## See also
+## Related Notes
 
 - [[breadth-first-search-algorithms|Breadth-First Search Algorithms]]
     

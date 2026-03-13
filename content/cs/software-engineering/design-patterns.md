@@ -2,19 +2,20 @@
 title: Design Patterns
 description: Reusable solutions to recurring object-oriented design problems, organized by the Gang of Four's creational, structural, and behavioral categories.
 draft: false
-comments: false
+comments: true
 tags:
   - cs
   - software-engineering
 date: 2026-03-12
+updated:
 aliases: []
 ---
 
 ## Intuition
 
-Every experienced developer notices the same problems appearing across unrelated projects — how to create objects without hardcoding classes, how to compose structures flexibly, how to let objects communicate without tight coupling. Design patterns name these recurring situations and provide tested blueprints for resolving them. They are not libraries or frameworks; they are **shared vocabulary** for design decisions.
+Every experienced developer notices the same problems appearing across unrelated projects - how to create objects without hardcoding classes, how to compose structures flexibly, how to let objects communicate without tight coupling. Design patterns name these recurring situations and provide tested blueprints for resolving them. They are not libraries or frameworks; they are **shared vocabulary** for design decisions.
 
-The Gang of Four (Gamma, Helm, Johnson, Vlissides) catalogued 23 patterns in 1994, grouped by purpose. The catalog remains influential because the problems it addresses — decoupling creation from use, composing behavior at runtime, managing complex interactions — persist regardless of language or era.
+The Gang of Four (Gamma, Helm, Johnson, Vlissides) catalogued 23 patterns in 1994, grouped by purpose. The catalog remains influential because the problems it addresses - decoupling creation from use, composing behavior at runtime, managing complex interactions - persist regardless of language or era.
 
 ---
 
@@ -66,7 +67,7 @@ Behavioral patterns manage algorithms, responsibilities, and communication betwe
 
 ## Example
 
-The **Observer** pattern in action — a weather station notifying multiple displays:
+The **Observer** pattern in action - a weather station notifying multiple displays:
 
 ```python
 class WeatherStation:
@@ -98,7 +99,7 @@ station.set_temperature(22.5)
 # Dashboard: 22.5°C
 ```
 
-The station knows nothing about display internals — it only calls `update`. New displays can be added without changing `WeatherStation`. This is the core payoff: **extensibility without modification**.
+The station knows nothing about display internals - it only calls `update`. New displays can be added without changing `WeatherStation`. This is the core payoff: **extensibility without modification**.
 
 > [!tip]
 > Before reaching for a pattern, ask whether the language already provides the mechanism natively. Python's `@property` eliminates many uses of Proxy; Rust's `enum` with `match` often replaces Visitor.
@@ -107,6 +108,6 @@ The station knows nothing about display internals — it only calls `update`. Ne
 
 ## Related Notes
 
-- [[objects-classes-and-dispatch|Objects, Classes & Dispatch]] — the OOP substrate patterns build on
-- [[software-architecture|Software Architecture]] — patterns at the system level rather than class level
-- [[api-design|API Design]] — where pattern choices surface as public contracts
+- [[objects-classes-and-dispatch|Objects, Classes & Dispatch]] - the OOP substrate patterns build on
+- [[software-architecture|Software Architecture]] - patterns at the system level rather than class level
+- [[api-design|API Design]] - where pattern choices surface as public contracts

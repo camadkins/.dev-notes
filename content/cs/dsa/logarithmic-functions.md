@@ -2,6 +2,7 @@
 title: Logarithmic Functions
 description: Logs invert exponentiation, count digits/levels, and model halving processes; essential for O(log n) analyses in algorithms and data structures.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -86,7 +87,7 @@ For `b>0`, `b!=1`, define:
 
 - **Tree heights.** A complete binary tree with `n` nodes has height `floor(log2 n)` (0-based). A complete `k`-ary tree has height `Theta(log_k n) = Theta((log n)/(log k))`.
 
-- **Master Theorem context.** Recurrences like `T(n) = a*T(n/b) + f(n)` yield terms with `log_b n` in the exponent of `n` or in multiplicative factors; see [[recurrences-master-theorem|Recurrences — Master Theorem]].
+- **Master Theorem context.** Recurrences like `T(n) = a*T(n/b) + f(n)` yield terms with `log_b n` in the exponent of `n` or in multiplicative factors; see [[recurrences-master-theorem|Recurrences - Master Theorem]].
 
 - **Iterated logs.** `log^{(k)} n` denotes applying log **k** times; `log^* n` (log-star) counts how many times to log until <= 1 (extremely small, <= 5 for any realistic `n`).
 
@@ -124,7 +125,7 @@ With bit operations, many languages provide a "count leading zeros" (CLZ) primit
 `floor_log2(n) = word_bits - 1 - clz(n)` for `n>0`.
 
 > [!tip]
-> Use **bit length** to size arrays or heaps: a binary heap storing `n` items has height `floor(log2 n)`, so operations are bounded by that many sift steps; see [[heaps|Heaps — Overview]].
+> Use **bit length** to size arrays or heaps: a binary heap storing `n` items has height `floor(log2 n)`, so operations are bounded by that many sift steps; see [[heaps|Heaps - Overview]].
 
 ### Change-of-base in code (stable numerics)
 
@@ -163,7 +164,7 @@ function DECIMAL_DIGITS(n):     // n >= 1
 ## Common Misunderstandings
 
 > [!warning]
-> **Base confusion in asymptotics.** `O(log n)` hides constant factors. `log2 n` and `log10 n` differ by `ln(10)` which is approximately 2.3026—**constant**, not a different class.
+> **Base confusion in asymptotics.** `O(log n)` hides constant factors. `log2 n` and `log10 n` differ by `ln(10)` which is approximately 2.3026 - **constant**, not a different class.
 
 > [!warning]
 > **Domain errors.** `log_b(0)` is **undefined** and `log_b(x)` for `x<0` is not real (without complex numbers). Guard inputs in code.
@@ -177,7 +178,7 @@ function DECIMAL_DIGITS(n):     // n >= 1
 >
 
 > [!warning]
-> **Confusing `log n` vs `n log n`.** `n log n` grows much faster than `log n`. Sorting lower bound is `Omega(n log n)`—not logarithmic.
+> **Confusing `log n` vs `n log n`.** `n log n` grows much faster than `log n`. Sorting lower bound is `Omega(n log n)` - not logarithmic.
 
 > [!warning]
 > **Iterated log vs power of log.** `log log n` (iterated) is **much** smaller than `(log n)^2` (power). Do not conflate notation.
@@ -190,7 +191,7 @@ Because `log` transforms multiplication into addition, it underpins:
 
 - **Information theory:** `log2` measures information in **bits**; entropy sums `p_i log p_i`.
 
-- **Scale compression:** Logging axes turns exponential curves into lines—useful for profiling with exponentially growing inputs.
+- **Scale compression:** Logging axes turns exponential curves into lines - useful for profiling with exponentially growing inputs.
 
 - **Numeric robustness:** Logs stabilize products of many factors (sum of logs) and prevent under/overflow in probabilistic computations.
 
@@ -202,7 +203,7 @@ Because `log` transforms multiplication into addition, it underpins:
 
 Logarithms are the **inverse of exponentiation** and quantify **levels**, **digits**, and **bit lengths**. They capture the cost of processes that repeatedly **shrink by a constant factor**: binary search steps, tree heights, and divide-and-conquer recursion depths. Bases differ by a constant factor (`log_b n = ln n / ln b`), so asymptotically they're interchangeable. In implementation, prefer integer methods for floors/bit lengths, use built-in `log2/log10` for accuracy, and watch boundary cases (`n=0`, `x<=0`). Mastery of logs enables clear reasoning about `O(log n)`, `O(n log n)`, and deeper results like the Master Theorem.
 
-## See also
+## Related Notes
 
 - [[asymptotic-notation|Asymptotic Notation]]
 
@@ -210,4 +211,4 @@ Logarithms are the **inverse of exponentiation** and quantify **levels**, **digi
 
 - [[binary-search|Binary Search]]
 
-- [[recurrences-master-theorem|Recurrences — Master Theorem]]
+- [[recurrences-master-theorem|Recurrences - Master Theorem]]

@@ -2,6 +2,7 @@
 title: Recurrence Relations
 description: Equations that define sequences via earlier terms; foundational for analyzing divide-and-conquer and dynamic-programming running times.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -87,7 +88,7 @@ A recurrence for a sequence `{T(n)}` is an equation of the form
 
 3. **Master / Akra–Bazzi theorems**
     Provide ready-made asymptotic bounds for `T(n) = ∑ a_i T(n/b_i) + g(n)` under regularity conditions.
-    See [[recurrences-master-theorem|Recurrences — Master Theorem]] for the common `aT(n/b)+f(n)` form and brief notes on Akra–Bazzi (handles multiple subproblem sizes and additive perturbations).
+    See [[recurrences-master-theorem|Recurrences - Master Theorem]] for the common `aT(n/b)+f(n)` form and brief notes on Akra–Bazzi (handles multiple subproblem sizes and additive perturbations).
 
 
 ### Linear recurrences with constant coefficients
@@ -185,9 +186,9 @@ Recurrences tie algorithm **structure** to **asymptotic behavior**. Better split
 
 Recurrence relations are the lingua franca for analyzing recursive and incremental algorithms. For `aT(n/b)+f(n)`, compare `f(n)` with `n^{log_b a}` to classify regimes; use recursion trees for intuition, substitution for rigorous bounds, and Master/Akra–Bazzi when applicable. For linear constant-coefficient value recurrences, solve via characteristic equations. Always state base cases, handle floors/ceilings, and document assumptions. With these tools, you can translate algorithm structure directly into asymptotic performance guarantees.
 
-## See also
+## Related Notes
 
-- [[recurrences-master-theorem|Recurrences — Master Theorem]]
+- [[recurrences-master-theorem|Recurrences - Master Theorem]]
 
 - [[divide-and-conquer|Divide and Conquer]]
 

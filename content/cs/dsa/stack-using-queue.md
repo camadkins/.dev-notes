@@ -2,6 +2,7 @@
 title: Stack Using Queue
 description: Build a LIFO stack from FIFO queues; contrast two-queue and one-queue rotation strategies and their cost trade-offs.
 draft: false
+comments: true
 tags:
   - cs
   - dsa
@@ -211,7 +212,7 @@ Let `n` be the number of elements at the moment of the operation.
 
 A stack can be implemented with queues by enforcing the invariant that the **most recently pushed element sits at the front**. The **two-queue** approach offers a choice between **costly `push`** (fast `pop`) and **costly `pop`** (fast `push`), while the **one-queue rotation** achieves the same effect with a single queue by rotating after each push. All variants are correct; choose based on your operation mix and simplicity needs, keeping an eye on data movement and queue performance characteristics.
 
-## See also
+## Related Notes
 
 - [[stack|Stack]]
 

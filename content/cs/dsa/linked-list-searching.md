@@ -1,8 +1,9 @@
 ---
 
-title: Linked Lists — Searching
+title: Linked Lists - Searching
 description: Search patterns on singly and doubly linked lists; trade-offs vs indexed arrays and when to switch structures.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -14,7 +15,7 @@ aliases: []
 
 ## Overview
 
-Searching in a **linked list** means following **pointers** rather than indexing by position. This makes the baseline search **sequential**—`Θ(n)` comparisons in the worst case—yet linked lists remain valuable when **inserts/deletes** dominate and **stable references** to nodes are required. This note catalogs practical search patterns for **singly** and **doubly** linked lists, shows how to handle **k-th**, **predecessor**, and **remove-by-value** tasks, and explains **when arrays or other indexed structures are preferable**.
+Searching in a **linked list** means following **pointers** rather than indexing by position. This makes the baseline search **sequential** - `Θ(n)` comparisons in the worst case - yet linked lists remain valuable when **inserts/deletes** dominate and **stable references** to nodes are required. This note catalogs practical search patterns for **singly** and **doubly** linked lists, shows how to handle **k-th**, **predecessor**, and **remove-by-value** tasks, and explains **when arrays or other indexed structures are preferable**.
 
 > [!note]
 > Throughout, `head` is the first node (or a sentinel before it), nodes store `value` and pointers (`next`, and optionally `prev`), and `NIL` marks the end unless a **sentinel** is used.
@@ -245,7 +246,7 @@ Using **sentinel nodes** (head for SLL, head+tail for DLL) simplifies:
 ## Common Misunderstandings
 
 > [!warning]
-> **Binary search on a list.** Not feasible in `O(log n)`—jumping to the middle is `Θ(n)`. Any binary-search-like method becomes `Θ(n)` just to move pointers.
+> **Binary search on a list.** Not feasible in `O(log n)` - jumping to the middle is `Θ(n)`. Any binary-search-like method becomes `Θ(n)` just to move pointers.
 
 > [!warning]
 > **Forgetting predecessor in SLL deletion.** You cannot unlink `cur` in `O(1)` without `prev` (unless you overwrite `cur.value` with `cur.next.value` and bypass `cur.next`, which fails for the tail and violates invariants).
@@ -260,7 +261,7 @@ Using **sentinel nodes** (head for SLL, head+tail for DLL) simplifies:
 
 Searching in linked lists is fundamentally **sequential**: you walk pointers until you find a match, track predecessors for safe rewiring, and lean on **fast/slow** techniques for tasks like k-th-from-end or cycle detection. For sorted lists, you gain **early exit** and clean insertion points but not better asymptotics. If searches dominate, **switch structures** (arrays, hash tables, trees) or add a **side index**. Keep implementations robust with **sentinels**, clear invariants, and careful handling of deletion and cycles.
 
-## See also
+## Related Notes
 
 - [[linked-list|Linked Lists]]
 

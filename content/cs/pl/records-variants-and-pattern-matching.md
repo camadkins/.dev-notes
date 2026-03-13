@@ -2,6 +2,7 @@
 title: Records, Variants, and Pattern Matching
 description: Structural aggregates and sum types; how pattern matching decomposes them and ensures type-safe exhaustive handling.
 draft: false
+comments: true
 tags:
   - cs
   - pl
@@ -9,9 +10,9 @@ date: 2025-10-16
 updated:
 aliases: []
 # diagrams:
-#  - record_vs_tuple.svg — compare labeled fields vs positional tuples.
-#  - variant_tree.svg — show constructors as branches under a sum type.
-#  - match_exhaustiveness.svg — visualize coverage and redundant pattern checks.
+#  - record_vs_tuple.svg - compare labeled fields vs positional tuples.
+#  - variant_tree.svg - show constructors as branches under a sum type.
+#  - match_exhaustiveness.svg - visualize coverage and redundant pattern checks.
 ---
 
 ## Overview
@@ -47,7 +48,7 @@ Records make code more self-documenting and robust to field reordering.
 
 > [!example]  
 > **Diagram (`record_vs_tuple.svg`)**  
-> Show two boxes — one positional (tuple) and one labeled (record) — both containing the same values, emphasizing how field names improve readability.
+> Show two boxes - one positional (tuple) and one labeled (record) - both containing the same values, emphasizing how field names improve readability.
 
 ---
 
@@ -71,7 +72,7 @@ The compiler tracks which variant is active at runtime.
 > Variants correspond to **sum types**:  
 > `Shape = Circle(radius) + Square(side) + Rectangle(width,height)`.
 
-Variants can be nested, parameterized, or recursive — enabling expressive hierarchies like:
+Variants can be nested, parameterized, or recursive - enabling expressive hierarchies like:
 
 ```ocaml
 type 'a tree = Leaf | Node of 'a * 'a tree * 'a tree
@@ -97,7 +98,7 @@ Each clause tests the constructor and binds its contents to names.
 Pattern matching replaces chains of conditionals with a concise, declarative form.
 
 > [!tip]  
-> Matching is _exhaustive_ and _typed_ — every case is checked for consistency by the compiler.
+> Matching is _exhaustive_ and _typed_ - every case is checked for consistency by the compiler.
 
 ---
 
@@ -170,7 +171,7 @@ Renaming is allowed during binding:
 ```
 
 > [!note]  
-> Partial record patterns are permitted — unmentioned fields are ignored.
+> Partial record patterns are permitted - unmentioned fields are ignored.
 
 ---
 
@@ -211,7 +212,7 @@ This recursive style forms the basis of interpreters, compilers, and type checke
 >     
 
 > [!tip]  
-> Treat `_` as a _temporary placeholder_ during prototyping — replace it with explicit cases for maintainability.
+> Treat `_` as a _temporary placeholder_ during prototyping - replace it with explicit cases for maintainability.
 
 ---
 
@@ -238,7 +239,7 @@ This recursive style forms the basis of interpreters, compilers, and type checke
 
 ---
 
-## See also
+## Related Notes
 
 - [[parametric-polymorphism-adts|Parametric Polymorphism & ADTs]]
     
@@ -246,4 +247,4 @@ This recursive style forms the basis of interpreters, compilers, and type checke
     
 - [[language-design-values-variables-environments|Values, Variables & Environments]]
     
-- [[type-systems-goals-guarantees|Type Systems — Goals & Guarantees]]
+- [[type-systems-goals-guarantees|Type Systems - Goals & Guarantees]]

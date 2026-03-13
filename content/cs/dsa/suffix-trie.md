@@ -2,6 +2,7 @@
 title: Suffix Trie
 description: Trie built from all suffixes of a string; enables fast substring/prefix queries but with large memory cost.
 draft: false
+comments: true
 tags:
   - cs
   - dsa
@@ -9,12 +10,12 @@ date: 2025-10-16
 updated:
 aliases: []
 # diagrams:
-# - suffix-trie-construction.svg — Build from S = "banana$": insert each suffix (banana$, anana$, nana$, ana$, na$, a$, $) so every substring appears as a path; mark terminal nodes with starting indices.
-# - substring-query-trace.svg — Trace of querying "ana" in the suffix trie: follow edges a→n→a; annotate matched path and the list of starting positions.
+# - suffix-trie-construction.svg - Build from S = "banana$": insert each suffix (banana$, anana$, nana$, ana$, na$, a$, $) so every substring appears as a path; mark terminal nodes with starting indices.
+# - substring-query-trace.svg - Trace of querying "ana" in the suffix trie: follow edges a→n→a; annotate matched path and the list of starting positions.
 ---
 
 ## Overview
-A **suffix trie** stores **every suffix** of a string `S` in a trie, so that **every substring** of `S` appears as a **path** from the root. This makes substring queries straightforward—walk the pattern’s characters from the root and test if the path exists. The simplicity is attractive for teaching and small inputs, but the structure is **space-heavy**: a naive suffix trie has **Θ(n²)** nodes and edges in the worst case for a length-`n` string, which limits practical use. For large texts, compressed variants (suffix **trees**) and array-based indices (suffix **arrays**/LCP) are preferred.
+A **suffix trie** stores **every suffix** of a string `S` in a trie, so that **every substring** of `S` appears as a **path** from the root. This makes substring queries straightforward - walk the pattern’s characters from the root and test if the path exists. The simplicity is attractive for teaching and small inputs, but the structure is **space-heavy**: a naive suffix trie has **Θ(n²)** nodes and edges in the worst case for a length-`n` string, which limits practical use. For large texts, compressed variants (suffix **trees**) and array-based indices (suffix **arrays**/LCP) are preferred.
 
 > [!note]
 > Always append a **unique end marker** (e.g., `$` not present in `S`) so every suffix ends at a distinct terminal; this avoids ambiguity and ensures that `S` itself is represented.
@@ -96,7 +97,7 @@ function OCCURRENCES(root, P) -> list<int>:
 Walk the trie; the deepest node with **subtree size ≥ 2** (distinct starting indices) yields a longest repeated substring. This is simpler on suffix **trees** due to compression.
 
 > [!example]  
-> **Diagram (`substring-query-trace.svg`)** — For `S = "banana$"`, querying `"ana"` follows `a→n→a` to a node whose positions list is `[1, 3]`, showing matches at `S[1..3]` and `S[3..5]`.
+> **Diagram (`substring-query-trace.svg`)** - For `S = "banana$"`, querying `"ana"` follows `a→n→a` to a node whose positions list is `[1, 3]`, showing matches at `S[1..3]` and `S[3..5]`.
 
 ## Example (Stepwise)
 
@@ -139,7 +140,7 @@ Let `n = |S|` and `m = |P|`.
     
 - **Occurrences:** `Θ(m + k)` where `k` is the number of matches if positions are stored per node; otherwise add the cost of a subtree traversal to collect suffix terminals.
     
-- **Memory:** Dominated by nodes/edges. With alphabet `σ`, a naive array-child implementation costs `Θ(σ)` pointers **per node**—prohibitive for large `σ`.
+- **Memory:** Dominated by nodes/edges. With alphabet `σ`, a naive array-child implementation costs `Θ(σ)` pointers **per node** - prohibitive for large `σ`.
     
 
 **Why compression helps:** A suffix **tree** compresses chains of single-child nodes into **edge labels** (substrings), reducing size to `Θ(n)` nodes/edges and enabling linear-time builds (e.g., Ukkonen). Suffix **arrays** plus **LCP** achieve `Θ(n)` or `Θ(n log n)` build with excellent memory locality.
@@ -185,7 +186,7 @@ Let `n = |S|` and `m = |P|`.
     
 
 > [!example]  
-> **Diagram (`suffix-trie-construction.svg`)** — Show inserting `banana$`’s suffixes. Highlight shared branches `b→a→n→a→n→a→$` and `a→n→a→...` where multiple suffixes converge, and annotate leaf nodes with starting indices `{0, 1, 2, 3, 4, 5, 6}`.
+> **Diagram (`suffix-trie-construction.svg`)** - Show inserting `banana$`’s suffixes. Highlight shared branches `b→a→n→a→n→a→$` and `a→n→a→...` where multiple suffixes converge, and annotate leaf nodes with starting indices `{0, 1, 2, 3, 4, 5, 6}`.
 
 ## Limitations / Pitfalls
 
@@ -205,7 +206,7 @@ Let `n = |S|` and `m = |P|`.
 
 A suffix trie indexes **all suffixes** of `S`, making **substring queries** conceptually trivial: match the pattern as a path from the root. Its simplicity brings clear query-time benefits (`Θ(m)`), but the **space cost is quadratic** in the worst case, and constant factors are high. As a result, suffix tries are best seen as a **teaching** or **small-scale** structure that motivates efficient suffix **trees** (path-compressed) and suffix **arrays** (compact, cache-friendly). When you need scalability, compress; when you need clarity, the suffix trie is a good starting point.
 
-## See also
+## Related Notes
 
 - [[standard-trie|Standard Trie]]
     

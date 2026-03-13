@@ -2,6 +2,7 @@
 title: Pointers with Functions
 description: How and why to pass addresses so callees can read or write caller memory; patterns, const-correctness, and safety.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -13,7 +14,7 @@ aliases: []
 
 ## Overview
 
-Passing a **pointer** (an address) to a function lets the callee **access the caller's storage**. This enables in-place updates, out-parameters, and zero-copy APIs—but introduces hazards: **null/dangling pointers, aliasing, lifetime,** and **bounds** issues. This note gives a practical guide to pointer-parameter design: when to use pointers, how to express **read-only vs read–write** intent (**const-correctness**), and how to avoid common bugs.
+Passing a **pointer** (an address) to a function lets the callee **access the caller's storage**. This enables in-place updates, out-parameters, and zero-copy APIs - but introduces hazards: **null/dangling pointers, aliasing, lifetime,** and **bounds** issues. This note gives a practical guide to pointer-parameter design: when to use pointers, how to express **read-only vs read–write** intent (**const-correctness**), and how to avoid common bugs.
 
 > [!note]
 > Think of a pointer parameter as a **capability**: "here is _where_ you may read/write." Good APIs make that capability **explicit** (read-only vs mutable, length, ownership).
@@ -33,13 +34,13 @@ At a call site:
 
 **Const-correctness**
 
-- `const T* p` — callee may **read** `*p` but must not modify it.
+- `const T* p` - callee may **read** `*p` but must not modify it.
 
-- `T* p` — callee may **read and write** `*p`.
+- `T* p` - callee may **read and write** `*p`.
 
-- `T* const p` — the pointer variable `p` itself cannot be reassigned, but `*p` may change.
+- `T* const p` - the pointer variable `p` itself cannot be reassigned, but `*p` may change.
 
-- `const T* const p` — fixed pointer to read-only data.
+- `const T* const p` - fixed pointer to read-only data.
 
 
 > [!tip]
@@ -140,7 +141,7 @@ int fill(uint8_t* out, size_t cap) {
 
 - **Dangling**: never return pointers to **stack** locals; ensure the **pointee** outlives its uses.
 
-- **Reallocation**: functions like `realloc` can **move** storage—callers must update all aliases.
+- **Reallocation**: functions like `realloc` can **move** storage - callers must update all aliases.
 
 
 ### 3) Aliasing and reentrancy
@@ -172,7 +173,7 @@ Document **who allocates** and **who frees**:
 
 - _Callee allocates, caller frees_ (return pointer or `T** out`).
 
-- _Shared ownership_ requires reference counts or conventions—avoid in low-level C unless necessary.
+- _Shared ownership_ requires reference counts or conventions - avoid in low-level C unless necessary.
 
 
 > [!warning]
@@ -186,7 +187,7 @@ Pointers cross thread boundaries as raw capabilities. If multiple threads write 
 
 - **C**/**C++**: raw pointers as above; prefer `span<T>`/`std::span` (C++) for `{ptr,len}` views; prefer `T&`/`const T&` for single objects when mutation is controlled.
 
-- **Go**: pass `*T` for mutating a struct; slices and maps are **reference-like** already—passing a slice by value shares backing storage.
+- **Go**: pass `*T` for mutating a struct; slices and maps are **reference-like** already - passing a slice by value shares backing storage.
 
 - **Rust**: uses **borrows** instead of raw pointers in safe code (`&T`, `&mut T`) with compile-time lifetime checks; raw pointers exist in `unsafe`.
 
@@ -211,7 +212,7 @@ Pointers cross thread boundaries as raw capabilities. If multiple threads write 
 
 - **References vs pointers**: references (`T&`) are non-null, aliasing handles with simpler syntax; pointers (`T*`) can be null/reassigned.
 
-- **Handles/IDs**: instead of exposing pointers, some APIs pass opaque IDs that the callee resolves internally—safer but less flexible.
+- **Handles/IDs**: instead of exposing pointers, some APIs pass opaque IDs that the callee resolves internally - safer but less flexible.
 
 - **Copy vs move**: for large data, consider **move** (transfer ownership) rather than pointer mutation; see [[pass-by-value-and-pass-by-reference|Pass-by-Value vs Reference]].
 
@@ -230,7 +231,7 @@ Pointers-as-parameters are a powerful **capability**: they enable in-place updat
     With these habits, pointer-based APIs are both **fast** and **safe** enough for systems work and high-performance DS&A code.
 
 
-## See also
+## Related Notes
 
 - [[pass-by-value-and-pass-by-reference|Pass-by-Value vs Reference]]
 

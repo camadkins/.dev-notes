@@ -2,6 +2,7 @@
 title: Compressed Trie  
 description: A compact prefix tree that stores maximal shared substrings on edges to reduce height and pointer overhead while preserving lexicographic order.  
 draft: false
+comments: true
 tags:
 - cs
 - dsa  
@@ -9,10 +10,10 @@ date: 2025-10-16
 updated:  
 aliases: []
 # diagrams:
-# - compressed-trie-edge-labels.svg — Example trie with multi-character edge labels after path compression; highlight shared prefixes collapsing single-child chains.
-# - edge-split-on-insert.svg — Show insertion that splits an edge at first mismatch, introducing a mid node and two outgoing edges (old tail + new suffix).
-# - compare-standard-vs-compressed.svg — Side-by-side: standard trie vs compressed trie built from same keys; annotate node/edge counts and heights.
-# - radix-critbit-variants.svg — Sketch radix-array (per-byte) vs crit-bit (first differing bit) branching strategies.
+# - compressed-trie-edge-labels.svg - Example trie with multi-character edge labels after path compression; highlight shared prefixes collapsing single-child chains.
+# - edge-split-on-insert.svg - Show insertion that splits an edge at first mismatch, introducing a mid node and two outgoing edges (old tail + new suffix).
+# - compare-standard-vs-compressed.svg - Side-by-side: standard trie vs compressed trie built from same keys; annotate node/edge counts and heights.
+# - radix-critbit-variants.svg - Sketch radix-array (per-byte) vs crit-bit (first differing bit) branching strategies.
 ---
 
 ## Overview
@@ -31,7 +32,7 @@ A **compressed trie** (radix/Patricia variant) is a prefix tree that **compresse
     
 
 > [!example]  
-> **Diagram (`compressed-trie-edge-labels.svg`)** — Build a small dictionary (e.g., `bear, bell, bid, bull, buy, sell, stock, stop`) and show how single-character chains become multi-character edge labels like `"be"`, `"bu"`, `"st"`.
+> **Diagram (`compressed-trie-edge-labels.svg`)** - Build a small dictionary (e.g., `bear, bell, bid, bull, buy, sell, stock, stop`) and show how single-character chains become multi-character edge labels like `"be"`, `"bu"`, `"st"`.
 
 ## Core Operations
 
@@ -82,7 +83,7 @@ function INSERT(root, key):
 ```
 
 > [!example]  
-> **Diagram (`edge-split-on-insert.svg`)** — Start with an edge labeled `"bell"` under `"be"`. Insert `"belt"`: split after the shared `"bel"`, create a mid node, keep old tail `"l"` to the old child, and add new branch `"t"`.
+> **Diagram (`edge-split-on-insert.svg`)** - Start with an edge labeled `"bell"` under `"be"`. Insert `"belt"`: split after the shared `"bel"`, create a mid node, keep old tail `"l"` to the old child, and add new branch `"t"`.
 
 ### Delete(key)
 
@@ -113,7 +114,7 @@ function DELETE(root, key):
     
 
 > [!example]  
-> **Diagram (`compare-standard-vs-compressed.svg`)** — Left: standard trie showing per-character nodes. Right: compressed trie with multi-character edges; annotate reduced height and node count.
+> **Diagram (`compare-standard-vs-compressed.svg`)** - Left: standard trie showing per-character nodes. Right: compressed trie with multi-character edges; annotate reduced height and node count.
 
 ## Complexity Analysis
 
@@ -134,7 +135,7 @@ function DELETE(root, key):
     
 
 > [!example]  
-> **Diagram (`radix-critbit-variants.svg`)** — Two subpanels: (1) radix-array node with 256 slots keyed by byte; (2) crit-bit node storing index of first differing bit and two child pointers.
+> **Diagram (`radix-critbit-variants.svg`)** - Two subpanels: (1) radix-array node with 256 slots keyed by byte; (2) crit-bit node storing index of first differing bit and two child pointers.
 
 ## Applications
 
@@ -168,7 +169,7 @@ function DELETE(root, key):
 
 Compressed tries **collapse single-child paths into edge labels**, giving shorter height and fewer pointer hops while preserving trie semantics (exact lookup, prefix queries, ordered iteration). Correctness hinges on **edge-split logic** and **post-delete re-compression**; performance depends on label storage and branching representation.
 
-## See also
+## Related Notes
 
 - [[standard-trie|Standard Trie]]
     

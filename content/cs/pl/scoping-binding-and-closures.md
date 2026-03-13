@@ -2,6 +2,7 @@
 title: Scoping, Binding, and Closures
 description: How lexical environments determine variable resolution, and how closures capture bindings to preserve computation context across function calls.
 draft: false
+comments: true
 tags:
   - cs
   - pl
@@ -9,9 +10,9 @@ date: 2025-10-16
 updated:
 aliases: []
 # diagrams:
-#  - lexical_scope_chain.svg — illustrate nested blocks and environment links showing lexical resolution.
-#  - closure_capture_model.svg — show closure capturing variables in an environment box.
-#  - shadowing_and_binding.svg — depict scope shadowing and variable rebinding.
+#  - lexical_scope_chain.svg - illustrate nested blocks and environment links showing lexical resolution.
+#  - closure_capture_model.svg - show closure capturing variables in an environment box.
+#  - shadowing_and_binding.svg - depict scope shadowing and variable rebinding.
 ---
 
 ## Overview
@@ -27,7 +28,7 @@ Closures extend this by capturing the environment where a function was defined, 
 
 ## Lexical vs Dynamic Scope
 ### Lexical (Static) Scope
-Under **lexical scope**, a variable’s meaning depends on *where it’s written* in the source code — not where it’s called.
+Under **lexical scope**, a variable’s meaning depends on *where it’s written* in the source code - not where it’s called.
 
 Example (ML-like pseudocode):
 ```ml
@@ -71,7 +72,7 @@ Evaluation looks up names through these structures:
 lookup(x, ρ, σ) = σ(ρ(x))
 ```
 
-Lexical scoping creates an **environment chain** — each new function introduces a new environment linked to its parent.
+Lexical scoping creates an **environment chain** - each new function introduces a new environment linked to its parent.
 
 > [!example]  
 > **Diagram (`lexical_scope_chain.svg`)**
@@ -123,7 +124,7 @@ let x = 5 in
 
 ## Closures: Capturing the Environment
 
-A **closure** is a pair ⟨function, environment⟩ — it remembers the bindings present when it was created.
+A **closure** is a pair ⟨function, environment⟩ - it remembers the bindings present when it was created.
 
 Example:
 
@@ -162,9 +163,9 @@ At creation time:
 
 Closures can either:
 
-- **Capture values** (immutable model — e.g., purely functional languages), or
+- **Capture values** (immutable model - e.g., purely functional languages), or
     
-- **Capture locations** (mutable model — e.g., ML, JavaScript).
+- **Capture locations** (mutable model - e.g., ML, JavaScript).
     
 
 In the latter, multiple closures share mutable state:
@@ -177,7 +178,7 @@ inc(); inc(); get()  (* ⇒ 2 *)
 ```
 
 > [!warning]  
-> Sharing mutable cells across closures can introduce aliasing bugs — e.g., updates in one closure affect others unexpectedly.
+> Sharing mutable cells across closures can introduce aliasing bugs - e.g., updates in one closure affect others unexpectedly.
 
 ---
 
@@ -217,7 +218,7 @@ This **chain of captured environments** enables higher-order abstractions withou
 >     
 
 > [!tip]  
-> Prefer **immutable captures** or **copying semantics** when possible — especially in concurrent or asynchronous code.
+> Prefer **immutable captures** or **copying semantics** when possible - especially in concurrent or asynchronous code.
 
 ---
 
@@ -244,11 +245,11 @@ This **chain of captured environments** enables higher-order abstractions withou
 
 ---
 
-## See also
+## Related Notes
 
 - [[language-design-values-variables-environments|Values, Variables & Environments]]
     
-- [[lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]
+- [[lambda-calculus-syntax-substitution|Lambda Calculus - Syntax & Substitution]]
     
 - [[evaluation-order-and-strictness | Evaluation Order & Strictness]]
     

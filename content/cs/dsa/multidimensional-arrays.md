@@ -2,6 +2,7 @@
 title: Multidimensional Arrays
 description: Row-major vs column-major layouts, linearization formulas, and cache-friendly traversal patterns for 2D and higher dimensions.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -27,7 +28,7 @@ Performance hinges on **strides** and **access order**. Traversing along the **c
 
 ## Motivation
 
-Algorithms on tables—dynamic programming, image filters, matrix ops, adjacency matrices—are limited by **memory throughput** more than arithmetic. Knowing how indices map to addresses lets you:
+Algorithms on tables - dynamic programming, image filters, matrix ops, adjacency matrices - are limited by **memory throughput** more than arithmetic. Knowing how indices map to addresses lets you:
 
 - Write loops that hit **contiguous cache lines**.
 
@@ -244,7 +245,7 @@ Common access patterns:
 
 Multidimensional arrays are **1D buffers with a view** defined by layout and strides. Correct **linearization formulas** and **stride-aware traversal** determine whether your code runs at memory speed or stalls on cache misses. Prefer contiguous-dimension inner loops, tile for transposes and stencils, choose **rectangular** layouts for performance-critical kernels, and pad/align to match cache and SIMD widths.
 
-## See also
+## Related Notes
 
 - [[matrices|Matrices]]
 

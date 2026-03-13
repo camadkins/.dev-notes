@@ -2,22 +2,23 @@
 title: Grammar Ambiguity & Parse Trees
 description: How ambiguity arises in grammars, how to visualize it with parse trees, and how to refactor rules using precedence and associativity.
 draft: false
+comments: true
 tags:
   - cs
   - pl
 date: 2025-10-24
 updated:
 aliases: []
-# diagram: grammar_ambiguity_parse_trees.svg — show two parse trees for "a + b * c" and a refactored unambiguous grammar with precedence layers.
+# diagram: grammar_ambiguity_parse_trees.svg - show two parse trees for "a + b * c" and a refactored unambiguous grammar with precedence layers.
 ---
 
 ## Why Ambiguity Matters
-An ambiguous grammar allows multiple valid parse trees for the same input string — meaning the language can’t assign a single, deterministic meaning.  
+An ambiguous grammar allows multiple valid parse trees for the same input string - meaning the language can’t assign a single, deterministic meaning.  
 In compilers, ambiguity is fatal: the parser cannot decide which structure to build, and downstream stages (like semantic analysis or code generation) may interpret the same program differently.
 
 > [!note]
 > Ambiguity is a property of the grammar, *not* the language itself.  
-> Some languages can be described by both ambiguous and unambiguous grammars — it’s the grammar’s job to enforce unique structure.
+> Some languages can be described by both ambiguous and unambiguous grammars - it’s the grammar’s job to enforce unique structure.
 
 ---
 
@@ -42,7 +43,7 @@ Each complete derivation can be visualized as a **parse tree**.
 
 ---
 
-## Diagram — Ambiguous Parse Trees
+## Diagram - Ambiguous Parse Trees
 The diagram (`grammar_ambiguity_parse_trees.svg`) should show:
 1. Two trees side by side for `a + b * c`:  
    - Left tree: `E → E + E → (a + b) * c`  
@@ -54,7 +55,7 @@ This visual reinforces that ambiguity arises from unclear operator precedence an
 
 ---
 
-## Fixing Ambiguity — Precedence and Associativity
+## Fixing Ambiguity - Precedence and Associativity
 To eliminate ambiguity, we split the grammar by operator *precedence* and define *associativity* explicitly.
 
 ### Precedence Hierarchy
@@ -91,7 +92,7 @@ Prefix and postfix forms avoid ambiguity by encoding precedence directly in synt
 
 ---
 
-## Classic Example — Dangling Else
+## Classic Example - Dangling Else
 A textbook case of ambiguity:
 ```
 
@@ -124,10 +125,10 @@ Now the structure is deterministic: each `else` matches the closest unmatched `i
 ---
 
 ## Sources of Ambiguity
-1. **Operator precedence gaps** — multiple rules compete for the same syntax.  
-2. **Overlapping productions** — shared prefixes that create multiple derivations.  
-3. **Implicit optionality** — missing explicit `ε` productions can lead to multiple parses.  
-4. **Grammar extensions** — adding new rules without revisiting existing ones can silently reintroduce ambiguity.
+1. **Operator precedence gaps** - multiple rules compete for the same syntax.  
+2. **Overlapping productions** - shared prefixes that create multiple derivations.  
+3. **Implicit optionality** - missing explicit `ε` productions can lead to multiple parses.  
+4. **Grammar extensions** - adding new rules without revisiting existing ones can silently reintroduce ambiguity.
 
 > [!warning]
 > Parser tools often choose one parse arbitrarily without warning.  
@@ -143,12 +144,12 @@ Now the structure is deterministic: each `else` matches the closest unmatched `i
 5. **Validate with examples:** ambiguous grammars often fail at predictable edge cases.
 
 > [!tip]
-> Ambiguity is a design smell — it hints your grammar doesn’t communicate intent clearly.  
+> Ambiguity is a design smell - it hints your grammar doesn’t communicate intent clearly.  
 > A clean grammar is one whose structure mirrors how programmers naturally think about the language.
 
 ---
 
-## See also
-- [[grammars-notation-bnfebnf|Grammars — BNF & EBNF]]
+## Related Notes
+- [[grammars-notation-bnfebnf|Grammars - BNF & EBNF]]
 - [[cfg-design-refactoring|CFG Design & Refactoring]]
 - [[programming-paradigms-models-of-computation|Programming Paradigms & Models of Computation]]

@@ -1,7 +1,8 @@
 ---
-title: B+ Tree — Balanced Index for Database and Filesystem Storage  
+title: B+ Tree - Balanced Index for Database and Filesystem Storage  
 description: Extension of B-trees optimized for range queries and disk-based indexing; all keys stored in leaves with linked leaf chaining.  
 draft: false
+comments: true
 tags:
 - cs
 - dsa  
@@ -29,7 +30,7 @@ A **B+ Tree** is a **self-balancing multi-level search tree** commonly used in *
 It extends the **B-tree** by ensuring that **all actual data (records)** reside in the **leaf nodes**, while **internal nodes** store only keys for navigation.
 
 > [!note]  
-> B+ Trees are optimized for **disk-based access patterns** — minimizing expensive I/O by maximizing branching factors and supporting **sequential traversal** through leaf linkage.
+> B+ Trees are optimized for **disk-based access patterns** - minimizing expensive I/O by maximizing branching factors and supporting **sequential traversal** through leaf linkage.
 
 ---
 
@@ -59,10 +60,10 @@ To search for key `k`:
 3. Perform a linear or binary search in the leaf node.
     
 
-**Time Complexity:** `O(log_m n)` — logarithmic with respect to total keys and branching factor `m`.
+**Time Complexity:** `O(log_m n)` - logarithmic with respect to total keys and branching factor `m`.
 
 > [!tip]  
-> Each disk page read corresponds to one level — minimizing height is critical.
+> Each disk page read corresponds to one level - minimizing height is critical.
 
 ### Insertion
 
@@ -125,7 +126,7 @@ Range queries (e.g., `find all keys in [k1, k2]`) are where B+ Trees excel:
 
 > [!example] Diagram: Range scan across linked leaves
 
-This design supports efficient **ordered scans** — a major reason B+ Trees dominate database indexing.
+This design supports efficient **ordered scans** - a major reason B+ Trees dominate database indexing.
 
 ---
 
@@ -139,7 +140,7 @@ This design supports efficient **ordered scans** — a major reason B+ Trees dom
 |Range Query|O(log_m n + k)|`k` = number of records in range|
 
 > [!tip]  
-> Since m (order) is large (hundreds per node), the height `h` is small — often 2–4 even for millions of records.
+> Since m (order) is large (hundreds per node), the height `h` is small - often 2–4 even for millions of records.
 
 ---
 
@@ -192,7 +193,7 @@ This design supports efficient **ordered scans** — a major reason B+ Trees dom
 
 **Insert sequence:** `[10, 20, 5, 6, 12, 30, 7, 17]` into a B+ Tree of order 3.
 
-1. Start empty — insert `[10, 20, 5]` into first leaf.
+1. Start empty - insert `[10, 20, 5]` into first leaf.
     
 2. On inserting 6 → split leaf into `[5,6]` and `[10,20]`; promote `10`.
     
@@ -251,7 +252,7 @@ These advantages make B+ trees ideal for large datasets that cannot fit entirely
 
 - **B+ Trees** extend B-trees by separating data storage (leaves) from indexing (internal nodes).
     
-- They support **efficient range queries**, **sequential traversal**, and **high fan-out** — ideal for disk-based systems.
+- They support **efficient range queries**, **sequential traversal**, and **high fan-out** - ideal for disk-based systems.
     
 - Insertions and deletions maintain balance, ensuring predictable logarithmic performance.
     
@@ -260,7 +261,7 @@ These advantages make B+ trees ideal for large datasets that cannot fit entirely
 
 ---
 
-## See also
+## Related Notes
 
 - [[b-tree|B-Tree]]
     

@@ -3,6 +3,7 @@
 title: Maps & Hash Tables
 description: Key→value dictionary ADT and its fast hash-table implementations; collision strategies, load factor control, and practical hashing.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -23,9 +24,9 @@ A **hash table** implements maps by applying a **hash function** `h(k)` to locat
 
 Two classic collision strategies:
 
-1. **Separate chaining** — each table slot points to a **bucket** (often a linked list or small dynamic array).
+1. **Separate chaining** - each table slot points to a **bucket** (often a linked list or small dynamic array).
 
-2. **Open addressing** — all items live **in the array**; on collision, probe alternative slots (linear/quadratic probing or double hashing).
+2. **Open addressing** - all items live **in the array**; on collision, probe alternative slots (linear/quadratic probing or double hashing).
 
 
 ## Motivation
@@ -36,11 +37,11 @@ Maps are everywhere: symbol tables in compilers, routing tables, caches, JSON/ob
 
 **Map ADT operations**
 
-- `put(k, v)` — Insert or overwrite.
+- `put(k, v)` - Insert or overwrite.
 
-- `get(k)` — Return `v` or indicate **not found**.
+- `get(k)` - Return `v` or indicate **not found**.
 
-- `remove(k)` — Delete binding if present.
+- `remove(k)` - Delete binding if present.
 
 - `size()` / `isEmpty()`, iteration.
 
@@ -102,11 +103,11 @@ function REMOVE_CHAIN(T, k):
 
 Store entries in `T[0..m-1]` directly; on collision, follow a **probe sequence**:
 
-- **Linear probing:** `i, i+1, i+2, …` (mod `m`) — fast, but causes **primary clustering**.
+- **Linear probing:** `i, i+1, i+2, …` (mod `m`) - fast, but causes **primary clustering**.
 
-- **Quadratic probing:** `i + 1², i + 2², …` — reduces clustering; needs care to guarantee coverage.
+- **Quadratic probing:** `i + 1², i + 2², …` - reduces clustering; needs care to guarantee coverage.
 
-- **Double hashing:** `i + j·h2(k)` — best spread; requires `h2(k)` coprime to `m`.
+- **Double hashing:** `i + j·h2(k)` - best spread; requires `h2(k)` coprime to `m`.
 
 
 ```pseudo
@@ -257,7 +258,7 @@ function RESIZE_CHAIN(T):
 
 ## Examples
 
-### Example 1 — Separate chaining behavior
+### Example 1 - Separate chaining behavior
 
 Suppose `m=5`, inserting keys with indices (after `mod 5`):
 `[0, 2, 2, 4, 0, 1]`.
@@ -265,15 +266,15 @@ Buckets grow like:
 `T[0] = [(k1, v1), (k5, v5)]`, `T[1] = [(k6, v6)]`, `T[2] = [(k2, v2), (k3, v3)]`, `T[4] = [(k4, v4)]`.
 Lookup of `k3` is a fast scan of bucket `T[2]`.
 
-### Example 2 — Linear probing cluster
+### Example 2 - Linear probing cluster
 
 Table `m=8`, linear probing. Insert at indices: `3,3,3,4,4` → occupied run `[3,4,5]` develops; future inserts that hash to `3–5` will **walk the cluster**, showing **primary clustering**.
 
 ## Summary
 
-Maps provide the **dictionary** abstraction; hash tables realize it with **expected O(1)** operations given a good hash and **bounded load factor**. Choose **separate chaining** for simple deletes and predictable behavior with high load, or **open addressing** for tight memory and cache-friendly scans—mind **tombstones** and **clustering**. Resize proactively, pick well-mixed hashes (universal hashing if adversarial input is possible), and align `equals` with hashing. Done right, hash tables are the fastest general-purpose maps in practice.
+Maps provide the **dictionary** abstraction; hash tables realize it with **expected O(1)** operations given a good hash and **bounded load factor**. Choose **separate chaining** for simple deletes and predictable behavior with high load, or **open addressing** for tight memory and cache-friendly scans - mind **tombstones** and **clustering**. Resize proactively, pick well-mixed hashes (universal hashing if adversarial input is possible), and align `equals` with hashing. Done right, hash tables are the fastest general-purpose maps in practice.
 
-## See also
+## Related Notes
 
 - [[hash-tables|Hash Tables]]
 

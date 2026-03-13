@@ -2,6 +2,7 @@
 title: Deque (Double-Ended Queue)
 description: A double-ended queue supporting insertion and removal at both ends; implemented via ring buffers or linked lists for predictable O(1) operations.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -232,7 +233,7 @@ This uses deque operations only and runs in linear time over the sequence.
 
 A deque is a versatile, end-efficient container that unifies queue and stack behaviors. **Array-backed** deques provide compact, cache-friendly storage with predictable `O(1)` operations (plus occasional `O(n)` resize), while **doubly linked** deques provide unbounded size and stable node addresses at higher per-element cost. Clear handling of **underflow/overflow**, correct **index arithmetic** (for rings), and a considered concurrency policy make deques reliable building blocks for sliding-window analytics, schedulers, and general-purpose buffering.
 
-## See also
+## Related Notes
 
 - [[circular-queue|Circular Queue]]
 

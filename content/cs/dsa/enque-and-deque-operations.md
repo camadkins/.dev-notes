@@ -1,7 +1,8 @@
 ---
-title: Queue — Enqueue & Dequeue
+title: Queue - Enqueue & Dequeue
 description: Practical mechanics of pushing to and popping from a queue, with invariants, ring-buffer pseudocode, edge cases, and testing notes.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -12,7 +13,7 @@ aliases: []
 
 ## Overview
 
-Queues support **FIFO** service: items are inserted at the **rear** (enqueue) and removed from the **front** (dequeue). Getting these two operations correct hinges on **invariants** (empty/full) and consistent updates to **front/rear indices** or **head/tail pointers**, depending on whether the queue is array- or list-backed. This note focuses on the **mechanics**—how to perform enqueue/dequeue safely and efficiently, how to detect boundary conditions, and how to test them.
+Queues support **FIFO** service: items are inserted at the **rear** (enqueue) and removed from the **front** (dequeue). Getting these two operations correct hinges on **invariants** (empty/full) and consistent updates to **front/rear indices** or **head/tail pointers**, depending on whether the queue is array- or list-backed. This note focuses on the **mechanics** - how to perform enqueue/dequeue safely and efficiently, how to detect boundary conditions, and how to test them.
 
 ## Underlying Process
 
@@ -206,7 +207,7 @@ test "wrap-around correctness":
 
 Enqueue/dequeue correctness rests on **clear invariants** and **consistent updates**. Array-based rings give compact, fast queues; linked queues trade locality for unbounded growth. Decide overflow/underflow behavior up front, encode predicates in helpers, and test **wrap-around** and **boundary** cases aggressively. For concurrent contexts, choose blocking vs non-blocking semantics deliberately and apply the right synchronization or lock-free pattern.
 
-## See also
+## Related Notes
 
 - [[queue|Queue]]
 

@@ -1,7 +1,8 @@
 ---
-title: Sorting — Overview
+title: Sorting - Overview
 description: Taxonomy of comparison vs counting-based methods with stability and in-place trade-offs for practical selection.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -20,7 +21,7 @@ Sorting organizes elements into a **total order** according to a comparator or n
 
 ## Motivation
 
-No single sorting algorithm is best for all contexts. Real systems often combine strategies (e.g., **introsort**: quicksort with heap fallback; mergesort with **insertion sort** for tiny runs). Understanding the landscape helps select an algorithm that matches **workload constraints**—throughput, latency, memory, and required stability.
+No single sorting algorithm is best for all contexts. Real systems often combine strategies (e.g., **introsort**: quicksort with heap fallback; mergesort with **insertion sort** for tiny runs). Understanding the landscape helps select an algorithm that matches **workload constraints** - throughput, latency, memory, and required stability.
 
 ## Definition and Formalism
 
@@ -158,7 +159,7 @@ Stability affects:
 > **"In-place means zero extra space."** Many "in-place" algorithms still use `O(log n)` stack or small buffers. True constant-space stable sorting of arrays is nontrivial and often slower.
 
 > [!warning]
-> **"Mergesort is always better than quicksort."** Mergesort is stable and predictable but allocates; quicksort often wins on in-memory primitive arrays due to cache behavior—unless degenerate pivots trigger worst-case (mitigated by randomization/introsort).
+> **"Mergesort is always better than quicksort."** Mergesort is stable and predictable but allocates; quicksort often wins on in-memory primitive arrays due to cache behavior - unless degenerate pivots trigger worst-case (mitigated by randomization/introsort).
 
 > [!warning]
 > **Ignoring key extraction cost.** Sorting complex objects can be dominated by comparator overhead; **Schwartzian transforms** (decorate-sort-undecorate) can help.
@@ -173,7 +174,7 @@ Stability affects:
 
 Sorting spans two worlds. **Comparison sorts** are general-purpose with a hard `Ω(n log n)` floor but strong flexibility and stable/unstable options. **Counting-based** methods trade generality for speed by exploiting **key structure**, often achieving near-`Θ(n)` time at the cost of additional memory and careful engineering. In practice, hybrids (introsort, TimSort) and **cutoffs to insertion sort** deliver robust performance. Choose by **stability needs**, **key structure**, **memory budget**, and **data shape**; deploy partial/selection techniques when full sorting is unnecessary.
 
-## See also
+## Related Notes
 
 - [[merge-sort|Merge Sort]]
 

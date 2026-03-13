@@ -3,6 +3,7 @@
 title: Kruskal's Algorithm
 description: Greedy MST construction by sorting edges and adding those that connect different components, implemented efficiently with Union-Find (DSU).
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -83,7 +84,7 @@ function UNION(a, b):
 ```
 
 > [!tip]
-> **Early termination:** As soon as `|V|-1` edges are accepted, the MST is complete—stop scanning even if edges remain.
+> **Early termination:** As soon as `|V|-1` edges are accepted, the MST is complete - stop scanning even if edges remain.
 
 ## Example or Trace
 
@@ -109,7 +110,7 @@ Let `V = {A,B,C,D,E}` and edges with weights:
 
 - Take `(D,E,6)`: `{A,B,C,D}` and `{E}` → **add**; merge all `{A,B,C,D,E}`.
 
-Accepted edges: `{(A,B,1), (B,C,2), (C,D,4), (D,E,6)}` with total weight `1+2+4+6 = 13`. We have `|V|-1 = 4` edges—**done**.
+Accepted edges: `{(A,B,1), (B,C,2), (C,D,4), (D,E,6)}` with total weight `1+2+4+6 = 13`. We have `|V|-1 = 4` edges - **done**.
 
 ## Complexity Analysis
 
@@ -187,12 +188,12 @@ Let `n = |V|`, `m = |E|`.
 
 Kruskal's algorithm is a **greedy, edge-sorted** approach to MST: sort edges, scan in increasing order, and add an edge **iff** it connects **different DSU components**. With **path compression** and **union by rank/size**, DSU queries are nearly constant-time, so **sorting dominates**. The method is easy to implement, robust on sparse graphs, and adaptable to clustering and streaming settings.
 
-## See also
+## Related Notes
 
-- [[minimum-spanning-trees-kruskal-prim|Minimum Spanning Trees — Kruskal & Prim]]
+- [[minimum-spanning-trees-kruskal-prim|Minimum Spanning Trees - Kruskal & Prim]]
 
 - [[prims-algorithm|Prim's Algorithm]]
 
 - [[disjoint-set-union-union-find|Disjoint Set Union (Union-Find)]]
 
-- [[graphs|Graphs — Overview]]
+- [[graphs|Graphs - Overview]]

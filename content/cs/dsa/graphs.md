@@ -1,7 +1,8 @@
 ---
-title: Graphs — Overview
+title: Graphs - Overview
 description: Vertices and edges; directed vs undirected; weighted vs unweighted; core terms and how to work with neighborhoods and degrees.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -12,11 +13,11 @@ aliases: []
 
 ## Overview
 
-A **graph** models relationships. It consists of **vertices** (nodes) and **edges** (links). Edges may be **directed** (arrows) or **undirected** (no direction), **weighted** (with costs) or **unweighted**. Graphs let you formalize networks—roads, social connections, call graphs, dependency graphs—and run algorithms for reachability, shortest paths, connectivity, and more.
+A **graph** models relationships. It consists of **vertices** (nodes) and **edges** (links). Edges may be **directed** (arrows) or **undirected** (no direction), **weighted** (with costs) or **unweighted**. Graphs let you formalize networks - roads, social connections, call graphs, dependency graphs - and run algorithms for reachability, shortest paths, connectivity, and more.
 
 ## Motivation
 
-Graphs capture structure with minimal assumptions. Because the model is so general, many problems reduce to "build the right graph, then run a standard traversal or path algorithm." Once you're fluent with degree, neighborhoods, and representations, the rest of the toolbox—[[graph-traversals-bfs-dfs|Graph Traversals (BFS & DFS)]], [[dijkstras-algorithm|Dijkstra's Algorithm]], [[floyd-warshall|Floyd–Warshall Algorithm]]—slides into place.
+Graphs capture structure with minimal assumptions. Because the model is so general, many problems reduce to "build the right graph, then run a standard traversal or path algorithm." Once you're fluent with degree, neighborhoods, and representations, the rest of the toolbox - [[graph-traversals-bfs-dfs|Graph Traversals (BFS & DFS)]], [[dijkstras-algorithm|Dijkstra's Algorithm]], [[floyd-warshall|Floyd–Warshall Algorithm]] - slides into place.
 
 ## Definition and Formalism
 
@@ -93,7 +94,7 @@ Let `V = {0,1,2,3,4}` and edges
 
 ## Implementation or Practical Context
 
-**Representations.** See [[graph-representations|Graph Representations — Adjacency List vs Matrix]]. In brief:
+**Representations.** See [[graph-representations|Graph Representations - Adjacency List vs Matrix]]. In brief:
 
 - **Adjacency list (AL):** space `Theta(n+m)`, neighbor iteration is `Theta(deg(u))`. Best for sparse graphs and traversal-heavy work.
 
@@ -144,11 +145,11 @@ Graphs underpin compilers (control-flow, call graphs), OS schedulers (resource g
 
 ## Summary
 
-Graphs model entities and relationships with almost no baggage. Know the basics—directed vs undirected, weighted vs unweighted, neighborhoods and degrees, and how to store the graph—and you're set to apply traversals for structure and shortest-path methods for distances. The right representation and clear conventions keep both your theory and code simple.
+Graphs model entities and relationships with almost no baggage. Know the basics - directed vs undirected, weighted vs unweighted, neighborhoods and degrees, and how to store the graph - and you're set to apply traversals for structure and shortest-path methods for distances. The right representation and clear conventions keep both your theory and code simple.
 
-## See also
+## Related Notes
 
-- [[graph-representations|Graph Representations — Adjacency List vs Matrix]]
+- [[graph-representations|Graph Representations - Adjacency List vs Matrix]]
 
 - [[graph-traversals-bfs-dfs|Graph Traversals (BFS & DFS)]]
 

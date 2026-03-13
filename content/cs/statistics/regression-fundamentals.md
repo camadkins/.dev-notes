@@ -1,12 +1,13 @@
 ---
 title: Regression Fundamentals
-description: Simple and multiple linear regression—OLS estimation, residual diagnostics, R-squared, and the assumptions that make it all work.
+description: Simple and multiple linear regression - OLS estimation, residual diagnostics, R-squared, and the assumptions that make it all work.
 draft: false
-comments: false
+comments: true
 tags:
   - cs
   - statistics
 date: 2026-03-12
+updated:
 aliases: []
 ---
 
@@ -47,7 +48,7 @@ where $X$ is the $n \times (p+1)$ design matrix (including a column of ones for 
 $$\hat{\beta} = (X^T X)^{-1} X^T Y$$
 
 > [!tip]
-> In practice, never invert $X^T X$ directly—use a QR decomposition or SVD for numerical stability. Most statistical libraries handle this automatically.
+> In practice, never invert $X^T X$ directly - use a QR decomposition or SVD for numerical stability. Most statistical libraries handle this automatically.
 
 ### Residuals
 
@@ -61,10 +62,10 @@ The **residual** for observation $i$ is $e_i = Y_i - \hat{Y}_i$. Residuals are t
 
 | Letter | Assumption | Violation symptom |
 |---|---|---|
-| **L** | **L**inearity — $E[Y \mid X]$ is linear in $X$ | Curved residual pattern |
-| **I** | **I**ndependence — errors are independent | Autocorrelation in time-series data |
-| **N** | **N**ormality — errors are normally distributed | Heavy tails in Q-Q plot |
-| **E** | **E**qual variance — $\text{Var}(\varepsilon_i) = \sigma^2$ | Fan or funnel shape in residuals |
+| **L** | **L**inearity - $E[Y \mid X]$ is linear in $X$ | Curved residual pattern |
+| **I** | **I**ndependence - errors are independent | Autocorrelation in time-series data |
+| **N** | **N**ormality - errors are normally distributed | Heavy tails in Q-Q plot |
+| **E** | **E**qual variance - $\text{Var}(\varepsilon_i) = \sigma^2$ | Fan or funnel shape in residuals |
 
 ### R-squared
 
@@ -85,12 +86,12 @@ $$R^2_{\text{adj}} = 1 - \frac{(1 - R^2)(n - 1)}{n - p - 1}$$
 
 $$\hat{Y} = 25.3 + 0.112 X$$
 
-Interpretation: each additional square foot is associated with a \$112 increase in price, on average. The intercept $25.3$ is the estimated price at zero square footage (not meaningful here—extrapolation beyond the data range).
+Interpretation: each additional square foot is associated with a \$112 increase in price, on average. The intercept $25.3$ is the estimated price at zero square footage (not meaningful here - extrapolation beyond the data range).
 
-With $R^2 = 0.74$, square footage explains 74% of the variance in sale price. The remaining 26% is due to factors not in the model (location, condition, lot size, etc.)—motivation for multiple regression.
+With $R^2 = 0.74$, square footage explains 74% of the variance in sale price. The remaining 26% is due to factors not in the model (location, condition, lot size, etc.) - motivation for multiple regression.
 
 ## Related Notes
 
-- [[probability-distributions|Probability Distributions]] — OLS residuals are assumed normally distributed
-- [[hypothesis-testing|Hypothesis Testing]] — $t$-tests and $F$-tests assess coefficient significance
-- [[bayesian-inference|Bayesian Inference]] — Bayesian regression places priors on $\beta$
+- [[probability-distributions|Probability Distributions]] - OLS residuals are assumed normally distributed
+- [[hypothesis-testing|Hypothesis Testing]] - $t$-tests and $F$-tests assess coefficient significance
+- [[bayesian-inference|Bayesian Inference]] - Bayesian regression places priors on $\beta$

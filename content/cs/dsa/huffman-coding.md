@@ -2,6 +2,7 @@
 title: Huffman Coding
 description: Optimal prefix codes built greedily by repeatedly merging the two least frequent symbols into a binary tree; supports compact encoding and linear-time decoding.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -100,7 +101,7 @@ The total coded length is `L = ∑ f(s) · len(code(s))`, which is **minimal** a
 
 ## Optimizations or Variants
 
-- **Canonical Huffman codes.** Instead of storing the entire tree, store just **code lengths** and assign lexicographically by length to get a **canonical** mapping. This yields faster I/O (compact tables) and deterministic codes—common in DEFLATE/PNG.
+- **Canonical Huffman codes.** Instead of storing the entire tree, store just **code lengths** and assign lexicographically by length to get a **canonical** mapping. This yields faster I/O (compact tables) and deterministic codes - common in DEFLATE/PNG.
 
 - **r-ary Huffman.** For `r`-ary alphabets, merge the `r` smallest nodes at each step; complexity is `O(k log k)` with an `r`-ary heap. Ensures prefix-free codes over an `r`-symbol digit alphabet.
 
@@ -149,7 +150,7 @@ The total coded length is `L = ∑ f(s) · len(code(s))`, which is **minimal** a
 
 Huffman coding is the **greedy** solution to building an **optimal prefix-free** binary code from symbol frequencies. Merge the two lightest nodes until a single tree remains, derive bitstrings from root→leaf paths, and optionally canonicalize for fast, portable decoding. With `O(k log k)` build time and linear encoding/decoding, Huffman is the workhorse of practical lossless compression.
 
-## See also
+## Related Notes
 
 - [[greedy-algorithms|Greedy Algorithms]]
 

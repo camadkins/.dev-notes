@@ -2,6 +2,7 @@
 title: Dynamic Arrays
 description: Resizable contiguous arrays that grow geometrically to provide amortized O(1) append while preserving cache-friendly iteration and random access.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -163,7 +164,7 @@ Let `n` be the number of elements, `C` capacity.
 
 - **Over-alignment** (SIMD, cache lines) can improve numeric kernels.
 
-- **Zero-initialization**: Some languages allocate raw but uninitialized capacity; others zero-fill—be aware of costs.
+- **Zero-initialization**: Some languages allocate raw but uninitialized capacity; others zero-fill - be aware of costs.
 
 
 **Bounds checking.**
@@ -227,9 +228,9 @@ Let `n` be the number of elements, `C` capacity.
 
 ## Summary
 
-Dynamic arrays deliver **contiguous storage**, **O(1) random access**, and **amortized O(1) append** by **geometric growth**. They excel at iteration-heavy and append-heavy workloads with predictable patterns. Their costs—occasional **O(n) reallocation**, **iterator invalidation**, and potential **space slack**—are mitigated by prudent `reserve`, a balanced growth factor, and move-aware implementations. When middle edits, stable addresses, or concurrent access dominate, switch to structures designed for those constraints.
+Dynamic arrays deliver **contiguous storage**, **O(1) random access**, and **amortized O(1) append** by **geometric growth**. They excel at iteration-heavy and append-heavy workloads with predictable patterns. Their costs - occasional **O(n) reallocation**, **iterator invalidation**, and potential **space slack** - are mitigated by prudent `reserve`, a balanced growth factor, and move-aware implementations. When middle edits, stable addresses, or concurrent access dominate, switch to structures designed for those constraints.
 
-## See also
+## Related Notes
 
 - [[arrays|Arrays]]
 

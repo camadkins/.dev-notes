@@ -2,6 +2,7 @@
 title: Dynamic Memory Allocation
 description: Heap allocation, ownership, lifetime, and how to design safe growable buffers without leaks or fragmentation.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -199,7 +200,7 @@ Dynamic allocation is indispensable for flexible data structures and long-lived 
 
 Handled with discipline, dynamic allocation gives high performance and reliability; handled casually, it's the fastest path to leaks, crashes, and late-night debugging sessions.
 
-## See also
+## Related Notes
 
 - [[dynamic-arrays|Dynamic Arrays]]
 

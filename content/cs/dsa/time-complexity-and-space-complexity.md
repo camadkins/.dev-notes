@@ -2,6 +2,7 @@
 title: Time & Space Complexity
 description: Measuring how running time and memory usage grow with input size under clear cost models and asymptotic notation.
 draft: false
+comments: true
 tags:
   - cs
   - dsa
@@ -12,7 +13,7 @@ aliases: []
 ---
 
 ## Overview
-**Time and space complexity** are tools for predicting how an algorithm's **running time** and **memory usage** grow as input size `n` increases. Rather than count literal CPU cycles or bytes, analysis adopts a **cost model** and summarizes behavior with **asymptotic notation**—`$O(\cdot)$`, `$Ω(\cdot)$`, `$Θ(\cdot)$`. The result is a machine-independent description that guides design, compares alternatives, and surfaces scaling risks early.
+**Time and space complexity** are tools for predicting how an algorithm's **running time** and **memory usage** grow as input size `n` increases. Rather than count literal CPU cycles or bytes, analysis adopts a **cost model** and summarizes behavior with **asymptotic notation** - `$O(\cdot)$`, `$Ω(\cdot)$`, `$Θ(\cdot)$`. The result is a machine-independent description that guides design, compares alternatives, and surfaces scaling risks early.
 
 > [!note]
 > Complexity describes **growth**, not wall-clock time. Two `$Θ(n)$` algorithms can differ by large constant factors; profiling still matters in practice.
@@ -113,7 +114,7 @@ For recursive algorithms describe `T(n)` by:
 
 - **Halving + constant work:** `$T(n)=T(n/2)+Θ(1) ⇒ Θ(\log n)$` (binary search).
 
-- **Split & merge:** `$T(n)=aT(n/b)+Θ(n^c)$` → use Master Theorem. See [[recurrence-relations|Recurrence Relations]] and [[recurrences-master-theorem|Recurrences — Master Theorem]].
+- **Split & merge:** `$T(n)=aT(n/b)+Θ(n^c)$` → use Master Theorem. See [[recurrence-relations|Recurrence Relations]] and [[recurrences-master-theorem|Recurrences - Master Theorem]].
 
 - **Degenerate partition:** `$T(n)=T(n-1)+Θ(n) ⇒ Θ(n^2)$` (worst-case quicksort).
 
@@ -175,7 +176,7 @@ Asymptotics hide constant factors, but implementations reveal:
 - **Average-case:** expectation under a **distribution** of inputs (e.g., quicksort `$Θ(n \log n)$` with random pivots). State assumptions.
 
 
-See [[dynamic-arrays|Dynamic Arrays]] and [[disjoint-set-union-union-find|Disjoint Set Union — Union–Find]].
+See [[dynamic-arrays|Dynamic Arrays]] and [[disjoint-set-union-union-find|Disjoint Set Union - Union–Find]].
 
 ## Common Misunderstandings
 
@@ -210,7 +211,7 @@ See [[dynamic-arrays|Dynamic Arrays]] and [[disjoint-set-union-union-find|Disjoi
 
 Time and space complexity abstract away machine idiosyncrasies to expose **growth behavior**. Pick a **cost model** (RAM/bit/I/O), express bounds with **asymptotics**, and account for multiple parameters when relevant. Use **recurrences** for divide-and-conquer, and **amortized analysis** for operation sequences. In practice, pair the theoretical bound with attention to **constants, memory layout, and parallelism** to achieve algorithms that scale **on paper and in production**.
 
-## See also
+## Related Notes
 
 - [[asymptotic-notation|Asymptotic Notation]]
 

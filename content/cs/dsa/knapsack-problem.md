@@ -2,6 +2,7 @@
 title: Knapsack Problem
 description: Choose items with weights and values to maximize total value under a capacity constraint; covers 0/1, fractional, and unbounded variants with DP and greedy solutions.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -90,9 +91,9 @@ function FRACTIONAL_KNAPSACK(w[1..n], v[1..n], W):
 
 - **Time:** `O(n log n)` for sorting.
 
-- **Why optimal:** Exchange argument—if a solution differs, swap in higher-ratio mass without decreasing value.
+- **Why optimal:** Exchange argument - if a solution differs, swap in higher-ratio mass without decreasing value.
 
-### 0/1 Knapsack — Capacity-Based DP (Bottom-Up)
+### 0/1 Knapsack - Capacity-Based DP (Bottom-Up)
 
 `DP[c]` = best value with capacity `c` using items processed so far. Iterate items; traverse capacities backward to avoid reusing an item twice.
 
@@ -115,7 +116,7 @@ function KNAPSACK_01(w[1..n], v[1..n], W):
 **Value-Based DP (useful when values are small)**
 `DP[val]` = minimum weight to achieve total value `val`. Answer is max `val` with `DP[val] ≤ W`. Complexity `O(n·Vsum)`.
 
-### Unbounded Knapsack — Reuse Current Row
+### Unbounded Knapsack - Reuse Current Row
 
 For unlimited copies, traverse capacities **forward** so each item can be reused in the same pass.
 
@@ -156,14 +157,14 @@ Knapsack DP patterns generalize to **budgeted optimization**, **subset-sum**, an
 
 ## Summary
 
-- **Fractional:** sort by `v/w`, take greedily — optimal, fast.
+- **Fractional:** sort by `v/w`, take greedily - optimal, fast.
 
 - **0/1:** NP-hard; use `O(nW)` DP (descending capacities) or value-based DP; branch & bound with fractional upper bounds for pruning.
 
 - **Unbounded:** `O(nW)` DP (ascending capacities).
     Choose the formulation that matches the **divisibility** and **multiplicity** of items, and be mindful of capacity scale when picking DP variants.
 
-## See also
+## Related Notes
 
 - [[greedy-algorithms|Greedy Algorithms]]
 

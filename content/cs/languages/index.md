@@ -11,11 +11,11 @@ updated: 2026-03-12
 aliases: []
 ---
 
-This section collects notes tied to specific programming languages — implementations, idioms, design patterns, and language-specific concepts. Universal PL theory lives in [[cs/pl/index|Programming Language Concepts]]; this is where that theory meets a concrete language.
+This section collects notes tied to specific programming languages - implementations, idioms, design patterns, and language-specific concepts. Universal PL theory lives in [[cs/pl/index|Programming Language Concepts]]; this is where that theory meets a concrete language.
 
 ### Languages
 
-- **[[cs/languages/Racket/index|Racket]]** — macro systems, desugaring, core-to-surface design
+- **[[cs/languages/Racket/index|Racket]]** - macro systems, desugaring, core-to-surface design
 
 More languages (Rust, Python, C, Java, Haskell) will be added as notes develop.
 

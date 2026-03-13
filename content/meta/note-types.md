@@ -1,8 +1,8 @@
 ---
 title: Note Types
-description: The three maturity levels used in this garden — polished, working, and draft.
+description: The three maturity levels used in this garden - polished, working, and draft.
 draft: false
-comments: false
+comments: true
 tags:
   - meta
 date: 2026-03-12
@@ -23,7 +23,7 @@ Most published notes in `cs/dsa/` and `cs/pl/` aim for this level.
 
 ## Working notes
 
-Published but incomplete. These contain real content — not just placeholders — but may be missing sections, lack examples, or need editing. They're usable but clearly in progress.
+Published but incomplete. These contain real content - not just placeholders - but may be missing sections, lack examples, or need editing. They're usable but clearly in progress.
 
 Working notes are published (`draft: false`) and visible on the site.
 

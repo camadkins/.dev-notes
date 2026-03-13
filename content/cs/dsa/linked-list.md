@@ -3,6 +3,7 @@
 title: Linked Lists
 description: Node-based dynamic sequences with next pointers; options for sentinel heads, tail tracking, and size fields.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -286,7 +287,7 @@ function HAS_CYCLE(L):
 
 Linked lists provide **O(1)** local updates with simple pointer rewiring and **O(n)** traversal. Their strengths are **constant-time insert/delete given a predecessor**, easy **queue/stack** patterns, and **flexible growth** without shifting or reallocation. Their weaknesses are **poor cache locality**, **no random access**, and higher per-element overhead. Use sentinels to simplify edge cases, maintain `tail` and `size` when useful, and rely on slow/fast pointers for middle finding and cycle detection. For heavy iteration or indexing workloads, arrays or trees are typically faster and simpler.
 
-## See also
+## Related Notes
 
 - [[singly-linked-list|Singly Linked List]]
 

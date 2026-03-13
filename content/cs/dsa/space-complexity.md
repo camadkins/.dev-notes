@@ -2,6 +2,7 @@
 title: Space Complexity
 description: How algorithms use memory and how to reason about auxiliary space, recursion, and in-place trade-offs.
 draft: false
+comments: true
 tags:
   - cs
   - dsa
@@ -27,11 +28,11 @@ Choosing an algorithm with **sublinear** or **in-place** memory can be the diffe
 ## Definition and Formalism
 Let `S(n)` denote auxiliary space for an input of size `n`.
 
-- **Constant space**: `S(n) = Θ(1)` — in-place, aside from recursion stack if any.
-- **Logarithmic space**: `S(n) = Θ(log n)` — typical of divide-and-conquer with tail recursion eliminated or shallow stacks.
-- **Linear space**: `S(n) = Θ(n)` — buffers proportional to input, e.g., stable merging.
-- **Sublinear**: `o(n)` — streaming/sketching; limited working memory.
-- **Superlinear**: `ω(n)` — rare but can occur in high-dimensional dynamic programs or memoization of large state spaces.
+- **Constant space**: `S(n) = Θ(1)` - in-place, aside from recursion stack if any.
+- **Logarithmic space**: `S(n) = Θ(log n)` - typical of divide-and-conquer with tail recursion eliminated or shallow stacks.
+- **Linear space**: `S(n) = Θ(n)` - buffers proportional to input, e.g., stable merging.
+- **Sublinear**: `o(n)` - streaming/sketching; limited working memory.
+- **Superlinear**: `ω(n)` - rare but can occur in high-dimensional dynamic programs or memoization of large state spaces.
 
 **Total space** sometimes refers to input + output + auxiliary; here we focus on **auxiliary** unless otherwise specified.
 
@@ -143,7 +144,7 @@ Space bounds shape algorithm choice:
 ## Summary
 Space complexity captures the **working memory** required by algorithms. Distinguish **auxiliary** from **total** space, account for **recursion stacks**, and be explicit about what "**in-place**" means. Use iterative forms, buffer reuse, and streaming when memory is scarce; accept larger buffers when they materially improve **locality** and **throughput**. The best choice balances **time**, **space**, and **system constraints** rather than optimizing one metric in isolation.
 
-## See also
+## Related Notes
 - [[time-complexity-analysis|Time Complexity Analysis]]
 - [[recursion|Recursion]]
 - [[memory-allocation|Memory Allocation]]

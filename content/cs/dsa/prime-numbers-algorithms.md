@@ -3,6 +3,7 @@
 title: Prime Number Algorithms
 description: Primality tests from trial division to sieves and Miller-Rabin; performance, memory, and correctness trade-offs.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -16,9 +17,9 @@ aliases: []
 
 Prime-number work splits into two families:
 
-1. **Generate many primes up to N** — use **sieves** (Eratosthenes, segmented variants) with near-linear time and tightly bounded memory.
+1. **Generate many primes up to N** - use **sieves** (Eratosthenes, segmented variants) with near-linear time and tightly bounded memory.
 
-2. **Test a single large n** — use **primality tests** (deterministic for small ranges; **probabilistic** like **Miller-Rabin** for cryptographic sizes).
+2. **Test a single large n** - use **primality tests** (deterministic for small ranges; **probabilistic** like **Miller-Rabin** for cryptographic sizes).
 
 This note presents clear, implementable versions of **trial division**, **wheel tricks**, **Sieve of Eratosthenes** (plain and segmented), and **Miller-Rabin**, with complexity, pitfalls, and practical defaults.
 
@@ -208,11 +209,11 @@ For `n−1 = d·2^s`, example `n=561` (Carmichael):
 
 **Throughput guidance**
 
-- Need _all primes ≤ N_? — Sieve (segmented if `N` is huge).
+- Need _all primes ≤ N_? - Sieve (segmented if `N` is huge).
 
-- Need _just primality of one big n_? — Trial divide small primes, then Miller-Rabin.
+- Need _just primality of one big n_? - Trial divide small primes, then Miller-Rabin.
 
-- Need _factors_? — Combine small-sieve SPF (smallest prime factor) with Pollard's rho (out of scope here).
+- Need _factors_? - Combine small-sieve SPF (smallest prime factor) with Pollard's rho (out of scope here).
 
 ## Optimizations or Variants
 
@@ -262,7 +263,7 @@ For `n−1 = d·2^s`, example `n=561` (Carmichael):
 
 - **Caching primes**: keep a global small prime table (e.g., all primes ≤ 10^6) for both trial division and fast segmented ranges.
 
-- **Memory vs speed**: bitsets + wheels offer the best of both; Atkin/linear sieves add complexity—use when you need SPF or per-composite work.
+- **Memory vs speed**: bitsets + wheels offer the best of both; Atkin/linear sieves add complexity - use when you need SPF or per-composite work.
 
 - **Threading**: segmented sieve parallelizes across segments; Miller-Rabin parallelizes across bases.
 
@@ -274,7 +275,7 @@ For `n−1 = d·2^s`, example `n=561` (Carmichael):
 
 - Watch **off-by-ones** (`p*p`), **overflow**, and **powmod correctness**. With these building blocks and a few guardrails, prime testing and generation are fast, reliable, and production-friendly.
 
-## See also
+## Related Notes
 
 - [[euclidean-algorithms|Euclidean Algorithms]]
 

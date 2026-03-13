@@ -1,7 +1,8 @@
 ---
-title: Bubble Sort — Adjacent Swaps and Stability
+title: Bubble Sort - Adjacent Swaps and Stability
 description: Elementary comparison-based sort using repeated passes and adjacent swaps; simple, stable, but inefficient for large arrays.
 draft: false
+comments: true
 tags:
   - cs
   - dsa
@@ -64,7 +65,7 @@ Input: `[5, 2, 9, 1, 5, 6]`
 |1|`[2, 5, 1, 5, 6, 9]`|✓|9|
 |2|`[2, 1, 5, 5, 6, 9]`|✓|6|
 |3|`[1, 2, 5, 5, 6, 9]`|✓|5|
-|4|`[1, 2, 5, 5, 6, 9]`|✗ (early exit)|—|
+|4|`[1, 2, 5, 5, 6, 9]`|✗ (early exit)| - |
 
 ---
 
@@ -80,7 +81,7 @@ Input: `[5, 2, 9, 1, 5, 6]`
 **Stability:** Yes (equal elements maintain order)
 
 > [!tip]
-> Bubble Sort's only redeeming property is **stability** and **simplicity** — ideal for visual or educational contexts but poor for large datasets.
+> Bubble Sort's only redeeming property is **stability** and **simplicity** - ideal for visual or educational contexts but poor for large datasets.
 
 ---
 
@@ -148,7 +149,7 @@ Input: `[5, 2, 9, 1, 5, 6]`
 
 ---
 
-## See also
+## Related Notes
 
 - [[insertion-sort|Insertion Sort]]
 

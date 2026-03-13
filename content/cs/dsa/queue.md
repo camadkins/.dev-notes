@@ -2,6 +2,7 @@
 title: Queue
 description: FIFO container supporting enqueue/dequeue; designs for arrays (ring buffer) and linked lists with correct empty/full handling.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -257,7 +258,7 @@ FIFO implies **arrival order** preserved. If you must iterate, be aware that con
 
 Queues provide **FIFO** semantics with simple `ENQUEUE`/`DEQUEUE` operations. The **ring buffer** is compact and fast, ideal for steady throughput; the **linked** queue grows flexibly with predictable `O(1)` operations at the ends. Robust implementations clearly define empty/full behavior, handle wrap-around correctly, and choose a resizing or allocation policy appropriate to workload. With these guardrails, queues underpin producer–consumer systems, BFS, schedulers, and numerous buffering tasks.
 
-## See also
+## Related Notes
 
 - [[queue-using-array|Queue Using Array]]
 

@@ -1,7 +1,8 @@
 ---
-title: Asymptotic Notation — Describing Growth Rates
+title: Asymptotic Notation - Describing Growth Rates
 description: Landau symbols O, Θ, and Ω for bounding algorithm efficiency and reasoning about limiting behavior.
 draft: false
+comments: true
 tags:
   - cs
   - dsa
@@ -130,7 +131,7 @@ Imagine plotting `f(n)` and `g(n)`:
 - Θ(g(n)) traps f(n) *between* both bounds.
 
 
-### Practical Interpretation — Why Θ(n log n) Sorts Are “Optimal”
+### Practical Interpretation - Why Θ(n log n) Sorts Are “Optimal”
 All **comparison-based sorting algorithms** must perform at least `Ω(n log n)` comparisons in the worst case.  
 Merge Sort, Heap Sort, and Quick Sort (average case) achieve `O(n log n)`, hence `Θ(n log n)` optimality.
 
@@ -155,7 +156,7 @@ Merge Sort, Heap Sort, and Quick Sort (average case) achieve `O(n log n)`, hence
 ## Pitfalls
 > [!warning]
 > **Dropping non-dominant terms incorrectly:**  
-> `O(n log n + n²)` ≠ `O(n log n)` — the `n²` term dominates.
+> `O(n log n + n²)` ≠ `O(n log n)` - the `n²` term dominates.
 
 > [!warning]
 > **Confusing average with amortized:**  
@@ -172,7 +173,7 @@ Merge Sort, Heap Sort, and Quick Sort (average case) achieve `O(n log n)`, hence
 
 ---
 
-## See also
+## Related Notes
 - [[algorithm-efficiency|Algorithm Efficiency]]
 - [[amortized-analysis-methods|Amortized Analysis]]
 - [[best-worst-average-cases|Best/Worst/Average Cases]]

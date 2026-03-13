@@ -1,7 +1,8 @@
 ---
-title: Binary Heap — Insert & Delete
+title: Binary Heap - Insert & Delete
 description: Maintain the heap-order and shape properties via sift-up (insert) and sift-down (delete/extract); includes edge cases, duplicates, and key-update variants.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -19,7 +20,7 @@ A **binary heap** (array-backed, complete tree) supports efficient **insert** an
 - **Sift-down** (a.k.a. bubble-down/percolate-down): used after **extract** or **delete** or **decreaseKey** (max-heap) to push a too-small parent downward toward its proper place.
 
 
-Both operations take **O(log n)** time, touching at most one node per level. See [[heaps|Heaps — Overview]] for properties and [[heapify|Heapify]] for O(n) bulk build.
+Both operations take **O(log n)** time, touching at most one node per level. See [[heaps|Heaps - Overview]] for properties and [[heapify|Heapify]] for O(n) bulk build.
 
 ## Structure Definition
 
@@ -219,14 +220,14 @@ Start with an empty max-heap. Insert the sequence `8, 3, 10, 1, 6, 14, 4, 7, 13`
 
 ## Summary
 
-Binary heap updates hinge on two local repairs: **sift-up** and **sift-down**. With a complete-tree array layout, inserts append and move up; deletes/extracts swap with the last element and move down. Each operation visits `O(log n)` nodes, uses `O(1)` extra space, and—when implemented with pull-up and careful bounds—delivers fast, predictable priority-queue performance.
+Binary heap updates hinge on two local repairs: **sift-up** and **sift-down**. With a complete-tree array layout, inserts append and move up; deletes/extracts swap with the last element and move down. Each operation visits `O(log n)` nodes, uses `O(1)` extra space, and - when implemented with pull-up and careful bounds - delivers fast, predictable priority-queue performance.
 
-## See also
+## Related Notes
 
 - [[binary-heap|Binary Heap]]
 
 - [[heapify|Heapify]]
 
-- [[heaps|Heaps — Overview]]
+- [[heaps|Heaps - Overview]]
 
 - [[heapsort|Heapsort]]

@@ -2,6 +2,7 @@
 title: Merge Sort
 description: Stable divide-and-conquer sorting; O(n log n) time with O(n) extra space and strong worst-case guarantees.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -169,7 +170,7 @@ If comparisons are expensive (e.g., long strings), precompute **keys** (Schwartz
 
 ### In-place stable merge (advanced)
 
-Algorithms such as **galloping rotation merges** and **block merges** achieve `O(1)` extra space with stability. They are intricate; for production, consider **Timsort**—a stable, natural-merge sorter with galloping merges and run stacks.
+Algorithms such as **galloping rotation merges** and **block merges** achieve `O(1)` extra space with stability. They are intricate; for production, consider **Timsort** - a stable, natural-merge sorter with galloping merges and run stacks.
 
 ### External merge sort (out-of-core)
 
@@ -225,13 +226,13 @@ Sort datasets larger than RAM:
 
 - **Type stability:** For complex records, compare on a **key** rather than the whole structure to reduce copying. In merges, write out full records but compare keys only.
 
-- **Galloping (exponential search) in merge:** When one side wins repeatedly, jump ahead with exponential search to reduce comparisons—used in Timsort for long **runs**.
+- **Galloping (exponential search) in merge:** When one side wins repeatedly, jump ahead with exponential search to reduce comparisons - used in Timsort for long **runs**.
 
 ## Summary
 
 Merge sort guarantees **`Θ(n log n)`** time regardless of input, is **stable**, and favors **sequential memory access**. The classic array version needs `Θ(n)` extra space; the linked-list version sorts **in place** via pointer rewiring. Practical implementations favor **bottom-up passes**, **small-run insertion sort**, and **natural merges**. For disks or massive datasets, **external merge sort** is the method of choice. When you need predictable performance and stability, merge sort is the dependable workhorse.
 
-## See also
+## Related Notes
 
 - [[insertion-sort|Insertion Sort]]
 

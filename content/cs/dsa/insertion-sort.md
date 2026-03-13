@@ -3,6 +3,7 @@
 title: Insertion Sort
 description: Build a sorted prefix by shifting the right spot for each key; stable, in-place, and adaptive to near-sorted data.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -28,7 +29,7 @@ aliases: []
 
 Maintain the invariant: after the `i`-th pass (0-indexed), `A[0..i]` is sorted. To insert `A[i]`, scan **left** across the sorted prefix to find the insertion point, shifting any larger elements **one position right** so the key can be placed without extra swaps. Because only adjacent elements move, relative order of equals does not change → **stability**.
 
-Insertion sort's work is proportional to the number of **inversions** in the input—pairs `(p,q)` with `p<q` but `A[p] > A[q]`. Each shift fixes (at least) one inversion, so fewer inversions ⇒ less work.
+Insertion sort's work is proportional to the number of **inversions** in the input - pairs `(p,q)` with `p<q` but `A[p] > A[q]`. Each shift fixes (at least) one inversion, so fewer inversions ⇒ less work.
 
 ## Algorithm Steps / Pseudocode
 
@@ -77,7 +78,7 @@ This reduces comparisons to `O(n log n)` but data **movement** remains `Θ(n²)`
 
 ### Sentinel optimization (optional)
 
-If you can place a **sentinel**—a global minimum at `A[0]`—you can drop the `j>=0` check inside the inner loop for fewer branches. This requires either ensuring `A[0]` is the minimum or moving the minimum to index 0 once up front.
+If you can place a **sentinel** - a global minimum at `A[0]` - you can drop the `j>=0` check inside the inner loop for fewer branches. This requires either ensuring `A[0]` is the minimum or moving the minimum to index 0 once up front.
 
 ```pseudo
 function INSERTION_SORT_WITH_SENTINEL(A):
@@ -109,13 +110,13 @@ Consider `A = [7, 3, 5, 2, 3]`.
 
 - **Time (worst/average):** `Θ(n²)` comparisons and moves (e.g., reverse-sorted input).
 
-- **Best case (already sorted):** `Θ(n)` comparisons, **0 moves** aside from the key copy (`A[j+1]=key`) each pass—**adaptive** behavior.
+- **Best case (already sorted):** `Θ(n)` comparisons, **0 moves** aside from the key copy (`A[j+1]=key`) each pass - **adaptive** behavior.
 
 - **Binary insertion variant:** `O(n log n)` comparisons but still `Θ(n²)` moves; improves instruction count for expensive comparisons (e.g., long strings with lexicographic compare).
 
 - **Space:** `O(1)` auxiliary; operates in place.
 
-- **Stability:** **Stable** because equal elements never cross—stop condition uses `A[j] > key`, not `>=`.
+- **Stability:** **Stable** because equal elements never cross - stop condition uses `A[j] > key`, not `>=`.
 
 **Cost model intuition.** Let `Inv(A)` be the number of inversions. Standard insertion sort runs in `Θ(n + Inv(A))`, because each shift eliminates one inversion and we always do at least `n−1` passes.
 
@@ -162,7 +163,7 @@ Consider `A = [7, 3, 5, 2, 3]`.
 
 - **Comparator discipline.** Comparators must provide a **strict weak ordering**. Inconsistent comparators (or NaNs in floating-point) can cause non-termination or misordered results.
 
-- **Data layout.** Arrays are cache-friendly; linked lists avoid shifting but lose locality and incur allocation overhead—arrays win on modern CPUs.
+- **Data layout.** Arrays are cache-friendly; linked lists avoid shifting but lose locality and incur allocation overhead - arrays win on modern CPUs.
 
 - **Sentinel practicality.** The sentinel trick is fastest when moving trivially copyable scalars; for general types, first pass to find min, then swap once is usually worthwhile.
 
@@ -170,9 +171,9 @@ Consider `A = [7, 3, 5, 2, 3]`.
 
 ## Summary
 
-Insertion sort grows a sorted prefix by **shifting** larger elements and dropping the **key** into the opened gap. It's **stable**, **in-place**, and **adaptive**—ideal for tiny ranges or nearly-sorted data and as a **cutover** in hybrids. Use **shifts** (not swaps), consider **binary search** to cut comparisons, and guard the inner loop with a **sentinel** when possible. On general unsorted inputs, expect `Θ(n²)` behavior; on low-inversion inputs, expect near-linear performance.
+Insertion sort grows a sorted prefix by **shifting** larger elements and dropping the **key** into the opened gap. It's **stable**, **in-place**, and **adaptive** - ideal for tiny ranges or nearly-sorted data and as a **cutover** in hybrids. Use **shifts** (not swaps), consider **binary search** to cut comparisons, and guard the inner loop with a **sentinel** when possible. On general unsorted inputs, expect `Θ(n²)` behavior; on low-inversion inputs, expect near-linear performance.
 
-## See also
+## Related Notes
 
 - [[selection-sort|Selection Sort]]
 

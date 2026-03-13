@@ -2,6 +2,7 @@
 title: Red–Black Tree  
 description: Height-balanced binary search tree with coloring and rotation rules that ensure logarithmic operations.  
 draft: false
+comments: true
 tags:
 - cs
 - dsa  
@@ -10,13 +11,13 @@ updated:
 aliases: []
 # diagrams:
 
-# - rbt-properties.svg — Visual of BST with black root, red nodes having black children, and equal black-height on all root→leaf paths.
+# - rbt-properties.svg - Visual of BST with black root, red nodes having black children, and equal black-height on all root→leaf paths.
 
-# - rbt-insert-cases.svg — Case-by-case insert fixup: recolor, left-rotation, right-rotation with uncle red/black scenarios.
+# - rbt-insert-cases.svg - Case-by-case insert fixup: recolor, left-rotation, right-rotation with uncle red/black scenarios.
 
-# - rbt-delete-double-black.svg — Delete fixup states: sibling red/black, near/far nephew colors, and the rotations/recolors that discharge “double black.”
+# - rbt-delete-double-black.svg - Delete fixup states: sibling red/black, near/far nephew colors, and the rotations/recolors that discharge “double black.”
 
-# - rbt-black-height-proof.svg — Illustration of black-height and the ≤2 log(n+1) height bound.
+# - rbt-black-height-proof.svg - Illustration of black-height and the ≤2 log(n+1) height bound.
 
 ---
 
@@ -47,7 +48,7 @@ A red–black tree is a BST over keys with these **properties**:
 The **black-height** `bh(x)` of a node `x` is the number of **BLACK** nodes on any path from `x` down to, but not including, a NIL leaf; property (5) makes `bh` well-defined.
 
 > [!example]  
-> **Diagram (`rbt-properties.svg`)** — Highlight the root as black, draw several red nodes each with **black** children, and annotate equal black-heights on two distinct root→NIL paths.
+> **Diagram (`rbt-properties.svg`)** - Highlight the root as black, draw several red nodes each with **black** children, and annotate equal black-heights on two distinct root→NIL paths.
 
 ## Core Operations
 
@@ -87,9 +88,9 @@ function RIGHT_ROTATE(T, y):
     
     - Let `p = parent(z)`, `g = grandparent(z)`, and `u = uncle(z)` (the other child of `g`).
         
-    - **Case 1 — `u` is RED (recoloring):** set `p.color = BLACK`, `u.color = BLACK`, `g.color = RED`; then continue with `z = g`.
+    - **Case 1 - `u` is RED (recoloring):** set `p.color = BLACK`, `u.color = BLACK`, `g.color = RED`; then continue with `z = g`.
         
-    - **Case 2/3 — `u` is BLACK (rotation + recolor):** rotate to make `z` and `p` aligned (a **triangle** becomes a **line**), then rotate around `g` and recolor `p` black and `g` red.
+    - **Case 2/3 - `u` is BLACK (rotation + recolor):** rotate to make `z` and `p` aligned (a **triangle** becomes a **line**), then rotate around `g` and recolor `p` black and `g` red.
         
 3. Finish by coloring the root **BLACK**.
     
@@ -141,7 +142,7 @@ function RB_INSERT(T, z):
 ```
 
 > [!example]  
-> **Diagram (`rbt-insert-cases.svg`)** — Panel A: uncle red → recolor (no rotations). Panel B: triangle → single rotation to line. Panel C: line → rotate at grandparent and recolor.
+> **Diagram (`rbt-insert-cases.svg`)** - Panel A: uncle red → recolor (no rotations). Panel B: triangle → single rotation to line. Panel C: line → rotate at grandparent and recolor.
 
 ### Deletion (BST delete + fixup)
 
@@ -231,7 +232,7 @@ function RB_DELETE_FIXUP(T, x):
 ```
 
 > [!example]  
-> **Diagram (`rbt-delete-double-black.svg`)** — Four canonical cases (sibling red, sibling black with both nephews black, sibling black with near red/far black, sibling black with far red). Track how rotations move the red nephew into the far position and recolor to eliminate the double black.
+> **Diagram (`rbt-delete-double-black.svg`)** - Four canonical cases (sibling red, sibling black with both nephews black, sibling black with near red/far black, sibling black with far red). Track how rotations move the red nephew into the far position and recolor to eliminate the double black.
 
 ## Example (Stepwise)
 
@@ -279,7 +280,7 @@ Let `n` be the number of nodes.
     
 
 > [!example]  
-> **Diagram (`rbt-black-height-proof.svg`)** — Show two root→leaf paths: a short all-black path and a longest alternating red/black path ≤ 2× longer, with a side note that each black contributes to `bh`.
+> **Diagram (`rbt-black-height-proof.svg`)** - Show two root→leaf paths: a short all-black path and a longest alternating red/black path ≤ 2× longer, with a side note that each black contributes to `bh`.
 
 ## Implementation Details or Trade-offs
 
@@ -349,7 +350,7 @@ Let `n` be the number of nodes.
     
 
 > [!tip]  
-> If you need **order statistics** (select k-th, rank queries), augment nodes with **subtree sizes** and maintain them across rotations—RBT balancing and size updates compose cleanly.
+> If you need **order statistics** (select k-th, rank queries), augment nodes with **subtree sizes** and maintain them across rotations - RBT balancing and size updates compose cleanly.
 
 ## Limitations / Pitfalls
 
@@ -366,7 +367,7 @@ Let `n` be the number of nodes.
 
 Red–black trees are **height-balanced BSTs** that guarantee `O(log n)` operations through a compact set of **coloring rules** and **local rotations**. Insertion is handled by at most two rotations and a small recolor dance; deletion by a well-understood **double-black** fixup. Their balance guarantee, modest memory overhead, and robust performance under arbitrary update sequences explain their dominance as the default **balanced ordered container** in general-purpose libraries.
 
-## See also
+## Related Notes
 
 - [[bst|Binary Search Tree]]
     

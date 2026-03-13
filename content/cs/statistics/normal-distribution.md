@@ -1,18 +1,19 @@
 ---
 title: Normal Distribution
-description: The Gaussian bell curve—parameterized by mean and standard deviation, foundation for statistical inference and machine learning.
+description: The Gaussian bell curve - parameterized by mean and standard deviation, foundation for statistical inference and machine learning.
 draft: false
-comments: false
+comments: true
 tags:
   - cs
   - statistics
 date: 2026-03-12
+updated:
 aliases: []
 ---
 
 ## Intuition
 
-The normal distribution is the symmetric **bell curve** that shows up whenever many small, independent effects add together. Heights, measurement errors, exam scores—all tend to cluster around a central value with symmetric tails. The curve is entirely described by two numbers: where it is centered and how wide it spreads. This simplicity, combined with the [[central-limit-theorem|Central Limit Theorem]], makes it the single most important distribution in statistics.
+The normal distribution is the symmetric **bell curve** that shows up whenever many small, independent effects add together. Heights, measurement errors, exam scores - all tend to cluster around a central value with symmetric tails. The curve is entirely described by two numbers: where it is centered and how wide it spreads. This simplicity, combined with the [[central-limit-theorem|Central Limit Theorem]], makes it the single most important distribution in statistics.
 
 ## Definition
 
@@ -28,13 +29,13 @@ The **standard normal** distribution is the special case $Z \sim \mathcal{N}(0, 
 
 ## Key Formulas
 
-**Standardizing transformation** — convert any normal variable to standard normal:
+**Standardizing transformation** - convert any normal variable to standard normal:
 
 $$Z = \frac{X - \mu}{\sigma}$$
 
 This lets you look up probabilities in a single $Z$-table or use a single CDF $\Phi(z)$.
 
-**The 68-95-99.7 rule** (empirical rule):
+**The 68-95-99.7 rule** (empirical rule) - worth memorizing:
 
 | Interval | Probability |
 |---|---|
@@ -60,21 +61,22 @@ By symmetry, the proportion outside tolerance is:
 
 $$P(|X - 10| > 0.05) = 2\,[1 - \Phi(2.5)] = 2(0.0062) \approx 1.24\%$$
 
-So about 1.24% of production is scrapped—a number that directly informs cost analysis and quality control decisions.
+So about 1.24% of production is scrapped - a number that directly informs cost analysis and quality control decisions.
 
-If the process variance drifted to $\sigma = 0.03$ mm, the scrap rate would jump to $2[1 - \Phi(1.67)] \approx 9.5\%$—demonstrating how sensitive quality is to the spread parameter.
+If the process variance drifted to $\sigma = 0.03$ mm, the scrap rate would jump to $2[1 - \Phi(1.67)] \approx 9.5\%$ - demonstrating how sensitive quality is to the spread parameter.
 
 ## Why It Matters in CS
 
-- **Machine learning:** Gaussian Mixture Models cluster data by fitting multiple normal distributions. Weight initialization in neural networks often uses $\mathcal{N}(0, \sigma^2)$.
-- **Computer vision:** Gaussian blur convolves images with a normal kernel to reduce noise and detail.
-- **Regression:** OLS assumes errors are normally distributed ($\varepsilon \sim \mathcal{N}(0, \sigma^2)$), which justifies $t$-tests on coefficients.
-- **Generative models:** Variational autoencoders and diffusion models use the normal distribution as a latent prior.
-- **Statistical testing:** many test statistics ($z$, $t$, $\chi^2$) are derived from normal assumptions on the underlying data.
+The 68-95-99.7 rule is burned into every engineer's brain for a reason: it lets you eyeball whether data is behaving normally without running a formal test. If roughly 5% of your values fall outside two standard deviations, things are probably fine. If 20% do, something interesting is going on.
+
+In ML, the normal shows up constantly. Weight initialization in neural networks samples from $\mathcal{N}(0, \sigma^2)$ because symmetric, light-tailed starting points help gradient flow. Gaussian Mixture Models are just "what if the data came from $k$ overlapping bell curves?" Variational autoencoders and diffusion models both lean on the normal as a latent prior because it's easy to sample from and has nice analytic properties.
+
+> [!note]
+> OLS regression assumes $\varepsilon \sim \mathcal{N}(0, \sigma^2)$, which is what justifies $t$-tests on coefficients. If the residuals aren't roughly normal, those p-values you're reading off the regression output may not mean much.
 
 ## Related Notes
 
-- [[central-limit-theorem|Central Limit Theorem]] — explains *why* the normal distribution appears so often
-- [[probability-distributions|Probability Distributions]] — the normal in context with other distribution families
-- [[regression-fundamentals|Regression Fundamentals]] — normality assumption on residuals
-- [[bayesian-inference|Bayesian Inference]] — normal priors and conjugate updating
+- [[central-limit-theorem|Central Limit Theorem]] - explains *why* the normal distribution appears so often
+- [[probability-distributions|Probability Distributions]] - the normal in context with other distribution families
+- [[regression-fundamentals|Regression Fundamentals]] - normality assumption on residuals
+- [[bayesian-inference|Bayesian Inference]] - normal priors and conjugate updating

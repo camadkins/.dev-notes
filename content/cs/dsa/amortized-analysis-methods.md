@@ -2,6 +2,7 @@
 title: Amortized Analysis
 description: Bounding the average cost per operation over a sequence via aggregate, accounting, and potential methods.
 draft: false
+comments: true
 tags:
   - cs
   - dsa
@@ -56,14 +57,14 @@ Amortized bounds are established **for sequences** of operations under a fixed c
 
 ## Examples
 
-### 1) Dynamic array growth (append) — \( O(1) \) amortized
+### 1) Dynamic array growth (append) - \( O(1) \) amortized
 **Model.** Start with capacity 1. On overflow, allocate new array of capacity \(2m\) and copy \(m\) items; then append.
 
 **Aggregate proof (classic).** In \(m\) appends, each element is copied at most **once** per capacity it survives. Total copies \(< 2m\). So total work \(O(m)\) and average \(O(1)\).
 
 **Accounting sketch.** Charge each append **3 units**: 1 to write, **2 banked** toward future copies. When resizing from \(m\) to \(2m\), the bank holds enough to pay for the \(m\) copies.
 
-> [!example] Dynamic array (doubling) — accounting sketch
+> [!example] Dynamic array (doubling) - accounting sketch
 > - Charge each append 3 units.
 > - 1 unit pays for the write; 2 units are banked.
 > - On resize to capacity 2m, m banked units copy m elements. Average remains O(1).
@@ -75,7 +76,7 @@ Amortized bounds are established **for sequences** of operations under a fixed c
 
 ---
 
-### 2) Union–Find (Disjoint Set Union) — \( O(m \, \alpha(n)) \)
+### 2) Union–Find (Disjoint Set Union) - \( O(m \, \alpha(n)) \)
 **Operations.** `make_set`, `find`, `union` with **path compression** and **union by rank/size**.
 
 **Result.** Any sequence of \(m\) operations on \(n\) elements runs in \(O(m\,\alpha(n))\) time, where \(\alpha\) is the inverse Ackermann function (grows \(< 5\) for any practical \(n\)).
@@ -86,11 +87,11 @@ Amortized bounds are established **for sequences** of operations under a fixed c
 - The potential (based on node ranks) amortizes the repeated `find`s afterward.
 
 > [!example] Union-Find (path compression + union by rank)
-> A sequence of m ops on n elements is O(m α(n)), where α is inverse Ackermann — effectively constant for practical n.
+> A sequence of m ops on n elements is O(m α(n)), where α is inverse Ackermann - effectively constant for practical n.
 
 ---
 
-### 3) Stack with occasional cleanup — \( O(1) \) amortized
+### 3) Stack with occasional cleanup - \( O(1) \) amortized
 Suppose each `push` sometimes triggers a **cleanup** that removes obsolete markers (e.g., periodically scanning to discard dead entries). If each entry is cleaned **once** per its lifetime, the **aggregate** cost over \(m\) `push/pop` operations is linear, yielding constant amortized cost.
 
 **Accounting view.** Charge each `push` a small credit saved on the element. When a cleanup runs, the credits on to-be-removed elements pay for the traversal.
@@ -105,7 +106,7 @@ Suppose each `push` sometimes triggers a **cleanup** that removes obsolete marke
 
 ## Pitfalls
 - **Amortized \(\neq\) average over random inputs.** Amortized is **worst-case over sequences** when the policy is fixed, not probabilistic averaging.
-- **Changing the policy midstream.** If the growth factor for a dynamic array changes (say, from ×2 to ×1.5), redo the analysis—your credits or potential may no longer cover costs.
+- **Changing the policy midstream.** If the growth factor for a dynamic array changes (say, from ×2 to ×1.5), redo the analysis - your credits or potential may no longer cover costs.
 - **Ignoring allocators and caches.** Real systems may have nontrivial reallocation/memcpy costs; constants matter for performance even if asymptotics don’t change.
 
 > [!warning] Common pitfalls
@@ -115,7 +116,7 @@ Suppose each `push` sometimes triggers a **cleanup** that removes obsolete marke
 
 ---
 
-## See also
+## Related Notes
 - [[asymptotic-notation|Asymptotic Notation]]
 - [[best-worst-average-cases|Best/Worst/Average Cases]]
 - [[dynamic-arrays|Dynamic Arrays]]

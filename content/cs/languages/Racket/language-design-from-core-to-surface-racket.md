@@ -1,7 +1,8 @@
 ---
-title: Racket — From Core to Surface
+title: Racket - From Core to Surface
 description: Macro expansion and desugaring from surface language into a small core with precise semantics.
 draft: false
+comments: true
 tags:
   - cs
   - languages
@@ -31,5 +32,5 @@ Programs are **expanded** (desugared) before evaluation.
 - Reasoning about programs happens at the **core** level; surfaces are convenience layers.
 
 **See also**
-- [[lambda-calculus-evaluation-strategies|Lambda Calculus — Evaluation Strategies]]
+- [[lambda-calculus-evaluation-strategies|Lambda Calculus - Evaluation Strategies]]
 - [[cs/languages/racket/index|Racket]]

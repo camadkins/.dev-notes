@@ -1,18 +1,19 @@
 ---
 title: Random Variable
-description: A function that assigns numerical values to outcomes of a random experiment—the formal bridge between probability and statistics.
+description: A function that assigns numerical values to outcomes of a random experiment - the formal bridge between probability and statistics.
 draft: false
-comments: false
+comments: true
 tags:
   - cs
   - statistics
 date: 2026-03-12
+updated:
 aliases: []
 ---
 
 ## Intuition
 
-A random variable is just a **rule that turns outcomes into numbers**. Flip a coin and you get heads or tails—but if you assign heads = 1 and tails = 0, you now have a random variable. Roll two dice and sum the faces: that sum is a random variable. The outcome is still random, but now it lives on a number line, so you can compute averages, measure spread, and apply the full machinery of mathematics.
+A random variable is just a **rule that turns outcomes into numbers**. Flip a coin and you get heads or tails - but if you assign heads = 1 and tails = 0, you now have a random variable. Roll two dice and sum the faces: that sum is a random variable. The outcome is still random, but now it lives on a number line, so you can compute averages, measure spread, and apply the full machinery of mathematics.
 
 Random variables are the entry point to everything else in statistics. Without them, concepts like expected value, variance, and distributions have no object to act on.
 
@@ -22,7 +23,7 @@ A **random variable** $X$ is a function from a sample space $S$ to the real numb
 
 $$X: S \to \mathbb{R}$$
 
-Each outcome $s \in S$ maps to a real number $X(s)$. The randomness comes from the underlying experiment, not from $X$ itself—$X$ is a deterministic function applied to a random outcome.
+Each outcome $s \in S$ maps to a real number $X(s)$. The randomness comes from the underlying experiment, not from $X$ itself - $X$ is a deterministic function applied to a random outcome.
 
 ### Discrete vs. continuous
 
@@ -76,9 +77,9 @@ The random variable $X$ lets us move from "packets might get dropped" to precise
 
 ## Related Notes
 
-- [[expected-value|Expected Value]] — the mean of a random variable
-- [[variance-and-covariance|Variance and Covariance]] — measures spread and co-movement of random variables
-- [[probability-distributions|Probability Distributions]] — the families that random variables follow
-- [[binomial-distribution|Binomial Distribution]] — a discrete random variable counting successes
-- [[normal-distribution|Normal Distribution]] — the most common continuous random variable model
-- [[poisson-distribution|Poisson Distribution]] — a discrete random variable for event counts
+- [[expected-value|Expected Value]] - the mean of a random variable
+- [[variance-and-covariance|Variance and Covariance]] - measures spread and co-movement of random variables
+- [[probability-distributions|Probability Distributions]] - the families that random variables follow
+- [[binomial-distribution|Binomial Distribution]] - a discrete random variable counting successes
+- [[normal-distribution|Normal Distribution]] - the most common continuous random variable model
+- [[poisson-distribution|Poisson Distribution]] - a discrete random variable for event counts

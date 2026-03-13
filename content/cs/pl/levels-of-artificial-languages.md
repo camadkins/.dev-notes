@@ -1,7 +1,8 @@
 ---
 title: Levels of Artificial Languages
-description: The hierarchy from machine code to high-level and domain-specific languages — how abstraction, expressiveness, and efficiency evolve across language generations.
+description: The hierarchy from machine code to high-level and domain-specific languages - how abstraction, expressiveness, and efficiency evolve across language generations.
 draft: false
+comments: true
 tags:
   - cs
   - pl
@@ -9,17 +10,17 @@ date: 2025-10-24
 updated:
 aliases: []
 # diagrams:
-#  - language_hierarchy_tower.svg — stacked diagram: machine → assembly → high-level → domain-specific → meta-languages.
-#  - compilation_pipeline.svg — show source → compiler → machine code translation.
-#  - abstraction_vs_control.svg — plot showing abstraction (↑) vs control (↓) across language generations.
+#  - language_hierarchy_tower.svg - stacked diagram: machine → assembly → high-level → domain-specific → meta-languages.
+#  - compilation_pipeline.svg - show source → compiler → machine code translation.
+#  - abstraction_vs_control.svg - plot showing abstraction (↑) vs control (↓) across language generations.
 ---
 
 ## Overview
-Programming languages form a layered hierarchy of abstraction — from **machine instructions** that talk directly to hardware, to **high-level languages** that let humans express algorithms and ideas succinctly.  
+Programming languages form a layered hierarchy of abstraction - from **machine instructions** that talk directly to hardware, to **high-level languages** that let humans express algorithms and ideas succinctly.  
 Each level trades off **control** for **convenience**, **efficiency** for **portability**, and **hardware proximity** for **semantic richness**.
 
 > [!note]
-> “Artificial” here means deliberately designed — unlike natural languages, programming languages are constructed with formal grammars and precise semantics.
+> “Artificial” here means deliberately designed - unlike natural languages, programming languages are constructed with formal grammars and precise semantics.
 
 ---
 
@@ -38,7 +39,7 @@ Each level trades off **control** for **convenience**, **efficiency** for **port
 ---
 
 ## Machine Language
-The lowest level — **binary instructions** directly executed by the processor.
+The lowest level - **binary instructions** directly executed by the processor.
 
 ### Structure
 - Represented as sequences of bits (e.g., `10110000 01100001`)
@@ -95,7 +96,7 @@ ADD EAX, EBX
 
 > [!example]  
 > **Diagram idea** (`language_hierarchy_tower.svg`):  
-> A vertical stack — at the base, _Machine Code_ → above it _Assembly_ → _High-Level_ → _DSLs_ → _Meta-Languages_.  
+> A vertical stack - at the base, _Machine Code_ → above it _Assembly_ → _High-Level_ → _DSLs_ → _Meta-Languages_.  
 > Each layer annotated with “abstraction ↑” and “hardware control ↓”.
 
 ---
@@ -125,7 +126,7 @@ High-level languages (HLLs) abstract away the underlying hardware, introducing *
     
 
 > [!note]  
-> HLLs decouple the programmer’s model from machine specifics — enabling compiler optimizations, static checks, and structured design.
+> HLLs decouple the programmer’s model from machine specifics - enabling compiler optimizations, static checks, and structured design.
 
 ---
 
@@ -168,7 +169,7 @@ Source → **Interpreter** → Execute step-by-step.
 
 ## Intermediate Representations (IRs)
 
-Between high-level and machine code lie **IRs** — language-neutral forms used by compilers to optimize and target multiple architectures.
+Between high-level and machine code lie **IRs** - language-neutral forms used by compilers to optimize and target multiple architectures.
 
 ### Examples
 
@@ -194,11 +195,11 @@ High-level, often declarative languages focused on data and business logic.
 
 Examples:
 
-- **SQL** — declarative queries on relational databases.
+- **SQL** - declarative queries on relational databases.
     
-- **MATLAB** — matrix-oriented numerical computing.
+- **MATLAB** - matrix-oriented numerical computing.
     
-- **R** — statistical computing and analysis.
+- **R** - statistical computing and analysis.
     
 
 ### Fifth Generation (5GL)
@@ -207,22 +208,22 @@ Languages that focus on **constraints**, **logic**, or **knowledge representatio
 
 Examples:
 
-- **Prolog** — logic programming (relations, inference).
+- **Prolog** - logic programming (relations, inference).
     
-- **Lisp/Scheme (AI roots)** — symbolic computation.
+- **Lisp/Scheme (AI roots)** - symbolic computation.
     
-- **Constraint-based systems** — declarative problem-solving.
+- **Constraint-based systems** - declarative problem-solving.
     
 
 > [!note]  
-> 4GLs and 5GLs reduce _how_ to solve to _what_ to solve — relying on specialized interpreters and solvers.
+> 4GLs and 5GLs reduce _how_ to solve to _what_ to solve - relying on specialized interpreters and solvers.
 
 ---
 
 ## Domain-Specific Languages (DSLs)
 
 DSLs are tailored to specific problem domains.  
-They sit “horizontally” across levels — a DSL can be implemented atop any language.
+They sit “horizontally” across levels - a DSL can be implemented atop any language.
 
 ### Examples
 
@@ -245,13 +246,13 @@ Some DSLs exist _inside_ host languages:
     
 
 > [!tip]  
-> DSLs increase expressiveness for specific tasks but reduce generality — trading universality for productivity.
+> DSLs increase expressiveness for specific tasks but reduce generality - trading universality for productivity.
 
 ---
 
 ## Meta-Languages and Language Definition
 
-At the top of the hierarchy lie languages **for defining other languages** — grammar formalisms, type systems, and IRs.
+At the top of the hierarchy lie languages **for defining other languages** - grammar formalisms, type systems, and IRs.
 
 ### Examples
 
@@ -265,7 +266,7 @@ At the top of the hierarchy lie languages **for defining other languages** — g
     
 
 > [!note]  
-> Meta-languages enable _language engineering_ — the ability to describe, extend, or even generate languages programmatically.
+> Meta-languages enable _language engineering_ - the ability to describe, extend, or even generate languages programmatically.
 
 ---
 
@@ -287,7 +288,7 @@ Each step up the hierarchy increases abstraction and decreases hardware control.
 
 ---
 
-## Modern Context — Hybrid Architectures
+## Modern Context - Hybrid Architectures
 
 Contemporary toolchains blend levels:
 
@@ -308,7 +309,7 @@ Contemporary toolchains blend levels:
     
 
 > [!tip]  
-> Modern systems blur strict boundaries — “levels” are conceptual, not physical.  
+> Modern systems blur strict boundaries - “levels” are conceptual, not physical.  
 > Each compiler pipeline traverses several abstraction layers before execution.
 
 ---
@@ -335,18 +336,18 @@ Contemporary toolchains blend levels:
 |Productivity|Low|High|
 |Portability|Architecture-bound|Platform-independent|
 
-At each level, programming languages evolve toward _human-centric abstraction_ — enabling reasoning, composability, and cross-platform deployment.
+At each level, programming languages evolve toward _human-centric abstraction_ - enabling reasoning, composability, and cross-platform deployment.
 
 > [!note]  
 > The progression from machine code to meta-languages mirrors computing’s overall trend: **from hardware optimization to conceptual design**.
 
 ---
 
-## See also
+## Related Notes
 
 - [[history-genealogy-of-languages|History & Genealogy of Languages]]
     
-- [[language-overview-syntax-semantics|Language Overview — Syntax vs Semantics]]
+- [[language-overview-syntax-semantics|Language Overview - Syntax vs Semantics]]
     
 - [[compilation-vs-interpretation|Compilation vs Interpretation]]
     

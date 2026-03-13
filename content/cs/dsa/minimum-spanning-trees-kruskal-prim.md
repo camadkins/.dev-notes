@@ -1,8 +1,9 @@
 ---
 
-title: Minimum Spanning Trees — Kruskal & Prim
+title: Minimum Spanning Trees - Kruskal & Prim
 description: MST fundamentals via cut/cycle properties and two classic workflows- Kruskal with Union-Find and Prim with a priority queue.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -44,7 +45,7 @@ Let `G=(V,E,w)` with nonnegative (or arbitrary) edge weights. An MST is a spanni
 
 **Cut (S, V\S).** A set of vertices `S ⊂ V` defines a cut; edges with one endpoint in `S` and the other in `V\S` are said to **cross** the cut.
 
-**Cut property (safe edge).** For any cut `(S, V\S)`, the **lightest** crossing edge is **safe**—it can appear in **some** MST.
+**Cut property (safe edge).** For any cut `(S, V\S)`, the **lightest** crossing edge is **safe** - it can appear in **some** MST.
 **Cycle property (forbidden edge).** For any cycle, the **heaviest** edge cannot belong to **any** MST.
 
 These are dual ways to reason about safe inclusion vs exclusion.
@@ -54,7 +55,7 @@ These are dual ways to reason about safe inclusion vs exclusion.
 
 ## Example or Illustration
 
-Imagine a five-vertex graph. The **lightest cut edge** across `{A,B}` and `{C,D,E}` is `(B,C,2)`—safe by the cut property. In a cycle `(C,D,4)`, `(D,E,6)`, `(C,E,7)`, the **heaviest** `(C,E,7)` is guaranteed **out** by the cycle property.
+Imagine a five-vertex graph. The **lightest cut edge** across `{A,B}` and `{C,D,E}` is `(B,C,2)` - safe by the cut property. In a cycle `(C,D,4)`, `(D,E,6)`, `(C,E,7)`, the **heaviest** `(C,E,7)` is guaranteed **out** by the cycle property.
 
 ## Properties and Relationships
 
@@ -68,7 +69,7 @@ Imagine a five-vertex graph. The **lightest cut edge** across `{A,B}` and `{C,D,
 
 ## Implementation or Practical Context
 
-### Kruskal's Algorithm — Named Steps & Invariants
+### Kruskal's Algorithm - Named Steps & Invariants
 
 **Inputs**: edge list `E`, vertex set `V`.
 **Data structure**: **DSU** with path compression and union by rank/size.
@@ -92,7 +93,7 @@ Imagine a five-vertex graph. The **lightest cut edge** across `{A,B}` and `{C,D,
 > [!tip]
 > For integer weights with small range, bucket/radix sort reduces the `log m` factor and can make Kruskal nearly linear.
 
-### Prim's Algorithm — Named Steps & Invariants
+### Prim's Algorithm - Named Steps & Invariants
 
 **Inputs**: adjacency structure (list or matrix), start vertex `s`.
 **Data structure**: **Priority Queue** keyed by the **cheapest known edge** connecting each **outside** vertex to the current tree.
@@ -131,7 +132,7 @@ Imagine a five-vertex graph. The **lightest cut edge** across `{A,B}` and `{C,D,
 
 - **Adjacency matrix** makes a simple `O(n^2)` Prim attractive for dense graphs.
 
-- **Edge list** is a perfect fit for Kruskal. Converting between forms costs time and memory—choose algorithms that suit the given form.
+- **Edge list** is a perfect fit for Kruskal. Converting between forms costs time and memory - choose algorithms that suit the given form.
 
 ### Variants & Hybrids
 
@@ -156,7 +157,7 @@ Imagine a five-vertex graph. The **lightest cut edge** across `{A,B}` and `{C,D,
 > **PQ key discipline**: Prim's requires that `key[v]` always represent the **best known** frontier edge. If implementing without true decrease-key, guard against stale entries.
 
 > [!warning]
-> **Self-loops and parallel edges**: ignore self-loops; keep parallel edges—algorithms naturally choose the lightest.
+> **Self-loops and parallel edges**: ignore self-loops; keep parallel edges - algorithms naturally choose the lightest.
 
 ## Implementation Notes or Trade-offs
 
@@ -174,7 +175,7 @@ Imagine a five-vertex graph. The **lightest cut edge** across `{A,B}` and `{C,D,
 
 MST construction rests on **cut** and **cycle** properties. **Kruskal** greedily accepts safe edges across DSU **components** by global **edge order**; **Prim** greedily extends a single **tree** via the **lightest frontier edge** tracked in a **PQ**. Complexity depends on representation and data structures: `O(m log m)` for Kruskal vs `O(m log n)` (sparse) or `O(n^2)` (dense) for Prim. Choose based on **input form**, **graph density**, and **performance goals**; combine with Boruvka or bucketed sorts when beneficial.
 
-## See also
+## Related Notes
 
 - [[kruskals-algorithm|Kruskal's Algorithm]]
 

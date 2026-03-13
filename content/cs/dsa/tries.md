@@ -1,7 +1,8 @@
 ---
-title: Tries — Overview
+title: Tries - Overview
 description: Prefix trees for fast string lookup; trades memory for predictable time and prefix-aware features.
 draft: false
+comments: true
 tags:
   - cs
   - dsa
@@ -9,8 +10,8 @@ date: 2025-10-16
 updated:
 aliases: []
 # diagrams:
-# - trie-branching.svg — Rooted prefix tree over {a..z}: edges labeled by characters, terminal markers on complete keys; shows common prefixes sharing nodes.
-# - memory-vs-childset.svg — Node representations (fixed array, sparse map, bitset+vector) with notes on memory footprint and cache locality.
+# - trie-branching.svg - Rooted prefix tree over {a..z}: edges labeled by characters, terminal markers on complete keys; shows common prefixes sharing nodes.
+# - memory-vs-childset.svg - Node representations (fixed array, sparse map, bitset+vector) with notes on memory footprint and cache locality.
 ---
 
 ## Overview
@@ -141,7 +142,7 @@ Now:
     
 
 > [!example]  
-> **Diagram (`trie-branching.svg`)** — Show the above set as a trie with nodes for prefixes `t`, `te`, `to`, `in`, `inn`, and terminal dots at `o`, `a`, `d`, `n`, `n`.
+> **Diagram (`trie-branching.svg`)** - Show the above set as a trie with nodes for prefixes `t`, `te`, `to`, `in`, `inn`, and terminal dots at `o`, `a`, `d`, `n`, `n`.
 
 ## Complexity and Performance
 
@@ -256,9 +257,9 @@ Let `L` be key length, `σ = |Σ|` the alphabet size, and `n` the number of keys
 
 ## Summary
 
-Tries offer **predictable `Θ(L)`** operations and powerful **prefix-aware** features that hash tables and ordinary trees lack. They shine when keys share prefixes, when you must **enumerate by prefix**, or when lexicographic order is first-class. The main cost is **memory**, driven by the alphabet and node representation. With careful engineering—**sparse children**, **path compression**, **arenas**, and appropriate **text normalization**—tries become a practical and robust foundation for sets and maps of strings.
+Tries offer **predictable `Θ(L)`** operations and powerful **prefix-aware** features that hash tables and ordinary trees lack. They shine when keys share prefixes, when you must **enumerate by prefix**, or when lexicographic order is first-class. The main cost is **memory**, driven by the alphabet and node representation. With careful engineering - **sparse children**, **path compression**, **arenas**, and appropriate **text normalization** - tries become a practical and robust foundation for sets and maps of strings.
 
-## See also
+## Related Notes
 
 - [[standard-trie|Standard Trie]]
     

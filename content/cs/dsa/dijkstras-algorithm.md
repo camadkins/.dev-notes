@@ -2,6 +2,7 @@
 title: Dijkstra's Algorithm  
 description: Single-source shortest paths on non-negative weighted graphs using a priority queue and a settled/frontier partition.  
 draft: false
+comments: true
 tags:
 - cs
 - dsa  
@@ -9,8 +10,8 @@ date: 2025-10-16
 updated:  
 aliases: []
 # diagrams:
-# - dijkstra-settled-vs-frontier.svg — Side-by-side state after several PQ pops: settled S (final distances), frontier PQ with tentative keys, and remaining unknown vertices; arrows show relaxation edges.
-# - dijkstra-trace-small-graph.svg — Stepwise trace on a 6-vertex graph showing PQ contents, chosen vertex, and distance updates per iteration.
+# - dijkstra-settled-vs-frontier.svg - Side-by-side state after several PQ pops: settled S (final distances), frontier PQ with tentative keys, and remaining unknown vertices; arrows show relaxation edges.
+# - dijkstra-trace-small-graph.svg - Stepwise trace on a 6-vertex graph showing PQ contents, chosen vertex, and distance updates per iteration.
 ---
 
 ## Overview
@@ -18,7 +19,7 @@ aliases: []
 **Dijkstra’s algorithm** computes **single-source shortest paths** in graphs with **non-negative edge weights**. It maintains a set `S` of **settled** vertices (final distances) and a **priority queue** keyed by current best tentative distances for a **frontier** of discovered vertices. Each step removes the vertex with minimum tentative distance, **relaxes** its outgoing edges, and repeats until all reachable vertices are settled. The method is correct because removing the smallest tentative distance is safe when all edges are non-negative.
 
 > [!example]  
-> **Diagram (`dijkstra-settled-vs-frontier.svg`)** — Show `S` (solid outline) and the frontier PQ (callout box with keys). From the extracted vertex, highlight relaxations that lower neighbor keys; dim edges that no longer improve distances.
+> **Diagram (`dijkstra-settled-vs-frontier.svg`)** - Show `S` (solid outline) and the frontier PQ (callout box with keys). From the extracted vertex, highlight relaxations that lower neighbor keys; dim edges that no longer improve distances.
 
 ## Core Idea
 
@@ -93,7 +94,7 @@ Consider source `s` and edges (undirected, shown as two directed edges) with wei
     
 
 > [!example]  
-> **Diagram (`dijkstra-trace-small-graph.svg`)** — For each iteration, list PQ contents, mark popped vertex, and draw only the edges relaxed that improved distances (bold), annotating new `dist[]` and parents.
+> **Diagram (`dijkstra-trace-small-graph.svg`)** - For each iteration, list PQ contents, mark popped vertex, and draw only the edges relaxed that improved distances (bold), annotating new `dist[]` and parents.
 
 ## Complexity Analysis
 
@@ -164,7 +165,7 @@ Let `n = |V|`, `m = |E|`.
 
 Dijkstra’s algorithm grows a **settled set** outward from the source, always expanding the **smallest tentative distance** next. With non-negative edges, each pop finalizes a vertex’s distance. Efficient implementations hinge on a consistent PQ strategy (**decrease-key** or **push-many**), proper relaxation, and a data structure tuned to graph density and workload.
 
-## See also
+## Related Notes
 
 - [[breadth-first-search-algorithms|Breadth-First Search Algorithms]]
     

@@ -2,6 +2,7 @@
 title: Doubly Linked List
 description: A bidirectional linked structure with constant-time insertion and deletion given a node reference; trades extra pointers and memory overhead for O(1) local updates and two-way iteration.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -18,11 +19,11 @@ A **doubly linked list** stores elements in nodes that each carry two pointers: 
 
 Each **node** holds:
 
-- `value` — the stored element
+- `value` - the stored element
 
-- `prev` — pointer to previous node (or `null`/sentinel)
+- `prev` - pointer to previous node (or `null`/sentinel)
 
-- `next` — pointer to next node (or `null`/sentinel)
+- `next` - pointer to next node (or `null`/sentinel)
 
 
 A list exposes:
@@ -263,7 +264,7 @@ To move a **contiguous segment** `[a..b]` after node `t` in O(1):
 
 **Concurrency.**
 
-- Single-threaded operations are trivial. Multi-threaded use requires coarse-grained locks or fine-grained node locks; lock-free DLLs are complex due to ABA and double-link updates—generally avoid unless using a proven algorithm.
+- Single-threaded operations are trivial. Multi-threaded use requires coarse-grained locks or fine-grained node locks; lock-free DLLs are complex due to ABA and double-link updates - generally avoid unless using a proven algorithm.
 
 
 **Safety checks.**
@@ -300,7 +301,7 @@ To move a **contiguous segment** `[a..b]` after node `t` in O(1):
 
 Doubly linked lists enable **constant-time local edits** and **two-way iteration** by maintaining `prev` and `next` pointers in each node. Using a **sentinel** simplifies edge cases and often improves branch behavior. The structure is ideal for workloads driven by **splicing with handles** (LRU, schedulers, deque backends), but it trades away array-like locality and indexed access. Robust implementations formalize pointer-update order, validate invariants, and define clear iterator invalidation rules.
 
-## See also
+## Related Notes
 
 - [[linked-list|Linked List]]
 

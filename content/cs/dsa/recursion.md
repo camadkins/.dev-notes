@@ -2,6 +2,7 @@
 title: Recursion
 description: Define solutions in terms of smaller instances with explicit base cases and guaranteed termination; structure call trees and manage state.
 draft: false
+comments: true
 tags:
   - cs
   - dsa
@@ -119,7 +120,7 @@ function SOLVE(state):
 
 ### Recurrence relations for cost
 
-Recursive algorithms often yield cost recurrences such as `T(n) = aT(n/b) + f(n)` (divide-and-conquer). Solving these uses the tools in [[recurrences-master-theorem|Recurrences — Master Theorem]] and [[recurrence-relations|Recurrence Relations]].
+Recursive algorithms often yield cost recurrences such as `T(n) = aT(n/b) + f(n)` (divide-and-conquer). Solving these uses the tools in [[recurrences-master-theorem|Recurrences - Master Theorem]] and [[recurrence-relations|Recurrence Relations]].
 
 ## Implementation or Practical Context
 
@@ -207,7 +208,7 @@ Recursive algorithms often yield cost recurrences such as `T(n) = aT(n/b) + f(n)
 
 Recursion expresses solutions by **reducing** problems to **smaller instances** until **base cases**. Correctness follows an inductive pattern: define base cases, prove progress, and apply the recursive step. Efficiency depends on the structure: structural recursion over trees is naturally `Θ(n)`, divide-and-conquer depends on its recurrence, and backtracking requires pruning or memoization. For robustness, bound stack depth, consider tail-recursive or iterative transformations, and manage shared state explicitly.
 
-## See also
+## Related Notes
 
 - [[divide-and-conquer|Divide and Conquer]]
 

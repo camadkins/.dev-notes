@@ -1,7 +1,8 @@
 ---
-title: Binary Tree — Foundational Two-Child Hierarchy
+title: Binary Tree - Foundational Two-Child Hierarchy
 description: Hierarchical structure where each node has up to two children; basis for BSTs, Heaps, and Tree Traversals.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -16,7 +17,7 @@ A **Binary Tree** is a **hierarchical data structure** where each node has at mo
 It serves as the foundation for many advanced structures like **Binary Search Trees**, **Heaps**, and **Expression Trees**.
 
 > [!note]
-> Binary trees are used when hierarchical relationships or ordered branching is required — e.g., parsing, searching, and structural recursion.
+> Binary trees are used when hierarchical relationships or ordered branching is required - e.g., parsing, searching, and structural recursion.
 
 ---
 
@@ -133,7 +134,7 @@ function height(node):
 ## Pitfalls
 
 > [!warning]
-> **Cycle creation:** Never let two nodes reference each other as parent/child — breaks acyclicity assumption.
+> **Cycle creation:** Never let two nodes reference each other as parent/child - breaks acyclicity assumption.
 
 > [!warning]
 > **Null pointer handling:** Recursive algorithms must check for null before descending.
@@ -145,11 +146,11 @@ function height(node):
 
 ## Examples / Use Cases
 
-- **Expression Trees** — Represent arithmetic expressions hierarchically.
+- **Expression Trees** - Represent arithmetic expressions hierarchically.
 
-- **Huffman Coding Trees** — Encode symbols based on frequency.
+- **Huffman Coding Trees** - Encode symbols based on frequency.
 
-- **Binary Search Trees / Heaps** — Use structural variants for ordering and efficiency.
+- **Binary Search Trees / Heaps** - Use structural variants for ordering and efficiency.
 
 
 ---
@@ -167,7 +168,7 @@ function height(node):
 
 ---
 
-## See also
+## Related Notes
 
 - [[bst|Binary Search Tree]]
 

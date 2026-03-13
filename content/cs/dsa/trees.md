@@ -1,7 +1,8 @@
 ---
-title: Trees — Overview
+title: Trees - Overview
 description: Hierarchical structures of nodes and edges; terminology (size, height, degree), variants, and core representations.
 draft: false
+comments: true
 tags:
   - cs
   - dsa
@@ -9,10 +10,10 @@ date: 2025-10-16
 updated:
 aliases: []
 # diagrams:
-# - rooted-vs-unrooted.svg — Same undirected tree shown once without a root and once with a chosen root; annotate parent/child, depth, height.
-# - ordered-vs-unordered.svg — Show children with fixed left-to-right order vs a set with no order; contrast traversals.
-# - binary-forms.svg — Perfect vs complete vs full vs degenerate (linked-list-like) binary trees, each with n, h annotated.
-# - representations.svg — Pointer nodes, parent array, children arrays, left-child-right-sibling (LCRS), showing memory trade-offs.
+# - rooted-vs-unrooted.svg - Same undirected tree shown once without a root and once with a chosen root; annotate parent/child, depth, height.
+# - ordered-vs-unordered.svg - Show children with fixed left-to-right order vs a set with no order; contrast traversals.
+# - binary-forms.svg - Perfect vs complete vs full vs degenerate (linked-list-like) binary trees, each with n, h annotated.
+# - representations.svg - Pointer nodes, parent array, children arrays, left-child-right-sibling (LCRS), showing memory trade-offs.
 ---
 
 ## Overview
@@ -60,7 +61,7 @@ Relations (binary, perfect): with height `h`, `n = 2^{h+1} − 1` and leaves `= 
 Consider the undirected tree:
 ```
 
-1—2—3—4  
+1 - 2 - 3 - 4  
 |  
 5
 
@@ -104,11 +105,11 @@ function HEIGHT(u):
 
 ### Traversals (binary trees)
 
-See [[tree-traversal-overview|Tree Traversal — Overview]] for detailed recursive and iterative patterns:
+See [[tree-traversal-overview|Tree Traversal - Overview]] for detailed recursive and iterative patterns:
 
 - **Preorder** (Root, Left, Right)
     
-- **Inorder** (Left, Root, Right) — meaningful for [[bst|Binary Search Tree]]
+- **Inorder** (Left, Root, Right) - meaningful for [[bst|Binary Search Tree]]
     
 - **Postorder** (Left, Right, Root)
     
@@ -208,7 +209,7 @@ parent[0..n-1], where parent[root] = -1
 > **Using heap indexing on non-complete trees.** The `2i+1`/`2i+2` formulas assume a complete binary layout. Sparse shapes waste space and break invariants.
 
 > [!warning]  
-> **Multiple parents / cycles.** A DAG is **not** a tree. Trees have exactly one simple path between any two nodes. If multiple parents are needed, you’re in DAG territory—use [[graph-representations|Graph Representations]] and [[topological-sorting|Topological Sorting]].
+> **Multiple parents / cycles.** A DAG is **not** a tree. Trees have exactly one simple path between any two nodes. If multiple parents are needed, you’re in DAG territory - use [[graph-representations|Graph Representations]] and [[topological-sorting|Topological Sorting]].
 
 > [!warning]  
 > **Overflowing recursion stacks.** Deep or skewed trees can exceed recursion limits. Prefer iterative traversals with explicit stacks or tail-recursion elimination.
@@ -224,14 +225,14 @@ parent[0..n-1], where parent[root] = -1
 
 ## Summary
 
-Trees encode hierarchical relations with clean recursive structure. Key choices—rooted vs unrooted, ordered vs unordered, binary vs k-ary—and representations (pointers, arrays, LCRS) determine both elegance and performance. Master the vocabulary (size, leaves, degrees, depth, height), use traversal orders suited to the task, and select representations that match shape (complete vs sparse) and workload (static vs dynamic). With these fundamentals, tree algorithms become straightforward, efficient, and robust.
+Trees encode hierarchical relations with clean recursive structure. Key choices - rooted vs unrooted, ordered vs unordered, binary vs k-ary - and representations (pointers, arrays, LCRS) determine both elegance and performance. Master the vocabulary (size, leaves, degrees, depth, height), use traversal orders suited to the task, and select representations that match shape (complete vs sparse) and workload (static vs dynamic). With these fundamentals, tree algorithms become straightforward, efficient, and robust.
 
-## See also
+## Related Notes
 
 - [[binary-tree|Binary Tree]]
     
-- [[tree-traversal|Tree Traversal — Overview]]
+- [[tree-traversal|Tree Traversal - Overview]]
     
-- [[heaps|Heaps — Overview]]
+- [[heaps|Heaps - Overview]]
     
 - [[graph-representations|Graph Representations]]

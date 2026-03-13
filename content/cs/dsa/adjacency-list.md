@@ -2,6 +2,7 @@
 title: Adjacency List
 description: Sparse graph representation with efficient neighbor iteration; trade-offs vs adjacency matrix.
 draft: false
+comments: true
 tags:
   - cs
   - dsa
@@ -23,10 +24,10 @@ An **adjacency list** stores, for each vertex `u`, a container of its outgoing n
 ## Operations
 Typical surface API (names vary by codebase):
 
-- `addVertex()` — allocate a new, initially empty neighbor container.
-- `addEdge(u, v, w?)` — insert `(v, w?)` into `Adj[u]` (and `(u, w?)` into `Adj[v]` if undirected).
-- `removeEdge(u, v)` — delete one `(u,v)` occurrence (and `(v,u)` if undirected); in multigraphs, delete by edge-id.
-- `neighbors(u)` — return an iterator over `Adj[u]`.
+- `addVertex()` - allocate a new, initially empty neighbor container.
+- `addEdge(u, v, w?)` - insert `(v, w?)` into `Adj[u]` (and `(u, w?)` into `Adj[v]` if undirected).
+- `removeEdge(u, v)` - delete one `(u,v)` occurrence (and `(v,u)` if undirected); in multigraphs, delete by edge-id.
+- `neighbors(u)` - return an iterator over `Adj[u]`.
 
 > Minimal sketch:
 > ```pseudo
@@ -76,9 +77,9 @@ Typical surface API (names vary by codebase):
 
 ## Implementations
 Common per-vertex bucket choices (pick to match workload):
-- `vector<vector<int>>` — contiguous buckets; fast iteration and good cache locality; membership is linear unless kept sorted.
-- `vector<list<int>>` — easy deletions; weaker locality; iterators stable.
-- `unordered_map<int, vector<int>>` (or `unordered_map<Vertex, Container>`) — supports sparse vertex ids; flexible for dynamic graphs.
+- `vector<vector<int>>` - contiguous buckets; fast iteration and good cache locality; membership is linear unless kept sorted.
+- `vector<list<int>>` - easy deletions; weaker locality; iterators stable.
+- `unordered_map<int, vector<int>>` (or `unordered_map<Vertex, Container>`) - supports sparse vertex ids; flexible for dynamic graphs.
 - Alternatives: `vector<unordered_set<int>>` (expected `O(1)` membership), `vector<set<int>>` (ordered iteration; `O(log deg)` ops).
 
 > [!tip] Iteration order
@@ -134,7 +135,7 @@ Adj[4] = []
 > - Represent edges as tuples `(neighbor, weight[, id])` if you need payloads.
 
 ## Pitfalls
-- **Duplicate edges** in *simple* graphs inflate degrees and double-count relaxations—deduplicate on insert or via a cleanup pass.
+- **Duplicate edges** in *simple* graphs inflate degrees and double-count relaxations - deduplicate on insert or via a cleanup pass.
 - **Undirected symmetry** must be maintained on insert/delete, or degrees and traversals become inconsistent.
 - **Self-loops & parallel edges**: decide policy up front; loops affect degree counts and some heuristics.
 - **Iterator invalidation**: removing from a vector while iterating can invalidate indices/iterators; prefer two-phase delete or stable containers.
@@ -146,7 +147,7 @@ Adj[4] = []
 ## When to use
 Choose adjacency lists for **sparse graphs** and algorithms that **iterate neighbors** (BFS/DFS/Dijkstra/Prim). They minimize memory, keep work proportional to **present edges**, and provide flexible bucket choices (locality vs membership speed) for your workload.
 
-## See also
+## Related Notes
 - [[graph-representations|Graph Representations]]
 - [[adjacency-matrix|Adjacency Matrix]]
 - [[breadth-first-search-algorithms|Breadth-First Search]]

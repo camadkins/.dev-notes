@@ -2,6 +2,7 @@
 title: Standard Trie
 description: Prefix tree with per-character child pointers; fast lookups and natural prefix operations at the cost of memory.
 draft: false
+comments: true
 tags:
   - cs
   - dsa
@@ -9,15 +10,15 @@ date: 2025-10-16
 updated:
 aliases: []
 # diagrams:
-# - trie-node-and-branching.svg — A root with outgoing edges for characters; nodes showing children map/array, and a terminal flag marking complete words.
-# - trie-insert-search-trace.svg — Stepwise insert/search for words like “art”, “arc”, “arm”; highlight traversal edges and terminal markers.
+# - trie-node-and-branching.svg - A root with outgoing edges for characters; nodes showing children map/array, and a terminal flag marking complete words.
+# - trie-insert-search-trace.svg - Stepwise insert/search for words like “art”, “arc”, “arm”; highlight traversal edges and terminal markers.
 ---
 
 ## Overview
 A **standard trie** (a.k.a. *prefix tree*) stores strings so that each edge corresponds to a character and each root-to-node path spells a **prefix** of some key. Tries provide **prefix-friendly** lookup: exact membership, prefix queries, and lexicographic iteration in time proportional to the **length of the query**, not the number of stored keys. The trade-off is **memory**: naive node designs allocate a child slot per alphabet symbol, which can be expensive on large alphabets or sparse branches.
 
 > [!note]
-> A “standard trie” here means **uncompressed**—every character consumes one edge. For space-optimized variants see [[compressed-trie|Compressed Trie]] and for substring indexing see [[suffix-trie|Suffix Trie]].
+> A “standard trie” here means **uncompressed** - every character consumes one edge. For space-optimized variants see [[compressed-trie|Compressed Trie]] and for substring indexing see [[suffix-trie|Suffix Trie]].
 
 ## Structure Definition
 Each node represents a **prefix** `p`. It stores:
@@ -103,7 +104,7 @@ function DELETE(root, s) -> bool:
 Depth-first iterate from the node reached by `prefix`, yielding all words under it in lexicographic order (if children are ordered).
 
 > [!example]  
-> **Diagram (`trie-insert-search-trace.svg`)** — Show inserting “art”, “arc”, “arm”. The shared `ar` path branches at `t/c/m`. Mark `isWord=true` at `art`, `arc`, and `arm`. A search for `arc` follows edges `a→r→c`, then checks `isWord`.
+> **Diagram (`trie-insert-search-trace.svg`)** - Show inserting “art”, “arc”, “arm”. The shared `ar` path branches at `t/c/m`. Mark `isWord=true` at `art`, `arc`, and `arm`. A search for `arc` follows edges `a→r→c`, then checks `isWord`.
 
 ## Example (Stepwise)
 
@@ -212,7 +213,7 @@ Normalize input at insert/search time:
     
 
 > [!example]  
-> **Diagram (`trie-node-and-branching.svg`)** — Node with child pointers for characters (array or map) and a **terminal marker** (e.g., bold dot or flag) indicating completed words. Show branching at shared prefixes.
+> **Diagram (`trie-node-and-branching.svg`)** - Node with child pointers for characters (array or map) and a **terminal marker** (e.g., bold dot or flag) indicating completed words. Show branching at shared prefixes.
 
 ## Common Pitfalls or Edge Cases
 
@@ -266,7 +267,7 @@ Normalize input at insert/search time:
 
 A standard trie offers **predictable `Θ(k)`** operations for exact and prefix queries by **indexing characters along edges** and marking **terminal nodes** for complete words. It excels at **prefix-heavy** tasks like autocomplete and routing, trading **space** for **speed and simplicity**. Sensible node representations (array vs map), clear normalization policies, and careful delete/pruning logic produce a robust, scalable implementation. For large datasets or long chains of degree-1 nodes, consider [[compressed-trie|Compressed Trie]] to reduce height and memory while preserving prefix operations.
 
-## See also
+## Related Notes
 
 - [[tries|Tries]]
     

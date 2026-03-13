@@ -2,6 +2,7 @@
 title: Floyd–Warshall Algorithm
 description: All-pairs shortest paths via dynamic programming on path "via" sets; handles negative edges and detects negative cycles using a simple triple loop.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -197,7 +198,7 @@ Let `n = |V|`.
 
 Floyd–Warshall is a compact dynamic program for **all-pairs shortest paths** that tolerates **negative edges** and flags **negative cycles**. Initialize a `dist` matrix, run a simple triple loop that tries each vertex `k` as an intermediate, and optionally maintain a `next` matrix for **path reconstruction**. Its `O(n^3)` time and `O(n^2)` space make it ideal for small to medium graphs or as a clear, reliable baseline.
 
-## See also
+## Related Notes
 
 - [[dijkstras-algorithm|Dijkstra's Algorithm]]
 

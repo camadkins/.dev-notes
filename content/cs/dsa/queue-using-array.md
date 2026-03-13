@@ -3,6 +3,7 @@
 title: Queue Using Array
 description: Circular buffer (ring) with head/tail indices, wrap-around, and unambiguous empty/full handling.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -14,7 +15,7 @@ aliases: []
 
 ## Overview
 
-An **array-backed queue** implements FIFO with a **circular buffer** (ring) to reuse storage as elements are enqueued/dequeued. Two indices—**head** (front) and **tail** (next insert position)—advance **modulo capacity**, yielding `O(1)` operations and excellent cache locality. The core design choice is how to **distinguish empty from full** when `head == tail`.
+An **array-backed queue** implements FIFO with a **circular buffer** (ring) to reuse storage as elements are enqueued/dequeued. Two indices - **head** (front) and **tail** (next insert position) - advance **modulo capacity**, yielding `O(1)` operations and excellent cache locality. The core design choice is how to **distinguish empty from full** when `head == tail`.
 
 > [!note]
 > Use a **size counter** `n`, a **reserved slot** (capacity effectively `cap−1`), or a **tag bit** to disambiguate empty/full states. Pick one policy and stick to it across the codebase.
@@ -135,11 +136,11 @@ Assume `cap=5`, start with `head=tail=0`, `n=0`.
 
 Pick one of:
 
-- **Size counter `n`** — simplest runtime checks (`n==0` / `n==cap`).
+- **Size counter `n`** - simplest runtime checks (`n==0` / `n==cap`).
 
-- **Reserved slot** — `cap−1` usable slots, no `n`; full when `(tail+1) % cap == head`.
+- **Reserved slot** - `cap−1` usable slots, no `n`; full when `(tail+1) % cap == head`.
 
-- **Tag/epoch bit** — advance a bit on wrap to distinguish `head==tail` states (useful for lock-free rings).
+- **Tag/epoch bit** - advance a bit on wrap to distinguish `head==tail` states (useful for lock-free rings).
 
 
 ### Fixed vs Resizing
@@ -163,18 +164,18 @@ Provide both throwing and non-throwing forms:
 
 - In GC languages, optionally set `A[old_head] = null` on `DEQUEUE` to break references.
 
-- In systems languages, leaving stale bytes is fine—treat `n` as the boundary; a debug build can scrub for safety.
+- In systems languages, leaving stale bytes is fine - treat `n` as the boundary; a debug build can scrub for safety.
 
 
 ### Iteration
 
-Iterate **logically** from `i=0..n-1` using `A[(head+i) % cap]`. Exposing raw pointers into `A` is brittle—**resizes** can relocate storage.
+Iterate **logically** from `i=0..n-1` using `A[(head+i) % cap]`. Exposing raw pointers into `A` is brittle - **resizes** can relocate storage.
 
 ### Concurrency (brief)
 
 - **SPSC (single-producer/single-consumer)**: can be **lock-free** using atomic head/tail indices and careful memory ordering. Reserve a slot or use a tag bit to avoid ambiguity.
 
-- **MPMC**: requires locks or specialized algorithms; ring buffers exist but are complex—consider concurrent queues designed for MPMC.
+- **MPMC**: requires locks or specialized algorithms; ring buffers exist but are complex - consider concurrent queues designed for MPMC.
 
 
 > [!tip]
@@ -209,7 +210,7 @@ Iterate **logically** from `i=0..n-1` using `A[(head+i) % cap]`. Exposing raw po
 
 An array-based **circular queue** provides fast, predictable FIFO with two indices and modulo arithmetic. Decide on an **empty/full rule** (size counter, reserved slot, or tag) and enforce it consistently. With careful update order, logical-order copies during resize, and optional non-throwing APIs, the ring buffer is a robust default for queues in systems and application code alike.
 
-## See also
+## Related Notes
 
 - [[queue|Queue]]
 

@@ -2,6 +2,7 @@
 title: Linear Search
 description: Sequentially scan an array or list for a target with early exit; optional sentinel removes a bounds check.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -186,7 +187,7 @@ Array `A = [9, 4, 7, 2, 7, 5]`.
 
 Linear search scans sequentially, stops on the first hit, and costs `Θ(n)` in the worst case with **O(1)** extra space. It's the **default** for unsorted data, small ranges, and streaming inputs. Use the **sentinel** trick to streamline tight loops, unroll or vectorize for throughput on primitive arrays, and switch to order-aware methods (e.g., [[binary-search|Binary Search]]) when data is sorted.
 
-## See also
+## Related Notes
 
 - [[binary-search|Binary Search]]
 

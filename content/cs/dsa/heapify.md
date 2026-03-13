@@ -2,6 +2,7 @@
 title: Heapify
 description: Build a binary heap from an array in linear time using bottom-up sift-down (Floyd's method); includes proofs, indexing notes, and comparisons to n log n builds.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -144,7 +145,7 @@ Final **max-heap**: `[12,10,8,5,1,4,3]`. The tree's parent is always ≥ childre
 
 Bottom-up **heapify** builds a heap from an array in **linear time** by running **sift-down** from the last internal node to the root. The cost is linear because most nodes sit near the leaves and require only shallow adjustments. This method is the right default for initializing heaps, enabling `O(n)` build followed by `O(log n)` per extract in heapsort and priority-queue workloads.
 
-## See also
+## Related Notes
 
 - [[binary-heap|Binary Heap]]
 

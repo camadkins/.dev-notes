@@ -2,6 +2,7 @@
 title: Heapsort
 description: In-place O(n log n) sorting by building a heap and repeatedly extracting the extreme; cache-friendly, comparison-based, and not stable.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -93,7 +94,7 @@ Array is sorted, and the tail grew monotonically: `[...,10,12]`, then `[...,8,10
 
     - Sweep: `n−1` times **`O(log n)`** `SIFT_DOWN` → **`O(n log n)`** total.
 
-- **Space:** **`O(1)`** auxiliary — the sort is in-place.
+- **Space:** **`O(1)`** auxiliary - the sort is in-place.
 
 - **Comparisons/moves:** The **pull-up** `SIFT_DOWN` reduces swaps; on modern CPUs it improves constants by cutting stores and branches.
 
@@ -108,7 +109,7 @@ Array is sorted, and the tail grew monotonically: `[...,10,12]`, then `[...,8,10
 
 - **Heap shape tweaks:** **k-ary heaps** (k>2) reduce height (`log_k n`) at the cost of higher arity checks; overall gains are workload-dependent.
 
-- **Two-phase selection:** For partial sorts (top-k), don't heapsort everything—build a heap of size `k` and stream the array for **`O(n log k)`**.
+- **Two-phase selection:** For partial sorts (top-k), don't heapsort everything - build a heap of size `k` and stream the array for **`O(n log k)`**.
 
 - **Block heaps / cache-aware layouts:** Rearranging tree nodes to improve locality helps large arrays, but adds complexity.
 
@@ -143,7 +144,7 @@ For general-purpose, cache-rich environments, high-quality quicksorts (introsort
 
 ## Implementation Notes or Trade-offs
 
-- **Indexing formulas (0-based):** `left=2i+1`, `right=2i+2`, `parent=(i−1)//2`; leaves live in `[⌊n/2⌋..n-1]`. See [[heaps|Heaps — Overview]] and [[heapify|Heapify]].
+- **Indexing formulas (0-based):** `left=2i+1`, `right=2i+2`, `parent=(i−1)//2`; leaves live in `[⌊n/2⌋..n-1]`. See [[heaps|Heaps - Overview]] and [[heapify|Heapify]].
 
 - **In-place & cache:** Arrays give good spatial locality; `SIFT_DOWN` touches `O(log n)` nodes per round.
 
@@ -152,9 +153,9 @@ For general-purpose, cache-rich environments, high-quality quicksorts (introsort
 
 ## Summary
 
-Heapsort = **heapify once** (`O(n)`) + **n−1 sift-downs** (`O(n log n)`), all **in place**. It's robust, memory-lean, and predictable, but not stable and—on many real workloads—slower than tuned quicksort/mergesort due to access patterns. Use it when you need **tight memory and hard worst-case guarantees**.
+Heapsort = **heapify once** (`O(n)`) + **n−1 sift-downs** (`O(n log n)`), all **in place**. It's robust, memory-lean, and predictable, but not stable and - on many real workloads - slower than tuned quicksort/mergesort due to access patterns. Use it when you need **tight memory and hard worst-case guarantees**.
 
-## See also
+## Related Notes
 
 - [[heapify|Heapify]]
 

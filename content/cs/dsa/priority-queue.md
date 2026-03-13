@@ -3,6 +3,7 @@
 title: Priority Queue
 description: Abstract interface for retrieving the highest-priority element efficiently; commonly implemented with heaps and specialized queues.
 draft: false
+comments: true
 tags:
 - cs
 - dsa
@@ -18,15 +19,15 @@ A **priority queue (PQ)** stores items keyed by **priority** and supports fast r
 
 Typical operations:
 
-- `INSERT(x, key)` — add an item with a given key.
+- `INSERT(x, key)` - add an item with a given key.
 
-- `FIND_MIN()` / `FIND_MAX()` — peek the top item without removing.
+- `FIND_MIN()` / `FIND_MAX()` - peek the top item without removing.
 
-- `EXTRACT_MIN()` / `EXTRACT_MAX()` — remove and return the top.
+- `EXTRACT_MIN()` / `EXTRACT_MAX()` - remove and return the top.
 
-- `DECREASE_KEY(handle, newKey)` — lower an item's key (min-PQ; dual is `INCREASE_KEY` for max-PQ).
+- `DECREASE_KEY(handle, newKey)` - lower an item's key (min-PQ; dual is `INCREASE_KEY` for max-PQ).
 
-- `MERGE(Q1, Q2)` — optional meld operation for some heaps.
+- `MERGE(Q1, Q2)` - optional meld operation for some heaps.
 
 
 > [!note]
@@ -62,7 +63,7 @@ The heap shape is always **complete** (filled left-to-right) which enables compa
 
 - **Pairing heap**: a self-adjusting multiway heap with excellent **empirical** `DECREASE_KEY`; simple to implement; good default when you truly need `DECREASE_KEY`.
 
-- **Binomial/Fibonacci heaps**: offer theoretical meld-friendly bounds; **Fibonacci** gives `O(1)` amortized `DECREASE_KEY` and `INSERT`, `O(log n)` `EXTRACT_MIN`—great on paper, large constants in practice.
+- **Binomial/Fibonacci heaps**: offer theoretical meld-friendly bounds; **Fibonacci** gives `O(1)` amortized `DECREASE_KEY` and `INSERT`, `O(log n)` `EXTRACT_MIN` - great on paper, large constants in practice.
 
 - **Balanced trees (RB-tree/B-tree)**: support ordered operations and iteration; `O(log n)` for insert/extract; stable iteration order.
 
@@ -266,7 +267,7 @@ PQ retrieval is typically **not stable**. To get stability:
 
 A priority queue abstracts **"give me the best next item"** with operations optimized by the chosen backing. **Binary heaps** are compact, cache-friendly, and strong general-purpose defaults; **d-ary** and **pairing** heaps shift trade-offs when `DECREASE_KEY` frequency or cache behavior dominates; **bucket/radix** structures win for bounded integer keys. Robust implementations define a clear comparator, handle ties (optionally with stability), choose a strategy for `DECREASE_KEY` (handles or lazy), and keep memory locality in mind.
 
-## See also
+## Related Notes
 
 - [[binary-heap|Binary Heap]]
 
