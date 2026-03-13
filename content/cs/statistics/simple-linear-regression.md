@@ -1,6 +1,6 @@
 ---
 title: Simple Linear Regression
-description: Fitting a straight line to data by minimizing squared errors—the simplest predictive model and gateway to all regression methods.
+description: Fitting a single-predictor line through data—the model, least-squares estimation, and interpretation of slope and intercept.
 draft: false
 comments: false
 tags:
@@ -12,63 +12,71 @@ aliases: []
 
 ## Intuition
 
-You have a cloud of points—study hours on the x-axis, exam scores on the y-axis—and you want to draw the single straight line that best summarizes the relationship. "Best" means the line whose predictions are closest to the actual values overall. Simple linear regression finds that line by minimizing the total squared distance between each observed point and the line. The result gives you two numbers: a slope (how much $Y$ changes per unit of $X$) and an intercept (the predicted $Y$ when $X = 0$).
+Given a scatter plot of two variables, simple linear regression draws the **single best straight line** through the points. "Best" means the line that minimizes the total squared vertical distance from each point to the line. With one predictor and one response, this is the most elementary form of regression—a building block before moving to the multiple-predictor case covered in [[regression-fundamentals|Regression Fundamentals]].
 
 ## Definition
 
-Simple linear regression models a response variable $Y$ as a linear function of a single predictor $X$:
+The **simple linear regression model** expresses a response $Y$ as a linear function of a single predictor $x$:
 
-$$Y_i = \beta_0 + \beta_1 X_i + \varepsilon_i, \quad i = 1, \dots, n$$
+$$Y_i = \beta_0 + \beta_1 x_i + \varepsilon_i, \quad i = 1, \dots, n$$
 
-where $\beta_0$ is the **intercept**, $\beta_1$ is the **slope**, and $\varepsilon_i$ is the error term (assumed independent with mean zero and constant variance $\sigma^2$).
+- $\beta_0$ — the true **intercept** (value of $Y$ when $x = 0$)
+- $\beta_1$ — the true **slope** (change in $E[Y]$ per unit change in $x$)
+- $\varepsilon_i \sim \mathcal{N}(0, \sigma^2)$ — independent random errors
 
-The **ordinary least squares** (OLS) estimators minimize the residual sum of squares $\text{RSS} = \sum (Y_i - \hat{Y}_i)^2$:
-
-$$\hat{\beta}_1 = \frac{\sum_{i=1}^n (X_i - \bar{X})(Y_i - \bar{Y})}{\sum_{i=1}^n (X_i - \bar{X})^2}, \qquad \hat{\beta}_0 = \bar{Y} - \hat{\beta}_1 \bar{X}$$
-
-The fitted values are $\hat{Y}_i = \hat{\beta}_0 + \hat{\beta}_1 X_i$, and the residuals are $e_i = Y_i - \hat{Y}_i$.
+The goal is to estimate $\beta_0$ and $\beta_1$ from observed data $(x_i, Y_i)$.
 
 ## Key Formulas
 
-| Formula | Meaning |
-|---|---|
-| $\hat{\beta}_1 = \frac{\sum (X_i - \bar{X})(Y_i - \bar{Y})}{\sum (X_i - \bar{X})^2}$ | Slope: change in $Y$ per unit change in $X$ |
-| $\hat{\beta}_0 = \bar{Y} - \hat{\beta}_1 \bar{X}$ | Intercept: predicted $Y$ when $X = 0$ |
-| $R^2 = 1 - \frac{\text{RSS}}{\text{TSS}}$ | Proportion of variance in $Y$ explained by $X$ |
-| $\text{SE}(\hat{\beta}_1) = \frac{s}{\sqrt{\sum (X_i - \bar{X})^2}}$ | Standard error of slope ($s$ = residual std dev) |
-| $t = \frac{\hat{\beta}_1}{\text{SE}(\hat{\beta}_1)}$ | Test statistic for $H_0: \beta_1 = 0$ |
+**Estimated regression equation:**
+
+$$\hat{y} = b_0 + b_1 x$$
+
+where $b_0$ and $b_1$ are the **least-squares estimates** that minimize the residual sum of squares:
+
+$$\text{RSS} = \sum_{i=1}^n (Y_i - \hat{y}_i)^2$$
+
+**Slope estimate:**
+
+$$b_1 = \frac{\sum_{i=1}^n (x_i - \bar{x})(Y_i - \bar{Y})}{\sum_{i=1}^n (x_i - \bar{x})^2} = \frac{S_{xy}}{S_{xx}}$$
+
+**Intercept estimate:**
+
+$$b_0 = \bar{Y} - b_1 \bar{x}$$
+
+**Estimated error variance:**
+
+$$s^2 = \frac{\text{RSS}}{n - 2} = \frac{\sum_{i=1}^n (Y_i - \hat{y}_i)^2}{n - 2}$$
+
+The denominator is $n - 2$ because two parameters ($b_0$, $b_1$) are estimated.
+
+> [!note]
+> For the full OLS derivation, multiple regression extension, residual diagnostics, and $R^2$ interpretation, see [[regression-fundamentals|Regression Fundamentals]].
 
 ## Example
 
-**Predicting exam score from study hours.** Suppose five students report:
+**Predicting chemistry grades.** A professor collects intelligence test scores ($x$) and chemistry grades ($Y$) for 20 students, obtaining $\bar{x} = 110$, $\bar{Y} = 75$, $S_{xy} = 1{,}320$, and $S_{xx} = 4{,}400$.
 
-| Hours ($X$) | Score ($Y$) |
-|---|---|
-| 1 | 52 |
-| 2 | 58 |
-| 3 | 65 |
-| 4 | 70 |
-| 5 | 80 |
+$$b_1 = \frac{1320}{4400} = 0.30$$
 
-$\bar{X} = 3$, $\bar{Y} = 65$. Computing:
+$$b_0 = 75 - 0.30(110) = 42.0$$
 
-$$\hat{\beta}_1 = \frac{(1-3)(52-65) + \cdots + (5-3)(80-65)}{(1-3)^2 + \cdots + (5-3)^2} = \frac{66}{10} = 6.6$$
+The fitted line is $\hat{y} = 42.0 + 0.30x$. Interpretation: each additional point on the intelligence test is associated with a 0.30-point increase in chemistry grade, on average. For a student scoring $x = 120$:
 
-$$\hat{\beta}_0 = 65 - 6.6 \times 3 = 45.2$$
+$$\hat{y} = 42.0 + 0.30(120) = 78.0$$
 
-So $\hat{Y} = 45.2 + 6.6X$. Each additional hour of study predicts a 6.6-point increase. A student studying 6 hours would be predicted to score $45.2 + 6.6(6) = 84.8$.
+The predicted chemistry grade is 78. The same technique applies to predicting final animal weight from feed consumed—any scenario where one continuous variable drives another.
 
 ## Why It Matters in CS
 
-- **Performance modeling**: predicting response time from request rate, memory usage from input size, or build time from codebase size.
-- **Feature engineering gateway**: understanding simple regression is prerequisite to multiple regression, regularization, and all supervised learning.
-- **A/B testing analysis**: estimating the effect of a single treatment variable on a metric.
-- **Baseline model**: the first model to try before reaching for nonlinear or ensemble methods—if a line fits well, complexity is wasted.
+- **Supervised learning baseline:** simple linear regression is the first model to try before more complex learners—it establishes a performance floor and interpretability ceiling.
+- **Empirical complexity analysis:** plotting execution time $T$ against input size $n$ and fitting $T = b_0 + b_1 n$ tests whether an algorithm is linear. Fitting $\ln T = b_0 + b_1 \ln n$ estimates the polynomial exponent.
+- **Feature importance:** in exploratory data analysis, fitting simple regressions for each feature individually reveals which predictors have marginal predictive power before building a full model.
+- **Calibration:** simple linear regression calibrates sensor readings, maps raw pixel intensities to physical measurements, and linearizes instrument response curves.
 
 ## Related Notes
 
-- [[regression-fundamentals|Regression Fundamentals]] — extends to multiple predictors, residual diagnostics, and $R^2_{\text{adj}}$
-- [[variance-and-covariance|Variance and Covariance]] — the slope formula is $\text{Cov}(X,Y) / \text{Var}(X)$
-- [[normal-distribution|Normal Distribution]] — residuals are assumed normally distributed for inference
-- [[maximum-likelihood-estimation|Maximum Likelihood Estimation]] — MLE under Gaussian errors yields the same OLS estimates
-- [[hypothesis-testing|Hypothesis Testing]] — $t$-tests assess whether the slope differs from zero
+- [[regression-fundamentals|Regression Fundamentals]] — extends to multiple predictors, OLS in matrix form, residual diagnostics, and $R^2$
+- [[maximum-likelihood-estimation|Maximum Likelihood Estimation]] — under normality, MLE of regression coefficients equals OLS
+- [[normal-distribution|Normal Distribution]] — the error distribution assumption $\varepsilon \sim \mathcal{N}(0, \sigma^2)$
+- [[hypothesis-testing|Hypothesis Testing]] — $t$-tests on $b_1$ to assess whether the slope differs from zero

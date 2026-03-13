@@ -1,6 +1,6 @@
 ---
 title: Maximum Likelihood Estimation
-description: Choosing parameter values that make observed data most probable—the dominant frequentist estimation framework and foundation for modern machine learning.
+description: Estimating distribution parameters by maximizing the probability of observed data—the theoretical backbone of modern ML training.
 draft: false
 comments: false
 tags:
@@ -12,66 +12,72 @@ aliases: []
 
 ## Intuition
 
-Imagine you flip a coin 10 times and get 7 heads. What value of the coin's bias $p$ makes that outcome most plausible? MLE answers: try every possible $p$, compute how likely the data would be under each one, and pick the $p$ that scores highest. That winning value is the **maximum likelihood estimate**. You are not saying $p$ is random—you are finding the single fixed value that best explains what you observed.
-
-The idea generalizes to any model with parameters: find the parameter values under which the observed data had the greatest probability of occurring.
+You observe data and suspect it came from a known family of distributions (normal, Poisson, etc.), but you don't know the exact parameters. **Maximum likelihood estimation** (MLE) asks: *which parameter values would have made the observed data most probable?* Pick those values. It is a simple, principled idea—yet it underpins nearly all of modern statistical inference and machine learning.
 
 ## Definition
 
-Given observed data $D = (x_1, \dots, x_n)$ assumed to be drawn independently from a distribution with parameter(s) $\theta$, the **likelihood function** is:
+Let $x_1, x_2, \dots, x_n$ be i.i.d. observations from a distribution with PDF (or PMF) $f(x; \theta)$, where $\theta$ is an unknown parameter (or parameter vector). The **likelihood function** treats the data as fixed and the parameter as variable:
 
-$$L(\theta) = \prod_{i=1}^n f(x_i \mid \theta)$$
+$$L(\theta) = \prod_{i=1}^n f(x_i;\, \theta)$$
 
-where $f$ is the PMF (discrete) or PDF (continuous). The **maximum likelihood estimator** is:
+The **maximum likelihood estimator** $\hat{\theta}_{\text{MLE}}$ is the value of $\theta$ that maximizes $L(\theta)$:
 
 $$\hat{\theta}_{\text{MLE}} = \arg\max_\theta\; L(\theta)$$
 
-Because products are unwieldy, we almost always work with the **log-likelihood**:
+Because products are awkward to differentiate, we almost always work with the **log-likelihood** instead:
 
-$$\ell(\theta) = \sum_{i=1}^n \ln f(x_i \mid \theta)$$
+$$\ell(\theta) = \ln L(\theta) = \sum_{i=1}^n \ln f(x_i;\, \theta)$$
 
-Maximizing $\ell$ is equivalent to maximizing $L$ (logarithm is monotonically increasing). The MLE is found by solving the **score equation** $\frac{d\ell}{d\theta} = 0$ and verifying a maximum via the second derivative.
-
-### Properties
-
-- **Consistency**: as $n \to \infty$, $\hat{\theta}_{\text{MLE}} \to \theta_{\text{true}}$ in probability.
-- **Asymptotic normality**: $\hat{\theta}_{\text{MLE}}$ is approximately normal for large $n$, enabling confidence intervals.
-- **Efficiency**: achieves the Cramér–Rao lower bound asymptotically—no unbiased estimator has smaller variance.
-- **Invariance**: if $\hat{\theta}$ is the MLE of $\theta$, then $g(\hat{\theta})$ is the MLE of $g(\theta)$ for any function $g$.
+Since $\ln$ is monotonically increasing, maximizing $\ell(\theta)$ is equivalent to maximizing $L(\theta)$.
 
 ## Key Formulas
 
-| Formula | Meaning |
+**Finding the MLE** — set the score function to zero:
+
+$$\frac{\partial \ell(\theta)}{\partial \theta} = 0$$
+
+and verify the second derivative is negative (maximum, not minimum).
+
+**MLE for the normal distribution:** Given $X_i \sim \mathcal{N}(\mu, \sigma^2)$:
+
+$$\hat{\mu}_{\text{MLE}} = \bar{X} = \frac{1}{n}\sum_{i=1}^n X_i, \qquad \hat{\sigma}^2_{\text{MLE}} = \frac{1}{n}\sum_{i=1}^n (X_i - \bar{X})^2$$
+
+> [!note]
+> The MLE for $\sigma^2$ divides by $n$, not $n-1$. It is biased but **asymptotically unbiased** and consistent.
+
+**Key asymptotic properties** (for large $n$):
+
+| Property | Meaning |
 |---|---|
-| $L(\theta) = \prod_{i=1}^n f(x_i \mid \theta)$ | Likelihood: joint probability of data given $\theta$ |
-| $\ell(\theta) = \sum_{i=1}^n \ln f(x_i \mid \theta)$ | Log-likelihood (easier to optimize) |
-| $\frac{d\ell}{d\theta} = 0$ | Score equation: first-order condition for the MLE |
-| $I(\theta) = -E\!\left[\frac{d^2 \ell}{d\theta^2}\right]$ | Fisher information: precision of the MLE |
-| $\text{Var}(\hat{\theta}) \approx \frac{1}{I(\hat{\theta})}$ | Approximate variance via Fisher information |
+| **Consistency** | $\hat{\theta} \xrightarrow{p} \theta_0$ as $n \to \infty$ |
+| **Asymptotic normality** | $\hat{\theta} \approx \mathcal{N}(\theta_0,\; [I(\theta_0)]^{-1})$ |
+| **Efficiency** | Achieves the Cramer-Rao lower bound asymptotically |
+| **Invariance** | If $\hat{\theta}$ is MLE of $\theta$, then $g(\hat{\theta})$ is MLE of $g(\theta)$ |
+
+Here $I(\theta)$ is the **Fisher information**: $I(\theta) = -E\!\left[\frac{\partial^2 \ell}{\partial \theta^2}\right]$.
 
 ## Example
 
-**Estimating a Poisson rate.** A server logs request counts per second: $x = (3, 5, 4, 7, 6)$. Assuming $X_i \sim \text{Poisson}(\lambda)$:
+**Estimating failure probability.** A component is tested $n = 50$ times and fails $k = 8$ times. Each test is Bernoulli with unknown probability $p$. The log-likelihood is:
 
-$$\ell(\lambda) = \sum_{i=1}^5 \left[x_i \ln \lambda - \lambda - \ln(x_i!)\right]$$
+$$\ell(p) = k \ln p + (n - k) \ln(1 - p)$$
 
-Taking the derivative and setting it to zero:
+Setting $\frac{d\ell}{dp} = 0$:
 
-$$\frac{d\ell}{d\lambda} = \frac{\sum x_i}{\lambda} - n = 0 \implies \hat{\lambda}_{\text{MLE}} = \frac{\sum x_i}{n} = \frac{25}{5} = 5$$
+$$\frac{k}{p} - \frac{n - k}{1 - p} = 0 \implies \hat{p}_{\text{MLE}} = \frac{k}{n} = \frac{8}{50} = 0.16$$
 
-The MLE for the Poisson rate is the sample mean—intuitive and exact. The Fisher information gives $I(\lambda) = n/\lambda$, so $\text{SE}(\hat{\lambda}) \approx \sqrt{5/5} = 1.0$.
+The MLE says the best estimate of the failure probability is 16%. This is exactly the sample proportion—MLE often recovers familiar estimators as special cases. For lognormal data, the same approach yields MLEs for $\mu$ and $\sigma^2$ by maximizing the log-normal log-likelihood.
 
 ## Why It Matters in CS
 
-- **Training ML models**: logistic regression, neural networks, and language models are all trained by maximizing (log-)likelihood (or equivalently minimizing cross-entropy loss).
-- **Probabilistic programming**: MLE provides point estimates; pairing it with Fisher information yields confidence intervals without full Bayesian computation.
-- **Model comparison**: the log-likelihood feeds into AIC and BIC, the standard criteria for choosing between competing models.
-- **Connection to Bayesian inference**: MLE equals the MAP estimate under a uniform prior. Understanding MLE clarifies when and why priors matter.
+- **Neural network training:** minimizing cross-entropy loss is equivalent to maximizing the log-likelihood of the training labels under the model's predicted distribution.
+- **Logistic regression:** the coefficients are found by maximizing the Bernoulli log-likelihood—there is no closed-form solution, so gradient ascent (or Newton's method) is used.
+- **Language models:** next-token prediction training maximizes $\sum \ln P(w_t \mid w_{<t};\, \theta)$, which is MLE over the training corpus.
+- **Model comparison:** the Akaike Information Criterion (AIC) penalizes the maximized log-likelihood by the number of parameters, enabling principled model selection.
 
 ## Related Notes
 
-- [[bayesian-inference|Bayesian Inference]] — adds a prior to the likelihood; posterior mode with uniform prior equals MLE
-- [[normal-distribution|Normal Distribution]] — MLE for $\mu$ is $\bar{x}$; asymptotic normality of MLEs relies on CLT
-- [[poisson-distribution|Poisson Distribution]] — example: MLE for $\lambda$ is the sample mean
-- [[simple-linear-regression|Simple Linear Regression]] — OLS estimates are the MLEs under Gaussian error assumptions
-- [[hypothesis-testing|Hypothesis Testing]] — likelihood ratio tests compare nested models via their log-likelihoods
+- [[bayesian-inference|Bayesian Inference]] — Bayesian estimation uses priors instead of pure likelihood maximization
+- [[probability-distributions|Probability Distributions]] — MLE estimates the parameters of these distribution families
+- [[regression-fundamentals|Regression Fundamentals]] — under normality, OLS and MLE yield identical coefficient estimates
+- [[normal-distribution|Normal Distribution]] — canonical MLE example for $\mu$ and $\sigma^2$
