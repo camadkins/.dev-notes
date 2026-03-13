@@ -168,6 +168,6 @@ The choice isn’t just about automation — it defines how developers think abo
 ---
 
 ## See also
-- [[cs/pl/gc-algorithms-mark-sweep-copying-generational|GC Algorithms — Mark-Sweep, Copying, and Generational]]
+- [[gc-algorithms-mark-sweep-copying-generational|GC Algorithms — Mark-Sweep, Copying, and Generational]]
 - [[abstract-machines-cek-secd|Abstract Machines — CEK and SECD]]
-- [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]
+- [[lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]

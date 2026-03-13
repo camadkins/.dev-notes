@@ -1,7 +1,7 @@
 ---
 title: Breadth-First Search — Layered Exploration & Shortest Paths
 description: Level-order graph traversal using a queue; computes shortest paths in unweighted graphs and builds parent trees for reconstructions.
-draft: true
+draft: false
 tags:
   - cs
   - dsa
@@ -287,13 +287,13 @@ Shortest path `A → F` reconstructed by chasing parents: `F ← E ← C ← A` 
 
 ## See also
 
-- [[cs/dsa/depth-first-search-algorithms|Depth-First Search (DFS)]]
+- [[depth-first-search-algorithms|Depth-First Search (DFS)]]
     
-- [[cs/dsa/graph-representations|Graph Representations]]
+- [[graph-representations|Graph Representations]]
     
-- [[cs/dsa/dijkstras-algorithm|Dijkstra’s Algorithm]]
+- [[dijkstras-algorithm|Dijkstra’s Algorithm]]
     
-- [[cs/dsa/adjacency-list|Adjacency List]]
+- [[adjacency-list|Adjacency List]]
     
-- [[cs/dsa/adjacency-matrix|Adjacency Matrix]]
+- [[adjacency-matrix|Adjacency Matrix]]
     

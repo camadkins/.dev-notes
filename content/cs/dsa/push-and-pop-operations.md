@@ -231,10 +231,10 @@ Stacks give **LIFO** access with minimal API: `PUSH`, `POP`, and `PEEK`. Array-b
 
 ## See also
 
-- [[cs/dsa/stack|Stack]]
+- [[stack|Stack]]
 
-- [[cs/dsa/push-and-pop-operations|Push and Pop Operations]]
+- [[push-and-pop-operations|Push and Pop Operations]]
 
-- [[cs/dsa/dynamic-arrays|Dynamic Arrays]]
+- [[dynamic-arrays|Dynamic Arrays]]
 
-- [[cs/dsa/depth-first-search-algorithms|Depth-First Search Algorithms]]
+- [[depth-first-search-algorithms|Depth-First Search Algorithms]]

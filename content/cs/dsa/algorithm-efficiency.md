@@ -186,17 +186,17 @@ Choose based on _context_: memory-constrained systems (embedded) may prioritize 
 
 ## See also
 
-- [[cs/dsa/asymptotic-notation|Asymptotic Notation]]
+- [[asymptotic-notation|Asymptotic Notation]]
     
 - [[amortized-analysis-methods|Amortized Analysis]]
     
-- [[cs/dsa/best-worst-average-cases|Best/Worst/Average Cases]]
+- [[best-worst-average-cases|Best/Worst/Average Cases]]
     
-- [[cs/dsa/time-complexity-analysis|Time Complexity Analysis]]
+- [[time-complexity-analysis|Time Complexity Analysis]]
     
-- [[cs/dsa/recurrence-relations|Recurrence Relations]]
+- [[recurrence-relations|Recurrence Relations]]
     
-- [[cs/dsa/memory-allocation|Memory Allocation]]
+- [[memory-allocation|Memory Allocation]]
     
-- [[cs/dsa/space-complexity|Space Complexity]]
+- [[space-complexity|Space Complexity]]
     

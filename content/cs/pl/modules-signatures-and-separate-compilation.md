@@ -257,10 +257,10 @@ Steps:
 
 ## See also
 
-- [[cs/pl/records-variants-and-pattern-matching|Records, Variants, and Pattern Matching]]
+- [[records-variants-and-pattern-matching|Records, Variants, and Pattern Matching]]
     
-- [[cs/pl/type-systems-goals-guarantees|Type Systems — Goals & Guarantees]]
+- [[type-systems-goals-guarantees|Type Systems — Goals & Guarantees]]
     
 - [[abstract-machines-cek-secd|Abstract Machines — CEK & SECD]]
     
-- [[cs/pl/compilation-vs-interpretation|Compilation vs Interpretation]]
+- [[compilation-vs-interpretation|Compilation vs Interpretation]]

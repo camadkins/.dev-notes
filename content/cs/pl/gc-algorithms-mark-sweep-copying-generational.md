@@ -146,6 +146,6 @@ Proper GC tuning balances:
 ---
 
 ## See also
-- [[cs/pl/garbage-collection-concepts|Garbage Collection — Concepts]]
+- [[garbage-collection-concepts|Garbage Collection — Concepts]]
 - [[abstract-machines-cek-secd|Abstract Machines — CEK and SECD]]
-- [[cs/pl/evaluation-order-and-strictness|Evaluation Order & Strictness]]
+- [[evaluation-order-and-strictness|Evaluation Order & Strictness]]

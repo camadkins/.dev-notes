@@ -79,7 +79,7 @@ function SAFE_AT(A, i):
 - **Const/reference hybrids:** Pass a reference for performance but mark **read-only** to preserve functional style.
 
 
-See also [[cs/dsa/pass-by-value-and-pass-by-reference|Pass by Value and Pass by Reference]].
+See also [[pass-by-value-and-pass-by-reference|Pass by Value and Pass by Reference]].
 
 ### 2) Call Stack and Frames
 
@@ -111,7 +111,7 @@ function FACT_TR(n, acc):
 ```
 
 > [!warning]
-> **Not all languages guarantee TCO.** If TCO is unavailable, prefer iterative forms for deep recursions to avoid stack overflow. See [[cs/dsa/recursion|Recursion]] and [[cs/pl/evaluation-order-and-strictness|Evaluation Order and Strictness]].
+> **Not all languages guarantee TCO.** If TCO is unavailable, prefer iterative forms for deep recursions to avoid stack overflow. See [[recursion|Recursion]] and [[evaluation-order-and-strictness|Evaluation Order and Strictness]].
 
 ### 4) Pre/Postconditions and Contracts
 
@@ -166,10 +166,10 @@ Functions encapsulate behavior with a clean **interface** and, ideally, clear **
 
 ## See also
 
-- [[cs/dsa/recursion|Recursion]]
+- [[recursion|Recursion]]
 
-- [[cs/pl/evaluation-order-and-strictness|Evaluation Order and Strictness]]
+- [[evaluation-order-and-strictness|Evaluation Order and Strictness]]
 
-- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]
+- [[algorithm-efficiency|Algorithm Efficiency]]
 
-- [[cs/dsa/dynamic-programming|Dynamic Programming]]
+- [[dynamic-programming|Dynamic Programming]]

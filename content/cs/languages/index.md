@@ -1,14 +1,24 @@
 ---
 title: Programming Languages
-description: "Hub for language-specific notes and implementations. Use this area for per-language MoCs and shared syntax/semantics conventions."
+description: Language-specific notes, implementations, and design patterns tied to individual languages.
 draft: false
 comments: false
 tags:
   - cs
   - languages
 date: 2025-10-16
-updated:
+updated: 2026-03-12
 aliases: []
 ---
-**Overall Domain.** This section organizes notes by programming language (e.g., Racket, Python, Java). Keep universal concepts minimal here; prefer each language’s own MoC. Quartz will auto-list languages and pages in this folder.
 
+This section collects notes tied to specific programming languages — implementations, idioms, design patterns, and language-specific concepts. Universal PL theory lives in [[cs/pl/index|Programming Language Concepts]]; this is where that theory meets a concrete language.
+
+### Languages
+
+- **[[cs/languages/Racket/index|Racket]]** — macro systems, desugaring, core-to-surface design
+
+More languages (Rust, Python, C, Java, Haskell) will be added as notes develop.
+
+---
+
+*Language folders and their contents are listed automatically below by Quartz.*

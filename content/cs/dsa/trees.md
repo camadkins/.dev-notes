@@ -1,7 +1,7 @@
 ---
 title: Trees — Overview
 description: Hierarchical structures of nodes and edges; terminology (size, height, degree), variants, and core representations.
-draft: true
+draft: false
 tags:
   - cs
   - dsa
@@ -104,7 +104,7 @@ function HEIGHT(u):
 
 ### Traversals (binary trees)
 
-See [[cs/dsa/tree-traversal-overview|Tree Traversal — Overview]] for detailed recursive and iterative patterns:
+See [[tree-traversal-overview|Tree Traversal — Overview]] for detailed recursive and iterative patterns:
 
 - **Preorder** (Root, Left, Right)
     
@@ -208,7 +208,7 @@ parent[0..n-1], where parent[root] = -1
 > **Using heap indexing on non-complete trees.** The `2i+1`/`2i+2` formulas assume a complete binary layout. Sparse shapes waste space and break invariants.
 
 > [!warning]  
-> **Multiple parents / cycles.** A DAG is **not** a tree. Trees have exactly one simple path between any two nodes. If multiple parents are needed, you’re in DAG territory—use [[cs/dsa/graph-representations|Graph Representations]] and [[cs/dsa/topological-sorting|Topological Sorting]].
+> **Multiple parents / cycles.** A DAG is **not** a tree. Trees have exactly one simple path between any two nodes. If multiple parents are needed, you’re in DAG territory—use [[graph-representations|Graph Representations]] and [[topological-sorting|Topological Sorting]].
 
 > [!warning]  
 > **Overflowing recursion stacks.** Deep or skewed trees can exceed recursion limits. Prefer iterative traversals with explicit stacks or tail-recursion elimination.
@@ -228,10 +228,10 @@ Trees encode hierarchical relations with clean recursive structure. Key choices�
 
 ## See also
 
-- [[cs/dsa/binary-tree|Binary Tree]]
+- [[binary-tree|Binary Tree]]
     
 - [[tree-traversal|Tree Traversal — Overview]]
     
-- [[cs/dsa/heaps|Heaps — Overview]]
+- [[heaps|Heaps — Overview]]
     
-- [[cs/dsa/graph-representations|Graph Representations]]
+- [[graph-representations|Graph Representations]]

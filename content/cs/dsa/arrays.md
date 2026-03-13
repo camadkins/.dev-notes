@@ -228,13 +228,13 @@ function reverse(A, n):
 
 ## See also
 
-- [[cs/dsa/dynamic-arrays|Dynamic Arrays]]
+- [[dynamic-arrays|Dynamic Arrays]]
     
-- [[cs/dsa/multidimensional-arrays|Multidimensional Arrays]]
+- [[multidimensional-arrays|Multidimensional Arrays]]
     
-- [[cs/dsa/linear-search|Linear Search]]
+- [[linear-search|Linear Search]]
     
-- [[cs/dsa/binary-search|Binary Search]]
+- [[binary-search|Binary Search]]
     
-- [[cs/dsa/array-operations|Array Operations]]
+- [[array-operations|Array Operations]]
     

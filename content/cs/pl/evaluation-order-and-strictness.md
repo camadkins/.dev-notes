@@ -219,8 +219,8 @@ Strict evaluation simplifies reasoning about time and memory; laziness improves 
 
 ## See also
 
-- [[cs/pl/lambda-calculus-evaluation-strategies|Lambda Calculus — Evaluation Strategies]]
+- [[lambda-calculus-evaluation-strategies|Lambda Calculus — Evaluation Strategies]]
     
-- [[cs/pl/booleans-conditionals-semantics|Booleans & Conditionals — Semantics and Evaluation]]
+- [[booleans-conditionals-semantics|Booleans & Conditionals — Semantics and Evaluation]]
     
-- [[cs/pl/operational-semantics-big-step-small-step|Operational Semantics — Big-Step & Small-Step]]
+- [[operational-semantics-big-step-small-step|Operational Semantics — Big-Step & Small-Step]]

@@ -87,7 +87,7 @@ A recurrence for a sequence `{T(n)}` is an equation of the form
 
 3. **Master / Akra–Bazzi theorems**
     Provide ready-made asymptotic bounds for `T(n) = ∑ a_i T(n/b_i) + g(n)` under regularity conditions.
-    See [[cs/dsa/recurrences-master-theorem|Recurrences — Master Theorem]] for the common `aT(n/b)+f(n)` form and brief notes on Akra–Bazzi (handles multiple subproblem sizes and additive perturbations).
+    See [[recurrences-master-theorem|Recurrences — Master Theorem]] for the common `aT(n/b)+f(n)` form and brief notes on Akra–Bazzi (handles multiple subproblem sizes and additive perturbations).
 
 
 ### Linear recurrences with constant coefficients
@@ -121,7 +121,7 @@ Let `p` satisfy `a · (1/b)^p = 1`, i.e., `p = log_b a`. Compare `f(n)` with `n^
 
 ### Turning a recurrence into code
 
-- **Cutoff thresholds**: Many real sorts (quick/merge/introsort) cut over to [[cs/dsa/insertion-sort|Insertion Sort]] below a small `k` to reduce overhead; this changes base cases and constants but not leading asymptotics.
+- **Cutoff thresholds**: Many real sorts (quick/merge/introsort) cut over to [[insertion-sort|Insertion Sort]] below a small `k` to reduce overhead; this changes base cases and constants but not leading asymptotics.
 
 - **Memoization vs naive recursion**: For value recurrences like `F(n)=F(n−1)+F(n−2)`, naive recursion is `Θ(φ^n)`, but memoization or bottom-up DP solves it in `Θ(n)`. The **recurrence doesn't fix the algorithm's complexity**; implementation choices do.
 
@@ -187,10 +187,10 @@ Recurrence relations are the lingua franca for analyzing recursive and increment
 
 ## See also
 
-- [[cs/dsa/recurrences-master-theorem|Recurrences — Master Theorem]]
+- [[recurrences-master-theorem|Recurrences — Master Theorem]]
 
-- [[cs/dsa/divide-and-conquer|Divide and Conquer]]
+- [[divide-and-conquer|Divide and Conquer]]
 
-- [[cs/dsa/time-complexity-analysis|Time Complexity Analysis]]
+- [[time-complexity-analysis|Time Complexity Analysis]]
 
-- [[cs/dsa/dynamic-programming|Dynamic Programming]]
+- [[dynamic-programming|Dynamic Programming]]

@@ -73,7 +73,7 @@ Postorder yields `D, E, B, F, C, A`.
 - **Parent-after-children** implies postorder is suitable for **safe teardown** and **folds/reductions** on trees.
 
 
-See also [[cs/dsa/preorder|Traversal — Preorder]] and [[cs/dsa/inorder|Traversal — Inorder]] for contrasts.
+See also [[preorder|Traversal — Preorder]] and [[inorder|Traversal — Inorder]] for contrasts.
 
 ## Implementation or Practical Context
 
@@ -265,10 +265,10 @@ Postorder traversal visits **children before parent**, enabling bottom-up algori
 
 ## See also
 
-- [[cs/dsa/preorder|Traversal — Preorder]]
+- [[preorder|Traversal — Preorder]]
 
-- [[cs/dsa/inorder|Traversal — Inorder]]
+- [[inorder|Traversal — Inorder]]
 
-- [[cs/dsa/tree-traversal|Tree Traversal]]
+- [[tree-traversal|Tree Traversal]]
 
-- [[cs/dsa/binary-tree|Binary Tree]]
+- [[binary-tree|Binary Tree]]

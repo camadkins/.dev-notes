@@ -1,7 +1,7 @@
 ---
 title: Tries — Overview
 description: Prefix trees for fast string lookup; trades memory for predictable time and prefix-aware features.
-draft: true
+draft: false
 tags:
   - cs
   - dsa
@@ -197,7 +197,7 @@ Let `L` be key length, `σ = |Σ|` the alphabet size, and `n` the number of keys
 
 - **Pool/arena allocators** reduce overhead of many small node allocations and improve locality.
     
-- **Path compression** (radix/Patricia tries) merges single-child chains into a single edge with a string label, shrinking depth and memory (see [[cs/dsa/compressed-trie|Compressed Trie]]).
+- **Path compression** (radix/Patricia tries) merges single-child chains into a single edge with a string label, shrinking depth and memory (see [[compressed-trie|Compressed Trie]]).
     
 - **DAWG/minimal DFA** for static sets deduplicates identical subtries to near-minimal size (advanced; build-time cost).
     
@@ -211,7 +211,7 @@ Let `L` be key length, `σ = |Σ|` the alphabet size, and `n` the number of keys
 
 ### Unicode & normalization
 
-- Decide whether to iterate by **code units**, **code points**, or **grapheme clusters**. Normalize text (NFC/NFKC) to avoid multiple encodings for the same visible string. See [[cs/dsa/strings|Strings]].
+- Decide whether to iterate by **code units**, **code points**, or **grapheme clusters**. Normalize text (NFC/NFKC) to avoid multiple encodings for the same visible string. See [[strings|Strings]].
     
 
 ### Persistence and concurrency
@@ -260,10 +260,10 @@ Tries offer **predictable `Θ(L)`** operations and powerful **prefix-aware** fea
 
 ## See also
 
-- [[cs/dsa/standard-trie|Standard Trie]]
+- [[standard-trie|Standard Trie]]
     
-- [[cs/dsa/compressed-trie|Compressed Trie]]
+- [[compressed-trie|Compressed Trie]]
     
-- [[cs/dsa/suffix-trie|Suffix Trie]]
+- [[suffix-trie|Suffix Trie]]
     
-- [[cs/dsa/hash-tables|Hash Tables]]
+- [[hash-tables|Hash Tables]]

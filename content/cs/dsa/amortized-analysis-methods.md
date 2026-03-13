@@ -116,7 +116,7 @@ Suppose each `push` sometimes triggers a **cleanup** that removes obsolete marke
 ---
 
 ## See also
-- [[cs/dsa/asymptotic-notation|Asymptotic Notation]]
-- [[cs/dsa/best-worst-average-cases|Best/Worst/Average Cases]]
-- [[cs/dsa/dynamic-arrays|Dynamic Arrays]]
-- [[cs/dsa/disjoint-set|Union-Find]]
+- [[asymptotic-notation|Asymptotic Notation]]
+- [[best-worst-average-cases|Best/Worst/Average Cases]]
+- [[dynamic-arrays|Dynamic Arrays]]
+- [[disjoint-set|Union-Find]]

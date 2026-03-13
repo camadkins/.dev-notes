@@ -267,10 +267,10 @@ Each extension must re-prove **progress** and **preservation**, maintaining the 
 
 ## See also
 
-- [[cs/pl/type-soundness-progress-preservation|Type Soundness — Progress & Preservation]]
+- [[type-soundness-progress-preservation|Type Soundness — Progress & Preservation]]
     
-- [[cs/pl/subtyping-variance-type-constraints|Subtyping, Variance & Type Constraints]]
+- [[subtyping-variance-type-constraints|Subtyping, Variance & Type Constraints]]
     
-- [[cs/pl/hindleymilner-type-inference|Hindley–Milner Type Inference]]
+- [[hindleymilner-type-inference|Hindley–Milner Type Inference]]
     
-- [[cs/pl/parametric-polymorphism-adts|Parametric Polymorphism & ADTs]]
+- [[parametric-polymorphism-adts|Parametric Polymorphism & ADTs]]

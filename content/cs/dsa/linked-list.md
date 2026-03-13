@@ -37,7 +37,7 @@ List:
 
 - If `tail != NIL` then `tail.next == NIL`.
 
-- Following `next` from `head` ends at `NIL` (no cycles) unless explicitly using a circular variant (see [[cs/dsa/circular-linked-list|Circular Linked List]]).
+- Following `next` from `head` ends at `NIL` (no cycles) unless explicitly using a circular variant (see [[circular-linked-list|Circular Linked List]]).
 
 
 > [!tip]
@@ -183,7 +183,7 @@ Start with empty list: `head=tail=NIL`.
 - **Space:** `Θ(n)` nodes plus pointer overhead (one pointer per node in SLL).
 
 
-**Cache behavior.** SLLs suffer from **poor locality** vs arrays; each step is a pointer chase. Arrays dominate when random access and iteration speed matter (see [[cs/dsa/dynamic-arrays|Dynamic Arrays]]).
+**Cache behavior.** SLLs suffer from **poor locality** vs arrays; each step is a pointer chase. Arrays dominate when random access and iteration speed matter (see [[dynamic-arrays|Dynamic Arrays]]).
 
 ## Implementation Details or Trade-offs
 
@@ -253,11 +253,11 @@ function HAS_CYCLE(L):
 
 ## Practical Use Cases
 
-- **Queues / Producer–Consumer:** SLL with `head`/`tail` supports `enqueue`/`dequeue` in `O(1)` (see [[cs/dsa/queue|Queue]]).
+- **Queues / Producer–Consumer:** SLL with `head`/`tail` supports `enqueue`/`dequeue` in `O(1)` (see [[queue|Queue]]).
 
 - **Adjacency lists:** Graph representations often store neighbors in linked nodes when memory fragmentation is acceptable.
 
-- **Hash table buckets:** Separate chaining uses SLL per bucket (see [[cs/dsa/hash-tables|Hash Tables]]).
+- **Hash table buckets:** Separate chaining uses SLL per bucket (see [[hash-tables|Hash Tables]]).
 
 - **Streaming logs / editors:** Gap buffers and rope-like structures may embed linked chunks for insert-heavy workloads.
 
@@ -288,10 +288,10 @@ Linked lists provide **O(1)** local updates with simple pointer rewiring and **O
 
 ## See also
 
-- [[cs/dsa/singly-linked-list|Singly Linked List]]
+- [[singly-linked-list|Singly Linked List]]
 
-- [[cs/dsa/doubly-linked-list|Doubly Linked List]]
+- [[doubly-linked-list|Doubly Linked List]]
 
-- [[cs/dsa/circular-linked-list|Circular Linked List]]
+- [[circular-linked-list|Circular Linked List]]
 
-- [[cs/dsa/dynamic-arrays|Dynamic Arrays]]
+- [[dynamic-arrays|Dynamic Arrays]]

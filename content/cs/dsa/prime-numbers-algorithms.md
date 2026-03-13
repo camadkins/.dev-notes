@@ -276,10 +276,10 @@ For `n−1 = d·2^s`, example `n=561` (Carmichael):
 
 ## See also
 
-- [[cs/dsa/euclidan-algorithms|Euclidean Algorithms]]
+- [[euclidean-algorithms|Euclidean Algorithms]]
 
-- [[cs/dsa/hcf-and-lcm-algorithms|HCF and LCM Algorithms]]
+- [[hcf-and-lcm-algorithms|HCF and LCM Algorithms]]
 
-- [[cs/dsa/counting-sort|Counting Sort]]
+- [[counting-sort|Counting Sort]]
 
-- [[cs/dsa/logarithmic-functions|Logarithmic Functions]]
+- [[logarithmic-functions|Logarithmic Functions]]

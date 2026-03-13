@@ -240,10 +240,10 @@ This recursive style forms the basis of interpreters, compilers, and type checke
 
 ## See also
 
-- [[cs/pl/parametric-polymorphism-adts|Parametric Polymorphism & ADTs]]
+- [[parametric-polymorphism-adts|Parametric Polymorphism & ADTs]]
     
-- [[cs/pl/objects-classes-and-dispatch|Objects, Classes, and Dispatch]]
+- [[objects-classes-and-dispatch|Objects, Classes, and Dispatch]]
     
-- [[cs/pl/language-design-values-variables-environments|Values, Variables & Environments]]
+- [[language-design-values-variables-environments|Values, Variables & Environments]]
     
-- [[cs/pl/type-systems-goals-guarantees|Type Systems — Goals & Guarantees]]
+- [[type-systems-goals-guarantees|Type Systems — Goals & Guarantees]]

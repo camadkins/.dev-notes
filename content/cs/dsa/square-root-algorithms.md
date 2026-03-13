@@ -206,10 +206,10 @@ Correctness hinges on **overflow-safe comparisons**, **clear rounding semantics*
 
 ## See also
 
-- [[cs/dsa/binary-search|Binary Search]]
+- [[binary-search|Binary Search]]
 
-- [[cs/dsa/recurrences-master-theorem|Recurrences — Master Theorem]]
+- [[recurrences-master-theorem|Recurrences — Master Theorem]]
 
-- [[cs/dsa/time-complexity-analysis|Time Complexity Analysis]]
+- [[time-complexity-analysis|Time Complexity Analysis]]
 
-- [[cs/dsa/maths|Math Basics for DS&A]]
+- [[maths|Math Basics for DS&A]]

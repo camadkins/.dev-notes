@@ -209,8 +209,8 @@ Understanding exceptions through **non-local control** clarifies why they intera
 
 ## See also
 
-- [[cs/pl/continuations-cps|Continuations & CPS]]
+- [[continuations-cps|Continuations & CPS]]
     
-- [[cs/pl/operational-semantics-big-step-small-step|Operational Semantics — Big-Step & Small-Step]]
+- [[operational-semantics-big-step-small-step|Operational Semantics — Big-Step & Small-Step]]
     
-- [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]
+- [[lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]

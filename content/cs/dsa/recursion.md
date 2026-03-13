@@ -114,12 +114,12 @@ function SOLVE(state):
 
 - **Mutual recursion.** Two or more functions call each other; termination still follows from a common decreasing measure.
 
-- **Memoization vs recomputation.** Overlapping subproblems (e.g., naive Fibonacci) lead to exponential recomputation unless results are cached or a bottom-up DP is used. See [[cs/dsa/dynamic-programming|Dynamic Programming]].
+- **Memoization vs recomputation.** Overlapping subproblems (e.g., naive Fibonacci) lead to exponential recomputation unless results are cached or a bottom-up DP is used. See [[dynamic-programming|Dynamic Programming]].
 
 
 ### Recurrence relations for cost
 
-Recursive algorithms often yield cost recurrences such as `T(n) = aT(n/b) + f(n)` (divide-and-conquer). Solving these uses the tools in [[cs/dsa/recurrences-master-theorem|Recurrences — Master Theorem]] and [[cs/dsa/recurrence-relations|Recurrence Relations]].
+Recursive algorithms often yield cost recurrences such as `T(n) = aT(n/b) + f(n)` (divide-and-conquer). Solving these uses the tools in [[recurrences-master-theorem|Recurrences — Master Theorem]] and [[recurrence-relations|Recurrence Relations]].
 
 ## Implementation or Practical Context
 
@@ -209,10 +209,10 @@ Recursion expresses solutions by **reducing** problems to **smaller instances** 
 
 ## See also
 
-- [[cs/dsa/divide-and-conquer|Divide and Conquer]]
+- [[divide-and-conquer|Divide and Conquer]]
 
-- [[cs/dsa/dynamic-programming|Dynamic Programming]]
+- [[dynamic-programming|Dynamic Programming]]
 
-- [[cs/dsa/time-complexity-analysis|Time Complexity Analysis]]
+- [[time-complexity-analysis|Time Complexity Analysis]]
 
-- [[cs/dsa/recurrence-relations|Recurrence Relations]]
+- [[recurrence-relations|Recurrence Relations]]

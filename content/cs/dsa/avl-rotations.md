@@ -1,7 +1,7 @@
 ---
 title: AVL Rotations
 description: Understanding AVL balance factors, rotation types, and how rebalancing preserves the binary search property.
-draft: true
+draft: false
 tags:
   - cs
   - dsa
@@ -197,8 +197,8 @@ function insert(node, key):
 
 ## See also
 
-- [[cs/dsa/avl-tree|AVL Tree]]
+- [[avl-tree|AVL Tree]]
     
-- [[cs/dsa/rb-tree|Red-Black Tree]]
+- [[rb-tree|Red-Black Tree]]
     
-- [[cs/dsa/tree-traversal|Tree Traversal]]
+- [[tree-traversal|Tree Traversal]]

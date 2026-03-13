@@ -1,7 +1,7 @@
 ---
 title: Splay Tree  
 description: Self-adjusting BST with a splay operation that moves the accessed node to the root and provides amortized efficiency.  
-draft: true  
+draft: false
 tags:
 - cs
 - dsa  
@@ -188,7 +188,7 @@ Consider starting with a skewed BST on keys `[1,2,3,4,5,6,7]` (ascending inserts
         
 - **Memory locality:** Like other pointer-rich trees, splay trees can suffer cache misses. Top-down variants can have better locality due to fewer parent-pointer dereferences.
     
-- **No balance metadata:** Simpler node structure than [[cs/dsa/avl-tree|AVL Tree]] or [[cs/dsa/red-black-tree|Red–Black Tree]], at the cost of **per-operation variance**.
+- **No balance metadata:** Simpler node structure than [[avl-tree|AVL Tree]] or [[red-black-tree|Red–Black Tree]], at the cost of **per-operation variance**.
     
 
 > [!example]  
@@ -211,7 +211,7 @@ Consider starting with a skewed BST on keys `[1,2,3,4,5,6,7]` (ascending inserts
 ## Limitations / Pitfalls
 
 > [!warning]  
-> **Unpredictable latency.** Individual operations can take `Θ(n)` time. If you need **hard worst-case bounds** per operation, prefer [[cs/dsa/red-black-tree|Red–Black Tree]] or [[cs/dsa/avl-tree|AVL Tree]].
+> **Unpredictable latency.** Individual operations can take `Θ(n)` time. If you need **hard worst-case bounds** per operation, prefer [[red-black-tree|Red–Black Tree]] or [[avl-tree|AVL Tree]].
 
 > [!warning]  
 > **Deletion nuances.** After splaying the target to root, you must carefully **JOIN** left and right subtrees (often by splaying the max of the left subtree). Errors here easily violate the BST invariant.
@@ -230,8 +230,8 @@ Splay trees are **metadata-free, self-adjusting BSTs**: every access performs **
 
 - [[bst|Binary Search Tree]]
     
-- [[cs/dsa/avl-tree|AVL Tree]]
+- [[avl-tree|AVL Tree]]
     
 - [[rb-tree]]
     
-- [[cs/dsa/trees|Trees]]
+- [[trees|Trees]]

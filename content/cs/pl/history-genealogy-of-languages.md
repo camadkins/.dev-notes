@@ -266,7 +266,7 @@ The result is a mature ecosystem — where learning one language often unlocks c
 ---
 
 ## See also
-- [[cs/pl/grammars-notation-bnfebnf|Grammars — BNF & EBNF]]
-- [[cs/pl/grammar-ambiguity-parse-trees|Grammar Ambiguity & Parse Trees]]
-- [[cs/pl/programming-paradigms-models-of-computation|Programming Paradigms & Models of Computation]]
-- [[cs/pl/evaluation-order-and-strictness|Evaluation Order & Strictness]]
+- [[grammars-notation-bnfebnf|Grammars — BNF & EBNF]]
+- [[grammar-ambiguity-parse-trees|Grammar Ambiguity & Parse Trees]]
+- [[programming-paradigms-models-of-computation|Programming Paradigms & Models of Computation]]
+- [[evaluation-order-and-strictness|Evaluation Order & Strictness]]

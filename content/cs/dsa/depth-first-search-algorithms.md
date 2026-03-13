@@ -1,7 +1,7 @@
 ---
 title: Depth-First Search (DFS)  
 description: Systematic graph exploration that timestamps discovery/finish times and classifies edges; foundation for cycle detection and topological order.  
-draft: true  
+draft: false
 tags:
 - cs
 - dsa  
@@ -16,7 +16,7 @@ aliases: []
 
 ## Overview
 
-**Depth-First Search (DFS)** explores a graph by recursing (or using an explicit stack) along each path as far as possible before backtracking. Classic DFS records **discovery** and **finish** timestamps for each vertex, yielding a **DFS forest** and enabling **edge classification** (tree, back, forward, cross). These artifacts power cycle detection, connectivity analyses, and [[cs/dsa/topological-sorting|Topological Sorting]].
+**Depth-First Search (DFS)** explores a graph by recursing (or using an explicit stack) along each path as far as possible before backtracking. Classic DFS records **discovery** and **finish** timestamps for each vertex, yielding a **DFS forest** and enabling **edge classification** (tree, back, forward, cross). These artifacts power cycle detection, connectivity analyses, and [[topological-sorting|Topological Sorting]].
 
 > [!example]  
 > **Diagram (`dfs-forest-timestamps.svg`)** — Draw a small directed graph. Show the DFS forest with each vertex labeled `d[u]/f[u]` (discovery/finish). Color edges by class: tree (solid), back (red), forward (blue), cross (gray).
@@ -144,10 +144,10 @@ DFS performs a **deep** exploration that yields a DFS forest, timestamps, and ed
 
 ## See also
 
-- [[cs/dsa/breadth-first-search-algorithms|Breadth-First Search Algorithms]]
+- [[breadth-first-search-algorithms|Breadth-First Search Algorithms]]
     
-- [[cs/dsa/graph-traversals-bfs-dfs|Graph Traversals: BFS and DFS]]
+- [[graph-traversals-bfs-dfs|Graph Traversals: BFS and DFS]]
     
-- [[cs/dsa/topological-sorting|Topological Sorting]]
+- [[topological-sorting|Topological Sorting]]
     
-- [[cs/dsa/recursion|Recursion]]
+- [[recursion|Recursion]]

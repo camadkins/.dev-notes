@@ -149,6 +149,6 @@ Now the structure is deterministic: each `else` matches the closest unmatched `i
 ---
 
 ## See also
-- [[cs/pl/grammars-notation-bnfebnf|Grammars — BNF & EBNF]]
-- [[cs/pl/cfg-design-refactoring|CFG Design & Refactoring]]
-- [[cs/pl/programming-paradigms-models-of-computation|Programming Paradigms & Models of Computation]]
+- [[grammars-notation-bnfebnf|Grammars — BNF & EBNF]]
+- [[cfg-design-refactoring|CFG Design & Refactoring]]
+- [[programming-paradigms-models-of-computation|Programming Paradigms & Models of Computation]]

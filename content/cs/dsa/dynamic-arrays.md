@@ -11,7 +11,7 @@ aliases: []
 ---
 
 ## Overview
-A **dynamic array** is a contiguous sequence container that supports **random access in O(1)** and **amortized O(1) append (push-back)** by allocating extra capacity ahead of use and **growing geometrically** when full. Unlike fixed-size [[cs/dsa/arrays|Arrays]], dynamic arrays automatically **reallocate** and **copy** elements to a larger buffer when the logical size reaches capacity. This design underpins `std::vector` (C++), `ArrayList` (Java), Python lists, and many runtime arrays in managed languages.
+A **dynamic array** is a contiguous sequence container that supports **random access in O(1)** and **amortized O(1) append (push-back)** by allocating extra capacity ahead of use and **growing geometrically** when full. Unlike fixed-size [[arrays|Arrays]], dynamic arrays automatically **reallocate** and **copy** elements to a larger buffer when the logical size reaches capacity. This design underpins `std::vector` (C++), `ArrayList` (Java), Python lists, and many runtime arrays in managed languages.
 
 Dynamic arrays provide excellent **cache locality** for iteration and numeric kernels but have non-trivial **resize costs**, **iterator invalidation** on growth, and potentially large **peak memory** due to over-allocation.
 
@@ -197,7 +197,7 @@ Let `n` be the number of elements, `C` capacity.
 
 **Stable references.**
 
-- If you require **stable addresses** across growth, dynamic arrays are unsuitable; consider [[cs/dsa/doubly-linked-list|Doubly Linked List]] or node-based containers. For stable indices but movable storage, expose **indices** rather than raw pointers.
+- If you require **stable addresses** across growth, dynamic arrays are unsuitable; consider [[doubly-linked-list|Doubly Linked List]] or node-based containers. For stable indices but movable storage, expose **indices** rather than raw pointers.
 
 
 ## Practical Use Cases
@@ -208,7 +208,7 @@ Let `n` be the number of elements, `C` capacity.
 
 - **Numeric arrays** and **image buffers** where SIMD and cache locality dominate.
 
-- **Stacks/queues** at the end(s) when middle insertions are rare; for bidirectional end operations, see [[cs/dsa/deque|Deque (Double-Ended Queue)]].
+- **Stacks/queues** at the end(s) when middle insertions are rare; for bidirectional end operations, see [[deque|Deque (Double-Ended Queue)]].
 
 
 ## Limitations / Pitfalls
@@ -231,10 +231,10 @@ Dynamic arrays deliver **contiguous storage**, **O(1) random access**, and **amo
 
 ## See also
 
-- [[cs/dsa/arrays|Arrays]]
+- [[arrays|Arrays]]
 
-- [[cs/dsa/deque|Deque (Double-Ended Queue)]]
+- [[deque|Deque (Double-Ended Queue)]]
 
-- [[cs/dsa/linked-list|Linked List]]
+- [[linked-list|Linked List]]
 
-- [[cs/dsa/memory-allocation|Memory Allocation]]
+- [[memory-allocation|Memory Allocation]]

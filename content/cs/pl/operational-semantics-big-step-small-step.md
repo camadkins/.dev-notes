@@ -281,7 +281,7 @@ Languages and textbooks often use hybrid styles:
 ---
 
 ## See also
-- [[cs/pl/booleans-conditionals-semantics|Booleans & Conditionals — Semantics]]
-- [[cs/pl/mutable-state-references-effects|Mutable State, References & Effects]]
-- [[cs/pl/language-design-values-variables-environments|Values, Variables & Environments]]
+- [[booleans-conditionals-semantics|Booleans & Conditionals — Semantics]]
+- [[mutable-state-references-effects|Mutable State, References & Effects]]
+- [[language-design-values-variables-environments|Values, Variables & Environments]]
 - [[evaluation-order-and-strictness | Evaluation Order & Strictness]]

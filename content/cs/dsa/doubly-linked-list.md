@@ -208,11 +208,11 @@ Let `n` be the number of nodes.
 
 **Comparison to related structures.**
 
-- [[cs/dsa/linked-list|Linked List]]: saves one pointer per node but cannot delete in O(1) without the **predecessor**; DLLs delete in O(1) with the node handle.
+- [[linked-list|Linked List]]: saves one pointer per node but cannot delete in O(1) without the **predecessor**; DLLs delete in O(1) with the node handle.
 
-- [[cs/dsa/doubly-linked-list|Doubly Linked List]] vs [[cs/dsa/circular-linked-list|Circular Linked List]]: circular + sentinel variant removes end-case branches and supports O(1) rotation by simply changing the entry pointer.
+- [[doubly-linked-list|Doubly Linked List]] vs [[circular-linked-list|Circular Linked List]]: circular + sentinel variant removes end-case branches and supports O(1) rotation by simply changing the entry pointer.
 
-- [[cs/dsa/queue|Queue]] / [[cs/dsa/deque|Deque (Double-Ended Queue)]]: deques can be implemented atop DLLs (unbounded) or arrays (cache-friendly).
+- [[queue|Queue]] / [[deque|Deque (Double-Ended Queue)]]: deques can be implemented atop DLLs (unbounded) or arrays (cache-friendly).
 
 
 ## Implementation Details or Trade-offs
@@ -302,10 +302,10 @@ Doubly linked lists enable **constant-time local edits** and **two-way iteration
 
 ## See also
 
-- [[cs/dsa/linked-list|Linked List]]
+- [[linked-list|Linked List]]
 
-- [[cs/dsa/circular-linked-list|Circular Linked List]]
+- [[circular-linked-list|Circular Linked List]]
 
-- [[cs/dsa/deque|Deque (Double-Ended Queue)]]
+- [[deque|Deque (Double-Ended Queue)]]
 
-- [[cs/dsa/queue|Queue]]
+- [[queue|Queue]]

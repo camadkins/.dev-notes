@@ -1,7 +1,7 @@
 ---
 title: Binary Search Tree — Ordered Data via Hierarchical Partitioning
 description: Data structure maintaining ordered keys where left subtree < node < right subtree; supports logarithmic average-case search, insertion, and deletion.
-draft: true
+draft: false
 tags:
   - cs
   - dsa
@@ -239,12 +239,12 @@ Inorder traversal yields `[10, 25, 37, 50, 60, 75, 90]`.
 
 ## See also
 
-- [[cs/dsa/avl-tree|AVL Tree]]
+- [[avl-tree|AVL Tree]]
     
 - [[rb-tree]]
     
-- [[cs/dsa/tree-traversal|Tree Traversal]]
+- [[tree-traversal|Tree Traversal]]
     
-- [[cs/dsa/linked-list|Linked List]]
+- [[linked-list|Linked List]]
     
-- [[cs/dsa/heapify|Heapify]]
+- [[heapify|Heapify]]

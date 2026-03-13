@@ -308,6 +308,6 @@ Both share the same expressive power but differ in **clarity and convenience**.
 ---
 
 ## See also
-- [[cs/pl/grammar-ambiguity-parse-trees|Grammar Ambiguity & Parse Trees]]
-- [[cs/pl/cfg-design-refactoring|CFG Design & Refactoring]]
-- [[cs/pl/programming-paradigms-models-of-computation|Programming Paradigms & Models of Computation]]
+- [[grammar-ambiguity-parse-trees|Grammar Ambiguity & Parse Trees]]
+- [[cfg-design-refactoring|CFG Design & Refactoring]]
+- [[programming-paradigms-models-of-computation|Programming Paradigms & Models of Computation]]

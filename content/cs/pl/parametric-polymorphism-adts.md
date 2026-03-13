@@ -286,8 +286,8 @@ Their structure matches **inductive reasoning** — recursion in code correspond
 
 ## See also
 
-- [[cs/pl/hindleymilner-type-inference|Hindley–Milner Type Inference]]
+- [[hindleymilner-type-inference|Hindley–Milner Type Inference]]
     
-- [[cs/pl/records-variants-and-pattern-matching|Records, Variants, and Pattern Matching]]
+- [[records-variants-and-pattern-matching|Records, Variants, and Pattern Matching]]
     
-- [[cs/pl/type-systems-goals-guarantees|Type Systems — Goals & Guarantees]]
+- [[type-systems-goals-guarantees|Type Systems — Goals & Guarantees]]

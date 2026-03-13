@@ -306,12 +306,12 @@ Suppose:
 
 ## See also
 
-- [[cs/dsa/merge-sort|Merge Sort]]
+- [[merge-sort|Merge Sort]]
     
-- [[cs/dsa/bplus-tree|B+ Tree]]
+- [[bplus-tree|B+ Tree]]
     
-- [[cs/dsa/b-tree|B-Tree]]
+- [[b-tree|B-Tree]]
     
-- [[cs/dsa/binary-heap|Binary Heap]]
+- [[binary-heap|Binary Heap]]
     
-- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]
+- [[algorithm-efficiency|Algorithm Efficiency]]

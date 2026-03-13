@@ -1,7 +1,7 @@
 ---
 title: Disjoint Set (Union–Find)
 description: Maintain dynamic connectivity via find/union with path compression and union by rank/size; supports near-constant-time operations.
-draft: true
+draft: false
 tags:
 - cs
 - dsa
@@ -112,7 +112,7 @@ Start with elements `{0,1,2,3,4,5}` as singletons.
 
 - **Dynamic connectivity:** Maintain connectivity as edges are added in an undirected graph.
     
-- **Minimum spanning tree:** Kruskal’s algorithm repeatedly unions endpoints of chosen edges. See [[cs/dsa/kruskals-algorithm|Kruskal's Algorithm]] and [[cs/dsa/minimum-spanning-trees-kruskal-prim|Minimum Spanning Trees: Kruskal & Prim]].
+- **Minimum spanning tree:** Kruskal’s algorithm repeatedly unions endpoints of chosen edges. See [[kruskals-algorithm|Kruskal's Algorithm]] and [[minimum-spanning-trees-kruskal-prim|Minimum Spanning Trees: Kruskal & Prim]].
     
 - **Clustering & segmentation:** Merge by similarity thresholds (e.g., image components).
     
@@ -136,9 +136,9 @@ Union–Find represents components as **parent-pointer forests** and achieves **
 
 ## See also
 
-- [[cs/dsa/kruskals-algorithm|Kruskal's Algorithm]]
+- [[kruskals-algorithm|Kruskal's Algorithm]]
     
-- [[cs/dsa/minimum-spanning-trees-kruskal-prim|Minimum Spanning Trees: Kruskal & Prim]]
+- [[minimum-spanning-trees-kruskal-prim|Minimum Spanning Trees: Kruskal & Prim]]
     
-- [[cs/dsa/graph-representations|Graph Representations]]
+- [[graph-representations|Graph Representations]]
     

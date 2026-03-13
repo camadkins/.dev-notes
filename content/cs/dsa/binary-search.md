@@ -234,8 +234,8 @@ Always ensure the search space **strictly shrinks** each iteration.
 
 ## See also
 
-- [[cs/dsa/asymptotic-notation|Asymptotic Notation]]
+- [[asymptotic-notation|Asymptotic Notation]]
 
-- [[cs/dsa/array-operations|Array Operations]]
+- [[array-operations|Array Operations]]
 
-- [[cs/dsa/bst|Binary Search Tree]]
+- [[bst|Binary Search Tree]]

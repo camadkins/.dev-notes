@@ -137,7 +137,7 @@ Concatenation in bucket order yields the globally sorted array.
 
 - **Pre-sorting for merges**: form small sorted runs cheaply before a merge-heavy phase.
 
-- **Hybrid pipelines** with [[cs/dsa/radix-sort|Radix Sort]] and [[cs/dsa/counting-sort|Counting Sort]].
+- **Hybrid pipelines** with [[radix-sort|Radix Sort]] and [[counting-sort|Counting Sort]].
 
 ---
 
@@ -164,10 +164,10 @@ Concatenation in bucket order yields the globally sorted array.
 
 ## See also
 
-- [[cs/dsa/counting-sort|Counting Sort]]
+- [[counting-sort|Counting Sort]]
 
-- [[cs/dsa/radix-sort|Radix Sort]]
+- [[radix-sort|Radix Sort]]
 
-- [[cs/dsa/quick-sort|Quick Sort]]
+- [[quick-sort|Quick Sort]]
 
-- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]
+- [[algorithm-efficiency|Algorithm Efficiency]]

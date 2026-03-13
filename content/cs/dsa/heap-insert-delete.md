@@ -19,7 +19,7 @@ A **binary heap** (array-backed, complete tree) supports efficient **insert** an
 - **Sift-down** (a.k.a. bubble-down/percolate-down): used after **extract** or **delete** or **decreaseKey** (max-heap) to push a too-small parent downward toward its proper place.
 
 
-Both operations take **O(log n)** time, touching at most one node per level. See [[cs/dsa/heaps|Heaps — Overview]] for properties and [[cs/dsa/heapify|Heapify]] for O(n) bulk build.
+Both operations take **O(log n)** time, touching at most one node per level. See [[heaps|Heaps — Overview]] for properties and [[heapify|Heapify]] for O(n) bulk build.
 
 ## Structure Definition
 
@@ -186,7 +186,7 @@ Start with an empty max-heap. Insert the sequence `8, 3, 10, 1, 6, 14, 4, 7, 13`
 
 - **Bounds & off-by-one.** Always guard child indices (`L < n`, `R < n`). The last internal node is `floor(n/2)-1`, not `floor(n/2)`.
 
-- **Bulk construction.** Prefer [[cs/dsa/heapify|Heapify]] to build from an existing array in O(n) rather than `n` inserts (O(n log n)).
+- **Bulk construction.** Prefer [[heapify|Heapify]] to build from an existing array in O(n) rather than `n` inserts (O(n log n)).
 
 
 ## Common Pitfalls or Edge Cases
@@ -210,11 +210,11 @@ Start with an empty max-heap. Insert the sequence `8, 3, 10, 1, 6, 14, 4, 7, 13`
 
 - **Priority queues:** task dispatchers, schedulers, event loops.
 
-- **Graph algorithms:** pick the next smallest tentative distance in [[cs/dsa/dijkstras-algorithm|Dijkstra's Algorithm]].
+- **Graph algorithms:** pick the next smallest tentative distance in [[dijkstras-algorithm|Dijkstra's Algorithm]].
 
 - **Top-k / streaming:** maintain a size-`k` heap and compare new items to the root.
 
-- **Heapsort:** build once, then repeatedly extract to grow a sorted suffix (see [[cs/dsa/heapsort|Heapsort]]).
+- **Heapsort:** build once, then repeatedly extract to grow a sorted suffix (see [[heapsort|Heapsort]]).
 
 
 ## Summary
@@ -223,10 +223,10 @@ Binary heap updates hinge on two local repairs: **sift-up** and **sift-down**. W
 
 ## See also
 
-- [[cs/dsa/binary-heap|Binary Heap]]
+- [[binary-heap|Binary Heap]]
 
-- [[cs/dsa/heapify|Heapify]]
+- [[heapify|Heapify]]
 
-- [[cs/dsa/heaps|Heaps — Overview]]
+- [[heaps|Heaps — Overview]]
 
-- [[cs/dsa/heapsort|Heapsort]]
+- [[heapsort|Heapsort]]

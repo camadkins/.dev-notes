@@ -1,7 +1,7 @@
 ---
 title: Standard Trie
 description: Prefix tree with per-character child pointers; fast lookups and natural prefix operations at the cost of memory.
-draft: true
+draft: false
 tags:
   - cs
   - dsa
@@ -17,7 +17,7 @@ aliases: []
 A **standard trie** (a.k.a. *prefix tree*) stores strings so that each edge corresponds to a character and each root-to-node path spells a **prefix** of some key. Tries provide **prefix-friendly** lookup: exact membership, prefix queries, and lexicographic iteration in time proportional to the **length of the query**, not the number of stored keys. The trade-off is **memory**: naive node designs allocate a child slot per alphabet symbol, which can be expensive on large alphabets or sparse branches.
 
 > [!note]
-> A “standard trie” here means **uncompressed**—every character consumes one edge. For space-optimized variants see [[cs/dsa/compressed-trie|Compressed Trie]] and for substring indexing see [[cs/dsa/suffix-trie|Suffix Trie]].
+> A “standard trie” here means **uncompressed**—every character consumes one edge. For space-optimized variants see [[compressed-trie|Compressed Trie]] and for substring indexing see [[suffix-trie|Suffix Trie]].
 
 ## Structure Definition
 Each node represents a **prefix** `p`. It stores:
@@ -147,7 +147,7 @@ Cache and constants:
     
 
 > [!warning]  
-> **Memory blow-up on large alphabets.** An array of size `|Σ|` per node becomes prohibitive for Unicode or mixed symbol sets. Prefer dictionary children or adopt [[cs/dsa/compressed-trie|Compressed Trie]].
+> **Memory blow-up on large alphabets.** An array of size `|Σ|` per node becomes prohibitive for Unicode or mixed symbol sets. Prefer dictionary children or adopt [[compressed-trie|Compressed Trie]].
 
 ## Optimizations or Variants
 
@@ -160,7 +160,7 @@ Cache and constants:
 
 ### Path compression (radix tree)
 
-Merge chains of single-child nodes so edges carry **strings** instead of single characters. This reduces height and memory; see [[cs/dsa/compressed-trie|Compressed Trie]] for details.
+Merge chains of single-child nodes so edges carry **strings** instead of single characters. This reduces height and memory; see [[compressed-trie|Compressed Trie]] for details.
 
 ### End-of-word payloads
 
@@ -264,14 +264,14 @@ Normalize input at insert/search time:
 
 ## Summary
 
-A standard trie offers **predictable `Θ(k)`** operations for exact and prefix queries by **indexing characters along edges** and marking **terminal nodes** for complete words. It excels at **prefix-heavy** tasks like autocomplete and routing, trading **space** for **speed and simplicity**. Sensible node representations (array vs map), clear normalization policies, and careful delete/pruning logic produce a robust, scalable implementation. For large datasets or long chains of degree-1 nodes, consider [[cs/dsa/compressed-trie|Compressed Trie]] to reduce height and memory while preserving prefix operations.
+A standard trie offers **predictable `Θ(k)`** operations for exact and prefix queries by **indexing characters along edges** and marking **terminal nodes** for complete words. It excels at **prefix-heavy** tasks like autocomplete and routing, trading **space** for **speed and simplicity**. Sensible node representations (array vs map), clear normalization policies, and careful delete/pruning logic produce a robust, scalable implementation. For large datasets or long chains of degree-1 nodes, consider [[compressed-trie|Compressed Trie]] to reduce height and memory while preserving prefix operations.
 
 ## See also
 
-- [[cs/dsa/tries|Tries]]
+- [[tries|Tries]]
     
-- [[cs/dsa/compressed-trie|Compressed Trie]]
+- [[compressed-trie|Compressed Trie]]
     
-- [[cs/dsa/suffix-trie|Suffix Trie]]
+- [[suffix-trie|Suffix Trie]]
     
-- [[cs/dsa/strings|Strings]]
+- [[strings|Strings]]

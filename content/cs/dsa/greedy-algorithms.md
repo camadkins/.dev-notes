@@ -97,11 +97,11 @@ Both are greedy:
     **Cut property:** the minimum edge crossing any cut of the graph is safe to take—an exchange/cut argument proves correctness.
 
 
-See [[cs/dsa/minimum-spanning-trees-kruskal-prim|Minimum Spanning Trees — Kruskal & Prim]] and [[cs/dsa/huffman-coding|Huffman Coding]].
+See [[minimum-spanning-trees-kruskal-prim|Minimum Spanning Trees — Kruskal & Prim]] and [[huffman-coding|Huffman Coding]].
 
 ## Properties and Relationships
 
-- **Optimal substructure vs overlapping subproblems.** Greedy relies on **optimal substructure** plus a **greedy-choice property**; when subproblems overlap and local choices are insufficient, use [[cs/dsa/dynamic-programming|Dynamic Programming]].
+- **Optimal substructure vs overlapping subproblems.** Greedy relies on **optimal substructure** plus a **greedy-choice property**; when subproblems overlap and local choices are insufficient, use [[dynamic-programming|Dynamic Programming]].
 
 - **Matroids and partition matroids.** Greedy is guaranteed for maximizing weight over **matroid** independent sets. Interval scheduling is consistent with a matroid-like exchange condition; MSTs rely on cut/cycle properties (graphic matroid).
 
@@ -175,10 +175,10 @@ Greedy algorithms succeed when **local choices are globally safe**. Prove that p
 
 ## See also
 
-- [[cs/dsa/minimum-spanning-trees-kruskal-prim|Minimum Spanning Trees — Kruskal & Prim]]
+- [[minimum-spanning-trees-kruskal-prim|Minimum Spanning Trees — Kruskal & Prim]]
 
-- [[cs/dsa/huffman-coding|Huffman Coding]]
+- [[huffman-coding|Huffman Coding]]
 
-- [[cs/dsa/dynamic-programming|Dynamic Programming]]
+- [[dynamic-programming|Dynamic Programming]]
 
-- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]
+- [[algorithm-efficiency|Algorithm Efficiency]]

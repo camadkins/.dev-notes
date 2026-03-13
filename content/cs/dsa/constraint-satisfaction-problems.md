@@ -194,10 +194,10 @@ Effective CSP solving balances **inference strength** against **search effort**,
 
 ## See also
 
-- [[cs/dsa/backtracking-algorithms|Backtracking Algorithms]]
+- [[backtracking-algorithms|Backtracking Algorithms]]
 
-- [[cs/dsa/graph-representations|Graph Representations]]
+- [[graph-representations|Graph Representations]]
 
-- [[cs/dsa/greedy-algorithms|Greedy Algorithms]]
+- [[greedy-algorithms|Greedy Algorithms]]
 
-- [[cs/dsa/dynamic-programming|Dynamic Programming]]
+- [[dynamic-programming|Dynamic Programming]]

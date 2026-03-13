@@ -1,7 +1,7 @@
 ---
 title: Compressed Trie  
 description: A compact prefix tree that stores maximal shared substrings on edges to reduce height and pointer overhead while preserving lexicographic order.  
-draft: true  
+draft: false
 tags:
 - cs
 - dsa  
@@ -170,10 +170,10 @@ Compressed tries **collapse single-child paths into edge labels**, giving shorte
 
 ## See also
 
-- [[cs/dsa/standard-trie|Standard Trie]]
+- [[standard-trie|Standard Trie]]
     
-- [[cs/dsa/ternary-search|Ternary Search]]
+- [[ternary-search|Ternary Search]]
     
-- [[cs/dsa/hash-tables|Hash Tables]]
+- [[hash-tables|Hash Tables]]
     
-- [[cs/dsa/strings|Strings]]
+- [[strings|Strings]]

@@ -1,7 +1,7 @@
 ---
 title: Tree Traversal — Overview
 description: Systematic ways to visit tree nodes; depth-first (pre/in/post), breadth-first (level order), with recursive and iterative patterns.
-draft: true
+draft: false
 tags:
   - cs
   - dsa
@@ -22,7 +22,7 @@ aliases: []
 Each order admits a **recursive** version (via the program stack) and an **iterative** version (using an explicit **stack** or **queue**). The choice affects stack depth, memory use, and control over side effects.
 
 > [!note]
-> Throughout, assume a binary-tree node with fields `Node.left`, `Node.right`, and possibly `Node.children[]` for general trees. For binary search trees (BSTs), **inorder** yields keys in sorted order; see [[cs/dsa/inorder|Traversal — Inorder]] and [[cs/dsa/binary-tree|Binary Tree]].
+> Throughout, assume a binary-tree node with fields `Node.left`, `Node.right`, and possibly `Node.children[]` for general trees. For binary search trees (BSTs), **inorder** yields keys in sorted order; see [[inorder|Traversal — Inorder]] and [[binary-tree|Binary Tree]].
 
 ## Motivation
 Picking the right traversal gives you:
@@ -235,7 +235,7 @@ For `n` nodes:
 ## Common Pitfalls or Edge Cases
 
 > [!warning]  
-> **Null handling and sentinel confusion.** Always guard `null` child pointers before pushing/enqueuing. For implicit (array) trees, derive child indices carefully to avoid out-of-bounds; see [[cs/dsa/binary-heap|Binary Heap]] for index formulas.
+> **Null handling and sentinel confusion.** Always guard `null` child pointers before pushing/enqueuing. For implicit (array) trees, derive child indices carefully to avoid out-of-bounds; see [[binary-heap|Binary Heap]] for index formulas.
 
 > [!warning]  
 > **Stack overflow with deep recursion.** Skewed trees can exceed recursion limits. Use iterative variants for unbalanced inputs or increase limits cautiously.
@@ -285,10 +285,10 @@ All run in `Θ(n)` time; pick recursive vs iterative to balance simplicity, dept
 
 ## See also
 
-- [[cs/dsa/preorder|Traversal — Preorder]]
+- [[preorder|Traversal — Preorder]]
     
-- [[cs/dsa/inorder|Traversal — Inorder]]
+- [[inorder|Traversal — Inorder]]
     
-- [[cs/dsa/postorder|Traversal — Postorder]]
+- [[postorder|Traversal — Postorder]]
     
-- [[cs/dsa/graph-traversals-bfs-dfs|Graph Traversals — BFS & DFS]]
+- [[graph-traversals-bfs-dfs|Graph Traversals — BFS & DFS]]

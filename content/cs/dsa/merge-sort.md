@@ -233,10 +233,10 @@ Merge sort guarantees **`Θ(n log n)`** time regardless of input, is **stable**,
 
 ## See also
 
-- [[cs/dsa/insertion-sort|Insertion Sort]]
+- [[insertion-sort|Insertion Sort]]
 
-- [[cs/dsa/quick-sort|Quick Sort]]
+- [[quick-sort|Quick Sort]]
 
-- [[cs/dsa/heapsort|Heapsort]]
+- [[heapsort|Heapsort]]
 
-- [[cs/dsa/divide-and-conquer|Divide and Conquer]]
+- [[divide-and-conquer|Divide and Conquer]]

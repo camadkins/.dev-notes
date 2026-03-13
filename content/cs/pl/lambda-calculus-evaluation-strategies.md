@@ -295,10 +295,10 @@ This ensures **confluence**: evaluation strategy affects performance and termina
 
 ## See also
 
-- [[cs/pl/evaluation-order-and-strictness|Evaluation Order & Strictness]]
+- [[evaluation-order-and-strictness|Evaluation Order & Strictness]]
     
-- [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]
+- [[lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]
     
-- [[cs/pl/lambda-calculus-encodings-booleans-pairs-church-numerals|Lambda Calculus — Encodings]]
+- [[lambda-calculus-encodings-booleans-pairs-church-numerals|Lambda Calculus — Encodings]]
     
-- [[cs/pl/hindleymilner-type-inference|Hindley–Milner Type Inference]]
+- [[hindleymilner-type-inference|Hindley–Milner Type Inference]]

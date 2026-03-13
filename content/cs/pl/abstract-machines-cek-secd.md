@@ -165,4 +165,4 @@ Operand pushes to **S**, code in **C**, and call/return via **D**; mirrors a sta
 ## See also
 - [[operational-semantics-big-step-small-step|Operational Semantics]]
 - [[lambda-calculus-encodings-booleans-pairs-church-numerals|Lambda Calculus — Basics]]
-- [[cs/pl/continuations-cps|Continuations & CPS]]
+- [[continuations-cps|Continuations & CPS]]

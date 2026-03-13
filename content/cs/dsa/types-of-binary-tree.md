@@ -1,7 +1,7 @@
 ---
 title: Types of Binary Tree
 description: Full, complete, perfect, and balanced binary trees—precise definitions, examples, and how the properties relate.
-draft: true
+draft: false
 tags:
   - cs
   - dsa
@@ -17,7 +17,7 @@ aliases: []
 Binary trees come in many flavors—**full (proper)**, **complete**, **perfect**, and **balanced**—each imposing structural constraints that affect height, memory layout, and operation costs. Understanding these definitions and how they interact prevents ambiguous claims (“this tree is balanced”) and helps choose or prove properties of data structures like heaps, BSTs, and search indexes.
 
 > [!note]
-> A **binary tree** restricts each node to at most two children: `left` and `right`. See [[cs/dsa/binary-tree|Binary Tree]] for fundamentals and [[cs/dsa/tree-traversal-overview|Tree Traversal — Overview]] for visiting orders.
+> A **binary tree** restricts each node to at most two children: `left` and `right`. See [[binary-tree|Binary Tree]] for fundamentals and [[tree-traversal-overview|Tree Traversal — Overview]] for visiting orders.
 
 ## Motivation
 - **Performance guarantees:** Balanced forms bound height to `Θ(log n)`, yielding logarithmic search/update in BST-like structures.
@@ -124,17 +124,17 @@ Small witnesses for each type (● = node, · = null):
   Proof sketch: Sum of out-degrees is `n − 1`; full internal nodes each contribute 2, so `2I = n − 1` with `n = I + L` ⇒ `L = I + 1`.
 - **Array layout (complete trees):** With 0-based indexing, parent/child indices satisfy:
   - `left(i) = 2i + 1`, `right(i) = 2i + 2`, `parent(i) = ⌊(i − 1)/2⌋`.  
-  This **requires** completeness to avoid holes; see [[cs/dsa/binary-heap|Binary Heap]].
+  This **requires** completeness to avoid holes; see [[binary-heap|Binary Heap]].
 
 > [!tip]
 > When proving logarithmic time for heap or BST variants, reduce to a **height bound** using the tree’s structural/ balance invariant, then show the algorithm’s path length is `O(h)`.
 
 ## Implementation or Practical Context
-- **Heaps (priority queues):** Require **complete** binary shape; do not need “full” or “perfect.” Array representation minimizes pointers and improves cache locality. See [[cs/dsa/heaps|Heaps — Overview]] and [[cs/dsa/heapify|Heapify]].
+- **Heaps (priority queues):** Require **complete** binary shape; do not need “full” or “perfect.” Array representation minimizes pointers and improves cache locality. See [[heaps|Heaps — Overview]] and [[heapify|Heapify]].
 - **Balanced BSTs (maps/sets):** Need **height-bounded** trees. Choices:
   - **AVL**: tighter height ⇒ faster lookups; more rotations on updates.
   - **Red–black**: looser bound but fewer rotations; common in libraries.
-  - **Splay**: no explicit height invariant; **amortized** logarithmic access; good locality for skewed access patterns. See [[cs/dsa/avl-tree|AVL Tree]], [[cs/dsa/red-black-tree|Red–Black Tree]], [[cs/dsa/splay-tree|Splay Tree]].
+  - **Splay**: no explicit height invariant; **amortized** logarithmic access; good locality for skewed access patterns. See [[avl-tree|AVL Tree]], [[red-black-tree|Red–Black Tree]], [[splay-tree|Splay Tree]].
 - **Memory/layout trade-offs:**
   - **Pointer-based** nodes are flexible but may be cache-inefficient on large trees.
   - **Array-based** layouts exploit completeness; random access and sequential scans are fast.
@@ -154,7 +154,7 @@ Small witnesses for each type (● = node, · = null):
 > **Using heap index formulas on non-complete trees.** Sparse shapes break `2i+1/2i+2` relations and waste memory.
 
 > [!warning]
-> **Depth vs height off-by-one.** Adopt consistent conventions: `height(leaf)=0`, `height(empty)=-1`, `depth(root)=0`. See [[cs/dsa/trees|Trees — Overview]].
+> **Depth vs height off-by-one.** Adopt consistent conventions: `height(leaf)=0`, `height(empty)=-1`, `depth(root)=0`. See [[trees|Trees — Overview]].
 
 ## Example: Height Bounds by Type
 Consider the following node counts and the implied heights:
@@ -194,7 +194,7 @@ Binary-tree “types” encode **shape constraints**:
 Know which property you need: **complete** for heaps and array layouts, **balanced** for logarithmic operations in BSTs, **perfect** mainly as a theoretical ideal. Use precise definitions to avoid ambiguity and to translate structure into performance guarantees.
 
 ## See also
-- [[cs/dsa/binary-tree|Binary Tree]]
-- [[cs/dsa/heaps|Heaps — Overview]]
-- [[cs/dsa/avl-tree|AVL Tree]]
+- [[binary-tree|Binary Tree]]
+- [[heaps|Heaps — Overview]]
+- [[avl-tree|AVL Tree]]
 - [[rb-tree]]

@@ -169,12 +169,12 @@ function height(node):
 
 ## See also
 
-- [[cs/dsa/bst|Binary Search Tree]]
+- [[bst|Binary Search Tree]]
 
-- [[cs/dsa/binary-heap|Binary Heap]]
+- [[binary-heap|Binary Heap]]
 
-- [[cs/dsa/tree-traversal|Tree Traversals]]
+- [[tree-traversal|Tree Traversals]]
 
-- [[cs/dsa/recursion|Recursion]]
+- [[recursion|Recursion]]
 
-- [[cs/dsa/graph-representations|Graph Representations]]
+- [[graph-representations|Graph Representations]]

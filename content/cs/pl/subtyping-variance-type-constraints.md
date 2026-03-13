@@ -234,10 +234,10 @@ Subtyping and polymorphism interact in two main ways:
 
 ## See also
 
-- [[cs/pl/hindleymilner-type-inference|Hindley–Milner Type Inference]]
+- [[hindleymilner-type-inference|Hindley–Milner Type Inference]]
     
-- [[cs/pl/type-systems-goals-guarantees|Type Systems — Goals & Guarantees]]
+- [[type-systems-goals-guarantees|Type Systems — Goals & Guarantees]]
     
-- [[cs/pl/objects-classes-and-dispatch|Objects, Classes, and Dispatch]]
+- [[objects-classes-and-dispatch|Objects, Classes, and Dispatch]]
     
-- [[cs/pl/parametric-polymorphism-adts|Parametric Polymorphism & ADTs]]
+- [[parametric-polymorphism-adts|Parametric Polymorphism & ADTs]]

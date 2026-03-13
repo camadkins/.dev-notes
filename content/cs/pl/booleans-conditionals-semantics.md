@@ -222,8 +222,8 @@ This explicit environment + continuation form is crucial for modeling control co
 
 ## See also
 
-- [[cs/pl/operational-semantics-big-step-small-step|Operational Semantics — Big-Step & Small-Step]]
+- [[operational-semantics-big-step-small-step|Operational Semantics — Big-Step & Small-Step]]
     
 - [[abstract-machines-cek-secd|Abstract Machines — CEK and SECD]]
     
-- [[cs/pl/evaluation-order-and-strictness|Evaluation Order & Strictness]]
+- [[evaluation-order-and-strictness|Evaluation Order & Strictness]]
