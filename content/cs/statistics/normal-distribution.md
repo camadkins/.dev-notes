@@ -70,6 +70,7 @@ If the process variance drifted to $\sigma = 0.03$ mm, the scrap rate would jump
 - **Computer vision:** Gaussian blur convolves images with a normal kernel to reduce noise and detail.
 - **Regression:** OLS assumes errors are normally distributed ($\varepsilon \sim \mathcal{N}(0, \sigma^2)$), which justifies $t$-tests on coefficients.
 - **Generative models:** Variational autoencoders and diffusion models use the normal distribution as a latent prior.
+- **Statistical testing:** many test statistics ($z$, $t$, $\chi^2$) are derived from normal assumptions on the underlying data.
 
 ## Related Notes
 
