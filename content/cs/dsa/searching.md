@@ -169,7 +169,7 @@ Examples: earliest feasible start time, minimal capacity to satisfy constraints,
 
 - **Decision-tree lower bound.** For **comparison-based search** over `n` ordered distinct keys, the decision tree has at least `n` leaves => **height >= ceil(log2 n)**. Hence binary search is optimal up to constants.
 
-- **Hash vs order.** Hash tables offer **expected `Theta(1)`** lookups but do not give order statistics (predecessor/successor). Balanced BSTs (e.g., [[cs/dsa/red-black-tree|Red–Black Tree]], [[cs/dsa/avl-tree|AVL Tree]]) support **`Theta(log n)`** search plus ordered traversals.
+- **Hash vs order.** Hash tables offer **expected `Theta(1)`** lookups but do not give order statistics (predecessor/successor). Balanced BSTs (e.g., [[red-black-tree|Red–Black Tree]], [[avl-tree|AVL Tree]]) support **`Theta(log n)`** search plus ordered traversals.
 
 - **Two-pointers / sliding window.** On arrays with nonnegative or monotone structures, many "find subarray meeting constraint" problems are solved in **linear time** by growing/shrinking a window rather than binary searching a length.
 
@@ -268,10 +268,10 @@ Search strategy follows structure. Without structure, **scan**. With order and r
 
 ## See also
 
-- [[cs/dsa/linear-search|Linear Search]]
+- [[linear-search|Linear Search]]
 
-- [[cs/dsa/binary-search|Binary Search]]
+- [[binary-search|Binary Search]]
 
-- [[cs/dsa/maps-and-hashtable|Maps & Hash Tables]]
+- [[maps-and-hashtable|Maps & Hash Tables]]
 
-- [[cs/dsa/graph-traversals-bfs-dfs|Graph Traversals — BFS & DFS]]
+- [[graph-traversals-bfs-dfs|Graph Traversals — BFS & DFS]]

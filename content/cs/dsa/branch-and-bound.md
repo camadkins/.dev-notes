@@ -200,12 +200,12 @@ function knapsackB&B(i, currW, currV):
 
 ## See also
 
-- [[cs/dsa/backtracking-algorithms|Backtracking Algorithms]]
+- [[backtracking-algorithms|Backtracking Algorithms]]
 
-- [[cs/dsa/greedy-algorithms|Greedy Algorithms]]
+- [[greedy-algorithms|Greedy Algorithms]]
 
-- [[cs/dsa/dynamic-programming|Dynamic Programming]]
+- [[dynamic-programming|Dynamic Programming]]
 
-- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]
+- [[algorithm-efficiency|Algorithm Efficiency]]
 
-- [[cs/dsa/knapsack-problem|Knapsack Problem]]
+- [[knapsack-problem|Knapsack Problem]]

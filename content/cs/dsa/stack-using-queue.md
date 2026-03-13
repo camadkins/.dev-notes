@@ -177,7 +177,7 @@ Let `n` be the number of elements at the moment of the operation.
 
     - **Two-queue** versions add a `swap(Q1,Q2)` step to keep invariants clean and code straightforward.
 
-- **Stability of references:** These implementations **do not** provide stable references to elements (queue nodes may move/rotate). If stability is required, use [[cs/dsa/stack-using-linked-list|Stack Using Linked List]].
+- **Stability of references:** These implementations **do not** provide stable references to elements (queue nodes may move/rotate). If stability is required, use [[stack-using-linked-list|Stack Using Linked List]].
 
 - **Cache behavior:** Circular-buffer queues are generally more cache-friendly than linked queues due to contiguous memory.
 
@@ -213,10 +213,10 @@ A stack can be implemented with queues by enforcing the invariant that the **mos
 
 ## See also
 
-- [[cs/dsa/stack|Stack]]
+- [[stack|Stack]]
 
-- [[cs/dsa/queue|Queue]]
+- [[queue|Queue]]
 
-- [[cs/dsa/stack-using-array|Stack Using Array]]
+- [[stack-using-array|Stack Using Array]]
 
-- [[cs/dsa/stack-using-linked-list|Stack Using Linked List]]
+- [[stack-using-linked-list|Stack Using Linked List]]

@@ -199,7 +199,7 @@ test "wrap-around correctness":
 
 - **Memory reclamation.** For linked queues with high churn, consider node pools or slab allocators to improve locality and reduce allocator contention.
 
-- **Non-FIFO needs.** If you must insert/remove at both ends, use a [[cs/dsa/deque|Deque (Double-Ended Queue)]]; for priority by key, use a [[cs/dsa/binary-heap|Binary Heap]]-backed priority queue.
+- **Non-FIFO needs.** If you must insert/remove at both ends, use a [[deque|Deque (Double-Ended Queue)]]; for priority by key, use a [[binary-heap|Binary Heap]]-backed priority queue.
 
 
 ## Summary
@@ -208,10 +208,10 @@ Enqueue/dequeue correctness rests on **clear invariants** and **consistent updat
 
 ## See also
 
-- [[cs/dsa/queue|Queue]]
+- [[queue|Queue]]
 
-- [[cs/dsa/circular-queue|Circular Queue]]
+- [[circular-queue|Circular Queue]]
 
-- [[cs/dsa/deque|Deque (Double-Ended Queue)]]
+- [[deque|Deque (Double-Ended Queue)]]
 
-- [[cs/dsa/doubly-linked-list|Doubly Linked List]]
+- [[doubly-linked-list|Doubly Linked List]]

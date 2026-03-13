@@ -86,7 +86,7 @@ For `b>0`, `b!=1`, define:
 
 - **Tree heights.** A complete binary tree with `n` nodes has height `floor(log2 n)` (0-based). A complete `k`-ary tree has height `Theta(log_k n) = Theta((log n)/(log k))`.
 
-- **Master Theorem context.** Recurrences like `T(n) = a*T(n/b) + f(n)` yield terms with `log_b n` in the exponent of `n` or in multiplicative factors; see [[cs/dsa/recurrences-master-theorem|Recurrences — Master Theorem]].
+- **Master Theorem context.** Recurrences like `T(n) = a*T(n/b) + f(n)` yield terms with `log_b n` in the exponent of `n` or in multiplicative factors; see [[recurrences-master-theorem|Recurrences — Master Theorem]].
 
 - **Iterated logs.** `log^{(k)} n` denotes applying log **k** times; `log^* n` (log-star) counts how many times to log until <= 1 (extremely small, <= 5 for any realistic `n`).
 
@@ -124,7 +124,7 @@ With bit operations, many languages provide a "count leading zeros" (CLZ) primit
 `floor_log2(n) = word_bits - 1 - clz(n)` for `n>0`.
 
 > [!tip]
-> Use **bit length** to size arrays or heaps: a binary heap storing `n` items has height `floor(log2 n)`, so operations are bounded by that many sift steps; see [[cs/dsa/heaps|Heaps — Overview]].
+> Use **bit length** to size arrays or heaps: a binary heap storing `n` items has height `floor(log2 n)`, so operations are bounded by that many sift steps; see [[heaps|Heaps — Overview]].
 
 ### Change-of-base in code (stable numerics)
 
@@ -151,7 +151,7 @@ function DECIMAL_DIGITS(n):     // n >= 1
 
 ### Common CS appearances
 
-- **Binary search:** comparisons approximately `ceil(log2 n)` (see [[cs/dsa/binary-search|Binary Search]]).
+- **Binary search:** comparisons approximately `ceil(log2 n)` (see [[binary-search|Binary Search]]).
 
 - **Balanced trees / heaps:** height `Theta(log n)`; operations take `O(log n)`.
 
@@ -204,10 +204,10 @@ Logarithms are the **inverse of exponentiation** and quantify **levels**, **digi
 
 ## See also
 
-- [[cs/dsa/asymptotic-notation|Asymptotic Notation]]
+- [[asymptotic-notation|Asymptotic Notation]]
 
-- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]
+- [[algorithm-efficiency|Algorithm Efficiency]]
 
-- [[cs/dsa/binary-search|Binary Search]]
+- [[binary-search|Binary Search]]
 
-- [[cs/dsa/recurrences-master-theorem|Recurrences — Master Theorem]]
+- [[recurrences-master-theorem|Recurrences — Master Theorem]]

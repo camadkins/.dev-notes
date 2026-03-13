@@ -174,8 +174,8 @@ execution is just **explicitly passing control**.
 
 ## See also
 
-- [[cs/pl/exceptions-handlers-and-non-local-control|Exceptions & Non-local Control]]
+- [[exceptions-handlers-and-non-local-control|Exceptions & Non-local Control]]
     
 - [[abstract-machines-cek-secd|Abstract Machines — CEK and SECD]]
     
-- [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]
+- [[lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]

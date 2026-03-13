@@ -194,7 +194,7 @@ For **undirected** graphs, DFS edges are either **tree** or **back** (each undir
 > **Multiple components.** Calling BFS/DFS from a single source visits **only** that component. For full coverage, run a loop over all vertices and start a new search when `visited[u]==false`.
 
 > [!warning]
-> **Distances with weights.** BFS distances are shortest **hop counts** only for equal-weight edges. With nonnegative weights, use [[cs/dsa/dijkstras-algorithm|Dijkstra's Algorithm]]; with negative edges, consider Bellman–Ford or [[cs/dsa/floyd-warshall|Floyd–Warshall Algorithm]] for all-pairs.
+> **Distances with weights.** BFS distances are shortest **hop counts** only for equal-weight edges. With nonnegative weights, use [[dijkstras-algorithm|Dijkstra's Algorithm]]; with negative edges, consider Bellman–Ford or [[floyd-warshall|Floyd–Warshall Algorithm]] for all-pairs.
 
 ## Example: Lightweight BFS/DFS harness (for teaching)
 
@@ -234,10 +234,10 @@ function DFS_TOPO(Adj):  // returns topological order or error on cycle
 
 ## See also
 
-- [[cs/dsa/adjacency-list|Adjacency List]]
+- [[adjacency-list|Adjacency List]]
 
-- [[cs/dsa/adjacency-matrix|Adjacency Matrix]]
+- [[adjacency-matrix|Adjacency Matrix]]
 
-- [[cs/dsa/dijkstras-algorithm|Dijkstra's Algorithm]]
+- [[dijkstras-algorithm|Dijkstra's Algorithm]]
 
-- [[cs/dsa/floyd-warshall|Floyd–Warshall Algorithm]]
+- [[floyd-warshall|Floyd–Warshall Algorithm]]

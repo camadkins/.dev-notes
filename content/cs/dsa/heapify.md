@@ -12,7 +12,7 @@ aliases: []
 
 ## Overview
 
-**Heapify** transforms an unsorted array into a **binary heap** in **linear time**. The standard procedure (often called **Floyd's method**) performs **bottom-up sift-down** on each internal node, ensuring that the **heap-order property** holds. This is more efficient than inserting elements one by one (which costs `O(n log n)`), and it underpins fast heap construction for [[cs/dsa/heapsort|Heapsort]] and priority-queue initialization.
+**Heapify** transforms an unsorted array into a **binary heap** in **linear time**. The standard procedure (often called **Floyd's method**) performs **bottom-up sift-down** on each internal node, ensuring that the **heap-order property** holds. This is more efficient than inserting elements one by one (which costs `O(n log n)`), and it underpins fast heap construction for [[heapsort|Heapsort]] and priority-queue initialization.
 
 ## Core Idea
 
@@ -146,10 +146,10 @@ Bottom-up **heapify** builds a heap from an array in **linear time** by running 
 
 ## See also
 
-- [[cs/dsa/binary-heap|Binary Heap]]
+- [[binary-heap|Binary Heap]]
 
-- [[cs/dsa/heaps|Heaps]]
+- [[heaps|Heaps]]
 
-- [[cs/dsa/heapsort|Heapsort]]
+- [[heapsort|Heapsort]]
 
-- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]
+- [[algorithm-efficiency|Algorithm Efficiency]]

@@ -298,10 +298,10 @@ This bridges imperative effects and functional purity — making mutations _expl
 
 ## See also
 
-- [[cs/pl/language-design-values-variables-environments|Language Design — Values, Variables & Environments]]
+- [[language-design-values-variables-environments|Language Design — Values, Variables & Environments]]
     
-- [[cs/pl/scoping-binding-and-closures|Scoping, Binding, and Closures]]
+- [[scoping-binding-and-closures|Scoping, Binding, and Closures]]
     
-- [[cs/pl/operational-semantics-big-step-small-step|Operational Semantics — Big-Step & Small-Step]]
+- [[operational-semantics-big-step-small-step|Operational Semantics — Big-Step & Small-Step]]
     
 - [[evaluation-order-and-strictness | Evaluation Order & Strictness]]

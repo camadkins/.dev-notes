@@ -263,7 +263,7 @@ Together, they provide a **complete formal definition** of a programming languag
 ---
 
 ## See also
-- [[cs/pl/grammar-ambiguity-parse-trees|Grammar Ambiguity & Parse Trees]]
-- [[cs/pl/type-systems-goals-guarantees|Type Systems — Goals & Guarantees]]
-- [[cs/pl/language-design-values-variables-environments|Language Design — Values, Variables, and Environments]]
-- [[cs/pl/programming-paradigms-models-of-computation|Programming Paradigms & Models of Computation]]
+- [[grammar-ambiguity-parse-trees|Grammar Ambiguity & Parse Trees]]
+- [[type-systems-goals-guarantees|Type Systems — Goals & Guarantees]]
+- [[language-design-values-variables-environments|Language Design — Values, Variables, and Environments]]
+- [[programming-paradigms-models-of-computation|Programming Paradigms & Models of Computation]]

@@ -1,7 +1,7 @@
 ---
 title: Suffix Trie
 description: Trie built from all suffixes of a string; enables fast substring/prefix queries but with large memory cost.
-draft: true
+draft: false
 tags:
   - cs
   - dsa
@@ -149,7 +149,7 @@ Let `n = |S|` and `m = |P|`.
 
 ## Implementation Details or Trade-offs
 
-- **Alphabet & encoding:** Choose UTF-8/16-aware iteration if `S` is Unicode. It’s usually best to index by **code points** (or even grapheme clusters for UI), not raw bytes. See [[cs/dsa/strings|Strings]].
+- **Alphabet & encoding:** Choose UTF-8/16-aware iteration if `S` is Unicode. It’s usually best to index by **code points** (or even grapheme clusters for UI), not raw bytes. See [[strings|Strings]].
     
 - **End marker:** Ensure `$` (or chosen sentinel) is **not** in the alphabet; otherwise, escape or reserve a unique code point.
     
@@ -207,8 +207,8 @@ A suffix trie indexes **all suffixes** of `S`, making **substring queries** conc
 
 ## See also
 
-- [[cs/dsa/standard-trie|Standard Trie]]
+- [[standard-trie|Standard Trie]]
     
-- [[cs/dsa/compressed-trie|Compressed Trie]]
+- [[compressed-trie|Compressed Trie]]
     
-- [[cs/dsa/strings|Strings]]
+- [[strings|Strings]]

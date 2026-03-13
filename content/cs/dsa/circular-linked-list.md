@@ -14,7 +14,7 @@ aliases: []
 
 A **circular linked list** connects the tail node back to the head, forming a cycle. This structure preserves the dynamic flexibility of linked lists (constant-time splicing near a known position) while enabling **natural rotation** and **round-robin iteration** without ever reaching `null`. The circular property simplifies certain queue-like patterns (e.g., continuous scheduling) and enables algorithms such as the Josephus stepper to operate cleanly by repeatedly advancing a cursor around the ring.
 
-Compared to a linear [[cs/dsa/linked-list|Linked List]], circular lists remove the "end-of-list" sentinel (`null`) from traversals, which can reduce branching and enable elegant loops. The trade-off is the need for **explicit termination conditions** to avoid infinite loops.
+Compared to a linear [[linked-list|Linked List]], circular lists remove the "end-of-list" sentinel (`null`) from traversals, which can reduce branching and enable elegant loops. The trade-off is the need for **explicit termination conditions** to avoid infinite loops.
 
 ## Structure Definition
 
@@ -244,7 +244,7 @@ When deleting during iteration, store `next = cur.next` before unlinking `cur`. 
 Circular lists are pointer-rich structures; lock-free variants require careful use of atomic primitives (e.g., CAS on adjacency pairs) and hazard pointers or epoch reclamation to manage memory safely.
 
 **Interfacing with queues.**
-Circular lists can back a **cyclic scheduler** or a **round-robin queue** by maintaining a cursor; each dequeue reassigns the cursor to `cursor.next`. For strict queue semantics (head/tail enqueues and dequeues) with array-level locality, see [[cs/dsa/circular-queue|Circular Queue]].
+Circular lists can back a **cyclic scheduler** or a **round-robin queue** by maintaining a cursor; each dequeue reassigns the cursor to `cursor.next`. For strict queue semantics (head/tail enqueues and dequeues) with array-level locality, see [[circular-queue|Circular Queue]].
 
 ## Practical Use Cases
 
@@ -277,10 +277,10 @@ Circular linked lists form a **ring** by connecting the tail to the head. They p
 
 ## See also
 
-- [[cs/dsa/linked-list|Linked List]]
+- [[linked-list|Linked List]]
 
-- [[cs/dsa/doubly-linked-list|Doubly Linked List]]
+- [[doubly-linked-list|Doubly Linked List]]
 
-- [[cs/dsa/circular-queue|Circular Queue]]
+- [[circular-queue|Circular Queue]]
 
-- [[cs/dsa/queue|Queue]]
+- [[queue|Queue]]

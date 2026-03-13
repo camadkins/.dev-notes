@@ -165,10 +165,10 @@ Ternary search is a clean **divide-and-conquer** routine for **unimodal** object
 
 ## See also
 
-- [[cs/dsa/binary-search|Binary Search]]
+- [[binary-search|Binary Search]]
 
-- [[cs/dsa/divide-and-conquer|Divide and Conquer]]
+- [[divide-and-conquer|Divide and Conquer]]
 
-- [[cs/dsa/time-complexity-analysis|Time Complexity Analysis]]
+- [[time-complexity-analysis|Time Complexity Analysis]]
 
-- [[cs/dsa/recurrences-master-theorem|Recurrences — Master Theorem]]
+- [[recurrences-master-theorem|Recurrences — Master Theorem]]

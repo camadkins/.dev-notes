@@ -12,7 +12,7 @@ aliases: []
 
 ## Overview
 
-**Divide and conquer (D&C)** is a strategy that solves a problem by **splitting** it into smaller instances, **recursively** solving those, then **combining** the subresults into a full solution. Its performance often follows a **recurrence** such as `T(n) = a·T(n/b) + f(n)`, analyzable by recursion trees and the [[cs/dsa/recurrences-master-theorem|Recurrences: Master Theorem]]. Many foundational algorithms—[[cs/dsa/merge-sort|Merge Sort]], closest-pair of points, Karatsuba multiplication, and Strassen matrix multiplication—are D&C designs.
+**Divide and conquer (D&C)** is a strategy that solves a problem by **splitting** it into smaller instances, **recursively** solving those, then **combining** the subresults into a full solution. Its performance often follows a **recurrence** such as `T(n) = a·T(n/b) + f(n)`, analyzable by recursion trees and the [[recurrences-master-theorem|Recurrences: Master Theorem]]. Many foundational algorithms—[[merge-sort|Merge Sort]], closest-pair of points, Karatsuba multiplication, and Strassen matrix multiplication—are D&C designs.
 
 ## Motivation
 
@@ -27,7 +27,7 @@ Large problems can be expensive to tackle directly, but **structure repeats at s
 - **Composability:** the same pattern generalizes across domains (arrays, geometry, algebra, graphs).
 
 
-When subproblems **overlap** heavily or the combine step must reason about past choices, prefer [[cs/dsa/dynamic-programming|Dynamic Programming]]. When a **local rule** provably leads to the global optimum, use [[cs/dsa/greedy-algorithms|Greedy Algorithms]].
+When subproblems **overlap** heavily or the combine step must reason about past choices, prefer [[dynamic-programming|Dynamic Programming]]. When a **local rule** provably leads to the global optimum, use [[greedy-algorithms|Greedy Algorithms]].
 
 ## Definition and Formalism
 
@@ -106,7 +106,7 @@ function SOLVE(A, l, r):               // solves on half-open interval [l, r)
 
 - **Cache behavior:** Smaller subproblems reuse cache lines, often outperforming naive `O(n²)` scans even when both are asymptotically inferior/superior on paper.
 
-- **Tailoring base cases:** Replacing recursion at small sizes with a fast **base algorithm** (e.g., [[cs/dsa/insertion-sort|Insertion Sort]] inside merge sort) improves constants without changing big-O.
+- **Tailoring base cases:** Replacing recursion at small sizes with a fast **base algorithm** (e.g., [[insertion-sort|Insertion Sort]] inside merge sort) improves constants without changing big-O.
 
 
 **Links to other paradigms**
@@ -115,7 +115,7 @@ function SOLVE(A, l, r):               // solves on half-open interval [l, r)
 
 - **Greedy vs D&C:** Greedy avoids recursion when an **exchange argument** applies; without it, D&C (or DP) is safer.
 
-- **Graph view:** Many D&C recurrences correspond to solving on a **tree/DAG** of subproblems; see [[cs/dsa/recursion|Recursion]] for traversal patterns.
+- **Graph view:** Many D&C recurrences correspond to solving on a **tree/DAG** of subproblems; see [[recursion|Recursion]] for traversal patterns.
 
 
 ## Implementation or Practical Context
@@ -206,10 +206,10 @@ Divide and conquer turns large problems into **manageable subproblems**, solved 
 
 ## See also
 
-- [[cs/dsa/merge-sort|Merge Sort]]
+- [[merge-sort|Merge Sort]]
 
-- [[cs/dsa/recurrences-master-theorem|Recurrences: Master Theorem]]
+- [[recurrences-master-theorem|Recurrences: Master Theorem]]
 
-- [[cs/dsa/recursion|Recursion]]
+- [[recursion|Recursion]]
 
-- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]
+- [[algorithm-efficiency|Algorithm Efficiency]]

@@ -224,8 +224,8 @@ Circular queues implement a bounded, array-backed FIFO with **wrap-around indice
 
 ## See also
 
-- [[cs/dsa/queue|Queue]]
+- [[queue|Queue]]
 
-- [[cs/dsa/queue-using-array|Queue Using Array]]
+- [[queue-using-array|Queue Using Array]]
 
-- [[cs/dsa/circular-linked-list|Circular Linked List]]
+- [[circular-linked-list|Circular Linked List]]

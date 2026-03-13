@@ -1,7 +1,7 @@
 ---
 title: B+ Tree — Balanced Index for Database and Filesystem Storage  
 description: Extension of B-trees optimized for range queries and disk-based indexing; all keys stored in leaves with linked leaf chaining.  
-draft: true  
+draft: false
 tags:
 - cs
 - dsa  
@@ -262,12 +262,12 @@ These advantages make B+ trees ideal for large datasets that cannot fit entirely
 
 ## See also
 
-- [[cs/dsa/b-tree|B-Tree]]
+- [[b-tree|B-Tree]]
     
-- [[cs/dsa/bst|Binary Search Tree]]
+- [[bst|Binary Search Tree]]
     
-- [[cs/dsa/hash-tables|Hash Tables]]
+- [[hash-tables|Hash Tables]]
     
-- [[cs/dsa/graph-representations|Graph Representations]]
+- [[graph-representations|Graph Representations]]
     
-- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]
+- [[algorithm-efficiency|Algorithm Efficiency]]

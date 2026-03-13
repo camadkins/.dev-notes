@@ -147,7 +147,7 @@ Adj[4] = []
 Choose adjacency lists for **sparse graphs** and algorithms that **iterate neighbors** (BFS/DFS/Dijkstra/Prim). They minimize memory, keep work proportional to **present edges**, and provide flexible bucket choices (locality vs membership speed) for your workload.
 
 ## See also
-- [[cs/dsa/graph-representations|Graph Representations]]
-- [[cs/dsa/adjacency-matrix|Adjacency Matrix]]
-- [[cs/dsa/breadth-first-search-algorithms|Breadth-First Search]]
-- [[cs/dsa/depth-first-search-algorithms|Depth-First Search]]
+- [[graph-representations|Graph Representations]]
+- [[adjacency-matrix|Adjacency Matrix]]
+- [[breadth-first-search-algorithms|Breadth-First Search]]
+- [[depth-first-search-algorithms|Depth-First Search]]

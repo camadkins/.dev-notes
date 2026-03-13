@@ -277,6 +277,6 @@ Poor CFG design leads to:
 ---
 
 ## See also
-- [[cs/pl/grammar-ambiguity-parse-trees|Grammar Ambiguity & Parse Trees]]
-- [[cs/pl/grammars-notation-bnfebnf|Grammars & Notation (BNF and EBNF)]]
-- [[cs/pl/programming-paradigms-models-of-computation|Programming Paradigms & Models of Computation]]
+- [[grammar-ambiguity-parse-trees|Grammar Ambiguity & Parse Trees]]
+- [[grammars-notation-bnfebnf|Grammars & Notation (BNF and EBNF)]]
+- [[programming-paradigms-models-of-computation|Programming Paradigms & Models of Computation]]

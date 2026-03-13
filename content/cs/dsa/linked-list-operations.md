@@ -322,7 +322,7 @@ Create a small, deterministic suite:
 
 - **Adjacency lists:** Store neighbors as SLL nodes when memory is tight and insertions are frequent.
 
-- **Hash table chaining:** Buckets can be SLLs when constant-factor overhead should be minimal (see [[cs/dsa/hash-tables|Hash Tables]]).
+- **Hash table chaining:** Buckets can be SLLs when constant-factor overhead should be minimal (see [[hash-tables|Hash Tables]]).
 
 
 ## Summary
@@ -331,10 +331,10 @@ Singly linked lists enable **O(1)** local updates when the predecessor is known 
 
 ## See also
 
-- [[cs/dsa/linked-list|Linked List]]
+- [[linked-list|Linked List]]
 
-- [[cs/dsa/doubly-linked-list|Doubly Linked List]]
+- [[doubly-linked-list|Doubly Linked List]]
 
-- [[cs/dsa/circular-linked-list|Circular Linked List]]
+- [[circular-linked-list|Circular Linked List]]
 
-- [[cs/dsa/dynamic-memory-allocation|Dynamic Memory Allocation]]
+- [[dynamic-memory-allocation|Dynamic Memory Allocation]]

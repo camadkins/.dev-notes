@@ -155,7 +155,7 @@ Assume a good hash function and simple uniform hashing.
 
 - **Dictionaries/maps/sets** in language runtimes (Python dicts, Java HashMap, C++ unordered_map).
 
-- **Memoization** tables in algorithms (e.g., [[cs/dsa/dynamic-programming|Dynamic Programming]] caches).
+- **Memoization** tables in algorithms (e.g., [[dynamic-programming|Dynamic Programming]] caches).
 
 - **Symbol tables** in compilers/interpreters.
 
@@ -229,10 +229,10 @@ Hash tables give near-constant-time operations by mapping keys to array indices 
 
 ## See also
 
-- [[cs/dsa/maps-and-hashtable|Maps and Hashtable]]
+- [[maps-and-hashtable|Maps and Hashtable]]
 
-- [[cs/dsa/arrays|Arrays]]
+- [[arrays|Arrays]]
 
-- [[cs/dsa/dynamic-arrays|Dynamic Arrays]]
+- [[dynamic-arrays|Dynamic Arrays]]
 
-- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]
+- [[algorithm-efficiency|Algorithm Efficiency]]

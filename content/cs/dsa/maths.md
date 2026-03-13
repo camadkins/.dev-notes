@@ -256,10 +256,10 @@ Keep a compact toolkit:
 
 ## See also
 
-- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]
+- [[algorithm-efficiency|Algorithm Efficiency]]
 
-- [[cs/dsa/asymptotic-notation|Asymptotic Notation]]
+- [[asymptotic-notation|Asymptotic Notation]]
 
-- [[cs/dsa/recurrence-relations|Recurrence Relations]]
+- [[recurrence-relations|Recurrence Relations]]
 
-- [[cs/dsa/logarithmic-functions|Logarithmic Functions]]
+- [[logarithmic-functions|Logarithmic Functions]]

@@ -1,7 +1,7 @@
 ---
 title: Tries — Types
 description: Standard (explicit-edge), compressed/radix (path-compressed), and suffix tries—trade-offs in memory, depth, and operations.
-draft: true
+draft: false
 tags:
   - cs
   - dsa
@@ -91,7 +91,7 @@ Consider keys `{to, tea, ted, ten, in, inn}` over lowercase ASCII.
 ### Suffix trie
 - **Construction:** naive `O(|T|^2)` inserts; space `Θ(|T|^2)`. For real systems, prefer **suffix trees** (compressed suffix tries in `Θ(|T|)` space) or **suffix arrays** with LCP.
 - **Use cases:** teaching substring search concepts; tiny corpora; quick prototypes when memory is not a concern.
-- **Caveat:** for multi-string dictionaries, suffix tries of each key are rarely wanted; use [[cs/dsa/standard-trie|Standard Trie]] or [[cs/dsa/compressed-trie|Compressed Trie]] instead.
+- **Caveat:** for multi-string dictionaries, suffix tries of each key are rarely wanted; use [[standard-trie|Standard Trie]] or [[compressed-trie|Compressed Trie]] instead.
 
 > [!note]
 > Compressed tries and suffix **trees** are conceptually similar: both use **edge-label strings** and **path compression**. The difference is what is being indexed (arbitrary key set vs all suffixes of one text) and the associated construction algorithms and space bounds.
@@ -122,7 +122,7 @@ Consider keys `{to, tea, ted, ten, in, inn}` over lowercase ASCII.
 The right choice hinges on alphabet size, key length/distribution, memory budget, and query mix (exact, prefix, substring). All retain the trie hallmark: predictable, prefix-aware behavior that general-purpose maps cannot match.
 
 ## See also
-- [[cs/dsa/standard-trie|Standard Trie]]
-- [[cs/dsa/compressed-trie|Compressed Trie]]
-- [[cs/dsa/suffix-trie|Suffix Trie]]
-- [[cs/dsa/tries|Tries — Overview]]
+- [[standard-trie|Standard Trie]]
+- [[compressed-trie|Compressed Trie]]
+- [[suffix-trie|Suffix Trie]]
+- [[tries|Tries — Overview]]

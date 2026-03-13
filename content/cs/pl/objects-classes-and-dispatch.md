@@ -309,10 +309,10 @@ Classes aren’t just technical — they define **modularity boundaries**:
 
 ## See also
 
-- [[cs/pl/subtyping-variance-type-constraints|Subtyping & Variance]]
+- [[subtyping-variance-type-constraints|Subtyping & Variance]]
     
-- [[cs/pl/records-variants-and-pattern-matching|Records, Variants, and Pattern Matching]]
+- [[records-variants-and-pattern-matching|Records, Variants, and Pattern Matching]]
     
-- [[cs/pl/language-design-values-variables-environments|Language Design — Values, Variables & Environments]]
+- [[language-design-values-variables-environments|Language Design — Values, Variables & Environments]]
     
-- [[cs/pl/compilation-vs-interpretation|Compilation vs Interpretation]]
+- [[compilation-vs-interpretation|Compilation vs Interpretation]]

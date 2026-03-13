@@ -400,12 +400,12 @@ Together, they form the conceptual bridge from _syntax_ to _execution_.
 
 ## See also
 
-- [[cs/pl/scoping-and-bindings|Scoping & Bindings]]
+- [[scoping-binding-and-closures|Scoping & Bindings]]
     
-- [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]
+- [[lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]
     
 - [[abstract-machines-cek-secd|Abstract Machines — CEK & SECD]]
     
-- [[cs/pl/continuations-cps|Continuations & CPS]]
+- [[continuations-cps|Continuations & CPS]]
     
-- [[cs/pl/evaluation-order-and-strictness|Evaluation Order & Strictness]]
+- [[evaluation-order-and-strictness|Evaluation Order & Strictness]]

@@ -246,10 +246,10 @@ This **chain of captured environments** enables higher-order abstractions withou
 
 ## See also
 
-- [[cs/pl/language-design-values-variables-environments|Values, Variables & Environments]]
+- [[language-design-values-variables-environments|Values, Variables & Environments]]
     
-- [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]
+- [[lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]
     
 - [[evaluation-order-and-strictness | Evaluation Order & Strictness]]
     
-- [[cs/pl/mutable-state-references-effects|Mutable State, References & Effects]]
+- [[mutable-state-references-effects|Mutable State, References & Effects]]

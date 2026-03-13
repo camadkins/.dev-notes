@@ -113,7 +113,7 @@ For recursive algorithms describe `T(n)` by:
 
 - **Halving + constant work:** `$T(n)=T(n/2)+Θ(1) ⇒ Θ(\log n)$` (binary search).
 
-- **Split & merge:** `$T(n)=aT(n/b)+Θ(n^c)$` → use Master Theorem. See [[cs/dsa/recurrence-relations|Recurrence Relations]] and [[cs/dsa/recurrences-master-theorem|Recurrences — Master Theorem]].
+- **Split & merge:** `$T(n)=aT(n/b)+Θ(n^c)$` → use Master Theorem. See [[recurrence-relations|Recurrence Relations]] and [[recurrences-master-theorem|Recurrences — Master Theorem]].
 
 - **Degenerate partition:** `$T(n)=T(n-1)+Θ(n) ⇒ Θ(n^2)$` (worst-case quicksort).
 
@@ -175,7 +175,7 @@ Asymptotics hide constant factors, but implementations reveal:
 - **Average-case:** expectation under a **distribution** of inputs (e.g., quicksort `$Θ(n \log n)$` with random pivots). State assumptions.
 
 
-See [[cs/dsa/dynamic-arrays|Dynamic Arrays]] and [[cs/dsa/disjoint-set-union-union-find|Disjoint Set Union — Union–Find]].
+See [[dynamic-arrays|Dynamic Arrays]] and [[disjoint-set-union-union-find|Disjoint Set Union — Union–Find]].
 
 ## Common Misunderstandings
 
@@ -212,10 +212,10 @@ Time and space complexity abstract away machine idiosyncrasies to expose **growt
 
 ## See also
 
-- [[cs/dsa/asymptotic-notation|Asymptotic Notation]]
+- [[asymptotic-notation|Asymptotic Notation]]
 
-- [[cs/dsa/time-complexity-analysis|Time Complexity Analysis]]
+- [[time-complexity-analysis|Time Complexity Analysis]]
 
-- [[cs/dsa/space-complexity|Space Complexity]]
+- [[space-complexity|Space Complexity]]
 
-- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]
+- [[algorithm-efficiency|Algorithm Efficiency]]

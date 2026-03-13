@@ -1,7 +1,7 @@
 ---
 title: Red–Black Tree  
 description: Height-balanced binary search tree with coloring and rotation rules that ensure logarithmic operations.  
-draft: true  
+draft: false
 tags:
 - cs
 - dsa  
@@ -370,8 +370,8 @@ Red–black trees are **height-balanced BSTs** that guarantee `O(log n)` operati
 
 - [[bst|Binary Search Tree]]
     
-- [[cs/dsa/avl-tree|AVL Tree]]
+- [[avl-tree|AVL Tree]]
     
-- [[cs/dsa/splay-tree|Splay Tree]]
+- [[splay-tree|Splay Tree]]
     
-- [[cs/dsa/trees|Trees]]
+- [[trees|Trees]]

@@ -22,7 +22,7 @@ A **heap** is a tree-based structure that keeps the **highest-priority** (max-he
 2. **Shape property:** The tree is **complete**—all levels filled except possibly the last, which is filled left to right.
 
 
-These properties enable an efficient **array representation** with simple index arithmetic, constant extra space, and `O(log n)` updates. Heaps back priority queues, **schedulers**, **Dijkstra's algorithm** on dense-enough graphs, **median-of-stream** (with two heaps), and **top-k** selection. See also [[cs/dsa/binary-heap|Binary Heap]] and the linear-time builder [[cs/dsa/heapify|Heapify]].
+These properties enable an efficient **array representation** with simple index arithmetic, constant extra space, and `O(log n)` updates. Heaps back priority queues, **schedulers**, **Dijkstra's algorithm** on dense-enough graphs, **median-of-stream** (with two heaps), and **top-k** selection. See also [[binary-heap|Binary Heap]] and the linear-time builder [[heapify|Heapify]].
 
 ## Motivation
 
@@ -32,7 +32,7 @@ Heaps shine when the **extreme element** matters repeatedly:
 
 - **Online scheduling:** pick the earliest-deadline job or highest priority at each step.
 
-- **Graph algorithms:** choose the smallest tentative distance (e.g., [[cs/dsa/dijkstras-algorithm|Dijkstra's Algorithm]]).
+- **Graph algorithms:** choose the smallest tentative distance (e.g., [[dijkstras-algorithm|Dijkstra's Algorithm]]).
 
 - **Selection:** maintain a min-heap of size `k` to track the **top-k** largest items in `O(n log k)`.
 
@@ -82,7 +82,7 @@ If we `extractMax()`, we return `A[0]=12`, move the last element to the root, an
 
 - **Height and costs.** With height `h = Θ(log n)`, `insert`, `decreaseKey`/`increaseKey`, and `extract` are all `O(log n)`; **find-min/max** is `O(1)` at the root.
 
-- **Build vs insert repeatedly.** `HEAPIFY` builds a heap in **O(n)**; inserting `n` elements one-by-one costs **O(n log n)**. See [[cs/dsa/heapify|Heapify]] for the proof idea.
+- **Build vs insert repeatedly.** `HEAPIFY` builds a heap in **O(n)**; inserting `n` elements one-by-one costs **O(n log n)**. See [[heapify|Heapify]] for the proof idea.
 
 - **Heapsort compatibility.** Max-heap → decreasing order (extract max repeatedly). Min-heap → increasing order (if adapted accordingly).
 
@@ -178,10 +178,10 @@ Heaps pair a **local order constraint** (parent vs children) with a **complete-t
 
 ## See also
 
-- [[cs/dsa/binary-heap|Binary Heap]]
+- [[binary-heap|Binary Heap]]
 
-- [[cs/dsa/heapify|Heapify]]
+- [[heapify|Heapify]]
 
-- [[cs/dsa/heapsort|Heapsort]]
+- [[heapsort|Heapsort]]
 
-- [[cs/dsa/priority-queue|Priority Queue]]
+- [[priority-queue|Priority Queue]]

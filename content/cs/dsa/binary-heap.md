@@ -2,7 +2,7 @@
 
 title: Binary Heap — Priority Queue Backed by Array-Based Tree  
 description: Complete binary tree supporting O(log n) insertion and deletion through array-based parent-child relationships and heap-order property.  
-draft: true  
+draft: false
 updated: 2025-10-29  
 aliases: []  
 tags:
@@ -197,16 +197,16 @@ For 1-based indexing, use `parent(i)=i//2`, `left(i)=2*i`, `right(i)=2*i+1`.
 > - You want **heapsort** (in-place, O(n log n), not stable).
 >     
 > - You need **top-k** or **streaming** selection with bounded memory.  
->     Consider **[[cs/dsa/d-ary-heap|d-ary Heap]]** or pairing/Fibonacci variants when `decrease-key` dominates.
+>     Consider **[[d-ary-heap|d-ary Heap]]** or pairing/Fibonacci variants when `decrease-key` dominates.
 >     
 
 ---
 
 ## See also
 
-- [[cs/dsa/priority-queue|Priority Queue]]
+- [[priority-queue|Priority Queue]]
     
-- [[cs/dsa/heapsort|Heapsort]]
+- [[heapsort|Heapsort]]
     
-- [[cs/dsa/d-ary-heap|d-ary Heap]]
+- [[d-ary-heap|d-ary Heap]]
     

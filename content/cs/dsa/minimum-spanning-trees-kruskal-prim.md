@@ -176,8 +176,8 @@ MST construction rests on **cut** and **cycle** properties. **Kruskal** greedily
 
 ## See also
 
-- [[cs/dsa/kruskals-algorithm|Kruskal's Algorithm]]
+- [[kruskals-algorithm|Kruskal's Algorithm]]
 
-- [[cs/dsa/prims-algorithm|Prim's Algorithm]]
+- [[prims-algorithm|Prim's Algorithm]]
 
-- [[cs/dsa/graph-representations|Graph Representations]]
+- [[graph-representations|Graph Representations]]

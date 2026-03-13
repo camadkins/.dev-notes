@@ -14,7 +14,7 @@ aliases: []
 
 A **d-ary heap** is a generalization of the binary heap where each node has up to **d children**. Like a binary heap, it stores elements in a compact **array** and maintains the **heap property** (min-heap or max-heap). Increasing `d` makes the heap **shallower** (fewer levels) but increases the **fan-out comparisons** during downward adjustments. This trade-off can improve throughput for workloads with many **decrease-key** operations or when cache behavior benefits from fewer pointer-chasing levels.
 
-Compared with [[cs/dsa/binary-heap|Binary Heap]], a d-ary heap offers:
+Compared with [[binary-heap|Binary Heap]], a d-ary heap offers:
 
 - **Shorter height:** `⌈log_d n⌉` levels instead of `⌈log_2 n⌉`.
 
@@ -204,8 +204,8 @@ A d-ary heap keeps the compact array layout of heaps while letting you **tune ar
 
 ## See also
 
-- [[cs/dsa/binary-heap|Binary Heap]]
+- [[binary-heap|Binary Heap]]
 
-- [[cs/dsa/heaps|Heaps]]
+- [[heaps|Heaps]]
 
-- [[cs/dsa/heapsort|Heapsort]]
+- [[heapsort|Heapsort]]

@@ -13,7 +13,7 @@ aliases: []
 
 ## Overview
 
-**Dynamic memory allocation** gives programs **heap** storage at runtime when sizes or lifetimes aren't known at compile time. Unlike the **stack**, which grows/shrinks automatically with function calls, the **heap** requires explicit **request** and **release** (e.g., `malloc/free`, `new/delete`, or GC). Done well, you get flexible structures like [[cs/dsa/dynamic-arrays|Dynamic Arrays]] and graphs. Done poorly, you get **leaks**, **fragmentation**, **dangling pointers**, and elusive heisenbugs.
+**Dynamic memory allocation** gives programs **heap** storage at runtime when sizes or lifetimes aren't known at compile time. Unlike the **stack**, which grows/shrinks automatically with function calls, the **heap** requires explicit **request** and **release** (e.g., `malloc/free`, `new/delete`, or GC). Done well, you get flexible structures like [[dynamic-arrays|Dynamic Arrays]] and graphs. Done poorly, you get **leaks**, **fragmentation**, **dangling pointers**, and elusive heisenbugs.
 
 ## Underlying Process
 
@@ -128,7 +128,7 @@ A safe growable buffer underpins vectors, string builders, and IO buffers.
 - After reallocation, **invalidate** stale pointers/iterators into the old buffer.
 
 
-See [[cs/dsa/dynamic-arrays|Dynamic Arrays]] for full details on amortized analysis and trade-offs.
+See [[dynamic-arrays|Dynamic Arrays]] for full details on amortized analysis and trade-offs.
 
 ### Avoiding Leaks & UAFs
 
@@ -175,7 +175,7 @@ test "no leak on error path":
 
 - **Regions/arenas:** Allocate many small objects, free them all at once; great for parsers/compilers.
 
-- **Garbage collection:** Mark-sweep, copying, generational; trades predictability for convenience. See [[cs/pl/gc-algorithms-mark-sweep-copying-generational|GC Algorithms: Mark–Sweep, Copying, Generational]] and [[cs/pl/garbage-collection-concepts|Garbage Collection Concepts]].
+- **Garbage collection:** Mark-sweep, copying, generational; trades predictability for convenience. See [[gc-algorithms-mark-sweep-copying-generational|GC Algorithms: Mark–Sweep, Copying, Generational]] and [[garbage-collection-concepts|Garbage Collection Concepts]].
 
 - **Memory pools & freelists:** Pre-allocate blocks for fixed-size structures to avoid fragmentation and system call overhead.
 
@@ -201,8 +201,8 @@ Handled with discipline, dynamic allocation gives high performance and reliabili
 
 ## See also
 
-- [[cs/dsa/dynamic-arrays|Dynamic Arrays]]
+- [[dynamic-arrays|Dynamic Arrays]]
 
-- [[cs/pl/garbage-collection-concepts|Garbage Collection Concepts]]
+- [[garbage-collection-concepts|Garbage Collection Concepts]]
 
-- [[cs/pl/gc-algorithms-mark-sweep-copying-generational|GC Algorithms: Mark–Sweep, Copying, Generational]]
+- [[gc-algorithms-mark-sweep-copying-generational|GC Algorithms: Mark–Sweep, Copying, Generational]]

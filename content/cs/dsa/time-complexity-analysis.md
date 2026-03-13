@@ -120,7 +120,7 @@ Many recursive algorithms are captured by a **recurrence relation**. Common patt
     `$T(n) = T(n-1) + Θ(n) ⇒ T(n) = Θ(n^2)$`.
 
 
-> See [[cs/dsa/recurrence-relations|Recurrence Relations]] and [[cs/dsa/recurrences-master-theorem|Recurrences — Master Theorem]] for systematic solutions.
+> See [[recurrence-relations|Recurrence Relations]] and [[recurrences-master-theorem|Recurrences — Master Theorem]] for systematic solutions.
 
 ### Master Theorem (quick recall)
 
@@ -181,7 +181,7 @@ Spread the cost of occasional expensive operations over many cheap ones (dynamic
 - Union–Find with path compression + union by rank: sequence of `m` ops on `n` elements in `$Θ(m α(n))$`, where `α` is the inverse Ackermann function (practically ≤ 5).
 
 
-See [[cs/dsa/dynamic-arrays|Dynamic Arrays]] and [[cs/dsa/disjoint-set-union-union-find|Disjoint Set Union — Union–Find]].
+See [[dynamic-arrays|Dynamic Arrays]] and [[disjoint-set-union-union-find|Disjoint Set Union — Union–Find]].
 
 ## Common Misunderstandings
 
@@ -215,10 +215,10 @@ Time complexity analysis abstracts machine details to compare algorithms by **gr
 
 ## See also
 
-- [[cs/dsa/asymptotic-notation|Asymptotic Notation]]
+- [[asymptotic-notation|Asymptotic Notation]]
 
-- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]
+- [[algorithm-efficiency|Algorithm Efficiency]]
 
-- [[cs/dsa/recurrence-relations|Recurrence Relations]]
+- [[recurrence-relations|Recurrence Relations]]
 
-- [[cs/dsa/space-complexity|Space Complexity]]
+- [[space-complexity|Space Complexity]]

@@ -23,7 +23,7 @@ A **linked-list queue** implements FIFO with **nodes** connected via `next` poin
 - **Stable references** to enqueued elements (until removed).
 
 
-Trade-offs include **extra memory per node**, potential **allocator fragmentation**, and poorer **cache locality** than array-based rings (see [[cs/dsa/queue-using-array|Queue Using Array]]).
+Trade-offs include **extra memory per node**, potential **allocator fragmentation**, and poorer **cache locality** than array-based rings (see [[queue-using-array|Queue Using Array]]).
 
 > [!note]
 > Representation used below is **singly linked** with a `tail` pointer for `O(1)` appends. A **dummy (sentinel) head** is optional; it simplifies edge cases at the cost of one extra node.
@@ -195,7 +195,7 @@ Iteration from `head` to `tail` preserves **arrival order**. Avoid exposing raw 
 
 - **Task schedulers** that attach metadata to tasks stored in nodes (links, timestamps).
 
-- **BFS on massive graphs** that exceed contiguous memory benefits (though [[cs/dsa/queue-using-array|Queue Using Array]] is usually faster).
+- **BFS on massive graphs** that exceed contiguous memory benefits (though [[queue-using-array|Queue Using Array]] is usually faster).
 
 - **I/O pipelines** where objects must survive list re-links without copying (handles/pointers stored in nodes).
 
@@ -231,10 +231,10 @@ A linked-list queue provides **FIFO** with **constant-time** appends/removals vi
 
 ## See also
 
-- [[cs/dsa/queue|Queue]]
+- [[queue|Queue]]
 
-- [[cs/dsa/queue-using-array|Queue Using Array]]
+- [[queue-using-array|Queue Using Array]]
 
-- [[cs/dsa/linked-list|Linked Lists]]
+- [[linked-list|Linked Lists]]
 
-- [[cs/dsa/circular-queue|Circular Queue]]
+- [[circular-queue|Circular Queue]]

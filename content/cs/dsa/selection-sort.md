@@ -46,7 +46,7 @@ function SELECTION_SORT(A):
 ```
 
 > [!tip]
-> If **writes are expensive** (e.g., flash memory endurance, external storage), selection sort's bounded writes can be preferable to algorithms that move elements many times (e.g., [[cs/dsa/insertion-sort|Insertion Sort]] on random data).
+> If **writes are expensive** (e.g., flash memory endurance, external storage), selection sort's bounded writes can be preferable to algorithms that move elements many times (e.g., [[insertion-sort|Insertion Sort]] on random data).
 
 ## Example or Trace
 
@@ -74,7 +74,7 @@ Let `n = |A|`.
     ]
     This does **not** depend on input order; best, average, and worst are all quadratic.
 
-- **Swaps/writes:** At most **`n−1` swaps** (some passes may swap with itself or skip if `minIdx == i`). This is **O(n)** data moves, often much fewer writes than [[cs/dsa/bubble-sort|Bubble Sort]] or naive in-place [[cs/dsa/quick-sort|Quick Sort]] on adversarial data.
+- **Swaps/writes:** At most **`n−1` swaps** (some passes may swap with itself or skip if `minIdx == i`). This is **O(n)** data moves, often much fewer writes than [[bubble-sort|Bubble Sort]] or naive in-place [[quick-sort|Quick Sort]] on adversarial data.
 
 - **Space:** **O(1)** extra space; fully in-place.
 
@@ -130,13 +130,13 @@ The algorithm performs **linear scans** of the tail each pass. Using **contiguou
 
 Selection sort complements:
 
-- [[cs/dsa/insertion-sort|Insertion Sort]] (adaptive to near-sorted inputs, stable but more writes).
+- [[insertion-sort|Insertion Sort]] (adaptive to near-sorted inputs, stable but more writes).
 
-- [[cs/dsa/bubble-sort|Bubble Sort]] (conceptual neighbor-swapping baseline, but usually inferior).
+- [[bubble-sort|Bubble Sort]] (conceptual neighbor-swapping baseline, but usually inferior).
 
-- [[cs/dsa/heapsort|Heapsort]] (use a heap to select min/max in `log n` time for an `n log n` overall).
+- [[heapsort|Heapsort]] (use a heap to select min/max in `log n` time for an `n log n` overall).
 
-- [[cs/dsa/quick-sort|Quick Sort]] (practical `n log n` average-case with small constants; not stable).
+- [[quick-sort|Quick Sort]] (practical `n log n` average-case with small constants; not stable).
 
 ## Common Pitfalls or Edge Cases
 
@@ -150,7 +150,7 @@ Selection sort complements:
 > **Unnecessary swaps.** Always guard `if minIdx != i` before swapping to avoid writes that do nothing.
 
 > [!warning]
-> **Assuming adaptiveness.** Selection sort does **not** speed up on nearly-sorted data—comparisons remain `Θ(n^2)` regardless of presortedness. If adaptiveness is desired, use [[cs/dsa/insertion-sort|Insertion Sort]].
+> **Assuming adaptiveness.** Selection sort does **not** speed up on nearly-sorted data—comparisons remain `Θ(n^2)` regardless of presortedness. If adaptiveness is desired, use [[insertion-sort|Insertion Sort]].
 
 > [!warning]
 > **Misusing for large datasets.** For `n` above a few thousand, `Θ(n^2)` comparisons dominate; prefer `n log n` algorithms unless write constraints are extreme.
@@ -171,10 +171,10 @@ Selection sort is an in-place algorithm that repeatedly **selects the minimum** 
 
 ## See also
 
-- [[cs/dsa/insertion-sort|Insertion Sort]]
+- [[insertion-sort|Insertion Sort]]
 
-- [[cs/dsa/bubble-sort|Bubble Sort]]
+- [[bubble-sort|Bubble Sort]]
 
-- [[cs/dsa/heapsort|Heapsort]]
+- [[heapsort|Heapsort]]
 
-- [[cs/dsa/quick-sort|Quick Sort]]
+- [[quick-sort|Quick Sort]]

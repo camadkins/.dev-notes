@@ -92,7 +92,7 @@ Backtracking is often **exponential in the worst case**, but pruning can reduce 
 >
 > - **Constraint propagation**: maintain domains and eliminate inconsistent options early (forward checking, arc consistency).
 >
-> - **Bounding**: if current score + optimistic bound < best, cut branch (bridges to [[cs/dsa/branch-and-bound|Branch and Bound]]).
+> - **Bounding**: if current score + optimistic bound < best, cut branch (bridges to [[branch-and-bound|Branch and Bound]]).
 >
 
 Other practical tactics:
@@ -194,10 +194,10 @@ Engineering notes:
 
 ## See also
 
-- [[cs/dsa/recursion|Recursion]]
+- [[recursion|Recursion]]
 
-- [[cs/dsa/branch-and-bound|Branch and Bound]]
+- [[branch-and-bound|Branch and Bound]]
 
-- [[cs/dsa/depth-first-search-algorithms|Depth-First Search]]
+- [[depth-first-search-algorithms|Depth-First Search]]
 
-- [[cs/dsa/constraint-satisfaction-problems|Constraint Satisfaction Problems]]
+- [[constraint-satisfaction-problems|Constraint Satisfaction Problems]]

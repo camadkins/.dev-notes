@@ -252,10 +252,10 @@ These machines provide formal grounding for reasoning about correctness, equival
 
 ## See also
 
-- [[cs/pl/language-overview-syntax-semantics|Language Overview — Syntax vs Semantics]]
+- [[language-overview-syntax-semantics|Language Overview — Syntax vs Semantics]]
     
-- [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]
+- [[lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]
     
 - [[abstract-machines-cek-secd|Abstract Machines — CEK & SECD]]
     
-- [[cs/pl/history-genealogy-of-languages|History & Genealogy of Languages]]
+- [[history-genealogy-of-languages|History & Genealogy of Languages]]

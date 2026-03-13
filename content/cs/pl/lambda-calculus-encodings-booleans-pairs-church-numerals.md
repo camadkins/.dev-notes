@@ -454,7 +454,7 @@ The diagram emphasizes structural similarity across all encodings — every cons
 ---
 
 ## See also
-- [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]
-- [[cs/pl/hindleymilner-type-inference|Hindley–Milner & Type Inference]]
-- [[cs/pl/evaluation-order-and-strictness|Evaluation Order & Strictness]]
-- [[cs/pl/programming-paradigms-models-of-computation|Programming Paradigms & Models of Computation]]
+- [[lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]
+- [[hindleymilner-type-inference|Hindley–Milner & Type Inference]]
+- [[evaluation-order-and-strictness|Evaluation Order & Strictness]]
+- [[programming-paradigms-models-of-computation|Programming Paradigms & Models of Computation]]

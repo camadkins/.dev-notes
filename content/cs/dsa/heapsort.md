@@ -12,7 +12,7 @@ aliases: []
 
 ## Overview
 
-**Heapsort** sorts an array **in place** by first **heapifying** it (linear time) and then performing `n−1` rounds of: **swap the root with the last element of the heap, shrink the heap by one, and sift down**. Using a **max-heap** yields **ascending** order; using a **min-heap** yields **descending** order. Runtime is deterministically **`O(n log n)`** with **`O(1)`** extra space, but the algorithm is **not stable** and often loses to cache-friendlier [[cs/dsa/merge-sort|Merge Sort]] or well-implemented [[cs/dsa/quick-sort|Quick Sort]] in practice for typical, in-memory data.
+**Heapsort** sorts an array **in place** by first **heapifying** it (linear time) and then performing `n−1` rounds of: **swap the root with the last element of the heap, shrink the heap by one, and sift down**. Using a **max-heap** yields **ascending** order; using a **min-heap** yields **descending** order. Runtime is deterministically **`O(n log n)`** with **`O(1)`** extra space, but the algorithm is **not stable** and often loses to cache-friendlier [[merge-sort|Merge Sort]] or well-implemented [[quick-sort|Quick Sort]] in practice for typical, in-memory data.
 
 ## Core Idea
 
@@ -98,7 +98,7 @@ Array is sorted, and the tail grew monotonically: `[...,10,12]`, then `[...,8,10
 - **Comparisons/moves:** The **pull-up** `SIFT_DOWN` reduces swaps; on modern CPUs it improves constants by cutting stores and branches.
 
 
-**Stability.** Heapsort is **not stable**; equal keys may swap relative order. If stability matters, prefer [[cs/dsa/merge-sort|Merge Sort]] or tag elements with a tie-breaker.
+**Stability.** Heapsort is **not stable**; equal keys may swap relative order. If stability matters, prefer [[merge-sort|Merge Sort]] or tag elements with a tie-breaker.
 
 ## Optimizations or Variants
 
@@ -143,7 +143,7 @@ For general-purpose, cache-rich environments, high-quality quicksorts (introsort
 
 ## Implementation Notes or Trade-offs
 
-- **Indexing formulas (0-based):** `left=2i+1`, `right=2i+2`, `parent=(i−1)//2`; leaves live in `[⌊n/2⌋..n-1]`. See [[cs/dsa/heaps|Heaps — Overview]] and [[cs/dsa/heapify|Heapify]].
+- **Indexing formulas (0-based):** `left=2i+1`, `right=2i+2`, `parent=(i−1)//2`; leaves live in `[⌊n/2⌋..n-1]`. See [[heaps|Heaps — Overview]] and [[heapify|Heapify]].
 
 - **In-place & cache:** Arrays give good spatial locality; `SIFT_DOWN` touches `O(log n)` nodes per round.
 
@@ -156,10 +156,10 @@ Heapsort = **heapify once** (`O(n)`) + **n−1 sift-downs** (`O(n log n)`), all 
 
 ## See also
 
-- [[cs/dsa/heapify|Heapify]]
+- [[heapify|Heapify]]
 
-- [[cs/dsa/binary-heap|Binary Heap]]
+- [[binary-heap|Binary Heap]]
 
-- [[cs/dsa/quick-sort|Quick Sort]]
+- [[quick-sort|Quick Sort]]
 
-- [[cs/dsa/merge-sort|Merge Sort]]
+- [[merge-sort|Merge Sort]]

@@ -275,10 +275,10 @@ Maps provide the **dictionary** abstraction; hash tables realize it with **expec
 
 ## See also
 
-- [[cs/dsa/hash-tables|Hash Tables]]
+- [[hash-tables|Hash Tables]]
 
-- [[cs/dsa/linked-list|Linked List]]
+- [[linked-list|Linked List]]
 
-- [[cs/dsa/dynamic-arrays|Dynamic Arrays]]
+- [[dynamic-arrays|Dynamic Arrays]]
 
-- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]
+- [[algorithm-efficiency|Algorithm Efficiency]]

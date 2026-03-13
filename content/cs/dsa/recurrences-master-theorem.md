@@ -165,7 +165,7 @@ This generalizes the Master Theorem to unequal child sizes and extra additive te
 
 ### Engineering implications
 
-- **Cutoffs** change base cases, not `Θ(·)`: switching to [[cs/dsa/insertion-sort|Insertion Sort]] for small subarrays alters constants.
+- **Cutoffs** change base cases, not `Θ(·)`: switching to [[insertion-sort|Insertion Sort]] for small subarrays alters constants.
 
 - **Cache-aware merges/partitions** adjust `f(n)`: e.g., merging with blocked buffers can move `f(n)` from `n` to `n + lower-order terms`, keeping the same case but improving constants.
 
@@ -202,7 +202,7 @@ The Master Theorem connects **algorithm structure** to **asymptotic behavior**:
 >
 > - Merge Sort: `2T(n/2) + n` → Case 2 → `n log n` (stable, extra space).
 >
-> - Quick Sort (median-of-three, good pivots expected): `T(n/2)+T(n/2)+Θ(n)` → effectively the same form with random balance → `n log n` expected, but worst-case not guaranteed unless introspective fallback is added (see [[cs/dsa/heapsort|Heapsort]]).
+> - Quick Sort (median-of-three, good pivots expected): `T(n/2)+T(n/2)+Θ(n)` → effectively the same form with random balance → `n log n` expected, but worst-case not guaranteed unless introspective fallback is added (see [[heapsort|Heapsort]]).
 >
 
 ## Summary
@@ -221,10 +221,10 @@ To analyze `T(n)=aT(n/b)+f(n)`:
 
 ## See also
 
-- [[cs/dsa/recurrence-relations|Recurrence Relations]]
+- [[recurrence-relations|Recurrence Relations]]
 
-- [[cs/dsa/recurrences-master-theorem|Recurrences — Master Theorem]]
+- [[recurrences-master-theorem|Recurrences — Master Theorem]]
 
-- [[cs/dsa/divide-and-conquer|Divide and Conquer]]
+- [[divide-and-conquer|Divide and Conquer]]
 
-- [[cs/dsa/time-complexity-analysis|Time Complexity Analysis]]
+- [[time-complexity-analysis|Time Complexity Analysis]]

@@ -14,7 +14,7 @@ aliases: []
 
 The **Floyd–Warshall algorithm** computes **shortest paths between all pairs of vertices** in a weighted directed graph (can be undirected by adding symmetric edges). It works even with **negative edge weights** (but not negative cycles), and it **detects negative cycles** cleanly. The algorithm is a compact **dynamic programming** routine with a triple nested loop that considers, for each pair `(i, j)`, whether detouring through an intermediate vertex `k` yields a shorter path.
 
-Compared to [[cs/dsa/dijkstras-algorithm|Dijkstra's Algorithm]], Floyd–Warshall is usually preferred when:
+Compared to [[dijkstras-algorithm|Dijkstra's Algorithm]], Floyd–Warshall is usually preferred when:
 
 - you need **all pairs** anyway,
 
@@ -182,7 +182,7 @@ Let `n = |V|`.
 
 ## Implementation Notes or Trade-offs
 
-- **Choosing representations:** Floyd–Warshall assumes an **adjacency matrix** style `dist`. For sparse graphs with large `n`, an adjacency list plus repeated single-source runs is often superior (see [[cs/dsa/graph-representations|Graph Representations]]).
+- **Choosing representations:** Floyd–Warshall assumes an **adjacency matrix** style `dist`. For sparse graphs with large `n`, an adjacency list plus repeated single-source runs is often superior (see [[graph-representations|Graph Representations]]).
 
 - **Undirected graphs:** Insert both directions with the same weight; initialize `W[i][i]=0`.
 
@@ -199,10 +199,10 @@ Floyd–Warshall is a compact dynamic program for **all-pairs shortest paths** t
 
 ## See also
 
-- [[cs/dsa/dijkstras-algorithm|Dijkstra's Algorithm]]
+- [[dijkstras-algorithm|Dijkstra's Algorithm]]
 
-- [[cs/dsa/graph-representations|Graph Representations]]
+- [[graph-representations|Graph Representations]]
 
-- [[cs/dsa/adjacency-matrix|Adjacency Matrix]]
+- [[adjacency-matrix|Adjacency Matrix]]
 
-- [[cs/dsa/dynamic-programming|Dynamic Programming]]
+- [[dynamic-programming|Dynamic Programming]]

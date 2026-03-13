@@ -1,7 +1,7 @@
 ---
 title: Dijkstra's Algorithm  
 description: Single-source shortest paths on non-negative weighted graphs using a priority queue and a settled/frontier partition.  
-draft: true  
+draft: false
 tags:
 - cs
 - dsa  
@@ -101,7 +101,7 @@ Let `n = |V|`, `m = |E|`.
 
 - With a **binary heap**: each `extract_min` is `O(log n)` (≤ `n` times), each successful relaxation does a `decrease_key` `O(log n)` (≤ `m` times). **Time:** `O((n + m) log n)`. **Space:** `O(n)`.
     
-- With a **d-ary heap**: `extract_min = O(d log_d n)`, `decrease_key = O(log_d n)`. Choose `d` to balance operations (see [[cs/dsa/d-ary-heap|D-ary Heap]]).
+- With a **d-ary heap**: `extract_min = O(d log_d n)`, `decrease_key = O(log_d n)`. Choose `d` to balance operations (see [[d-ary-heap|D-ary Heap]]).
     
 - With **Fibonacci / pairing heaps** (amortized): **Time:** `O(m + n log n)` due to `O(1)` amortized `decrease_key`.
     
@@ -166,10 +166,10 @@ Dijkstra’s algorithm grows a **settled set** outward from the source, always e
 
 ## See also
 
-- [[cs/dsa/breadth-first-search-algorithms|Breadth-First Search Algorithms]]
+- [[breadth-first-search-algorithms|Breadth-First Search Algorithms]]
     
-- [[cs/dsa/greedy-algorithms|Greedy Algorithms]]
+- [[greedy-algorithms|Greedy Algorithms]]
     
-- [[cs/dsa/d-ary-heap|D-ary Heap]]
+- [[d-ary-heap|D-ary Heap]]
     
-- [[cs/dsa/graph-representations|Graph Representations]]
+- [[graph-representations|Graph Representations]]

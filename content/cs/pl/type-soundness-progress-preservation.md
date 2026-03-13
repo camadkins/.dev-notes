@@ -222,6 +222,6 @@ Now, preservation must hold for both expression *and* store:
 ---
 
 ## See also
-- [[cs/pl/type-systems-goals-guarantees|Type Systems — Goals & Guarantees]]
-- [[cs/pl/operational-semantics-big-step-small-step|Operational Semantics — Big-Step & Small-Step]]
-- [[cs/pl/hindleymilner-type-inference|Hindley–Milner Type Inference]]
+- [[type-systems-goals-guarantees|Type Systems — Goals & Guarantees]]
+- [[operational-semantics-big-step-small-step|Operational Semantics — Big-Step & Small-Step]]
+- [[hindleymilner-type-inference|Hindley–Milner Type Inference]]

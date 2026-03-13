@@ -153,7 +153,7 @@ Array `A = [9, 4, 7, 2, 7, 5]`.
 
 - **Validation and scanning.** Input validation, log scanning for markers, simple token detection.
 
-- **Linked structures.** Adjacency lists, chains in separate chaining for [[cs/dsa/hash-tables|Hash Tables]].
+- **Linked structures.** Adjacency lists, chains in separate chaining for [[hash-tables|Hash Tables]].
 
 ## Common Pitfalls or Edge Cases
 
@@ -174,7 +174,7 @@ Array `A = [9, 4, 7, 2, 7, 5]`.
 
 ## Implementation Notes or Trade-offs
 
-- **When to prefer binary search.** If the data is **sorted** and random access is cheap, prefer [[cs/dsa/binary-search|Binary Search]] for `O(log n)` time. Linear search can still win on **very small** arrays due to branch/predictor and cache effects.
+- **When to prefer binary search.** If the data is **sorted** and random access is cheap, prefer [[binary-search|Binary Search]] for `O(log n)` time. Linear search can still win on **very small** arrays due to branch/predictor and cache effects.
 
 - **Cache behavior.** Arrays provide sequential access that is cache-friendly; linked lists incur pointer chasing and poor locality.
 
@@ -184,14 +184,14 @@ Array `A = [9, 4, 7, 2, 7, 5]`.
 
 ## Summary
 
-Linear search scans sequentially, stops on the first hit, and costs `Θ(n)` in the worst case with **O(1)** extra space. It's the **default** for unsorted data, small ranges, and streaming inputs. Use the **sentinel** trick to streamline tight loops, unroll or vectorize for throughput on primitive arrays, and switch to order-aware methods (e.g., [[cs/dsa/binary-search|Binary Search]]) when data is sorted.
+Linear search scans sequentially, stops on the first hit, and costs `Θ(n)` in the worst case with **O(1)** extra space. It's the **default** for unsorted data, small ranges, and streaming inputs. Use the **sentinel** trick to streamline tight loops, unroll or vectorize for throughput on primitive arrays, and switch to order-aware methods (e.g., [[binary-search|Binary Search]]) when data is sorted.
 
 ## See also
 
-- [[cs/dsa/binary-search|Binary Search]]
+- [[binary-search|Binary Search]]
 
-- [[cs/dsa/arrays|Arrays]]
+- [[arrays|Arrays]]
 
-- [[cs/dsa/searching|Searching]]
+- [[searching|Searching]]
 
-- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]
+- [[algorithm-efficiency|Algorithm Efficiency]]

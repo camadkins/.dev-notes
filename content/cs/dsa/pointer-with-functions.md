@@ -106,7 +106,7 @@ size_t ensure_capacity(uint8_t** buf, size_t* cap, size_t need) {
 
 - **In-place vs out-of-place**: In-place can be faster and memory-frugal, but harder to reason about. Out-of-place (returning a new value) is safer and often clearer.
 
-- **Cache locality**: Mutating through pointers is as local as your data layout; see [[cs/dsa/dynamic-arrays|Dynamic Arrays]] and [[cs/dsa/multidimensional-arrays|Multidimensional Arrays]] for stride/layout implications.
+- **Cache locality**: Mutating through pointers is as local as your data layout; see [[dynamic-arrays|Dynamic Arrays]] and [[multidimensional-arrays|Multidimensional Arrays]] for stride/layout implications.
 
 - **API clarity**: Use names and types to signal direction:
 
@@ -213,7 +213,7 @@ Pointers cross thread boundaries as raw capabilities. If multiple threads write 
 
 - **Handles/IDs**: instead of exposing pointers, some APIs pass opaque IDs that the callee resolves internally—safer but less flexible.
 
-- **Copy vs move**: for large data, consider **move** (transfer ownership) rather than pointer mutation; see [[cs/dsa/pass-by-value-and-pass-by-reference|Pass-by-Value vs Reference]].
+- **Copy vs move**: for large data, consider **move** (transfer ownership) rather than pointer mutation; see [[pass-by-value-and-pass-by-reference|Pass-by-Value vs Reference]].
 
 
 ## Summary
@@ -232,10 +232,10 @@ Pointers-as-parameters are a powerful **capability**: they enable in-place updat
 
 ## See also
 
-- [[cs/dsa/pass-by-value-and-pass-by-reference|Pass-by-Value vs Reference]]
+- [[pass-by-value-and-pass-by-reference|Pass-by-Value vs Reference]]
 
-- [[cs/dsa/dynamic-arrays|Dynamic Arrays]]
+- [[dynamic-arrays|Dynamic Arrays]]
 
-- [[cs/dsa/multidimensional-arrays|Multidimensional Arrays]]
+- [[multidimensional-arrays|Multidimensional Arrays]]
 
-- [[cs/dsa/functions|Functions]]
+- [[functions|Functions]]

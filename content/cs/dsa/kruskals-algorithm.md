@@ -181,7 +181,7 @@ Let `n = |V|`, `m = |E|`.
 
 - **I/O scale.** For massive graphs, read edges in chunks, external-sort by weight, and stream through Kruskal with DSU in memory (external-memory MST).
 
-- **Prim vs Kruskal.** Kruskal pairs naturally with **edge lists** and shines when you can sort cheaply; **Prim's** algorithm is better with **adjacency structures** and a good priority queue on very dense graphs. See [[cs/dsa/prims-algorithm|Prim's Algorithm]].
+- **Prim vs Kruskal.** Kruskal pairs naturally with **edge lists** and shines when you can sort cheaply; **Prim's** algorithm is better with **adjacency structures** and a good priority queue on very dense graphs. See [[prims-algorithm|Prim's Algorithm]].
 
 ## Summary
 
@@ -189,10 +189,10 @@ Kruskal's algorithm is a **greedy, edge-sorted** approach to MST: sort edges, sc
 
 ## See also
 
-- [[cs/dsa/minimum-spanning-trees-kruskal-prim|Minimum Spanning Trees — Kruskal & Prim]]
+- [[minimum-spanning-trees-kruskal-prim|Minimum Spanning Trees — Kruskal & Prim]]
 
-- [[cs/dsa/prims-algorithm|Prim's Algorithm]]
+- [[prims-algorithm|Prim's Algorithm]]
 
-- [[cs/dsa/disjoint-set-union-union-find|Disjoint Set Union (Union-Find)]]
+- [[disjoint-set-union-union-find|Disjoint Set Union (Union-Find)]]
 
-- [[cs/dsa/graphs|Graphs — Overview]]
+- [[graphs|Graphs — Overview]]

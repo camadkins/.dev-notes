@@ -1,7 +1,7 @@
 ---
 title: B-Trees — Balanced Multiway Search Structures
 description: Generalized search trees that maintain logarithmic height by storing multiple keys per node and balancing via split/merge operations.
-draft: true
+draft: false
 tags:
   - cs
   - dsa
@@ -224,10 +224,10 @@ function insertNonFull(x, k):
 
 - [[bst|Binary Search Tree]]
     
-- [[cs/dsa/avl-tree|AVL Tree]]
+- [[avl-tree|AVL Tree]]
     
-- [[cs/dsa/rb-tree|Red-Black Tree]]
+- [[rb-tree|Red-Black Tree]]
     
-- [[cs/dsa/bplus-tree|B+ Tree]]
+- [[bplus-tree|B+ Tree]]
     
-- [[cs/dsa/external-sorting|External Sorting]]
+- [[external-sorting|External Sorting]]

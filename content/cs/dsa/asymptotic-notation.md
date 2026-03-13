@@ -173,9 +173,9 @@ Merge Sort, Heap Sort, and Quick Sort (average case) achieve `O(n log n)`, hence
 ---
 
 ## See also
-- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]
+- [[algorithm-efficiency|Algorithm Efficiency]]
 - [[amortized-analysis-methods|Amortized Analysis]]
-- [[cs/dsa/best-worst-average-cases|Best/Worst/Average Cases]]
-- [[cs/dsa/time-complexity-analysis|Time Complexity Analysis]]
-- [[cs/dsa/logarithmic-functions|Logarithmic Functions]]
-- [[cs/dsa/recurrence-relations|Recurrence Relations]]
+- [[best-worst-average-cases|Best/Worst/Average Cases]]
+- [[time-complexity-analysis|Time Complexity Analysis]]
+- [[logarithmic-functions|Logarithmic Functions]]
+- [[recurrence-relations|Recurrence Relations]]

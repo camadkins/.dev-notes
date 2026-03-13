@@ -344,10 +344,10 @@ At each level, programming languages evolve toward _human-centric abstraction_ �
 
 ## See also
 
-- [[cs/pl/history-genealogy-of-languages|History & Genealogy of Languages]]
+- [[history-genealogy-of-languages|History & Genealogy of Languages]]
     
-- [[cs/pl/language-overview-syntax-semantics|Language Overview — Syntax vs Semantics]]
+- [[language-overview-syntax-semantics|Language Overview — Syntax vs Semantics]]
     
-- [[cs/pl/compilation-vs-interpretation|Compilation vs Interpretation]]
+- [[compilation-vs-interpretation|Compilation vs Interpretation]]
     
-- [[cs/pl/programming-paradigms-models-of-computation|Programming Paradigms & Models of Computation]]
+- [[programming-paradigms-models-of-computation|Programming Paradigms & Models of Computation]]

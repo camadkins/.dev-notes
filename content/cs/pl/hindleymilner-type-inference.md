@@ -328,10 +328,10 @@ This makes the interaction between environment, constraints, and unification vis
 
 ## See also
 
-- [[cs/pl/parametric-polymorphism-adts|Parametric Polymorphism & ADTs]]
+- [[parametric-polymorphism-adts|Parametric Polymorphism & ADTs]]
     
-- [[cs/pl/type-soundness-and-progress|Type Soundness & Progress Theorems]]
+- [[type-soundness-and-progress|Type Soundness & Progress Theorems]]
     
-- [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]
+- [[lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]
     
-- [[cs/pl/evaluation-order-and-strictness|Evaluation Order & Strictness]]
+- [[evaluation-order-and-strictness|Evaluation Order & Strictness]]
