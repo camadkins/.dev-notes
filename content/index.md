@@ -6,17 +6,19 @@ comments: false
 tags: []
 ---
 
-This is my digital garden — a public collection of notes I maintain as I study and build things. Topics span data structures, algorithms, programming language theory, and whatever else I'm digging into.
+This is my digital garden — a public, interconnected collection of notes I build and revise as I study computer science. Topics range from data structures and algorithms to programming language theory and language-specific deep dives.
 
-Notes here range from polished references to rough working drafts. Everything is a living document; pages get revised as my understanding improves.
+Every note here is a living document. Pages move through stages — from rough drafts to polished references — and get revised as my understanding sharpens. Nothing is "finished"; everything is connected.
 
 > *"A jack of all trades is a master of none, but oftentimes better than a master of one."*
 
 ### Areas
 
-- [[cs/index | Computer Science]] — DS&A, programming language concepts, and language-specific notes
+- [[cs/index | Computer Science]] — data structures & algorithms, programming language concepts, and language-specific notes
 - [[meta/index | About This Site]] — how the garden is organized, note types, and writing standards
 
-### How this works
+### Navigating
 
-The sidebar explorer shows the full file tree. Most pages link to related notes, and the graph view on each page shows how topics connect. If you're new here, [[meta/how-to-use-this-site | start with the guide]].
+The **sidebar explorer** shows the full file tree. The **graph view** on each page reveals how topics connect. **Backlinks** at the bottom show what links here. Use **search** for anything specific.
+
+New here? [[how-to-use-this-site | Start with the guide]].
