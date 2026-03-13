@@ -14,6 +14,7 @@ Statistics provides the mathematical framework for reasoning under uncertainty. 
 
 ### Probability & Foundations
 
+- [[random-variable|Random Variable]] — the formal bridge from outcomes to numbers; entry point for all distribution and inference concepts
 - [[conditional-probability|Conditional Probability]] — updating probability with new information by restricting the sample space
 - [[bayes-rule|Bayes' Rule]] — reversing conditional probability to compute the probability of a cause given an effect
 - [[expected-value|Expected Value]] — the probability-weighted average outcome of a random variable
@@ -27,10 +28,10 @@ Statistics provides the mathematical framework for reasoning under uncertainty. 
 - [[poisson-distribution|Poisson Distribution]] — event counts in a fixed interval at constant rate
 - [[exponential-distribution|Exponential Distribution]] — waiting time between Poisson events
 - [[normal-distribution|Normal Distribution]] — the Gaussian bell curve; foundation for inference
-- [[central-limit-theorem|Central Limit Theorem]] — why sample averages converge to normality
 
 ### Statistical Inference
 
+- [[central-limit-theorem|Central Limit Theorem]] — why sample averages converge to normality
 - [[hypothesis-testing|Hypothesis Testing]] — null and alternative hypotheses, p-values, significance levels, Type I/II errors, and power
 - [[maximum-likelihood-estimation|Maximum Likelihood Estimation]] — choosing parameters that make observed data most probable
 

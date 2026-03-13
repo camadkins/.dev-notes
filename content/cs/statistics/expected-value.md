@@ -95,3 +95,4 @@ This directly informs maintenance scheduling and spare-parts inventory.
 - [[variance-and-covariance|Variance and Covariance]] — measures how far outcomes spread around the expected value
 - [[probability-distributions|Probability Distributions]] — each distribution has characteristic expected values
 - [[best-worst-average-cases|Best, Worst, and Average Cases]] — expected value defines the average case
+- [[quick-sort|Quick Sort]] — average-case $O(n \log n)$ derived via linearity of expectation
