@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; }
+    .store-box { fill: rgba(30,40,55,0.95); stroke: #d29922; stroke-width: 1.5; rx: 6; }
+    .label { font-size: 11px; fill: #d29922; font-weight: 600; }
+    .txt { font-size: 11px; fill: #e8e8e8; }
+    .id-label { font-size: 12px; fill: #84a59d; font-weight: 600; }
+    .arrow { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .arrow-blue { stroke: #58a6ff; stroke-width: 1.5; fill: none; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; }
+    @media (prefers-color-scheme: light) {
+      .box { fill: #1a1a2e; stroke: #284b63; }
+      .store-box { fill: #1a1a2e; stroke: #9e6000; }
+      .label { fill: #9e6000; }
+      .id-label { fill: #2d6a4f; }
+      .arrow { stroke: #b8b8b8; }
+      .arrow-blue { stroke: #284b63; }
+      .desc { fill: #6e7781; }
+    }
+  </style>
+  <defs>
+    <marker id="ah" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#93a3b8"/>
+    </marker>
+    <marker id="ahBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#58a6ff"/>
+    </marker>
+  </defs>
+
+  <!-- inc identifier -->
+  <text class="id-label" x="30" y="80">inc</text>
+
+  <!-- get identifier -->
+  <text class="id-label" x="30" y="200">get</text>
+
+  <!-- Closure box for inc -->
+  <rect class="box" x="100" y="45" width="250" height="55"/>
+  <text class="label" x="115" y="65">closure</text>
+  <text class="txt" x="115" y="85">⟨ λ(). r := !r + 1, env ⟩</text>
+
+  <!-- Closure box for get -->
+  <rect class="box" x="100" y="170" width="250" height="55"/>
+  <text class="label" x="115" y="190">closure</text>
+  <text class="txt" x="115" y="210">⟨ λ(). !r,  env ⟩</text>
+
+  <!-- Arrows from identifiers to closure boxes -->
+  <line class="arrow" x1="60" y1="76" x2="98" y2="72" marker-end="url(#ah)"/>
+  <line class="arrow" x1="60" y1="196" x2="98" y2="196" marker-end="url(#ah)"/>
+
+  <!-- Environment box (shared) -->
+  <rect class="box" x="400" y="100" width="130" height="55"/>
+  <text class="label" x="415" y="120">env</text>
+  <text class="txt" x="415" y="140">r ↦ ℓ₁</text>
+
+  <!-- Arrows from closures to shared env -->
+  <path class="arrow-blue" d="M 350,72 L 375,72 L 375,120 L 398,120" marker-end="url(#ahBlue)"/>
+  <path class="arrow-blue" d="M 350,197 L 375,197 L 375,135 L 398,135" marker-end="url(#ahBlue)"/>
+
+  <!-- Store box -->
+  <rect class="store-box" x="400" y="210" width="130" height="55"/>
+  <text class="label" x="415" y="230">store (σ)</text>
+  <text class="txt" x="415" y="252">ℓ₁ ↦ 0</text>
+
+  <!-- Arrow from env to store -->
+  <line class="arrow" x1="465" y1="155" x2="465" y2="208" marker-end="url(#ah)"/>
+
+  <!-- Annotation -->
+  <text class="desc" x="100" y="280">both inc and get share the same captured r</text>
+  <text class="desc" x="100" y="298">after inc(); inc() → ℓ₁ ↦ 2</text>
+
+  <!-- Title -->
+  <text x="100" y="30" font-size="12px" fill="#d29922" font-weight="600">make_counter: shared mutable state via closures</text>
+</svg>

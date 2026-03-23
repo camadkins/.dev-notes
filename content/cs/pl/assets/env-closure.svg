@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 340" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; }
+    .env-box { fill: rgba(30,40,55,0.95); stroke: #d29922; stroke-width: 1.5; rx: 6; }
+    .new-box { fill: rgba(30,40,55,0.95); stroke: #7ee787; stroke-width: 1.5; rx: 6; }
+    .label { font-size: 11px; fill: #d29922; font-weight: 600; }
+    .label-green { font-size: 11px; fill: #7ee787; font-weight: 600; }
+    .txt { font-size: 11px; fill: #e8e8e8; }
+    .arrow { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .arrow-blue { stroke: #58a6ff; stroke-width: 1.5; fill: none; }
+    .arrow-green { stroke: #7ee787; stroke-width: 1.5; fill: none; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; }
+    @media (prefers-color-scheme: light) {
+      .box { fill: #1a1a2e; stroke: #284b63; }
+      .env-box { fill: #1a1a2e; stroke: #9e6000; }
+      .new-box { fill: #1a1a2e; stroke: #1a7f37; }
+      .label { fill: #9e6000; }
+      .label-green { fill: #1a7f37; }
+      .arrow { stroke: #b8b8b8; }
+      .arrow-blue { stroke: #284b63; }
+      .arrow-green { stroke: #1a7f37; }
+      .desc { fill: #6e7781; }
+    }
+  </style>
+  <defs>
+    <marker id="ah" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#93a3b8"/>
+    </marker>
+    <marker id="ahBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#58a6ff"/>
+    </marker>
+    <marker id="ahGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#7ee787"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text class="desc" x="20" y="20">closure: function + captured environment</text>
+
+  <!-- Closure box -->
+  <rect class="box" x="20" y="40" width="280" height="60"/>
+  <text class="label" x="36" y="60">closure (inc)</text>
+  <text class="txt" x="36" y="80">⟨ λy. x + y,  ρ[x ↦ 1] ⟩</text>
+
+  <!-- Captured environment box -->
+  <rect class="env-box" x="360" y="40" width="190" height="60"/>
+  <text class="label" x="376" y="60">captured env</text>
+  <text class="txt" x="376" y="80">x ↦ 1</text>
+
+  <!-- Arrow from closure to captured env -->
+  <line class="arrow-blue" x1="300" y1="70" x2="358" y2="70" marker-end="url(#ahBlue)"/>
+
+  <!-- Divider -->
+  <text class="desc" x="20" y="135">application:  inc 5</text>
+  <line class="arrow" x1="20" y1="142" x2="560" y2="142" stroke-dasharray="4 3"/>
+
+  <!-- Step 1: extend captured env -->
+  <rect class="env-box" x="20" y="160" width="190" height="60"/>
+  <text class="label" x="36" y="180">captured env</text>
+  <text class="txt" x="36" y="200">x ↦ 1</text>
+
+  <!-- New frame extends captured -->
+  <rect class="new-box" x="260" y="160" width="190" height="60"/>
+  <text class="label-green" x="276" y="180">new frame</text>
+  <text class="txt" x="276" y="200">y ↦ 5</text>
+
+  <!-- Arrow: new frame parent → captured env -->
+  <line class="arrow" x1="260" y1="190" x2="212" y2="190" marker-end="url(#ah)"/>
+  <text class="desc" x="218" y="183">parent</text>
+
+  <!-- Result -->
+  <rect class="box" x="20" y="250" width="430" height="55"/>
+  <text class="label" x="36" y="272">evaluate body</text>
+  <text class="txt" x="36" y="292">x + y  →  ρ(x) + ρ(y)  →  1 + 5  =  6</text>
+
+  <!-- Arrow from new frame to result -->
+  <line class="arrow-green" x1="355" y1="220" x2="355" y2="248" marker-end="url(#ahGreen)"/>
+
+  <text class="desc" x="20" y="325">let add = λx. λy. x + y;  let inc = add 1;  inc 5 → 6</text>
+</svg>

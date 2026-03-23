@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 440" fill="none">
+<style>
+  text { font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+  .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+  .node-key { fill: rgba(30,40,55,0.95); stroke: #84a59d; stroke-width: 2; }
+  .node-text { font-size: 10px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+  .edge { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+  .edge-label { font-size: 11px; fill: #58a6ff; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+  .anno { font-size: 9px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+  .desc { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+  .legend-text { font-size: 9px; fill: #8b949e; text-anchor: start; dominant-baseline: central; }
+  @media (prefers-color-scheme: light) {
+    .node { fill: #1a1a2e; stroke: #284b63; }
+    .node-key { fill: #1a1a2e; stroke: #3a7d5c; }
+    .node-text { fill: #e8e8e8; }
+    .edge { stroke: #b8b8b8; }
+    .edge-label { fill: #284b63; }
+    .anno { fill: #9e6000; }
+    .desc { fill: #6e7781; }
+    .legend-text { fill: #6e7781; }
+  }
+</style>
+
+<!-- Depth labels -->
+<text class="anno" x="24" y="40" text-anchor="start">d0</text>
+<text class="anno" x="24" y="120" text-anchor="start">d1</text>
+<text class="anno" x="24" y="200" text-anchor="start">d2</text>
+<text class="anno" x="24" y="280" text-anchor="start">d3</text>
+
+<!-- ===== EDGES (drawn first, behind nodes) ===== -->
+
+<!-- Root -> b-node -->
+<line class="edge" x1="355" y1="55" x2="200" y2="105"/>
+<!-- Root -> s-node -->
+<line class="edge" x1="355" y1="55" x2="510" y2="105"/>
+
+<!-- b-node -> be-node -->
+<line class="edge" x1="200" y1="135" x2="130" y2="185"/>
+<!-- b-node -> bid-node -->
+<line class="edge" x1="200" y1="135" x2="200" y2="185"/>
+<!-- b-node -> bu-node -->
+<line class="edge" x1="200" y1="135" x2="280" y2="185"/>
+
+<!-- s-node -> sell-node -->
+<line class="edge" x1="510" y1="135" x2="450" y2="185"/>
+<!-- s-node -> st-node -->
+<line class="edge" x1="510" y1="135" x2="570" y2="185"/>
+
+<!-- be-node -> bear-node -->
+<line class="edge" x1="130" y1="215" x2="90" y2="265"/>
+<!-- be-node -> bell-node -->
+<line class="edge" x1="130" y1="215" x2="170" y2="265"/>
+
+<!-- bid-node -> (leaf, no children) -->
+
+<!-- bu-node -> bull-node -->
+<line class="edge" x1="280" y1="215" x2="250" y2="265"/>
+<!-- bu-node -> buy-node -->
+<line class="edge" x1="280" y1="215" x2="310" y2="265"/>
+
+<!-- sell-node -> (leaf, no children) -->
+
+<!-- st-node -> stock-node -->
+<line class="edge" x1="570" y1="215" x2="540" y2="265"/>
+<!-- st-node -> stop-node -->
+<line class="edge" x1="570" y1="215" x2="600" y2="265"/>
+
+<!-- ===== EDGE LABELS ===== -->
+
+<!-- Root -> b-node: "b" -->
+<text class="edge-label" x="268" y="72">"b"</text>
+<!-- Root -> s-node: "s" -->
+<text class="edge-label" x="440" y="72">"s"</text>
+
+<!-- b-node -> be-node: "e" -->
+<text class="edge-label" x="155" y="155">"e"</text>
+<!-- b-node -> bid-node: "id" -->
+<text class="edge-label" x="210" y="158">"id"</text>
+<!-- b-node -> bu-node: "u" -->
+<text class="edge-label" x="250" y="155">"u"</text>
+
+<!-- s-node -> sell-node: "ell" -->
+<text class="edge-label" x="470" y="155">"ell"</text>
+<!-- s-node -> st-node: "t" -->
+<text class="edge-label" x="550" y="155">"t"</text>
+
+<!-- be-node -> bear-node: "ar" -->
+<text class="edge-label" x="100" y="235">"ar"</text>
+<!-- be-node -> bell-node: "ll" -->
+<text class="edge-label" x="160" y="235">"ll"</text>
+
+<!-- bu-node -> bull-node: "ll" -->
+<text class="edge-label" x="255" y="235">"ll"</text>
+<!-- bu-node -> buy-node: "y" -->
+<text class="edge-label" x="305" y="235">"y"</text>
+
+<!-- st-node -> stock-node: "ock" -->
+<text class="edge-label" x="545" y="235">"ock"</text>
+<!-- st-node -> stop-node: "op" -->
+<text class="edge-label" x="595" y="235">"op"</text>
+
+<!-- ===== NODES ===== -->
+
+<!-- Root (depth 0) -->
+<circle class="node" cx="355" cy="40" r="15"/>
+<text class="node-text" x="355" y="40">root</text>
+
+<!-- Depth 1: b-node, s-node -->
+<circle class="node" cx="200" cy="120" r="15"/>
+<text class="node-text" x="200" y="120"></text>
+<circle class="node" cx="510" cy="120" r="15"/>
+<text class="node-text" x="510" y="120"></text>
+
+<!-- Depth 2: be-node, bid-node, bu-node, sell-node, st-node -->
+<circle class="node" cx="130" cy="200" r="15"/>
+<text class="node-text" x="130" y="200"></text>
+<circle class="node-key" cx="200" cy="200" r="15"/>
+<text class="node-text" x="200" y="200">bid</text>
+<circle class="node" cx="280" cy="200" r="15"/>
+<text class="node-text" x="280" y="200"></text>
+<circle class="node-key" cx="450" cy="200" r="15"/>
+<text class="node-text" x="450" y="200">sell</text>
+<circle class="node" cx="570" cy="200" r="15"/>
+<text class="node-text" x="570" y="200"></text>
+
+<!-- Depth 3: bear, bell, bull, buy, stock, stop (all is_key) -->
+<circle class="node-key" cx="90" cy="280" r="15"/>
+<text class="node-text" x="90" y="280">bear</text>
+<circle class="node-key" cx="170" cy="280" r="15"/>
+<text class="node-text" x="170" y="280">bell</text>
+<circle class="node-key" cx="250" cy="280" r="15"/>
+<text class="node-text" x="250" y="280">bull</text>
+<circle class="node-key" cx="310" cy="280" r="15"/>
+<text class="node-text" x="310" y="280">buy</text>
+<circle class="node-key" cx="540" cy="280" r="15"/>
+<text class="node-text" x="540" y="280">stock</text>
+<circle class="node-key" cx="600" cy="280" r="15"/>
+<text class="node-text" x="600" y="280">stop</text>
+
+<!-- ===== ARROWHEADS (explicit polygons on edges) ===== -->
+<!-- Root -> b-node -->
+<polygon points="200,105 195,95 205,95" fill="#93a3b8"/>
+<!-- Root -> s-node -->
+<polygon points="510,105 505,95 515,95" fill="#93a3b8"/>
+<!-- b -> be -->
+<polygon points="130,185 125,175 135,175" fill="#93a3b8"/>
+<!-- b -> bid -->
+<polygon points="200,185 195,175 205,175" fill="#93a3b8"/>
+<!-- b -> bu -->
+<polygon points="280,185 275,175 285,175" fill="#93a3b8"/>
+<!-- s -> sell -->
+<polygon points="450,185 445,175 455,175" fill="#93a3b8"/>
+<!-- s -> st -->
+<polygon points="570,185 565,175 575,175" fill="#93a3b8"/>
+<!-- be -> bear -->
+<polygon points="90,265 85,255 95,255" fill="#93a3b8"/>
+<!-- be -> bell -->
+<polygon points="170,265 165,255 175,255" fill="#93a3b8"/>
+<!-- bu -> bull -->
+<polygon points="250,265 245,255 255,255" fill="#93a3b8"/>
+<!-- bu -> buy -->
+<polygon points="310,265 305,255 315,255" fill="#93a3b8"/>
+<!-- st -> stock -->
+<polygon points="540,265 535,255 545,255" fill="#93a3b8"/>
+<!-- st -> stop -->
+<polygon points="600,265 595,255 605,255" fill="#93a3b8"/>
+
+<!-- Legend -->
+<circle class="node" cx="60" cy="370" r="8"/>
+<text class="legend-text" x="74" y="370">internal node</text>
+<circle class="node-key" cx="180" cy="370" r="8"/>
+<text class="legend-text" x="194" y="370">is_key = true</text>
+<text class="desc" x="355" y="400">Compressed trie for {bear, bell, bid, bull, buy, sell, stock, stop}</text>
+</svg>

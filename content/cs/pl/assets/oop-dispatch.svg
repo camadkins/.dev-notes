@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 375" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .title { font-size: 13px; font-weight: 700; fill: #e8e8e8; text-anchor: middle; }
+    .panel-label { font-size: 11px; fill: #58a6ff; font-weight: 700; text-anchor: start; }
+    .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; }
+    .box-hi { fill: rgba(30,40,55,0.95); stroke: #d29922; stroke-width: 2; rx: 6; }
+    .vtable-box { fill: rgba(30,40,55,0.95); stroke: #3fb950; stroke-width: 1.5; rx: 4; }
+    .vtable-header { fill: rgba(22,30,42,0.98); stroke: #3fb950; stroke-width: 1.5; }
+    .box-text { font-size: 11px; fill: #e8e8e8; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+    .box-text-sm { font-size: 9px; fill: #93a3b8; text-anchor: middle; dominant-baseline: central; }
+    .label { font-size: 9px; fill: #8b949e; text-anchor: middle; }
+    .label-time { font-size: 9px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .arrow { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .arrow-hi { stroke: #d29922; stroke-width: 2; fill: none; }
+    .arrow-vt { stroke: #3fb950; stroke-width: 1.5; fill: none; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    .anno { font-size: 9px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .vtable-text { font-size: 9px; fill: #3fb950; text-anchor: start; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: start; }
+
+    @media (prefers-color-scheme: light) {
+      .title { fill: #284b63; }
+      .panel-label { fill: #284b63; }
+      .box { fill: #1a1a2e; stroke: #284b63; }
+      .box-hi { fill: #1a1a2e; stroke: #c87800; }
+      .vtable-box { fill: #1a1a2e; stroke: #1a7f37; }
+      .vtable-header { fill: #12122a; stroke: #1a7f37; }
+      .box-text { fill: #e8e8e8; }
+      .box-text-sm { fill: #b0b8c4; }
+      .label { fill: #6e7781; }
+      .label-time { fill: #9e6000; }
+      .arrow { stroke: #b8b8b8; }
+      .arrow-hi { stroke: #c87800; }
+      .arrow-vt { stroke: #1a7f37; }
+      .sep { stroke: #e5e5e5; }
+      .anno { fill: #9e6000; }
+      .vtable-text { fill: #1a7f37; }
+      .desc { fill: #6e7781; }
+    }
+  </style>
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#93a3b8"/>
+    </marker>
+    <marker id="arr-hi" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#d29922"/>
+    </marker>
+    <marker id="arr-vt" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#3fb950"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="310" y="28" class="title">Static vs Dynamic Dispatch</text>
+
+  <!-- === TOP PANEL: Static Dispatch === -->
+  <text x="30" y="62" class="panel-label">Static Dispatch</text>
+
+  <!-- Call site -->
+  <rect class="box" x="30" y="76" width="130" height="36"/>
+  <text x="95" y="94" class="box-text">s.area()</text>
+
+  <!-- Compiler -->
+  <rect class="box-hi" x="220" y="76" width="130" height="36"/>
+  <text x="285" y="90" class="box-text">Compiler</text>
+  <text x="285" y="102" class="box-text-sm">resolves target</text>
+
+  <!-- Implementation -->
+  <rect class="box" x="420" y="76" width="170" height="36"/>
+  <text x="505" y="94" class="box-text">Shape::area()</text>
+
+  <!-- Arrows -->
+  <path class="arrow-hi" d="M 160,94 L 220,94" marker-end="url(#arr-hi)"/>
+  <path class="arrow-hi" d="M 350,94 L 420,94" marker-end="url(#arr-hi)"/>
+
+  <!-- Time label -->
+  <text x="285" y="128" class="label-time">compile-time</text>
+  <text x="285" y="140" class="desc" text-anchor="middle">method resolved by static type</text>
+
+  <!-- Separator -->
+  <line x1="20" y1="156" x2="600" y2="156" class="sep"/>
+
+  <!-- === BOTTOM PANEL: Dynamic Dispatch === -->
+  <text x="30" y="180" class="panel-label">Dynamic Dispatch</text>
+
+  <!-- Object box -->
+  <rect class="box" x="30" y="194" width="120" height="56"/>
+  <text x="90" y="213" class="box-text">obj</text>
+  <text x="90" y="229" class="box-text-sm">Circle instance</text>
+  <text x="90" y="241" class="box-text-sm">vptr &#x2192;</text>
+
+  <!-- Vtable -->
+  <rect class="vtable-box" x="220" y="194" width="160" height="76"/>
+  <rect class="vtable-header" x="220" y="194" width="160" height="22" rx="4"/>
+  <text x="300" y="208" class="box-text" style="font-size:10px;">vtable (Circle)</text>
+  <line x1="220" y1="216" x2="380" y2="216" stroke="#3fb950" stroke-width="0.8" opacity="0.5"/>
+  <text x="232" y="232" class="vtable-text">[0] area    &#x2192; 0x4a20</text>
+  <text x="232" y="248" class="vtable-text">[1] perimeter &#x2192; 0x4b10</text>
+  <text x="232" y="264" class="vtable-text">[2] toString &#x2192; 0x4c00</text>
+
+  <!-- Implementation -->
+  <rect class="box" x="440" y="214" width="150" height="36"/>
+  <text x="515" y="232" class="box-text">Circle::area()</text>
+
+  <!-- Arrows: object -> vtable -->
+  <path class="arrow-vt" d="M 150,222 L 220,222" marker-end="url(#arr-vt)"/>
+  <text x="185" y="216" class="label">vptr</text>
+
+  <!-- Arrow: vtable -> implementation -->
+  <path class="arrow-vt" d="M 380,232 L 440,232" marker-end="url(#arr-vt)"/>
+
+  <!-- Time label -->
+  <text x="310" y="294" class="label-time">runtime</text>
+  <text x="310" y="306" class="desc" text-anchor="middle">method resolved by actual object type</text>
+
+  <!-- Bottom comparison -->
+  <rect class="box-hi" x="80" y="341" width="460" height="24" rx="6"/>
+  <text x="310" y="355" class="box-text" style="font-size:10px;">same call  s.area()  &#x2192;  different resolution depending on dispatch type</text>
+</svg>

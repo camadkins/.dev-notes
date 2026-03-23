@@ -2,41 +2,35 @@
 title: CFG Design & Refactoring
 description: How to construct, analyze, and refine context-free grammars for clarity, correctness, and parser compatibility.
 draft: false
-comments: true
 tags:
   - cs
   - pl
 date: 2025-10-21
 updated:
 aliases: []
-# diagrams:
-#  - left_recursion_removal.svg - show how A → Aα | β converts to right recursion.
-#  - left_factoring_example.svg - visualize factoring of shared prefixes.
-#  - precedence_hierarchy.svg - depict layered grammar levels for + and * precedence.
-#  - ambiguity_parse_trees.svg - compare ambiguous and refactored parse trees.
 ---
 
 ## Overview
 Context-free grammars (CFGs) define the **syntactic structure** of programming languages.  
-Every compiler, interpreter, or parser generator starts here - determining what *forms* of code are valid before assigning meaning.
+Every compiler, interpreter, or parser generator starts here — determining what *forms* of code are valid before assigning meaning.
 
 But a functional grammar is not necessarily a good one.  
 Ambiguities, left recursion, and unclear naming can make grammars hard to parse, reason about, or extend.  
 Refactoring addresses these problems while preserving language meaning.
 
 > [!note]
-> A *good grammar* is both formal and human-readable - it describes not just the machine’s structure of code, but the designer’s intent.
+> A *good grammar* is both formal and human-readable — it describes not just the machine’s structure of code, but the designer’s intent.
 
 ---
 
 ## Why CFG Design Matters
 A clean grammar enables:
-- **Unambiguous parsing** - one syntax tree per valid input.  
-- **Efficient parsing** - LL(1), LR(1), or PEG-compatible rules.  
-- **Maintainability** - readable nonterminals that reflect roles, not tokens.  
-- **Extensibility** - adding constructs without rewriting everything.
+- **Unambiguous parsing** — one syntax tree per valid input.  
+- **Efficient parsing** — LL(1), LR(1), or PEG-compatible rules.  
+- **Maintainability** — readable nonterminals that reflect roles, not tokens.  
+- **Extensibility** — adding constructs without rewriting everything.
 
-In practice, CFG design shapes how every compiler phase - parsing, AST construction, type checking - perceives a program’s structure.
+In practice, CFG design shapes how every compiler phase — parsing, AST construction, type checking — perceives a program’s structure.
 
 ---
 
@@ -66,7 +60,7 @@ The recursive call to `Expr` prevents consumption of input tokens.
 
 ### 2. Ambiguity
 Ambiguous grammars generate multiple parse trees for the same input.  
-Example: without clear precedence, `num + num * num` may parse in two ways - one grouping `+` first, the other `*`.
+Example: without clear precedence, `num + num * num` may parse in two ways — one grouping `+` first, the other `*`.
 
 ### 3. Left Factoring Conflicts
 If two productions share a prefix, LL(1) parsers cannot decide which rule to follow:
@@ -79,9 +73,7 @@ Stmt → if Expr then Stmt else Stmt | if Expr then Stmt
 ### 4. Excessive ε-Rules
 While ε (empty) rules support optional constructs, overuse causes hidden ambiguities or infinite loops.
 
-> [!example]
-> **Diagram (`ambiguity_parse_trees.svg`)**  
-> Side-by-side trees showing how ambiguity arises and how refactoring resolves it.
+![Side-by-side parse trees showing how ambiguity arises and how refactoring resolves it](assets/cfg-ambiguity-trees.svg)
 
 ---
 
@@ -119,6 +111,8 @@ Tail → else Stmt | ε
 
 ```
 
+![Before/after shared prefix extraction into Tail nonterminal](assets/cfg-left-factoring.svg)
+
 ### Enforcing Operator Precedence
 Layer nonterminals by binding strength:
 ```
@@ -130,11 +124,9 @@ Term' → * Factor Term' | ε
 Factor → (Expr) | num
 
 ```
-Each level isolates a precedence tier - multiplication binds tighter than addition.
+Each level isolates a precedence tier — multiplication binds tighter than addition.
 
-> [!example]
-> **Diagram (`precedence_hierarchy.svg`)**  
-> Three stacked tiers: Factor → Term → Expr, showing binding order and associativity.
+![Three stacked precedence tiers: Factor, Term, Expr showing binding order](assets/cfg-precedence.svg)
 
 ---
 
@@ -221,7 +213,7 @@ These properties explain why static analysis (like type checking) often moves *b
 
 ---
 
-## Example - Clean Expression Grammar
+## Example — Clean Expression Grammar
 Final, LL(1)-compatible form:
 ```
 
@@ -237,9 +229,7 @@ Factor → ( Expr ) | num
 - Uses meaningful names and minimal ε rules.  
 - Easy to extend with new operators.
 
-> [!example]
-> **Diagram (`left_recursion_removal.svg`)**  
-> Shows the rewrite from `A → Aα | β` to `A → βA'`.
+![Left recursion rewrite: A to A-alpha-or-beta becomes A to beta-A-prime](assets/cfg-left-recursion.svg)
 
 ---
 
@@ -251,7 +241,7 @@ Poor CFG design leads to:
 - Difficult debugging and error recovery  
 
 > [!tip]
-> Grammar refactoring is a design discipline - not a one-time cleanup.  
+> Grammar refactoring is a design discipline — not a one-time cleanup.  
 > It shapes how a language evolves, both syntactically and conceptually.
 
 ---
@@ -270,14 +260,14 @@ Poor CFG design leads to:
 ---
 
 ## Diagram Concepts
-- `left_recursion_removal.svg`: Transform recursion into iterative form.  
-- `left_factoring_example.svg`: Shared prefix resolution.  
-- `precedence_hierarchy.svg`: Operator hierarchy layers.  
-- `ambiguity_parse_trees.svg`: Ambiguous vs refactored parse trees.
+- `cfg-left-recursion.svg`: Transform recursion into iterative form.  
+- `cfg-left-factoring.svg`: Shared prefix resolution.  
+- `cfg-precedence.svg`: Operator hierarchy layers.  
+- `cfg-ambiguity-trees.svg`: Ambiguous vs refactored parse trees.
 
 ---
 
-## Related Notes
-- [[grammar-ambiguity-parse-trees|Grammar Ambiguity & Parse Trees]]
-- [[grammars-notation-bnfebnf|Grammars & Notation (BNF and EBNF)]]
-- [[programming-paradigms-models-of-computation|Programming Paradigms & Models of Computation]]
+## See also
+- [[cs/pl/grammar-ambiguity-parse-trees|Grammar Ambiguity & Parse Trees]]
+- [[cs/pl/grammars-notation-bnfebnf|Grammars & Notation (BNF and EBNF)]]
+- [[cs/pl/programming-paradigms-models-of-computation|Programming Paradigms & Models of Computation]]

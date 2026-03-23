@@ -1,0 +1,310 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 820" style="background:transparent" font-family="'SF Mono','Fira Code','Consolas',monospace">
+<style>
+  .decade-label { fill: #8b949e; font-size: 13px; font-weight: 600; }
+  .era-label { fill: #6e7681; font-size: 9px; font-weight: 400; font-style: italic; letter-spacing: 0.3px; }
+  .decade-line { stroke: #30363d; stroke-dasharray: 6,4; stroke-width: 1; }
+  .family-label { font-size: 11px; font-weight: 700; letter-spacing: 0.5px; }
+  .node-box { rx: 6; ry: 6; stroke-width: 1.5; }
+  .node-text { font-size: 11px; font-weight: 600; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+  .edge { fill: none; stroke-width: 1.2; opacity: 0.5; }
+  .fam-imp .node-box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; }
+  .fam-fun .node-box { fill: rgba(30,40,55,0.95); stroke: #a371f7; }
+  .fam-oo  .node-box { fill: rgba(30,40,55,0.95); stroke: #3fb950; }
+  .fam-sys .node-box { fill: rgba(30,40,55,0.95); stroke: #f0883e; }
+  .fam-scr .node-box { fill: rgba(30,40,55,0.95); stroke: #d29922; }
+  .fam-dec .node-box { fill: rgba(30,40,55,0.95); stroke: #f47067; }
+  .fam-multi .node-box { fill: rgba(30,40,55,0.95); stroke: #79c0ff; }
+  .fam-imp .family-label { fill: #58a6ff; }
+  .fam-fun .family-label { fill: #a371f7; }
+  .fam-oo  .family-label { fill: #3fb950; }
+  .fam-sys .family-label { fill: #f0883e; }
+  .fam-scr .family-label { fill: #d29922; }
+  .fam-dec .family-label { fill: #f47067; }
+  .fam-multi .family-label { fill: #79c0ff; }
+  .edge-cross { stroke: #93a3b8; stroke-dasharray: 4,3; }
+  .edge-imp { stroke: #58a6ff; }
+  .edge-fun { stroke: #a371f7; }
+  .edge-oo  { stroke: #3fb950; }
+  .edge-sys { stroke: #f0883e; }
+  .edge-scr { stroke: #d29922; }
+  .legend-text { fill: #8b949e; font-size: 10px; }
+  .legend-swatch { rx: 2; ry: 2; width: 10; height: 10; }
+  .title-text { fill: #e8e8e8; font-size: 15px; font-weight: 700; }
+  .subtitle-text { fill: #8b949e; font-size: 11px; }
+
+  @media (prefers-color-scheme: light) {
+    .decade-label { fill: #57606a; }
+    .era-label { fill: #8b949e; }
+    .decade-line { stroke: #d0d7de; }
+    .node-text { fill: #1f2328; }
+    .title-text { fill: #1f2328; }
+    .subtitle-text { fill: #57606a; }
+    .legend-text { fill: #57606a; }
+    .fam-imp .node-box { fill: rgba(235,240,250,0.95); stroke: #0969da; }
+    .fam-fun .node-box { fill: rgba(240,235,250,0.95); stroke: #8250df; }
+    .fam-oo  .node-box { fill: rgba(230,245,235,0.95); stroke: #1a7f37; }
+    .fam-sys .node-box { fill: rgba(250,240,230,0.95); stroke: #bc4c00; }
+    .fam-scr .node-box { fill: rgba(250,245,230,0.95); stroke: #9a6700; }
+    .fam-dec .node-box { fill: rgba(250,235,235,0.95); stroke: #cf222e; }
+    .fam-multi .node-box { fill: rgba(230,240,250,0.95); stroke: #0550ae; }
+    .fam-imp .family-label { fill: #0969da; }
+    .fam-fun .family-label { fill: #8250df; }
+    .fam-oo  .family-label { fill: #1a7f37; }
+    .fam-sys .family-label { fill: #bc4c00; }
+    .fam-scr .family-label { fill: #9a6700; }
+    .fam-dec .family-label { fill: #cf222e; }
+    .fam-multi .family-label { fill: #0550ae; }
+    .edge-imp { stroke: #0969da; }
+    .edge-fun { stroke: #8250df; }
+    .edge-oo  { stroke: #1a7f37; }
+    .edge-sys { stroke: #bc4c00; }
+    .edge-scr { stroke: #9a6700; }
+    .edge-cross { stroke: #57606a; }
+  }
+</style>
+
+<defs>
+  <marker id="arr-imp" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#58a6ff"/></marker>
+  <marker id="arr-fun" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#a371f7"/></marker>
+  <marker id="arr-oo"  markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#3fb950"/></marker>
+  <marker id="arr-sys" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#f0883e"/></marker>
+  <marker id="arr-scr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#d29922"/></marker>
+  <marker id="arr-cross" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#93a3b8"/></marker>
+</defs>
+
+<!-- Title -->
+<text x="490" y="30" text-anchor="middle" class="title-text">Programming Language Genealogy</text>
+<text x="490" y="48" text-anchor="middle" class="subtitle-text">1950s ── 2010s · families, paradigms, and influence</text>
+
+<!-- Legend -->
+<g transform="translate(20,65)">
+  <rect class="legend-swatch" x="0" y="0" fill="#58a6ff"/><text x="14" y="9" class="legend-text">Imperative</text>
+  <rect class="legend-swatch" x="95" y="0" fill="#a371f7"/><text x="109" y="9" class="legend-text">Functional</text>
+  <rect class="legend-swatch" x="190" y="0" fill="#3fb950"/><text x="204" y="9" class="legend-text">OO</text>
+  <rect class="legend-swatch" x="230" y="0" fill="#f0883e"/><text x="244" y="9" class="legend-text">Systems</text>
+  <rect class="legend-swatch" x="320" y="0" fill="#d29922"/><text x="334" y="9" class="legend-text">Scripting</text>
+  <rect class="legend-swatch" x="410" y="0" fill="#f47067"/><text x="424" y="9" class="legend-text">Declarative</text>
+  <rect class="legend-swatch" x="520" y="0" fill="#79c0ff"/><text x="534" y="9" class="legend-text">Multiparadigm</text>
+  <line x1="640" y1="5" x2="680" y2="5" stroke="#93a3b8" stroke-dasharray="4,3" stroke-width="1.2"/>
+  <text x="685" y="9" class="legend-text">cross-family influence</text>
+</g>
+
+<!--
+  NODE POSITIONS (center x,y):
+  FORTRAN    (130, 134)   LISP       (280, 134)   COBOL      (620, 134)
+  ALGOL      (130, 232)   Simula     (440, 232)
+  Pascal     (130, 332)   ML         (280, 332)   Smalltalk  (440, 332)   C (600, 332)   Prolog (880, 332)   SQL (880, 372)
+  Ada        (130, 432)   Erlang     (280, 452)   C++ (560, 432)   Obj-C (670, 432)   Perl (750, 472)
+  Haskell    (280, 532)   Java       (440, 532)   Ruby (540, 552)   Python (750, 532)   JavaScript (750, 572)
+  Scala      (420, 632)   C# (520, 632)   Go (630, 632)
+  Kotlin     (450, 732)   Swift (560, 732)   Rust (660, 732)   TypeScript (790, 732)
+
+  Node height=28, so bottom = cy+14, top = cy-14
+-->
+
+<!-- Decade separator lines with era labels -->
+<line x1="70" y1="100" x2="960" y2="100" class="decade-line"/>
+<text x="40" y="132" class="decade-label" text-anchor="end">1950s</text>
+<text x="8" y="145" class="era-label" text-anchor="start">feasibility</text>
+<line x1="70" y1="195" x2="960" y2="195" class="decade-line"/>
+<text x="40" y="230" class="decade-label" text-anchor="end">1960s</text>
+<text x="8" y="243" class="era-label" text-anchor="start">structure</text>
+<line x1="70" y1="295" x2="960" y2="295" class="decade-line"/>
+<text x="40" y="330" class="decade-label" text-anchor="end">1970s</text>
+<text x="8" y="343" class="era-label" text-anchor="start">abstraction</text>
+<line x1="70" y1="395" x2="960" y2="395" class="decade-line"/>
+<text x="40" y="430" class="decade-label" text-anchor="end">1980s</text>
+<text x="8" y="443" class="era-label" text-anchor="start">productivity</text>
+<line x1="70" y1="495" x2="960" y2="495" class="decade-line"/>
+<text x="40" y="530" class="decade-label" text-anchor="end">1990s</text>
+<text x="8" y="543" class="era-label" text-anchor="start">connectivity</text>
+<line x1="70" y1="595" x2="960" y2="595" class="decade-line"/>
+<text x="40" y="630" class="decade-label" text-anchor="end">2000s</text>
+<text x="8" y="643" class="era-label" text-anchor="start">convergence</text>
+<line x1="70" y1="695" x2="960" y2="695" class="decade-line"/>
+<text x="40" y="730" class="decade-label" text-anchor="end">2010s</text>
+<text x="8" y="743" class="era-label" text-anchor="start">safety</text>
+<line x1="70" y1="795" x2="960" y2="795" class="decade-line"/>
+
+<!-- Family column headers -->
+<g class="fam-imp"><text x="130" y="93" class="family-label" text-anchor="middle">IMPERATIVE</text></g>
+<g class="fam-fun"><text x="280" y="93" class="family-label" text-anchor="middle">FUNCTIONAL</text></g>
+<g class="fam-oo"><text x="440" y="93" class="family-label" text-anchor="middle">OBJ-ORIENTED</text></g>
+<g class="fam-sys"><text x="600" y="93" class="family-label" text-anchor="middle">SYSTEMS</text></g>
+<g class="fam-scr"><text x="750" y="93" class="family-label" text-anchor="middle">SCRIPTING</text></g>
+<g class="fam-dec"><text x="880" y="93" class="family-label" text-anchor="middle">DECLARATIVE</text></g>
+
+<!-- =========== EDGES (behind nodes) =========== -->
+
+<!-- Same-family vertical edges -->
+<!-- FORTRAN -> ALGOL (cross-family: succession) -->
+<line x1="130" y1="148" x2="130" y2="218" class="edge edge-imp" marker-end="url(#arr-imp)"/>
+<!-- ALGOL -> Pascal -->
+<line x1="130" y1="246" x2="130" y2="318" class="edge edge-imp" marker-end="url(#arr-imp)"/>
+<!-- Pascal -> Ada -->
+<line x1="130" y1="346" x2="130" y2="418" class="edge edge-imp" marker-end="url(#arr-imp)"/>
+<!-- LISP -> ML (influence on functional line) -->
+<path d="M280,148 L280,318" class="edge edge-fun" marker-end="url(#arr-fun)"/>
+<!-- ML -> Haskell -->
+<line x1="280" y1="346" x2="280" y2="518" class="edge edge-fun" marker-end="url(#arr-fun)"/>
+<!-- ML -> Erlang -->
+<path d="M280,346 Q280,390 280,438" class="edge edge-fun" marker-end="url(#arr-fun)"/>
+<!-- Simula -> Smalltalk -->
+<line x1="440" y1="246" x2="440" y2="318" class="edge edge-oo" marker-end="url(#arr-oo)"/>
+<!-- Smalltalk -> Java -->
+<path d="M440,346 L440,518" class="edge edge-oo" marker-end="url(#arr-oo)"/>
+<!-- C -> C++ -->
+<path d="M600,346 Q580,380 560,418" class="edge edge-sys" marker-end="url(#arr-sys)"/>
+<!-- C -> Obj-C -->
+<path d="M600,346 Q635,380 655,418" class="edge edge-sys" marker-end="url(#arr-sys)"/>
+<!-- C -> Go -->
+<path d="M600,346 Q615,490 630,618" class="edge edge-sys" marker-end="url(#arr-sys)"/>
+<!-- C -> Rust -->
+<path d="M600,346 Q630,540 660,718" class="edge edge-sys" marker-end="url(#arr-sys)"/>
+<!-- C -> C# -->
+<path d="M600,346 Q560,490 520,618" class="edge edge-sys" marker-end="url(#arr-sys)"/>
+<!-- C -> Swift -->
+<path d="M600,346 Q580,540 560,718" class="edge edge-sys" marker-end="url(#arr-sys)"/>
+
+<!-- Cross-family influence edges (dashed) -->
+<!-- ALGOL -> Simula -->
+<path d="M175,232 Q300,215 395,232" class="edge edge-cross" marker-end="url(#arr-cross)"/>
+<!-- ALGOL -> C (via B/BCPL) -->
+<path d="M175,240 Q390,290 555,332" class="edge edge-cross" marker-end="url(#arr-cross)"/>
+<!-- LISP -> Python -->
+<path d="M310,148 Q540,340 705,532" class="edge edge-cross" marker-end="url(#arr-cross)"/>
+<!-- LISP -> JavaScript -->
+<path d="M320,148 Q550,360 705,572" class="edge edge-cross" marker-end="url(#arr-cross)"/>
+<!-- Smalltalk -> Objective-C -->
+<path d="M485,340 Q575,385 625,432" class="edge edge-cross" marker-end="url(#arr-cross)"/>
+<!-- Smalltalk -> Python -->
+<path d="M485,340 Q620,430 705,532" class="edge edge-cross" marker-end="url(#arr-cross)"/>
+<!-- Smalltalk -> Ruby -->
+<path d="M470,346 Q505,450 520,538" class="edge edge-cross" marker-end="url(#arr-cross)"/>
+<!-- Haskell -> Rust -->
+<path d="M325,540 Q490,640 615,732" class="edge edge-cross" marker-end="url(#arr-cross)"/>
+<!-- Haskell -> Scala -->
+<path d="M310,546 Q365,590 395,632" class="edge edge-cross" marker-end="url(#arr-cross)"/>
+<!-- Haskell -> Swift (type system influence) -->
+<path d="M310,546 Q435,640 530,732" class="edge edge-cross" marker-end="url(#arr-cross)"/>
+<!-- ML -> TypeScript -->
+<path d="M325,340 Q560,540 745,732" class="edge edge-cross" marker-end="url(#arr-cross)"/>
+<!-- ML -> C# -->
+<path d="M310,346 Q420,490 490,632" class="edge edge-cross" marker-end="url(#arr-cross)"/>
+<!-- ML -> OCaml (same family, so use fun edge) -->
+<!-- Java -> C# -->
+<path d="M470,546 Q495,590 500,618" class="edge edge-cross" marker-end="url(#arr-cross)"/>
+<!-- Java -> Scala -->
+<path d="M430,546 Q425,590 420,618" class="edge edge-cross" marker-end="url(#arr-cross)"/>
+<!-- Java -> Kotlin -->
+<path d="M450,546 Q450,640 450,718" class="edge edge-cross" marker-end="url(#arr-cross)"/>
+<!-- Obj-C -> Swift -->
+<path d="M680,446 Q620,590 570,718" class="edge edge-cross" marker-end="url(#arr-cross)"/>
+<!-- JavaScript -> TypeScript -->
+<path d="M760,586 Q775,660 790,718" class="edge edge-cross" marker-end="url(#arr-cross)"/>
+<!-- Perl -> Ruby (scripting influence) -->
+<path d="M750,486 Q660,510 585,538" class="edge edge-cross" marker-end="url(#arr-cross)"/>
+<!-- C++ -> Rust (systems reimagination) -->
+<path d="M570,446 Q615,590 650,718" class="edge edge-cross" marker-end="url(#arr-cross)"/>
+
+<!-- =========== NODES =========== -->
+
+<!-- 1950s -->
+<g class="fam-imp" transform="translate(85,120)">
+  <rect class="node-box" width="90" height="28"/><text x="45" y="14" class="node-text">FORTRAN</text>
+</g>
+<g class="fam-fun" transform="translate(235,120)">
+  <rect class="node-box" width="90" height="28"/><text x="45" y="14" class="node-text">LISP</text>
+</g>
+<g class="fam-imp" transform="translate(575,120)">
+  <rect class="node-box" width="90" height="28"/><text x="45" y="14" class="node-text">COBOL</text>
+</g>
+
+<!-- 1960s -->
+<g class="fam-imp" transform="translate(85,218)">
+  <rect class="node-box" width="90" height="28"/><text x="45" y="14" class="node-text">ALGOL</text>
+</g>
+<g class="fam-oo" transform="translate(395,218)">
+  <rect class="node-box" width="90" height="28"/><text x="45" y="14" class="node-text">Simula</text>
+</g>
+
+<!-- 1970s -->
+<g class="fam-imp" transform="translate(85,318)">
+  <rect class="node-box" width="90" height="28"/><text x="45" y="14" class="node-text">Pascal</text>
+</g>
+<g class="fam-fun" transform="translate(235,318)">
+  <rect class="node-box" width="90" height="28"/><text x="45" y="14" class="node-text">ML</text>
+</g>
+<g class="fam-oo" transform="translate(395,318)">
+  <rect class="node-box" width="90" height="28"/><text x="45" y="14" class="node-text">Smalltalk</text>
+</g>
+<g class="fam-sys" transform="translate(555,318)">
+  <rect class="node-box" width="90" height="28"/><text x="45" y="14" class="node-text">C</text>
+</g>
+<g class="fam-dec" transform="translate(835,318)">
+  <rect class="node-box" width="90" height="28"/><text x="45" y="14" class="node-text">Prolog</text>
+</g>
+<g class="fam-dec" transform="translate(835,358)">
+  <rect class="node-box" width="90" height="28"/><text x="45" y="14" class="node-text">SQL</text>
+</g>
+
+<!-- 1980s -->
+<g class="fam-imp" transform="translate(85,418)">
+  <rect class="node-box" width="90" height="28"/><text x="45" y="14" class="node-text">Ada</text>
+</g>
+<g class="fam-fun" transform="translate(235,438)">
+  <rect class="node-box" width="90" height="28"/><text x="45" y="14" class="node-text">Erlang</text>
+</g>
+<g class="fam-sys" transform="translate(515,418)">
+  <rect class="node-box" width="90" height="28"/><text x="45" y="14" class="node-text">C++</text>
+</g>
+<g class="fam-sys" transform="translate(625,418)">
+  <rect class="node-box" width="100" height="28"/><text x="50" y="14" class="node-text">Objective-C</text>
+</g>
+<g class="fam-scr" transform="translate(705,458)">
+  <rect class="node-box" width="90" height="28"/><text x="45" y="14" class="node-text">Perl</text>
+</g>
+
+<!-- 1990s -->
+<g class="fam-fun" transform="translate(235,518)">
+  <rect class="node-box" width="90" height="28"/><text x="45" y="14" class="node-text">Haskell</text>
+</g>
+<g class="fam-oo" transform="translate(395,518)">
+  <rect class="node-box" width="90" height="28"/><text x="45" y="14" class="node-text">Java</text>
+</g>
+<g class="fam-oo" transform="translate(495,538)">
+  <rect class="node-box" width="90" height="28"/><text x="45" y="14" class="node-text">Ruby</text>
+</g>
+<g class="fam-scr" transform="translate(705,518)">
+  <rect class="node-box" width="90" height="28"/><text x="45" y="14" class="node-text">Python</text>
+</g>
+<g class="fam-scr" transform="translate(705,558)">
+  <rect class="node-box" width="100" height="28"/><text x="50" y="14" class="node-text">JavaScript</text>
+</g>
+
+<!-- 2000s -->
+<g class="fam-multi" transform="translate(375,618)">
+  <rect class="node-box" width="90" height="28"/><text x="45" y="14" class="node-text">Scala</text>
+</g>
+<g class="fam-multi" transform="translate(475,618)">
+  <rect class="node-box" width="90" height="28"/><text x="45" y="14" class="node-text">C#</text>
+</g>
+<g class="fam-multi" transform="translate(585,618)">
+  <rect class="node-box" width="90" height="28"/><text x="45" y="14" class="node-text">Go</text>
+</g>
+
+<!-- 2010s -->
+<g class="fam-multi" transform="translate(405,718)">
+  <rect class="node-box" width="90" height="28"/><text x="45" y="14" class="node-text">Kotlin</text>
+</g>
+<g class="fam-multi" transform="translate(515,718)">
+  <rect class="node-box" width="90" height="28"/><text x="45" y="14" class="node-text">Swift</text>
+</g>
+<g class="fam-multi" transform="translate(615,718)">
+  <rect class="node-box" width="90" height="28"/><text x="45" y="14" class="node-text">Rust</text>
+</g>
+<g class="fam-multi" transform="translate(740,718)">
+  <rect class="node-box" width="100" height="28"/><text x="50" y="14" class="node-text">TypeScript</text>
+</g>
+
+</svg>

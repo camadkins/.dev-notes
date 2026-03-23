@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .frame { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; }
+    .frame-active { fill: rgba(30,40,55,0.95); stroke: #7ee787; stroke-width: 2; rx: 6; }
+    .label { font-size: 11px; fill: #d29922; font-weight: 600; }
+    .txt { font-size: 11px; fill: #e8e8e8; }
+    .arrow { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .arrow-green { stroke: #7ee787; stroke-width: 1.5; fill: none; stroke-dasharray: 4 3; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; }
+    .active-tag { font-size: 9px; fill: #7ee787; font-weight: 600; }
+    @media (prefers-color-scheme: light) {
+      .frame { fill: #1a1a2e; stroke: #284b63; }
+      .frame-active { fill: #1a1a2e; stroke: #1a7f37; }
+      .label { fill: #9e6000; }
+      .arrow { stroke: #b8b8b8; }
+      .arrow-green { stroke: #1a7f37; }
+      .desc { fill: #6e7781; }
+      .active-tag { fill: #1a7f37; }
+    }
+  </style>
+  <defs>
+    <marker id="ah" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#93a3b8"/>
+    </marker>
+    <marker id="ahGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#7ee787"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text class="desc" x="20" y="20">nested environment frames with parent links</text>
+
+  <!-- Global frame -->
+  <rect class="frame" x="20" y="40" width="160" height="70"/>
+  <text class="label" x="36" y="62">global</text>
+  <text class="txt" x="36" y="85">x ↦ 10</text>
+
+  <!-- Function f frame -->
+  <rect class="frame" x="220" y="40" width="160" height="70"/>
+  <text class="label" x="236" y="62">function f</text>
+  <text class="txt" x="236" y="85">y ↦ 12</text>
+
+  <!-- Block frame (active) -->
+  <rect class="frame-active" x="420" y="40" width="160" height="70"/>
+  <text class="label" x="436" y="62">block</text>
+  <text class="txt" x="436" y="85">(local bindings)</text>
+  <text class="active-tag" x="436" y="102">current frame</text>
+
+  <!-- Parent link: block → f -->
+  <line class="arrow" x1="420" y1="75" x2="382" y2="75" marker-end="url(#ah)"/>
+  <text class="desc" x="388" y="56">parent</text>
+
+  <!-- Parent link: f → global -->
+  <line class="arrow" x1="220" y1="75" x2="182" y2="75" marker-end="url(#ah)"/>
+  <text class="desc" x="188" y="56">parent</text>
+
+  <!-- Evaluation context -->
+  <rect class="frame" x="20" y="150" width="560" height="120" stroke-dasharray="6 3"/>
+  <text class="label" x="36" y="175">evaluation under block frame</text>
+
+  <!-- Resolve chain -->
+  <text class="txt" x="36" y="200">resolve y → block (miss) → f: y ↦ 12</text>
+  <text class="txt" x="36" y="222">resolve x → block (miss) → f (miss) → global: x ↦ 10</text>
+
+  <!-- Dashed lookup arrow -->
+  <path class="arrow-green" d="M 500,110 L 500,140 L 300,140 L 300,110" marker-end="url(#ahGreen)"/>
+  <text class="desc" x="360" y="136">lookup chain</text>
+
+  <text class="desc" x="36" y="256">each frame extends the previous; variables resolve by walking parent links</text>
+</svg>

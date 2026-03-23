@@ -1,0 +1,203 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 520" fill="none">
+<style>
+  text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+  .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+  .node-text { font-size: 11px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+  .edge { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+  .edge-label { font-size: 11px; fill: #d29922; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+  .anno { font-size: 10px; fill: #d29922; font-weight: 600; }
+  .anno-center { font-size: 10px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+  .title { font-size: 13px; fill: #7b97aa; font-weight: 600; text-anchor: middle; }
+  .desc { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+  .terminal { fill: rgba(30,40,55,0.95); stroke: #84a59d; stroke-width: 2; }
+  .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+  .bracket { stroke: #d29922; stroke-width: 1.2; fill: none; }
+  .bracket-label { font-size: 9px; fill: #d29922; font-weight: 600; text-anchor: start; dominant-baseline: central; }
+  @media (prefers-color-scheme: light) {
+    .node { fill: #1a1a2e; stroke: #284b63; }
+    .terminal { fill: #1a1a2e; stroke: #3a7a5c; }
+    .edge { stroke: #b8b8b8; }
+    .edge-label { fill: #9e6000; }
+    .anno { fill: #9e6000; }
+    .anno-center { fill: #9e6000; }
+    .title { fill: #284b63; }
+    .desc { fill: #6e7781; }
+    .sep { stroke: #e5e5e5; }
+    .bracket { stroke: #9e6000; }
+    .bracket-label { fill: #9e6000; }
+  }
+</style>
+
+<!-- Grid constants:
+  viewBox: 0 0 700 520
+  Left panel: x=30..320 (center=170)
+  Separator: x=345
+  Right panel: x=370..680 (center=525)
+  Title row: y=32
+  All nodes: r=14
+  Standard trie vertical spacing: 42px
+  Min padding: 20px all edges
+-->
+
+<!-- Separator -->
+<line x1="345" y1="25" x2="345" y2="500" class="sep"/>
+
+<!-- Panel titles -->
+<text x="170" y="32" class="title">Standard trie</text>
+<text x="525" y="32" class="title">Compressed trie</text>
+
+<!-- ==================== LEFT PANEL: Standard trie ==================== -->
+<!-- Keys: "international", "internet" -->
+<!-- Chain: root, i, n, t, e, r (all single-child), then n (branches to a and e) -->
+<!-- Left branch: a -> t -> (ional continuation) = "international" -->
+<!-- Right branch: e -> t (terminal) = "internet" -->
+
+<!-- Node positions (all r=14):
+  root: x=155, y=60
+  i:    x=155, y=102
+  n:    x=155, y=144
+  t:    x=155, y=186
+  e:    x=155, y=228
+  r:    x=155, y=270
+  n2:   x=155, y=312   (branch point)
+  a:    x=100, y=364
+  e2:   x=210, y=364
+  t2:   x=100, y=416   (continues to ...ional)
+  t3:   x=210, y=416   (terminal for internet)
+-->
+
+<!-- Edges (standard trie, border-to-border, r=14) -->
+<!-- Vertical edges: y1=cy+14, y2=cy_next-14 -->
+<!-- root to i: y1=74, y2=88 -->
+<line x1="155" y1="74" x2="155" y2="88" class="edge"/>
+<!-- i to n: y1=116, y2=130 -->
+<line x1="155" y1="116" x2="155" y2="130" class="edge"/>
+<!-- n to t: y1=158, y2=172 -->
+<line x1="155" y1="158" x2="155" y2="172" class="edge"/>
+<!-- t to e: y1=200, y2=214 -->
+<line x1="155" y1="200" x2="155" y2="214" class="edge"/>
+<!-- e to r: y1=242, y2=256 -->
+<line x1="155" y1="242" x2="155" y2="256" class="edge"/>
+<!-- r to n2: y1=284, y2=298 -->
+<line x1="155" y1="284" x2="155" y2="298" class="edge"/>
+<!-- n2(155,312) to a(100,364): dx=-55, dy=52, dist=75.7 -->
+<!-- ux=-0.7265, uy=0.6871 -->
+<!-- start: 155+(-0.727*14)=144.8, 312+(0.687*14)=321.6 -->
+<!-- end:   100+(0.727*14)=110.2,  364-(0.687*14)=354.4 -->
+<line x1="144.8" y1="321.6" x2="110.2" y2="354.4" class="edge"/>
+<!-- n2(155,312) to e2(210,364): dx=55, dy=52, dist=75.7 -->
+<!-- start: 155+(0.727*14)=165.2, 312+(0.687*14)=321.6 -->
+<!-- end:   210-(0.727*14)=199.8, 364-(0.687*14)=354.4 -->
+<line x1="165.2" y1="321.6" x2="199.8" y2="354.4" class="edge"/>
+<!-- a(100,364) to t2(100,416): y1=378, y2=402 -->
+<line x1="100" y1="378" x2="100" y2="402" class="edge"/>
+<!-- e2(210,364) to t3(210,416): y1=378, y2=402 -->
+<line x1="210" y1="378" x2="210" y2="402" class="edge"/>
+
+<!-- Nodes with character labels inside (all r=14) -->
+<circle cx="155" cy="60" r="14" class="node"/>
+<text x="155" y="60" class="node-text" font-size="8">root</text>
+
+<circle cx="155" cy="102" r="14" class="node"/>
+<text x="155" y="102" class="node-text">i</text>
+
+<circle cx="155" cy="144" r="14" class="node"/>
+<text x="155" y="144" class="node-text">n</text>
+
+<circle cx="155" cy="186" r="14" class="node"/>
+<text x="155" y="186" class="node-text">t</text>
+
+<circle cx="155" cy="228" r="14" class="node"/>
+<text x="155" y="228" class="node-text">e</text>
+
+<circle cx="155" cy="270" r="14" class="node"/>
+<text x="155" y="270" class="node-text">r</text>
+
+<circle cx="155" cy="312" r="14" class="node"/>
+<text x="155" y="312" class="node-text">n</text>
+
+<circle cx="100" cy="364" r="14" class="node"/>
+<text x="100" y="364" class="node-text">a</text>
+
+<circle cx="210" cy="364" r="14" class="node"/>
+<text x="210" y="364" class="node-text">e</text>
+
+<circle cx="100" cy="416" r="14" class="node"/>
+<text x="100" y="416" class="node-text">t</text>
+
+<circle cx="210" cy="416" r="14" class="terminal"/>
+<text x="210" y="416" class="node-text">t</text>
+
+<!-- Continuation annotation under t2 (left branch) -->
+<text x="100" y="446" class="desc">...i, o, n, a, l</text>
+<text x="100" y="464" class="anno-center">international</text>
+
+<!-- Terminal label under t3 (right branch) -->
+<text x="210" y="446" class="anno-center">internet</text>
+
+<!-- Single-child chain bracket on right side -->
+<!-- From root(y=60) down to r(y=270), bracket right of nodes -->
+<path d="M 180 52 C 198 52 198 52 198 66 L 198 264 C 198 278 198 278 180 278" class="bracket"/>
+<text x="205" y="135" class="bracket-label">single-child</text>
+<text x="205" y="148" class="bracket-label">chain</text>
+
+<!-- Depth annotations on the left margin -->
+<text x="40" y="60" class="anno" text-anchor="middle">d=0</text>
+<text x="40" y="270" class="anno" text-anchor="middle">d=5</text>
+<text x="40" y="312" class="anno" text-anchor="middle">d=6</text>
+<text x="40" y="416" class="anno" text-anchor="middle">d=8</text>
+
+<!-- ==================== RIGHT PANEL: Compressed trie ==================== -->
+<!-- Structure: root = "inter" edge = branch = "national"/"net" edges = terminals -->
+<!-- 3 nodes total, 3 edges -->
+
+<!-- Node positions (all r=14):
+  root:    x=525, y=60
+  branch:  x=525, y=228
+  left:    x=440, y=400 (international terminal)
+  right:   x=610, y=400 (internet terminal)
+-->
+
+<!-- Edges (compressed, r=14) -->
+<!-- root(525,60) to branch(525,230): y1=74, y2=216 -->
+<line x1="525" y1="74" x2="525" y2="214" class="edge"/>
+<!-- branch(525,230) to left(440,400): dx=-85, dy=170, dist=190.05 -->
+<!-- ux=-0.4473, uy=0.8944 -->
+<!-- start: 525+(-0.447*14)=518.7, 230+(0.894*14)=242.5 -->
+<!-- end:   440+(0.447*14)=446.3,  400-(0.894*14)=387.5 -->
+<line x1="518.7" y1="240.5" x2="446.3" y2="387.5" class="edge"/>
+<!-- branch(525,230) to right(610,400): dx=85, dy=170 -->
+<!-- start: 525+(0.447*14)=531.3, 230+(0.894*14)=242.5 -->
+<!-- end:   610-(0.447*14)=603.7, 400-(0.894*14)=387.5 -->
+<line x1="531.3" y1="240.5" x2="603.7" y2="387.5" class="edge"/>
+
+<!-- Edge labels (string labels in gold) -->
+<text x="543" y="148" class="edge-label">"inter"</text>
+<text x="462" y="318" class="edge-label">"national"</text>
+<text x="590" y="318" class="edge-label">"net"</text>
+
+<!-- Nodes (compressed, all r=14) -->
+<circle cx="525" cy="60" r="14" class="node"/>
+<text x="525" y="60" class="node-text" font-size="8">root</text>
+
+<!-- branch node -->
+<circle cx="525" cy="228" r="14" class="node"/>
+
+<!-- terminal: international -->
+<circle cx="440" cy="400" r="14" class="terminal"/>
+
+<!-- terminal: internet -->
+<circle cx="610" cy="400" r="14" class="terminal"/>
+
+<!-- Key labels below terminal nodes -->
+<text x="440" y="428" class="desc">international</text>
+<text x="610" y="428" class="desc">internet</text>
+
+<!-- Branch point annotation -->
+<text x="525" y="258" class="anno-center">branch point</text>
+
+<!-- Summary annotation -->
+<text x="525" y="472" class="anno-center">3 nodes, 3 edges</text>
+<text x="525" y="488" class="desc">vs 11+ nodes in standard form</text>
+
+</svg>

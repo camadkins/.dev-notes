@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .title { font-size: 14px; font-weight: 700; fill: #e8e8e8; text-anchor: middle; }
+    .expr { font-size: 13px; fill: #e8e8e8; text-anchor: middle; font-weight: 600; }
+    .type-tag { font-size: 11px; fill: #58a6ff; text-anchor: middle; font-weight: 700; }
+    .rule { font-size: 10px; fill: #8b949e; text-anchor: middle; font-style: italic; }
+    .lemma { font-size: 10px; fill: #d29922; text-anchor: middle; font-weight: 600; }
+    .premise { font-size: 11px; fill: #c9d1d9; text-anchor: middle; }
+    .arrow-label { font-size: 10px; fill: #3fb950; font-weight: 600; text-anchor: middle; }
+    .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; }
+    .box-result { fill: rgba(30,40,55,0.95); stroke: #3fb950; stroke-width: 2; rx: 6; }
+    .box-lemma { fill: rgba(30,40,55,0.95); stroke: #d29922; stroke-width: 1.5; rx: 6; stroke-dasharray: 4 2; }
+    .deriv-line { stroke: #58a6ff; stroke-width: 1.5; }
+    .arrow { stroke: #3fb950; stroke-width: 2; fill: none; marker-end: url(#arrowG); }
+    .connector { stroke: #d29922; stroke-width: 1.5; stroke-dasharray: 4 3; fill: none; marker-end: url(#arrowY); }
+    .highlight { fill: rgba(63,185,80,0.12); stroke: #3fb950; stroke-width: 1.5; rx: 8; stroke-dasharray: 6 3; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    .sub { font-size: 10px; fill: #8b949e; text-anchor: middle; font-style: italic; }
+
+    @media (prefers-color-scheme: light) {
+      .title { fill: #1a1a2e; }
+      .expr { fill: #1a1a2e; }
+      .type-tag { fill: #284b63; }
+      .rule { fill: #6e7781; }
+      .lemma { fill: #9e6000; }
+      .premise { fill: #24292f; }
+      .box { fill: #f6f8fa; stroke: #284b63; }
+      .box-result { fill: #f6f8fa; stroke: #1a7f37; }
+      .box-lemma { fill: #f6f8fa; stroke: #9e6000; }
+      .deriv-line { stroke: #284b63; }
+      .arrow { stroke: #1a7f37; }
+      .arrow-label { fill: #1a7f37; }
+      .connector { stroke: #9e6000; }
+      .highlight { fill: rgba(26,127,55,0.08); stroke: #1a7f37; }
+      .sep { stroke: #e5e5e5; }
+      .sub { fill: #6e7781; }
+    }
+  </style>
+
+  <defs>
+    <marker id="arrowG" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#3fb950"/>
+    </marker>
+    <marker id="arrowY" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#d29922"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="340" y="24" class="title">Preservation: Types Survive Beta-Reduction</text>
+
+  <!-- ===== TOP: Before reduction ===== -->
+
+  <!-- Typing derivation box -->
+  <rect x="120" y="44" width="440" height="110" class="box"/>
+
+  <!-- Premises of the application typing rule -->
+  <text x="240" y="72" class="premise">&#x0393;, x:T&#x2081; &#x22a2; e : T&#x2082;</text>
+  <line x1="170" y1="80" x2="310" y2="80" class="deriv-line"/>
+  <text x="240" y="97" class="premise">&#x22a2; &#x03bb;x:T&#x2081;. e : T&#x2081; &#x2192; T&#x2082;</text>
+
+  <text x="460" y="85" class="premise">&#x22a2; v : T&#x2081;</text>
+
+  <!-- Application rule line -->
+  <line x1="160" y1="107" x2="520" y2="107" class="deriv-line"/>
+  <text x="540" y="110" class="rule">T-App</text>
+
+  <!-- Conclusion -->
+  <text x="340" y="130" class="expr">&#x22a2; (&#x03bb;x:T&#x2081;. e) v : T&#x2082;</text>
+  <text x="340" y="145" class="type-tag">type = T&#x2082;</text>
+
+  <!-- ===== ARROW: beta-reduction step ===== -->
+  <path d="M340,158 L340,220" class="arrow"/>
+  <text x="405" y="192" class="arrow-label">&#x03b2;-reduction</text>
+  <text x="405" y="205" class="sub">(&#x03bb;x:T&#x2081;. e) v &#x2192; e[x:=v]</text>
+
+  <!-- ===== MIDDLE: Substitution Lemma ===== -->
+  <rect x="50" y="232" width="280" height="72" class="box-lemma"/>
+  <text x="190" y="252" class="lemma">Substitution Lemma</text>
+  <text x="190" y="272" class="premise">&#x0393;, x:T&#x2081; &#x22a2; e : T&#x2082;</text>
+  <text x="190" y="288" class="premise">&#x22a2; v : T&#x2081;</text>
+
+  <!-- Connector from lemma to result -->
+  <path d="M330,272 L380,272" class="connector"/>
+
+  <!-- Implication -->
+  <text x="358" y="264" class="lemma">&#x21d2;</text>
+
+  <!-- ===== BOTTOM: After reduction ===== -->
+  <rect x="380" y="244" width="260" height="56" class="box-result"/>
+  <text x="510" y="270" class="expr">&#x22a2; e[x := v] : T&#x2082;</text>
+  <text x="510" y="290" class="type-tag">type = T&#x2082;  &#x2714;</text>
+
+  <!-- ===== Highlight: T2 preserved ===== -->
+  <rect x="100" y="328" width="480" height="44" class="highlight"/>
+  <text x="340" y="348" class="arrow-label">Type T&#x2082; is preserved across the reduction step</text>
+  <text x="340" y="364" class="sub">Preservation: &#x22a2; e : T  and  e &#x2192; e'  implies  &#x22a2; e' : T</text>
+
+  <!-- Connecting dashed lines showing T2 flows through -->
+  <line x1="300" y1="145" x2="300" y2="338" stroke="#3fb950" stroke-width="1" stroke-dasharray="3 3" opacity="0.4"/>
+  <line x1="380" y1="145" x2="380" y2="338" stroke="#3fb950" stroke-width="1" stroke-dasharray="3 3" opacity="0.4"/>
+
+  <!-- Footer -->
+  <text x="340" y="400" class="sub">The substitution lemma bridges typing before and after &#x03b2;-reduction</text>
+</svg>

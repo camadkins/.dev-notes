@@ -1,17 +1,13 @@
 ---
-title: Tries - Overview
+title: Tries — Overview
 description: Prefix trees for fast string lookup; trades memory for predictable time and prefix-aware features.
-draft: false
-comments: true
+draft: true
 tags:
   - cs
   - dsa
 date: 2025-10-16
 updated:
 aliases: []
-# diagrams:
-# - trie-branching.svg - Rooted prefix tree over {a..z}: edges labeled by characters, terminal markers on complete keys; shows common prefixes sharing nodes.
-# - memory-vs-childset.svg - Node representations (fixed array, sparse map, bitset+vector) with notes on memory footprint and cache locality.
 ---
 
 ## Overview
@@ -141,8 +137,7 @@ Now:
 - `LIST_WITH_PREFIX("te")` yields `["tea","ted","ten"]` (lexicographic if child iteration is ordered).
     
 
-> [!example]  
-> **Diagram (`trie-branching.svg`)** - Show the above set as a trie with nodes for prefixes `t`, `te`, `to`, `in`, `inn`, and terminal dots at `o`, `a`, `d`, `n`, `n`.
+![Trie for the set {to, tea, ted, ten, in, inn} showing shared prefix paths and terminal markers at word-end nodes](assets/trie-branching.svg)
 
 ## Complexity and Performance
 
@@ -192,13 +187,14 @@ Let `L` be key length, `σ = |Σ|` the alphabet size, and `n` the number of keys
     - Pros: a **bitset** marks present children; an array stores only existing edges; quick rank/select maps char→index.
         
     - Cons: extra arithmetic per step; more complex code.
-        
+
+![Node representations: fixed array, sparse map, bitset+vector](assets/memory-vs-childset.svg)
 
 ### Memory engineering
 
 - **Pool/arena allocators** reduce overhead of many small node allocations and improve locality.
     
-- **Path compression** (radix/Patricia tries) merges single-child chains into a single edge with a string label, shrinking depth and memory (see [[compressed-trie|Compressed Trie]]).
+- **Path compression** (radix/Patricia tries) merges single-child chains into a single edge with a string label, shrinking depth and memory (see [[cs/dsa/compressed-trie|Compressed Trie]]).
     
 - **DAWG/minimal DFA** for static sets deduplicates identical subtries to near-minimal size (advanced; build-time cost).
     
@@ -212,7 +208,7 @@ Let `L` be key length, `σ = |Σ|` the alphabet size, and `n` the number of keys
 
 ### Unicode & normalization
 
-- Decide whether to iterate by **code units**, **code points**, or **grapheme clusters**. Normalize text (NFC/NFKC) to avoid multiple encodings for the same visible string. See [[strings|Strings]].
+- Decide whether to iterate by **code units**, **code points**, or **grapheme clusters**. Normalize text (NFC/NFKC) to avoid multiple encodings for the same visible string. See [[cs/dsa/strings|Strings]].
     
 
 ### Persistence and concurrency
@@ -257,14 +253,14 @@ Let `L` be key length, `σ = |Σ|` the alphabet size, and `n` the number of keys
 
 ## Summary
 
-Tries offer **predictable `Θ(L)`** operations and powerful **prefix-aware** features that hash tables and ordinary trees lack. They shine when keys share prefixes, when you must **enumerate by prefix**, or when lexicographic order is first-class. The main cost is **memory**, driven by the alphabet and node representation. With careful engineering - **sparse children**, **path compression**, **arenas**, and appropriate **text normalization** - tries become a practical and robust foundation for sets and maps of strings.
+Tries offer **predictable `Θ(L)`** operations and powerful **prefix-aware** features that hash tables and ordinary trees lack. They shine when keys share prefixes, when you must **enumerate by prefix**, or when lexicographic order is first-class. The main cost is **memory**, driven by the alphabet and node representation. With careful engineering—**sparse children**, **path compression**, **arenas**, and appropriate **text normalization**—tries become a practical and robust foundation for sets and maps of strings.
 
-## Related Notes
+## See also
 
-- [[standard-trie|Standard Trie]]
+- [[cs/dsa/standard-trie|Standard Trie]]
     
-- [[compressed-trie|Compressed Trie]]
+- [[cs/dsa/compressed-trie|Compressed Trie]]
     
-- [[suffix-trie|Suffix Trie]]
+- [[cs/dsa/suffix-trie|Suffix Trie]]
     
-- [[hash-tables|Hash Tables]]
+- [[cs/dsa/hash-tables|Hash Tables]]

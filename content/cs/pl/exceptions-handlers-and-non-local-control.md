@@ -2,14 +2,12 @@
 title: Exceptions, Handlers, and Non-Local Control
 description: How exceptions provide structured non-local control flow, propagate through call stacks, and relate to continuations and resource cleanup.
 draft: false
-comments: true
 tags:
   - cs
   - pl
 date: 2025-10-24
 updated:
 aliases: []
-# diagram: exception_propagation_flow.svg - visualize stack frames, an exception being raised, handlers catching, and finally-block cleanup.
 ---
 
 ## Why Exceptions Exist
@@ -17,7 +15,7 @@ Most programs fail sometimes.
 Exceptions give a structured, predictable way to handle errors and other “unusual” outcomes without cluttering normal control flow.  
 Instead of returning special codes or flags everywhere, exceptions let a computation *jump* directly to the nearest handler that can deal with the problem.
 
-This jump is a form of **non-local control** - skipping normal return paths and transferring execution elsewhere.
+This jump is a form of **non-local control** — skipping normal return paths and transferring execution elsewhere.
 
 > [!note]
 > The key is *structured escape*: exceptions let you leave multiple nested function calls in a single step while maintaining cleanup guarantees.
@@ -25,7 +23,7 @@ This jump is a form of **non-local control** - skipping normal return paths and 
 ---
 
 ## The Semantics of Raising and Handling
-When an exception is raised, the program begins **stack unwinding** - discarding active frames until a matching handler is found.
+When an exception is raised, the program begins **stack unwinding** — discarding active frames until a matching handler is found.
 
 Formally, we can model this using **big-step semantics**:
 ```
@@ -63,7 +61,7 @@ During propagation, the runtime walks back through stack frames:
 ---
 
 ## Determinism and Propagation
-With a single active exception and one nearest enclosing handler, propagation is deterministic - there’s no ambiguity about where control goes.  
+With a single active exception and one nearest enclosing handler, propagation is deterministic — there’s no ambiguity about where control goes.  
 If the handler itself raises another exception, the process continues upward.
 
 Languages differ in how they handle *multiple matches*:
@@ -84,7 +82,7 @@ Exceptions can be modeled directly in **Continuation-Passing Style (CPS)**:
 When an exception is raised, the computation invokes the *exception continuation*, skipping the normal path entirely.
 
 > [!note]
-> This equivalence shows that exceptions are not a separate mechanism - they’re structured continuations with one entry (raise) and one recovery point (handler).
+> This equivalence shows that exceptions are not a separate mechanism — they’re structured continuations with one entry (raise) and one recovery point (handler).
 
 ---
 
@@ -109,13 +107,13 @@ Here `f*` takes two continuations:
 
 If `f*` calls its second continuation, control jumps directly to the handler, bypassing everything in between.
 
-This insight connects exception semantics to abstract machines (like CEK/SECD), which explicitly represent continuations as part of runtime state.
+This insight connects exception semantics to [[abstract-machines-cek-secd|abstract machines (like CEK/SECD)]], which explicitly represent continuations as part of runtime state.
 
 ---
 
 ## Dynamic Extent and Lifetime
 
-Handlers have **dynamic extent** - they exist only while their associated block is active.  
+Handlers have **dynamic extent** — they exist only while their associated block is active.  
 Once control leaves the block (normally or via another exception), the handler is gone.
 
 This is why re-entering an old handler or jumping into a closed scope causes undefined behavior in low-level languages.  
@@ -138,7 +136,7 @@ In practice, this means:
 C++ enforces this explicitly through RAII (Resource Acquisition Is Initialization): destructors automatically run during stack unwinding.
 
 > [!tip]  
-> In functional languages, purity often replaces exception safety - immutable data ensures that partially completed computations can’t corrupt shared state.
+> In functional languages, purity often replaces exception safety — immutable data ensures that partially completed computations can’t corrupt shared state.
 
 ---
 
@@ -174,22 +172,7 @@ Modern systems rarely support this directly because it complicates reasoning abo
 
 ---
 
-## Diagram Explanation - Exception Propagation Flow
-
-The diagram (`exception_propagation_flow.svg`) should show:
-
-1. **Stack frames**: function calls nested vertically.
-    
-2. A red arrow labeled `raise e` moving upward, skipping intermediate frames.
-    
-3. A highlighted frame labeled “handler,” where control resumes.
-    
-4. Side arrows labeled “finally” or “cleanup” running on the way up.
-    
-5. A successful catch transferring execution horizontally to the handler’s body.
-    
-
-This visualization helps students see exception handling as structured _stack unwinding_ rather than arbitrary jumps.
+![Stack unwinding with raise, handler catch, and finally cleanup](assets/exceptions-propagation.svg)
 
 ---
 
@@ -204,14 +187,14 @@ Most modern languages unify exception handling with structured cleanup and type 
 - **Rust:** avoids exceptions entirely; it encodes error propagation via `Result<T, E>` and pattern matching.
     
 
-Understanding exceptions through **non-local control** clarifies why they interact cleanly with continuations, CPS, and semantics - they’re all different views of the same idea: **control as a first-class value**.
+Understanding exceptions through **non-local control** clarifies why they interact cleanly with continuations, CPS, and semantics — they’re all different views of the same idea: **control as a first-class value**.
 
 ---
 
-## Related Notes
+## See also
 
-- [[continuations-cps|Continuations & CPS]]
+- [[cs/pl/continuations-cps|Continuations & CPS]]
     
-- [[operational-semantics-big-step-small-step|Operational Semantics - Big-Step & Small-Step]]
+- [[cs/pl/operational-semantics-big-step-small-step|Operational Semantics — Big-Step & Small-Step]]
     
-- [[lambda-calculus-syntax-substitution|Lambda Calculus - Syntax & Substitution]]
+- [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]

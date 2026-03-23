@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 420" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .node-text { font-size: 11px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .edge-label { font-size: 11px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+    .anno { font-size: 10px; fill: #d29922; font-weight: 600; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .search-edge { stroke: #d29922; stroke-width: 2.5; fill: none; }
+    .search-node { fill: rgba(30,40,55,0.95); stroke: #d29922; stroke-width: 2.5; }
+    .terminal { fill: #84a59d; }
+    .terminal-text { font-size: 8px; fill: #161618; text-anchor: middle; dominant-baseline: central; font-weight: 700; }
+    @media (prefers-color-scheme: light) {
+      .node { fill: #1a1a2e; stroke: #284b63; }
+      .edge { stroke: #b8b8b8; }
+      .edge-label { fill: #1a1a2e; }
+      .anno { fill: #9e6000; }
+      .desc { fill: #6e7781; }
+      .search-edge { stroke: #9e6000; }
+      .search-node { fill: #1a1a2e; stroke: #9e6000; }
+      .terminal-text { fill: #faf8f8; }
+    }
+  </style>
+
+  <!-- Layout constants:
+    viewBox: 520 x 420, padding >= 20px all sides
+    Node radius: 20px
+    Depth rows (cy): D0=60, D1=150, D2=240, D3=330
+    Vertical spacing: 90px between rows
+    Root cx: 200
+    Node_a cx: 200 (single child, vertical bias)
+    Node_ar cx: 200 (single child, vertical bias)
+    Leaves at D3: Node_arc=120, Node_arm=200, Node_art=280
+    Node_ar centered over children: (120+280)/2 = 200 ✓
+    Search path: root -> a -> ar -> arc (highlighted in gold)
+  -->
+
+  <!-- Title -->
+  <text x="260" y="30" class="desc" font-size="11px" font-style="normal">Insert "art", "arc", "arm" — Search for "arc"</text>
+
+  <!-- EDGES (draw before nodes so nodes cover edge endpoints) -->
+
+  <!-- Root -> Node_a (edge 'a') — SEARCH PATH -->
+  <line x1="200" y1="80" x2="200" y2="130" class="search-edge"/>
+
+  <!-- Node_a -> Node_ar (edge 'r') — SEARCH PATH -->
+  <line x1="200" y1="170" x2="200" y2="220" class="search-edge"/>
+
+  <!-- Node_ar -> Node_arc (edge 'c') — SEARCH PATH -->
+  <line x1="186.7" y1="255.0" x2="133.3" y2="315.0" class="search-edge"/>
+
+  <!-- Node_ar -> Node_arm (edge 'm') — normal -->
+  <line x1="200" y1="260" x2="200" y2="310" class="edge"/>
+
+  <!-- Node_ar -> Node_art (edge 't') — normal -->
+  <line x1="213.3" y1="255.0" x2="266.7" y2="315.0" class="edge"/>
+
+  <!-- EDGE LABELS -->
+  <!-- 'a' label between root and Node_a -->
+  <text x="213" y="105" class="edge-label">a</text>
+
+  <!-- 'r' label between Node_a and Node_ar -->
+  <text x="213" y="195" class="edge-label">r</text>
+
+  <!-- 'c' label between Node_ar and Node_arc -->
+  <text x="148" y="280" class="edge-label">c</text>
+
+  <!-- 'm' label between Node_ar and Node_arm -->
+  <text x="213" y="285" class="edge-label">m</text>
+
+  <!-- 't' label between Node_ar and Node_art -->
+  <text x="252" y="280" class="edge-label">t</text>
+
+  <!-- NODES -->
+
+  <!-- Root (Depth 0) — SEARCH PATH -->
+  <circle cx="200" cy="60" r="20" class="search-node"/>
+  <text x="200" y="60" class="node-text" font-size="9px">root</text>
+
+  <!-- Node_a (Depth 1) — SEARCH PATH -->
+  <circle cx="200" cy="150" r="20" class="search-node"/>
+  <text x="200" y="150" class="node-text">a</text>
+
+  <!-- Node_ar (Depth 2) — SEARCH PATH -->
+  <circle cx="200" cy="240" r="20" class="search-node"/>
+  <text x="200" y="240" class="node-text">ar</text>
+
+  <!-- Node_arc (Depth 3, leaf) — SEARCH PATH TERMINAL -->
+  <circle cx="120" cy="330" r="20" class="search-node"/>
+  <text x="120" y="330" class="node-text">arc</text>
+
+  <!-- Node_arm (Depth 3, leaf) -->
+  <circle cx="200" cy="330" r="20" class="node"/>
+  <text x="200" y="330" class="node-text">arm</text>
+
+  <!-- Node_art (Depth 3, leaf) -->
+  <circle cx="280" cy="330" r="20" class="node"/>
+  <text x="280" y="330" class="node-text">art</text>
+
+  <!-- TERMINAL FLAGS (isWord=true markers) -->
+  <!-- Small green dots below each terminal node -->
+  <circle cx="120" cy="360" r="6" class="terminal"/>
+  <text x="120" y="360" class="terminal-text">W</text>
+
+  <circle cx="200" cy="360" r="6" class="terminal"/>
+  <text x="200" y="360" class="terminal-text">W</text>
+
+  <circle cx="280" cy="360" r="6" class="terminal"/>
+  <text x="280" y="360" class="terminal-text">W</text>
+
+  <!-- isWord annotations -->
+  <text x="120" y="378" class="anno" text-anchor="middle" font-size="8px">isWord</text>
+  <text x="200" y="378" class="anno" text-anchor="middle" font-size="8px">isWord</text>
+  <text x="280" y="378" class="anno" text-anchor="middle" font-size="8px">isWord</text>
+
+  <!-- SEARCH PATH ANNOTATION -->
+  <!-- Arrow and label on right side -->
+  <text x="370" y="105" class="anno" text-anchor="start" font-size="10px">search("arc")</text>
+  <text x="370" y="122" class="desc" text-anchor="start" font-size="9px">follow a → r → c</text>
+  <text x="370" y="137" class="desc" text-anchor="start" font-size="9px">check isWord = true ✓</text>
+
+  <!-- Search path legend indicator -->
+  <line x1="350" y1="105" x2="365" y2="105" class="search-edge"/>
+
+  <!-- Depth labels on left margin -->
+  <text x="40" y="60" class="desc" text-anchor="middle" font-size="9px">depth 0</text>
+  <text x="40" y="150" class="desc" text-anchor="middle" font-size="9px">depth 1</text>
+  <text x="40" y="240" class="desc" text-anchor="middle" font-size="9px">depth 2</text>
+  <text x="40" y="330" class="desc" text-anchor="middle" font-size="9px">depth 3</text>
+
+  <!-- Shared prefix annotation -->
+  <text x="260" y="195" class="anno" text-anchor="start" font-size="9px">shared prefix "ar"</text>
+  <line x1="240" y1="195" x2="257" y2="195" stroke="#d29922" stroke-width="1" stroke-dasharray="3 2"/>
+</svg>

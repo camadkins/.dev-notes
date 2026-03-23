@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 310" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; }
+    .box-err { fill: rgba(80,30,30,0.6); stroke: #f85149; stroke-width: 1.5; rx: 6; }
+    .box-ok { fill: rgba(30,55,40,0.6); stroke: #84a59d; stroke-width: 1.5; rx: 6; }
+    .label { font-size: 12px; fill: #e8e8e8; }
+    .label-c { font-size: 12px; fill: #e8e8e8; text-anchor: middle; }
+    .term { font-size: 13px; fill: #e8e8e8; font-weight: 600; }
+    .term-c { font-size: 13px; fill: #e8e8e8; font-weight: 600; text-anchor: middle; }
+    .err { font-size: 11px; fill: #f85149; font-weight: 600; }
+    .ok { font-size: 11px; fill: #84a59d; font-weight: 600; }
+    .anno { font-size: 10px; fill: #d29922; font-weight: 600; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; }
+    .step { font-size: 10px; fill: #7b97aa; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    .panel-label { font-size: 11px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    @media (prefers-color-scheme: light) {
+      .box { fill: #1a1a2e; stroke: #284b63; }
+      .box-err { fill: rgba(200,80,80,0.15); stroke: #cf222e; }
+      .box-ok { fill: rgba(80,160,100,0.15); stroke: #2d6a4f; }
+      .edge { stroke: #b8b8b8; }
+      .err { fill: #cf222e; }
+      .ok { fill: #2d6a4f; }
+      .anno { fill: #9e6000; }
+      .desc { fill: #6e7781; }
+      .step { fill: #284b63; }
+      .sep { stroke: #e5e5e5; }
+      .panel-label { fill: #9e6000; }
+    }
+  </style>
+  <defs>
+    <marker id="ah" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#93a3b8"/>
+    </marker>
+    <marker id="ahRed" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#f85149"/>
+    </marker>
+    <marker id="ahGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#84a59d"/>
+    </marker>
+  </defs>
+
+  <!-- Vertical separator -->
+  <line class="sep" x1="350" y1="20" x2="350" y2="290"/>
+
+  <!-- ==================== LEFT PANEL: Naive ==================== -->
+  <text class="panel-label" x="175" y="30">Naive Substitution</text>
+
+  <!-- Start: M = lam y. x -->
+  <rect class="box" x="40" y="50" width="270" height="40"/>
+  <text class="step" x="55" y="65">start</text>
+  <text class="term" x="110" y="73">M = &#x03BB;y. x</text>
+  <text class="desc" x="215" y="73">substitute x := y</text>
+
+  <!-- Arrow down -->
+  <line class="edge" x1="175" y1="90" x2="175" y2="120" marker-end="url(#ah)"/>
+  <text class="step" x="185" y="110">x &#x2192; y</text>
+
+  <!-- Result: lam y. y (WRONG) -->
+  <rect class="box-err" x="40" y="125" width="270" height="40"/>
+  <text class="step" x="55" y="140">result</text>
+  <text class="term" x="110" y="148">&#x03BB;y. y</text>
+
+  <!-- Error callout -->
+  <text class="err" x="55" y="192">CAPTURED: y was free,</text>
+  <text class="err" x="55" y="208">now bound by &#x03BB;y</text>
+
+  <text class="desc" x="55" y="248">the free y in the argument</text>
+  <text class="desc" x="55" y="263">became the bound parameter y</text>
+  <text class="desc" x="55" y="278">&#x2014; meaning changed silently</text>
+
+  <!-- ==================== RIGHT PANEL: Correct ==================== -->
+  <text class="panel-label" x="525" y="30">Capture-Avoiding Substitution</text>
+
+  <!-- Step 1: alpha-rename -->
+  <rect class="box" x="390" y="50" width="270" height="40"/>
+  <text class="step" x="405" y="65">&#x03B1;-rename</text>
+  <text class="term" x="490" y="73">&#x03BB;y. x &#x2261;&#x03B1; &#x03BB;y'. x</text>
+
+  <!-- Arrow down -->
+  <line class="edge" x1="525" y1="90" x2="525" y2="120" marker-end="url(#ah)"/>
+  <text class="step" x="535" y="110">x &#x2192; y</text>
+
+  <!-- Step 2: substitute safely -->
+  <rect class="box" x="390" y="125" width="270" height="40"/>
+  <text class="step" x="405" y="140">subst</text>
+  <text class="term" x="490" y="148">(&#x03BB;y'. x)[x := y]</text>
+
+  <!-- Arrow down -->
+  <line class="edge" x1="525" y1="165" x2="525" y2="195" marker-end="url(#ah)"/>
+
+  <!-- Result: lam y'. y (CORRECT) -->
+  <rect class="box-ok" x="390" y="200" width="270" height="40"/>
+  <text class="step" x="405" y="215">result</text>
+  <text class="term" x="490" y="223">&#x03BB;y'. y</text>
+
+  <!-- Success callout -->
+  <text class="ok" x="405" y="268">y stays free &#x2714;</text>
+  <text class="desc" x="405" y="283">fresh y' prevents capture</text>
+</svg>

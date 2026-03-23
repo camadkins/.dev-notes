@@ -1,25 +1,20 @@
 ---
-title: Language Design - Values, Variables, and Environments
+title: Language Design — Values, Variables, and Environments
 description: How programming languages define, represent, and resolve variables; the role of environments, stores, and closures in execution models.
 draft: false
-comments: true
 tags:
   - cs
   - pl
 date: 2025-10-24
 updated:
 aliases: []
-# diagrams:
-#  - env_binding_chain.svg - visualize nested environments (global → function → block) with variable bindings.
-#  - closure_environment.svg - illustrate closure capturing a lexical environment.
-#  - env_store_split.svg - show environment ρ mapping identifiers to addresses, and store σ mapping addresses to values.
 ---
 
 ## Overview
-Every programming language must define **what variables mean** - how they acquire values, where those values live, and how their bindings evolve during execution.  
+Every programming language must define **what variables mean** — how they acquire values, where those values live, and how their bindings evolve during execution.  
 The trio of **values**, **variables**, and **environments** forms the backbone of this model.
 
-In the λ-calculus, variables were abstract placeholders. In real programming languages, they correspond to **names**, **memory locations**, and **runtime values** - linked together through an environment.
+In the [[cs/pl/lambda-calculus-syntax-substitution|λ-calculus]], variables were abstract placeholders. In real programming languages, they correspond to **names**, **memory locations**, and **runtime values** — linked together through an environment.
 
 > [!note]
 > Understanding environments is central to interpreting programs and implementing interpreters or compilers.  
@@ -39,7 +34,7 @@ Expressions represent *computations*. They are evaluated in some context (an env
 ```
 
 ### Values
-Values are the **results** of evaluation - things that can no longer be simplified (in pure languages).  
+Values are the **results** of evaluation — things that can no longer be simplified (in pure languages).  
 Examples include:
 - Integers (`5`)
 - Booleans (`true`)
@@ -86,8 +81,8 @@ or, in the case of mutable languages:
 ```
 
 Here:
-- `ρ` (rho) - the **environment**, records *bindings* (name → location).
-- `σ` (sigma) - the **store**, records *contents* (location → value).
+- `ρ` (rho) — the **environment**, records *bindings* (name → location).
+- `σ` (sigma) — the **store**, records *contents* (location → value).
 
 Together, they describe the **state** of a program.
 
@@ -97,7 +92,7 @@ Together, they describe the **state** of a program.
 
 ---
 
-## Example - Immutable Language (Functional)
+## Example — Immutable Language (Functional)
 In a pure functional language:
 ```
 
@@ -118,11 +113,11 @@ Evaluation proceeds as:
 
 ```
 
-No store is needed - bindings are directly immutable associations.
+No store is needed — bindings are directly immutable associations.
 
 ---
 
-## Example - Mutable Language (Imperative)
+## Example — Mutable Language (Imperative)
 In an imperative setting:
 ```
 
@@ -152,11 +147,7 @@ Now:
 
 ```
 
-> [!example]
-> **Diagram idea** (`env_store_split.svg`):  
-> - Top layer: environment `ρ` boxes mapping identifiers (`x`, `y`) to addresses (`l1`, `l2`).  
-> - Bottom layer: store `σ` boxes mapping addresses to actual values (3, 5, etc.).  
-> - Update arrows showing mutation in σ, leaving ρ unchanged.
+![Environment and store split — ρ maps names to addresses, σ maps addresses to values](assets/env-store-split.svg)
 
 ---
 
@@ -178,7 +169,7 @@ each block creates a **new environment frame** extending the previous:
 ρ2 = ρ1[y ↦ 12]
 
 ```
-Evaluating under `ρ2`, the variable `x` still resolves through `ρ1` - lexical scoping.
+Evaluating under `ρ2`, the variable `x` still resolves through `ρ1` — lexical scoping.
 
 ### Lexical vs Dynamic Scope
 - **Lexical (static)**: variable binding determined by the *program’s structure*.  
@@ -186,11 +177,11 @@ Evaluating under `ρ2`, the variable `x` still resolves through `ρ1` - lexical 
 - **Dynamic**: variable binding determined by the *call stack at runtime* (old Lisp, shell scripts).
 
 > [!warning]
-> Dynamic scope makes reasoning difficult - a variable’s value may depend on the call history rather than the code’s textual layout.
+> Dynamic scope makes reasoning difficult — a variable’s value may depend on the call history rather than the code’s textual layout.
 
 ---
 
-## Closures - Functions with Environments
+## Closures — Functions with Environments
 A **closure** pairs a function with the environment that existed when it was defined.
 
 ### Example
@@ -214,13 +205,10 @@ When `inc 5` executes:
 - Argument `y = 5` extends it temporarily.
 - The body computes `x + y = 6`.
 
-> [!example]
-> **Diagram idea** (`closure_environment.svg`):  
-> A closure node containing `(λy. x + y)` points to an environment box capturing `x = 1`.  
-> When applied, a new frame extends that captured one with `y = 5`.
+![Closure capturing environment — function paired with its defining scope](assets/env-closure.svg)
 
 > [!tip]
-> Closures are how functional languages implement lexical scope - functions *carry their own environment*.
+> Closures are how functional languages implement lexical scope — functions *carry their own environment*.
 
 ---
 
@@ -263,7 +251,7 @@ def eval_expr(expr, env):
 Mutable variants add a `store` object and store references instead of direct values.
 
 > [!tip]  
-> This dual model (`env`, `store`) is the practical analog of ρ and σ - used in compilers, interpreters, and operational semantics.
+> This dual model (`env`, `store`) is the practical analog of ρ and σ — used in compilers, interpreters, and operational semantics.
 
 ---
 
@@ -320,13 +308,13 @@ Each call to `f` performs:
 After two calls: `σ[l1] = 2`.
 
 > [!warning]  
-> Mutation blurs the line between lexical scope and dynamic behavior - functions may share state via the same store entries.
+> Mutation blurs the line between lexical scope and dynamic behavior — functions may share state via the same store entries.
 
 ---
 
 ## Environments and Recursive Bindings
 
-Recursion requires self-reference - a function must see its own binding during definition.
+Recursion requires self-reference — a function must see its own binding during definition.
 
 ```
 let rec fact = λn. if n == 0 then 1 else n * fact (n-1)
@@ -352,21 +340,18 @@ To support this:
     
 
 > [!note]  
-> Recursive environments require circular structures - the closure points back to the environment that contains it.
+> Recursive environments require circular structures — the closure points back to the environment that contains it.
 
 ---
 
-## Dynamic Extensions - Activation Records
+## Dynamic Extensions — Activation Records
 
 During execution, each function call creates a new **environment frame**, often represented as an **activation record** on the stack.  
 When a call returns, the frame is popped, restoring the previous ρ.
 
 Languages with first-class functions store environments on the heap (to allow returning closures), while stack-based languages reclaim them after return.
 
-> [!example]  
-> **Diagram idea** (`env_binding_chain.svg`):  
-> Show global, function, and local frames as linked boxes.  
-> Arrows represent lexical parents; one frame highlighted for current evaluation.
+![Nested environment frames — global, function, and block with parent links](assets/env-binding-chain.svg)
 
 ---
 
@@ -399,14 +384,14 @@ Together, they form the conceptual bridge from _syntax_ to _execution_.
 
 ---
 
-## Related Notes
+## See also
 
-- [[scoping-binding-and-closures|Scoping & Bindings]]
+- [[cs/pl/scoping-and-bindings|Scoping & Bindings]]
     
-- [[lambda-calculus-syntax-substitution|Lambda Calculus - Syntax & Substitution]]
+- [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]
     
-- [[abstract-machines-cek-secd|Abstract Machines - CEK & SECD]]
+- [[abstract-machines-cek-secd|Abstract Machines — CEK & SECD]]
     
-- [[continuations-cps|Continuations & CPS]]
+- [[cs/pl/continuations-cps|Continuations & CPS]]
     
-- [[evaluation-order-and-strictness|Evaluation Order & Strictness]]
+- [[cs/pl/evaluation-order-and-strictness|Evaluation Order & Strictness]]

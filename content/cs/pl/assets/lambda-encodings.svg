@@ -1,0 +1,189 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" style="background:transparent">
+  <style>
+    text { font-family: 'SF Mono','Fira Code','Consolas',monospace; }
+    .title { font-size: 15px; font-weight: 700; fill: #58a6ff; }
+    .heading { font-size: 13px; font-weight: 600; fill: #58a6ff; }
+    .term-name { font-size: 11.5px; font-weight: 600; fill: #d29922; }
+    .term-def { font-size: 11px; fill: #e8e8e8; }
+    .reduction { font-size: 10px; fill: #8b949e; }
+    .typed { font-size: 10px; fill: #8b949e; font-style: italic; }
+    .sep { stroke: #30363d; stroke-dasharray: 4,3; stroke-width: 1; }
+    .arrow-label { font-size: 9px; fill: #93a3b8; }
+    @media (prefers-color-scheme: light) {
+      .title { fill: #0550ae; }
+      .heading { fill: #0550ae; }
+      .term-name { fill: #9a6700; }
+      .term-def { fill: #1f2328; }
+      .reduction { fill: #59636e; }
+      .typed { fill: #59636e; }
+      .sep { stroke: #d1d9e0; }
+      .arrow-label { fill: #59636e; }
+      .node-rect { fill: rgba(234,238,242,0.95) !important; stroke: #0550ae !important; }
+      .edge-line { stroke: #59636e !important; }
+      .arrow-head { fill: #59636e !important; }
+    }
+  </style>
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" class="arrow-head" fill="#93a3b8"/>
+    </marker>
+    <marker id="arr-down" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" class="arrow-head" fill="#93a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- Grid: 3 columns at x=20, x=310, x=600. Each col ~270px wide. -->
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" class="title">Church Encodings  --  Functions as Data</text>
+
+  <!-- Vertical separators -->
+  <line x1="295" y1="50" x2="295" y2="600" class="sep"/>
+  <line x1="590" y1="50" x2="590" y2="600" class="sep"/>
+
+  <!-- ═══════════════ COLUMN 1: BOOLEANS ═══════════════ -->
+  <text x="155" y="72" text-anchor="middle" class="heading">Booleans</text>
+
+  <!-- Core definitions box -->
+  <rect x="28" y="84" width="254" height="80" rx="6" class="node-rect" fill="rgba(30,40,55,0.95)" stroke="#58a6ff" stroke-width="1.2"/>
+  <text x="40" y="104" class="term-name">TRUE</text>
+  <text x="100" y="104" class="term-def">= λt. λf. t</text>
+  <text x="40" y="122" class="term-name">FALSE</text>
+  <text x="100" y="122" class="term-def">= λt. λf. f</text>
+  <text x="40" y="144" class="term-name">IF</text>
+  <text x="100" y="144" class="term-def">= λb. λx. λy. b x y</text>
+  <text x="155" y="156" text-anchor="middle" class="reduction">(selector functions)</text>
+
+  <!-- Arrow down -->
+  <line x1="155" y1="164" x2="155" y2="188" class="edge-line" stroke="#93a3b8" stroke-width="1.2" marker-end="url(#arr)"/>
+  <text x="165" y="180" class="arrow-label">derive</text>
+
+  <!-- Operators box -->
+  <rect x="28" y="192" width="254" height="72" rx="6" class="node-rect" fill="rgba(30,40,55,0.95)" stroke="#58a6ff" stroke-width="1.2"/>
+  <text x="40" y="212" class="term-name">AND</text>
+  <text x="100" y="212" class="term-def">= λp. λq. p q p</text>
+  <text x="40" y="230" class="term-name">OR</text>
+  <text x="100" y="230" class="term-def">= λp. λq. p p q</text>
+  <text x="40" y="248" class="term-name">NOT</text>
+  <text x="100" y="248" class="term-def">= λb. b FALSE TRUE</text>
+
+  <!-- Arrow down -->
+  <line x1="155" y1="264" x2="155" y2="288" class="edge-line" stroke="#93a3b8" stroke-width="1.2" marker-end="url(#arr)"/>
+  <text x="165" y="280" class="arrow-label">reduce</text>
+
+  <!-- Reduction example box -->
+  <rect x="28" y="292" width="254" height="82" rx="6" class="node-rect" fill="rgba(30,40,55,0.95)" stroke="#58a6ff" stroke-width="1.2"/>
+  <text x="40" y="312" class="reduction">AND TRUE FALSE</text>
+  <text x="40" y="328" class="reduction">  --> TRUE FALSE TRUE</text>
+  <text x="40" y="344" class="reduction">  --> (λt.λf. t) FALSE TRUE</text>
+  <text x="40" y="360" class="reduction">  --> FALSE</text>
+
+  <!-- Typed equivalent -->
+  <text x="155" y="394" text-anchor="middle" class="typed">Bool = forall a. a -> a -> a</text>
+
+  <!-- ═══════════════ COLUMN 2: PAIRS ═══════════════ -->
+  <text x="442" y="72" text-anchor="middle" class="heading">Pairs</text>
+
+  <!-- Core definitions box -->
+  <rect x="318" y="84" width="254" height="80" rx="6" class="node-rect" fill="rgba(30,40,55,0.95)" stroke="#58a6ff" stroke-width="1.2"/>
+  <text x="330" y="104" class="term-name">PAIR</text>
+  <text x="390" y="104" class="term-def">= λx. λy. λf. f x y</text>
+  <text x="330" y="126" class="term-name">FIRST</text>
+  <text x="400" y="126" class="term-def">= λp. p (λx.λy. x)</text>
+  <text x="330" y="148" class="term-name">SECOND</text>
+  <text x="415" y="148" class="term-def">= λp. p (λx.λy. y)</text>
+  <text x="442" y="156" text-anchor="middle" class="reduction"> </text>
+
+  <!-- Arrow down -->
+  <line x1="442" y1="164" x2="442" y2="188" class="edge-line" stroke="#93a3b8" stroke-width="1.2" marker-end="url(#arr)"/>
+  <text x="452" y="180" class="arrow-label">apply</text>
+
+  <!-- Reduction example box -->
+  <rect x="318" y="192" width="254" height="72" rx="6" class="node-rect" fill="rgba(30,40,55,0.95)" stroke="#58a6ff" stroke-width="1.2"/>
+  <text x="330" y="212" class="reduction">FIRST (PAIR a b)</text>
+  <text x="330" y="228" class="reduction">  --> (λf. f a b)(λx.λy. x)</text>
+  <text x="330" y="244" class="reduction">  --> (λx.λy. x) a b</text>
+  <text x="330" y="256" class="reduction">  --> a</text>
+
+  <!-- Arrow down -->
+  <line x1="442" y1="264" x2="442" y2="288" class="edge-line" stroke="#93a3b8" stroke-width="1.2" marker-end="url(#arr)"/>
+  <text x="452" y="280" class="arrow-label">link</text>
+
+  <!-- Symmetry note box -->
+  <rect x="318" y="292" width="254" height="82" rx="6" class="node-rect" fill="rgba(30,40,55,0.95)" stroke="#58a6ff" stroke-width="1.2"/>
+  <text x="330" y="312" class="reduction">Symmetry with Booleans:</text>
+  <text x="330" y="332" class="term-def">TRUE  = λx. λy. x  = FIRST's sel</text>
+  <text x="330" y="350" class="term-def">FALSE = λx. λy. y  = SECOND's sel</text>
+  <text x="442" y="366" text-anchor="middle" class="reduction">Pairs generalize Boolean choice</text>
+
+  <!-- Typed equivalent -->
+  <text x="442" y="394" text-anchor="middle" class="typed">Pair a b = forall g. (a -> b -> g) -> g</text>
+
+  <!-- ═══════════════ COLUMN 3: NUMERALS ═══════════════ -->
+  <text x="745" y="72" text-anchor="middle" class="heading">Numerals</text>
+
+  <!-- Core definitions box -->
+  <rect x="608" y="84" width="272" height="94" rx="6" class="node-rect" fill="rgba(30,40,55,0.95)" stroke="#58a6ff" stroke-width="1.2"/>
+  <text x="620" y="104" class="term-name">0</text>
+  <text x="650" y="104" class="term-def">= λf. λx. x</text>
+  <text x="620" y="120" class="term-name">1</text>
+  <text x="650" y="120" class="term-def">= λf. λx. f x</text>
+  <text x="620" y="136" class="term-name">2</text>
+  <text x="650" y="136" class="term-def">= λf. λx. f (f x)</text>
+  <text x="620" y="156" class="term-name">n</text>
+  <text x="650" y="156" class="term-def">= λf. λx. f^n(x)</text>
+  <text x="745" y="170" text-anchor="middle" class="reduction">(iterated application)</text>
+
+  <!-- Arrow down -->
+  <line x1="745" y1="178" x2="745" y2="202" class="edge-line" stroke="#93a3b8" stroke-width="1.2" marker-end="url(#arr)"/>
+  <text x="755" y="194" class="arrow-label">derive</text>
+
+  <!-- Operations box -->
+  <rect x="608" y="206" width="272" height="72" rx="6" class="node-rect" fill="rgba(30,40,55,0.95)" stroke="#58a6ff" stroke-width="1.2"/>
+  <text x="620" y="226" class="term-name">SUCC</text>
+  <text x="680" y="226" class="term-def">= λn.λf.λx. f (n f x)</text>
+  <text x="620" y="244" class="term-name">PLUS</text>
+  <text x="680" y="244" class="term-def">= λm.λn.λf.λx. m f (n f x)</text>
+  <text x="620" y="262" class="term-name">MULT</text>
+  <text x="680" y="262" class="term-def">= λm.λn.λf. m (n f)</text>
+
+  <!-- Arrow down -->
+  <line x1="745" y1="278" x2="745" y2="302" class="edge-line" stroke="#93a3b8" stroke-width="1.2" marker-end="url(#arr)"/>
+  <text x="755" y="294" class="arrow-label">reduce</text>
+
+  <!-- Reduction example box -->
+  <rect x="608" y="306" width="272" height="82" rx="6" class="node-rect" fill="rgba(30,40,55,0.95)" stroke="#58a6ff" stroke-width="1.2"/>
+  <text x="620" y="326" class="reduction">SUCC 1</text>
+  <text x="620" y="342" class="reduction">  --> λf.λx. f ((λf.λx. f x) f x)</text>
+  <text x="620" y="358" class="reduction">  --> λf.λx. f (f x)</text>
+  <text x="620" y="374" class="reduction">  --> 2</text>
+
+  <!-- Typed equivalent -->
+  <text x="745" y="408" text-anchor="middle" class="typed">Nat = forall a. (a -> a) -> a -> a</text>
+
+  <!-- ═══════════════ BOTTOM: UNIFYING INSIGHT ═══════════════ -->
+  <line x1="20" y1="430" x2="880" y2="430" class="sep"/>
+
+  <rect x="120" y="445" width="660" height="70" rx="8" class="node-rect" fill="rgba(30,40,55,0.95)" stroke="#58a6ff" stroke-width="1.4"/>
+  <text x="450" y="468" text-anchor="middle" class="heading">Unifying Pattern</text>
+  <text x="450" y="488" text-anchor="middle" class="term-def">Every encoding is a higher-order selector or iterator:</text>
+  <text x="450" y="506" text-anchor="middle" class="reduction">Bool chooses 1-of-2  |  Pair stores then selects  |  Numeral iterates f n times</text>
+
+  <!-- Bottom arrows connecting all three columns to unifying box -->
+  <line x1="155" y1="404" x2="155" y2="430" class="edge-line" stroke="#93a3b8" stroke-width="1" stroke-dasharray="3,2"/>
+  <line x1="442" y1="404" x2="442" y2="430" class="edge-line" stroke="#93a3b8" stroke-width="1" stroke-dasharray="3,2"/>
+  <line x1="745" y1="418" x2="745" y2="430" class="edge-line" stroke="#93a3b8" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- Cross-link arrows between columns showing structural similarity -->
+  <!-- Bool -> Pair link (FIRST uses TRUE's selector) -->
+  <line x1="282" y1="340" x2="318" y2="340" class="edge-line" stroke="#93a3b8" stroke-width="1" stroke-dasharray="4,2" marker-end="url(#arr)"/>
+
+  <!-- Pair -> Numeral link (PRED uses pairs internally) -->
+  <line x1="572" y1="340" x2="608" y2="340" class="edge-line" stroke="#93a3b8" stroke-width="1" stroke-dasharray="4,2" marker-end="url(#arr)"/>
+
+  <!-- Subtle annotation for cross-links -->
+  <text x="300" y="335" text-anchor="middle" class="arrow-label" transform="rotate(-90,300,335)" font-size="8">selector reuse</text>
+  <text x="590" y="335" text-anchor="middle" class="arrow-label" transform="rotate(-90,590,335)" font-size="8">PRED uses pairs</text>
+
+  <!-- Footer note -->
+  <text x="450" y="548" text-anchor="middle" class="typed">Data, control, and iteration emerge from pure λ-abstraction alone.</text>
+</svg>

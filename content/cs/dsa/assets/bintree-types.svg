@@ -1,0 +1,195 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 310" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .node-text { font-size: 10px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .anno { font-size: 9px; fill: #d29922; font-weight: 600; text-anchor: end; }
+    .title { font-size: 12px; fill: #e8e8e8; font-weight: 700; text-anchor: middle; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: start; }
+    .prop-yes { font-size: 9px; fill: #84a59d; font-weight: 600; text-anchor: start; }
+    .prop-no { font-size: 9px; fill: #93a3b8; text-anchor: start; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    .meta { font-size: 9px; fill: #d29922; font-weight: 600; text-anchor: start; }
+    @media (prefers-color-scheme: light) {
+      .node { fill: #1a1a2e; stroke: #284b63; }
+      .edge { stroke: #b8b8b8; }
+      .anno { fill: #9e6000; }
+      .title { fill: #1a1a2e; }
+      .desc { fill: #6e7781; }
+      .prop-yes { fill: #2d6a4f; }
+      .prop-no { fill: #6e7781; }
+      .sep { stroke: #e5e5e5; }
+      .meta { fill: #9e6000; }
+    }
+  </style>
+
+  <!-- Layout grid (revised):
+       viewBox: 860 x 310, 20px padding all sides
+       Depth-label gutter: x=[20..58]
+       4 panels: each 192px wide, 8px gaps
+       Panel 1: x=[60..252]  center=156
+       Panel 2: x=[260..452] center=356
+       Panel 3: x=[460..652] center=556
+       Panel 4: x=[660..840] center=750
+       Vertical: title y=32, tree d0=72, d1=122, d2=172, meta y=200, desc y=218..230, props y=252..280
+  -->
+
+  <!-- Separators -->
+  <line x1="256" y1="22" x2="256" y2="292" class="sep"/>
+  <line x1="456" y1="22" x2="456" y2="292" class="sep"/>
+  <line x1="656" y1="22" x2="656" y2="292" class="sep"/>
+
+  <!-- Depth labels (left gutter) -->
+  <text x="54" y="75" class="anno">d = 0</text>
+  <text x="54" y="125" class="anno">d = 1</text>
+  <text x="54" y="175" class="anno">d = 2</text>
+
+  <!-- ==================== PANEL 1: Full (Proper) ==================== -->
+  <!-- Center: 156, Tree depths: d0=72, d1=122, d2=172 -->
+  <text x="156" y="32" class="title">Full (Proper)</text>
+
+  <!-- Root at (156, 72) -->
+  <circle cx="156" cy="72" r="14" class="node"/>
+  <text x="156" y="72" class="node-text">A</text>
+  <!-- Left child at (116, 122) -->
+  <circle cx="116" cy="122" r="14" class="node"/>
+  <text x="116" y="122" class="node-text">B</text>
+  <!-- Right child at (196, 122) -->
+  <circle cx="196" cy="122" r="14" class="node"/>
+  <text x="196" y="122" class="node-text">C</text>
+  <!-- Left-left at (91, 172) -->
+  <circle cx="91" cy="172" r="14" class="node"/>
+  <text x="91" y="172" class="node-text">D</text>
+  <!-- Left-right at (141, 172) -->
+  <circle cx="141" cy="172" r="14" class="node"/>
+  <text x="141" y="172" class="node-text">E</text>
+
+  <!-- Edges -->
+  <line x1="146" y1="83" x2="126" y2="111" class="edge"/>
+  <line x1="166" y1="83" x2="186" y2="111" class="edge"/>
+  <line x1="106" y1="133" x2="98" y2="161" class="edge"/>
+  <line x1="126" y1="133" x2="134" y2="161" class="edge"/>
+
+  <!-- Annotations -->
+  <text x="76" y="200" class="meta">n = 5, h = 2</text>
+  <text x="76" y="218" class="desc">Every internal node has</text>
+  <text x="76" y="230" class="desc">exactly two children</text>
+
+  <!-- Property checklist -->
+  <text x="76" y="252" class="prop-yes">Full        Yes</text>
+  <text x="76" y="266" class="prop-no">Complete    No</text>
+  <text x="76" y="280" class="prop-no">Perfect     No</text>
+
+  <!-- ==================== PANEL 2: Complete ==================== -->
+  <!-- Center: 356 -->
+  <text x="356" y="32" class="title">Complete</text>
+
+  <!-- Root at (356, 72) -->
+  <circle cx="356" cy="72" r="14" class="node"/>
+  <text x="356" y="72" class="node-text">A</text>
+  <!-- Left child at (316, 122) -->
+  <circle cx="316" cy="122" r="14" class="node"/>
+  <text x="316" y="122" class="node-text">B</text>
+  <!-- Right child at (396, 122) -->
+  <circle cx="396" cy="122" r="14" class="node"/>
+  <text x="396" y="122" class="node-text">C</text>
+  <!-- Left-left at (296, 172) -->
+  <circle cx="296" cy="172" r="14" class="node"/>
+  <text x="296" y="172" class="node-text">D</text>
+  <!-- Left-right at (336, 172) -->
+  <circle cx="336" cy="172" r="14" class="node"/>
+  <text x="336" y="172" class="node-text">E</text>
+  <!-- Right-left at (376, 172) -->
+  <circle cx="376" cy="172" r="14" class="node"/>
+  <text x="376" y="172" class="node-text">F</text>
+
+  <!-- Edges -->
+  <line x1="346" y1="83" x2="326" y2="111" class="edge"/>
+  <line x1="366" y1="83" x2="386" y2="111" class="edge"/>
+  <line x1="308" y1="133" x2="302" y2="161" class="edge"/>
+  <line x1="324" y1="133" x2="330" y2="161" class="edge"/>
+  <line x1="388" y1="133" x2="382" y2="161" class="edge"/>
+
+  <!-- Annotations -->
+  <text x="276" y="200" class="meta">n = 6, h = 2</text>
+  <text x="276" y="218" class="desc">All levels full except last;</text>
+  <text x="276" y="230" class="desc">last filled left to right</text>
+
+  <!-- Property checklist -->
+  <text x="276" y="252" class="prop-no">Full        No</text>
+  <text x="276" y="266" class="prop-yes">Complete    Yes</text>
+  <text x="276" y="280" class="prop-no">Perfect     No</text>
+
+  <!-- ==================== PANEL 3: Perfect ==================== -->
+  <!-- Center: 556 -->
+  <text x="556" y="32" class="title">Perfect</text>
+
+  <!-- Root at (556, 72) -->
+  <circle cx="556" cy="72" r="14" class="node"/>
+  <text x="556" y="72" class="node-text">A</text>
+  <!-- Left child at (516, 122) -->
+  <circle cx="516" cy="122" r="14" class="node"/>
+  <text x="516" y="122" class="node-text">B</text>
+  <!-- Right child at (596, 122) -->
+  <circle cx="596" cy="122" r="14" class="node"/>
+  <text x="596" y="122" class="node-text">C</text>
+  <!-- Left-left at (496, 172) -->
+  <circle cx="496" cy="172" r="14" class="node"/>
+  <text x="496" y="172" class="node-text">D</text>
+  <!-- Left-right at (536, 172) -->
+  <circle cx="536" cy="172" r="14" class="node"/>
+  <text x="536" y="172" class="node-text">E</text>
+  <!-- Right-left at (576, 172) -->
+  <circle cx="576" cy="172" r="14" class="node"/>
+  <text x="576" y="172" class="node-text">F</text>
+  <!-- Right-right at (616, 172) -->
+  <circle cx="616" cy="172" r="14" class="node"/>
+  <text x="616" y="172" class="node-text">G</text>
+
+  <!-- Edges -->
+  <line x1="546" y1="83" x2="526" y2="111" class="edge"/>
+  <line x1="566" y1="83" x2="586" y2="111" class="edge"/>
+  <line x1="508" y1="133" x2="502" y2="161" class="edge"/>
+  <line x1="524" y1="133" x2="530" y2="161" class="edge"/>
+  <line x1="588" y1="133" x2="582" y2="161" class="edge"/>
+  <line x1="604" y1="133" x2="610" y2="161" class="edge"/>
+
+  <!-- Annotations -->
+  <text x="476" y="200" class="meta">n = 7, h = 2</text>
+  <text x="476" y="218" class="desc">All internals have 2 children;</text>
+  <text x="476" y="230" class="desc">all leaves at same depth</text>
+
+  <!-- Property checklist -->
+  <text x="476" y="252" class="prop-yes">Full        Yes</text>
+  <text x="476" y="266" class="prop-yes">Complete    Yes</text>
+  <text x="476" y="280" class="prop-yes">Perfect     Yes</text>
+
+  <!-- ==================== PANEL 4: Degenerate ==================== -->
+  <!-- Center: 750 -->
+  <text x="750" y="32" class="title">Degenerate</text>
+
+  <!-- Node 1 at (750, 72) -->
+  <circle cx="750" cy="72" r="14" class="node"/>
+  <text x="750" y="72" class="node-text">A</text>
+  <!-- Node 2 at (750, 122) -->
+  <circle cx="750" cy="122" r="14" class="node"/>
+  <text x="750" y="122" class="node-text">B</text>
+  <!-- Node 3 at (750, 172) -->
+  <circle cx="750" cy="172" r="14" class="node"/>
+  <text x="750" y="172" class="node-text">C</text>
+
+  <!-- Edges (single-child vertical bias per TextbookStyle) -->
+  <line x1="750" y1="86" x2="750" y2="108" class="edge"/>
+  <line x1="750" y1="136" x2="750" y2="158" class="edge"/>
+
+  <!-- Annotations -->
+  <text x="676" y="200" class="meta">n = 3, h = 2</text>
+  <text x="676" y="218" class="desc">Every node has at most</text>
+  <text x="676" y="230" class="desc">one child (linked list)</text>
+
+  <!-- Property checklist -->
+  <text x="676" y="252" class="prop-no">Full        No</text>
+  <text x="676" y="266" class="prop-no">Complete    No</text>
+  <text x="676" y="280" class="prop-no">Perfect     No</text>
+</svg>

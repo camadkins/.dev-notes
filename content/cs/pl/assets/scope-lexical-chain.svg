@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 320" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .env-box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; }
+    .env-global { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; stroke-dasharray: 6 3; }
+    .env-label { font-size: 11px; fill: #d29922; font-weight: 600; }
+    .env-text { font-size: 11px; fill: #e8e8e8; }
+    .arrow { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .arrow-label { font-size: 9px; fill: #8b949e; font-style: italic; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; }
+    .resolve { stroke: #84a59d; stroke-width: 1.2; fill: none; stroke-dasharray: 4 3; }
+    @media (prefers-color-scheme: light) {
+      .env-box { fill: #1a1a2e; stroke: #284b63; }
+      .env-global { fill: #1a1a2e; stroke: #284b63; }
+      .arrow { stroke: #b8b8b8; }
+      .env-label { fill: #9e6000; }
+      .arrow-label { fill: #6e7781; }
+      .desc { fill: #6e7781; }
+      .resolve { stroke: #2d6a4f; }
+    }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#93a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- Global environment (outermost, dashed border) -->
+  <rect class="env-global" x="30" y="30" width="520" height="260"/>
+  <text class="env-label" x="50" y="55">global</text>
+  <text class="env-text" x="50" y="75">x ↦ ℓ₁</text>
+
+  <!-- f environment (middle) -->
+  <rect class="env-box" x="60" y="95" width="370" height="175"/>
+  <text class="env-label" x="80" y="120">f</text>
+  <text class="env-text" x="80" y="140">y ↦ ℓ₂</text>
+
+  <!-- g environment (innermost) -->
+  <rect class="env-box" x="90" y="155" width="310" height="95"/>
+  <text class="env-label" x="110" y="180">g</text>
+  <text class="env-text" x="110" y="200">z ↦ ℓ₃</text>
+
+  <!-- Parent pointer: g → f (single continuous path) -->
+  <path class="arrow" d="M 400,200 Q 450,200 460,170 Q 470,135 430,120" marker-end="url(#arrowhead)"/>
+  <text class="arrow-label" x="465" y="172">parent</text>
+
+  <!-- Parent pointer: f → global (single continuous path) -->
+  <path class="arrow" d="M 430,112 Q 500,112 510,85 Q 520,58 490,50" marker-end="url(#arrowhead)"/>
+  <text class="arrow-label" x="515" y="88">parent</text>
+
+  <!-- Resolve annotation at bottom -->
+  <text class="desc" x="50" y="300">resolve x in g: g (no x) → f (no x) → global → x = ℓ₁</text>
+</svg>

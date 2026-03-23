@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; }
+    .result-node { fill: rgba(30,40,55,0.95); stroke: #84a59d; stroke-width: 1.5; rx: 6; }
+    .warn-node { fill: rgba(30,40,55,0.95); stroke: #d29922; stroke-width: 1.5; rx: 6; stroke-dasharray: 5 3; }
+    .node-text { font-size: 12px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .edge-result { stroke: #84a59d; stroke-width: 2; fill: none; }
+    .title { font-size: 13px; fill: #58a6ff; font-weight: 700; text-anchor: middle; }
+    .label { font-size: 11px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .branch-label { font-size: 10px; fill: #3fb950; font-weight: 600; }
+    .result-text { font-size: 12px; fill: #84a59d; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+    .check { font-size: 14px; fill: #3fb950; font-weight: 700; text-anchor: middle; }
+    .warn { font-size: 14px; fill: #d29922; font-weight: 700; text-anchor: middle; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    .arrow-head { fill: #93a3b8; }
+    .arrow-result { fill: #84a59d; }
+    @media (prefers-color-scheme: light) {
+      .node { fill: #1a1a2e; stroke: #284b63; }
+      .result-node { fill: #1a1a2e; stroke: #4a7c6f; }
+      .warn-node { fill: rgba(26,26,46,0.7); stroke: #9e6000; }
+      .node-text { fill: #f0f0f0; }
+      .edge { stroke: #b8b8b8; }
+      .edge-result { stroke: #4a7c6f; }
+      .title { fill: #284b63; }
+      .label { fill: #9e6000; }
+      .branch-label { fill: #1a7f37; }
+      .result-text { fill: #4a7c6f; }
+      .check { fill: #1a7f37; }
+      .warn { fill: #9e6000; }
+      .desc { fill: #6e7781; }
+      .sep { stroke: #e5e5e5; }
+      .arrow-head { fill: #b8b8b8; }
+      .arrow-result { fill: #4a7c6f; }
+    }
+  </style>
+
+  <defs>
+    <marker id="ah" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" class="arrow-head"/>
+    </marker>
+    <marker id="ah-res" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" class="arrow-result"/>
+    </marker>
+  </defs>
+
+  <!-- ===== LEFT: Exhaustive match ===== -->
+  <text x="175" y="24" class="title">Exhaustive Match</text>
+
+  <!-- case opt of expression -->
+  <rect x="115" y="42" width="120" height="32" rx="6" class="node"/>
+  <text x="175" y="58" class="node-text">case opt of</text>
+
+  <!-- Branch arrows -->
+  <line x1="145" y1="74" x2="85" y2="130" class="edge" marker-end="url(#ah)"/>
+  <line x1="205" y1="74" x2="265" y2="130" class="edge" marker-end="url(#ah)"/>
+
+  <!-- Branch labels -->
+  <text x="95" y="98" class="branch-label">None</text>
+  <text x="252" y="98" class="branch-label">Some _</text>
+
+  <!-- None branch -->
+  <rect x="40" y="135" width="90" height="32" rx="6" class="node"/>
+  <text x="85" y="151" class="node-text">None</text>
+
+  <!-- Some branch -->
+  <rect x="230" y="135" width="90" height="32" rx="6" class="node"/>
+  <text x="275" y="151" class="node-text">Some _</text>
+
+  <!-- Result arrows -->
+  <line x1="85" y1="167" x2="85" y2="213" class="edge-result" marker-end="url(#ah-res)"/>
+  <line x1="275" y1="167" x2="275" y2="213" class="edge-result" marker-end="url(#ah-res)"/>
+
+  <!-- Result: 0 -->
+  <rect x="55" y="218" width="60" height="32" rx="6" class="result-node"/>
+  <text x="85" y="234" class="result-text">0</text>
+
+  <!-- Result: 1 -->
+  <rect x="245" y="218" width="60" height="32" rx="6" class="result-node"/>
+  <text x="275" y="234" class="result-text">1</text>
+
+  <!-- Mapping labels -->
+  <text x="85" y="195" class="label">=> 0</text>
+  <text x="275" y="195" class="label">=> 1</text>
+
+  <!-- Exhaustive check -->
+  <text x="175" y="280" class="check">exhaustive &#x2713;</text>
+  <text x="175" y="300" class="desc">all constructors covered: None, Some</text>
+
+  <!-- ===== Separator ===== -->
+  <line x1="355" y1="20" x2="355" y2="340" class="sep"/>
+
+  <!-- ===== RIGHT: Partial match (warning) ===== -->
+  <text x="490" y="24" class="title">Partial Match</text>
+
+  <!-- case opt of expression -->
+  <rect x="425" y="42" width="130" height="32" rx="6" class="node"/>
+  <text x="490" y="58" class="node-text">case opt of</text>
+
+  <!-- Branch arrows -->
+  <line x1="510" y1="74" x2="540" y2="130" class="edge" marker-end="url(#ah)"/>
+  <line x1="460" y1="74" x2="420" y2="130" class="edge" stroke-dasharray="5 3" style="stroke:#d29922;" marker-end="url(#ah)"/>
+
+  <!-- Branch labels -->
+  <text x="550" y="98" class="branch-label">Some x</text>
+  <text x="402" y="98" class="branch-label" style="fill:#d29922;">None?</text>
+
+  <!-- Some branch -->
+  <rect x="500" y="135" width="90" height="32" rx="6" class="node"/>
+  <text x="545" y="151" class="node-text">Some x</text>
+
+  <!-- Missing None: dashed placeholder -->
+  <rect x="380" y="135" width="80" height="32" rx="6" class="warn-node"/>
+  <text x="420" y="151" class="node-text" style="fill:#d29922;">None?</text>
+
+  <!-- Result arrow -->
+  <line x1="545" y1="167" x2="545" y2="213" class="edge-result" marker-end="url(#ah-res)"/>
+
+  <!-- Result: x -->
+  <rect x="515" y="218" width="60" height="32" rx="6" class="result-node"/>
+  <text x="545" y="234" class="result-text">x</text>
+
+  <text x="545" y="195" class="label">=> x</text>
+
+  <!-- Warning -->
+  <text x="490" y="280" class="warn">non-exhaustive &#x26A0;</text>
+  <text x="490" y="300" class="desc">None not handled -- compiler warns</text>
+  <text x="490" y="318" class="desc">may crash at runtime</text>
+</svg>

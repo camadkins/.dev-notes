@@ -10,17 +10,6 @@ tags:
 - cs
 - dsa
 date: 2025-10-16
-# diagrams:
-# - name: heap-array-layout
-# brief: 0-based vs 1-based index formulas; parent/children mapping
-# - name: heapify-sift-down
-# brief: Sift-down sequence on build-heap showing swaps to restore order
-# - name: binary_heap_structure.svg
-# brief: Mapping between tree shape and array indices for a small heap
-# - name: heapify_trace.svg
-# brief: Bottom-up heapify restoring min-heap order across subtrees
-# - name: heap_operations.svg
-# brief: Insertion bubble-up and removal bubble-down animations
 ---
 
 ## Definition
@@ -47,8 +36,6 @@ It is typically implemented using an **array**, enabling efficient index arithme
     
 - **Min vs Max**: same code structure; only the comparison direction flips.
     
-
-**(Existing diagram reference)** **Diagram (`binary_heap_structure.svg`)** - show how an array `[10, 15, 20, 17, 25]` maps to a binary tree shape.
 
 ---
 
@@ -90,13 +77,8 @@ It is typically implemented using an **array**, enabling efficient index arithme
 >   return min
 > ```
 
-> [!note] Build-heap (heapify)  
-> Build in **O(n)** by sifting down from the last parent: `for i in reverse(parent(n-1)..0): siftDown(i)`.
-
-**(Existing diagram reference)** **Diagram (`heap_operations.svg`)** - visualize upward swaps as new elements bubble up.  
-**(Existing diagram reference)** **Diagram (`heapify_trace.svg`)** - show bottom-up restoration of order across subtrees.
-
-> [!example] Diagram: Sift-down during build-heap
+> [!note] Build-heap (heapify)
+> Build in **O(n)** by sifting down from the last parent: `for i in reverse(parent(n-1)..0): siftDown(i)`. Each sift-down costs O(height of its subtree), and since most nodes sit near the leaves, the total work sums to O(n) — not O(n log n).
 
 ---
 
@@ -139,24 +121,22 @@ For a heap stored in array `A[0..n-1]` (0-based):
 
 For 1-based indexing, use `parent(i)=i//2`, `left(i)=2*i`, `right(i)=2*i+1`.
 
-> [!tip] Array layout (0-based vs 1-based)  
-> **0-based** indexing:
-> 
-> - parent(i) = (i - 1) // 2
->     
-> - left(i) = 2*i + 1
->     
-> - right(i) = 2*i + 2  
->     **1-based** indexing:
->     
-> - parent(i) = i // 2
->     
-> - left(i) = 2*i
->     
-> - right(i) = 2*i + 1
->     
-> 
-> [!example] Diagram: Array layout and mapping
+> [!tip] Tree-to-array mapping
+>
+> ```
+> Tree:           2                     Index:         [0]
+>                / \                                  /   \
+>              5     8                             [1]     [2]
+>             / \   / \                           /  \    /  \
+>           10  15 12  18                       [3] [4] [5] [6]
+>
+> Array:  [ 2 | 5 | 8 | 10 | 15 | 12 | 18 ]
+> Index:    0   1   2    3    4    5    6
+> ```
+>
+> **0-based:** parent(i) = (i−1)//2, left(i) = 2i+1, right(i) = 2i+2
+> **1-based:** parent(i) = i//2, left(i) = 2i, right(i) = 2i+1
+
 
 **Comparator strategy.** Implement min-heap or max-heap by parameterizing the comparison; ensure the comparator is **consistent with equality** to avoid violating transitivity at ties.
 

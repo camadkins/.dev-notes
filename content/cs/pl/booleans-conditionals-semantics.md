@@ -1,27 +1,22 @@
 ---
-title: Booleans & Conditionals - Semantics and Evaluation
+title: Booleans & Conditionals — Semantics and Evaluation
 description: How programming languages define, represent, and evaluate Boolean values and conditional control flow.
 draft: false
-comments: true
 tags:
   - cs
   - pl
 date: 2025-10-24
 updated:
 aliases: []
-# diagrams:
-#  - boolean_short_circuit.svg - depict short-circuit evaluation trees for ∧ and ∨.
-#  - conditional_reduction_steps.svg - trace small-step evaluation of an `if` expression.
-#  - truth_domains.svg - illustrate two-valued vs three-valued logic systems.
 ---
 
 ## Overview
 Booleans form the logical foundation of decision-making in programming languages.  
-Though represented by only two values - `true` and `false` - they define the branching behavior that determines how every computation proceeds.  
+Though represented by only two values — `true` and `false` — they define the branching behavior that determines how every computation proceeds.  
 Their semantics specify not only what constitutes truth, but *how* truth is computed and propagated through control structures.
 
 > [!note]
-> Boolean semantics is not about syntax (`&&`, `||`, `!`), but about **how truth values drive evaluation** - the basis for understanding control flow, optimization, and type soundness.
+> Boolean semantics is not about syntax (`&&`, `||`, `!`), but about **how truth values drive evaluation** — the basis for understanding control flow, optimization, and type soundness.
 
 ---
 
@@ -36,8 +31,7 @@ However, implementation varies by language:
 
 | Language | Representation | Notes |
 |-----------|----------------|-------|
-| **C** | Integers (`0`, `1`) | Boolean-as-int; coercion may blur semantics |
-| **Java** | Distinct `boolean` type | Not an integer; no implicit conversion to/from `int` |
+| **C / Java** | Integers (`0`, `1`) | Boolean-as-int; coercion may blur semantics |
 | **Python / Haskell** | Distinct `Bool` type | Strict typing, no implicit conversion |
 | **Lisp / Scheme** | Anything not `#f` is “truthy” | Semantics extend to all non-false values |
 | **SQL** | `{ TRUE, FALSE, UNKNOWN }` | Ternary logic (three-valued semantics) |
@@ -47,7 +41,7 @@ This distinction matters for evaluation: in permissive systems (like JavaScript)
 ---
 
 ## Evaluation Rules
-Boolean operations (`and`, `or`, `not`) follow **short-circuit semantics** - the minimal evaluation needed to determine a result.
+Boolean operations (`and`, `or`, `not`) follow **short-circuit semantics** — the minimal evaluation needed to determine a result.
 
 Formal rules (small-step form):
 ```
@@ -62,11 +56,9 @@ These express that:
 - In `and`, if the left operand is `false`, evaluation halts immediately.  
 - In `or`, if the left operand is `true`, no further computation is needed.
 
-> [!example]
-> **Diagram (`boolean_short_circuit.svg`)**  
-> Two trees showing the evaluation paths for `true ∧ e` and `false ∨ e`, highlighting where evaluation stops.
+![Short-circuit evaluation trees for conjunction](assets/bool-short-circuit.svg)
 
-Short-circuiting reduces unnecessary computation and supports side-effect control - one reason Boolean semantics is often the first topic in operational semantics courses.
+Short-circuiting reduces unnecessary computation and supports side-effect control — one reason Boolean semantics is often the first topic in operational semantics courses.
 
 ---
 
@@ -91,7 +83,7 @@ Conditionals therefore act as **branching evaluators** over Boolean domains.
 - In **non-strict languages** (Haskell, ML), branch evaluation is *deferred* until chosen.
 
 > [!tip]
-> Treating `if` as an *expression* (not a statement) aligns semantics with pure λ-calculus - `if` returns a value.
+> Treating `if` as an *expression* (not a statement) aligns semantics with pure λ-calculus — `if` returns a value.
 
 ---
 
@@ -121,9 +113,7 @@ if (3 < 2) || (4 = 4) then 10 else 0
 
 Each step corresponds to a transition in small-step semantics, showing how truth determines evaluation order.
 
-> [!example]  
-> **Diagram (`conditional_reduction_steps.svg`)**  
-> Displays transitions from `if e1 then e2 else e3` → selected branch under small-step rules.
+![Small-step reduction of a conditional expression](assets/bool-conditional-reduction.svg)
 
 ---
 
@@ -144,22 +134,17 @@ B' = { true, false, ⊥ }
 |Domain Theory|`⊥`|Nontermination or error|
 |Three-Valued Logic|`N`|Indeterminate truth|
 
-In Kleene's strong three-valued logic, the truth tables extend naturally:
+Rule adjustments handle these:
 
 ```
-⊥ ∧ true  → ⊥       ⊥ ∨ true  → true
-⊥ ∧ false → false    ⊥ ∨ false → ⊥
-⊥ ∧ ⊥    → ⊥       ⊥ ∨ ⊥    → ⊥
+E ⊢ ⊥ ∧ e → ⊥
+E ⊢ ⊥ ∨ e → e
 ```
-
-The key point: `⊥ ∨ e` is only `true` when `e` is `true`, not simply `e`.
 
 > [!warning]  
 > Undefined truth can propagate: a single `⊥` may halt evaluation entirely unless language rules specify continuation.
 
-> [!example]  
-> **Diagram (`truth_domains.svg`)**  
-> Show standard 2-value lattice extended with a third “unknown” node below both `true` and `false`.
+![Two-valued vs three-valued Boolean domains](assets/bool-truth-domains.svg)
 
 ---
 
@@ -210,25 +195,25 @@ This explicit environment + continuation form is crucial for modeling control co
 |**Operational relevance**|Core to semantic modeling and runtime evaluation|
 
 > [!tip]  
-> Booleans are not “simple primitives” - they are _control mechanisms encoded as values_.
+> Booleans are not “simple primitives” — they are _control mechanisms encoded as values_.
 
 ---
 
 ## Diagram Concepts
 
-- `boolean_short_circuit.svg`: Evaluation halting diagrams for `∧` and `∨`.
+- `bool-short-circuit.svg`: Evaluation halting diagrams for `∧` and `∨`.
     
-- `conditional_reduction_steps.svg`: Conditional reduction trace for `if` evaluation.
+- `bool-conditional-reduction.svg`: Conditional reduction trace for `if` evaluation.
     
-- `truth_domains.svg`: Two-valued vs three-valued truth lattice.
+- `bool-truth-domains.svg`: Two-valued vs three-valued truth lattice.
     
 
 ---
 
-## Related Notes
+## See also
 
-- [[operational-semantics-big-step-small-step|Operational Semantics - Big-Step & Small-Step]]
+- [[cs/pl/operational-semantics-big-step-small-step|Operational Semantics — Big-Step & Small-Step]]
     
-- [[abstract-machines-cek-secd|Abstract Machines - CEK and SECD]]
+- [[abstract-machines-cek-secd|Abstract Machines — CEK and SECD]]
     
-- [[evaluation-order-and-strictness|Evaluation Order & Strictness]]
+- [[cs/pl/evaluation-order-and-strictness|Evaluation Order & Strictness]]

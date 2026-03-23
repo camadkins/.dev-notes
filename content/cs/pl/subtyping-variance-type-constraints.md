@@ -2,22 +2,17 @@
 title: Subtyping, Variance & Type Constraints
 description: How subtyping extends type systems with inheritance-like relationships, and how variance rules maintain safety in generic and functional contexts.
 draft: false
-comments: true
 tags:
   - cs
   - pl
 date: 2025-10-24
 updated:
 aliases: []
-# diagrams:
-#  - variance_ladder.svg - depict covariant, invariant, and contravariant relationships on a vertical ladder.
-#  - function_variance.svg - show contravariant parameters and covariant results in function subtyping.
-#  - bounded_types.svg - visualize upper and lower type constraints with examples of generic bounds.
 ---
 
 ## Overview
 Subtyping adds **hierarchy** to type systems, enabling reuse and polymorphism.  
-When combined with generics or functions, however, it introduces **variance problems** - subtle but essential for type safety.
+When combined with generics or functions, however, it introduces **variance problems** — subtle but essential for type safety.
 
 > [!note]
 > Subtyping extends type systems *horizontally* (via relationships between types), while parametric polymorphism extends them *vertically* (via generic abstraction).
@@ -33,7 +28,7 @@ Formally:
 A <: B ⇒ for all contexts C[•], if C[B] is valid, then C[A] is valid
 
 ````
-This property is known as **substitutability** - the foundation of type-safe reuse.
+This property is known as **substitutability** — the foundation of type-safe reuse.
 
 Example:
 ```java
@@ -84,22 +79,20 @@ Functions flip the direction of subtyping on parameters.
 |**Parameter (input)**|Contravariant|Accepts _more general_ arguments|
 |**Result (output)**|Covariant|Returns _more specific_ results|
 
-Example (in type-lambda form, assuming `Cat <: Animal` and `Animal <: LivingThing`):
+Example (in type-lambda form):
 
 ```
-Animal → Cat  <:  Cat → LivingThing
+Parent → Child  <:  Animal → Object
 ```
 
 Because:
 
-- `Cat <: Animal` (contravariant on input: the supertype accepts a *narrower* argument),
-
-- `Cat <: LivingThing` (covariant on output: the subtype returns a *narrower* result).
+- `Animal` is broader than `Parent` (contravariant on input),
+    
+- `Child` is narrower than `Object` (covariant on output).
     
 
-> [!example]  
-> **Diagram (`function_variance.svg`)**  
-> Arrows showing how subtyping reverses on inputs and preserves direction on outputs.
+![Function subtyping: contravariant inputs, covariant outputs](assets/subtyping-function-variance.svg)
 
 ---
 
@@ -118,11 +111,11 @@ When a type constructor `F` (like `List` or `Box`) wraps a type `T`, the questio
 |**Invariant**|Neither direction holds|`Array[Dog] ≮: Array[Animal]`|Mutable containers|
 
 > [!warning]  
-> Covariance becomes unsafe when mutation is allowed - you could insert a `Cat` into an array of `Dog`.
+> Covariance becomes unsafe when mutation is allowed — you could insert a `Cat` into an array of `Dog`.
 
 ---
 
-## Example - Why Arrays Are Invariant
+## Example — Why Arrays Are Invariant
 
 Java allows **covariant arrays**, but it’s unsound:
 
@@ -146,9 +139,7 @@ Covariance, invariance, and contravariance form a conceptual ladder of generalit
 |Invariant|`0`|No subtyping|`Array[T]`|
 |Contravariant|`-`|Reverses subtyping|`Func[-T]`|
 
-> [!example]  
-> **Diagram (`variance_ladder.svg`)**  
-> Three stacked levels with arrows showing direction of substitution.
+![Variance ladder: covariant, invariant, contravariant](assets/subtyping-variance-ladder.svg)
 
 ---
 
@@ -158,7 +149,7 @@ To control variance and maintain soundness, languages introduce **type bounds**:
 
 ### Upper Bounds
 
-`T <: U` - type parameter `T` must be a subtype of `U`.
+`T <: U` — type parameter `T` must be a subtype of `U`.
 
 ```java
 class Box<T extends Number> { ... }
@@ -166,7 +157,7 @@ class Box<T extends Number> { ... }
 
 ### Lower Bounds
 
-`L <: T` - type parameter `T` must be a supertype of `L`.
+`L <: T` — type parameter `T` must be a supertype of `L`.
 
 ```java
 void copy(List<? super Integer> dest, List<? extends Integer> src)
@@ -179,9 +170,7 @@ These enable _safe reuse_ across hierarchies:
 - Lower bounds restrict inputs.
     
 
-> [!example]  
-> **Diagram (`bounded_types.svg`)**  
-> Vertical arrow diagram showing allowed instantiations under `extends` and `super`.
+![Bounded type parameters with upper and lower constraints](assets/subtyping-bounded-types.svg)
 
 ---
 
@@ -209,11 +198,11 @@ Constraints (`T <: U`, `L <: T`) form a **constraint graph**, solved during comp
 
 Subtyping and polymorphism interact in two main ways:
 
-1. **Ad-hoc polymorphism (overloading)** - multiple implementations for distinct subtypes.
+1. **Ad-hoc polymorphism (overloading)** — multiple implementations for distinct subtypes.
     
-2. **Parametric polymorphism** - one generic definition for all types.
+2. **Parametric polymorphism** — one generic definition for all types.
     
-3. **Subtype polymorphism** - one definition reused through subtyping hierarchy.
+3. **Subtype polymorphism** — one definition reused through subtyping hierarchy.
     
 
 > [!tip]  
@@ -233,12 +222,12 @@ Subtyping and polymorphism interact in two main ways:
 
 ---
 
-## Related Notes
+## See also
 
-- [[hindleymilner-type-inference|Hindley–Milner Type Inference]]
+- [[cs/pl/hindleymilner-type-inference|Hindley–Milner Type Inference]]
     
-- [[type-systems-goals-guarantees|Type Systems - Goals & Guarantees]]
+- [[cs/pl/type-systems-goals-guarantees|Type Systems — Goals & Guarantees]]
     
-- [[objects-classes-and-dispatch|Objects, Classes, and Dispatch]]
+- [[cs/pl/objects-classes-and-dispatch|Objects, Classes, and Dispatch]]
     
-- [[parametric-polymorphism-adts|Parametric Polymorphism & ADTs]]
+- [[cs/pl/parametric-polymorphism-adts|Parametric Polymorphism & ADTs]]

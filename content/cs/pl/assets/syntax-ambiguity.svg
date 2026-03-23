@@ -1,0 +1,196 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 500" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .node-text { font-size: 11px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .anno { font-size: 12px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .grammar { font-size: 10px; fill: #8b949e; text-anchor: middle; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    .correct-node { fill: rgba(30,55,40,0.95); stroke: #84a59d; stroke-width: 1.5; }
+    .warn { font-size: 10px; fill: #f85149; font-weight: 600; text-anchor: middle; }
+    .good { font-size: 10px; fill: #3fb950; font-weight: 600; text-anchor: middle; }
+    .leaf-text { font-size: 12px; fill: #d2a8ff; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+    @media (prefers-color-scheme: light) {
+      .node { fill: #1a1a2e; stroke: #284b63; }
+      .correct-node { fill: #1a2e1a; stroke: #3a6b4a; }
+      .edge { stroke: #b8b8b8; }
+      .anno { fill: #9e6000; }
+      .desc { fill: #6e7781; }
+      .grammar { fill: #6e7781; }
+      .sep { stroke: #e5e5e5; }
+      .warn { fill: #cf222e; }
+      .good { fill: #1a7f37; }
+      .leaf-text { fill: #6639a6; }
+    }
+  </style>
+  <defs>
+    <marker id="ah" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#93a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- Panel headers -->
+  <text class="anno" x="230" y="24">Ambiguous Grammar</text>
+  <text class="anno" x="730" y="24">Refined Grammar</text>
+
+  <!-- Sub-headers -->
+  <text class="warn" x="230" y="42">two parse trees for 1 + 2 * 3</text>
+  <text class="good" x="730" y="42">one parse tree for 1 + 2 * 3</text>
+
+  <!-- Grammar labels at bottom -->
+  <text class="grammar" x="230" y="465">E -> E + E | E * E | n</text>
+  <text class="grammar" x="730" y="465">E -> E + T | T</text>
+  <text class="grammar" x="730" y="480">T -> T * F | F    F -> n</text>
+
+  <!-- Vertical separator -->
+  <line class="sep" x1="470" y1="20" x2="470" y2="455"/>
+
+  <!-- Horizontal separator between two ambiguous trees -->
+  <line class="sep" x1="20" y1="248" x2="450" y2="248"/>
+
+  <!-- ========== LEFT PANEL: TREE A — (1+2)*3 ========== -->
+  <text class="desc" x="230" y="68">Tree A: (1 + 2) * 3</text>
+
+  <!-- Root E -->
+  <rect class="node" x="195" y="78" width="55" height="26" rx="4"/>
+  <text class="node-text" x="222" y="91">E</text>
+
+  <!-- Depth 1: E * E -->
+  <rect class="node" x="115" y="130" width="55" height="26" rx="4"/>
+  <text class="node-text" x="142" y="143">E</text>
+  <rect class="node" x="210" y="135" width="22" height="22" rx="3"/>
+  <text class="node-text" x="221" y="146">*</text>
+  <rect class="node" x="275" y="130" width="55" height="26" rx="4"/>
+  <text class="node-text" x="302" y="143">E</text>
+
+  <line class="edge" x1="205" y1="104" x2="155" y2="130"/>
+  <line class="edge" x1="240" y1="104" x2="290" y2="130"/>
+
+  <!-- Depth 2 left: E + E -->
+  <rect class="node" x="60" y="180" width="45" height="26" rx="4"/>
+  <text class="node-text" x="82" y="193">E</text>
+  <rect class="node" x="120" y="185" width="22" height="22" rx="3"/>
+  <text class="node-text" x="131" y="196">+</text>
+  <rect class="node" x="157" y="180" width="45" height="26" rx="4"/>
+  <text class="node-text" x="179" y="193">E</text>
+
+  <line class="edge" x1="130" y1="156" x2="90" y2="180"/>
+  <line class="edge" x1="155" y1="156" x2="170" y2="180"/>
+
+  <!-- Leaves for tree A -->
+  <rect class="node" x="60" y="218" width="45" height="22" rx="4"/>
+  <text class="leaf-text" x="82" y="229">1</text>
+  <rect class="node" x="157" y="218" width="45" height="22" rx="4"/>
+  <text class="leaf-text" x="179" y="229">2</text>
+  <rect class="node" x="275" y="180" width="55" height="22" rx="4"/>
+  <text class="leaf-text" x="302" y="191">3</text>
+
+  <line class="edge" x1="82" y1="206" x2="82" y2="218"/>
+  <line class="edge" x1="179" y1="206" x2="179" y2="218"/>
+  <line class="edge" x1="302" y1="156" x2="302" y2="180"/>
+
+  <!-- ========== LEFT PANEL: TREE B — 1+(2*3) ========== -->
+  <text class="desc" x="230" y="276">Tree B: 1 + (2 * 3)</text>
+
+  <!-- Root E -->
+  <rect class="node" x="195" y="286" width="55" height="26" rx="4"/>
+  <text class="node-text" x="222" y="299">E</text>
+
+  <!-- Depth 1: E + E -->
+  <rect class="node" x="115" y="338" width="55" height="26" rx="4"/>
+  <text class="node-text" x="142" y="351">E</text>
+  <rect class="node" x="210" y="343" width="22" height="22" rx="3"/>
+  <text class="node-text" x="221" y="354">+</text>
+  <rect class="node" x="275" y="338" width="55" height="26" rx="4"/>
+  <text class="node-text" x="302" y="351">E</text>
+
+  <line class="edge" x1="205" y1="312" x2="155" y2="338"/>
+  <line class="edge" x1="240" y1="312" x2="290" y2="338"/>
+
+  <!-- Left leaf: 1 -->
+  <rect class="node" x="115" y="386" width="55" height="22" rx="4"/>
+  <text class="leaf-text" x="142" y="397">1</text>
+  <line class="edge" x1="142" y1="364" x2="142" y2="386"/>
+
+  <!-- Depth 2 right: E * E -->
+  <rect class="node" x="255" y="386" width="45" height="26" rx="4"/>
+  <text class="node-text" x="277" y="399">E</text>
+  <rect class="node" x="305" y="391" width="22" height="22" rx="3"/>
+  <text class="node-text" x="316" y="402">*</text>
+  <rect class="node" x="332" y="386" width="45" height="26" rx="4"/>
+  <text class="node-text" x="354" y="399">E</text>
+
+  <line class="edge" x1="290" y1="364" x2="280" y2="386"/>
+  <line class="edge" x1="315" y1="364" x2="345" y2="386"/>
+
+  <!-- Leaves: 2 and 3 -->
+  <rect class="node" x="255" y="424" width="45" height="22" rx="4"/>
+  <text class="leaf-text" x="277" y="435">2</text>
+  <rect class="node" x="332" y="424" width="45" height="22" rx="4"/>
+  <text class="leaf-text" x="354" y="435">3</text>
+
+  <line class="edge" x1="277" y1="412" x2="277" y2="424"/>
+  <line class="edge" x1="354" y1="412" x2="354" y2="424"/>
+
+  <!-- ========== RIGHT PANEL: REFINED GRAMMAR — single tree ========== -->
+  <!-- This parses 1 + 2 * 3 as 1 + (2*3) using precedence levels -->
+
+  <!-- Root: E -->
+  <rect class="correct-node" x="695" y="60" width="55" height="26" rx="4"/>
+  <text class="node-text" x="722" y="73">E</text>
+
+  <!-- Depth 1: E + T -->
+  <rect class="correct-node" x="595" y="115" width="55" height="26" rx="4"/>
+  <text class="node-text" x="622" y="128">E</text>
+  <rect class="correct-node" x="710" y="120" width="22" height="22" rx="3"/>
+  <text class="node-text" x="721" y="131">+</text>
+  <rect class="correct-node" x="775" y="115" width="55" height="26" rx="4"/>
+  <text class="node-text" x="802" y="128">T</text>
+
+  <line class="edge" x1="705" y1="86" x2="635" y2="115"/>
+  <line class="edge" x1="740" y1="86" x2="790" y2="115"/>
+
+  <!-- Left subtree: E -> T -> F -> 1 -->
+  <rect class="correct-node" x="595" y="170" width="55" height="26" rx="4"/>
+  <text class="node-text" x="622" y="183">T</text>
+  <line class="edge" x1="622" y1="141" x2="622" y2="170"/>
+
+  <rect class="correct-node" x="595" y="225" width="55" height="26" rx="4"/>
+  <text class="node-text" x="622" y="238">F</text>
+  <line class="edge" x1="622" y1="196" x2="622" y2="225"/>
+
+  <rect class="correct-node" x="595" y="280" width="55" height="22" rx="4"/>
+  <text class="leaf-text" x="622" y="291">1</text>
+  <line class="edge" x1="622" y1="251" x2="622" y2="280"/>
+
+  <!-- Right subtree: T -> T * F -->
+  <rect class="correct-node" x="745" y="170" width="55" height="26" rx="4"/>
+  <text class="node-text" x="772" y="183">T</text>
+  <rect class="correct-node" x="810" y="175" width="22" height="22" rx="3"/>
+  <text class="node-text" x="821" y="186">*</text>
+  <rect class="correct-node" x="845" y="170" width="55" height="26" rx="4"/>
+  <text class="node-text" x="872" y="183">F</text>
+
+  <line class="edge" x1="790" y1="141" x2="780" y2="170"/>
+  <line class="edge" x1="815" y1="141" x2="860" y2="170"/>
+
+  <!-- T -> F -> 2 -->
+  <rect class="correct-node" x="745" y="225" width="55" height="26" rx="4"/>
+  <text class="node-text" x="772" y="238">F</text>
+  <line class="edge" x1="772" y1="196" x2="772" y2="225"/>
+
+  <rect class="correct-node" x="745" y="280" width="55" height="22" rx="4"/>
+  <text class="leaf-text" x="772" y="291">2</text>
+  <line class="edge" x1="772" y1="251" x2="772" y2="280"/>
+
+  <!-- F -> 3 -->
+  <rect class="correct-node" x="845" y="225" width="55" height="22" rx="4"/>
+  <text class="leaf-text" x="872" y="236">3</text>
+  <line class="edge" x1="872" y1="196" x2="872" y2="225"/>
+
+  <!-- Annotation: precedence forces * to bind tighter -->
+  <text class="desc" x="730" y="340">Precedence tiers force * to bind tighter than +</text>
+  <text class="desc" x="730" y="358">Only one parse tree is possible</text>
+</svg>

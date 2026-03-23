@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 380" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .node-var { fill: rgba(30,40,55,0.95); stroke: #84a59d; stroke-width: 1.5; }
+    .node-free { fill: rgba(30,40,55,0.95); stroke: #d29922; stroke-width: 1.5; stroke-dasharray: 4 3; }
+    .label { font-size: 12px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+    .kind { font-size: 9px; fill: #8b949e; text-anchor: middle; font-style: italic; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .scope-region { fill: rgba(88,166,255,0.08); stroke: #58a6ff; stroke-width: 1; stroke-dasharray: 5 3; rx: 8; }
+    .anno { font-size: 10px; fill: #d29922; font-weight: 600; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; }
+    .legend-box { fill: rgba(30,40,55,0.6); stroke: #30363d; stroke-width: 1; rx: 4; }
+    .legend-txt { font-size: 9px; fill: #8b949e; }
+    .legend-label { font-size: 9px; fill: #e8e8e8; }
+    @media (prefers-color-scheme: light) {
+      .node { fill: #1a1a2e; stroke: #284b63; }
+      .node-var { fill: #1a1a2e; stroke: #2d6a4f; }
+      .node-free { fill: #1a1a2e; stroke: #9e6000; }
+      .edge { stroke: #b8b8b8; }
+      .scope-region { fill: rgba(40,75,99,0.06); stroke: #284b63; }
+      .anno { fill: #9e6000; }
+      .desc { fill: #6e7781; }
+      .legend-box { fill: rgba(26,26,46,0.6); stroke: #e5e5e5; }
+      .legend-txt { fill: #6e7781; }
+      .legend-label { fill: #e8e8e8; }
+    }
+  </style>
+  <defs>
+    <marker id="ah" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#93a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text class="desc" x="310" y="28" text-anchor="middle">abstract syntax tree for (&#x03BB;x. x y) z</text>
+
+  <!--
+    Tree structure:
+      App           (310, 80)
+      /    \
+    Abs     Var:z   (180, 170)  (440, 170)
+     |
+    App             (180, 260)
+    / \
+  Var:x  Var:y      (110, 340)  (250, 340)
+  -->
+
+  <!-- Scope region: binding scope of x covers the body (x y) -->
+  <rect class="scope-region" x="55" y="135" width="270" height="225"/>
+  <text class="anno" x="72" y="155">scope of x</text>
+
+  <!-- Level 0: Application root -->
+  <rect class="node" x="268" y="58" width="84" height="36" rx="6"/>
+  <text class="label" x="310" y="76">App</text>
+  <text class="kind" x="310" y="52">application</text>
+
+  <!-- Level 1 left: Abstraction -->
+  <rect class="node" x="138" y="148" width="84" height="36" rx="6"/>
+  <text class="label" x="180" y="166">&#x03BB;x</text>
+  <text class="kind" x="180" y="142">abstraction</text>
+
+  <!-- Level 1 right: Variable z (free) -->
+  <rect class="node-free" x="398" y="148" width="84" height="36" rx="6"/>
+  <text class="label" x="440" y="166">z</text>
+  <text class="kind" x="440" y="142">free variable</text>
+
+  <!-- Level 2: Application (body of lambda) -->
+  <rect class="node" x="138" y="238" width="84" height="36" rx="6"/>
+  <text class="label" x="180" y="256">App</text>
+  <text class="kind" x="180" y="232">application</text>
+
+  <!-- Level 3 left: Variable x (bound) -->
+  <rect class="node-var" x="68" y="318" width="84" height="36" rx="6"/>
+  <text class="label" x="110" y="336">x</text>
+  <text class="kind" x="110" y="312">bound</text>
+
+  <!-- Level 3 right: Variable y (free) -->
+  <rect class="node-free" x="208" y="318" width="84" height="36" rx="6"/>
+  <text class="label" x="250" y="336">y</text>
+  <text class="kind" x="250" y="312">free variable</text>
+
+  <!-- Edges -->
+  <!-- App root -> Abs (left child) -->
+  <line class="edge" x1="280" y1="94" x2="210" y2="148"/>
+  <!-- App root -> z (right child) -->
+  <line class="edge" x1="340" y1="94" x2="410" y2="148"/>
+  <!-- Abs -> App body -->
+  <line class="edge" x1="180" y1="184" x2="180" y2="238"/>
+  <!-- App body -> x -->
+  <line class="edge" x1="150" y1="274" x2="140" y2="318"/>
+  <!-- App body -> y -->
+  <line class="edge" x1="210" y1="274" x2="220" y2="318"/>
+
+  <!-- Legend -->
+  <rect class="legend-box" x="400" y="240" width="190" height="110"/>
+  <text class="legend-label" x="415" y="260">Legend</text>
+  <!-- Bound variable -->
+  <rect class="node-var" x="415" y="272" width="28" height="14" rx="3"/>
+  <text class="legend-txt" x="455" y="283">bound variable</text>
+  <!-- Free variable -->
+  <rect class="node-free" x="415" y="296" width="28" height="14" rx="3"/>
+  <text class="legend-txt" x="455" y="307">free variable</text>
+  <!-- Blue scope -->
+  <rect class="scope-region" x="415" y="320" width="28" height="14"/>
+  <text class="legend-txt" x="455" y="331">binding scope</text>
+</svg>

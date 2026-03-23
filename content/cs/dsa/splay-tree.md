@@ -1,8 +1,7 @@
 ---
 title: Splay Tree  
 description: Self-adjusting BST with a splay operation that moves the accessed node to the root and provides amortized efficiency.  
-draft: false
-comments: true
+draft: true  
 tags:
 - cs
 - dsa  
@@ -10,17 +9,11 @@ date: 2025-10-16
 updated:  
 aliases: []
 
-# diagrams:
-
-# - splay-rotations.svg - The three splay cases (zig, zig-zig, zig-zag) shown on parent/child/grandparent with before/after rotations.
-
-# - splay-path-effects.svg - Effect of repeated accesses on shape: clustering hot keys near root; working-set heuristic illustration.
-
 ---
 
 ## Overview
 
-A **splay tree** is a binary search tree (BST) that **self-adjusts** by performing a **splay** operation after every access (search, insert, delete). Splaying repeatedly rotates the accessed node `x` toward the root using one of three local patterns - **zig**, **zig–zig**, or **zig–zag** - until `x` becomes the root. While a single operation can take linear time in the worst case, any **sequence** of `m` operations on a tree with `n` keys costs **amortized `O(log n)` per operation**. Splay trees adapt to **temporal locality** and offer powerful “static/working-set” performance properties without storing balance information.
+A **splay tree** is a binary search tree (BST) that **self-adjusts** by performing a **splay** operation after every access (search, insert, delete). Splaying repeatedly rotates the accessed node `x` toward the root using one of three local patterns—**zig**, **zig–zig**, or **zig–zag**—until `x` becomes the root. While a single operation can take linear time in the worst case, any **sequence** of `m` operations on a tree with `n` keys costs **amortized `O(log n)` per operation**. Splay trees adapt to **temporal locality** and offer powerful “static/working-set” performance properties without storing balance information.
 
 > [!note]  
 > Splay trees maintain the standard **BST invariant**: for every node `u`, all keys in `u.left` are `< u.key` and all keys in `u.right` are `> u.key`.
@@ -39,7 +32,7 @@ struct Node {
 }
 ```
 
-No explicit balance factors or colors are kept - **shape is implicit** and continuously adjusted by splaying.
+No explicit balance factors or colors are kept—**shape is implicit** and continuously adjusted by splaying.
 
 - **Root**: last accessed node after every public operation.
     
@@ -140,8 +133,7 @@ function DELETE(root, key):
     return L
 ```
 
-> [!example]  
-> **Diagram (`splay-rotations.svg`)** - Show each case (zig, zig–zig, zig–zag) as before/after mini-trees with `x`, `p`, `g` highlighted. Indicate pointer changes and resulting subtree positions to reinforce correctness.
+![Splay rotation cases: zig, zig-zig, and zig-zag shown as before/after mini-trees with x, p, g highlighted](assets/splay-rotations.svg)
 
 ## Example (Stepwise)
 
@@ -189,11 +181,10 @@ Consider starting with a skewed BST on keys `[1,2,3,4,5,6,7]` (ascending inserts
         
 - **Memory locality:** Like other pointer-rich trees, splay trees can suffer cache misses. Top-down variants can have better locality due to fewer parent-pointer dereferences.
     
-- **No balance metadata:** Simpler node structure than [[avl-tree|AVL Tree]] or [[red-black-tree|Red–Black Tree]], at the cost of **per-operation variance**.
+- **No balance metadata:** Simpler node structure than [[cs/dsa/avl-tree|AVL Tree]] or [[cs/dsa/red-black-tree|Red–Black Tree]], at the cost of **per-operation variance**.
     
 
-> [!example]  
-> **Diagram (`splay-path-effects.svg`)** - Show how frequent accesses to a small key subset pull those nodes toward the root and cluster them, reducing path lengths for hot keys.
+![Effect of splaying on tree shape: frequent accesses pull hot keys toward the root, clustering them and reducing path lengths](assets/splay-path-effects.svg)
 
 ## Practical Use Cases
 
@@ -212,7 +203,7 @@ Consider starting with a skewed BST on keys `[1,2,3,4,5,6,7]` (ascending inserts
 ## Limitations / Pitfalls
 
 > [!warning]  
-> **Unpredictable latency.** Individual operations can take `Θ(n)` time. If you need **hard worst-case bounds** per operation, prefer [[red-black-tree|Red–Black Tree]] or [[avl-tree|AVL Tree]].
+> **Unpredictable latency.** Individual operations can take `Θ(n)` time. If you need **hard worst-case bounds** per operation, prefer [[cs/dsa/red-black-tree|Red–Black Tree]] or [[cs/dsa/avl-tree|AVL Tree]].
 
 > [!warning]  
 > **Deletion nuances.** After splaying the target to root, you must carefully **JOIN** left and right subtrees (often by splaying the max of the left subtree). Errors here easily violate the BST invariant.
@@ -227,12 +218,12 @@ Consider starting with a skewed BST on keys `[1,2,3,4,5,6,7]` (ascending inserts
 
 Splay trees are **metadata-free, self-adjusting BSTs**: every access performs **splaying** to move the touched node to the root using **zig**, **zig–zig**, and **zig–zag** rotations. They guarantee **amortized `O(log n)`** cost per operation over sequences, adapt naturally to **temporal locality**, and provide elegant **split/join** operations. The trade-off is **unbounded per-operation latency** and sensitivity to rotation correctness during deletion and bulk updates. When workloads feature **hot keys** and **shifting working sets**, splay trees offer a compact, practical alternative to strictly balanced trees.
 
-## Related Notes
+## See also
 
 - [[bst|Binary Search Tree]]
     
-- [[avl-tree|AVL Tree]]
+- [[cs/dsa/avl-tree|AVL Tree]]
     
 - [[rb-tree]]
     
-- [[trees|Trees]]
+- [[cs/dsa/trees|Trees]]

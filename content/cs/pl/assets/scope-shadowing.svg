@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .env-box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; }
+    .env-label { font-size: 11px; fill: #d29922; font-weight: 600; }
+    .env-text { font-size: 11px; fill: #e8e8e8; }
+    .dimmed { font-size: 11px; fill: #555; text-decoration: line-through; }
+    .active { font-size: 12px; fill: #84a59d; font-weight: 600; }
+    .code { font-size: 10px; fill: #8b949e; font-style: italic; }
+    .arrow { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .strike { stroke: #d29922; stroke-width: 1.5; opacity: 0.7; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; }
+    @media (prefers-color-scheme: light) {
+      .env-box { fill: #1a1a2e; stroke: #284b63; }
+      .arrow { stroke: #b8b8b8; }
+      .env-label { fill: #9e6000; }
+      .dimmed { fill: #999; }
+      .active { fill: #2d6a4f; }
+      .code { fill: #6e7781; }
+      .desc { fill: #6e7781; }
+      .strike { stroke: #9e6000; }
+    }
+  </style>
+
+  <!-- Title / code expression -->
+  <text class="code" x="30" y="30">let x = 5 in let x = 10 in x + 1</text>
+
+  <!-- Outer environment -->
+  <rect class="env-box" x="30" y="50" width="420" height="220" stroke-dasharray="6 3"/>
+  <text class="env-label" x="50" y="78">outer scope</text>
+
+  <!-- Outer binding — dimmed (shadowed) -->
+  <text class="dimmed" x="320" y="78">x ↦ 5</text>
+  <!-- Strike-through line over outer binding -->
+  <line class="strike" x1="315" y1="75" x2="380" y2="75"/>
+
+  <!-- "shadowed" annotation on outer -->
+  <text class="desc" x="320" y="95">shadowed</text>
+
+  <!-- Inner environment -->
+  <rect class="env-box" x="80" y="115" width="320" height="135"/>
+  <text class="env-label" x="100" y="143">inner scope</text>
+
+  <!-- Inner binding — active -->
+  <text class="active" x="280" y="143">x ↦ 10  ✓</text>
+
+  <!-- Resolution annotation -->
+  <text class="env-text" x="115" y="185">x + 1</text>
+  <!-- Arrow from expression to inner x -->
+  <path d="M 155,188 L 155,200 L 300,200 L 300,152" stroke="#84a59d" stroke-width="1.2" fill="none" stroke-dasharray="4 3" marker-end="url(#arrowGreen)"/>
+
+  <text class="desc" x="170" y="215">resolves to inner x = 10</text>
+
+  <!-- Result -->
+  <text class="active" x="115" y="238">⟹ 11</text>
+
+  <defs>
+    <marker id="arrowGreen" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+      <path d="M0,0 L7,2.5 L0,5 Z" fill="#84a59d"/>
+    </marker>
+  </defs>
+</svg>

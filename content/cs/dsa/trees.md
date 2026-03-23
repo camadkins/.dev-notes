@@ -9,11 +9,7 @@ tags:
 date: 2025-10-16
 updated:
 aliases: []
-# diagrams:
-# - rooted-vs-unrooted.svg - Same undirected tree shown once without a root and once with a chosen root; annotate parent/child, depth, height.
-# - ordered-vs-unordered.svg - Show children with fixed left-to-right order vs a set with no order; contrast traversals.
-# - binary-forms.svg - Perfect vs complete vs full vs degenerate (linked-list-like) binary trees, each with n, h annotated.
-# - representations.svg - Pointer nodes, parent array, children arrays, left-child-right-sibling (LCRS), showing memory trade-offs.
+
 ---
 
 ## Overview
@@ -45,6 +41,8 @@ Let `T = (V, E)` be a finite, connected, acyclic undirected graph.
 - **Subtree rooted at `u`**: `u` and all its descendants.
 - **Ordered vs unordered**: in an **ordered** tree, the children of each node are in a fixed left-to-right order (affects traversal sequences). In an **unordered** tree, children are a set.
 
+![Ordered vs unordered tree: fixed child positions vs children as a set](assets/tree-ordered-vs-unordered.svg)
+
 > [!tip]
 > Keep a consistent convention: **depth(root) = 0** and **height(leaf) = 0**. This avoids common off-by-ones when proving relations like `n = Σ_u 1` and `Σ_u outDegree(u) = n − 1`.
 
@@ -57,13 +55,15 @@ A **binary tree** restricts each node to **left** and **right** child pointers (
 
 Relations (binary, perfect): with height `h`, `n = 2^{h+1} − 1` and leaves `= 2^h`.
 
-## Example or Illustration
+![Binary tree forms: perfect, complete, full, and degenerate with n and h annotated](assets/tree-binary-forms.svg)
+
+## Example
 Consider the undirected tree:
 ```
 
-1 - 2 - 3 - 4  
-|  
-5
+1 - 2 - 3 - 4
+        |
+        5
 
 ````
 Unrooted, it is simply acyclic and connected. Rooting at `3` yields:
@@ -71,8 +71,7 @@ Unrooted, it is simply acyclic and connected. Rooting at `3` yields:
 - Depths: depth(3)=0; depth(2)=depth(4)=depth(5)=1; depth(1)=2
 - Height(tree) = 2 (longest path 3→2→1)
 
-> [!example]
-> **Diagram (`rooted-vs-unrooted.svg`)** shows the same shape twice: left as a plain tree; right rooted at node `3` with arrows to children and depth labels at each node.
+![Rooted vs unrooted: same tree shown as undirected graph and rooted at node 3 with depth labels](assets/tree-rooted-vs-unrooted.svg)
 
 ## Properties and Relationships
 - **Edge count**: An undirected tree with `n` nodes has exactly `n − 1` edges (prove by induction or by acyclicity + connectivity).
@@ -174,8 +173,7 @@ parent[0..n-1], where parent[root] = -1
 - **Cons**: poor for sparse or highly unbalanced shapes (wasted slots).
     
 
-> [!example]  
-> **Diagram (`representations.svg`)** contrasts pointer nodes, parent arrays, adjacency children arrays, LCRS, and heap indexing, with notes on memory and access patterns.
+![Tree representations: pointer nodes, parent array, children arrays, LCRS, and heap array compared](assets/tree-representations.svg)
 
 ## Implementation or Practical Context
 

@@ -9,15 +9,6 @@ tags:
 date: 2025-10-16  
 updated:  
 aliases: []
-# diagrams:
-
-# - rbt-properties.svg - Visual of BST with black root, red nodes having black children, and equal black-height on all root→leaf paths.
-
-# - rbt-insert-cases.svg - Case-by-case insert fixup: recolor, left-rotation, right-rotation with uncle red/black scenarios.
-
-# - rbt-delete-double-black.svg - Delete fixup states: sibling red/black, near/far nephew colors, and the rotations/recolors that discharge “double black.”
-
-# - rbt-black-height-proof.svg - Illustration of black-height and the ≤2 log(n+1) height bound.
 
 ---
 
@@ -47,8 +38,22 @@ A red–black tree is a BST over keys with these **properties**:
 
 The **black-height** `bh(x)` of a node `x` is the number of **BLACK** nodes on any path from `x` down to, but not including, a NIL leaf; property (5) makes `bh` well-defined.
 
-> [!example]  
-> **Diagram (`rbt-properties.svg`)** - Highlight the root as black, draw several red nodes each with **black** children, and annotate equal black-heights on two distinct root→NIL paths.
+```mermaid
+graph TD
+    N26["26"]:::black --> N17["17"]:::red
+    N26 --> N41["41"]:::black
+    N17 --> N14["14"]:::black
+    N17 --> N21["21"]:::black
+    N41 --> N30["30"]:::red
+    N41 --> N47["47"]:::red
+
+    classDef black fill:#1a1a2e,stroke:#aaa,color:#fff,font-weight:bold
+    classDef red fill:#c62828,stroke:#aaa,color:#fff,font-weight:bold
+
+    linkStyle 0,2 stroke:#f9a825,stroke-width:3px
+    linkStyle 1,4 stroke:#4fc3f7,stroke-width:3px
+```
+*Yellow path 26(B)→17(R)→14(B)→NIL: bh = 2. Blue path 26(B)→41(B)→30(R)→NIL: bh = 2. Both paths share the same black-height despite different lengths — property (5) in action.*
 
 ## Core Operations
 
@@ -141,8 +146,83 @@ function RB_INSERT(T, z):
     T.root.color = BLACK
 ```
 
-> [!example]  
-> **Diagram (`rbt-insert-cases.svg`)** - Panel A: uncle red → recolor (no rotations). Panel B: triangle → single rotation to line. Panel C: line → rotate at grandparent and recolor.
+**Case 1 — Uncle is RED (recolor only):**
+
+```mermaid
+graph LR
+    subgraph before1 [" Before "]
+        direction TB
+        G1["g (B)"]:::black --> P1["p (R)"]:::red
+        G1 --> U1["u (R)"]:::red
+        P1 --> Z1["z (R)"]:::red
+        P1 --> N1[" "]:::nil
+    end
+    before1 -. "recolor: p,u→B  g→R" .-> after1
+    subgraph after1 [" After "]
+        direction TB
+        G2["g (R) ← new z"]:::red --> P2["p (B)"]:::black
+        G2 --> U2["u (B)"]:::black
+        P2 --> Z2["z (R)"]:::red
+        P2 --> N2[" "]:::nil
+    end
+
+    classDef black fill:#1a1a2e,stroke:#aaa,color:#fff,font-weight:bold
+    classDef red fill:#c62828,stroke:#aaa,color:#fff,font-weight:bold
+    classDef nil fill:none,stroke:none,color:transparent
+```
+*No rotations — push the violation upward by recoloring. Continue fixup at g.*
+
+**Case 2 — Triangle → rotate to line:**
+
+```mermaid
+graph LR
+    subgraph before2 [" Before (triangle) "]
+        direction TB
+        G3["g (B)"]:::black --> P3["p (R)"]:::red
+        G3 --> U3["u (B)"]:::black
+        P3 --> N3[" "]:::nil
+        P3 --> Z3["z (R)"]:::red
+    end
+    before2 -. "LEFT_ROTATE(p)" .-> after2
+    subgraph after2 [" After (line) "]
+        direction TB
+        G4["g (B)"]:::black --> Z4["z (R)"]:::red
+        G4 --> U4["u (B)"]:::black
+        Z4 --> P4["p (R)"]:::red
+        Z4 --> N4[" "]:::nil
+    end
+
+    classDef black fill:#1a1a2e,stroke:#aaa,color:#fff,font-weight:bold
+    classDef red fill:#c62828,stroke:#aaa,color:#fff,font-weight:bold
+    classDef nil fill:none,stroke:none,color:transparent
+```
+*Triangle (z is right child of p, p is left child of g) becomes a line via one rotation. Falls through to Case 3.*
+
+**Case 3 — Line → rotate at grandparent + recolor:**
+
+```mermaid
+graph LR
+    subgraph before3 [" Before (line) "]
+        direction TB
+        G5["g (B)"]:::black --> P5["p (R)"]:::red
+        G5 --> U5["u (B)"]:::black
+        P5 --> Z5["z (R)"]:::red
+        P5 --> N5[" "]:::nil
+    end
+    before3 -. "RIGHT_ROTATE(g), recolor" .-> after3
+    subgraph after3 [" After "]
+        direction TB
+        P6["p (B)"]:::black --> Z6["z (R)"]:::red
+        P6 --> G6["g (R)"]:::red
+        G6 --> N6[" "]:::nil
+        G6 --> U6["u (B)"]:::black
+    end
+
+    classDef black fill:#1a1a2e,stroke:#aaa,color:#fff,font-weight:bold
+    classDef red fill:#c62828,stroke:#aaa,color:#fff,font-weight:bold
+    classDef nil fill:none,stroke:none,color:transparent
+```
+*Rotate at grandparent, swap p/g colors. Red-red violation resolved — p is now black root of the subtree.*
 
 ### Deletion (BST delete + fixup)
 
@@ -231,8 +311,30 @@ function RB_DELETE_FIXUP(T, x):
     x.color = BLACK
 ```
 
-> [!example]  
-> **Diagram (`rbt-delete-double-black.svg`)** - Four canonical cases (sibling red, sibling black with both nephews black, sibling black with near red/far black, sibling black with far red). Track how rotations move the red nephew into the far position and recolor to eliminate the double black.
+```mermaid
+flowchart TD
+    Start["x carries extra black\n(double-black)"] --> C1{"Sibling w\ncolor?"}
+
+    C1 -->|"RED"| Case1["<b>Case 1</b>\nw → BLACK, p → RED\nLEFT_ROTATE(p)\nw = p.right"]
+    Case1 --> C2
+
+    C1 -->|"BLACK"| C2{"w's children\ncolors?"}
+
+    C2 -->|"both BLACK"| Case2["<b>Case 2</b>\nw → RED\nx = p\n(push black up)"]
+    Case2 --> Start
+
+    C2 -->|"near RED\nfar BLACK"| Case3["<b>Case 3</b>\nnear → BLACK, w → RED\nRIGHT_ROTATE(w)\nw = p.right"]
+    Case3 --> Case4
+
+    C2 -->|"far RED"| Case4["<b>Case 4</b>\nw → p.color, p → BLACK\nfar → BLACK\nLEFT_ROTATE(p)\n✓ resolved"]
+
+    style Case1 fill:#fff3e0,stroke:#e65100,color:#333
+    style Case2 fill:#e3f2fd,stroke:#1565c0,color:#333
+    style Case3 fill:#fce4ec,stroke:#c62828,color:#333
+    style Case4 fill:#e8f5e9,stroke:#2e7d32,color:#333
+    style Start fill:#f3e5f5,stroke:#7b1fa2,color:#333
+```
+*Case 1 converts a red sibling to black, reducing to Cases 2–4. Case 3 rotates the near red nephew to the far position, reducing to Case 4. Case 4 is terminal — one rotation and recolor discharges the double black. Case 2 pushes the extra black up (may loop).*
 
 ## Example (Stepwise)
 
@@ -279,8 +381,7 @@ Let `n` be the number of nodes.
 - Therefore `h ≤ 2 log2(n + 1)`, giving the logarithmic guarantees.
     
 
-> [!example]  
-> **Diagram (`rbt-black-height-proof.svg`)** - Show two root→leaf paths: a short all-black path and a longest alternating red/black path ≤ 2× longer, with a side note that each black contributes to `bh`.
+![Black-height proof: shortest path (length 2) vs longest alternating path (length 4), both with bh=2, showing h ≤ 2·log₂(n+1)](assets/rbt-black-height.svg)
 
 ## Implementation Details or Trade-offs
 

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 220" fill="none">
+  <style>
+    text { font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .title { font-size: 14px; font-weight: 700; text-anchor: middle; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 2; }
+    .node-text { font-size: 12px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; }
+    .label { font-size: 10px; fill: #8b949e; text-anchor: middle; }
+    .order { font-size: 9px; fill: #3fb950; font-weight: 600; text-anchor: middle; }
+    .set { font-size: 12px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .sub { font-size: 10px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    @media (prefers-color-scheme: light) {
+      .title { fill: #284b63; }
+      .node { fill: #1a1a2e; stroke: #284b63; }
+      .edge { stroke: #b8b8b8; }
+      .label { fill: #6e7781; }
+      .order { fill: #1a7f37; }
+      .set { fill: #9e6000; }
+      .sub { fill: #6e7781; }
+      .sep { stroke: #e5e5e5; }
+    }
+  </style>
+
+  <!-- Left: Ordered (centered at x=130) -->
+  <text x="130" y="20" class="title">Ordered Tree</text>
+
+  <line x1="115" y1="62" x2="60" y2="108" class="edge"/>
+  <line x1="130" y1="68" x2="130" y2="108" class="edge"/>
+  <line x1="145" y1="62" x2="200" y2="108" class="edge"/>
+
+  <circle cx="130" cy="50" r="16" class="node"/>
+  <text x="130" y="51" class="node-text">R</text>
+
+  <circle cx="60" cy="124" r="16" class="node"/>
+  <text x="60" y="125" class="node-text">A</text>
+  <text x="60" y="152" class="order">1st</text>
+
+  <circle cx="130" cy="124" r="16" class="node"/>
+  <text x="130" y="125" class="node-text">B</text>
+  <text x="130" y="152" class="order">2nd</text>
+
+  <circle cx="200" cy="124" r="16" class="node"/>
+  <text x="200" y="125" class="node-text">C</text>
+  <text x="200" y="152" class="order">3rd</text>
+
+  <text x="130" y="178" class="sub">Fixed left-to-right position</text>
+  <text x="130" y="195" class="label">Preorder: R, A, B, C</text>
+
+  <!-- Separator -->
+  <line x1="270" y1="10" x2="270" y2="210" class="sep"/>
+
+  <!-- Right: Unordered (centered at x=405) -->
+  <text x="405" y="20" class="title">Unordered Tree</text>
+
+  <line x1="390" y1="62" x2="335" y2="108" class="edge"/>
+  <line x1="405" y1="68" x2="405" y2="108" class="edge"/>
+  <line x1="420" y1="62" x2="475" y2="108" class="edge"/>
+
+  <circle cx="405" cy="50" r="16" class="node"/>
+  <text x="405" y="51" class="node-text">R</text>
+
+  <circle cx="335" cy="124" r="16" class="node"/>
+  <text x="335" y="125" class="node-text">A</text>
+  <circle cx="405" cy="124" r="16" class="node"/>
+  <text x="405" y="125" class="node-text">B</text>
+  <circle cx="475" cy="124" r="16" class="node"/>
+  <text x="475" y="125" class="node-text">C</text>
+
+  <text x="405" y="155" class="set">children(R) = { A, B, C }</text>
+  <text x="405" y="178" class="sub">Children are a set, no positional order</text>
+  <text x="405" y="195" class="label">Traversal order is application-defined</text>
+</svg>

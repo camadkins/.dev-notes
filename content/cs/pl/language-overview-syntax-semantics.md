@@ -1,17 +1,13 @@
 ---
-title: Language Overview - Syntax vs Semantics
-description: Distinguishing syntax, static semantics, and dynamic semantics - how programming languages define structure, constraints, and meaning.
+title: Language Overview — Syntax vs Semantics
+description: Distinguishing syntax, static semantics, and dynamic semantics — how programming languages define structure, constraints, and meaning.
 draft: false
-comments: true
 tags:
   - cs
   - pl
 date: 2025-10-17
 updated:
 aliases: []
-# diagrams:
-#  - syntax_semantics_layers.svg - show grammar → AST → typing → evaluation pipeline.
-#  - syntax_ambiguity_example.svg - illustrate ambiguous parse resolved via grammar refinement.
 ---
 
 ## Overview
@@ -20,12 +16,12 @@ A program’s syntax defines *what it looks like*; semantics define *what it doe
 Together, they make languages both interpretable by machines and predictable for humans.
 
 > [!note]
-> Syntax is about *shape* - what strings count as well-formed.  
-> Semantics is about *behavior* - what those well-formed strings mean.
+> Syntax is about *shape* — what strings count as well-formed.  
+> Semantics is about *behavior* — what those well-formed strings mean.
 
 ---
 
-## Syntax - Form and Structure
+## Syntax — Form and Structure
 The **syntax** of a language describes the set of *valid programs* using grammatical rules.  
 It is usually specified via a **context-free grammar (CFG)** or an equivalent formalism.
 
@@ -40,7 +36,7 @@ expr ::= n
 ```
 
 Here, numeric literals (`n`), addition, and multiplication are valid.  
-However, this grammar is ambiguous - it doesn’t encode precedence or associativity.
+However, this grammar is ambiguous — it doesn’t encode precedence or associativity.
 
 ### Abstract Syntax
 Parsers convert **concrete syntax** into **abstract syntax trees (ASTs)** that remove surface details (like parentheses or commas).
@@ -64,12 +60,12 @@ Add(Num(1), Mul(Num(2), Num(3)))
 
 ---
 
-## Semantics - Meaning
+## Semantics — Meaning
 Semantics gives formal meaning to well-formed programs.  
 There are two primary kinds:
 
 ### 1. Static Semantics
-Defines rules that constrain programs **before execution** - beyond syntax but not yet behavior.  
+Defines rules that constrain programs **before execution** — beyond syntax but not yet behavior.  
 Examples:
 - Variables must be declared before use.
 - Types of operands must match.
@@ -86,12 +82,12 @@ Formally:
 means “under typing environment Γ, expression `e` has type τ.”
 
 > [!note]
-> Static semantics ensures well-typedness - it’s a *filter* on syntactically valid programs.
+> Static semantics ensures well-typedness — it’s a *filter* on syntactically valid programs.
 
 ---
 
 ### 2. Dynamic Semantics
-Defines **how programs execute** - the actual meaning during evaluation.
+Defines **how programs execute** — the actual meaning during evaluation.
 
 Approaches:
 - **Operational semantics:** defines computation as state transitions (`⟨e, σ⟩ → ⟨e', σ'⟩`).
@@ -148,10 +144,7 @@ Each layer refines precision:
 2. **Static semantics:** filters invalid ones.
 3. **Dynamic semantics:** defines execution behavior.
 
-> [!example]
-> **Diagram idea** (`syntax_semantics_layers.svg`):  
-> A vertical flow diagram showing source text → parser → AST → type checker → evaluator.  
-> Each arrow labeled with what that stage enforces or produces.
+![Formalization pipeline: source text through parser, type checker, and evaluator](assets/syntax-layers.svg)
 
 ---
 
@@ -178,9 +171,11 @@ F ::= n
 
 ```
 
+![Ambiguous vs refined grammar parse trees for 1 + 2 * 3](assets/syntax-ambiguity.svg)
+
 > [!warning]
 > Grammar-level ambiguity affects parsing, not semantics.  
-> Semantic ambiguity (undefined meaning) is a different issue - e.g., dividing by zero or uninitialized variables.
+> Semantic ambiguity (undefined meaning) is a different issue — e.g., dividing by zero or uninitialized variables.
 
 ---
 
@@ -239,7 +234,7 @@ Separating syntax and semantics leads to:
 Without this separation, the language definition becomes tangled and harder to reason about.
 
 > [!tip]
-> This separation mirrors software architecture itself - parsing, validation, and execution are distinct passes.
+> This separation mirrors software architecture itself — parsing, validation, and execution are distinct passes.
 
 ---
 
@@ -247,7 +242,7 @@ Without this separation, the language definition becomes tangled and harder to r
 > [!warning]
 > - Encoding semantic constraints in grammar rules (e.g., forcing variable declaration order in BNF).  
 > - Treating parser errors as type errors.  
-> - Ignoring ambiguity - assuming all grammars are unambiguous by default.  
+> - Ignoring ambiguity — assuming all grammars are unambiguous by default.  
 > - Defining semantics *informally* (e.g., “it works like Python”) without formal rules.
 
 ---
@@ -259,12 +254,12 @@ Without this separation, the language definition becomes tangled and harder to r
 | Static Semantics | Validity constraints | Type correctness, variable scope |
 | Dynamic Semantics | Execution meaning | Evaluation, state transitions |
 
-Together, they provide a **complete formal definition** of a programming language - unambiguous, analyzable, and implementable.
+Together, they provide a **complete formal definition** of a programming language — unambiguous, analyzable, and implementable.
 
 ---
 
-## Related Notes
-- [[grammar-ambiguity-parse-trees|Grammar Ambiguity & Parse Trees]]
-- [[type-systems-goals-guarantees|Type Systems - Goals & Guarantees]]
-- [[language-design-values-variables-environments|Language Design - Values, Variables, and Environments]]
-- [[programming-paradigms-models-of-computation|Programming Paradigms & Models of Computation]]
+## See also
+- [[cs/pl/grammar-ambiguity-parse-trees|Grammar Ambiguity & Parse Trees]]
+- [[cs/pl/type-systems-goals-guarantees|Type Systems — Goals & Guarantees]]
+- [[cs/pl/language-design-values-variables-environments|Language Design — Values, Variables, and Environments]]
+- [[cs/pl/programming-paradigms-models-of-computation|Programming Paradigms & Models of Computation]]

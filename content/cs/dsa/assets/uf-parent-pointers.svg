@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 370" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .node-text { font-size: 13px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .arrow { fill: #93a3b8; }
+    .anno { font-size: 11px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .desc { font-size: 10px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .title { font-size: 13px; fill: #7b97aa; font-weight: 600; text-anchor: middle; }
+    .rank-label { font-size: 9px; fill: #84a59d; text-anchor: middle; dominant-baseline: central; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    .compress-arrow { stroke: #d29922; stroke-width: 1.5; stroke-dasharray: 3 3; fill: none; }
+    .compress-head { fill: #d29922; }
+    @media (prefers-color-scheme: light) {
+      .node { fill: #1a1a2e; stroke: #284b63; }
+      .edge { stroke: #b8b8b8; }
+      .arrow { fill: #b8b8b8; }
+      .anno { fill: #9e6000; }
+      .desc { fill: #6e7781; }
+      .title { fill: #284b63; }
+      .rank-label { fill: #2d6a4f; }
+      .sep { stroke: #e5e5e5; }
+      .compress-arrow { stroke: #9e6000; }
+      .compress-head { fill: #9e6000; }
+    }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" class="arrow" />
+    </marker>
+  </defs>
+
+  <!-- ============ PANEL 1: Before FIND(3) ============ -->
+  <!-- Panel 1 center: x=180, bounds: 30..330 -->
+  <text x="180" y="30" class="title">Before FIND(3)</text>
+
+  <!-- Depth 0: y=80 -->
+  <!-- Node 0 (root, rank=2) at (140, 80) -->
+  <circle cx="140" cy="80" r="18" class="node" />
+  <text x="140" y="80" class="node-text">0</text>
+  <text x="140" y="55" class="rank-label">rank 2</text>
+
+  <!-- Singleton 4 at (230, 80) -->
+  <circle cx="230" cy="80" r="18" class="node" />
+  <text x="230" y="80" class="node-text">4</text>
+  <text x="230" y="55" class="rank-label">rank 0</text>
+
+  <!-- Singleton 5 at (290, 80) -->
+  <circle cx="290" cy="80" r="18" class="node" />
+  <text x="290" y="80" class="node-text">5</text>
+  <text x="290" y="55" class="rank-label">rank 0</text>
+
+  <!-- Depth 1: y=160 -->
+  <!-- Node 1 (child of 0) at (100, 160) -->
+  <circle cx="100" cy="160" r="18" class="node" />
+  <text x="100" y="160" class="node-text">1</text>
+
+  <!-- Node 2 (child of 0, rank=1) at (180, 160) -->
+  <circle cx="180" cy="160" r="18" class="node" />
+  <text x="180" y="160" class="node-text">2</text>
+
+  <!-- Depth 2: y=240 -->
+  <!-- Node 3 (child of 2) at (180, 240) -->
+  <circle cx="180" cy="240" r="18" class="node" />
+  <text x="180" y="240" class="node-text">3</text>
+
+  <!-- Parent pointer edges with auto-orient markers -->
+  <!-- 1(100,160) -> 0(140,80): vec(40,-80) len=89.4 unit=(0.447,-0.894) -->
+  <line x1="108" y1="144" x2="132" y2="96" class="edge" marker-end="url(#arrowhead)" />
+  <!-- 2(180,160) -> 0(140,80): vec(-40,-80) len=89.4 unit=(-0.447,-0.894) -->
+  <line x1="172" y1="144" x2="148" y2="96" class="edge" marker-end="url(#arrowhead)" />
+  <!-- 3(180,240) -> 2(180,160): vertical -->
+  <line x1="180" y1="222" x2="180" y2="178" class="edge" marker-end="url(#arrowhead)" />
+
+  <!-- Description -->
+  <text x="180" y="290" class="desc">parent[3]=2, path: 3 → 2 → 0</text>
+
+  <!-- ============ SEPARATOR ============ -->
+  <line x1="360" y1="25" x2="360" y2="315" class="sep" />
+
+  <!-- ============ PANEL 2: After FIND(3) ============ -->
+  <!-- Panel 2 center: x=540, bounds: 390..690 -->
+  <text x="540" y="30" class="title">After FIND(3)</text>
+
+  <!-- Depth 0: y=80 -->
+  <!-- Node 0 (root, rank=2) at (500, 80) -->
+  <circle cx="500" cy="80" r="18" class="node" />
+  <text x="500" y="80" class="node-text">0</text>
+  <text x="500" y="55" class="rank-label">rank 2</text>
+
+  <!-- Singleton 4 at (610, 80) -->
+  <circle cx="610" cy="80" r="18" class="node" />
+  <text x="610" y="80" class="node-text">4</text>
+  <text x="610" y="55" class="rank-label">rank 0</text>
+
+  <!-- Singleton 5 at (670, 80) -->
+  <circle cx="670" cy="80" r="18" class="node" />
+  <text x="670" y="80" class="node-text">5</text>
+  <text x="670" y="55" class="rank-label">rank 0</text>
+
+  <!-- Depth 1: y=160 -->
+  <!-- Node 1 at (440, 160) -->
+  <circle cx="440" cy="160" r="18" class="node" />
+  <text x="440" y="160" class="node-text">1</text>
+
+  <!-- Node 2 at (500, 160) -->
+  <circle cx="500" cy="160" r="18" class="node" />
+  <text x="500" y="160" class="node-text">2</text>
+
+  <!-- Node 3 at (560, 160) — compressed! Now child of 0 directly -->
+  <circle cx="560" cy="160" r="18" class="node" />
+  <text x="560" y="160" class="node-text">3</text>
+
+  <!-- Parent pointer edges with auto-orient markers -->
+  <!-- 1(440,160) -> 0(500,80): vec(60,-80) len=100 unit=(0.6,-0.8) -->
+  <line x1="451" y1="146" x2="489" y2="94" class="edge" marker-end="url(#arrowhead)" />
+  <!-- 2(500,160) -> 0(500,80): vertical -->
+  <line x1="500" y1="142" x2="500" y2="98" class="edge" marker-end="url(#arrowhead)" />
+  <!-- 3(560,160) -> 0(500,80): vec(-60,-80) len=100 unit=(-0.6,-0.8) -->
+  <line x1="549" y1="146" x2="511" y2="94" class="edge" marker-end="url(#arrowhead)" />
+
+  <!-- Compression annotation -->
+  <text x="580" y="130" class="anno" text-anchor="start" font-size="10">compressed!</text>
+  <text x="540" y="290" class="desc">parent[3]=0 directly (path compressed)</text>
+
+  <!-- Bottom annotation spanning full width -->
+  <text x="360" y="325" class="anno" font-size="10">Path compression: FIND(3) flattens the tree — future FINDs are O(1)</text>
+</svg>

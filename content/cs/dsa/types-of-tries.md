@@ -1,17 +1,13 @@
 ---
-title: Tries - Types
-description: Standard (explicit-edge), compressed/radix (path-compressed), and suffix tries - trade-offs in memory, depth, and operations.
-draft: false
-comments: true
+title: Tries — Types
+description: Standard (explicit-edge), compressed/radix (path-compressed), and suffix tries—trade-offs in memory, depth, and operations.
+draft: true
 tags:
   - cs
   - dsa
 date: 2025-10-16
 updated:
 aliases: []
-# diagrams:
-# - path-compression.svg - Show a standard trie with a long single-child chain compressed into a single labeled edge ("international" → "inter" + "national").
-# - suffix-trie-fanout.svg - Suffix trie for "banana$" highlighting all suffix starts and duplicated substrings via shared paths.
 ---
 
 ## Overview
@@ -57,10 +53,11 @@ Consider keys `{to, tea, ted, ten, in, inn}` over lowercase ASCII.
 
 - **Standard trie:** Path labels are single characters: root→`t`→`e` branches to `a/d/n`. Depth equals key length (2–3). Node count grows with every new character that diverges.
 - **Compressed trie:** The chain `t → e → a` can remain separate from `t → e → d` by labeling edges `"te"` then `"a"`/`"d"`/`"n"`, or by compressing `"to"` as a single edge from `t`. Node count drops; search compares **substrings** per edge.
-- **Suffix trie** (for `"banana$"`): Insert `$`, `a$`, `na$`, `ana$`, `nana$`, `anana$`, `banana$`. Substring `"ana"` appears as a path multiple times via different suffix starts.
+- **Suffix trie** (for `”banana$”`): Insert `$`, `a$`, `na$`, `ana$`, `nana$`, `anana$`, `banana$`. Substring `”ana”` appears as a path multiple times via different suffix starts.
 
-> [!example]
-> **Diagram (`path-compression.svg`)** - Show a long single-child run (“inter…” keys) collapsed into one edge `"inter"`, with a branch at `"national"` vs `"net"`.
+![Suffix trie for “banana$” — 23 nodes from 7 suffixes, showing quadratic space from repeated substrings like “ana”](assets/suffix-trie-fanout.svg)
+
+![Path compression: a standard trie's single-child chain (i,n,t,e,r) collapsed into one “inter” edge in a compressed trie](assets/trie-path-compression.svg)
 
 ## Properties and Relationships
 - **Depth and branching:**
@@ -92,14 +89,14 @@ Consider keys `{to, tea, ted, ten, in, inn}` over lowercase ASCII.
 ### Suffix trie
 - **Construction:** naive `O(|T|^2)` inserts; space `Θ(|T|^2)`. For real systems, prefer **suffix trees** (compressed suffix tries in `Θ(|T|)` space) or **suffix arrays** with LCP.
 - **Use cases:** teaching substring search concepts; tiny corpora; quick prototypes when memory is not a concern.
-- **Caveat:** for multi-string dictionaries, suffix tries of each key are rarely wanted; use [[standard-trie|Standard Trie]] or [[compressed-trie|Compressed Trie]] instead.
+- **Caveat:** for multi-string dictionaries, suffix tries of each key are rarely wanted; use [[cs/dsa/standard-trie|Standard Trie]] or [[cs/dsa/compressed-trie|Compressed Trie]] instead.
 
 > [!note]
 > Compressed tries and suffix **trees** are conceptually similar: both use **edge-label strings** and **path compression**. The difference is what is being indexed (arbitrary key set vs all suffixes of one text) and the associated construction algorithms and space bounds.
 
 ## Common Misunderstandings
 > [!warning]
-> **“Radix tries change big-O of lookup.”** No - the big-O in key length remains `Θ(L)`. They reduce *depth* and *pointer traversals*, often improving constants.
+> **“Radix tries change big-O of lookup.”** No—the big-O in key length remains `Θ(L)`. They reduce *depth* and *pointer traversals*, often improving constants.
 
 > [!warning]
 > **“Suffix tries are practical for large texts.”** They are not; space is quadratic in the worst case. Use a **suffix tree** or **suffix array**.
@@ -112,7 +109,7 @@ Consider keys `{to, tea, ted, ten, in, inn}` over lowercase ASCII.
 
 ## Broader Implications
 - **Data-engineering fit:** Domain-specific **normalization** (case-folding, tokenization to bytes) shrinks effective `|Σ|`, improving both memory and speed for all trie variants.
-- **Persistence and versioning:** Path-copying tries (standard or compressed) enable **immutable** versions with structural sharing - useful for configuration maps and IDE index snapshots.
+- **Persistence and versioning:** Path-copying tries (standard or compressed) enable **immutable** versions with structural sharing—useful for configuration maps and IDE index snapshots.
 - **Ranking and top-k:** Augment nodes with `subtreeWeight` or frequency counters to support ranked autocomplete; costs apply equally to standard and compressed structures.
 
 ## Summary
@@ -122,8 +119,8 @@ Consider keys `{to, tea, ted, ten, in, inn}` over lowercase ASCII.
 
 The right choice hinges on alphabet size, key length/distribution, memory budget, and query mix (exact, prefix, substring). All retain the trie hallmark: predictable, prefix-aware behavior that general-purpose maps cannot match.
 
-## Related Notes
-- [[standard-trie|Standard Trie]]
-- [[compressed-trie|Compressed Trie]]
-- [[suffix-trie|Suffix Trie]]
-- [[tries|Tries - Overview]]
+## See also
+- [[cs/dsa/standard-trie|Standard Trie]]
+- [[cs/dsa/compressed-trie|Compressed Trie]]
+- [[cs/dsa/suffix-trie|Suffix Trie]]
+- [[cs/dsa/tries|Tries — Overview]]

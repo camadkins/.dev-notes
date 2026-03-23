@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 500" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .axis { stroke: #93a3b8; stroke-width: 1.5; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 8; }
+    .node-oo { fill: rgba(30,40,55,0.95); stroke: #84a59d; stroke-width: 1.5; rx: 8; }
+    .node-text { font-size: 12px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+    .lang { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .axis-label { font-size: 11px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .axis-end { font-size: 10px; fill: #d29922; font-weight: 600; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .quadrant-bg { fill: rgba(88,166,255,0.04); stroke: none; }
+    .title { font-size: 11px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    @media (prefers-color-scheme: light) {
+      .axis { stroke: #b8b8b8; }
+      .node { fill: #1a1a2e; stroke: #284b63; }
+      .node-oo { fill: #1a1a2e; stroke: #2d6a4f; }
+      .axis-label, .axis-end, .title { fill: #9e6000; }
+      .desc, .lang { fill: #6e7781; }
+      .quadrant-bg { fill: rgba(40,75,99,0.03); }
+    }
+  </style>
+  <defs>
+    <marker id="ah" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#93a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text class="title" x="340" y="30">Paradigm Dimensions</text>
+  <text class="desc" x="340" y="46">paradigms as points in a design space, not rigid categories</text>
+
+  <!-- Quadrant background shading -->
+  <rect class="quadrant-bg" x="80" y="70" width="250" height="190"/>
+
+  <!-- Axes -->
+  <!-- X-axis: Declarative <-> Imperative -->
+  <line class="axis" x1="60" y1="260" x2="630" y2="260" marker-end="url(#ah)"/>
+  <text class="axis-end" x="60" y="278" text-anchor="start">Declarative</text>
+  <text class="axis-end" x="630" y="278" text-anchor="end">Imperative</text>
+
+  <!-- Y-axis: Stateful (bottom) <-> Stateless (top) -->
+  <line class="axis" x1="330" y1="450" x2="330" y2="60" marker-end="url(#ah)"/>
+  <text class="axis-end" x="310" y="80" text-anchor="end">Stateless</text>
+  <text class="axis-end" x="310" y="446" text-anchor="end">Stateful</text>
+
+  <!-- === Paradigm nodes === -->
+
+  <!-- Functional: declarative + stateless (upper-left quadrant) -->
+  <rect class="node" x="110" y="110" width="150" height="38"/>
+  <text class="node-text" x="185" y="129">Functional</text>
+  <text class="lang" x="185" y="164">Haskell, ML, Racket</text>
+
+  <!-- Logic: declarative + stateless (upper-left, offset) -->
+  <rect class="node" x="110" y="195" width="150" height="38"/>
+  <text class="node-text" x="185" y="214">Logic</text>
+  <text class="lang" x="185" y="249">Prolog, Datalog, SQL</text>
+
+  <!-- Imperative: imperative + stateful (lower-right quadrant) -->
+  <rect class="node" x="460" y="340" width="150" height="38"/>
+  <text class="node-text" x="535" y="359">Imperative</text>
+  <text class="lang" x="535" y="394">C, Fortran, BASIC</text>
+
+  <!-- Object-Oriented: imperative + stateful but higher abstraction -->
+  <rect class="node-oo" x="430" y="280" width="190" height="38"/>
+  <text class="node-text" x="525" y="299">Object-Oriented</text>
+  <text class="lang" x="525" y="332">Java, Smalltalk, C#</text>
+
+  <!-- Hybrid note: languages that span quadrants -->
+  <text class="desc" x="340" y="478">modern languages blend paradigms -- position reflects primary emphasis</text>
+</svg>

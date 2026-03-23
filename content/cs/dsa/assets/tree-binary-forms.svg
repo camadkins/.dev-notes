@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -10 700 290" fill="none">
+  <style>
+    text { font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .title { font-size: 12px; font-weight: 700; text-anchor: middle; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .node-text { font-size: 10px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; }
+    .anno { font-size: 10px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .desc { font-size: 9px; fill: #8b949e; text-anchor: middle; font-style: italic; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    @media (prefers-color-scheme: light) {
+      .title { fill: #284b63; }
+      .node { fill: #1a1a2e; stroke: #284b63; }
+      .edge { stroke: #b8b8b8; }
+      .anno { fill: #9e6000; }
+      .desc { fill: #6e7781; }
+      .sep { stroke: #e5e5e5; }
+    }
+  </style>
+
+  <!-- 1. Perfect (h=2, n=7) centered at x=90 -->
+  <text x="90" y="18" class="title">Perfect</text>
+
+  <line x1="83.6" y1="48.1" x2="61.4" y2="82.9" class="edge"/>
+  <line x1="96.4" y1="48.1" x2="118.6" y2="82.9" class="edge"/>
+  <line x1="50.9" y1="104.3" x2="39.1" y2="136.7" class="edge"/>
+  <line x1="59.1" y1="104.3" x2="70.9" y2="136.7" class="edge"/>
+  <line x1="120.9" y1="104.3" x2="109.1" y2="136.7" class="edge"/>
+  <line x1="129.1" y1="104.3" x2="140.9" y2="136.7" class="edge"/>
+
+  <circle cx="90" cy="38" r="12" class="node"/>
+  <circle cx="55" cy="93" r="12" class="node"/>
+  <circle cx="125" cy="93" r="12" class="node"/>
+  <circle cx="35" cy="148" r="12" class="node"/>
+  <circle cx="75" cy="148" r="12" class="node"/>
+  <circle cx="105" cy="148" r="12" class="node"/>
+  <circle cx="145" cy="148" r="12" class="node"/>
+
+  <text x="90" y="185" class="anno">n=7, h=2</text>
+  <text x="90" y="200" class="desc">All leaves at same depth,</text>
+  <text x="90" y="213" class="desc">every internal has 2 children</text>
+
+  <!-- Separator -->
+  <line x1="175" y1="8" x2="175" y2="230" class="sep"/>
+
+  <!-- 2. Complete (h=2, n=6) centered at x=265 -->
+  <text x="265" y="18" class="title">Complete</text>
+
+  <line x1="258.6" y1="48.1" x2="236.4" y2="82.9" class="edge"/>
+  <line x1="271.4" y1="48.1" x2="293.6" y2="82.9" class="edge"/>
+  <line x1="225.9" y1="104.3" x2="214.1" y2="136.7" class="edge"/>
+  <line x1="234.1" y1="104.3" x2="245.9" y2="136.7" class="edge"/>
+  <line x1="295.9" y1="104.3" x2="284.1" y2="136.7" class="edge"/>
+
+  <circle cx="265" cy="38" r="12" class="node"/>
+  <circle cx="230" cy="93" r="12" class="node"/>
+  <circle cx="300" cy="93" r="12" class="node"/>
+  <circle cx="210" cy="148" r="12" class="node"/>
+  <circle cx="250" cy="148" r="12" class="node"/>
+  <circle cx="280" cy="148" r="12" class="node"/>
+
+  <text x="265" y="185" class="anno">n=6, h=2</text>
+  <text x="265" y="200" class="desc">All levels full except last,</text>
+  <text x="265" y="213" class="desc">filled left to right</text>
+
+  <!-- Separator -->
+  <line x1="350" y1="8" x2="350" y2="230" class="sep"/>
+
+  <!-- 3. Full (h=2, n=5) centered at x=435 -->
+  <text x="435" y="18" class="title">Full</text>
+
+  <line x1="428.6" y1="48.1" x2="406.4" y2="82.9" class="edge"/>
+  <line x1="441.4" y1="48.1" x2="463.6" y2="82.9" class="edge"/>
+  <line x1="395.9" y1="104.3" x2="384.1" y2="136.7" class="edge"/>
+  <line x1="404.1" y1="104.3" x2="415.9" y2="136.7" class="edge"/>
+
+  <circle cx="435" cy="38" r="12" class="node"/>
+  <circle cx="400" cy="93" r="12" class="node"/>
+  <circle cx="470" cy="93" r="12" class="node"/>
+  <circle cx="380" cy="148" r="12" class="node"/>
+  <circle cx="420" cy="148" r="12" class="node"/>
+
+  <text x="435" y="185" class="anno">n=5, h=2</text>
+  <text x="435" y="200" class="desc">Every internal node</text>
+  <text x="435" y="213" class="desc">has exactly 2 children</text>
+
+  <!-- Separator -->
+  <line x1="525" y1="8" x2="525" y2="230" class="sep"/>
+
+  <!-- 4. Degenerate (h=3, n=4) centered at x=610 -->
+  <text x="610" y="18" class="title">Degenerate</text>
+
+  <line x1="598.8" y1="49.4" x2="606.2" y2="71.6" class="edge"/>
+  <line x1="613.8" y1="94.4" x2="621.2" y2="116.6" class="edge"/>
+  <line x1="628.8" y1="139.4" x2="636.2" y2="161.6" class="edge"/>
+
+  <circle cx="595" cy="38" r="12" class="node"/>
+  <circle cx="610" cy="83" r="12" class="node"/>
+  <circle cx="625" cy="128" r="12" class="node"/>
+  <circle cx="640" cy="173" r="12" class="node"/>
+
+  <text x="618" y="205" class="anno">n=4, h=3</text>
+  <text x="618" y="220" class="desc">Each node has ≤1 child</text>
+  <text x="618" y="233" class="desc">(path-like, worst case)</text>
+
+  <!-- Bottom annotation -->
+  <text x="350" y="252" class="desc" text-anchor="middle">Perfect: n = 2^(h+1) − 1  |  Complete: 2^h ≤ n ≤ 2^(h+1) − 1  |  Degenerate: n = h + 1</text>
+</svg>

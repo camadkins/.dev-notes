@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 260" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; }
+    .cell { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .label-box { fill: rgba(30,55,40,0.95); stroke: #84a59d; stroke-width: 1.5; }
+    .idx-box { fill: rgba(55,30,40,0.95); stroke: #d29922; stroke-width: 1.5; }
+    .txt { font-size: 13px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+    .val { font-size: 14px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+    .anno { font-size: 11px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .label-txt { font-size: 11px; fill: #84a59d; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+    .idx-txt { font-size: 11px; fill: #d29922; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+    .desc { font-size: 10px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .title { font-size: 12px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    .arrow { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    @media (prefers-color-scheme: light) {
+      .box { fill: #1a1a2e; stroke: #284b63; }
+      .cell { fill: #1a1a2e; stroke: #284b63; }
+      .label-box { fill: #1a2e1a; stroke: #3a6b4a; }
+      .idx-box { fill: #2e1a1a; stroke: #9e6000; }
+      .txt { fill: #e8e8e8; }
+      .val { fill: #e8e8e8; }
+      .anno { fill: #9e6000; }
+      .label-txt { fill: #3a6b4a; }
+      .idx-txt { fill: #9e6000; }
+      .desc { fill: #6e7781; }
+      .title { fill: #9e6000; }
+      .sep { stroke: #e5e5e5; }
+      .arrow { stroke: #b8b8b8; }
+    }
+  </style>
+  <defs>
+    <marker id="ah" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#93a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- Panel titles -->
+  <text class="title" x="170" y="30">Tuple: positional access</text>
+  <text class="title" x="510" y="30">Record: labeled access</text>
+
+  <!-- Separator -->
+  <line class="sep" x1="340" y1="20" x2="340" y2="240"/>
+
+  <!-- ========== LEFT: Tuple (1.0, 2.0) ========== -->
+
+  <!-- Tuple container label -->
+  <text class="anno" x="170" y="60">(1.0, 2.0)</text>
+
+  <!-- Cell 0 -->
+  <rect class="cell" x="90" y="80" width="80" height="50" rx="4"/>
+  <text class="val" x="130" y="105">1.0</text>
+
+  <!-- Cell 1 -->
+  <rect class="cell" x="190" y="80" width="80" height="50" rx="4"/>
+  <text class="val" x="230" y="105">2.0</text>
+
+  <!-- Index badges below -->
+  <rect class="idx-box" x="108" y="145" width="44" height="24" rx="12"/>
+  <text class="idx-txt" x="130" y="157">[0]</text>
+
+  <rect class="idx-box" x="208" y="145" width="44" height="24" rx="12"/>
+  <text class="idx-txt" x="230" y="157">[1]</text>
+
+  <!-- Arrows from index badges to cells -->
+  <line class="arrow" x1="130" y1="145" x2="130" y2="132" marker-end="url(#ah)"/>
+  <line class="arrow" x1="230" y1="145" x2="230" y2="132" marker-end="url(#ah)"/>
+
+  <!-- Description -->
+  <text class="desc" x="170" y="195">access by position</text>
+  <text class="desc" x="170" y="212">order matters, names absent</text>
+
+  <!-- ========== RIGHT: Record {x=1.0; y=2.0} ========== -->
+
+  <!-- Record container label -->
+  <text class="anno" x="510" y="60">{x=1.0; y=2.0}</text>
+
+  <!-- Field x -->
+  <rect class="cell" x="430" y="80" width="80" height="50" rx="4"/>
+  <text class="val" x="470" y="105">1.0</text>
+
+  <!-- Field y -->
+  <rect class="cell" x="530" y="80" width="80" height="50" rx="4"/>
+  <text class="val" x="570" y="105">2.0</text>
+
+  <!-- Label badges below -->
+  <rect class="label-box" x="450" y="145" width="40" height="24" rx="12"/>
+  <text class="label-txt" x="470" y="157">x</text>
+
+  <rect class="label-box" x="550" y="145" width="40" height="24" rx="12"/>
+  <text class="label-txt" x="570" y="157">y</text>
+
+  <!-- Arrows from label badges to cells -->
+  <line class="arrow" x1="470" y1="145" x2="470" y2="132" marker-end="url(#ah)"/>
+  <line class="arrow" x1="570" y1="145" x2="570" y2="132" marker-end="url(#ah)"/>
+
+  <!-- Description -->
+  <text class="desc" x="510" y="195">access by name</text>
+  <text class="desc" x="510" y="212">order irrelevant, self-documenting</text>
+
+  <!-- Bottom summary -->
+  <text class="desc" x="340" y="245">same values, different access semantics</text>
+</svg>

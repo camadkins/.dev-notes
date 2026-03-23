@@ -2,19 +2,17 @@
 title: Hindley–Milner & Type Inference
 description: How the Hindley–Milner (HM) type system infers principal types using unification, let-polymorphism, and Algorithm W.
 draft: false
-comments: true
 tags:
   - cs
   - pl
 date: 2025-10-16
 updated:
 aliases: []
-# diagram: hm_type_inference_flow.svg - visualize Algorithm W’s flow: constraint generation, unification, generalization, and instantiation at use sites.
 ---
 
 ## Overview
 The **Hindley–Milner type system (HM)** is the foundation of type inference in functional languages such as ML, OCaml, and Haskell (in their pure fragments).  
-Its power lies in automatically assigning the *most general* - or **principal** - types to expressions *without explicit annotations*.
+Its power lies in automatically assigning the *most general* — or **principal** — types to expressions *without explicit annotations*.
 
 HM achieves this by combining:
 1. **Polymorphism** (via universal quantification).  
@@ -79,12 +77,12 @@ let id = λx. x in (id 3, id true)
 
 ---
 
-## Algorithm W - Structure
+## Algorithm W — Structure
 
 Algorithm W is the canonical type inference procedure for HM.  
 It systematically traverses an expression and synthesizes a type along with a _substitution_ (mapping of type variables to concrete types).
 
-Each inference step returns `(S, τ)` - a substitution and a type.
+Each inference step returns `(S, τ)` — a substitution and a type.
 
 ### Step-by-step Skeleton
 
@@ -151,7 +149,7 @@ creates the constraint:
 
 ### 2. Unification
 
-Unification is the process of solving these constraints - finding substitutions that make both sides identical.
+Unification is the process of solving these constraints — finding substitutions that make both sides identical.
 
 #### Example
 
@@ -239,7 +237,7 @@ Formally:
 > A type `σ` is principal for expression `e` in environment `Γ` if for every other type `σ'` such that `Γ ⊢ e : σ'`,  
 > there exists a substitution `S` with `S(σ) = σ'`.
 
-This ensures type inference is **complete** - it finds the single most general typing consistent with the program.
+This ensures type inference is **complete** — it finds the single most general typing consistent with the program.
 
 > [!tip]  
 > Principal types guarantee _modularity_: changing how a polymorphic function is used never changes its own definition’s type.
@@ -289,24 +287,11 @@ Modern languages extend it in several directions:
 |**Effect systems**|Track purity or side effects|Koka, Eff, F★|
 
 > [!note]  
-> Each extension adds expressive power but often breaks HM’s guarantee of principal types - inference becomes partial or requires user annotations.
+> Each extension adds expressive power but often breaks HM’s guarantee of principal types — inference becomes partial or requires user annotations.
 
 ---
 
-## Diagram Explanation - Algorithm W Flow
-
-`hm_type_inference_flow.svg` should illustrate:
-
-1. Expression tree traversal by Algorithm W.
-    
-2. For each node: generation of constraints, unification of types, and substitution propagation.
-    
-3. A `let` node showing generalization into a type scheme and instantiation at use sites.
-    
-4. Arrows labeled `S1`, `S2`, `S3` showing substitution composition order.
-    
-
-This makes the interaction between environment, constraints, and unification visible at a glance.
+![Algorithm W tree traversal with constraint, unification, and substitution flow](assets/hm-inference-flow.svg)
 
 ---
 
@@ -314,7 +299,7 @@ This makes the interaction between environment, constraints, and unification vis
 
 > [!warning]
 > 
-> - Forgetting to **generalize** at a `let` - losing polymorphism.
+> - Forgetting to **generalize** at a `let` — losing polymorphism.
 >     
 > - Failing to apply **all substitutions** when unifying nested expressions.
 >     
@@ -327,12 +312,12 @@ This makes the interaction between environment, constraints, and unification vis
 
 ---
 
-## Related Notes
+## See also
 
-- [[parametric-polymorphism-adts|Parametric Polymorphism & ADTs]]
+- [[cs/pl/parametric-polymorphism-adts|Parametric Polymorphism & ADTs]]
     
-- [[type-soundness-and-progress|Type Soundness & Progress Theorems]]
+- [[cs/pl/type-soundness-and-progress|Type Soundness & Progress Theorems]]
     
-- [[lambda-calculus-syntax-substitution|Lambda Calculus - Syntax & Substitution]]
+- [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]
     
-- [[evaluation-order-and-strictness|Evaluation Order & Strictness]]
+- [[cs/pl/evaluation-order-and-strictness|Evaluation Order & Strictness]]

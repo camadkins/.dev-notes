@@ -1,22 +1,20 @@
 ---
-title: Garbage Collection - Concepts
+title: Garbage Collection — Concepts
 description: Core principles of automatic memory management, from reachability and tracing to performance trade-offs and tuning.
 draft: false
-comments: true
 tags:
   - cs
   - pl
 date: 2025-10-24
 updated:
 aliases: []
-# diagram: gc_reachability_flow.svg - visualize root objects, reachable graph nodes, and unreachable (garbage) nodes being reclaimed.
 ---
 
 ## Why Garbage Collection Exists
 Manual memory management is error-prone. Forgetting to free memory causes leaks; freeing too early causes crashes.  
 Garbage Collection (GC) automates this process by **identifying and reclaiming unreachable objects**, letting programmers focus on logic instead of allocation bookkeeping.
 
-The challenge is efficiency - reclaiming memory fast enough without pausing the program or consuming too much CPU.
+The challenge is efficiency — reclaiming memory fast enough without pausing the program or consuming too much CPU.
 
 > [!note]
 > GC doesn’t make memory leaks impossible. It only prevents *unreachable* objects from persisting. If your code keeps a reference around, the collector will never reclaim it.
@@ -26,11 +24,11 @@ The challenge is efficiency - reclaiming memory fast enough without pausing the 
 ## Reachability vs. Liveness
 At the heart of every collector is the distinction between what *can* be reached and what *will* be used.
 
-- **Reachable:** an object is accessible from some root - such as global variables, active stack frames, or registers.  
+- **Reachable:** an object is accessible from some root — such as global variables, active stack frames, or registers.  
 - **Live:** an object will actually be used again in the future.  
 
 Because *liveness* is undecidable, collectors approximate it through reachability.  
-This means GCs are conservative by design - they may keep memory alive longer than strictly necessary, but they never free memory still in use.
+This means GCs are conservative by design — they may keep memory alive longer than strictly necessary, but they never free memory still in use.
 
 > [!example]
 > In Java or C#, the “roots” are thread stacks, static fields, and CPU registers.  
@@ -52,7 +50,7 @@ Each object stores a counter of how many references point to it.
 - Works well for acyclic structures.  
 
 **Cons:**  
-- Fails with **cycles** - objects referencing each other but unreachable from roots.  
+- Fails with **cycles** — objects referencing each other but unreachable from roots.  
 - Adds runtime overhead on every assignment.  
 - Requires atomic operations in multithreaded settings.
 
@@ -77,7 +75,7 @@ Instead of tracking counts, tracing collectors start from roots and **walk the o
 - Older, long-lived objects move to the *old generation*, collected less often.
 
 > [!tip]
-> Copying and generational collectors improve spatial locality - keeping live objects packed together, reducing cache misses.
+> Copying and generational collectors improve spatial locality — keeping live objects packed together, reducing cache misses.
 
 ---
 
@@ -87,9 +85,9 @@ Traditional GCs stop the world during collection, causing noticeable pauses.
 **Incremental** ones interleave short GC steps between normal program execution.
 
 Common designs include:
-- **Stop-the-world mark-sweep** - simple, but long pauses.  
-- **Concurrent mark-sweep (CMS)** - Java’s old low-pause collector.  
-- **G1, ZGC, Shenandoah** - modern concurrent and region-based designs that minimize latency.
+- **Stop-the-world mark-sweep** — simple, but long pauses.  
+- **Concurrent mark-sweep (CMS)** — Java’s old low-pause collector.  
+- **G1, ZGC, Shenandoah** — modern concurrent and region-based designs that minimize latency.
 
 > [!note]
 > Barriers add overhead, but predictable pause times often matter more for real-time systems than peak throughput.
@@ -97,7 +95,7 @@ Common designs include:
 ---
 
 ## Fragmentation and Compaction
-When objects are freed individually, gaps form in the heap - **fragmentation**.  
+When objects are freed individually, gaps form in the heap — **fragmentation**.  
 This leads to wasted space and allocation failures even when total free memory is sufficient.
 
 - **Mark-sweep:** prone to fragmentation.  
@@ -105,16 +103,16 @@ This leads to wasted space and allocation failures even when total free memory i
 - **Compacting mark-sweep:** moves live objects to close gaps, updating all references.
 
 > [!warning]
-> Compaction requires *object relocation* - the runtime must track and patch every pointer.  
+> Compaction requires *object relocation* — the runtime must track and patch every pointer.  
 > Languages like Java and C# handle this transparently through indirect references (“handles” or object headers).
 
 ---
 
 ## GC Performance Metrics
-1. **Throughput** - total program time spent doing useful work vs. GC work.  
-2. **Pause time** - how long execution halts for collection.  
-3. **Footprint** - memory used, including heap and metadata.  
-4. **Allocation rate** - how fast memory is consumed.  
+1. **Throughput** — total program time spent doing useful work vs. GC work.  
+2. **Pause time** — how long execution halts for collection.  
+3. **Footprint** — memory used, including heap and metadata.  
+4. **Allocation rate** — how fast memory is consumed.  
 
 Tuning these requires understanding the trade-off triangle:
 > - Low pauses → more CPU overhead  
@@ -127,13 +125,7 @@ Different applications optimize differently:
 
 ---
 
-## Diagram Explanation - Reachability Flow
-`gc_reachability_flow.svg` should show:
-1. **Root set** (registers, globals, stack variables) as top nodes.  
-2. Arrows from roots to live objects (highlighted).  
-3. Unreachable nodes (faded or gray) identified as garbage.  
-4. A “collector sweep” arrow reclaiming those objects.  
-This helps visualize *why* GC is safe - only unreachable data is reclaimed.
+![Root set → live objects → unreachable garbage swept](assets/gc-reachability.svg)
 
 ---
 
@@ -154,13 +146,13 @@ The ideal configuration depends on workload: short-lived object churn favors sma
 
 ---
 
-## Beyond Safety - GC and Language Design
+## Beyond Safety — GC and Language Design
 Garbage collection influences language semantics:
 - Pure functional languages depend on GC for immutability efficiency.  
 - Systems languages (Rust, C++) trade GC for manual or ownership-based safety.  
 - Hybrid systems (Go, Swift) integrate GC with compiler checks to control latency.
 
-The choice isn’t just about automation - it defines how developers think about **lifetime** and **ownership**.
+The choice isn’t just about automation — it defines how developers think about **lifetime** and **ownership**.
 
 > [!note]
 > GC is one end of a design spectrum; ownership and borrow checking (as in Rust) represent the other.  
@@ -168,7 +160,7 @@ The choice isn’t just about automation - it defines how developers think about
 
 ---
 
-## Related Notes
-- [[gc-algorithms-mark-sweep-copying-generational|GC Algorithms - Mark-Sweep, Copying, and Generational]]
-- [[abstract-machines-cek-secd|Abstract Machines - CEK and SECD]]
-- [[lambda-calculus-syntax-substitution|Lambda Calculus - Syntax & Substitution]]
+## See also
+- [[cs/pl/gc-algorithms-mark-sweep-copying-generational|GC Algorithms — Mark-Sweep, Copying, and Generational]]
+- [[abstract-machines-cek-secd|Abstract Machines — CEK and SECD]]
+- [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]

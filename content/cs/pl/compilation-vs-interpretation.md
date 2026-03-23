@@ -2,7 +2,6 @@
 title: Compilation vs Interpretation
 description: How programming languages execute code through compilation, interpretation, or a blend of both models.
 draft: false
-comments: true
 tags:
   - cs
   - pl
@@ -16,12 +15,12 @@ Every programming language needs a way to run code.
 Some transform source text into machine instructions before execution (compilation), while others execute directly through an evaluator (interpretation).  
 Understanding these two models reveals why languages behave differently in performance, portability, and tooling.
 
-Both approaches describe *how meaning is realized* - not what the language means, but **how that meaning becomes behavior on a computer**.
+Both approaches describe *how meaning is realized* — not what the language means, but **how that meaning becomes behavior on a computer**.
 
 ---
 
 ## The Compilation Model
-A **compiler** translates source code into a lower-level representation - usually machine code or bytecode - before running it.  
+A **compiler** translates source code into a lower-level representation — usually machine code or bytecode — before running it.  
 This process happens once, ahead of time.
 
 > [!note]
@@ -35,9 +34,9 @@ This process happens once, ahead of time.
 5. **Code generation** – emit target code for a specific machine or virtual machine.
 
 ### Advantages
-- High performance - code runs natively.  
-- Early error detection - most static errors are caught before execution.  
-- Easier optimization - compilers can reason globally about the program.
+- High performance — code runs natively.  
+- Early error detection — most static errors are caught before execution.  
+- Easier optimization — compilers can reason globally about the program.
 
 ### Limitations
 - Slower development cycle when frequent recompilation is required.  
@@ -56,12 +55,12 @@ Instead of producing an independent executable, it simulates program behavior on
 > 3. Evaluate subexpressions recursively, returning `11`.
 
 ### Advantages
-- Immediate feedback - ideal for scripting, REPLs, and education.  
-- Platform independence - the same interpreter can run code anywhere.  
+- Immediate feedback — ideal for scripting, REPLs, and education.  
+- Platform independence — the same interpreter can run code anywhere.  
 - Supports reflection, dynamic typing, and runtime code generation.
 
 ### Limitations
-- Slower execution - evaluation occurs step-by-step at runtime.  
+- Slower execution — evaluation occurs step-by-step at runtime.  
 - Runtime errors may appear late, after partial execution.  
 - Harder to optimize without ahead-of-time analysis.
 
@@ -84,7 +83,7 @@ These systems demonstrate that execution models are design decisions, not fixed 
 ---
 
 ## Abstract Machines and Virtual Runtimes
-Both compiled and interpreted languages rely on **abstract machines** - formal intermediaries that define what “execution” means.
+Both compiled and interpreted languages rely on **abstract machines** — formal intermediaries that define what “execution” means.
 
 - Compilers target abstract machines like the **LLVM IR** or **JVM bytecode**.  
 - Interpreters implement abstract semantics directly, often using stack or register machines (e.g., CEK, SECD, or VMs).
@@ -111,7 +110,7 @@ For example, the Java Virtual Machine behaves like a stack-based interpreter for
 Language designers pick execution strategies based on priorities:
 - If **speed and static safety** matter → compilation dominates (C, Rust, Go).  
 - If **flexibility and rapid iteration** matter → interpretation prevails (Python, Ruby).  
-- Many modern systems aim for **hybrids** - fast startup with adaptive optimization.
+- Many modern systems aim for **hybrids** — fast startup with adaptive optimization.
 
 > [!warning]
 > Don't confuse compilation with static typing or interpretation with dynamic typing.  
@@ -119,7 +118,7 @@ Language designers pick execution strategies based on priorities:
 
 ---
 
-## Related Notes
-- [[abstract-machines-cek-secd|Abstract Machines - CEK and SECD]]
-- [[operational-semantics-big-step-small-step|Operational Semantics - Big-Step & Small-Step]]
-- [[history-genealogy-of-languages|History & Genealogy of Languages]]
+## See also
+- [[abstract-machines-cek-secd|Abstract Machines — CEK and SECD]]
+- [[cs/pl/operational-semantics-big-step-small-step|Operational Semantics — Big-Step & Small-Step]]
+- [[cs/pl/history-genealogy-of-languages|History & Genealogy of Languages]]
