@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 430" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .node-settled { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 2.5; }
+    .node-frontier { fill: rgba(30,40,55,0.95); stroke: #d29922; stroke-width: 1.5; stroke-dasharray: 5 3; }
+    .node-unknown { fill: rgba(30,40,55,0.4); stroke: #4a5568; stroke-width: 1; }
+    .node-text { font-size: 13px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+    .node-text-dim { font-size: 13px; fill: #6b7280; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .edge-improved { stroke: #58a6ff; stroke-width: 2.5; fill: none; }
+    .edge-dim { stroke: #4a5568; stroke-width: 1; fill: none; stroke-dasharray: 4 3; }
+    .edge-weight { font-size: 9px; fill: #8b949e; text-anchor: middle; dominant-baseline: central; }
+    .edge-weight-improved { font-size: 9px; fill: #58a6ff; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+    .anno { font-size: 10px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .anno-left { font-size: 10px; fill: #d29922; font-weight: 600; text-anchor: start; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .dist-label { font-size: 9px; fill: #84a59d; text-anchor: middle; dominant-baseline: central; }
+    .legend-text { font-size: 9px; fill: #8b949e; text-anchor: start; }
+    .callout-box { fill: rgba(20,25,35,0.9); stroke: #30363d; stroke-width: 1; rx: 4; }
+    .callout-header { font-size: 10px; fill: #d29922; font-weight: 600; text-anchor: start; }
+    .callout-entry { font-size: 10px; fill: #e8e8e8; text-anchor: start; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    .title { font-size: 11px; fill: #7b97aa; font-weight: 600; text-anchor: middle; }
+    .arrow { fill: #93a3b8; }
+    .arrow-improved { fill: #58a6ff; }
+    @media (prefers-color-scheme: light) {
+      .node { fill: #1a1a2e; stroke: #284b63; }
+      .node-settled { fill: #1a1a2e; stroke: #284b63; }
+      .node-frontier { fill: #1a1a2e; stroke: #9e6000; }
+      .node-unknown { fill: rgba(26,26,46,0.4); stroke: #b8b8b8; }
+      .node-text { fill: #e8e8e8; }
+      .node-text-dim { fill: #9ca3af; }
+      .edge { stroke: #b8b8b8; }
+      .edge-improved { stroke: #284b63; }
+      .edge-dim { stroke: #d1d5db; }
+      .edge-weight { fill: #6e7781; }
+      .edge-weight-improved { fill: #284b63; }
+      .anno, .anno-left { fill: #9e6000; }
+      .desc { fill: #6e7781; }
+      .dist-label { fill: #4a7c6f; }
+      .legend-text { fill: #6e7781; }
+      .callout-box { fill: rgba(240,240,245,0.95); stroke: #e5e5e5; }
+      .callout-header { fill: #9e6000; }
+      .callout-entry { fill: #1a1a2e; }
+      .sep { stroke: #e5e5e5; }
+      .title { fill: #284b63; }
+      .arrow { fill: #b8b8b8; }
+      .arrow-improved { fill: #284b63; }
+    }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" class="arrow" />
+    </marker>
+    <marker id="arrowhead-improved" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" class="arrow-improved" />
+    </marker>
+    <marker id="arrowhead-dim" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#4a5568" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="340" y="28" class="title">State after popping b (step 3): settled = {s, b}</text>
+
+  <!-- ================================================ -->
+  <!-- GRAPH LAYOUT                                      -->
+  <!-- Grid:                                             -->
+  <!--   Row 0 (y=100): s                                -->
+  <!--   Row 1 (y=200): a, b                             -->
+  <!--   Row 2 (y=300): c, d, e                          -->
+  <!--   x positions: s=200, a=120, b=280                -->
+  <!--                 c=80, d=200, e=320                 -->
+  <!--   Node radius: 22                                 -->
+  <!-- ================================================ -->
+
+  <!-- EDGES (drawn first, behind nodes) -->
+  <!-- s -> a : weight 4 (dimmed - superseded by b->a) -->
+  <line x1="190" y1="117" x2="131" y2="183" class="edge-dim" marker-end="url(#arrowhead-dim)" />
+  <text x="151" y="145" class="edge-weight">4</text>
+
+  <!-- s -> b : weight 2 (normal, already used) -->
+  <line x1="210" y1="117" x2="269" y2="183" class="edge" marker-end="url(#arrowhead)" />
+  <text x="249" y="145" class="edge-weight">2</text>
+
+  <!-- b -> a : weight 1 (IMPROVED - highlighted) -->
+  <line x1="258" y1="200" x2="142" y2="200" class="edge-improved" marker-end="url(#arrowhead-improved)" />
+  <text x="200" y="189" class="edge-weight-improved">1</text>
+  <text x="200" y="230" class="anno" font-size="9px">dist[a] = 2+1 = 3 (improved)</text>
+
+  <!-- b -> d : weight 7 (IMPROVED - discovered d) -->
+  <line x1="275" y1="219" x2="209" y2="283" class="edge-improved" marker-end="url(#arrowhead-improved)" />
+  <text x="253" y="248" class="edge-weight-improved">7</text>
+
+  <!-- a -> c : weight 3 (frontier edge, not yet relaxed) -->
+  <line x1="108" y1="217" x2="88" y2="283" class="edge" marker-end="url(#arrowhead)" />
+  <text x="88" y="248" class="edge-weight">3</text>
+
+  <!-- c -> d : weight 2 (unknown, not yet explored) -->
+  <line x1="100" y1="300" x2="178" y2="300" class="edge" marker-end="url(#arrowhead)" />
+  <text x="140" y="289" class="edge-weight">2</text>
+
+  <!-- c -> e : weight 5 (unknown, not yet explored) — curved below d -->
+  <path d="M 98,315 C 150,370 250,370 302,315" class="edge" marker-end="url(#arrowhead)" />
+  <text x="200" y="375" class="edge-weight">5</text>
+
+  <!-- d -> e : weight 1 (unknown, not yet explored) -->
+  <line x1="222" y1="300" x2="298" y2="300" class="edge" marker-end="url(#arrowhead)" />
+  <text x="260" y="289" class="edge-weight">1</text>
+
+  <!-- NODES -->
+  <!-- s: settled (dist=0) -->
+  <circle cx="200" cy="100" r="22" class="node-settled" />
+  <text x="200" y="100" class="node-text">s</text>
+  <text x="200" y="72" class="dist-label">dist=0</text>
+
+  <!-- a: frontier (dist=3, improved from 4) -->
+  <circle cx="120" cy="200" r="22" class="node-frontier" />
+  <text x="120" y="200" class="node-text">a</text>
+  <text x="120" y="172" class="dist-label">dist=3</text>
+
+  <!-- b: settled (dist=2) -->
+  <circle cx="280" cy="200" r="22" class="node-settled" />
+  <text x="280" y="200" class="node-text">b</text>
+  <text x="280" y="172" class="dist-label">dist=2</text>
+
+  <!-- c: unknown -->
+  <circle cx="80" cy="300" r="22" class="node-unknown" />
+  <text x="80" y="300" class="node-text-dim">c</text>
+
+  <!-- d: frontier (dist=9, just discovered) -->
+  <circle cx="200" cy="300" r="22" class="node-frontier" />
+  <text x="200" y="300" class="node-text">d</text>
+  <text x="200" y="328" class="dist-label">dist=9</text>
+
+  <!-- e: unknown -->
+  <circle cx="320" cy="300" r="22" class="node-unknown" />
+  <text x="320" y="300" class="node-text-dim">e</text>
+
+  <!-- ================================================ -->
+  <!-- LEGEND / CALLOUT BOXES                            -->
+  <!-- ================================================ -->
+
+  <!-- Settled set S callout -->
+  <rect x="420" y="60" width="230" height="80" class="callout-box" rx="4" />
+  <text x="432" y="80" class="callout-header">Settled S (final distances)</text>
+  <line x1="432" y1="87" x2="638" y2="87" class="sep" />
+  <text x="432" y="106" class="callout-entry">s : dist = 0</text>
+  <text x="432" y="126" class="callout-entry">b : dist = 2</text>
+  <!-- settled indicator icons -->
+  <circle cx="612" cy="102" r="6" class="node-settled" />
+  <circle cx="612" cy="122" r="6" class="node-settled" />
+
+  <!-- Frontier PQ callout -->
+  <rect x="420" y="160" width="230" height="80" class="callout-box" rx="4" />
+  <text x="432" y="180" class="callout-header">Frontier PQ (tentative keys)</text>
+  <line x1="432" y1="187" x2="638" y2="187" class="sep" />
+  <text x="432" y="206" class="callout-entry">a : key = 3  (improved from 4)</text>
+  <text x="432" y="226" class="callout-entry">d : key = 9  (newly discovered)</text>
+  <!-- frontier indicator icons -->
+  <circle cx="612" cy="202" r="6" class="node-frontier" />
+  <circle cx="612" cy="222" r="6" class="node-frontier" />
+
+  <!-- Unknown callout -->
+  <rect x="420" y="260" width="230" height="60" class="callout-box" rx="4" />
+  <text x="432" y="280" class="callout-header">Unknown (not yet reached)</text>
+  <line x1="432" y1="287" x2="638" y2="287" class="sep" />
+  <text x="432" y="306" class="callout-entry">c, e : dist = inf</text>
+  <circle cx="612" cy="302" r="6" class="node-unknown" />
+
+  <!-- Legend -->
+  <rect x="420" y="340" width="230" height="48" class="callout-box" rx="4" />
+  <line x1="432" y1="357" x2="460" y2="357" class="edge-improved" />
+  <text x="466" y="360" class="legend-text">relaxation that improved dist</text>
+  <line x1="432" y1="375" x2="460" y2="375" class="edge-dim" />
+  <text x="466" y="378" class="legend-text">superseded / no improvement</text>
+</svg>

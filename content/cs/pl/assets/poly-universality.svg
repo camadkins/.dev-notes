@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 320" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 2; rx: 6; }
+    .inst-node { fill: rgba(30,40,55,0.95); stroke: #3fb950; stroke-width: 1.5; rx: 6; }
+    .node-text { font-size: 12px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .title { font-size: 11px; fill: #7b97aa; font-weight: 600; text-anchor: middle; }
+    .label { font-size: 11px; fill: #d29922; font-weight: 600; }
+    .type-sig { font-size: 13px; fill: #58a6ff; font-weight: 700; text-anchor: middle; }
+    .inst-label { font-size: 11px; fill: #3fb950; font-weight: 600; text-anchor: middle; }
+    .inst-type { font-size: 10px; fill: #84a59d; text-anchor: middle; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .arrow-head { fill: #93a3b8; }
+    @media (prefers-color-scheme: light) {
+      .node { fill: #1a1a2e; stroke: #284b63; }
+      .inst-node { fill: #1a1a2e; stroke: #1a7f37; }
+      .node-text { fill: #f0f0f0; }
+      .edge { stroke: #b8b8b8; }
+      .title { fill: #284b63; }
+      .label { fill: #9e6000; }
+      .type-sig { fill: #284b63; }
+      .inst-label { fill: #1a7f37; }
+      .inst-type { fill: #2d6a4f; }
+      .desc { fill: #6e7781; }
+      .arrow-head { fill: #b8b8b8; }
+    }
+  </style>
+
+  <defs>
+    <marker id="ah" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" class="arrow-head"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="280" y="28" class="title">parametric polymorphism: uniform behavior across types</text>
+
+  <!-- Type signature -->
+  <text x="280" y="62" class="type-sig">id : forall a. a -> a</text>
+
+  <!-- Central function node -->
+  <rect x="220" y="80" width="120" height="40" rx="8" class="node"/>
+  <text x="280" y="100" class="node-text">id x = x</text>
+
+  <!-- Arrow down-left: Int -->
+  <line x1="245" y1="120" x2="110" y2="195" class="edge" marker-end="url(#ah)"/>
+  <!-- Arrow down-center: Bool -->
+  <line x1="280" y1="120" x2="280" y2="195" class="edge" marker-end="url(#ah)"/>
+  <!-- Arrow down-right: String -->
+  <line x1="315" y1="120" x2="450" y2="195" class="edge" marker-end="url(#ah)"/>
+
+  <!-- Instantiation labels on arrows -->
+  <text x="165" y="155" class="inst-label">a := Int</text>
+  <text x="300" y="160" class="inst-label">a := Bool</text>
+  <text x="395" y="155" class="inst-label">a := String</text>
+
+  <!-- Int instantiation -->
+  <rect x="50" y="200" width="120" height="36" rx="6" class="inst-node"/>
+  <text x="110" y="218" class="node-text">id 3 : Int</text>
+  <text x="110" y="250" class="inst-type">a = Int</text>
+
+  <!-- Bool instantiation -->
+  <rect x="220" y="200" width="120" height="36" rx="6" class="inst-node"/>
+  <text x="280" y="218" class="node-text">id true : Bool</text>
+  <text x="280" y="250" class="inst-type">a = Bool</text>
+
+  <!-- String instantiation -->
+  <rect x="394" y="200" width="132" height="36" rx="6" class="inst-node"/>
+  <text x="460" y="218" class="node-text">id "hi" : String</text>
+  <text x="460" y="250" class="inst-type">a = String</text>
+
+  <!-- Bottom description -->
+  <text x="280" y="286" class="desc">same function body, different type instantiations</text>
+  <text x="280" y="302" class="desc">behavior is uniform -- cannot inspect or branch on a</text>
+</svg>

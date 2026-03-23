@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 440" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; }
+    .node-highlight { fill: rgba(30,40,55,0.95); stroke: #84a59d; stroke-width: 2; rx: 6; }
+    .node-dim { fill: rgba(30,40,55,0.4); stroke: #4a5568; stroke-width: 1; rx: 6; }
+    .node-text { font-size: 12px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+    .node-text-sm { font-size: 10px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+    .node-text-dim { font-size: 12px; fill: #6b7280; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .edge-active { stroke: #84a59d; stroke-width: 2; fill: none; }
+    .edge-dim { stroke: #4a5568; stroke-width: 1; fill: none; stroke-dasharray: 5 3; }
+    .anno { font-size: 10px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .anno-left { font-size: 10px; fill: #d29922; font-weight: 600; text-anchor: start; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .rule { font-size: 10px; fill: #84a59d; text-anchor: middle; }
+    .step-label { font-size: 10px; fill: #d29922; font-weight: 600; text-anchor: end; }
+    .title { font-size: 11px; fill: #7b97aa; font-weight: 600; text-anchor: middle; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    .arrow { fill: #93a3b8; }
+    .arrow-active { fill: #84a59d; }
+    @media (prefers-color-scheme: light) {
+      .node { fill: #1a1a2e; stroke: #284b63; }
+      .node-highlight { fill: #1a1a2e; stroke: #4a7c6f; }
+      .node-dim { fill: rgba(26,26,46,0.4); stroke: #b8b8b8; }
+      .node-text-dim { fill: #9ca3af; }
+      .edge { stroke: #b8b8b8; }
+      .edge-active { stroke: #4a7c6f; }
+      .edge-dim { stroke: #d1d5db; }
+      .anno, .anno-left { fill: #9e6000; }
+      .desc { fill: #6e7781; }
+      .rule { fill: #4a7c6f; }
+      .step-label { fill: #9e6000; }
+      .title { fill: #284b63; }
+      .sep { stroke: #e5e5e5; }
+      .arrow { fill: #b8b8b8; }
+      .arrow-active { fill: #4a7c6f; }
+    }
+  </style>
+
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" class="arrow" />
+    </marker>
+    <marker id="arr-active" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" class="arrow-active" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="360" y="28" class="title">Small-Step Reduction of a Conditional Expression</text>
+
+  <!-- ======================================== -->
+  <!-- General form (top) -->
+  <!-- ======================================== -->
+  <text x="360" y="56" class="rule">if e₁ then e₂ else e₃</text>
+
+  <!-- Two reduction paths from general form -->
+  <!-- Left path: e1 → true ⇒ reduces to e2 -->
+  <text x="175" y="80" class="anno">e₁ → true</text>
+  <line x1="260" y1="62" x2="175" y2="96" class="edge-active" marker-end="url(#arr-active)" />
+  <rect x="120" y="100" width="110" height="30" class="node-highlight" />
+  <text x="175" y="115" class="node-text">→ e₂</text>
+
+  <!-- Right path: e1 → false ⇒ reduces to e3 -->
+  <text x="545" y="80" class="anno">e₁ → false</text>
+  <line x1="460" y1="62" x2="545" y2="96" class="edge-active" marker-end="url(#arr-active)" />
+  <rect x="490" y="100" width="110" height="30" class="node-highlight" />
+  <text x="545" y="115" class="node-text">→ e₃</text>
+
+  <!-- Separator -->
+  <line x1="30" y1="150" x2="690" y2="150" class="sep" />
+
+  <!-- ======================================== -->
+  <!-- Worked example trace -->
+  <!-- ======================================== -->
+  <text x="360" y="172" class="title">Worked Example</text>
+
+  <!-- Step 0: Full expression -->
+  <text x="50" y="202" class="step-label">step 0</text>
+  <rect x="78" y="188" width="580" height="28" class="node" />
+  <text x="368" y="202" class="node-text-sm">if (3 &lt; 2) || (4 = 4) then 10 else 0</text>
+
+  <!-- Arrow to step 1 -->
+  <line x1="368" y1="216" x2="368" y2="240" class="edge" marker-end="url(#arr)" />
+  <text x="420" y="232" class="desc">evaluate condition</text>
+
+  <!-- Step 1: Evaluate 3 < 2 -->
+  <text x="50" y="258" class="step-label">step 1</text>
+  <rect x="78" y="244" width="580" height="28" class="node" />
+  <text x="368" y="258" class="node-text-sm">if false || (4 = 4) then 10 else 0</text>
+  <text x="250" y="238" class="anno">(3 &lt; 2) → false</text>
+
+  <!-- Arrow to step 2 -->
+  <line x1="368" y1="272" x2="368" y2="296" class="edge" marker-end="url(#arr)" />
+  <text x="475" y="288" class="desc">short-circuit: false || e → e</text>
+
+  <!-- Step 2: Apply short-circuit for || -->
+  <text x="50" y="314" class="step-label">step 2</text>
+  <rect x="78" y="300" width="580" height="28" class="node" />
+  <text x="368" y="314" class="node-text-sm">if (4 = 4) then 10 else 0</text>
+  <text x="250" y="294" class="anno">false || (4=4) → (4=4)</text>
+
+  <!-- Arrow to step 3 -->
+  <line x1="368" y1="328" x2="368" y2="352" class="edge" marker-end="url(#arr)" />
+  <text x="445" y="344" class="desc">(4 = 4) → true</text>
+
+  <!-- Step 3: Condition is true -->
+  <text x="50" y="370" class="step-label">step 3</text>
+  <rect x="78" y="356" width="580" height="28" class="node" />
+  <text x="368" y="370" class="node-text-sm">if true then 10 else 0</text>
+  <text x="250" y="350" class="anno">(4 = 4) → true</text>
+
+  <!-- Arrow to result -->
+  <line x1="368" y1="384" x2="368" y2="408" class="edge-active" marker-end="url(#arr-active)" />
+  <text x="460" y="400" class="desc">e₁ → true ⇒ select e₂</text>
+
+  <!-- Step 4: Result -->
+  <text x="50" y="424" class="step-label">result</text>
+  <rect x="318" y="412" width="100" height="28" class="node-highlight" />
+  <text x="368" y="426" class="node-text">10</text>
+</svg>

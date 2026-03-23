@@ -111,7 +111,7 @@ function SOLVE(state):
 
 - **Equivalence to iteration.** Any recursion that does not require multiple active frames can be transformed into iteration with an explicit stack or accumulator.
 
-- **Tail recursion.** A call is **tail-recursive** if the recursive call is the final action; it can be compiled into a loop in languages or compilers with **tail-call elimination (TCE)**. Many mainstream languages (e.g., typical C/Java VMs) **do not guarantee** TCE.
+- **Tail recursion.** A call is **tail-recursive** if the recursive call is the final action; it can be compiled into a loop in languages or compilers with **[[cs/pl/evaluation-order-and-strictness|tail-call elimination]] (TCE)**. Many mainstream languages (e.g., typical C/Java VMs) **do not guarantee** TCE.
 
 - **Mutual recursion.** Two or more functions call each other; termination still follows from a common decreasing measure.
 

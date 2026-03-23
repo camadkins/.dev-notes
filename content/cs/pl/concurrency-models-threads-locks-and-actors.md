@@ -1,20 +1,19 @@
 ---
-title: Concurrency Models - Threads, Locks, and Actors
+title: Concurrency Models — Threads, Locks, and Actors
 description: How programming languages structure concurrent computation using shared memory, synchronization, and message passing.
 draft: false
-comments: true
 tags:
   - cs
   - pl
 date: 2025-10-24
 updated:
 aliases: []
-# diagram: comparative_overview (threads_vs_actors_vs_csp_timeline.svg)
+diagram: concurrency-models-timeline.svg
 ---
 
 ## Why Concurrency Models Exist
 Modern programs rarely run in isolation.  
-From web servers to simulations, systems need to handle many tasks at once - reading files, responding to users, updating shared state.  
+From web servers to simulations, systems need to handle many tasks at once — reading files, responding to users, updating shared state.  
 Concurrency models describe *how those tasks cooperate safely* while sharing time, memory, or messages.
 
 Languages choose concurrency models to balance **speed, safety, and simplicity**.  
@@ -40,7 +39,7 @@ To prevent interference, languages provide **synchronization primitives** such a
 >   unlock(m);
 > }
 > ```
-> Without the lock, increments interleave unpredictably, losing updates - a classic *race condition*.
+> Without the lock, increments interleave unpredictably, losing updates — a classic *race condition*.
 
 ### Advantages
 - **Speed:** direct memory access, zero copying.  
@@ -84,7 +83,7 @@ Messages are **immutable** and **asynchronous**.
 An actor processes one message at a time, guaranteeing isolation without locks.
 
 > [!tip]
-> “Share memory by communicating, not communicate by sharing memory.” - Go proverb
+> “Share memory by communicating, not communicate by sharing memory.” — Go proverb
 
 ### Example
 ```erlang
@@ -154,6 +153,8 @@ CSP strikes a middle ground: it enforces communication discipline like actors bu
 
 ## Comparing Models
 
+![Three-column comparison: threads+locks, actors, CSP](assets/concurrency-models-timeline.svg)
+
 |Feature|Threads + Locks|Actors|CSP|
 |---|---|---|---|
 |Memory sharing|Shared heap|Isolated mailboxes|Explicit channels|
@@ -185,10 +186,10 @@ CSP strikes a middle ground: it enforces communication discipline like actors bu
 
 ---
 
-## Related Notes
+## See also
 
-- [[abstract-machines-cek-secd|Abstract Machines - CEK and SECD]]
+- [[abstract-machines-cek-secd|Abstract Machines — CEK and SECD]]
     
-- [[operational-semantics-big-step-small-step|Operational Semantics - Big-Step & Small-Step]]
+- [[cs/pl/operational-semantics-big-step-small-step|Operational Semantics — Big-Step & Small-Step]]
     
-- [[scoping-binding-and-closures|Scoping, Binding, and Closures]]
+- [[cs/pl/scoping-binding-and-closures|Scoping, Binding, and Closures]]

@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .title { font-size: 14px; font-weight: 700; fill: #e8e8e8; text-anchor: middle; }
+    .sub { font-size: 10px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .bar { fill: rgba(30,40,55,0.95); stroke-width: 1.5; rx: 6; }
+    .bar-co { stroke: #3fb950; }
+    .bar-inv { stroke: #58a6ff; }
+    .bar-contra { stroke: #d29922; }
+    .bar-label { font-size: 13px; fill: #e8e8e8; font-weight: 700; dominant-baseline: central; }
+    .bar-symbol { font-size: 16px; font-weight: 700; dominant-baseline: central; text-anchor: middle; }
+    .sym-co { fill: #3fb950; }
+    .sym-inv { fill: #58a6ff; }
+    .sym-contra { fill: #d29922; }
+    .desc { font-size: 10px; fill: #8b949e; dominant-baseline: central; }
+    .example { font-size: 11px; fill: #e8e8e8; font-style: italic; dominant-baseline: central; }
+    .arrow-dir { stroke-width: 2; fill: none; }
+    .arr-co { stroke: #3fb950; }
+    .arr-inv { stroke: #58a6ff; }
+    .arr-contra { stroke: #d29922; }
+    .type-a { font-size: 10px; fill: #8b949e; text-anchor: middle; }
+    .type-b { font-size: 10px; fill: #8b949e; text-anchor: middle; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    .dir-label { font-size: 9px; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+    .dir-co { fill: #3fb950; }
+    .dir-inv { fill: #58a6ff; }
+    .dir-contra { fill: #d29922; }
+
+    @media (prefers-color-scheme: light) {
+      .title { fill: #284b63; }
+      .bar { fill: #1a1a2e; }
+      .bar-co { stroke: #1a7f37; }
+      .bar-inv { stroke: #284b63; }
+      .bar-contra { stroke: #c87800; }
+      .bar-label { fill: #e8e8e8; }
+      .sym-co { fill: #1a7f37; }
+      .sym-inv { fill: #284b63; }
+      .sym-contra { fill: #c87800; }
+      .desc { fill: #6e7781; }
+      .example { fill: #e8e8e8; }
+      .arr-co { stroke: #1a7f37; }
+      .arr-inv { stroke: #284b63; }
+      .arr-contra { stroke: #c87800; }
+      .type-a { fill: #6e7781; }
+      .type-b { fill: #6e7781; }
+      .sep { stroke: #e5e5e5; }
+      .dir-co { fill: #1a7f37; }
+      .dir-inv { fill: #284b63; }
+      .dir-contra { fill: #c87800; }
+    }
+  </style>
+  <defs>
+    <marker id="arr-g" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#3fb950"/>
+    </marker>
+    <marker id="arr-b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#58a6ff"/>
+    </marker>
+    <marker id="arr-y" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#d29922"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="280" y="28" class="title">Variance Ladder</text>
+  <text x="280" y="44" class="sub">How subtyping lifts through type constructors</text>
+
+  <!-- Column headers -->
+  <text x="80" y="74" class="type-a">If  A &lt;: B</text>
+  <line x1="20" y1="80" x2="540" y2="80" class="sep"/>
+
+  <!-- === Row 1: Covariant (+) === -->
+  <rect class="bar bar-co" x="20" y="95" width="520" height="52"/>
+
+  <!-- Symbol -->
+  <text x="48" y="121" class="bar-symbol sym-co">+</text>
+
+  <!-- Label -->
+  <text x="80" y="112" class="bar-label">Covariant</text>
+  <text x="80" y="130" class="desc">Preserves direction</text>
+
+  <!-- Direction arrows: A <: B => F[A] <: F[B] -->
+  <text x="275" y="108" class="type-a">F[A]</text>
+  <path class="arrow-dir arr-co" d="M 295,110 L 340,110" marker-end="url(#arr-g)"/>
+  <text x="375" y="108" class="type-a">F[B]</text>
+  <text x="322" y="100" class="dir-label dir-co">&lt;:</text>
+
+  <!-- Example -->
+  <text x="480" y="121" class="example">List[+T]</text>
+
+  <!-- Annotation -->
+  <text x="322" y="138" class="desc">same direction as A &lt;: B</text>
+
+  <!-- === Row 2: Invariant (0) === -->
+  <rect class="bar bar-inv" x="20" y="165" width="520" height="52"/>
+
+  <!-- Symbol -->
+  <text x="48" y="191" class="bar-symbol sym-inv">0</text>
+
+  <!-- Label -->
+  <text x="80" y="182" class="bar-label">Invariant</text>
+  <text x="80" y="200" class="desc">No subtyping</text>
+
+  <!-- Direction: no arrow, X mark -->
+  <text x="275" y="178" class="type-a">F[A]</text>
+  <line class="arrow-dir arr-inv" x1="298" y1="180" x2="336" y2="180" stroke-dasharray="4 3"/>
+  <text x="322" y="170" class="dir-label dir-inv">=/=</text>
+  <text x="375" y="178" class="type-a">F[B]</text>
+
+  <!-- Example -->
+  <text x="480" y="191" class="example">Array[T]</text>
+
+  <!-- Annotation -->
+  <text x="322" y="208" class="desc">neither direction holds</text>
+
+  <!-- === Row 3: Contravariant (-) === -->
+  <rect class="bar bar-contra" x="20" y="235" width="520" height="52"/>
+
+  <!-- Symbol -->
+  <text x="48" y="261" class="bar-symbol sym-contra">-</text>
+
+  <!-- Label -->
+  <text x="80" y="252" class="bar-label">Contravariant</text>
+  <text x="80" y="270" class="desc">Reverses direction</text>
+
+  <!-- Direction arrows: A <: B => F[B] <: F[A]  (reversed) -->
+  <text x="275" y="248" class="type-a">F[B]</text>
+  <path class="arrow-dir arr-contra" d="M 295,250 L 340,250" marker-end="url(#arr-y)"/>
+  <text x="375" y="248" class="type-a">F[A]</text>
+  <text x="322" y="240" class="dir-label dir-contra">&lt;:</text>
+
+  <!-- Example -->
+  <text x="480" y="261" class="example">Func[-T]</text>
+
+  <!-- Annotation -->
+  <text x="322" y="278" class="desc">opposite direction to A &lt;: B</text>
+
+  <!-- Bottom summary -->
+  <text x="280" y="316" class="desc">Read-only = covariant  |  Write-only = contravariant  |  Read+Write = invariant</text>
+</svg>

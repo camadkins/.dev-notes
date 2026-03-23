@@ -2,17 +2,12 @@
 title: Records, Variants, and Pattern Matching
 description: Structural aggregates and sum types; how pattern matching decomposes them and ensures type-safe exhaustive handling.
 draft: false
-comments: true
 tags:
   - cs
   - pl
 date: 2025-10-16
 updated:
 aliases: []
-# diagrams:
-#  - record_vs_tuple.svg - compare labeled fields vs positional tuples.
-#  - variant_tree.svg - show constructors as branches under a sum type.
-#  - match_exhaustiveness.svg - visualize coverage and redundant pattern checks.
 ---
 
 ## Overview
@@ -46,9 +41,7 @@ Records make code more self-documenting and robust to field reordering.
 |Extensibility|rigid|flexible (with optional defaults)|
 |Example|`(1.0, 2.0)`|`{x=1.0; y=2.0}`|
 
-> [!example]  
-> **Diagram (`record_vs_tuple.svg`)**  
-> Show two boxes - one positional (tuple) and one labeled (record) - both containing the same values, emphasizing how field names improve readability.
+![Tuple vs record access semantics](assets/records-vs-tuple.svg)
 
 ---
 
@@ -72,7 +65,7 @@ The compiler tracks which variant is active at runtime.
 > Variants correspond to **sum types**:  
 > `Shape = Circle(radius) + Square(side) + Rectangle(width,height)`.
 
-Variants can be nested, parameterized, or recursive - enabling expressive hierarchies like:
+Variants can be nested, parameterized, or recursive — enabling expressive hierarchies like:
 
 ```ocaml
 type 'a tree = Leaf | Node of 'a * 'a tree * 'a tree
@@ -98,7 +91,7 @@ Each clause tests the constructor and binds its contents to names.
 Pattern matching replaces chains of conditionals with a concise, declarative form.
 
 > [!tip]  
-> Matching is _exhaustive_ and _typed_ - every case is checked for consistency by the compiler.
+> Matching is _exhaustive_ and _typed_ — every case is checked for consistency by the compiler.
 
 ---
 
@@ -142,9 +135,7 @@ match s with
 > Non-exhaustive matches cause runtime errors in many languages.  
 > Some, like Haskell and OCaml, statically detect missing cases and issue warnings.
 
-> [!example]  
-> **Diagram (`match_exhaustiveness.svg`)**  
-> Tree visualization: branches for each variant, with missing leaves highlighted as uncovered.
+![Pattern match exhaustiveness analysis](assets/records-match-exhaustiveness.svg)
 
 ---
 
@@ -171,7 +162,7 @@ Renaming is allowed during binding:
 ```
 
 > [!note]  
-> Partial record patterns are permitted - unmentioned fields are ignored.
+> Partial record patterns are permitted — unmentioned fields are ignored.
 
 ---
 
@@ -212,7 +203,7 @@ This recursive style forms the basis of interpreters, compilers, and type checke
 >     
 
 > [!tip]  
-> Treat `_` as a _temporary placeholder_ during prototyping - replace it with explicit cases for maintainability.
+> Treat `_` as a _temporary placeholder_ during prototyping — replace it with explicit cases for maintainability.
 
 ---
 
@@ -228,23 +219,12 @@ This recursive style forms the basis of interpreters, compilers, and type checke
 
 ---
 
-## Diagram Concepts
+## See also
 
-- `record_vs_tuple.svg`: labels vs positions in structured data.
+- [[cs/pl/parametric-polymorphism-adts|Parametric Polymorphism & ADTs]]
     
-- `variant_tree.svg`: constructors and their branches.
+- [[cs/pl/objects-classes-and-dispatch|Objects, Classes, and Dispatch]]
     
-- `match_exhaustiveness.svg`: tree showing coverage analysis.
+- [[cs/pl/language-design-values-variables-environments|Values, Variables & Environments]]
     
-
----
-
-## Related Notes
-
-- [[parametric-polymorphism-adts|Parametric Polymorphism & ADTs]]
-    
-- [[objects-classes-and-dispatch|Objects, Classes, and Dispatch]]
-    
-- [[language-design-values-variables-environments|Values, Variables & Environments]]
-    
-- [[type-systems-goals-guarantees|Type Systems - Goals & Guarantees]]
+- [[cs/pl/type-systems-goals-guarantees|Type Systems — Goals & Guarantees]]

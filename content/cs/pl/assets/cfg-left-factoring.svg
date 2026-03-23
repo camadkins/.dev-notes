@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 340" fill="none">
+  <style>
+    text { font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .title { font-size: 15px; font-weight: 700; text-anchor: middle; }
+    .panel-title { font-size: 13px; font-weight: 700; }
+    .rule { font-size: 12px; }
+    .nonterminal { font-weight: 700; }
+    .annotation { font-size: 11px; font-style: italic; }
+    .arrow-label { font-size: 11px; font-weight: 700; }
+
+    /* Dark mode (default) */
+    .title { fill: #58a6ff; }
+    .panel-title { fill: #58a6ff; }
+    .rule { fill: #c9d1d9; }
+    .nonterminal { fill: #e8e8e8; }
+    .highlight { fill: #3fb950; }
+    .annotation { fill: #d29922; }
+    .arrow-label { fill: #d29922; }
+    .panel { stroke: #58a6ff; stroke-width: 1.5; fill: rgba(30,40,55,0.95); rx: 6; }
+    .separator { stroke: #30363d; stroke-dasharray: 5 4; }
+    .transform-arrow { stroke: #d29922; stroke-width: 2; }
+    .prefix-underline { stroke: #3fb950; stroke-width: 2; stroke-dasharray: 3 2; }
+    .new-box { stroke: #3fb950; stroke-width: 1.5; fill: rgba(63,185,80,0.06); rx: 4; }
+
+    @media (prefers-color-scheme: light) {
+      .title { fill: #284b63; }
+      .panel-title { fill: #284b63; }
+      .rule { fill: #4e4e4e; }
+      .nonterminal { fill: #333; }
+      .highlight { fill: #1a7f37; }
+      .annotation { fill: #9e6000; }
+      .arrow-label { fill: #9e6000; }
+      .panel { stroke: #284b63; fill: rgba(245,248,251,0.95); }
+      .separator { stroke: #e5e5e5; }
+      .transform-arrow { stroke: #c87800; }
+      .prefix-underline { stroke: #1a7f37; }
+      .new-box { stroke: #1a7f37; fill: rgba(26,127,55,0.05); }
+    }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#d29922"/>
+    </marker>
+    <marker id="arrowhead-light" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#c87800"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="370" y="28" class="title">Left Factoring: Shared Prefix Extraction</text>
+
+  <!-- BEFORE panel -->
+  <rect x="20" y="50" width="310" height="270" class="panel"/>
+  <text x="175" y="78" class="panel-title" text-anchor="middle">Before</text>
+
+  <!-- Separator under panel title -->
+  <line x1="40" y1="88" x2="310" y2="88" class="separator"/>
+
+  <!-- Before: Rule 1 -->
+  <text x="40" y="120" class="rule">
+    <tspan class="nonterminal">Stmt</tspan>
+    <tspan dx="4">-></tspan>
+  </text>
+  <text x="40" y="144" class="rule">
+    <tspan dx="20" class="highlight">if Expr then Stmt</tspan>
+    <tspan> else Stmt</tspan>
+  </text>
+
+  <!-- Before: Rule 2 -->
+  <text x="40" y="184" class="rule">
+    <tspan class="nonterminal">Stmt</tspan>
+    <tspan dx="4">-></tspan>
+  </text>
+  <text x="40" y="208" class="rule">
+    <tspan dx="20" class="highlight">if Expr then Stmt</tspan>
+  </text>
+
+  <!-- Underline shared prefix on rule 1 -->
+  <line x1="60" y1="150" x2="230" y2="150" class="prefix-underline"/>
+  <!-- Underline shared prefix on rule 2 -->
+  <line x1="60" y1="214" x2="230" y2="214" class="prefix-underline"/>
+
+  <!-- Annotation: shared prefix -->
+  <text x="145" y="248" class="annotation" text-anchor="middle">shared prefix</text>
+
+  <!-- Annotation: LL(1) conflict -->
+  <text x="175" y="275" class="annotation" text-anchor="middle">LL(1) parser cannot decide</text>
+  <text x="175" y="292" class="annotation" text-anchor="middle">which rule to follow</text>
+
+  <!-- Transform arrow -->
+  <line x1="345" y1="185" x2="405" y2="185" class="transform-arrow" marker-end="url(#arrowhead)"/>
+  <text x="375" y="175" class="arrow-label" text-anchor="middle">factor</text>
+
+  <!-- AFTER panel -->
+  <rect x="420" y="50" width="300" height="270" class="panel"/>
+  <text x="570" y="78" class="panel-title" text-anchor="middle">After</text>
+
+  <!-- Separator under panel title -->
+  <line x1="440" y1="88" x2="700" y2="88" class="separator"/>
+
+  <!-- After: Rule 1 -->
+  <text x="440" y="120" class="rule">
+    <tspan class="nonterminal">Stmt</tspan>
+    <tspan dx="4">-></tspan>
+  </text>
+  <text x="440" y="144" class="rule">
+    <tspan dx="20">if Expr then Stmt</tspan>
+    <tspan class="highlight"> Tail</tspan>
+  </text>
+
+  <!-- After: Rule 2 (new Tail nonterminal) -->
+  <rect x="435" y="170" width="270" height="80" class="new-box"/>
+  <text x="440" y="196" class="rule">
+    <tspan class="nonterminal highlight">Tail</tspan>
+    <tspan dx="4">-></tspan>
+  </text>
+  <text x="440" y="220" class="rule">
+    <tspan dx="20">else Stmt</tspan>
+  </text>
+  <text x="570" y="220" class="rule">
+    <tspan>|</tspan>
+    <tspan dx="6">&#x03B5;</tspan>
+  </text>
+
+  <!-- Annotation: new nonterminal -->
+  <text x="570" y="268" class="annotation" text-anchor="middle">new Tail nonterminal</text>
+  <text x="570" y="285" class="annotation" text-anchor="middle">captures differing suffixes</text>
+
+  <!-- Annotation: LL(1) compatible -->
+  <text x="570" y="308" class="annotation" text-anchor="middle">LL(1) compatible</text>
+</svg>

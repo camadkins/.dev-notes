@@ -2,18 +2,16 @@
 title: Evaluation Order & Strictness
 description: How evaluation strategy affects when expressions are computed, whether functions are strict, and how non-strictness shapes language behavior.
 draft: false
-comments: true
 tags:
   - cs
   - pl
 date: 2025-10-24
 updated:
 aliases: []
-# diagram: evaluation_order_comparison.svg - show a side-by-side tree of strict vs non-strict evaluation: (f (g x)) reducing left-to-right vs only if needed.
 ---
 
 ## Why Evaluation Order Matters
-In a programming language, *when* and *whether* arguments are evaluated changes everything - performance, side effects, and even termination.  
+In a programming language, *when* and *whether* arguments are evaluated changes everything — performance, side effects, and even termination.  
 Evaluation order defines **how the meaning of expressions unfolds** during execution.
 
 Languages that evaluate arguments *before* applying functions behave differently from those that defer evaluation until the value is actually needed.  
@@ -25,7 +23,7 @@ This difference shapes the boundary between **strict** and **non-strict** semant
 
 ---
 
-## Strictness - The Core Idea
+## Strictness — The Core Idea
 A function `f` is **strict** if it always evaluates its argument before producing a result.  
 Formally:
 ```
@@ -66,7 +64,7 @@ main = square (print 3)
 
 - **Call-by-Value:** `print 3` runs immediately, side effect happens, result (`()`) passed to `square`.
     
-- **Call-by-Need:** `print 3` is delayed until `x` is used. Since `x` is used twice, its result is _shared_ - printed only once.
+- **Call-by-Need:** `print 3` is delayed until `x` is used. Since `x` is used twice, its result is _shared_ — printed only once.
     
 
 > [!example]  
@@ -74,27 +72,7 @@ main = square (print 3)
 
 ---
 
-## Diagram Explanation - Strict vs Non-Strict
-
-The diagram (suggested: `evaluation_order_comparison.svg`) should visualize a simple call `(f (g x))` in two settings:
-
-- **Strict (CBV):**
-    
-    1. Evaluate `g x` fully.
-        
-    2. Apply `f` to the result.  
-        → Execution tree reduces _inside-out_ (arguments first).
-        
-- **Non-Strict (CBN/CBNeed):**
-    
-    1. Pass `(g x)` unevaluated into `f`.
-        
-    2. Evaluate `g x` only if `f` actually uses it.  
-        → Execution tree reduces _outside-in_ (functions first).
-        
-
-Visually, show arrows labeled _“needed value?”_ to indicate deferred computation.  
-This captures the intuition that strictness is about **when work happens**.
+![Side-by-side strict vs non-strict eval trees](assets/eval-order-comparison.svg)
 
 ---
 
@@ -109,7 +87,7 @@ Not all constructs are uniformly strict. Some are strict only in certain positio
 |`or(a, b)`|`b`|
 |`pair(a, b)`|none (usually strict in both)|
 
-This selective evaluation is what makes Boolean logic efficient - you don’t compute the second operand unless necessary.
+This selective evaluation is what makes Boolean logic efficient — you don’t compute the second operand unless necessary.
 
 > [!note]  
 > In lazy languages, _all_ expressions behave this way by default.  
@@ -124,7 +102,7 @@ In an eager language, effects occur immediately.
 In a lazy language, effects happen only when a value is demanded.
 
 > [!warning]  
-> This means non-strict evaluation can delay - or even suppress - side effects entirely.  
+> This means non-strict evaluation can delay — or even suppress — side effects entirely.  
 > A logging expression might never execute if its value isn’t used.
 
 Consider:
@@ -166,7 +144,7 @@ Pure call-by-name re-evaluates expressions each time they’re used:
 
 Here, `(+ 1 2)` would be computed twice.
 
-**Call-by-need** introduces _sharing_ - results are memoized after first evaluation.
+**Call-by-need** introduces _sharing_ — results are memoized after first evaluation.
 
 > [!example]  
 > In Haskell:
@@ -185,7 +163,7 @@ This sharing is what makes laziness _practical_: predictable performance and no 
 ## Performance and Reasoning
 
 Strict evaluation is easy to reason about because order is fixed.  
-Lazy evaluation can feel unpredictable - expressions might not execute at all - but it enables powerful patterns like infinite data structures.
+Lazy evaluation can feel unpredictable — expressions might not execute at all — but it enables powerful patterns like infinite data structures.
 
 |Property|Strict Evaluation|Non-Strict Evaluation|
 |---|---|---|
@@ -195,7 +173,7 @@ Lazy evaluation can feel unpredictable - expressions might not execute at all - 
 |Expressiveness|Simpler|More flexible (e.g., define streams)|
 
 > [!tip]  
-> Non-strict semantics allow **infinite structures** and **control constructs as functions** - features impossible in purely strict languages.
+> Non-strict semantics allow **infinite structures** and **control constructs as functions** — features impossible in purely strict languages.
 
 ---
 
@@ -218,10 +196,10 @@ Strict evaluation simplifies reasoning about time and memory; laziness improves 
 
 ---
 
-## Related Notes
+## See also
 
-- [[lambda-calculus-evaluation-strategies|Lambda Calculus - Evaluation Strategies]]
+- [[cs/pl/lambda-calculus-evaluation-strategies|Lambda Calculus — Evaluation Strategies]]
     
-- [[booleans-conditionals-semantics|Booleans & Conditionals - Semantics and Evaluation]]
+- [[cs/pl/booleans-conditionals-semantics|Booleans & Conditionals — Semantics and Evaluation]]
     
-- [[operational-semantics-big-step-small-step|Operational Semantics - Big-Step & Small-Step]]
+- [[cs/pl/operational-semantics-big-step-small-step|Operational Semantics — Big-Step & Small-Step]]

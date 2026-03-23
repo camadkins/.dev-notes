@@ -7,7 +7,7 @@ tags:
   - cs
   - dsa
 date: 2025-10-16
-updated: 2025-10-29
+updated: 2026-03-14
 aliases: []
 ---
 
@@ -33,7 +33,7 @@ Efficient algorithms scale to larger inputs, reduce resource usage, and deliver 
 > - **RAM model** with unit-cost integer arithmetic is standard for intro analysis.
 > - For large integers, hashing, I/O, or cache effects, annotate what counts as O(1) vs variable.
 
-![[efficiency_layers.svg]]
+![[efficiency-layers.svg]]
 
 ### 1. Asymptotic Growth
 Describes how runtime grows with input size `n`:
@@ -97,12 +97,12 @@ Theoretical complexity assumes _worst-case_ or _average-case_ over all inputs, b
 
 Examples:
 
-- **QuickSort**: worst-case O(n²), average O(n log n), but input ordering heavily impacts runtime.
+- **[[quick-sort|QuickSort]]**: worst-case O(n²), average O(n log n), but input ordering heavily impacts runtime.
     
 - **Hashing**: expected O(1), but collisions can make it O(n).
     
 
-> ![[performance_vs_inputsize.svg]]
+> ![[efficiency-perf-vs-input.svg]]
 
 > [!tip]  
 > Benchmark on realistic workloads, not just random data.
@@ -113,9 +113,9 @@ Runtime isn’t everything - some algorithms trade speed for memory.
 
 |Algorithm|Time|Space|Trade-off|
 |---|---|---|---|
-|Merge Sort|O(n log n)|O(n)|Simpler recursion, more memory|
-|Heap Sort|O(n log n)|O(1)|Slower constant, less memory|
-|Counting Sort|O(n + k)|O(k)|Fast for small key ranges|
+|[[merge-sort|Merge Sort]]|O(n log n)|O(n)|Simpler recursion, more memory|
+|[[heapsort|Heap Sort]]|O(n log n)|O(1)|Slower constant, less memory|
+|[[counting-sort|Counting Sort]]|O(n + k)|O(k)|Fast for small key ranges|
 
 Choose based on _context_: memory-constrained systems (embedded) may prioritize O(1) space.
 
@@ -157,10 +157,10 @@ Choose based on _context_: memory-constrained systems (embedded) may prioritize 
 
 |Algorithm|Time|Space|Stability|Practical Use|
 |---|---|---|---|---|
-|QuickSort|O(n log n) avg|O(log n)|No|General-purpose|
-|MergeSort|O(n log n)|O(n)|Yes|External sorting|
-|HeapSort|O(n log n)|O(1)|No|Memory-limited systems|
-|InsertionSort|O(n²)|O(1)|Yes|Small datasets|
+|[[quick-sort|QuickSort]]|O(n log n) avg|O(log n)|No|General-purpose|
+|[[merge-sort|MergeSort]]|O(n log n)|O(n)|Yes|External sorting|
+|[[heapsort|HeapSort]]|O(n log n)|O(1)|No|Memory-limited systems|
+|[[insertion-sort|InsertionSort]]|O(n²)|O(1)|Yes|Small datasets|
 
 > [!tip]  
 > Hybrid algorithms (e.g., **Timsort**) combine multiple strategies to balance constants and asymptotic growth.

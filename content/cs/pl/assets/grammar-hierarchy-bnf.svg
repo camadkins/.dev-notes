@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 640" style="background:transparent" font-family="'SF Mono','Fira Code','Consolas',monospace">
+  <defs>
+    <marker id="ah" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#93a3b8" stroke-width="1.2"/>
+    </marker>
+    <style>
+      .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.4; }
+      .hl   { fill: rgba(30,50,75,0.95); stroke: #58a6ff; stroke-width: 2.2; }
+      .txt  { fill: #e8e8e8; font-size: 13px; }
+      .desc { fill: #8b949e; font-size: 11px; }
+      .anno { fill: #d29922; font-size: 12px; font-weight: bold; }
+      .title { fill: #e8e8e8; font-size: 15px; font-weight: bold; }
+      .sep  { stroke: #30363d; stroke-dasharray: 6,4; stroke-width: 1; }
+      .edge { stroke: #93a3b8; stroke-width: 1.2; fill: none; }
+      .code { fill: #e8e8e8; font-size: 11.5px; }
+      .label { fill: #58a6ff; font-size: 12px; font-weight: bold; }
+      @media (prefers-color-scheme: light) {
+        .node { fill: rgba(235,240,248,0.95); stroke: #0969da; }
+        .hl   { fill: rgba(218,230,248,0.95); stroke: #0969da; }
+        .txt  { fill: #1f2328; }
+        .desc { fill: #59636e; }
+        .anno { fill: #9a6700; }
+        .title { fill: #1f2328; }
+        .sep  { stroke: #d1d9e0; }
+        .edge { stroke: #59636e; }
+        .code { fill: #1f2328; }
+        .label { fill: #0969da; }
+        marker#ah path { stroke: #59636e; }
+      }
+    </style>
+  </defs>
+
+  <!-- === TOP: Chomsky Hierarchy Pyramid === -->
+  <text x="390" y="36" text-anchor="middle" class="title">Chomsky Hierarchy</text>
+
+  <!-- Pyramid: apex at top, widest at bottom. Each layer is a trapezoid. -->
+  <!-- Layer heights: 55px each, gap 6px. Y starts at 55. Center x=310 -->
+  <!-- cx=310, top-width grows per layer -->
+
+  <!-- Type 0: Unrestricted (apex, narrowest) y=55..110 -->
+  <polygon points="240,55 380,55 420,110 200,110" class="node"/>
+  <text x="310" y="78" text-anchor="middle" class="txt" font-size="12" font-weight="bold">Type 0</text>
+  <text x="310" y="95" text-anchor="middle" class="desc">Unrestricted</text>
+
+  <!-- Type 1: Context-Sensitive y=116..171 -->
+  <polygon points="200,116 420,116 470,171 150,171" class="node"/>
+  <text x="310" y="139" text-anchor="middle" class="txt" font-size="12" font-weight="bold">Type 1</text>
+  <text x="310" y="156" text-anchor="middle" class="desc">Context-Sensitive</text>
+
+  <!-- Type 2: Context-Free (HIGHLIGHTED) y=177..232 -->
+  <polygon points="150,177 470,177 520,232 100,232" class="hl"/>
+  <text x="310" y="199" text-anchor="middle" class="txt" font-size="12" font-weight="bold">Type 2</text>
+  <text x="310" y="216" text-anchor="middle" class="txt" font-size="11">Context-Free (CFG)</text>
+
+  <!-- Type 3: Regular (base, widest) y=238..293 -->
+  <polygon points="100,238 520,238 570,293 50,293" class="node"/>
+  <text x="310" y="261" text-anchor="middle" class="txt" font-size="12" font-weight="bold">Type 3</text>
+  <text x="310" y="278" text-anchor="middle" class="desc">Regular</text>
+
+  <!-- Right-side labels: recognizer for each type -->
+  <text x="440" y="82" text-anchor="start" class="desc">Turing machines</text>
+  <text x="488" y="143" text-anchor="start" class="desc">Linear bounded automata</text>
+  <text x="538" y="204" text-anchor="start" class="desc">Pushdown automata</text>
+  <text x="588" y="265" text-anchor="start" class="desc">Finite automata</text>
+
+  <!-- Annotation: BNF/EBNF callout for Type 2 -->
+  <line x1="540" y1="216" x2="575" y2="216" class="edge"/>
+  <line x1="575" y1="216" x2="575" y2="228" class="edge"/>
+  <text x="578" y="228" text-anchor="start" class="anno">BNF / EBNF</text>
+  <text x="578" y="242" text-anchor="start" class="anno">live here</text>
+
+  <!-- Separator -->
+  <line x1="20" y1="320" x2="760" y2="320" class="sep"/>
+
+  <!-- === BOTTOM: BNF vs EBNF Comparison === -->
+  <text x="390" y="352" text-anchor="middle" class="title">BNF vs EBNF Notation</text>
+
+  <!-- BNF box (left) -->
+  <rect x="25" y="368" width="345" height="250" rx="6" class="node"/>
+  <text x="197" y="392" text-anchor="middle" class="label">BNF</text>
+
+  <text x="45" y="416" class="code">&lt;expr&gt; ::= &lt;expr&gt; + &lt;term&gt;</text>
+  <text x="45" y="434" class="code">           | &lt;term&gt;</text>
+  <text x="45" y="458" class="code">&lt;term&gt; ::= &lt;term&gt; * &lt;factor&gt;</text>
+  <text x="45" y="476" class="code">           | &lt;factor&gt;</text>
+  <text x="45" y="500" class="code">&lt;factor&gt; ::= ( &lt;expr&gt; )</text>
+  <text x="45" y="518" class="code">             | id | num</text>
+
+  <line x1="45" y1="534" x2="350" y2="534" class="sep"/>
+  <text x="45" y="552" class="desc">Symbols: ::=  |  &lt; &gt;</text>
+  <text x="45" y="568" class="desc">Repetition via recursion</text>
+  <text x="45" y="584" class="desc">Optional via extra rules</text>
+  <text x="45" y="602" class="desc">Tools: YACC, Bison (classic)</text>
+
+  <!-- EBNF box (right) -->
+  <rect x="410" y="368" width="345" height="250" rx="6" class="node"/>
+  <text x="582" y="392" text-anchor="middle" class="label">EBNF</text>
+
+  <text x="430" y="416" class="code">expr   = term { ("+" | "-")</text>
+  <text x="430" y="434" class="code">         term } ;</text>
+  <text x="430" y="458" class="code">term   = factor { ("*" | "/")</text>
+  <text x="430" y="476" class="code">         factor } ;</text>
+  <text x="430" y="500" class="code">factor = "(" expr ")"</text>
+  <text x="430" y="518" class="code">       | id | num ;</text>
+
+  <line x1="430" y1="534" x2="735" y2="534" class="sep"/>
+  <text x="430" y="552" class="desc">Symbols: =  |  { }  [ ]  ( )</text>
+  <text x="430" y="568" class="desc">{ } for repetition (0+)</text>
+  <text x="430" y="584" class="desc">[ ] for optional (0 or 1)</text>
+  <text x="430" y="602" class="desc">Tools: ANTLR, PEG (modern)</text>
+
+  <!-- Equivalence arrows between boxes -->
+  <line x1="374" y1="460" x2="406" y2="460" class="edge" marker-end="url(#ah)"/>
+  <line x1="406" y1="500" x2="374" y2="500" class="edge" marker-end="url(#ah)"/>
+  <text x="390" y="475" text-anchor="middle" class="anno" font-size="10">same</text>
+  <text x="390" y="488" text-anchor="middle" class="anno" font-size="10">power</text>
+</svg>

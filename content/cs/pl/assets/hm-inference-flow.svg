@@ -1,0 +1,186 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 720" style="background:transparent">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#93a3b8" stroke="none"/>
+    </marker>
+    <marker id="arrow-gold" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#d29922" stroke="none"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#58a6ff" stroke="none"/>
+    </marker>
+    <style>
+      text { font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+      .title { font-size: 15px; fill: #e8e8e8; font-weight: bold; }
+      .node-label { font-size: 12px; fill: #e8e8e8; font-weight: bold; }
+      .node-detail { font-size: 10px; fill: #8b949e; }
+      .anno { font-size: 10px; fill: #d29922; font-style: italic; }
+      .edge-label { font-size: 9px; fill: #93a3b8; }
+      .phase-label { font-size: 11px; fill: #d29922; font-weight: bold; }
+      .code { font-size: 10px; fill: #8b949e; }
+      @media (prefers-color-scheme: light) {
+        .title { fill: #1e2937; }
+        .node-label { fill: #1e2937; }
+        .node-detail { fill: #4b5563; }
+        .anno { fill: #b45309; }
+        .edge-label { fill: #4b5563; }
+        .phase-label { fill: #b45309; }
+        .code { fill: #4b5563; }
+        .node-box { fill: rgba(241,245,249,0.95) !important; stroke: #2563eb !important; }
+        .sep-line { stroke: #d1d5db !important; }
+        .edge-line { stroke: #4b5563 !important; }
+      }
+    </style>
+  </defs>
+
+  <!-- Grid: col1=80, col2=320, col3=560, col4=740  row spacing ~110 -->
+
+  <!-- Title -->
+  <text x="440" y="34" text-anchor="middle" class="title">Algorithm W — AST Traversal with Constraint / Unification / Substitution</text>
+
+  <!-- ═══════════ TOP: W(Γ, expr) entry ═══════════ -->
+  <rect x="310" y="52" width="260" height="44" rx="6" class="node-box" fill="rgba(30,40,55,0.95)" stroke="#58a6ff" stroke-width="1.5"/>
+  <text x="440" y="72" text-anchor="middle" class="node-label">W(Γ, expr)</text>
+  <text x="440" y="86" text-anchor="middle" class="node-detail">returns (S, τ) — substitution + type</text>
+
+  <!-- Dispatch arrows to four cases -->
+  <!-- Var -->
+  <line x1="370" y1="96" x2="120" y2="148" class="edge-line" stroke="#93a3b8" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="230" y="118" text-anchor="middle" class="edge-label">match</text>
+
+  <!-- Lambda -->
+  <line x1="400" y1="96" x2="320" y2="148" class="edge-line" stroke="#93a3b8" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- App -->
+  <line x1="480" y1="96" x2="560" y2="148" class="edge-line" stroke="#93a3b8" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- Let -->
+  <line x1="510" y1="96" x2="760" y2="148" class="edge-line" stroke="#93a3b8" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- ═══════════ CASE 1: Variable ═══════════ -->
+  <rect x="20" y="148" width="200" height="60" rx="6" class="node-box" fill="rgba(30,40,55,0.95)" stroke="#58a6ff" stroke-width="1.5"/>
+  <text x="120" y="170" text-anchor="middle" class="node-label">Var x</text>
+  <text x="120" y="184" text-anchor="middle" class="node-detail">look up Γ(x)</text>
+  <text x="120" y="198" text-anchor="middle" class="code">→ (∅, instantiate(σ))</text>
+  <text x="120" y="224" text-anchor="middle" class="anno">fresh vars replace ∀-bound</text>
+
+  <!-- ═══════════ CASE 2: Lambda ═══════════ -->
+  <rect x="230" y="148" width="200" height="60" rx="6" class="node-box" fill="rgba(30,40,55,0.95)" stroke="#58a6ff" stroke-width="1.5"/>
+  <text x="330" y="170" text-anchor="middle" class="node-label">Lambda λx.e</text>
+  <text x="330" y="184" text-anchor="middle" class="node-detail">α ← fresh; Γ' = Γ ∪ {x:α}</text>
+  <text x="330" y="198" text-anchor="middle" class="code">→ (S₁, S₁(α) → τ₁)</text>
+
+  <!-- Lambda recursive call -->
+  <line x1="330" y1="208" x2="330" y2="258" class="edge-line" stroke="#58a6ff" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arrow-blue)"/>
+  <text x="338" y="240" class="edge-label">recurse W(Γ', e)</text>
+
+  <rect x="260" y="258" width="140" height="34" rx="4" class="node-box" fill="rgba(30,40,55,0.95)" stroke="#58a6ff" stroke-width="1"/>
+  <text x="330" y="280" text-anchor="middle" class="node-detail">(S₁, τ₁) = W(Γ', e)</text>
+
+  <!-- ═══════════ CASE 3: Application ═══════════ -->
+  <rect x="450" y="148" width="220" height="60" rx="6" class="node-box" fill="rgba(30,40,55,0.95)" stroke="#58a6ff" stroke-width="1.5"/>
+  <text x="560" y="170" text-anchor="middle" class="node-label">App (e₁ e₂)</text>
+  <text x="560" y="184" text-anchor="middle" class="node-detail">infer e₁ then e₂, unify</text>
+  <text x="560" y="198" text-anchor="middle" class="code">→ (S₃∘S₂∘S₁, S₃(α))</text>
+
+  <!-- App step 1: infer e1 -->
+  <line x1="520" y1="208" x2="480" y2="258" class="edge-line" stroke="#58a6ff" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arrow-blue)"/>
+  <text x="480" y="240" text-anchor="end" class="edge-label">W(Γ, e₁)</text>
+  <rect x="410" y="258" width="140" height="34" rx="4" class="node-box" fill="rgba(30,40,55,0.95)" stroke="#58a6ff" stroke-width="1"/>
+  <text x="480" y="280" text-anchor="middle" class="node-detail">(S₁, τ₁)</text>
+
+  <!-- App step 2: infer e2 -->
+  <line x1="600" y1="208" x2="640" y2="258" class="edge-line" stroke="#58a6ff" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arrow-blue)"/>
+  <text x="640" y="240" text-anchor="start" class="edge-label">W(S₁Γ, e₂)</text>
+  <rect x="570" y="258" width="140" height="34" rx="4" class="node-box" fill="rgba(30,40,55,0.95)" stroke="#58a6ff" stroke-width="1"/>
+  <text x="640" y="280" text-anchor="middle" class="node-detail">(S₂, τ₂)</text>
+
+  <!-- App unify step -->
+  <line x1="480" y1="292" x2="520" y2="320" class="edge-line" stroke="#d29922" stroke-width="1.2" marker-end="url(#arrow-gold)"/>
+  <line x1="640" y1="292" x2="600" y2="320" class="edge-line" stroke="#d29922" stroke-width="1.2" marker-end="url(#arrow-gold)"/>
+  <rect x="480" y="320" width="160" height="42" rx="4" class="node-box" fill="rgba(30,40,55,0.95)" stroke="#d29922" stroke-width="1.5"/>
+  <text x="560" y="338" text-anchor="middle" class="phase-label">Unify</text>
+  <text x="560" y="352" text-anchor="middle" class="code">S₂(τ₁) = τ₂ → α</text>
+  <text x="560" y="378" text-anchor="middle" class="anno">S₃ = mgu(S₂(τ₁), τ₂ → α)</text>
+
+  <!-- ═══════════ CASE 4: Let ═══════════ -->
+  <rect x="680" y="148" width="180" height="60" rx="6" class="node-box" fill="rgba(30,40,55,0.95)" stroke="#58a6ff" stroke-width="1.5"/>
+  <text x="770" y="170" text-anchor="middle" class="node-label">Let x = e₁ in e₂</text>
+  <text x="770" y="184" text-anchor="middle" class="node-detail">infer, generalize, infer</text>
+  <text x="770" y="198" text-anchor="middle" class="code">→ (S₂∘S₁, τ₂)</text>
+
+  <!-- Let step chain -->
+  <line x1="770" y1="208" x2="770" y2="248" class="edge-line" stroke="#58a6ff" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arrow-blue)"/>
+  <text x="778" y="234" class="edge-label">W(Γ, e₁)</text>
+  <rect x="700" y="248" width="140" height="34" rx="4" class="node-box" fill="rgba(30,40,55,0.95)" stroke="#58a6ff" stroke-width="1"/>
+  <text x="770" y="270" text-anchor="middle" class="node-detail">(S₁, τ₁)</text>
+
+  <!-- Generalize -->
+  <line x1="770" y1="282" x2="770" y2="310" class="edge-line" stroke="#d29922" stroke-width="1.2" marker-end="url(#arrow-gold)"/>
+  <rect x="690" y="310" width="160" height="42" rx="4" class="node-box" fill="rgba(30,40,55,0.95)" stroke="#d29922" stroke-width="1.5"/>
+  <text x="770" y="328" text-anchor="middle" class="phase-label">Generalize</text>
+  <text x="770" y="342" text-anchor="middle" class="code">σ = ∀ᾱ. τ₁</text>
+  <text x="770" y="368" text-anchor="middle" class="anno">ᾱ = free(τ₁) − free(S₁Γ)</text>
+
+  <!-- Infer e2 with generalized -->
+  <line x1="770" y1="352" x2="770" y2="388" class="edge-line" stroke="#58a6ff" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arrow-blue)"/>
+  <text x="778" y="382" class="edge-label">W(S₁Γ ∪ {x:σ}, e₂)</text>
+  <rect x="700" y="388" width="140" height="34" rx="4" class="node-box" fill="rgba(30,40,55,0.95)" stroke="#58a6ff" stroke-width="1"/>
+  <text x="770" y="410" text-anchor="middle" class="node-detail">(S₂, τ₂)</text>
+
+  <!-- ═══════════ Separator ═══════════ -->
+  <line x1="20" y1="440" x2="860" y2="440" class="sep-line" stroke="#30363d" stroke-width="1" stroke-dasharray="6,4"/>
+
+  <!-- ═══════════ BOTTOM: Unification detail ═══════════ -->
+  <text x="440" y="468" text-anchor="middle" class="phase-label">Unification Engine — mgu(τ, τ')</text>
+
+  <!-- Unify cases as a horizontal row -->
+  <!-- Case: same base -->
+  <rect x="20" y="484" width="190" height="56" rx="5" class="node-box" fill="rgba(30,40,55,0.95)" stroke="#58a6ff" stroke-width="1"/>
+  <text x="115" y="504" text-anchor="middle" class="node-label">Base types</text>
+  <text x="115" y="518" text-anchor="middle" class="node-detail">Int = Int → ∅</text>
+  <text x="115" y="530" text-anchor="middle" class="node-detail">Int ≠ Bool → fail</text>
+
+  <!-- Case: var -->
+  <rect x="230" y="484" width="190" height="56" rx="5" class="node-box" fill="rgba(30,40,55,0.95)" stroke="#58a6ff" stroke-width="1"/>
+  <text x="325" y="504" text-anchor="middle" class="node-label">Var binding</text>
+  <text x="325" y="518" text-anchor="middle" class="node-detail">α = τ → {α ↦ τ}</text>
+  <text x="325" y="530" text-anchor="middle" class="node-detail">if α ∉ free(τ)</text>
+
+  <!-- Case: function -->
+  <rect x="440" y="484" width="200" height="56" rx="5" class="node-box" fill="rgba(30,40,55,0.95)" stroke="#58a6ff" stroke-width="1"/>
+  <text x="540" y="504" text-anchor="middle" class="node-label">Function types</text>
+  <text x="540" y="518" text-anchor="middle" class="node-detail">τ₁→τ₂ = τ₃→τ₄</text>
+  <text x="540" y="530" text-anchor="middle" class="node-detail">unify(τ₁,τ₃) then (τ₂,τ₄)</text>
+
+  <!-- Case: occurs check -->
+  <rect x="660" y="484" width="200" height="56" rx="5" class="node-box" fill="rgba(30,40,55,0.95)" stroke="#58a6ff" stroke-width="1"/>
+  <text x="760" y="504" text-anchor="middle" class="node-label">Occurs check</text>
+  <text x="760" y="518" text-anchor="middle" class="node-detail">α = α → β → fail</text>
+  <text x="760" y="530" text-anchor="middle" class="node-detail">prevents infinite types</text>
+
+  <!-- ═══════════ Separator ═══════════ -->
+  <line x1="20" y1="558" x2="860" y2="558" class="sep-line" stroke="#30363d" stroke-width="1" stroke-dasharray="6,4"/>
+
+  <!-- ═══════════ BOTTOM: Substitution composition ═══════════ -->
+  <text x="440" y="584" text-anchor="middle" class="phase-label">Substitution Composition &amp; Propagation</text>
+
+  <rect x="100" y="598" width="280" height="52" rx="5" class="node-box" fill="rgba(30,40,55,0.95)" stroke="#58a6ff" stroke-width="1"/>
+  <text x="240" y="618" text-anchor="middle" class="node-label">Compose: S₂ ∘ S₁</text>
+  <text x="240" y="634" text-anchor="middle" class="node-detail">"apply S₁ first, then S₂ to result"</text>
+  <text x="240" y="646" text-anchor="middle" class="code">S₂(S₁(τ)) for any type τ</text>
+
+  <line x1="380" y1="624" x2="490" y2="624" class="edge-line" stroke="#93a3b8" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="435" y="618" text-anchor="middle" class="edge-label">propagate</text>
+
+  <rect x="500" y="598" width="280" height="52" rx="5" class="node-box" fill="rgba(30,40,55,0.95)" stroke="#58a6ff" stroke-width="1"/>
+  <text x="640" y="618" text-anchor="middle" class="node-label">Apply to Γ and pending τ</text>
+  <text x="640" y="634" text-anchor="middle" class="node-detail">S₁Γ updates env before next call</text>
+  <text x="640" y="646" text-anchor="middle" class="code">ensures constraints stay consistent</text>
+
+  <!-- ═══════════ Example trace ═══════════ -->
+  <line x1="20" y1="668" x2="860" y2="668" class="sep-line" stroke="#30363d" stroke-width="1" stroke-dasharray="6,4"/>
+  <text x="440" y="692" text-anchor="middle" class="phase-label">Example: unify(α → Int, Bool → β) → {α ↦ Bool, β ↦ Int}</text>
+  <text x="440" y="710" text-anchor="middle" class="node-detail">decompose → unify(α, Bool) + unify(Int, β) → compose substitutions</text>
+
+</svg>

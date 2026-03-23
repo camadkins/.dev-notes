@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 460" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; }
+    .node-text { font-size: 12px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+    .arrow { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .label { font-size: 10px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .paradigm { font-size: 10px; fill: #84a59d; font-weight: 600; text-anchor: middle; }
+    .paradigm-lang { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .equiv-label { font-size: 9px; fill: #d29922; text-anchor: middle; }
+    .title { font-size: 11px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    @media (prefers-color-scheme: light) {
+      .node { fill: #1a1a2e; stroke: #284b63; }
+      .arrow { stroke: #b8b8b8; }
+      .label, .equiv-label, .title { fill: #9e6000; }
+      .paradigm { fill: #2d6a4f; }
+      .paradigm-lang { fill: #6e7781; }
+      .desc { fill: #6e7781; }
+    }
+  </style>
+  <defs>
+    <marker id="ah-fwd" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#93a3b8"/>
+    </marker>
+    <marker id="ah-rev" markerWidth="8" markerHeight="6" refX="0" refY="3" orient="auto">
+      <path d="M8,0 L0,3 L8,6 Z" fill="#93a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text class="title" x="340" y="30">Church-Turing Equivalence</text>
+  <text class="desc" x="340" y="46">same expressive power, different abstraction</text>
+
+  <!-- === Nodes === -->
+
+  <!-- Turing Machine (top center) -->
+  <rect class="node" x="240" y="70" width="200" height="42"/>
+  <text class="node-text" x="340" y="91">Turing Machine</text>
+
+  <!-- Lambda Calculus (bottom left) -->
+  <rect class="node" x="50" y="260" width="200" height="42"/>
+  <text class="node-text" x="150" y="281">Lambda Calculus</text>
+
+  <!-- Predicate Logic (bottom right) -->
+  <rect class="node" x="430" y="260" width="200" height="42"/>
+  <text class="node-text" x="530" y="281">Predicate Logic</text>
+
+  <!-- === Double-headed arrows === -->
+
+  <!-- Turing Machine <-> Lambda Calculus -->
+  <line class="arrow" x1="265" y1="112" x2="185" y2="260"
+        marker-start="url(#ah-rev)" marker-end="url(#ah-fwd)"/>
+  <text class="equiv-label" x="195" y="185" transform="rotate(-56, 195, 185)">equivalent</text>
+
+  <!-- Turing Machine <-> Predicate Logic -->
+  <line class="arrow" x1="415" y1="112" x2="497" y2="260"
+        marker-start="url(#ah-rev)" marker-end="url(#ah-fwd)"/>
+  <text class="equiv-label" x="486" y="185" transform="rotate(56, 486, 185)">equivalent</text>
+
+  <!-- Lambda Calculus <-> Predicate Logic -->
+  <line class="arrow" x1="250" y1="281" x2="430" y2="281"
+        marker-start="url(#ah-rev)" marker-end="url(#ah-fwd)"/>
+  <text class="equiv-label" x="340" y="270">equivalent</text>
+
+  <!-- === Paradigm connections below each node === -->
+
+  <!-- Turing -> Imperative -->
+  <text class="paradigm" x="340" y="132">Imperative</text>
+  <text class="paradigm-lang" x="340" y="146">C, Fortran, Python</text>
+
+  <!-- Lambda -> Functional -->
+  <text class="paradigm" x="150" y="322">Functional</text>
+  <text class="paradigm-lang" x="150" y="336">Haskell, ML, Racket</text>
+
+  <!-- Logic -> Logic Programming -->
+  <text class="paradigm" x="530" y="322">Logic Programming</text>
+  <text class="paradigm-lang" x="530" y="336">Prolog, Datalog</text>
+
+  <!-- Connecting lines from nodes to paradigm labels -->
+  <line class="arrow" x1="340" y1="112" x2="340" y2="122" style="stroke-dasharray: 3 2;"/>
+  <line class="arrow" x1="150" y1="302" x2="150" y2="312" style="stroke-dasharray: 3 2;"/>
+  <line class="arrow" x1="530" y1="302" x2="530" y2="312" style="stroke-dasharray: 3 2;"/>
+
+  <!-- Bottom annotation -->
+  <text class="desc" x="340" y="380">any function computable in one model can be expressed in the others</text>
+
+  <!-- Origin labels -->
+  <text class="desc" x="340" y="62">1936 -- A. Turing</text>
+  <text class="desc" x="150" y="252">1930s -- A. Church</text>
+  <text class="desc" x="530" y="252">1950s -- formal logic</text>
+</svg>

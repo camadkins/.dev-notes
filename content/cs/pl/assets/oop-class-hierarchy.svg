@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 400" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .title { font-size: 13px; font-weight: 700; fill: #e8e8e8; text-anchor: middle; }
+    .sub { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .class-box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; }
+    .class-header { fill: rgba(22,30,42,0.98); stroke: #58a6ff; stroke-width: 1.5; }
+    .class-name { font-size: 13px; fill: #e8e8e8; font-weight: 700; text-anchor: middle; dominant-baseline: central; }
+    .member { font-size: 10px; fill: #93a3b8; text-anchor: start; }
+    .member-override { font-size: 10px; fill: #d29922; font-weight: 600; text-anchor: start; }
+    .arrow { stroke: #58a6ff; stroke-width: 1.5; fill: none; }
+    .anno { font-size: 9px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .sep-line { stroke: #58a6ff; stroke-width: 0.8; opacity: 0.5; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: start; }
+
+    @media (prefers-color-scheme: light) {
+      .title { fill: #284b63; }
+      .class-box { fill: #1a1a2e; stroke: #284b63; }
+      .class-header { fill: #12122a; stroke: #284b63; }
+      .class-name { fill: #e8e8e8; }
+      .member { fill: #b0b8c4; }
+      .member-override { fill: #9e6000; }
+      .arrow { stroke: #284b63; }
+      .anno { fill: #9e6000; }
+      .sep-line { stroke: #284b63; }
+      .desc { fill: #6e7781; }
+    }
+  </style>
+  <defs>
+    <marker id="arr-inherit" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="none" stroke="#58a6ff" stroke-width="1"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="170" y="28" class="title">Class Hierarchy</text>
+  <text x="170" y="42" class="sub">subtype arrows point toward supertype</text>
+
+  <!-- Shape class (top) -->
+  <rect class="class-box" x="95" y="60" width="150" height="56"/>
+  <rect class="class-header" x="95" y="60" width="150" height="26" rx="6"/>
+  <text x="170" y="73" class="class-name">Shape</text>
+  <line class="sep-line" x1="95" y1="84" x2="245" y2="84"/>
+  <text x="108" y="104" class="member">area(): double</text>
+
+  <!-- Circle class (middle) -->
+  <rect class="class-box" x="95" y="170" width="150" height="70"/>
+  <rect class="class-header" x="95" y="170" width="150" height="26" rx="6"/>
+  <text x="170" y="183" class="class-name">Circle</text>
+  <line class="sep-line" x1="95" y1="194" x2="245" y2="194"/>
+  <text x="108" y="212" class="member">r: double</text>
+  <text x="108" y="228" class="member-override">area(): double  &#x25C0; override</text>
+
+  <!-- ColoredCircle class (bottom) -->
+  <rect class="class-box" x="75" y="296" width="190" height="84"/>
+  <rect class="class-header" x="75" y="296" width="190" height="26" rx="6"/>
+  <text x="170" y="309" class="class-name">ColoredCircle</text>
+  <line class="sep-line" x1="75" y1="320" x2="265" y2="320"/>
+  <text x="88" y="338" class="member">color: String</text>
+  <text x="88" y="354" class="member-override">area(): double  &#x25C0; override</text>
+  <text x="88" y="370" class="desc">calls super.area()</text>
+
+  <!-- Inheritance arrow: Circle -> Shape (upward) -->
+  <path class="arrow" d="M 170,170 L 170,116" marker-end="url(#arr-inherit)"/>
+  <text x="195" y="148" class="anno">extends</text>
+
+  <!-- Inheritance arrow: ColoredCircle -> Circle (upward) -->
+  <path class="arrow" d="M 170,296 L 170,240" marker-end="url(#arr-inherit)"/>
+  <text x="200" y="272" class="anno">extends</text>
+</svg>

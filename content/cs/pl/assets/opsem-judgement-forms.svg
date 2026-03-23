@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 460" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .title { font-size: 14px; font-weight: 700; fill: #e8e8e8; text-anchor: middle; }
+    .panel-title { font-size: 11px; fill: #58a6ff; font-weight: 700; text-anchor: middle; }
+    .expr { font-size: 13px; fill: #e8e8e8; text-anchor: middle; font-weight: 600; }
+    .expr-sm { font-size: 11px; fill: #e8e8e8; text-anchor: middle; font-weight: 600; }
+    .rule { font-size: 10px; fill: #84a59d; text-anchor: middle; font-weight: 600; }
+    .anno { font-size: 10px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .step-label { font-size: 10px; fill: #d29922; font-weight: 600; text-anchor: end; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; }
+    .node-hl { fill: rgba(30,40,55,0.95); stroke: #84a59d; stroke-width: 2; rx: 6; }
+    .node-result { fill: rgba(30,40,55,0.95); stroke: #3fb950; stroke-width: 2; rx: 6; }
+    .node-text { font-size: 12px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+    .node-text-sm { font-size: 10px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .edge-active { stroke: #84a59d; stroke-width: 2; fill: none; }
+    .deriv-line { stroke: #58a6ff; stroke-width: 1.5; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    .arrow { fill: #93a3b8; }
+    .arrow-active { fill: #84a59d; }
+    .premise { font-size: 11px; fill: #c9d1d9; text-anchor: middle; font-weight: 600; }
+    .conclusion { font-size: 12px; fill: #e8e8e8; text-anchor: middle; font-weight: 700; }
+    .sub { font-size: 9px; fill: #8b949e; text-anchor: middle; font-style: italic; }
+
+    @media (prefers-color-scheme: light) {
+      .title { fill: #1a1a2e; }
+      .panel-title { fill: #284b63; }
+      .expr, .expr-sm { fill: #1a1a2e; }
+      .rule { fill: #4a7c6f; }
+      .anno { fill: #9e6000; }
+      .desc { fill: #6e7781; }
+      .step-label { fill: #9e6000; }
+      .node { fill: #f6f8fa; stroke: #284b63; }
+      .node-hl { fill: #f6f8fa; stroke: #4a7c6f; }
+      .node-result { fill: #f6f8fa; stroke: #1a7f37; }
+      .node-text, .node-text-sm { fill: #1a1a2e; }
+      .edge { stroke: #b8b8b8; }
+      .edge-active { stroke: #4a7c6f; }
+      .deriv-line { stroke: #284b63; }
+      .sep { stroke: #e5e5e5; }
+      .arrow { fill: #b8b8b8; }
+      .arrow-active { fill: #4a7c6f; }
+      .premise { fill: #24292f; }
+      .conclusion { fill: #1a1a2e; }
+      .sub { fill: #6e7781; }
+    }
+  </style>
+
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" class="arrow" />
+    </marker>
+    <marker id="arr-a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" class="arrow-active" />
+    </marker>
+  </defs>
+
+  <!-- Main Title -->
+  <text x="380" y="24" class="title">Small-Step (&#x2192;) vs Big-Step (&#x21D3;) for 1 + (2 + 3)</text>
+
+  <!-- Vertical separator -->
+  <line x1="380" y1="40" x2="380" y2="440" class="sep" />
+
+  <!-- ============================================================ -->
+  <!-- LEFT PANEL: Small-Step Reduction                             -->
+  <!-- ============================================================ -->
+  <text x="190" y="56" class="panel-title">Small-Step: Step-by-Step Reduction</text>
+  <text x="190" y="72" class="sub">each arrow = one reduction step (&#x2192;)</text>
+
+  <!-- Step 0 -->
+  <text x="50" y="112" class="step-label">step 0</text>
+  <rect x="68" y="98" width="244" height="28" class="node" />
+  <text x="190" y="112" class="node-text">1 + (2 + 3)</text>
+
+  <!-- Arrow step 0 → step 1 -->
+  <line x1="190" y1="126" x2="190" y2="158" class="edge" marker-end="url(#arr)" />
+  <text x="278" y="146" class="rule">E-Plus2</text>
+  <text x="278" y="158" class="desc">reduce right operand</text>
+
+  <!-- Step 1 -->
+  <text x="50" y="178" class="step-label">step 1</text>
+  <rect x="98" y="164" width="184" height="28" class="node-hl" />
+  <text x="190" y="178" class="node-text">1 + 5</text>
+  <text x="136" y="158" class="anno">2+3 &#x2192; 5</text>
+
+  <!-- Arrow step 1 → result -->
+  <line x1="190" y1="192" x2="190" y2="224" class="edge-active" marker-end="url(#arr-a)" />
+  <text x="278" y="212" class="rule">E-PlusV</text>
+  <text x="278" y="224" class="desc">add two values</text>
+
+  <!-- Result -->
+  <text x="50" y="244" class="step-label">result</text>
+  <rect x="148" y="230" width="84" height="28" class="node-result" />
+  <text x="190" y="244" class="node-text">6</text>
+
+  <!-- Summary box -->
+  <rect x="50" y="280" width="300" height="60" rx="6" fill="none" stroke="#30363d" stroke-width="1" stroke-dasharray="4 4" />
+  <text x="200" y="300" class="desc">Execution trace (two steps):</text>
+  <text x="200" y="318" class="expr-sm">1+(2+3) &#x2192; 1+5 &#x2192; 6</text>
+  <text x="200" y="332" class="sub">each step applies exactly one rule</text>
+
+  <!-- ============================================================ -->
+  <!-- RIGHT PANEL: Big-Step Derivation Tree                        -->
+  <!-- ============================================================ -->
+  <text x="570" y="56" class="panel-title">Big-Step: Derivation Tree</text>
+  <text x="570" y="72" class="sub">premises above the line, conclusion below</text>
+
+  <!-- Level 2 (top leaves): atomic values -->
+  <!-- Leaf: 1 ⇓ 1 -->
+  <text x="440" y="118" class="premise">1 &#x21D3; 1</text>
+  <line x1="418" y1="124" x2="462" y2="124" class="deriv-line" />
+  <text x="478" y="120" class="rule" style="font-size:8px">B-Val</text>
+
+  <!-- Sub-tree: 2+3 ⇓ 5 -->
+  <!-- Leaves for 2 ⇓ 2 and 3 ⇓ 3 -->
+  <text x="562" y="98" class="premise" style="font-size:10px">2 &#x21D3; 2</text>
+  <text x="672" y="98" class="premise" style="font-size:10px">3 &#x21D3; 3</text>
+  <text x="618" y="98" class="premise" style="font-size:10px">2+3=5</text>
+
+  <!-- Derivation line for 2+3 ⇓ 5 -->
+  <line x1="538" y1="104" x2="698" y2="104" class="deriv-line" />
+  <text x="724" y="100" class="rule" style="font-size:8px">B-Plus</text>
+
+  <!-- Conclusion of sub-tree -->
+  <text x="618" y="122" class="premise">2 + 3 &#x21D3; 5</text>
+
+  <!-- Now combine: premises for 1+(2+3) ⇓ 6 -->
+  <!-- We already have "1 ⇓ 1" at x=440 and "2+3 ⇓ 5" at x=618 -->
+  <!-- Add the arithmetic fact -->
+  <text x="530" y="152" class="premise" style="font-size:10px">1+5=6</text>
+
+  <!-- Main derivation line -->
+  <line x1="404" y1="158" x2="700" y2="158" class="deriv-line" />
+  <text x="720" y="154" class="rule" style="font-size:8px">B-Plus</text>
+
+  <!-- Main conclusion -->
+  <text x="552" y="182" class="conclusion">1 + (2 + 3) &#x21D3; 6</text>
+
+  <!-- Annotation -->
+  <rect x="420" y="210" width="300" height="80" rx="6" fill="none" stroke="#30363d" stroke-width="1" stroke-dasharray="4 4" />
+  <text x="570" y="232" class="desc">The tree encodes the entire evaluation:</text>
+  <text x="570" y="250" class="expr-sm">evaluate sub-expressions first,</text>
+  <text x="570" y="266" class="expr-sm">then combine results at each node</text>
+  <text x="570" y="282" class="sub">one tree = one complete evaluation</text>
+
+  <!-- ============================================================ -->
+  <!-- BOTTOM: Key Insight                                          -->
+  <!-- ============================================================ -->
+  <line x1="20" y1="370" x2="740" y2="370" class="sep" />
+
+  <text x="190" y="400" class="anno">Small-Step: 2 transitions</text>
+  <text x="190" y="416" class="sub">explicit intermediate states</text>
+  <text x="190" y="432" class="sub">shows execution order</text>
+
+  <text x="570" y="400" class="anno">Big-Step: 1 derivation tree</text>
+  <text x="570" y="416" class="sub">compositional structure</text>
+  <text x="570" y="432" class="sub">shows evaluation dependencies</text>
+</svg>

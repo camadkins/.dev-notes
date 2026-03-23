@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 240" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; }
+    .box-text { font-size: 13px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+    .arrow { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .arrow-pres { stroke: #d29922; stroke-width: 2; fill: none; }
+    .label { font-size: 11px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .label-sm { font-size: 10px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .progress-box { stroke: #3fb950; stroke-width: 2; fill: none; rx: 10; stroke-dasharray: 6 3; }
+    .progress-label { font-size: 11px; fill: #3fb950; font-weight: 600; text-anchor: middle; }
+    .pres-label { font-size: 11px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .feedback { stroke: #d29922; stroke-width: 1.5; fill: none; stroke-dasharray: 5 3; }
+    @media (prefers-color-scheme: light) {
+      .box { fill: #1a1a2e; stroke: #284b63; }
+      .arrow { stroke: #b8b8b8; }
+      .arrow-pres { stroke: #9e6000; }
+      .label, .label-sm, .pres-label { fill: #9e6000; }
+      .desc { fill: #6e7781; }
+      .progress-box { stroke: #1a7f37; }
+      .progress-label { fill: #1a7f37; }
+      .feedback { stroke: #9e6000; }
+    }
+  </style>
+  <defs>
+    <marker id="ah" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#93a3b8"/>
+    </marker>
+    <marker id="ah-gold" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#d29922"/>
+    </marker>
+  </defs>
+
+  <!-- Main pipeline: Source -> Type Checker -> Evaluator -> Result -->
+
+  <!-- Source -->
+  <rect class="box" x="40" y="85" width="100" height="40"/>
+  <text class="box-text" x="90" y="105">Source</text>
+
+  <!-- Arrow Source -> Type Checker -->
+  <line class="arrow" x1="140" y1="105" x2="188" y2="105" marker-end="url(#ah)"/>
+
+  <!-- Type Checker -->
+  <rect class="box" x="190" y="85" width="130" height="40"/>
+  <text class="box-text" x="255" y="105">Type Checker</text>
+
+  <!-- Arrow Type Checker -> Evaluator (Preservation arrow) -->
+  <line class="arrow-pres" x1="320" y1="105" x2="388" y2="105" marker-end="url(#ah-gold)"/>
+
+  <!-- Preservation label on arrow -->
+  <text class="pres-label" x="328" y="96">Preservation</text>
+  <text class="desc" x="354" y="70">types maintained</text>
+  <text class="desc" x="354" y="82">across steps</text>
+
+  <!-- Evaluator -->
+  <rect class="box" x="390" y="85" width="120" height="40"/>
+  <text class="box-text" x="450" y="105">Evaluator</text>
+
+  <!-- Progress highlight around Evaluator -->
+  <rect class="progress-box" x="382" y="72" width="136" height="66"/>
+  <text class="progress-label" x="450" y="155">Progress</text>
+  <text class="desc" x="450" y="168">well-typed terms</text>
+  <text class="desc" x="450" y="178">can always step</text>
+
+  <!-- Arrow Evaluator -> Result (also Preservation) -->
+  <line class="arrow-pres" x1="510" y1="105" x2="558" y2="105" marker-end="url(#ah-gold)"/>
+
+  <!-- Result -->
+  <rect class="box" x="560" y="85" width="90" height="40"/>
+  <text class="box-text" x="605" y="105">Result</text>
+
+  <!-- Preservation feedback loop (curved arrow underneath) -->
+  <path class="feedback" d="M 510,125 C 510,190 320,190 320,125" marker-end="url(#ah-gold)"/>
+  <text class="label-sm" x="415" y="205">Preservation: e:T and e->e' implies e':T</text>
+
+  <!-- Top annotation: Soundness = Progress + Preservation -->
+  <text class="label" x="340" y="38">Soundness = Progress + Preservation</text>
+  <text class="desc" x="340" y="52">"well-typed programs do not go wrong"</text>
+</svg>

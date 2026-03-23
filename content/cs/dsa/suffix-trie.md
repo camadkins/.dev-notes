@@ -9,9 +9,6 @@ tags:
 date: 2025-10-16
 updated:
 aliases: []
-# diagrams:
-# - suffix-trie-construction.svg - Build from S = "banana$": insert each suffix (banana$, anana$, nana$, ana$, na$, a$, $) so every substring appears as a path; mark terminal nodes with starting indices.
-# - substring-query-trace.svg - Trace of querying "ana" in the suffix trie: follow edges a→n→a; annotate matched path and the list of starting positions.
 ---
 
 ## Overview
@@ -96,8 +93,7 @@ function OCCURRENCES(root, P) -> list<int>:
 
 Walk the trie; the deepest node with **subtree size ≥ 2** (distinct starting indices) yields a longest repeated substring. This is simpler on suffix **trees** due to compression.
 
-> [!example]  
-> **Diagram (`substring-query-trace.svg`)** - For `S = "banana$"`, querying `"ana"` follows `a→n→a` to a node whose positions list is `[1, 3]`, showing matches at `S[1..3]` and `S[3..5]`.
+![Querying "ana" in the suffix trie: follow edges a→n→a to find positions [1, 3]](assets/suffix-query-trace.svg)
 
 ## Example (Stepwise)
 
@@ -185,8 +181,7 @@ Let `n = |S|` and `m = |P|`.
 - **Pattern lab**: compare behaviors of tries, compressed tries, suffix tries/trees, and arrays on the same `S`.
     
 
-> [!example]  
-> **Diagram (`suffix-trie-construction.svg`)** - Show inserting `banana$`’s suffixes. Highlight shared branches `b→a→n→a→n→a→$` and `a→n→a→...` where multiple suffixes converge, and annotate leaf nodes with starting indices `{0, 1, 2, 3, 4, 5, 6}`.
+![Suffix trie for "banana$" showing all suffixes inserted with shared prefix branches highlighted](assets/suffix-construction.svg)
 
 ## Limitations / Pitfalls
 

@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 390" fill="none">
+  <style>
+    text { font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .title { font-size: 13px; font-weight: 700; fill: #e8e8e8; text-anchor: middle; }
+    .internal { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 2; }
+    .leaf { fill: rgba(30,40,55,0.95); stroke: #3fb950; stroke-width: 2; }
+    .node-text { font-size: 12px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+    .key-sep { stroke: #58a6ff; stroke-width: 1; opacity: 0.4; }
+    .key-sep-leaf { stroke: #3fb950; stroke-width: 1; opacity: 0.4; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; }
+    .edge-active { stroke: #58a6ff; stroke-width: 2.5; }
+    .leaf-link { stroke: #d29922; stroke-width: 1.5; }
+    .leaf-link-active { stroke: #d29922; stroke-width: 2.5; }
+    .leaf-arrow { fill: #d29922; }
+    .anno { font-size: 10px; fill: #d29922; font-weight: 600; }
+    .anno-blue { font-size: 10px; fill: #58a6ff; font-weight: 600; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .label { font-size: 9px; fill: #8b949e; }
+    .highlight-rect { fill: none; stroke: #58a6ff; stroke-width: 2; stroke-dasharray: 4 3; rx: 6; }
+    .highlight-rect-gold { fill: none; stroke: #d29922; stroke-width: 2; stroke-dasharray: 4 3; rx: 6; }
+    .phase-box { fill: rgba(30,40,55,0.6); stroke: #58a6ff; stroke-width: 1; rx: 4; }
+    .phase-box-gold { fill: rgba(30,40,55,0.6); stroke: #d29922; stroke-width: 1; rx: 4; }
+    .phase-text { font-size: 10px; fill: #58a6ff; font-weight: 600; }
+    .phase-text-gold { font-size: 10px; fill: #d29922; font-weight: 600; }
+    .range-mark { font-size: 11px; font-weight: 700; }
+    .k1-mark { fill: #58a6ff; }
+    .k2-mark { fill: #d29922; }
+
+    @media (prefers-color-scheme: light) {
+      .title { fill: #284b63; }
+      .internal { fill: #1a1a2e; stroke: #284b63; }
+      .leaf { fill: #1a1a2e; stroke: #1a7f37; }
+      .node-text { fill: #e8e8e8; }
+      .key-sep { stroke: #284b63; }
+      .key-sep-leaf { stroke: #1a7f37; }
+      .edge { stroke: #b8b8b8; }
+      .edge-active { stroke: #284b63; }
+      .leaf-link { stroke: #9e6000; }
+      .leaf-link-active { stroke: #9e6000; }
+      .leaf-arrow { fill: #9e6000; }
+      .anno { fill: #9e6000; }
+      .anno-blue { fill: #284b63; }
+      .desc { fill: #6e7781; }
+      .label { fill: #6e7781; }
+      .highlight-rect { stroke: #284b63; }
+      .highlight-rect-gold { stroke: #9e6000; }
+      .phase-box { fill: rgba(30,40,55,0.6); stroke: #284b63; }
+      .phase-box-gold { fill: rgba(30,40,55,0.6); stroke: #9e6000; }
+      .phase-text { fill: #284b63; }
+      .phase-text-gold { fill: #9e6000; }
+      .k1-mark { fill: #284b63; }
+      .k2-mark { fill: #9e6000; }
+    }
+  </style>
+
+  <!-- Title -->
+  <text x="380" y="22" class="title">B+ Tree Range Query: find keys in [6, 20]</text>
+  <text x="380" y="38" class="desc">Phase 1: root-to-leaf descent (blue) | Phase 2: leaf chain traversal (gold)</text>
+
+  <!-- ===== TREE STRUCTURE — leaves centered under parent ===== -->
+
+  <!-- Root [10 | 20]: centered at x=380 -->
+  <rect x="310" y="65" width="140" height="36" rx="4" class="internal"/>
+  <line x1="380" y1="65" x2="380" y2="101" class="key-sep"/>
+  <text x="345" y="83" class="node-text">10</text>
+  <text x="415" y="83" class="node-text">20</text>
+
+  <!-- Leaf 1 [5 | 6]: centered at x=200 -->
+  <rect x="140" y="170" width="120" height="46" rx="4" class="leaf"/>
+  <line x1="200" y1="170" x2="200" y2="216" class="key-sep-leaf"/>
+  <text x="170" y="190" class="node-text">5</text>
+  <text x="230" y="190" class="node-text">6</text>
+
+  <!-- Leaf 2 [10 | 12]: centered at x=380 (directly under parent) -->
+  <rect x="320" y="170" width="120" height="46" rx="4" class="leaf"/>
+  <line x1="380" y1="170" x2="380" y2="216" class="key-sep-leaf"/>
+  <text x="350" y="190" class="node-text">10</text>
+  <text x="410" y="190" class="node-text">12</text>
+
+  <!-- Leaf 3 [20 | 30]: centered at x=560 -->
+  <rect x="500" y="170" width="120" height="46" rx="4" class="leaf"/>
+  <line x1="560" y1="170" x2="560" y2="216" class="key-sep-leaf"/>
+  <text x="530" y="190" class="node-text">20</text>
+  <text x="590" y="190" class="node-text">30</text>
+
+  <!-- ===== EDGES ===== -->
+  <!-- Root left → Leaf 1 (ACTIVE — phase 1 descent) -->
+  <line x1="330" y1="101" x2="200" y2="170" class="edge-active"/>
+  <text x="250" y="130" class="anno-blue">1</text>
+
+  <!-- Root mid → Leaf 2 (inactive) -->
+  <line x1="380" y1="101" x2="380" y2="170" class="edge"/>
+
+  <!-- Root right → Leaf 3 (inactive) -->
+  <line x1="430" y1="101" x2="560" y2="170" class="edge"/>
+
+  <!-- ===== HIGHLIGHTS ===== -->
+  <!-- Root highlight (phase 1) -->
+  <rect x="306" y="61" width="148" height="44" class="highlight-rect"/>
+
+  <!-- Leaf highlights (phase 2 — all scanned leaves) -->
+  <rect x="136" y="166" width="128" height="54" class="highlight-rect-gold"/>
+  <rect x="316" y="166" width="128" height="54" class="highlight-rect-gold"/>
+  <rect x="496" y="166" width="128" height="54" class="highlight-rect-gold"/>
+
+  <!-- k1, k2 markers -->
+  <text x="230" y="237" class="range-mark k1-mark">k1=6</text>
+  <text x="530" y="237" class="range-mark k2-mark">k2=20</text>
+
+  <!-- ===== LEAF LINKS (phase 2 — gold, active) ===== -->
+  <line x1="260" y1="193" x2="315" y2="193" class="leaf-link-active"/>
+  <polygon points="320,193 312,188 312,198" class="leaf-arrow"/>
+  <text x="290" y="183" class="anno">2</text>
+
+  <line x1="440" y1="193" x2="495" y2="193" class="leaf-link-active"/>
+  <polygon points="500,193 492,188 492,198" class="leaf-arrow"/>
+  <text x="470" y="183" class="anno">3</text>
+
+  <!-- ===== LEGEND + RESULTS (left-aligned) ===== -->
+  <rect x="100" y="275" width="200" height="28" class="phase-box"/>
+  <text x="110" y="293" class="phase-text">Phase 1: Root-to-leaf descent</text>
+
+  <rect x="100" y="310" width="200" height="28" class="phase-box-gold"/>
+  <text x="110" y="328" class="phase-text-gold">Phase 2: Leaf chain scan</text>
+
+  <text x="400" y="288" class="anno">Result: {6, 10, 12, 20}</text>
+  <text x="400" y="304" class="label">4 keys found in range [k1, k2]</text>
+  <text x="400" y="326" class="label">Cost: O(log_m n) descent + O(k) sequential scan</text>
+  <text x="400" y="341" class="label">where k = number of keys in range</text>
+</svg>

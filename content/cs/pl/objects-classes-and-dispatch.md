@@ -2,21 +2,16 @@
 title: Objects, Classes, and Dispatch
 description: How object-oriented languages structure data and behavior through classes, inheritance, and dynamic method dispatch.
 draft: false
-comments: true
 tags:
   - cs
   - pl
 date: 2025-10-16
 updated:
 aliases: []
-# diagrams:
-#  - class_hierarchy_inheritance.svg - show Shape → Circle → ColoredCircle with arrows for subtype and inheritance.
-#  - dispatch_mechanisms.svg - compare static vs dynamic dispatch timelines, showing vtable lookup.
-#  - composition_vs_inheritance.svg - contrast “has-a” vs “is-a” relationships visually.
 ---
 
 ## Overview
-Object-oriented programming (OOP) organizes software around **objects** - entities that combine data (*state*) and functions (*behavior*).  
+Object-oriented programming (OOP) organizes software around **objects** — entities that combine data (*state*) and functions (*behavior*).  
 Languages like Java, C++, and Python implement OOP through **classes**, **inheritance**, and **method dispatch** systems.
 
 While OOP is sometimes treated as a paradigm shift, it’s fundamentally a set of **language-level abstractions for modularity, polymorphism, and code reuse**.
@@ -53,6 +48,8 @@ class Circle extends Shape {
 
 `Circle` inherits `area()` from `Shape` but overrides it with a specialized implementation.
 
+![Class hierarchy showing Shape, Circle, and ColoredCircle with subtype arrows and member listings](assets/oop-class-hierarchy.svg)
+
 > [!tip]  
 > In OOP terms: `Shape` defines an _interface_; `Circle` provides a _concrete realization_.
 
@@ -80,23 +77,15 @@ class FlyingFish extends Animal, Swimmer, Flyer
 ```
 
 > [!warning]  
-> Multiple inheritance introduces the **diamond problem** - ambiguity when two superclasses define the same method or field.
+> Multiple inheritance introduces the **diamond problem** — ambiguity when two superclasses define the same method or field.
 
 ### Composition vs Inheritance
 
 - **Inheritance** models an “is-a” relationship (`Circle` _is a_ `Shape`).
-    
-- **Composition** models a “has-a” relationship (`Car` _has an_ `Engine`).
-    
 
-> [!example]  
-> **Diagram idea (`composition_vs_inheritance.svg`)**  
-> Two panels showing:
-> 
-> - Inheritance arrows (`is-a`)
->     
-> - Composition arrows (`has-a`), using field inclusion rather than subclassing.
->     
+- **Composition** models a “has-a” relationship (`Car` _has an_ `Engine`).
+
+![Composition vs inheritance: is-a with upward extends arrow vs has-a with containment diamond](assets/oop-composition-vs-inheritance.svg)
 
 ---
 
@@ -118,7 +107,7 @@ Shape s = new Circle(5);
 System.out.println(s.area());
 ```
 
-The method invoked depends on the **runtime type**, not the static type - that’s **dynamic dispatch**.
+The method invoked depends on the **runtime type**, not the static type — that’s **dynamic dispatch**.
 
 ---
 
@@ -153,14 +142,7 @@ Implementation detail:
 - Method calls lookup entries in that table.
     
 
-> [!example]  
-> **Diagram idea (`dispatch_mechanisms.svg`)**  
-> Timeline:
-> 
-> - Static dispatch resolved at compile time.
->     
-> - Dynamic dispatch resolved via vtable lookup at runtime.
->     
+![Static vs dynamic dispatch: compile-time resolution vs runtime vtable lookup](assets/oop-dispatch.svg)
 
 ---
 
@@ -244,7 +226,7 @@ a == b    # true  (structural equality)
 a is b    # false (distinct objects)
 ```
 
-Identity allows mutable state tracking - essential for references and effects.
+Identity allows mutable state tracking — essential for references and effects.
 
 ---
 
@@ -282,7 +264,7 @@ Languages differ in how they express object and class relationships:
 
 ## Design Perspective
 
-Classes aren’t just technical - they define **modularity boundaries**:
+Classes aren’t just technical — they define **modularity boundaries**:
 
 - Abstract data types (ADTs) evolved into objects.
     
@@ -297,23 +279,12 @@ Classes aren’t just technical - they define **modularity boundaries**:
 
 ---
 
-## Diagram Concepts
+## See also
 
-- `class_hierarchy_inheritance.svg`: a visual of Shape → Circle → ColoredCircle with subtype arrows.
+- [[cs/pl/subtyping-variance-type-constraints|Subtyping & Variance]]
     
-- `dispatch_mechanisms.svg`: timeline comparing static vs dynamic lookup.
+- [[cs/pl/records-variants-and-pattern-matching|Records, Variants, and Pattern Matching]]
     
-- `composition_vs_inheritance.svg`: show the “has-a” vs “is-a” distinction clearly.
+- [[cs/pl/language-design-values-variables-environments|Language Design — Values, Variables & Environments]]
     
-
----
-
-## Related Notes
-
-- [[subtyping-variance-type-constraints|Subtyping & Variance]]
-    
-- [[records-variants-and-pattern-matching|Records, Variants, and Pattern Matching]]
-    
-- [[language-design-values-variables-environments|Language Design - Values, Variables & Environments]]
-    
-- [[compilation-vs-interpretation|Compilation vs Interpretation]]
+- [[cs/pl/compilation-vs-interpretation|Compilation vs Interpretation]]

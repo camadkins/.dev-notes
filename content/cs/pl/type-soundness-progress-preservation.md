@@ -1,18 +1,13 @@
 ---
-title: Type Soundness - Progress & Preservation
+title: Type Soundness — Progress & Preservation
 description: How type systems ensure that well-typed programs don’t “get stuck,” linking static typing rules to dynamic execution behavior through the key theorems of progress and preservation.
 draft: false
-comments: true
 tags:
   - cs
   - pl
 date: 2025-10-16
 updated:
 aliases: []
-# diagrams:
-#  - type_safety_pipeline.svg - show typing ⇒ evaluation ⇒ result flow, highlighting where progress and preservation apply.
-#  - preservation_derivation.svg - visualize substitution and typing consistency across one reduction step.
-#  - stuck_program_example.svg - illustrate an ill-typed term that halts mid-evaluation.
 ---
 
 ## Overview
@@ -20,13 +15,13 @@ The **type soundness theorem** connects a language’s *static* and *dynamic* se
 > **If a program type-checks, it will not get stuck at runtime.**
 
 This guarantee emerges from two complementary properties:
-1. **Progress** - a well-typed term can either take a computation step or is already a value.  
-2. **Preservation** - each computation step maintains the program’s type.
+1. **Progress** — a well-typed term can either take a computation step or is already a value.  
+2. **Preservation** — each computation step maintains the program’s type.
 
 Together, these theorems formalize the intuition that *types prevent runtime type errors*.
 
 > [!note]
-> “Well-typed programs do not go wrong.” - Robin Milner, *1978*
+> “Well-typed programs do not go wrong.” — Robin Milner, *1978*
 
 ---
 
@@ -49,7 +44,7 @@ If neither holds (a “stuck” term), the type system is unsound.
 ### Informal Statement
 > If `e` is well-typed (`⊢ e : T`), then `e` is either a value or there exists an `e'` such that `e → e'`.
 
-This ensures that evaluation can always make progress - a well-typed program never halts mid-execution because of a missing rule.
+This ensures that evaluation can always make progress — a well-typed program never halts mid-execution because of a missing rule.
 
 ### Proof Sketch
 Induction on the structure of typing derivations:
@@ -74,7 +69,7 @@ By IH:
 Thus, progress holds.
 
 > [!tip]
-> Every typing rule must correspond to at least one evaluation rule - missing a case breaks progress.
+> Every typing rule must correspond to at least one evaluation rule — missing a case breaks progress.
 
 ---
 
@@ -82,7 +77,7 @@ Thus, progress holds.
 ### Informal Statement
 > If `⊢ e : T` and `e → e'`, then `⊢ e' : T`.
 
-This ensures that type information remains valid as execution proceeds - evaluation doesn’t “break” typing.
+This ensures that type information remains valid as execution proceeds — evaluation doesn’t “break” typing.
 
 ### Proof Sketch
 Induction on the typing derivation for `e`.  
@@ -112,12 +107,12 @@ By substitution:
 Hence, preservation holds.
 
 > [!example]
-> **Diagram (`preservation_derivation.svg`)**  
-> Depict substitution and type consistency before and after a reduction step.
+> **Preservation across beta-reduction**
+> ![Preservation: types survive beta-reduction](assets/soundness-preservation.svg)
 
 ---
 
-## Combining the Two - Type Soundness
+## Combining the Two — Type Soundness
 Together, progress and preservation guarantee **type safety**:
 ```
 
@@ -131,7 +126,7 @@ In plain terms:
 - Every step either computes further or produces a result consistent with its type.
 
 > [!note]
-> Type soundness does **not** guarantee logical correctness - only that the program won’t crash due to type mismatches.
+> Type soundness does **not** guarantee logical correctness — only that the program won’t crash due to type mismatches.
 
 ---
 
@@ -172,8 +167,8 @@ Both progress and preservation can be proved by structural induction:
 - For preservation, check that substitution and reduction maintain types for `+` and `if`.
 
 > [!example]
-> **Diagram (`stuck_program_example.svg`)**  
-> Show `if 3 then true else false` - type-checks fails (`3` is not Bool), therefore avoids a stuck runtime state.
+> **Stuck state prevented by typing**
+> ![Stuck state: type system prevents runtime failure](assets/soundness-stuck-state.svg)
 
 ---
 
@@ -215,14 +210,7 @@ Now, preservation must hold for both expression *and* store:
 
 ---
 
-## Diagram Concepts
-- `type_safety_pipeline.svg`: Static typing → Dynamic evaluation → Final value flow.
-- `preservation_derivation.svg`: Substitution and consistent typing across β-reduction.
-- `stuck_program_example.svg`: Ill-typed term illustrating a stuck state prevented by type checking.
-
----
-
-## Related Notes
-- [[type-systems-goals-guarantees|Type Systems - Goals & Guarantees]]
-- [[operational-semantics-big-step-small-step|Operational Semantics - Big-Step & Small-Step]]
-- [[hindleymilner-type-inference|Hindley–Milner Type Inference]]
+## See also
+- [[cs/pl/type-systems-goals-guarantees|Type Systems — Goals & Guarantees]]
+- [[cs/pl/operational-semantics-big-step-small-step|Operational Semantics — Big-Step & Small-Step]]
+- [[cs/pl/hindleymilner-type-inference|Hindley–Milner Type Inference]]

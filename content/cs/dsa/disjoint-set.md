@@ -1,8 +1,7 @@
 ---
 title: Disjoint Set (Union–Find)
 description: Maintain dynamic connectivity via find/union with path compression and union by rank/size; supports near-constant-time operations.
-draft: false
-comments: true
+draft: true
 tags:
 - cs
 - dsa
@@ -10,16 +9,12 @@ date: 2025-10-16
 updated:
 aliases:
 - union-find
-# diagrams:
-# - uf-parent-pointers.svg - Forest of parent pointers with representative roots; show ranks/sizes and path compression effect after finds.
-# - uf-kruskal-trace.svg - Kruskal step trace: edges in weight order, unions that connect components, and a cycle-reject example.
 ---
 
 ## Overview
 A **disjoint set** (Union–Find) maintains a partition of elements into **disjoint components** under two operations: `FIND(x)` returns the component’s **representative** (root) of `x`, and `UNION(x,y)` merges the components containing `x` and `y`. With **path compression** (during `FIND`) and **union by rank/size**, both operations run in **amortized almost-constant time**: $O(\alpha(n))$, where $\alpha$ is the inverse Ackermann function.
 
-> [!example]
-> **Diagram (`uf-parent-pointers.svg`)** - Draw a small forest with parent pointers and root ranks/sizes; issue a series of `FIND`s to show how **path compression** flattens trees (most nodes point directly to the root afterward).
+![Union-Find forest before and after FIND(3): path compression flattens parent pointers so nodes point directly to the root](assets/uf-parent-pointers.svg)
 
 ## Structure Definition
 - **Universe:** elements indexed `0..n-1`.
@@ -82,8 +77,7 @@ Start with elements `{0,1,2,3,4,5}` as singletons.
 4. `FIND(3)` after prior unions compresses path so `parent[3]=0` directly.
     
 
-> [!example]  
-> **Diagram (`uf-kruskal-trace.svg`)** - In a small weighted graph, sort edges; for each edge `(u,v)`, draw whether `FIND(u)≠FIND(v)` (edge chosen, UNION performed) or equal (edge rejected as cycle). This ties Union–Find to MST construction.
+![Kruskal's MST via Union-Find: edges sorted by weight, each tested with FIND to accept (UNION) or reject (cycle)](assets/uf-kruskal-trace.svg)
 
 ## Complexity and Performance
 
@@ -113,7 +107,7 @@ Start with elements `{0,1,2,3,4,5}` as singletons.
 
 - **Dynamic connectivity:** Maintain connectivity as edges are added in an undirected graph.
     
-- **Minimum spanning tree:** Kruskal’s algorithm repeatedly unions endpoints of chosen edges. See [[kruskals-algorithm|Kruskal's Algorithm]] and [[minimum-spanning-trees-kruskal-prim|Minimum Spanning Trees: Kruskal & Prim]].
+- **Minimum spanning tree:** Kruskal’s algorithm repeatedly unions endpoints of chosen edges. See [[cs/dsa/kruskals-algorithm|Kruskal's Algorithm]] and [[cs/dsa/minimum-spanning-trees-kruskal-prim|Minimum Spanning Trees: Kruskal & Prim]].
     
 - **Clustering & segmentation:** Merge by similarity thresholds (e.g., image components).
     
@@ -135,11 +129,11 @@ Start with elements `{0,1,2,3,4,5}` as singletons.
 
 Union–Find represents components as **parent-pointer forests** and achieves **near-constant** amortized time for connectivity queries by combining **path compression** with **union by rank/size**. It is the standard backbone for dynamic connectivity and MST algorithms due to its simplicity, speed, and small memory footprint.
 
-## Related Notes
+## See also
 
-- [[kruskals-algorithm|Kruskal's Algorithm]]
+- [[cs/dsa/kruskals-algorithm|Kruskal's Algorithm]]
     
-- [[minimum-spanning-trees-kruskal-prim|Minimum Spanning Trees: Kruskal & Prim]]
+- [[cs/dsa/minimum-spanning-trees-kruskal-prim|Minimum Spanning Trees: Kruskal & Prim]]
     
-- [[graph-representations|Graph Representations]]
+- [[cs/dsa/graph-representations|Graph Representations]]
     

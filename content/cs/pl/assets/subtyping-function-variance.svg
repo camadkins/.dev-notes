@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .title { font-size: 14px; font-weight: 700; fill: #e8e8e8; text-anchor: middle; }
+    .sub { font-size: 10px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .type-box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; }
+    .type-box-hi { fill: rgba(30,40,55,0.95); stroke: #d29922; stroke-width: 2; rx: 6; }
+    .type-text { font-size: 13px; fill: #e8e8e8; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+    .label { font-size: 10px; fill: #8b949e; text-anchor: middle; }
+    .label-co { font-size: 10px; fill: #3fb950; font-weight: 600; text-anchor: middle; }
+    .label-contra { font-size: 10px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .arrow-co { stroke: #3fb950; stroke-width: 2; fill: none; }
+    .arrow-contra { stroke: #d29922; stroke-width: 2; fill: none; }
+    .arrow-sub { stroke: #58a6ff; stroke-width: 1.5; fill: none; }
+    .rule { font-size: 12px; fill: #e8e8e8; text-anchor: middle; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    .fn-label { font-size: 11px; fill: #58a6ff; font-weight: 600; text-anchor: middle; }
+    .dir-label { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .badge { font-size: 9px; fill: #161618; font-weight: 700; text-anchor: middle; dominant-baseline: central; }
+    .badge-co { fill: #3fb950; }
+    .badge-contra { fill: #d29922; }
+
+    @media (prefers-color-scheme: light) {
+      .title { fill: #284b63; }
+      .type-box { fill: #1a1a2e; stroke: #284b63; }
+      .type-box-hi { fill: #1a1a2e; stroke: #c87800; }
+      .type-text { fill: #e8e8e8; }
+      .label { fill: #6e7781; }
+      .label-co { fill: #1a7f37; }
+      .label-contra { fill: #9e6000; }
+      .arrow-co { stroke: #1a7f37; }
+      .arrow-contra { stroke: #9e6000; }
+      .arrow-sub { stroke: #284b63; }
+      .rule { fill: #284b63; }
+      .sep { stroke: #e5e5e5; }
+      .fn-label { fill: #284b63; }
+      .dir-label { fill: #6e7781; }
+      .badge { fill: #fff; }
+      .badge-co { fill: #1a7f37; }
+      .badge-contra { fill: #c87800; }
+    }
+  </style>
+  <defs>
+    <marker id="arr-co" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#3fb950"/>
+    </marker>
+    <marker id="arr-contra" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#d29922"/>
+    </marker>
+    <marker id="arr-sub" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#58a6ff"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="300" y="28" class="title">Function Subtyping</text>
+  <text x="300" y="44" class="sub">(A -> B) &lt;: (A' -> B')  when  A' &lt;: A  and  B &lt;: B'</text>
+
+  <!-- Separator -->
+  <line x1="300" y1="60" x2="300" y2="340" class="sep"/>
+
+  <!-- === LEFT: Input (Contravariant) === -->
+  <text x="150" y="72" class="fn-label">Input (Parameter)</text>
+
+  <!-- Broader type at top -->
+  <rect class="type-box" x="80" y="90" width="140" height="36" rx="6"/>
+  <text x="150" y="108" class="type-text">Animal</text>
+  <text x="150" y="82" class="label">broader (supertype)</text>
+
+  <!-- Narrower type at bottom -->
+  <rect class="type-box-hi" x="80" y="170" width="140" height="36" rx="6"/>
+  <text x="150" y="188" class="type-text">Parent</text>
+  <text x="150" y="220" class="label">narrower (subtype)</text>
+
+  <!-- Subtyping arrow: Parent <: Animal (upward) -->
+  <path class="arrow-sub" d="M 150,170 L 150,126" marker-end="url(#arr-sub)"/>
+  <text x="175" y="152" class="label">&lt;:</text>
+
+  <!-- Contravariant arrow: direction REVERSES (upward in hierarchy = accepted) -->
+  <path class="arrow-contra" d="M 60,188 L 40,188 L 40,108 L 60,108" marker-end="url(#arr-contra)"/>
+  <text x="28" y="148" class="label-contra" transform="rotate(-90 28 148)">REVERSED</text>
+
+  <!-- Badge -->
+  <rect x="100" y="240" width="100" height="18" rx="9" class="badge-contra"/>
+  <text x="150" y="250" class="badge">Contravariant (-)</text>
+
+  <!-- === RIGHT: Output (Covariant) === -->
+  <text x="450" y="72" class="fn-label">Output (Result)</text>
+
+  <!-- Broader type at top -->
+  <rect class="type-box" x="380" y="90" width="140" height="36" rx="6"/>
+  <text x="450" y="108" class="type-text">Object</text>
+  <text x="450" y="82" class="label">broader (supertype)</text>
+
+  <!-- Narrower type at bottom -->
+  <rect class="type-box-hi" x="380" y="170" width="140" height="36" rx="6"/>
+  <text x="450" y="188" class="type-text">Child</text>
+  <text x="450" y="220" class="label">narrower (subtype)</text>
+
+  <!-- Subtyping arrow: Child <: Object (upward) -->
+  <path class="arrow-sub" d="M 450,170 L 450,126" marker-end="url(#arr-sub)"/>
+  <text x="475" y="152" class="label">&lt;:</text>
+
+  <!-- Covariant arrow: direction PRESERVED (downward = output flows same way) -->
+  <path class="arrow-co" d="M 540,108 L 560,108 L 560,188 L 540,188" marker-end="url(#arr-co)"/>
+  <text x="572" y="148" class="label-co" transform="rotate(90 572 148)">PRESERVED</text>
+
+  <!-- Badge -->
+  <rect x="400" y="240" width="100" height="18" rx="9" class="badge-co"/>
+  <text x="450" y="250" class="badge">Covariant (+)</text>
+
+  <!-- === Bottom: Combined Rule === -->
+  <rect class="type-box-hi" x="95" y="290" width="410" height="36" rx="6"/>
+  <text x="300" y="312" class="rule">Parent -> Child  &lt;:  Animal -> Object</text>
+
+  <!-- Direction annotations -->
+  <text x="150" y="350" class="dir-label">input: accepts MORE general</text>
+  <text x="450" y="350" class="dir-label">output: returns MORE specific</text>
+</svg>

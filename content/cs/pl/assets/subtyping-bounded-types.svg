@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" fill="none">
+  <style>
+    text { font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .title { font-size: 15px; font-weight: 700; fill: #e8e8e8; text-anchor: middle; }
+    .sub { font-size: 11px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .type-box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; }
+    .type-box-bound { fill: rgba(30,40,55,0.95); stroke: #d29922; stroke-width: 2; rx: 6; }
+    .type-box-allowed { fill: rgba(30,40,55,0.95); stroke: #3fb950; stroke-width: 2; rx: 6; }
+    .type-text { font-size: 13px; fill: #e8e8e8; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+    .type-sm { font-size: 11px; fill: #e8e8e8; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+    .label { font-size: 10px; fill: #8b949e; text-anchor: middle; }
+    .bound-label { font-size: 11px; fill: #d29922; font-weight: 600; }
+    .allowed-label { font-size: 11px; fill: #3fb950; font-weight: 600; text-anchor: middle; }
+    .arrow { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .region { fill: rgba(59,185,80,0.06); stroke: #3fb950; stroke-width: 1; stroke-dasharray: 6 3; rx: 8; }
+    .bound-line { stroke: #d29922; stroke-width: 1.5; stroke-dasharray: 4 3; }
+    .desc { font-size: 10px; fill: #8b949e; font-style: italic; }
+    .code { font-size: 11px; fill: #e8e8e8; }
+    .keyword { font-size: 11px; fill: #d29922; font-weight: 600; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    .subtype-label { font-size: 9px; fill: #93a3b8; text-anchor: middle; }
+
+    @media (prefers-color-scheme: light) {
+      .title { fill: #284b63; }
+      .sub { fill: #6e7781; }
+      .type-box { fill: rgba(240,245,250,0.95); stroke: #284b63; }
+      .type-box-bound { fill: rgba(240,245,250,0.95); stroke: #c87800; }
+      .type-box-allowed { fill: rgba(240,245,250,0.95); stroke: #1a7f37; }
+      .type-text { fill: #1a1a2e; }
+      .type-sm { fill: #1a1a2e; }
+      .label { fill: #6e7781; }
+      .bound-label { fill: #9e6000; }
+      .allowed-label { fill: #1a7f37; }
+      .arrow { stroke: #8b949e; }
+      .region { fill: rgba(26,127,55,0.04); stroke: #1a7f37; }
+      .bound-line { stroke: #c87800; }
+      .desc { fill: #6e7781; }
+      .code { fill: #1a1a2e; }
+      .keyword { fill: #9e6000; }
+      .sep { stroke: #d8dee4; }
+      .subtype-label { fill: #8b949e; }
+    }
+  </style>
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#93a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="360" y="28" class="title">Bounded Type Parameters</text>
+  <text x="360" y="46" class="sub">Upper and lower bounds constrain valid instantiations of T</text>
+
+  <!-- ============ LEFT: Type Hierarchy ============ -->
+
+  <!-- Object (top, outside bounds) -->
+  <rect class="type-box" x="110" y="68" width="130" height="32" rx="6"/>
+  <text x="175" y="84" class="type-text">Object</text>
+  <text x="175" y="62" class="label">outside bounds</text>
+
+  <!-- Arrow: Object -> Number -->
+  <path class="arrow" d="M175,100 L175,126" marker-end="url(#arr)"/>
+  <text x="188" y="116" class="subtype-label">&lt;:</text>
+
+  <!-- Upper bound dashed line + label -->
+  <line x1="26" y1="132" x2="340" y2="132" class="bound-line"/>
+  <text x="34" y="148" class="bound-label">upper bound: T &lt;: Number</text>
+
+  <!-- Allowed Region (green dashed box) -->
+  <rect class="region" x="26" y="158" width="314" height="168"/>
+  <text x="183" y="176" class="allowed-label">valid instantiations of T</text>
+
+  <!-- Number (upper bound, top of region) -->
+  <rect class="type-box-bound" x="110" y="186" width="130" height="32" rx="6"/>
+  <text x="175" y="202" class="type-text">Number</text>
+
+  <!-- Arrows from Number to subtypes -->
+  <path class="arrow" d="M130,218 L64,262" marker-end="url(#arr)"/>
+  <path class="arrow" d="M155,218 L130,262" marker-end="url(#arr)"/>
+  <path class="arrow" d="M195,218 L220,262" marker-end="url(#arr)"/>
+  <path class="arrow" d="M220,218 L286,262" marker-end="url(#arr)"/>
+
+  <!-- Subtypes row: Integer, Long, Double, Float -->
+  <rect class="type-box-allowed" x="30" y="266" width="78" height="32" rx="6"/>
+  <text x="69" y="282" class="type-sm">Integer</text>
+
+  <rect class="type-box-allowed" x="116" y="266" width="56" height="32" rx="6"/>
+  <text x="144" y="282" class="type-sm">Long</text>
+
+  <rect class="type-box-allowed" x="180" y="266" width="72" height="32" rx="6"/>
+  <text x="216" y="282" class="type-sm">Double</text>
+
+  <rect class="type-box-allowed" x="260" y="266" width="64" height="32" rx="6"/>
+  <text x="292" y="282" class="type-sm">Float</text>
+
+  <text x="183" y="314" class="label">... other Number subtypes</text>
+
+  <!-- Lower bound dashed line + label -->
+  <line x1="26" y1="340" x2="340" y2="340" class="bound-line"/>
+  <text x="34" y="356" class="bound-label">lower bound: Integer &lt;: T</text>
+
+  <!-- int (primitive, outside bounds) -->
+  <rect class="type-box" x="110" y="380" width="130" height="32" rx="6"/>
+  <text x="175" y="396" class="type-text">int</text>
+  <text x="175" y="428" class="label">primitive, not a valid T</text>
+
+  <!-- ============ RIGHT: Code Examples ============ -->
+
+  <line x1="376" y1="60" x2="376" y2="460" class="sep"/>
+
+  <text x="545" y="82" class="keyword" text-anchor="middle">Java / Scala Syntax</text>
+
+  <!-- Upper bound example -->
+  <text x="396" y="124" class="keyword">extends (upper bound)</text>
+  <text x="396" y="144" class="code">&lt;T extends Number&gt;</text>
+  <text x="396" y="164" class="desc">T can be Number or any subtype</text>
+
+  <!-- Lower bound example -->
+  <text x="396" y="210" class="keyword">super (lower bound)</text>
+  <text x="396" y="230" class="code">&lt;? super Integer&gt;</text>
+  <text x="396" y="250" class="desc">? can be Integer or any supertype</text>
+
+  <!-- Combined bounds -->
+  <text x="396" y="296" class="keyword">combined bounds (Scala)</text>
+  <text x="396" y="316" class="code">[T &gt;: Int &lt;: Number]</text>
+  <text x="396" y="336" class="desc">T bounded above and below</text>
+
+  <!-- PECS -->
+  <text x="396" y="382" class="keyword">PECS mnemonic</text>
+  <text x="396" y="404" class="code">Producer Extends</text>
+  <text x="396" y="422" class="code">Consumer Super</text>
+  <text x="396" y="448" class="desc">Use extends for read-only,</text>
+  <text x="396" y="462" class="desc">super for write-only access</text>
+</svg>

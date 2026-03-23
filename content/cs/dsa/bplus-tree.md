@@ -12,16 +12,6 @@ aliases:
 - bplus-tree
 - b+tree
 
-# diagrams:
-# - name: bplus-tree-structure
-# brief: Internal vs leaf nodes; all data in leaves; leaves linked sequentially
-
-# - name: bplus-tree-insertion
-# brief: Leaf overflow, split, and key promotion to parent with upward propagation
-
-# - name: bplus-tree-range-query
-# brief: Range scan across linked leaves from k1 to k2
-
 ---
 
 ## Definition
@@ -93,7 +83,7 @@ function insert(node, key, value):
             splitInternal(child)
 ```
 
-> [!example] Diagram: Leaf split and key promotion
+![B+ tree leaf split and key promotion — inserting 30 causes overflow, leaf splits, key 20 promoted to parent](assets/bplus-tree-insertion.svg)
 
 **Cost:** O(log_m n) I/O operations.
 
@@ -124,7 +114,7 @@ Range queries (e.g., `find all keys in [k1, k2]`) are where B+ Trees excel:
 2. Follow the **leaf-level linked list** until `k2` is reached.
     
 
-> [!example] Diagram: Range scan across linked leaves
+![B+ tree range query — root-to-leaf descent to find k1, then leaf chain traversal to k2](assets/bplus-tree-range-query.svg)
 
 This design supports efficient **ordered scans** - a major reason B+ Trees dominate database indexing.
 
@@ -155,7 +145,7 @@ This design supports efficient **ordered scans** - a major reason B+ Trees domin
 |**Order (m)**|Maximum number of children for any internal node.|
 |**Height (h)**|Determines search cost; typically small due to high fan-out.|
 
-> [!example] Diagram: Internal vs leaf nodes; linked leaves
+![B+ tree structure — order 3 with internal nodes (blue) storing keys only, leaf nodes (green) storing keys and data pointers, leaves linked left to right](assets/bplus-tree-structure.svg)
 
 ### Practical Notes
 
@@ -191,7 +181,7 @@ This design supports efficient **ordered scans** - a major reason B+ Trees domin
 
 ## Examples
 
-**Insert sequence:** `[10, 20, 5, 6, 12, 30, 7, 17]` into a B+ Tree of order 3.
+**Insert sequence:** `[10, 20, 5, 6, 12, 30, 7, 17]` into a B+ Tree of order 4 (max 3 keys per node, max 4 children).
 
 1. Start empty - insert `[10, 20, 5]` into first leaf.
     

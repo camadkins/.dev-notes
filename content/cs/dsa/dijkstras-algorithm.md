@@ -9,17 +9,13 @@ tags:
 date: 2025-10-16  
 updated:  
 aliases: []
-# diagrams:
-# - dijkstra-settled-vs-frontier.svg - Side-by-side state after several PQ pops: settled S (final distances), frontier PQ with tentative keys, and remaining unknown vertices; arrows show relaxation edges.
-# - dijkstra-trace-small-graph.svg - Stepwise trace on a 6-vertex graph showing PQ contents, chosen vertex, and distance updates per iteration.
 ---
 
 ## Overview
 
 **Dijkstra’s algorithm** computes **single-source shortest paths** in graphs with **non-negative edge weights**. It maintains a set `S` of **settled** vertices (final distances) and a **priority queue** keyed by current best tentative distances for a **frontier** of discovered vertices. Each step removes the vertex with minimum tentative distance, **relaxes** its outgoing edges, and repeats until all reachable vertices are settled. The method is correct because removing the smallest tentative distance is safe when all edges are non-negative.
 
-> [!example]  
-> **Diagram (`dijkstra-settled-vs-frontier.svg`)** - Show `S` (solid outline) and the frontier PQ (callout box with keys). From the extracted vertex, highlight relaxations that lower neighbor keys; dim edges that no longer improve distances.
+![Dijkstra state after popping b: settled set S with final distances, frontier PQ with tentative keys, and relaxation edges highlighted](assets/dijkstra-frontier.svg)
 
 ## Core Idea
 
@@ -93,8 +89,7 @@ Consider source `s` and edges (undirected, shown as two directed edges) with wei
 7. Pop `e` (9). Done. Parents define shortest-path tree.
     
 
-> [!example]  
-> **Diagram (`dijkstra-trace-small-graph.svg`)** - For each iteration, list PQ contents, mark popped vertex, and draw only the edges relaxed that improved distances (bold), annotating new `dist[]` and parents.
+![Dijkstra stepwise trace showing PQ contents, popped vertex, relaxed edges, and distance updates per iteration](assets/dijkstra-trace.svg)
 
 ## Complexity Analysis
 

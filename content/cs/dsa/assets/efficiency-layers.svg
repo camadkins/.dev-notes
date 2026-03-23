@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 486" fill="none">
+  <style>
+    text { font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .title { font-size: 15px; font-weight: 700; text-anchor: middle; }
+    .section-title { font-size: 13px; font-weight: 700; }
+    .body { font-size: 11px; }
+    .arrow-label { font-size: 12px; font-weight: 700; }
+
+    /* Dark mode (default) */
+    .title { fill: #58a6ff; }
+    .section-title { fill: #58a6ff; }
+    .body { fill: #c9d1d9; }
+    .arrow-label { fill: #d29922; }
+    .box-1 { stroke: #58a6ff; stroke-width: 1.5; fill: rgba(88,166,255,0.06); }
+    .box-2 { stroke: #d29922; stroke-width: 1.5; fill: rgba(210,153,34,0.06); }
+    .box-3 { stroke: #3fb950; stroke-width: 1.5; fill: rgba(63,185,80,0.06); }
+    .arrow-line { stroke: #d29922; stroke-width: 2.5; }
+    .arrow-head { fill: #d29922; }
+    .separator { stroke: #30363d; stroke-dasharray: 4 4; }
+    .sub { fill: #8b949e; font-size: 11px; font-style: italic; }
+
+    @media (prefers-color-scheme: light) {
+      .title { fill: #284b63; }
+      .section-title { fill: #284b63; }
+      .body { fill: #4e4e4e; }
+      .arrow-label { fill: #9e6000; }
+      .box-1 { stroke: #284b63; fill: rgba(40,75,99,0.05); }
+      .box-2 { stroke: #c87800; fill: rgba(200,120,0,0.05); }
+      .box-3 { stroke: #1a7f37; fill: rgba(26,127,55,0.05); }
+      .arrow-line { stroke: #c87800; }
+      .arrow-head { fill: #c87800; }
+      .separator { stroke: #e5e5e5; }
+      .sub { fill: #6e7781; }
+    }
+  </style>
+
+  <!-- Title -->
+  <text x="340" y="24" class="title">Algorithm Efficiency:</text>
+  <text x="340" y="42" class="title">Bridging Theory and Practice</text>
+
+  <!-- Arrow on left side (line + explicit arrowhead pointing DOWN) -->
+  <line x1="42" y1="80" x2="42" y2="420" class="arrow-line"/>
+  <polygon points="42,432 36,418 48,418" class="arrow-head"/>
+  <text x="20" y="250" class="arrow-label" text-anchor="middle" transform="rotate(-90, 20, 250)">Closer to real observed performance</text>
+
+  <!-- Section 1: Asymptotic Theory -->
+  <rect x="70" y="60" width="530" height="105" rx="6" class="box-1"/>
+  <text x="85" y="83" class="section-title">Asymptotic Theory (O, Θ, Ω)</text>
+  <text x="95" y="103" class="body">- Growth rates</text>
+  <text x="95" y="119" class="body">- Abstracts away constant factors and lower-order terms</text>
+  <text x="95" y="135" class="body">- Dominant for large n</text>
+  <text x="95" y="151" class="body">- Provides comparative scalability, not timing</text>
+
+  <!-- Section 2: Implementation Constants -->
+  <rect x="70" y="180" width="530" height="136" rx="6" class="box-2"/>
+  <text x="85" y="203" class="section-title">Implementation Constants &amp; Low-Order Terms</text>
+  <text x="95" y="223" class="body">- Instruction counts</text>
+  <text x="95" y="239" class="body">- Inner-loop operations</text>
+  <text x="95" y="255" class="body">- Function call overhead</text>
+  <text x="95" y="271" class="body">- Constant factors hidden by asymptotic notation</text>
+  <text x="95" y="287" class="body">- Loop unrolling, inlining, redundant ops</text>
+  <text x="95" y="303" class="body">- Recursion overhead</text>
+
+  <!-- Section 3: System & Hardware -->
+  <rect x="70" y="331" width="530" height="115" rx="6" class="box-3"/>
+  <text x="85" y="354" class="section-title">System &amp; Hardware Behavior</text>
+  <text x="95" y="374" class="body">- Cache locality</text>
+  <text x="95" y="390" class="body">- Memory bandwidth</text>
+  <text x="95" y="406" class="body">- Branch prediction</text>
+  <text x="95" y="422" class="body">- I/O cost / latency</text>
+  <text x="95" y="438" class="body">- Parallelism / threading overhead</text>
+</svg>

@@ -1,22 +1,17 @@
 ---
-title: Binary Search Tree - Ordered Data via Hierarchical Partitioning
+title: Binary Search Tree — Ordered Data via Hierarchical Partitioning
 description: Data structure maintaining ordered keys where left subtree < node < right subtree; supports logarithmic average-case search, insertion, and deletion.
-draft: false
-comments: true
+draft: true
 tags:
   - cs
   - dsa
 date: 2025-10-16
 aliases: []
-# diagrams:
-#  - bst_structure.svg - example tree showing key ordering (left < node < right).
-#  - bst_insertion_trace.svg - illustrates recursive insertion maintaining order.
-#  - bst_deletion_cases.svg - shows deletion of leaf, single child, and two-child nodes.
 ---
 
 ## Overview
 A **Binary Search Tree (BST)** is a hierarchical data structure that stores elements in a **sorted** manner, allowing efficient **search**, **insertion**, and **deletion** operations.  
-Each node has up to two children - **left** and **right** - arranged by the **BST invariant**:
+Each node has up to two children — **left** and **right** — arranged by the **BST invariant**:
 
 ```
 
@@ -54,7 +49,7 @@ struct Node {
 |Delete|O(log n)|O(n)|O(1)|
 |Traversal|O(n)|O(n)|O(1)|
 
-The efficiency depends on tree height - ideally `O(log n)` but can degrade to `O(n)` if the tree becomes skewed.
+The efficiency depends on tree height — ideally `O(log n)` but can degrade to `O(n)` if the tree becomes skewed.
 
 ---
 
@@ -70,10 +65,9 @@ function search(node, key):
         return search(node.right, key)
 ```
 
-The search path follows comparisons - left for smaller, right for larger.
+The search path follows comparisons — left for smaller, right for larger.
 
-> [!example]  
-> **Diagram (`bst_structure.svg`)** - show an example tree where searching for key 37 traverses nodes [50 → 25 → 37].
+![BST structure showing search path for key 37: 50 → 25 → 37](assets/bst-structure.svg)
 
 ---
 
@@ -104,10 +98,9 @@ There are three common approaches:
     
 
 > [!warning]  
-> Duplicate-handling must be consistent - mixing policies can silently violate ordering.
+> Duplicate-handling must be consistent — mixing policies can silently violate ordering.
 
-> [!example]  
-> **Diagram (`bst_insertion_trace.svg`)** - illustrates inserting 42 into `[40, 50, 60]`.
+![BST insertion trace: inserting 42 into right-skewed tree [40, 50, 60] — recursive descent finds null left link at 50](assets/bst-insertion-trace.svg)
 
 ---
 
@@ -147,8 +140,7 @@ function delete(node, key):
     return node
 ```
 
-> [!example]  
-> **Diagram (`bst_deletion_cases.svg`)** - show leaf removal, single-child promotion, and inorder-successor replacement.
+![BST deletion cases: leaf removal, single-child promotion, inorder-successor replacement](assets/bst-deletion-cases.svg)
 
 ---
 
@@ -218,7 +210,7 @@ Inorder traversal yields `[10, 25, 37, 50, 60, 75, 90]`.
 > **Parent link updates:** If nodes store parent references, update them during insertions and deletions.
 
 > [!warning]  
-> **Unbalanced growth:** Sequential insertions (`1, 2, 3, ...`) degrade to O(n) time - use balancing or randomization.
+> **Unbalanced growth:** Sequential insertions (`1, 2, 3, ...`) degrade to O(n) time — use balancing or randomization.
 
 > [!warning]  
 > **Incorrect duplicate handling:** Failing to define a side (left/right) for equal keys breaks ordering.
@@ -238,14 +230,14 @@ Inorder traversal yields `[10, 25, 37, 50, 60, 75, 90]`.
 
 ---
 
-## Related Notes
+## See also
 
-- [[avl-tree|AVL Tree]]
+- [[cs/dsa/avl-tree|AVL Tree]]
     
 - [[rb-tree]]
     
-- [[tree-traversal|Tree Traversal]]
+- [[cs/dsa/tree-traversal|Tree Traversal]]
     
-- [[linked-list|Linked List]]
+- [[cs/dsa/linked-list|Linked List]]
     
-- [[heapify|Heapify]]
+- [[cs/dsa/heapify|Heapify]]

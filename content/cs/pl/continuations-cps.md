@@ -2,23 +2,21 @@
 title: Continuations & CPS
 description: How continuations represent the rest of a computation and enable control operators, early exits, and advanced flow structures.
 draft: false
-comments: true
 tags:
   - cs
   - pl
 date: 2025-10-24
 updated:
 aliases: []
-# diagram: cps_transform_flow.svg - visualize a normal vs CPS function call chain, showing how each step passes control explicitly via continuation lambdas.
 ---
 
 ## What a Continuation Is
-A **continuation** represents *what should happen next* - the rest of a computation after the current expression finishes.  
+A **continuation** represents *what should happen next* — the rest of a computation after the current expression finishes.  
 When a program executes, every expression has some continuation waiting for its result. CPS (Continuation-Passing Style) makes this continuation *explicit*.
 
 > [!note]
 > Think of a continuation as a saved call stack frame or callback.  
-> Instead of returning a value, a function calls another function - the continuation - with that value.
+> Instead of returning a value, a function calls another function — the continuation — with that value.
 
 ---
 
@@ -69,19 +67,19 @@ Instead of computing a result and returning it, each stage passes the result to 
 > (λk. (+ 1 2) → (k 3))
 > ```
 > 
-> The computation `(+ 1 2)` has no hidden caller - its only way to continue is by calling `k`.
+> The computation `(+ 1 2)` has no hidden caller — its only way to continue is by calling `k`.
 
 ---
 
 ## Why CPS Matters
 
-1. **Uniform control** - early exits, exceptions, and coroutines can all be expressed through continuations.
+1. **Uniform control** — early exits, exceptions, and coroutines can all be expressed through continuations.
     
-2. **Optimization** - tail-call elimination and inlining become simple transformations.
+2. **Optimization** — tail-call elimination and inlining become simple transformations.
     
-3. **Compiler targets** - many compilers (Scheme, ML, Haskell) lower to CPS internally for optimization and analysis.
+3. **Compiler targets** — many compilers (Scheme, ML, Haskell) lower to CPS internally for optimization and analysis.
     
-4. **Language design** - continuations unify flow control: returning, breaking, and throwing are all “jumping to a continuation.”
+4. **Language design** — continuations unify flow control: returning, breaking, and throwing are all “jumping to a continuation.”
     
 
 > [!tip]  
@@ -102,7 +100,7 @@ The Scheme primitive **`call/cc`** (“call with current continuation”) lets a
 Result: `42`.
 
 Here, `(λk ...)` receives the current continuation as `k`.  
-When `k` is called, execution jumps back to the `call/cc` site with the provided value - even if it’s deep inside another computation.
+When `k` is called, execution jumps back to the `call/cc` site with the provided value — even if it’s deep inside another computation.
 
 > [!example]  
 > **Short-circuit using `call/cc`**
@@ -118,25 +116,7 @@ When `k` is called, execution jumps back to the `call/cc` site with the provided
 
 ---
 
-## Diagram - CPS and Control Flow
-
-The CPS transform can be visualized as a **control-flow handoff**:
-
-1. Each function call creates a new continuation (a λk).
-    
-2. Instead of unwinding a call stack, control explicitly _moves forward_ by calling `k`.
-    
-3. A captured continuation can _jump backward_ to any earlier stage.
-    
-
-Imagine two columns:
-
-- **Direct style**: vertical stack frames (caller → callee → return).
-    
-- **CPS**: horizontal chain (each call passes control rightward to its continuation).
-    
-
-This diagram should show arrows labeled “return” replaced by arrows labeled “call k”, emphasizing that _return becomes explicit invocation_.
+![Direct-style call stack vs CPS horizontal chain](assets/cps-transform.svg)
 
 ---
 
@@ -148,7 +128,7 @@ This diagram should show arrows labeled “return” replaced by arrows labeled 
 >     
 > 2. **Non-local control** complicates resource cleanup; finalizers or try/finally blocks may not run as expected.
 >     
-> 3. **Stack reasoning** becomes harder - continuations flatten the call hierarchy.
+> 3. **Stack reasoning** becomes harder — continuations flatten the call hierarchy.
 >     
 
 Languages that expose full continuations (Scheme, Racket) restrict them with discipline, while others (ML, Haskell) use delimited variants like `shift/reset`.
@@ -173,10 +153,10 @@ execution is just **explicitly passing control**.
 
 ---
 
-## Related Notes
+## See also
 
-- [[exceptions-handlers-and-non-local-control|Exceptions & Non-local Control]]
+- [[cs/pl/exceptions-handlers-and-non-local-control|Exceptions & Non-local Control]]
     
-- [[abstract-machines-cek-secd|Abstract Machines - CEK and SECD]]
+- [[abstract-machines-cek-secd|Abstract Machines — CEK and SECD]]
     
-- [[lambda-calculus-syntax-substitution|Lambda Calculus - Syntax & Substitution]]
+- [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]

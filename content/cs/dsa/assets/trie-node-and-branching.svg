@@ -1,0 +1,231 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 530" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .node-terminal { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 2.5; }
+    .node-text { font-size: 13px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .edge-label { font-size: 10px; fill: #93a3b8; text-anchor: middle; dominant-baseline: central; }
+    .anno { font-size: 10px; fill: #d29922; font-weight: 600; }
+    .anno-sm { font-size: 9px; fill: #d29922; font-weight: 600; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    .terminal-dot { fill: #d29922; }
+    .section-label { font-size: 11px; fill: #7b97aa; font-weight: 600; text-anchor: middle; }
+    .array-cell { fill: rgba(30,40,55,0.7); stroke: #58a6ff; stroke-width: 1; }
+    .array-cell-empty { fill: rgba(30,40,55,0.3); stroke: #30363d; stroke-width: 0.75; }
+    .map-box { fill: rgba(30,40,55,0.7); stroke: #58a6ff; stroke-width: 1; }
+    .ptr-line { stroke: #84a59d; stroke-width: 1.2; fill: none; }
+    @media (prefers-color-scheme: light) {
+      .node { fill: #1a1a2e; stroke: #284b63; }
+      .node-terminal { fill: #1a1a2e; stroke: #284b63; }
+      .edge { stroke: #b8b8b8; }
+      .edge-label { fill: #b8b8b8; }
+      .anno, .anno-sm { fill: #9e6000; }
+      .desc { fill: #6e7781; }
+      .sep { stroke: #e5e5e5; }
+      .terminal-dot { fill: #9e6000; }
+      .section-label { fill: #284b63; }
+      .array-cell { fill: #1a1a2e; stroke: #284b63; }
+      .array-cell-empty { fill: rgba(26,26,46,0.15); stroke: #e5e5e5; }
+      .map-box { fill: #1a1a2e; stroke: #284b63; }
+      .ptr-line { stroke: #3d7a5a; }
+    }
+  </style>
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#84a59d" stroke-width="1"/>
+    </marker>
+    <marker id="arr-gold" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+      <path d="M0,0 L7,2.5 L0,5" fill="none" stroke="#d29922" stroke-width="1"/>
+    </marker>
+  </defs>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- LAYOUT GRID                                             -->
+  <!--   Depth 0 (root):  y=60,  cx=255                       -->
+  <!--   Depth 1 (a,b):   y=140, a@155, b@355  mid=255        -->
+  <!--   Depth 2 (r,t,e): y=220, r@105, t@205, e@355          -->
+  <!--     a centered over r,t: (105+205)/2=155 OK             -->
+  <!--     b centered over e: 355 OK                           -->
+  <!--   Depth 3 (c,m,t): y=300, c@55, m@105, t@155           -->
+  <!--     r centered over c,m,t: (55+155)/2=105 OK            -->
+  <!--   Node radius: 18                                       -->
+  <!--   Separator: y=370                                      -->
+  <!--   Bottom section: y=390-510                             -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+
+  <text x="255" y="30" class="section-label">Trie for {art, arc, arm, at, be}</text>
+
+  <!-- Depth 0: root -->
+  <circle cx="255" cy="60" r="18" class="node" id="root"/>
+  <text x="255" y="60" class="node-text" font-size="11px">root</text>
+
+  <!-- Depth 1: a, b -->
+  <line x1="240" y1="74" x2="168" y2="126" class="edge"/>
+  <text x="198" y="94" class="edge-label">a</text>
+  <circle cx="155" cy="140" r="18" class="node" id="n-a"/>
+  <text x="155" y="140" class="node-text">a</text>
+
+  <line x1="270" y1="74" x2="342" y2="126" class="edge"/>
+  <text x="312" y="94" class="edge-label">b</text>
+  <circle cx="355" cy="140" r="18" class="node" id="n-b"/>
+  <text x="355" y="140" class="node-text">b</text>
+
+  <!-- Depth 2: r, t (under a), e (under b) -->
+  <line x1="142" y1="155" x2="115" y2="205" class="edge"/>
+  <text x="122" y="176" class="edge-label">r</text>
+  <circle cx="105" cy="220" r="18" class="node" id="n-r"/>
+  <text x="105" y="220" class="node-text">r</text>
+
+  <line x1="168" y1="155" x2="195" y2="205" class="edge"/>
+  <text x="188" y="176" class="edge-label">t</text>
+  <circle cx="205" cy="220" r="18" class="node-terminal" id="n-at"/>
+  <text x="205" y="220" class="node-text">t</text>
+  <circle cx="205" cy="200" r="4" class="terminal-dot"/>
+
+  <line x1="355" y1="158" x2="355" y2="202" class="edge"/>
+  <text x="367" y="178" class="edge-label">e</text>
+  <circle cx="355" cy="220" r="18" class="node-terminal" id="n-be"/>
+  <text x="355" y="220" class="node-text">e</text>
+  <circle cx="355" cy="200" r="4" class="terminal-dot"/>
+
+  <!-- Depth 3: c, m, t (under r) -->
+  <line x1="91" y1="234" x2="65" y2="285" class="edge"/>
+  <text x="70" y="254" class="edge-label">c</text>
+  <circle cx="55" cy="300" r="18" class="node-terminal" id="n-arc"/>
+  <text x="55" y="300" class="node-text">c</text>
+  <circle cx="55" cy="280" r="4" class="terminal-dot"/>
+
+  <line x1="105" y1="238" x2="105" y2="282" class="edge"/>
+  <text x="117" y="258" class="edge-label">m</text>
+  <circle cx="105" cy="300" r="18" class="node-terminal" id="n-arm"/>
+  <text x="105" y="300" class="node-text">m</text>
+  <circle cx="105" cy="280" r="4" class="terminal-dot"/>
+
+  <line x1="119" y1="234" x2="145" y2="285" class="edge"/>
+  <text x="140" y="254" class="edge-label">t</text>
+  <circle cx="155" cy="300" r="18" class="node-terminal" id="n-art"/>
+  <text x="155" y="300" class="node-text">t</text>
+  <circle cx="155" cy="280" r="4" class="terminal-dot"/>
+
+  <!-- Word annotations under terminal nodes -->
+  <text x="55" y="328" class="desc" text-anchor="middle">"arc"</text>
+  <text x="105" y="328" class="desc" text-anchor="middle">"arm"</text>
+  <text x="155" y="328" class="desc" text-anchor="middle">"art"</text>
+  <text x="205" y="246" class="desc" text-anchor="middle">"at"</text>
+  <text x="355" y="246" class="desc" text-anchor="middle">"be"</text>
+
+  <!-- Terminal marker legend -->
+  <circle cx="55" cy="350" r="4" class="terminal-dot"/>
+  <text x="65" y="351" class="anno-sm" text-anchor="start">= isWord (terminal node)</text>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- SEPARATOR                                       -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <line x1="30" y1="375" x2="720" y2="375" class="sep"/>
+
+  <!-- Dashed arrow from r-node to exploded view -->
+  <path d="M105,318 L105,345 Q105,365 125,370 L225,387" class="ptr-line" stroke-dasharray="3 3" marker-end="url(#arr-gold)"/>
+  <text x="330" y="395" class="section-label">Node "r" exploded: two child representations</text>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- LEFT PANEL: children[26] fixed array             -->
+  <!-- Array starts x=40, each cell 13px, 26 cells     -->
+  <!-- Total width: 338px  => x=40..378                -->
+  <!-- Center label at x=209                            -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <text x="209" y="420" class="anno" text-anchor="middle">children[26] fixed array</text>
+
+  <!-- 26 cells, 13px wide each, y=432..458 -->
+  <!-- Index: a=0 b=1 c=2 d=3 e=4 f=5 g=6 h=7 i=8 j=9 k=10 l=11 m=12 n=13 o=14 p=15 q=16 r=17 s=18 t=19 u=20 v=21 w=22 x=23 y=24 z=25 -->
+  <!-- Populated: c(2), m(12), t(19) -->
+  <rect x="40" y="432" width="13" height="26" class="array-cell-empty"/>
+  <rect x="53" y="432" width="13" height="26" class="array-cell-empty"/>
+  <rect x="66" y="432" width="13" height="26" class="array-cell"/>
+  <rect x="79" y="432" width="13" height="26" class="array-cell-empty"/>
+  <rect x="92" y="432" width="13" height="26" class="array-cell-empty"/>
+  <rect x="105" y="432" width="13" height="26" class="array-cell-empty"/>
+  <rect x="118" y="432" width="13" height="26" class="array-cell-empty"/>
+  <rect x="131" y="432" width="13" height="26" class="array-cell-empty"/>
+  <rect x="144" y="432" width="13" height="26" class="array-cell-empty"/>
+  <rect x="157" y="432" width="13" height="26" class="array-cell-empty"/>
+  <rect x="170" y="432" width="13" height="26" class="array-cell-empty"/>
+  <rect x="183" y="432" width="13" height="26" class="array-cell-empty"/>
+  <rect x="196" y="432" width="13" height="26" class="array-cell"/>
+  <rect x="209" y="432" width="13" height="26" class="array-cell-empty"/>
+  <rect x="222" y="432" width="13" height="26" class="array-cell-empty"/>
+  <rect x="235" y="432" width="13" height="26" class="array-cell-empty"/>
+  <rect x="248" y="432" width="13" height="26" class="array-cell-empty"/>
+  <rect x="261" y="432" width="13" height="26" class="array-cell-empty"/>
+  <rect x="274" y="432" width="13" height="26" class="array-cell-empty"/>
+  <rect x="287" y="432" width="13" height="26" class="array-cell"/>
+  <rect x="300" y="432" width="13" height="26" class="array-cell-empty"/>
+  <rect x="313" y="432" width="13" height="26" class="array-cell-empty"/>
+  <rect x="326" y="432" width="13" height="26" class="array-cell-empty"/>
+  <rect x="339" y="432" width="13" height="26" class="array-cell-empty"/>
+  <rect x="352" y="432" width="13" height="26" class="array-cell-empty"/>
+  <rect x="365" y="432" width="13" height="26" class="array-cell-empty"/>
+
+  <!-- Pointer dots in populated cells -->
+  <circle cx="72.5" cy="445" r="3" fill="#84a59d"/>
+  <circle cx="202.5" cy="445" r="3" fill="#84a59d"/>
+  <circle cx="293.5" cy="445" r="3" fill="#84a59d"/>
+
+  <!-- Null dashes in a few empty cells -->
+  <text x="46.5" y="448" class="desc" text-anchor="middle" font-size="7px">-</text>
+  <text x="59.5" y="448" class="desc" text-anchor="middle" font-size="7px">-</text>
+  <text x="85.5" y="448" class="desc" text-anchor="middle" font-size="7px">-</text>
+
+  <!-- Index labels below: show a,b,c,d,e,..,m,..,t,..,z -->
+  <text x="46.5" y="472" class="desc" text-anchor="middle" font-style="normal" font-size="8px">a</text>
+  <text x="59.5" y="472" class="desc" text-anchor="middle" font-style="normal" font-size="8px">b</text>
+  <text x="72.5" y="472" class="anno-sm" text-anchor="middle" font-size="8px">c</text>
+  <text x="85.5" y="472" class="desc" text-anchor="middle" font-style="normal" font-size="8px">d</text>
+  <text x="98.5" y="472" class="desc" text-anchor="middle" font-style="normal" font-size="8px">e</text>
+  <text x="135" y="472" class="desc" text-anchor="middle" font-style="normal" font-size="7px">..</text>
+  <text x="202.5" y="472" class="anno-sm" text-anchor="middle" font-size="8px">m</text>
+  <text x="248" y="472" class="desc" text-anchor="middle" font-style="normal" font-size="7px">..</text>
+  <text x="293.5" y="472" class="anno-sm" text-anchor="middle" font-size="8px">t</text>
+  <text x="340" y="472" class="desc" text-anchor="middle" font-style="normal" font-size="7px">..</text>
+  <text x="371.5" y="472" class="desc" text-anchor="middle" font-style="normal" font-size="8px">z</text>
+
+  <!-- Annotation -->
+  <text x="209" y="496" class="desc" text-anchor="middle">23 of 26 slots null (sparse)</text>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- VS label                                        -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <text x="430" y="455" class="section-label" font-size="10px">vs</text>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- RIGHT PANEL: Hash-map  x=480..700               -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <text x="580" y="420" class="anno" text-anchor="middle">children map (hash/ordered)</text>
+  <text x="580" y="432" class="desc" text-anchor="middle" font-style="normal" font-size="8px">only present children stored</text>
+
+  <!-- Entry 1: c -> ptr -->
+  <rect x="510" y="442" width="40" height="22" rx="3" class="map-box"/>
+  <text x="530" y="454" class="node-text" font-size="11px">c</text>
+  <line x1="550" y1="453" x2="590" y2="453" class="ptr-line" marker-end="url(#arr)"/>
+  <circle cx="600" cy="453" r="6" class="node" stroke-width="1"/>
+  <text x="600" y="453" class="node-text" font-size="7px">*</text>
+
+  <!-- Entry 2: m -> ptr -->
+  <rect x="510" y="468" width="40" height="22" rx="3" class="map-box"/>
+  <text x="530" y="480" class="node-text" font-size="11px">m</text>
+  <line x1="550" y1="479" x2="590" y2="479" class="ptr-line" marker-end="url(#arr)"/>
+  <circle cx="600" cy="479" r="6" class="node" stroke-width="1"/>
+  <text x="600" y="479" class="node-text" font-size="7px">*</text>
+
+  <!-- Entry 3: t -> ptr -->
+  <rect x="510" y="494" width="40" height="22" rx="3" class="map-box"/>
+  <text x="530" y="506" class="node-text" font-size="11px">t</text>
+  <line x1="550" y1="505" x2="590" y2="505" class="ptr-line" marker-end="url(#arr)"/>
+  <circle cx="600" cy="505" r="6" class="node" stroke-width="1"/>
+  <text x="600" y="505" class="node-text" font-size="7px">*</text>
+
+  <!-- Curly braces around entries -->
+  <text x="498" y="480" class="node-text" font-size="26px" text-anchor="middle">{</text>
+  <text x="618" y="480" class="node-text" font-size="26px" text-anchor="middle">}</text>
+</svg>

@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 330" fill="none">
+  <style>
+    text { font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .title { font-size: 14px; font-weight: 700; text-anchor: middle; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 2; }
+    .node-warn { fill: rgba(30,40,55,0.95); stroke: #d29922; stroke-width: 2.5; }
+    .node-text { font-size: 12px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; }
+    .hf { font-size: 9px; fill: #8b949e; }
+    .hf-warn { font-size: 9px; fill: #d29922; font-weight: 700; }
+    .sub { font-size: 11px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    .badge { font-size: 9px; fill: #161618; font-weight: 700; text-anchor: middle; dominant-baseline: central; }
+    .badge-bg { fill: #d29922; }
+    .badge-ok { fill: #3fb950; }
+
+    @media (prefers-color-scheme: light) {
+      .title { fill: #284b63; }
+      .node { fill: #1a1a2e; stroke: #284b63; }
+      .node-warn { fill: #1a1a2e; stroke: #c87800; }
+      .edge { stroke: #b8b8b8; }
+      .hf { fill: #6e7781; }
+      .hf-warn { fill: #9e6000; }
+      .sub { fill: #6e7781; }
+      .sep { stroke: #e5e5e5; }
+      .badge { fill: #fff; }
+      .badge-bg { fill: #c87800; }
+      .badge-ok { fill: #1a7f37; }
+    }
+  </style>
+
+  <!-- ===== LEFT: Balanced tree [20, 10, 30, 5, 15] ===== -->
+  <text x="145" y="20" class="title">Balanced</text>
+  <text x="145" y="36" class="sub">|bf| ≤ 1 at every node</text>
+
+  <!-- Edges (border-to-border for r=17, diagonal angle ~52°: dx≈10, dy≈13) -->
+  <!-- 20(145,58)→10(80,130) -->
+  <line x1="135" y1="71" x2="90" y2="117" class="edge"/>
+  <!-- 20(145,58)→30(210,130) -->
+  <line x1="155" y1="71" x2="200" y2="117" class="edge"/>
+  <!-- 10(80,130)→5(40,202) -->
+  <line x1="70" y1="143" x2="50" y2="189" class="edge"/>
+  <!-- 10(80,130)→15(120,202) -->
+  <line x1="90" y1="143" x2="110" y2="189" class="edge"/>
+
+  <!-- depth 0: 20(145,58) h=2, bf=+1 -->
+  <circle cx="145" cy="58" r="17" class="node"/>
+  <text x="145" y="59" class="node-text">20</text>
+  <text x="175" y="50" class="hf">h=2</text>
+  <text x="175" y="62" class="hf">bf=+1</text>
+
+  <!-- depth 1: 10(80,130) h=1, bf=0 -->
+  <circle cx="80" cy="130" r="17" class="node"/>
+  <text x="80" y="131" class="node-text">10</text>
+  <text x="110" y="122" class="hf">h=1</text>
+  <text x="110" y="134" class="hf">bf=0</text>
+
+  <!-- depth 1: 30(210,130) h=0, bf=0 -->
+  <circle cx="210" cy="130" r="17" class="node"/>
+  <text x="210" y="131" class="node-text">30</text>
+  <text x="240" y="122" class="hf">h=0</text>
+  <text x="240" y="134" class="hf">bf=0</text>
+
+  <!-- depth 2: 5(40,202) h=0, bf=0 -->
+  <circle cx="40" cy="202" r="17" class="node"/>
+  <text x="40" y="203" class="node-text">5</text>
+  <text x="40" y="228" class="hf">h=0</text>
+  <text x="40" y="240" class="hf">bf=0</text>
+
+  <!-- depth 2: 15(120,202) h=0, bf=0 -->
+  <circle cx="120" cy="202" r="17" class="node"/>
+  <text x="120" y="203" class="node-text">15</text>
+  <text x="150" y="194" class="hf">h=0</text>
+  <text x="150" y="206" class="hf">bf=0</text>
+
+  <!-- Status badge -->
+  <rect x="95" y="260" width="100" height="18" rx="9" class="badge-ok"/>
+  <text x="145" y="270" class="badge">ALL |bf| ≤ 1  ✓</text>
+
+  <!-- Separator -->
+  <line x1="310" y1="10" x2="310" y2="310" class="sep"/>
+
+  <!-- ===== RIGHT: After insert(3) — imbalanced at 20 ===== -->
+  <text x="500" y="20" class="title">After insert(3)</text>
+  <text x="500" y="36" class="sub">bf = +2 at node 20 → LL trigger</text>
+
+  <!-- Edges (border-to-border for r=17) -->
+  <!-- 20(500,58)→10(435,130) -->
+  <line x1="490" y1="71" x2="445" y2="117" class="edge"/>
+  <!-- 20(500,58)→30(565,130) -->
+  <line x1="510" y1="71" x2="555" y2="117" class="edge"/>
+  <!-- 10(435,130)→5(395,202) -->
+  <line x1="425" y1="143" x2="405" y2="189" class="edge"/>
+  <!-- 10(435,130)→15(475,202) -->
+  <line x1="445" y1="143" x2="465" y2="189" class="edge"/>
+  <!-- 5(395,202)→3(355,272) -->
+  <line x1="385" y1="215" x2="365" y2="259" class="edge"/>
+
+  <!-- depth 0: 20(500,58) h=3, bf=+2 — TRIGGER -->
+  <circle cx="500" cy="58" r="17" class="node-warn"/>
+  <text x="500" y="59" class="node-text">20</text>
+  <text x="530" y="50" class="hf-warn">h=3</text>
+  <text x="530" y="62" class="hf-warn">bf=+2 ⚠</text>
+
+  <!-- depth 1: 10(435,130) h=2, bf=+1 -->
+  <circle cx="435" cy="130" r="17" class="node"/>
+  <text x="435" y="131" class="node-text">10</text>
+  <text x="465" y="122" class="hf">h=2</text>
+  <text x="465" y="134" class="hf">bf=+1</text>
+
+  <!-- depth 1: 30(565,130) h=0, bf=0 -->
+  <circle cx="565" cy="130" r="17" class="node"/>
+  <text x="565" y="131" class="node-text">30</text>
+  <text x="595" y="122" class="hf">h=0</text>
+  <text x="595" y="134" class="hf">bf=0</text>
+
+  <!-- depth 2: 5(395,202) h=1, bf=+1 -->
+  <circle cx="395" cy="202" r="17" class="node"/>
+  <text x="395" y="203" class="node-text">5</text>
+  <text x="395" y="228" class="hf">h=1</text>
+  <text x="395" y="240" class="hf">bf=+1</text>
+
+  <!-- depth 2: 15(475,202) h=0, bf=0 -->
+  <circle cx="475" cy="202" r="17" class="node"/>
+  <text x="475" y="203" class="node-text">15</text>
+  <text x="505" y="194" class="hf">h=0</text>
+  <text x="505" y="206" class="hf">bf=0</text>
+
+  <!-- depth 3: 3(355,272) h=0, bf=0 — new node -->
+  <circle cx="355" cy="272" r="17" class="node"/>
+  <text x="355" y="273" class="node-text">3</text>
+  <text x="355" y="298" class="hf">h=0</text>
+  <text x="355" y="310" class="hf">bf=0</text>
+
+  <!-- Trigger badge -->
+  <rect x="450" y="260" width="100" height="18" rx="9" class="badge-bg"/>
+  <text x="500" y="270" class="badge">LL → rotateR(20)</text>
+</svg>

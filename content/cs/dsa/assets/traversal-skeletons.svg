@@ -1,0 +1,340 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 540" fill="none">
+  <!--
+    LAYOUT GRID (v3 — parent centering fixed):
+    - 4 panels in 2x2
+    - Left panels cx_base=240, Right panels cx_base=680
+    - Node r=16, Badge r=7
+    - Depth spacing: 55px
+
+    TREE:          8
+                 /   \
+                3     10
+               / \      \
+              1   6     14
+                 / \    /
+                4   7  13
+
+    CENTERING (T2):
+    - 8 children: 3(cx=170), 10(cx=340) => midpoint=255, so root 8 at cx=255
+    - 3 children: 1(cx=110), 6(cx=210) => midpoint=160, so 3 at cx=160
+    - 6 children: 4(cx=180), 7(cx=240) => midpoint=210, so 6 at cx=210
+    - 10 child: 14(cx=370) => 10 at cx=370
+    - 14 child: 13(cx=350) => 14 at cx=350
+
+    Recalculate all positions with strict centering:
+    d3 leaves: 1(110), 4(180), 7(240), 13(350)
+    d2: 1(110)=leaf, 6=mid(180,240)=210, 14=above(350)=350
+    d1: 3=mid(110,210)=160, 10=above(350..only child via 14)=350...
+        but 10 has no left child, only right=14. Single child => near-vertical.
+        10 at cx=350, 14 at cx=350? That works for single-child vertical.
+        Actually 10's only child is 14. So 10 should be directly above 14.
+
+    Let me recalculate bottom-up:
+    d3: 4(cx=175), 7(cx=235), 13(cx=345)
+    d2: 1(cx=110, leaf), 6=mid(175,235)=205, 14=above 13=345
+    d1: 3=mid(110,205)=158, 10=above 14=345
+    d0: 8=mid(158,345)=252
+
+    Let me use nice round numbers:
+    d3: 4(175), 7(235), 13(350)
+    d2: 1(105), 6(205), 14(350)
+    d1: 3(155), 10(350)
+    d0: 8(253)... let's use 252
+
+    Hmm, let me re-derive with cleaner numbers:
+    d3: 4(180), 7(240), 13(360)
+    d2: 1(110), 6=mid(180,240)=210, 14=360
+    d1: 3=mid(110,210)=160, 10=360
+    d0: 8=mid(160,360)=260
+
+    Left panel positions:
+    d0: 8 at (260, 80)
+    d1: 3 at (160, 135), 10 at (360, 135)
+    d2: 1 at (110, 190), 6 at (210, 190), 14 at (360, 190)
+    d3: 4 at (180, 245), 7 at (240, 245), 13 at (360, 245)
+
+    10 and 14 both at cx=360 = single-child vertical (good per T5).
+    14 and 13 both at cx=360 = another single-child vertical. Good.
+
+    Right panel: offset by +440 from left
+    d0: 8 at (700, y)
+    d1: 3 at (600, y), 10 at (800, y)
+    d2: 1 at (550, y), 6 at (650, y), 14 at (800, y)
+    d3: 4 at (620, y), 7 at (680, y), 13 at (800, y)
+
+    Check: 6=mid(620,680)=650 ✓, 3=mid(550,650)=600 ✓, 10=above(800)=800 ✓
+    8=mid(600,800)=700 ✓
+  -->
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .node-text { font-size: 10px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+    .edge { stroke: #93a3b8; stroke-width: 1.2; fill: none; }
+    .anno { font-size: 10px; fill: #d29922; font-weight: 600; }
+    .title { font-size: 13px; fill: #7b97aa; font-weight: 600; text-anchor: middle; }
+    .subtitle { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    .badge { fill: #d29922; stroke: none; }
+    .badge-text { font-size: 8px; fill: #161618; font-weight: 700; text-anchor: middle; dominant-baseline: central; }
+    @media (prefers-color-scheme: light) {
+      .node { fill: #1a1a2e; stroke: #284b63; }
+      .edge { stroke: #b8b8b8; }
+      .anno { fill: #9e6000; }
+      .title { fill: #284b63; }
+      .subtitle { fill: #6e7781; }
+      .sep { stroke: #e5e5e5; }
+      .badge { fill: #9e6000; }
+    }
+  </style>
+
+  <!-- Separators -->
+  <line class="sep" x1="460" y1="30" x2="460" y2="520"/>
+  <line class="sep" x1="30" y1="270" x2="890" y2="270"/>
+
+  <!-- ============================================================ -->
+  <!-- PANEL 1: PREORDER (top-left)                                  -->
+  <!-- Node positions: 8(260,80), 3(160,135), 10(360,135),          -->
+  <!--   1(110,190), 6(210,190), 14(360,190),                       -->
+  <!--   4(180,245), 7(240,245), 13(360,245)                        -->
+  <!-- Visit: 8(1),3(2),1(3),6(4),4(5),7(6),10(7),14(8),13(9)      -->
+  <!-- ============================================================ -->
+  <text class="title" x="240" y="42">Preorder</text>
+  <text class="subtitle" x="240" y="55">(Root, Left, Right)</text>
+
+  <!-- Edges -->
+  <line class="edge" x1="247" y1="92" x2="173" y2="123"/>
+  <line class="edge" x1="274" y1="88" x2="347" y2="123"/>
+  <line class="edge" x1="149" y1="148" x2="121" y2="178"/>
+  <line class="edge" x1="171" y1="148" x2="199" y2="178"/>
+  <line class="edge" x1="360" y1="151" x2="360" y2="174"/>
+  <line class="edge" x1="203" y1="204" x2="187" y2="231"/>
+  <line class="edge" x1="217" y1="204" x2="233" y2="231"/>
+  <line class="edge" x1="360" y1="206" x2="360" y2="229"/>
+
+  <!-- Nodes -->
+  <circle class="node" cx="260" cy="80" r="16" id="p-8"/>
+  <text class="node-text" x="260" y="80">8</text>
+  <circle class="node" cx="160" cy="135" r="16" id="p-3"/>
+  <text class="node-text" x="160" y="135">3</text>
+  <circle class="node" cx="360" cy="135" r="16" id="p-10"/>
+  <text class="node-text" x="360" y="135">10</text>
+  <circle class="node" cx="110" cy="190" r="16" id="p-1"/>
+  <text class="node-text" x="110" y="190">1</text>
+  <circle class="node" cx="210" cy="190" r="16" id="p-6"/>
+  <text class="node-text" x="210" y="190">6</text>
+  <circle class="node" cx="360" cy="190" r="16" id="p-14"/>
+  <text class="node-text" x="360" y="190">14</text>
+  <circle class="node" cx="180" cy="245" r="16" id="p-4"/>
+  <text class="node-text" x="180" y="245">4</text>
+  <circle class="node" cx="240" cy="245" r="16" id="p-7"/>
+  <text class="node-text" x="240" y="245">7</text>
+  <circle class="node" cx="360" cy="245" r="16" id="p-13"/>
+  <text class="node-text" x="360" y="245">13</text>
+
+  <!-- Visit badges -->
+  <circle class="badge" cx="276" cy="68" r="7"/>
+  <text class="badge-text" x="276" y="68">1</text>
+  <circle class="badge" cx="176" cy="123" r="7"/>
+  <text class="badge-text" x="176" y="123">2</text>
+  <circle class="badge" cx="126" cy="178" r="7"/>
+  <text class="badge-text" x="126" y="178">3</text>
+  <circle class="badge" cx="226" cy="178" r="7"/>
+  <text class="badge-text" x="226" y="178">4</text>
+  <circle class="badge" cx="196" cy="233" r="7"/>
+  <text class="badge-text" x="196" y="233">5</text>
+  <circle class="badge" cx="256" cy="233" r="7"/>
+  <text class="badge-text" x="256" y="233">6</text>
+  <circle class="badge" cx="376" cy="123" r="7"/>
+  <text class="badge-text" x="376" y="123">7</text>
+  <circle class="badge" cx="376" cy="178" r="7"/>
+  <text class="badge-text" x="376" y="178">8</text>
+  <circle class="badge" cx="376" cy="233" r="7"/>
+  <text class="badge-text" x="376" y="233">9</text>
+
+  <!-- ============================================================ -->
+  <!-- PANEL 2: INORDER (top-right)                                  -->
+  <!-- Node positions: 8(700,80), 3(600,135), 10(800,135),          -->
+  <!--   1(550,190), 6(650,190), 14(800,190),                       -->
+  <!--   4(620,245), 7(680,245), 13(800,245)                        -->
+  <!-- Visit: 1(1),3(2),4(3),6(4),7(5),8(6),10(7),13(8),14(9)      -->
+  <!-- ============================================================ -->
+  <text class="title" x="680" y="42">Inorder</text>
+  <text class="subtitle" x="680" y="55">(Left, Root, Right)</text>
+
+  <!-- Depth labels (shared reference for pre/inorder) -->
+  <text class="anno" x="862" y="83" text-anchor="start" font-size="9">d0</text>
+  <text class="anno" x="862" y="138" text-anchor="start" font-size="9">d1</text>
+  <text class="anno" x="862" y="193" text-anchor="start" font-size="9">d2</text>
+  <text class="anno" x="862" y="248" text-anchor="start" font-size="9">d3</text>
+
+  <!-- Edges -->
+  <line class="edge" x1="687" y1="92" x2="613" y2="123"/>
+  <line class="edge" x1="714" y1="88" x2="787" y2="123"/>
+  <line class="edge" x1="589" y1="148" x2="561" y2="178"/>
+  <line class="edge" x1="611" y1="148" x2="639" y2="178"/>
+  <line class="edge" x1="800" y1="151" x2="800" y2="174"/>
+  <line class="edge" x1="643" y1="204" x2="627" y2="231"/>
+  <line class="edge" x1="657" y1="204" x2="673" y2="231"/>
+  <line class="edge" x1="800" y1="206" x2="800" y2="229"/>
+
+  <!-- Nodes -->
+  <circle class="node" cx="700" cy="80" r="16" id="i-8"/>
+  <text class="node-text" x="700" y="80">8</text>
+  <circle class="node" cx="600" cy="135" r="16" id="i-3"/>
+  <text class="node-text" x="600" y="135">3</text>
+  <circle class="node" cx="800" cy="135" r="16" id="i-10"/>
+  <text class="node-text" x="800" y="135">10</text>
+  <circle class="node" cx="550" cy="190" r="16" id="i-1"/>
+  <text class="node-text" x="550" y="190">1</text>
+  <circle class="node" cx="650" cy="190" r="16" id="i-6"/>
+  <text class="node-text" x="650" y="190">6</text>
+  <circle class="node" cx="800" cy="190" r="16" id="i-14"/>
+  <text class="node-text" x="800" y="190">14</text>
+  <circle class="node" cx="620" cy="245" r="16" id="i-4"/>
+  <text class="node-text" x="620" y="245">4</text>
+  <circle class="node" cx="680" cy="245" r="16" id="i-7"/>
+  <text class="node-text" x="680" y="245">7</text>
+  <circle class="node" cx="800" cy="245" r="16" id="i-13"/>
+  <text class="node-text" x="800" y="245">13</text>
+
+  <!-- Visit badges -->
+  <circle class="badge" cx="566" cy="178" r="7"/>
+  <text class="badge-text" x="566" y="178">1</text>
+  <circle class="badge" cx="616" cy="123" r="7"/>
+  <text class="badge-text" x="616" y="123">2</text>
+  <circle class="badge" cx="636" cy="233" r="7"/>
+  <text class="badge-text" x="636" y="233">3</text>
+  <circle class="badge" cx="666" cy="178" r="7"/>
+  <text class="badge-text" x="666" y="178">4</text>
+  <circle class="badge" cx="696" cy="233" r="7"/>
+  <text class="badge-text" x="696" y="233">5</text>
+  <circle class="badge" cx="716" cy="68" r="7"/>
+  <text class="badge-text" x="716" y="68">6</text>
+  <circle class="badge" cx="816" cy="123" r="7"/>
+  <text class="badge-text" x="816" y="123">7</text>
+  <circle class="badge" cx="816" cy="233" r="7"/>
+  <text class="badge-text" x="816" y="233">8</text>
+  <circle class="badge" cx="816" cy="178" r="7"/>
+  <text class="badge-text" x="816" y="178">9</text>
+
+  <!-- ============================================================ -->
+  <!-- PANEL 3: POSTORDER (bottom-left)                              -->
+  <!-- Same positions offset by +240 in y                            -->
+  <!-- Visit: 1(1),4(2),7(3),6(4),3(5),13(6),14(7),10(8),8(9)      -->
+  <!-- ============================================================ -->
+  <text class="title" x="240" y="282">Postorder</text>
+  <text class="subtitle" x="240" y="295">(Left, Right, Root)</text>
+
+  <!-- Edges -->
+  <line class="edge" x1="247" y1="332" x2="173" y2="363"/>
+  <line class="edge" x1="274" y1="328" x2="347" y2="363"/>
+  <line class="edge" x1="149" y1="388" x2="121" y2="418"/>
+  <line class="edge" x1="171" y1="388" x2="199" y2="418"/>
+  <line class="edge" x1="360" y1="391" x2="360" y2="414"/>
+  <line class="edge" x1="203" y1="444" x2="187" y2="471"/>
+  <line class="edge" x1="217" y1="444" x2="233" y2="471"/>
+  <line class="edge" x1="360" y1="446" x2="360" y2="469"/>
+
+  <!-- Nodes -->
+  <circle class="node" cx="260" cy="320" r="16" id="po-8"/>
+  <text class="node-text" x="260" y="320">8</text>
+  <circle class="node" cx="160" cy="375" r="16" id="po-3"/>
+  <text class="node-text" x="160" y="375">3</text>
+  <circle class="node" cx="360" cy="375" r="16" id="po-10"/>
+  <text class="node-text" x="360" y="375">10</text>
+  <circle class="node" cx="110" cy="430" r="16" id="po-1"/>
+  <text class="node-text" x="110" y="430">1</text>
+  <circle class="node" cx="210" cy="430" r="16" id="po-6"/>
+  <text class="node-text" x="210" y="430">6</text>
+  <circle class="node" cx="360" cy="430" r="16" id="po-14"/>
+  <text class="node-text" x="360" y="430">14</text>
+  <circle class="node" cx="180" cy="485" r="16" id="po-4"/>
+  <text class="node-text" x="180" y="485">4</text>
+  <circle class="node" cx="240" cy="485" r="16" id="po-7"/>
+  <text class="node-text" x="240" y="485">7</text>
+  <circle class="node" cx="360" cy="485" r="16" id="po-13"/>
+  <text class="node-text" x="360" y="485">13</text>
+
+  <!-- Visit badges -->
+  <circle class="badge" cx="126" cy="418" r="7"/>
+  <text class="badge-text" x="126" y="418">1</text>
+  <circle class="badge" cx="196" cy="473" r="7"/>
+  <text class="badge-text" x="196" y="473">2</text>
+  <circle class="badge" cx="256" cy="473" r="7"/>
+  <text class="badge-text" x="256" y="473">3</text>
+  <circle class="badge" cx="226" cy="418" r="7"/>
+  <text class="badge-text" x="226" y="418">4</text>
+  <circle class="badge" cx="176" cy="363" r="7"/>
+  <text class="badge-text" x="176" y="363">5</text>
+  <circle class="badge" cx="376" cy="473" r="7"/>
+  <text class="badge-text" x="376" y="473">6</text>
+  <circle class="badge" cx="376" cy="418" r="7"/>
+  <text class="badge-text" x="376" y="418">7</text>
+  <circle class="badge" cx="376" cy="363" r="7"/>
+  <text class="badge-text" x="376" y="363">8</text>
+  <circle class="badge" cx="276" cy="308" r="7"/>
+  <text class="badge-text" x="276" y="308">9</text>
+
+  <!-- ============================================================ -->
+  <!-- PANEL 4: LEVEL ORDER (bottom-right)                           -->
+  <!-- Visit: 8(1),3(2),10(3),1(4),6(5),14(6),4(7),7(8),13(9)      -->
+  <!-- ============================================================ -->
+  <text class="title" x="680" y="282">Level Order</text>
+  <text class="subtitle" x="680" y="295">(BFS -- by depth)</text>
+
+  <!-- Edges -->
+  <line class="edge" x1="687" y1="332" x2="613" y2="363"/>
+  <line class="edge" x1="714" y1="328" x2="787" y2="363"/>
+  <line class="edge" x1="589" y1="388" x2="561" y2="418"/>
+  <line class="edge" x1="611" y1="388" x2="639" y2="418"/>
+  <line class="edge" x1="800" y1="391" x2="800" y2="414"/>
+  <line class="edge" x1="643" y1="444" x2="627" y2="471"/>
+  <line class="edge" x1="657" y1="444" x2="673" y2="471"/>
+  <line class="edge" x1="800" y1="446" x2="800" y2="469"/>
+
+  <!-- Depth labels -->
+  <text class="anno" x="862" y="323" text-anchor="start" font-size="9">d0</text>
+  <text class="anno" x="862" y="378" text-anchor="start" font-size="9">d1</text>
+  <text class="anno" x="862" y="433" text-anchor="start" font-size="9">d2</text>
+  <text class="anno" x="862" y="488" text-anchor="start" font-size="9">d3</text>
+
+  <!-- Nodes -->
+  <circle class="node" cx="700" cy="320" r="16" id="lo-8"/>
+  <text class="node-text" x="700" y="320">8</text>
+  <circle class="node" cx="600" cy="375" r="16" id="lo-3"/>
+  <text class="node-text" x="600" y="375">3</text>
+  <circle class="node" cx="800" cy="375" r="16" id="lo-10"/>
+  <text class="node-text" x="800" y="375">10</text>
+  <circle class="node" cx="550" cy="430" r="16" id="lo-1"/>
+  <text class="node-text" x="550" y="430">1</text>
+  <circle class="node" cx="650" cy="430" r="16" id="lo-6"/>
+  <text class="node-text" x="650" y="430">6</text>
+  <circle class="node" cx="800" cy="430" r="16" id="lo-14"/>
+  <text class="node-text" x="800" y="430">14</text>
+  <circle class="node" cx="620" cy="485" r="16" id="lo-4"/>
+  <text class="node-text" x="620" y="485">4</text>
+  <circle class="node" cx="680" cy="485" r="16" id="lo-7"/>
+  <text class="node-text" x="680" y="485">7</text>
+  <circle class="node" cx="800" cy="485" r="16" id="lo-13"/>
+  <text class="node-text" x="800" y="485">13</text>
+
+  <!-- Visit badges -->
+  <circle class="badge" cx="716" cy="308" r="7"/>
+  <text class="badge-text" x="716" y="308">1</text>
+  <circle class="badge" cx="616" cy="363" r="7"/>
+  <text class="badge-text" x="616" y="363">2</text>
+  <circle class="badge" cx="816" cy="363" r="7"/>
+  <text class="badge-text" x="816" y="363">3</text>
+  <circle class="badge" cx="566" cy="418" r="7"/>
+  <text class="badge-text" x="566" y="418">4</text>
+  <circle class="badge" cx="666" cy="418" r="7"/>
+  <text class="badge-text" x="666" y="418">5</text>
+  <circle class="badge" cx="816" cy="418" r="7"/>
+  <text class="badge-text" x="816" y="418">6</text>
+  <circle class="badge" cx="636" cy="473" r="7"/>
+  <text class="badge-text" x="636" y="473">7</text>
+  <circle class="badge" cx="696" cy="473" r="7"/>
+  <text class="badge-text" x="696" y="473">8</text>
+  <circle class="badge" cx="816" cy="473" r="7"/>
+  <text class="badge-text" x="816" y="473">9</text>
+</svg>

@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 280" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .node-hl { fill: rgba(30,40,55,0.95); stroke: #d29922; stroke-width: 2.5; }
+    .node-text { font-size: 13px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .edge-hl { stroke: #d29922; stroke-width: 2.5; fill: none; }
+    .anno { font-size: 10px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .desc { font-size: 10px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .step-label { font-size: 9px; fill: #d29922; font-weight: 600; }
+    @media (prefers-color-scheme: light) {
+      .node { fill: #1a1a2e; stroke: #284b63; }
+      .node-hl { fill: #1a1a2e; stroke: #9e6000; stroke-width: 2.5; }
+      .edge { stroke: #b8b8b8; }
+      .edge-hl { stroke: #9e6000; }
+      .anno { fill: #9e6000; }
+      .desc { fill: #6e7781; }
+      .step-label { fill: #9e6000; }
+    }
+  </style>
+
+  <!-- Layout grid:
+       viewBox: 440 x 280
+       Padding: 20px all sides
+       Node radius: 20px
+       Depth 0 (root): y=50
+       Depth 1: y=120
+       Depth 2: y=190
+       
+       Horizontal positions (symmetric tree):
+       Root (50): cx=220
+       Depth 1: 25 at cx=120, 75 at cx=320
+       Depth 2: 10 at cx=70, 37 at cx=170, 60 at cx=270, 90 at cx=370
+  -->
+
+  <!-- Edges (drawn first, behind nodes) -->
+  <!-- 50->25 (HIGHLIGHTED - search path) -->
+  <line class="edge-hl" x1="206.6" y1="64.0" x2="133.4" y2="106.0"/>
+  <!-- 50->75 -->
+  <line class="edge" x1="233.4" y1="64.0" x2="306.6" y2="106.0"/>
+  <!-- 25->10 -->
+  <line class="edge" x1="108.6" y1="135.0" x2="81.4" y2="175.0"/>
+  <!-- 25->37 (HIGHLIGHTED - search path) -->
+  <line class="edge-hl" x1="131.4" y1="135.0" x2="158.6" y2="175.0"/>
+  <!-- 75->60 -->
+  <line class="edge" x1="308.6" y1="135.0" x2="281.4" y2="175.0"/>
+  <!-- 75->90 -->
+  <line class="edge" x1="331.4" y1="135.0" x2="358.6" y2="175.0"/>
+
+  <!-- Depth 0: root 50 (highlighted - search path) -->
+  <circle class="node-hl" id="n50" cx="220" cy="50" r="20"/>
+  <text class="node-text" x="220" y="50">50</text>
+
+  <!-- Depth 1: 25 (highlighted), 75 -->
+  <circle class="node-hl" id="n25" cx="120" cy="120" r="20"/>
+  <text class="node-text" x="120" y="120">25</text>
+
+  <circle class="node" id="n75" cx="320" cy="120" r="20"/>
+  <text class="node-text" x="320" y="120">75</text>
+
+  <!-- Depth 2: 10, 37 (highlighted - found), 60, 90 -->
+  <circle class="node" id="n10" cx="70" cy="190" r="20"/>
+  <text class="node-text" x="70" y="190">10</text>
+
+  <circle class="node-hl" id="n37" cx="170" cy="190" r="20"/>
+  <text class="node-text" x="170" y="190">37</text>
+
+  <circle class="node" id="n60" cx="270" cy="190" r="20"/>
+  <text class="node-text" x="270" y="190">60</text>
+
+  <circle class="node" id="n90" cx="370" cy="190" r="20"/>
+  <text class="node-text" x="370" y="190">90</text>
+
+  <!-- Search path annotations -->
+  <text class="step-label" x="155" y="72">37 &lt; 50</text>
+  <text class="step-label" x="130" y="80">go left</text>
+  <text class="step-label" x="162" y="147">37 &gt; 25</text>
+  <text class="step-label" x="162" y="155">go right</text>
+
+  <!-- Found annotation -->
+  <text class="anno" x="170" y="225">found!</text>
+
+  <!-- Caption -->
+  <text class="desc" x="220" y="260">Search path for key 37: 50 &#x2192; 25 &#x2192; 37</text>
+</svg>

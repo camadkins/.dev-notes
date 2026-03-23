@@ -28,7 +28,7 @@ aliases: []
 Let `T(x)` be the step count (or relevant cost) of an algorithm on input `x`, with `n = |x|` its size. Define:
 - **Worst-case:** `$T_{\max}(n) = \max_{|x|=n} T(x)$`
 - **Best-case:** `$T_{\min}(n) = \min_{|x|=n} T(x)$`
-- **Average-case:** `$E[T(x)\mid |x|=n]$` under a specified input distribution
+- **Average-case:** `$E[T(x)\mid |x|=n]$` under a specified input [[cs/statistics/probability-distributions|distribution]] (see [[cs/statistics/expected-value|Expected Value]])
 
 Asymptotic notation:
 - `$O(g(n))$`: upper bound up to constant factors

@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 440" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; }
+    .box-iface { fill: rgba(30,40,55,0.95); stroke: #3fb950; stroke-width: 1.5; rx: 6; }
+    .box-out { fill: rgba(30,40,55,0.95); stroke: #d29922; stroke-width: 1.5; rx: 6; }
+    .box-exe { fill: rgba(30,40,55,0.95); stroke: #f47067; stroke-width: 1.5; rx: 6; }
+    .box-text { font-size: 12px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+    .label { font-size: 10px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .step-label { font-size: 9px; fill: #8b949e; font-style: italic; }
+    .arrow { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .arrow-iface { stroke: #3fb950; stroke-width: 1.5; fill: none; stroke-dasharray: 5 3; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; }
+    .title { font-size: 10px; fill: #8b949e; font-style: italic; }
+    @media (prefers-color-scheme: light) {
+      .box { fill: #1a1a2e; stroke: #284b63; }
+      .box-iface { fill: #1a1a2e; stroke: #1a7f37; }
+      .box-out { fill: #1a1a2e; stroke: #9e6000; }
+      .box-exe { fill: #1a1a2e; stroke: #c93c37; }
+      .arrow { stroke: #b8b8b8; }
+      .arrow-iface { stroke: #1a7f37; }
+      .label { fill: #9e6000; }
+      .step-label { fill: #6e7781; }
+      .desc { fill: #6e7781; }
+      .title { fill: #6e7781; }
+    }
+  </style>
+  <defs>
+    <marker id="ah" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#93a3b8"/>
+    </marker>
+    <marker id="ah-green" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#3fb950"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text class="title" x="20" y="24">separate compilation: interface first, then implementation and clients</text>
+
+  <!-- Row 1: Source files -->
+  <!-- stack.mli -->
+  <rect class="box-iface" x="20" y="44" width="140" height="36"/>
+  <text class="box-text" x="90" y="62">stack.mli</text>
+
+  <!-- stack.ml -->
+  <rect class="box" x="300" y="44" width="140" height="36"/>
+  <text class="box-text" x="370" y="62">stack.ml</text>
+
+  <!-- main.ml -->
+  <rect class="box" x="580" y="44" width="140" height="36"/>
+  <text class="box-text" x="650" y="62">main.ml</text>
+
+  <!-- Step 1: stack.mli -> stack.cmi -->
+  <text class="step-label" x="24" y="104">1  ocamlc -c stack.mli</text>
+  <line class="arrow" x1="90" y1="80" x2="90" y2="128" marker-end="url(#ah)"/>
+
+  <rect class="box-iface" x="20" y="130" width="140" height="36"/>
+  <text class="box-text" x="90" y="148">stack.cmi</text>
+
+  <!-- Step 2: stack.ml compiles against stack.cmi -> stack.cmo -->
+  <text class="step-label" x="284" y="104">2  ocamlc -c stack.ml</text>
+  <line class="arrow" x1="370" y1="80" x2="370" y2="218" marker-end="url(#ah)"/>
+
+  <!-- Dashed arrow: stack.cmi feeds into stack.ml compilation -->
+  <path class="arrow-iface" d="M 160,148 L 230,148 L 230,230 L 298,230" marker-end="url(#ah-green)"/>
+  <text class="step-label" x="186" y="142">checks against</text>
+
+  <rect class="box-out" x="300" y="220" width="140" height="36"/>
+  <text class="box-text" x="370" y="238">stack.cmo</text>
+
+  <!-- Step 3: main.ml compiles against stack.cmi -> main.cmo -->
+  <text class="step-label" x="564" y="104">3  ocamlc -c main.ml</text>
+  <line class="arrow" x1="650" y1="80" x2="650" y2="218" marker-end="url(#ah)"/>
+
+  <!-- Dashed arrow: stack.cmi feeds into main.ml compilation -->
+  <path class="arrow-iface" d="M 160,158 L 500,158 L 500,230 L 578,230" marker-end="url(#ah-green)"/>
+  <text class="step-label" x="466" y="152">checks against</text>
+
+  <rect class="box-out" x="580" y="220" width="140" height="36"/>
+  <text class="box-text" x="650" y="238">main.cmo</text>
+
+  <!-- Step 4: Linker -->
+  <text class="step-label" x="404" y="306">4  ocamlc -o app stack.cmo main.cmo</text>
+
+  <!-- Arrows from .cmo files to linker -->
+  <line class="arrow" x1="370" y1="256" x2="370" y2="318" marker-end="url(#ah)"/>
+  <path class="arrow" d="M 650,256 L 650,290 L 530,290 L 530,318" marker-end="url(#ah)"/>
+
+  <!-- Linker box -->
+  <rect class="box" x="330" y="320" width="240" height="36"/>
+  <text class="box-text" x="450" y="338">Linker</text>
+
+  <!-- Arrow from linker to executable -->
+  <line class="arrow" x1="450" y1="356" x2="450" y2="388" marker-end="url(#ah)"/>
+
+  <!-- Executable -->
+  <rect class="box-exe" x="380" y="390" width="140" height="36"/>
+  <text class="box-text" x="450" y="408">app</text>
+  <text class="label" x="450" y="434">executable</text>
+</svg>

@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 520" style="background:transparent">
+  <style>
+    /* Grid constants: pad=20, colW=160, rowH=100 */
+    text { font-family: 'SF Mono','Fira Code','Consolas',monospace; }
+    .label   { fill: #e8e8e8; font-size: 13px; text-anchor: middle; dominant-baseline: central; }
+    .root-label { fill: #e8e8e8; font-size: 12px; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+    .anno    { fill: #d29922; font-size: 13px; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+    .desc    { fill: #8b949e; font-size: 11px; text-anchor: middle; dominant-baseline: central; }
+    .sep     { stroke: #30363d; stroke-dasharray: 6 4; stroke-width: 1; }
+    .edge    { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .sweep-edge { stroke: #d29922; stroke-width: 1.5; fill: none; stroke-dasharray: 5 3; }
+
+    /* Live node */
+    .node-live { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    /* Root node */
+    .node-root { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 2; }
+    /* Garbage node */
+    .node-garbage { fill: rgba(30,40,55,0.45); stroke: #484f58; stroke-width: 1.5; stroke-dasharray: 4 3; }
+    .label-garbage { fill: #484f58; font-size: 13px; text-anchor: middle; dominant-baseline: central; }
+
+    @media (prefers-color-scheme: light) {
+      .label        { fill: #1f2328; }
+      .root-label   { fill: #1f2328; }
+      .anno         { fill: #9a6700; }
+      .desc         { fill: #656d76; }
+      .sep          { stroke: #d1d9e0; }
+      .edge         { stroke: #57606a; }
+      .sweep-edge   { stroke: #9a6700; }
+      .node-live    { fill: rgba(235,240,248,0.95); stroke: #0969da; }
+      .node-root    { fill: rgba(235,240,248,0.95); stroke: #0969da; }
+      .node-garbage { fill: rgba(235,240,248,0.40); stroke: #afb8c1; }
+      .label-garbage { fill: #afb8c1; }
+    }
+  </style>
+
+  <defs>
+    <marker id="ah" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#93a3b8"/>
+    </marker>
+    <marker id="ah-sweep" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#d29922"/>
+    </marker>
+    <marker id="ah-light" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#57606a"/>
+    </marker>
+  </defs>
+
+  <!-- ══ Row 0: Title ══ -->
+  <text class="anno" x="360" y="28">GC Reachability</text>
+  <text class="desc" x="360" y="46">Root set → live objects → unreachable garbage</text>
+
+  <!-- ══ Separator ══ -->
+  <line class="sep" x1="40" y1="60" x2="680" y2="60"/>
+
+  <!-- ══ Row 1: Root Set (y=90) ══ -->
+  <text class="desc" x="60" y="90">roots</text>
+
+  <!-- Stack -->
+  <rect class="node-root" x="130" y="74" width="100" height="32" rx="6"/>
+  <text class="root-label" x="180" y="90">Stack</text>
+
+  <!-- Globals -->
+  <rect class="node-root" x="310" y="74" width="100" height="32" rx="6"/>
+  <text class="root-label" x="360" y="90">Globals</text>
+
+  <!-- Registers -->
+  <rect class="node-root" x="490" y="74" width="110" height="32" rx="6"/>
+  <text class="root-label" x="545" y="90">Registers</text>
+
+  <!-- ══ Separator ══ -->
+  <line class="sep" x1="40" y1="120" x2="680" y2="120"/>
+
+  <!-- ══ Row 2: Live objects layer 1 (y=170) ══ -->
+  <text class="desc" x="60" y="170">live</text>
+
+  <!-- Obj A -->
+  <rect class="node-live" x="120" y="150" width="80" height="36" rx="6"/>
+  <text class="label" x="160" y="168">A</text>
+
+  <!-- Obj B -->
+  <rect class="node-live" x="300" y="150" width="80" height="36" rx="6"/>
+  <text class="label" x="340" y="168">B</text>
+
+  <!-- Obj C -->
+  <rect class="node-live" x="490" y="150" width="80" height="36" rx="6"/>
+  <text class="label" x="530" y="168">C</text>
+
+  <!-- Root → Live edges -->
+  <line class="edge" x1="180" y1="106" x2="165" y2="148" marker-end="url(#ah)"/>
+  <line class="edge" x1="360" y1="106" x2="345" y2="148" marker-end="url(#ah)"/>
+  <line class="edge" x1="545" y1="106" x2="535" y2="148" marker-end="url(#ah)"/>
+
+  <!-- ══ Row 3: Live objects layer 2 (y=250) ══ -->
+  <!-- Obj D -->
+  <rect class="node-live" x="160" y="235" width="80" height="36" rx="6"/>
+  <text class="label" x="200" y="253">D</text>
+
+  <!-- Obj E -->
+  <rect class="node-live" x="360" y="235" width="80" height="36" rx="6"/>
+  <text class="label" x="400" y="253">E</text>
+
+  <!-- Live → Live edges (A→D, B→E, C→E) -->
+  <line class="edge" x1="165" y1="186" x2="195" y2="233" marker-end="url(#ah)"/>
+  <line class="edge" x1="340" y1="186" x2="395" y2="233" marker-end="url(#ah)"/>
+  <line class="edge" x1="530" y1="186" x2="410" y2="235" marker-end="url(#ah)"/>
+
+  <!-- D → E edge (cross-link among live) -->
+  <line class="edge" x1="240" y1="253" x2="358" y2="253" marker-end="url(#ah)"/>
+
+  <!-- ══ Separator: reachable / unreachable ══ -->
+  <line class="sep" x1="40" y1="300" x2="680" y2="300"/>
+  <text class="desc" x="360" y="318">unreachable — garbage</text>
+
+  <!-- ══ Row 4: Garbage nodes (y=360) ══ -->
+  <!-- Obj F (garbage) -->
+  <rect class="node-garbage" x="100" y="345" width="80" height="36" rx="6"/>
+  <text class="label-garbage" x="140" y="363">F</text>
+
+  <!-- Obj G (garbage) -->
+  <rect class="node-garbage" x="260" y="345" width="80" height="36" rx="6"/>
+  <text class="label-garbage" x="300" y="363">G</text>
+
+  <!-- Obj H (garbage) -->
+  <rect class="node-garbage" x="420" y="345" width="80" height="36" rx="6"/>
+  <text class="label-garbage" x="460" y="363">H</text>
+
+  <!-- Garbage → Garbage edges (cycle: F→G→H→F) -->
+  <line class="edge" x1="180" y1="363" x2="258" y2="363" marker-end="url(#ah)" style="stroke:#484f58"/>
+  <line class="edge" x1="340" y1="363" x2="418" y2="363" marker-end="url(#ah)" style="stroke:#484f58"/>
+  <path class="edge" d="M460,381 Q460,420 140,420 Q100,420 100,383" marker-end="url(#ah)" style="stroke:#484f58"/>
+
+  <!-- ══ Sweep annotation ══ -->
+  <line class="sep" x1="40" y1="450" x2="680" y2="450"/>
+
+  <!-- Sweep arrow spanning garbage -->
+  <path class="sweep-edge" d="M580,363 Q640,363 640,420 Q640,475 600,475 L160,475" marker-end="url(#ah-sweep)"/>
+  <text class="anno" x="400" y="493">collector sweep → reclaim</text>
+
+  <!-- ══ Legend ══ -->
+  <rect class="node-live" x="40" y="340" width="12" height="12" rx="2" style="display:none"/>
+
+</svg>

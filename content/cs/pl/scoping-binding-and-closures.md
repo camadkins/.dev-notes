@@ -2,17 +2,12 @@
 title: Scoping, Binding, and Closures
 description: How lexical environments determine variable resolution, and how closures capture bindings to preserve computation context across function calls.
 draft: false
-comments: true
 tags:
   - cs
   - pl
 date: 2025-10-16
 updated:
 aliases: []
-# diagrams:
-#  - lexical_scope_chain.svg - illustrate nested blocks and environment links showing lexical resolution.
-#  - closure_capture_model.svg - show closure capturing variables in an environment box.
-#  - shadowing_and_binding.svg - depict scope shadowing and variable rebinding.
 ---
 
 ## Overview
@@ -28,7 +23,7 @@ Closures extend this by capturing the environment where a function was defined, 
 
 ## Lexical vs Dynamic Scope
 ### Lexical (Static) Scope
-Under **lexical scope**, a variable’s meaning depends on *where it’s written* in the source code - not where it’s called.
+Under **lexical scope**, a variable’s meaning depends on *where it’s written* in the source code — not where it’s called.
 
 Example (ML-like pseudocode):
 ```ml
@@ -72,17 +67,9 @@ Evaluation looks up names through these structures:
 lookup(x, ρ, σ) = σ(ρ(x))
 ```
 
-Lexical scoping creates an **environment chain** - each new function introduces a new environment linked to its parent.
+Lexical scoping creates an **environment chain** — each new function introduces a new environment linked to its parent.
 
-> [!example]  
-> **Diagram (`lexical_scope_chain.svg`)**
-> 
-> - Boxes for function scopes (`global`, `f`, `g`).
->     
-> - Arrows pointing to parent environments.
->     
-> - Show `f` defined in `global`, retaining link to `x`.
->     
+![Nested environment chain: global contains x, f links to global, g links to f — variables resolve by following parent pointers](assets/scope-lexical-chain.svg)
 
 ---
 
@@ -116,15 +103,13 @@ let x = 5 in
 > [!tip]  
 > Shadowing is harmless if deliberate, but often hides bugs when used accidentally in nested scopes.
 
-> [!example]  
-> **Diagram (`shadowing_and_binding.svg`)**  
-> Two nested environment boxes; the inner box binds `x` again, cutting off outer visibility.
+![Scope shadowing: inner x = 10 shadows outer x = 5, resolution follows inner binding](assets/scope-shadowing.svg)
 
 ---
 
 ## Closures: Capturing the Environment
 
-A **closure** is a pair ⟨function, environment⟩ - it remembers the bindings present when it was created.
+A **closure** is a pair ⟨function, environment⟩ — it remembers the bindings present when it was created.
 
 Example:
 
@@ -149,13 +134,7 @@ At creation time:
 2. When called later, evaluation uses the _captured_ environment, not the caller’s.
     
 
-> [!example]  
-> **Diagram (`closure_capture_model.svg`)**
-> 
-> - Closure box containing a pointer to environment `{ r ↦ ℓ₁ }`.
->     
-> - Both `inc` and `get` referencing the same `ℓ₁`.
->     
+![Closure capture: inc and get share the same environment with r mapped to a shared store location](assets/scope-closure-capture.svg)
 
 ---
 
@@ -163,9 +142,9 @@ At creation time:
 
 Closures can either:
 
-- **Capture values** (immutable model - e.g., purely functional languages), or
+- **Capture values** (immutable model — e.g., purely functional languages), or
     
-- **Capture locations** (mutable model - e.g., ML, JavaScript).
+- **Capture locations** (mutable model — e.g., ML, JavaScript).
     
 
 In the latter, multiple closures share mutable state:
@@ -178,7 +157,7 @@ inc(); inc(); get()  (* ⇒ 2 *)
 ```
 
 > [!warning]  
-> Sharing mutable cells across closures can introduce aliasing bugs - e.g., updates in one closure affect others unexpectedly.
+> Sharing mutable cells across closures can introduce aliasing bugs — e.g., updates in one closure affect others unexpectedly.
 
 ---
 
@@ -218,7 +197,7 @@ This **chain of captured environments** enables higher-order abstractions withou
 >     
 
 > [!tip]  
-> Prefer **immutable captures** or **copying semantics** when possible - especially in concurrent or asynchronous code.
+> Prefer **immutable captures** or **copying semantics** when possible — especially in concurrent or asynchronous code.
 
 ---
 
@@ -236,21 +215,21 @@ This **chain of captured environments** enables higher-order abstractions withou
 
 ## Diagram Concepts
 
-- `lexical_scope_chain.svg`: static environment resolution.
+- `scope-lexical-chain.svg`: static environment resolution.
     
-- `closure_capture_model.svg`: closure capturing free variables.
+- `scope-closure-capture.svg`: closure capturing free variables.
     
-- `shadowing_and_binding.svg`: variable hiding and rebinding.
+- `scope-shadowing.svg`: variable hiding and rebinding.
     
 
 ---
 
-## Related Notes
+## See also
 
-- [[language-design-values-variables-environments|Values, Variables & Environments]]
+- [[cs/pl/language-design-values-variables-environments|Values, Variables & Environments]]
     
-- [[lambda-calculus-syntax-substitution|Lambda Calculus - Syntax & Substitution]]
+- [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]
     
 - [[evaluation-order-and-strictness | Evaluation Order & Strictness]]
     
-- [[mutable-state-references-effects|Mutable State, References & Effects]]
+- [[cs/pl/mutable-state-references-effects|Mutable State, References & Effects]]

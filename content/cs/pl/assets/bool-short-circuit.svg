@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 340" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; }
+    .node-pruned { fill: rgba(30,40,55,0.4); stroke: #4a5568; stroke-width: 1; rx: 6; stroke-dasharray: 5 3; }
+    .node-text { font-size: 13px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+    .node-text-dim { font-size: 13px; fill: #6b7280; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .edge-pruned { stroke: #4a5568; stroke-width: 1; fill: none; stroke-dasharray: 5 3; }
+    .edge-result { stroke: #84a59d; stroke-width: 2; fill: none; }
+    .anno { font-size: 10px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .anno-left { font-size: 10px; fill: #d29922; font-weight: 600; text-anchor: start; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .rule { font-size: 10px; fill: #84a59d; text-anchor: middle; }
+    .result-text { font-size: 12px; fill: #84a59d; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+    .title { font-size: 11px; fill: #7b97aa; font-weight: 600; text-anchor: middle; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    .cross { stroke: #d29922; stroke-width: 2; }
+    .arrow { fill: #93a3b8; }
+    .arrow-result { fill: #84a59d; }
+    @media (prefers-color-scheme: light) {
+      .node { fill: #1a1a2e; stroke: #284b63; }
+      .node-pruned { fill: rgba(26,26,46,0.4); stroke: #b8b8b8; }
+      .node-text-dim { fill: #9ca3af; }
+      .edge { stroke: #b8b8b8; }
+      .edge-pruned { stroke: #d1d5db; }
+      .edge-result { stroke: #4a7c6f; }
+      .anno, .anno-left { fill: #9e6000; }
+      .desc { fill: #6e7781; }
+      .rule { fill: #4a7c6f; }
+      .result-text { fill: #4a7c6f; }
+      .title { fill: #284b63; }
+      .sep { stroke: #e5e5e5; }
+      .cross { stroke: #9e6000; }
+      .arrow { fill: #b8b8b8; }
+      .arrow-result { fill: #4a7c6f; }
+    }
+  </style>
+
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" class="arrow" />
+    </marker>
+    <marker id="arr-result" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" class="arrow-result" />
+    </marker>
+  </defs>
+
+  <!-- Left panel: true AND e  -->
+  <!-- Panel title -->
+  <text x="170" y="32" class="title">true ∧ e → e</text>
+  <text x="170" y="50" class="rule">E ⊢ true ∧ e → e</text>
+
+  <!-- Root: true ∧ e -->
+  <rect x="110" y="72" width="120" height="32" class="node" />
+  <text x="170" y="88" class="node-text">true ∧ e</text>
+
+  <!-- Left child: true (evaluated) -->
+  <rect x="50" y="152" width="76" height="32" class="node" />
+  <text x="88" y="168" class="node-text">true</text>
+
+  <!-- Right child: e (evaluated) -->
+  <rect x="184" y="152" width="50" height="32" class="node" />
+  <text x="209" y="168" class="node-text">e</text>
+
+  <!-- Edges from root to children -->
+  <line x1="145" y1="104" x2="105" y2="152" class="edge" />
+  <line x1="195" y1="104" x2="200" y2="152" class="edge" />
+
+  <!-- Annotations on branches -->
+  <text x="110" y="125" class="anno">= true</text>
+  <text x="212" y="125" class="anno">evaluate</text>
+
+  <!-- Result arrow -->
+  <line x1="209" y1="184" x2="209" y2="230" class="edge-result" marker-end="url(#arr-result)" />
+
+  <!-- Result node -->
+  <rect x="179" y="238" width="60" height="32" class="node" />
+  <text x="209" y="254" class="result-text">e</text>
+
+  <text x="170" y="296" class="desc">left operand is true → must evaluate right</text>
+
+  <!-- ============================================ -->
+  <!-- Separator -->
+  <line x1="340" y1="22" x2="340" y2="320" class="sep" />
+
+  <!-- Right panel: false AND e  -->
+  <!-- Panel title -->
+  <text x="510" y="32" class="title">false ∧ e → false</text>
+  <text x="510" y="50" class="rule">E ⊢ false ∧ e → false</text>
+
+  <!-- Root: false ∧ e -->
+  <rect x="450" y="72" width="120" height="32" class="node" />
+  <text x="510" y="88" class="node-text">false ∧ e</text>
+
+  <!-- Left child: false (evaluated) -->
+  <rect x="390" y="152" width="76" height="32" class="node" />
+  <text x="428" y="168" class="node-text">false</text>
+
+  <!-- Right child: e (PRUNED - never evaluated) -->
+  <rect x="524" y="152" width="50" height="32" class="node-pruned" />
+  <text x="549" y="168" class="node-text-dim">e</text>
+
+  <!-- Edges -->
+  <line x1="485" y1="104" x2="445" y2="152" class="edge" />
+  <line x1="535" y1="104" x2="540" y2="152" class="edge-pruned" />
+
+  <!-- Annotations -->
+  <text x="450" y="125" class="anno">= false</text>
+  <text x="558" y="125" class="anno">skipped</text>
+
+  <!-- X mark over the pruned branch -->
+  <line x1="534" y1="142" x2="564" y2="192" class="cross" />
+  <line x1="564" y1="142" x2="534" y2="192" class="cross" />
+
+  <!-- Result arrow from left child -->
+  <line x1="428" y1="184" x2="428" y2="230" class="edge-result" marker-end="url(#arr-result)" />
+
+  <!-- Result node -->
+  <rect x="393" y="238" width="70" height="32" class="node" />
+  <text x="428" y="254" class="result-text">false</text>
+
+  <text x="510" y="296" class="desc">left operand is false → e is never evaluated</text>
+</svg>

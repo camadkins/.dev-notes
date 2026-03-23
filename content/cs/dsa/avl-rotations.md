@@ -11,9 +11,7 @@ updated: 2025-10-29
 aliases:
   - avl-rotations
   - avl-trees-balance-rotations
-# diagrams:
-#  - avl_rotations.svg - visualizes LL, RR, LR, RL rotation patterns.
-#  - avl_height_balance.svg - shows subtree height differences and balance factors.
+
 ---
 
 ## Overview
@@ -38,8 +36,7 @@ When inserting or deleting a node:
 | LR | Right subtree of left child grew | Left rotation on child, then right rotation |
 | RL | Left subtree of right child grew | Right rotation on child, then left rotation |
 
-> [!example]
-> **Diagram (`avl_height_balance.svg`)** - show nodes annotated with height and balance factor values, highlighting when rotation triggers occur.
+![AVL height and balance factors: balanced tree vs imbalanced tree triggering LL rotation](assets/avl-height-balance.svg)
 
 ### Right Rotation (LL Case)
 Occurs when inserting into the **left subtree** of a node’s left child.
@@ -102,8 +99,7 @@ Triggered when inserting into the **left subtree of the right child**:
 > [!note]  
 > LR and RL rotations are effectively _mirror images_ of each other.
 
-> [!example]  
-> **Diagram (`avl_rotations.svg`)** - show rotations so above cases can be visualized.
+![AVL rotation cases: LL, RR, LR, RL with before/after tree states](assets/avl-rotations.svg)
 
 ---
 

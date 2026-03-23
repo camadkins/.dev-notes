@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; }
+    .box-sig { fill: rgba(30,40,55,0.95); stroke: #3fb950; stroke-width: 1.5; rx: 6; }
+    .label { font-size: 12px; fill: #d29922; font-weight: 600; }
+    .txt { font-size: 11px; fill: #e8e8e8; }
+    .txt-dim { font-size: 11px; fill: #484f58; }
+    .txt-exposed { font-size: 11px; fill: #e8e8e8; }
+    .sig-txt { font-size: 11px; fill: #e8e8e8; }
+    .arrow { stroke: #3fb950; stroke-width: 1.5; fill: none; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; }
+    .title { font-size: 10px; fill: #8b949e; font-style: italic; }
+    .hidden-mark { font-size: 10px; fill: #484f58; }
+    @media (prefers-color-scheme: light) {
+      .box { fill: #1a1a2e; stroke: #284b63; }
+      .box-sig { fill: #1a1a2e; stroke: #1a7f37; }
+      .label { fill: #9e6000; }
+      .txt-dim { fill: #8b949e; }
+      .arrow { stroke: #1a7f37; }
+      .desc { fill: #6e7781; }
+      .title { fill: #6e7781; }
+      .hidden-mark { fill: #8b949e; }
+    }
+  </style>
+  <defs>
+    <marker id="ah-green" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#3fb950"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text class="title" x="20" y="24">module signature exposes a subset of the implementation</text>
+
+  <!-- Implementation box -->
+  <rect class="box" x="20" y="40" width="320" height="310"/>
+  <text class="label" x="36" y="64">Implementation</text>
+
+  <!-- Implementation items -->
+  <text class="txt-exposed" x="36" y="96">type t = int list</text>
+  <text class="txt-exposed" x="36" y="124">let empty = []</text>
+  <text class="txt-exposed" x="36" y="152">let push x s = x :: s</text>
+  <text class="txt-exposed" x="36" y="180">let pop = function</text>
+  <text class="txt-exposed" x="52" y="198">| [] -> failwith "Empty"</text>
+  <text class="txt-exposed" x="52" y="216">| x :: xs -> (x, xs)</text>
+
+  <!-- Hidden / helper items (dimmed) -->
+  <text class="txt-dim" x="36" y="256">let size s = List.length s</text>
+  <line x1="36" y1="253" x2="250" y2="253" stroke="#484f58" stroke-width="1" opacity="0.5"/>
+  <text class="txt-dim" x="36" y="280">let debug_dump s = ...</text>
+  <line x1="36" y1="277" x2="230" y2="277" stroke="#484f58" stroke-width="1" opacity="0.5"/>
+  <text class="txt-dim" x="36" y="304">let validate s = ...</text>
+  <line x1="36" y1="301" x2="200" y2="301" stroke="#484f58" stroke-width="1" opacity="0.5"/>
+
+  <text class="hidden-mark" x="36" y="330">-- hidden from clients --</text>
+
+  <!-- Signature box -->
+  <rect class="box-sig" x="440" y="40" width="260" height="220"/>
+  <text class="label" x="456" y="64">Signature (STACK)</text>
+
+  <!-- Signature items -->
+  <text class="sig-txt" x="456" y="96">type t</text>
+  <text class="desc" x="516" y="96">(abstract)</text>
+  <text class="sig-txt" x="456" y="130">val empty : t</text>
+  <text class="sig-txt" x="456" y="164">val push : int -> t -> t</text>
+  <text class="sig-txt" x="456" y="198">val pop : t -> int * t</text>
+
+  <!-- Arrows from signature to implementation (exposed items) -->
+  <!-- type t -->
+  <path class="arrow" d="M 440,92 L 340,92" marker-end="url(#ah-green)"/>
+  <!-- val empty -->
+  <path class="arrow" d="M 440,126 L 340,120" marker-end="url(#ah-green)"/>
+  <!-- val push -->
+  <path class="arrow" d="M 440,160 L 340,148" marker-end="url(#ah-green)"/>
+  <!-- val pop -->
+  <path class="arrow" d="M 440,194 L 340,180" marker-end="url(#ah-green)"/>
+
+  <!-- Annotation -->
+  <text class="desc" x="440" y="280">clients see only what the</text>
+  <text class="desc" x="440" y="294">signature declares</text>
+</svg>
