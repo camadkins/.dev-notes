@@ -15,6 +15,8 @@ aliases: []
 
 Take *any* population - skewed, bimodal, uniform, it doesn't matter - and repeatedly draw random samples of size $n$. Compute the sample mean each time. As $n$ grows, those sample means form a distribution that looks increasingly **normal**, regardless of what the original population looked like. This is the Central Limit Theorem (CLT), and it is the reason the [[normal-distribution|normal distribution]] dominates statistics: even when individual data aren't Gaussian, averages of enough data points are.
 
+![Progression showing convergence of sample means to normal distribution as n increases](assets/clt-convergence.svg)
+
 ## Definition
 
 Let $X_1, X_2, \dots, X_n$ be independent and identically distributed (i.i.d.) random variables with mean $\mu$ and finite variance $\sigma^2$. The CLT states that as $n \to \infty$:

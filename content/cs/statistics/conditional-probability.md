@@ -19,6 +19,8 @@ The idea is simple. When you learn that event $A$ occurred, you throw away every
 
 This "reduced sample space" perspective is what makes conditional probability the gateway to all of Bayesian reasoning - every update, every inference, every learned model starts here.
 
+![Venn diagram showing sample space S with events A and B, highlighting the reduced sample space and intersection defining P(B|A)](assets/conditional-venn.svg)
+
 ## Definition
 
 The **conditional probability** of $B$ given $A$ is defined as:

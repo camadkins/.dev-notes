@@ -71,6 +71,8 @@ $$P(\theta \mid D_1, D_2) \propto P(D_2 \mid \theta)\, P(\theta \mid D_1)$$
 
 The final result is identical to updating on both datasets at once - order does not matter. This makes Bayesian methods natural for **streaming data** and **online learning**.
 
+![Sequential Bayesian updating flow: prior times likelihood yields posterior, which becomes the next prior](assets/bayesian-updating.svg)
+
 ### Bayesian vs. frequentist
 
 | Aspect | Frequentist | Bayesian |

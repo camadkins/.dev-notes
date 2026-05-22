@@ -75,6 +75,8 @@ $$\rho_{XY} = \frac{\sigma_{XY}}{\sigma_X \, \sigma_Y}$$
 
 $|\rho| = 1$ indicates a perfect linear relationship; $\rho = 0$ means no linear association.
 
+![Three scatter plots showing positive, zero, and negative correlation](assets/covariance-scatter.svg)
+
 ## Example
 
 **Manufacturing consistency.** Two companies produce resistors rated at 100 ohms. Sample measurements:

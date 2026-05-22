@@ -47,6 +47,8 @@ $$P(X > s + t \mid X > s) = P(X > t)$$
 
 This property says: given that you have already failed $s$ times, the distribution of additional trials needed is the same as starting fresh. The geometric is the *only* discrete distribution with this property.
 
+![Geometric PMF bar chart for Geom(0.2) showing the characteristic decreasing geometric sequence of probabilities](assets/geometric-pmf.svg)
+
 **Moment Generating Function:**
 
 $$M(t) = \frac{pe^t}{1 - qe^t}, \quad t < -\ln q$$

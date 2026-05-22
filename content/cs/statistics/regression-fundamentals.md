@@ -58,6 +58,8 @@ The **residual** for observation $i$ is $e_i = Y_i - \hat{Y}_i$. Residuals are t
 - **Normal Q-Q plot**: residuals should fall on a straight line if the normality assumption holds.
 - **Scale-location plot**: checks for constant variance (homoscedasticity).
 
+![Scatter plot with OLS fitted line showing vertical residual distances, plus residuals-vs-fitted subplot](assets/regression-residuals.svg)
+
 ### Key assumptions (LINE)
 
 | Letter | Assumption | Violation symptom |

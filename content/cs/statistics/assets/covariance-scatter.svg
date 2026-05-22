@@ -1,0 +1,191 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 320">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; }
+    .anno { font-size: 10px; fill: #d29922; font-weight: 600; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; }
+    .axis-label { font-size: 11px; fill: #c9d1d9; font-weight: 600; }
+    .title { font-size: 11px; fill: #c9d1d9; font-weight: 600; }
+    .point { fill: #58a6ff; }
+    .axis { stroke: #484f58; stroke-width: 1.2; }
+    .tick-label { font-size: 8px; fill: #8b949e; }
+    .trend { stroke: #93a3b8; stroke-width: 1.2; stroke-dasharray: 6,4; opacity: 0.6; }
+    @media (prefers-color-scheme: light) {
+      .edge { stroke: #b8b8b8; }
+      .anno { fill: #9e6000; }
+      .desc { fill: #6e7781; }
+      .axis-label { fill: #1f2328; }
+      .title { fill: #1f2328; }
+      .point { fill: #0969da; }
+      .axis { stroke: #d0d7de; }
+      .tick-label { fill: #6e7781; }
+      .trend { stroke: #b8b8b8; }
+    }
+  </style>
+
+  <!-- ═══ PANEL 1: Positive Correlation (rho ~ 0.8) ═══ -->
+  <text x="150" y="28" text-anchor="middle" class="title">Positive Correlation</text>
+  <text x="150" y="44" text-anchor="middle" class="anno">&#x03C1; &#x2248; 0.8</text>
+
+  <!-- Axes -->
+  <line x1="40" y1="270" x2="260" y2="270" class="axis"/>
+  <line x1="40" y1="270" x2="40" y2="55" class="axis"/>
+
+  <!-- Tick marks - X axis -->
+  <line x1="95" y1="270" x2="95" y2="275" class="axis"/>
+  <line x1="150" y1="270" x2="150" y2="275" class="axis"/>
+  <line x1="205" y1="270" x2="205" y2="275" class="axis"/>
+
+  <!-- Tick marks - Y axis -->
+  <line x1="40" y1="216" x2="35" y2="216" class="axis"/>
+  <line x1="40" y1="162" x2="35" y2="162" class="axis"/>
+  <line x1="40" y1="108" x2="35" y2="108" class="axis"/>
+
+  <!-- Trend line (visual guide) -->
+  <line x1="55" y1="255" x2="250" y2="72" class="trend"/>
+
+  <!--
+    25 data points with rho ~ 0.8
+    Panel maps: x in [50,255], y in [65,265]
+    Points cluster around a strong positive-slope line with moderate scatter
+  -->
+  <circle cx="58" cy="258" r="3.2" class="point"/>
+  <circle cx="68" cy="240" r="3.2" class="point"/>
+  <circle cx="75" cy="248" r="3.2" class="point"/>
+  <circle cx="82" cy="225" r="3.2" class="point"/>
+  <circle cx="95" cy="218" r="3.2" class="point"/>
+  <circle cx="100" cy="230" r="3.2" class="point"/>
+  <circle cx="110" cy="198" r="3.2" class="point"/>
+  <circle cx="118" cy="210" r="3.2" class="point"/>
+  <circle cx="125" cy="185" r="3.2" class="point"/>
+  <circle cx="132" cy="195" r="3.2" class="point"/>
+  <circle cx="140" cy="170" r="3.2" class="point"/>
+  <circle cx="145" cy="182" r="3.2" class="point"/>
+  <circle cx="152" cy="160" r="3.2" class="point"/>
+  <circle cx="160" cy="172" r="3.2" class="point"/>
+  <circle cx="165" cy="148" r="3.2" class="point"/>
+  <circle cx="175" cy="155" r="3.2" class="point"/>
+  <circle cx="182" cy="138" r="3.2" class="point"/>
+  <circle cx="188" cy="145" r="3.2" class="point"/>
+  <circle cx="198" cy="120" r="3.2" class="point"/>
+  <circle cx="205" cy="132" r="3.2" class="point"/>
+  <circle cx="215" cy="108" r="3.2" class="point"/>
+  <circle cx="220" cy="118" r="3.2" class="point"/>
+  <circle cx="230" cy="95" r="3.2" class="point"/>
+  <circle cx="238" cy="82" r="3.2" class="point"/>
+  <circle cx="248" cy="75" r="3.2" class="point"/>
+
+  <!-- Axis labels -->
+  <text x="150" y="295" text-anchor="middle" class="axis-label">X</text>
+  <text x="22" y="162" text-anchor="middle" class="axis-label" transform="rotate(-90,22,162)">Y</text>
+
+  <!-- ═══ PANEL 2: Zero Correlation (rho ~ 0) ═══ -->
+  <text x="440" y="28" text-anchor="middle" class="title">No Correlation</text>
+  <text x="440" y="44" text-anchor="middle" class="anno">&#x03C1; &#x2248; 0</text>
+
+  <!-- Axes -->
+  <line x1="330" y1="270" x2="550" y2="270" class="axis"/>
+  <line x1="330" y1="270" x2="330" y2="55" class="axis"/>
+
+  <!-- Tick marks - X axis -->
+  <line x1="385" y1="270" x2="385" y2="275" class="axis"/>
+  <line x1="440" y1="270" x2="440" y2="275" class="axis"/>
+  <line x1="495" y1="270" x2="495" y2="275" class="axis"/>
+
+  <!-- Tick marks - Y axis -->
+  <line x1="330" y1="216" x2="325" y2="216" class="axis"/>
+  <line x1="330" y1="162" x2="325" y2="162" class="axis"/>
+  <line x1="330" y1="108" x2="325" y2="108" class="axis"/>
+
+  <!--
+    25 data points with rho ~ 0
+    Scattered uniformly with no visible trend
+  -->
+  <circle cx="345" cy="95" r="3.2" class="point"/>
+  <circle cx="355" cy="210" r="3.2" class="point"/>
+  <circle cx="365" cy="155" r="3.2" class="point"/>
+  <circle cx="372" cy="250" r="3.2" class="point"/>
+  <circle cx="380" cy="120" r="3.2" class="point"/>
+  <circle cx="392" cy="185" r="3.2" class="point"/>
+  <circle cx="398" cy="78" r="3.2" class="point"/>
+  <circle cx="408" cy="240" r="3.2" class="point"/>
+  <circle cx="415" cy="130" r="3.2" class="point"/>
+  <circle cx="422" cy="195" r="3.2" class="point"/>
+  <circle cx="432" cy="100" r="3.2" class="point"/>
+  <circle cx="440" cy="258" r="3.2" class="point"/>
+  <circle cx="448" cy="145" r="3.2" class="point"/>
+  <circle cx="458" cy="215" r="3.2" class="point"/>
+  <circle cx="465" cy="88" r="3.2" class="point"/>
+  <circle cx="472" cy="170" r="3.2" class="point"/>
+  <circle cx="480" cy="235" r="3.2" class="point"/>
+  <circle cx="488" cy="110" r="3.2" class="point"/>
+  <circle cx="495" cy="200" r="3.2" class="point"/>
+  <circle cx="505" cy="148" r="3.2" class="point"/>
+  <circle cx="510" cy="260" r="3.2" class="point"/>
+  <circle cx="518" cy="75" r="3.2" class="point"/>
+  <circle cx="525" cy="180" r="3.2" class="point"/>
+  <circle cx="535" cy="225" r="3.2" class="point"/>
+  <circle cx="542" cy="135" r="3.2" class="point"/>
+
+  <!-- Axis labels -->
+  <text x="440" y="295" text-anchor="middle" class="axis-label">X</text>
+  <text x="312" y="162" text-anchor="middle" class="axis-label" transform="rotate(-90,312,162)">Y</text>
+
+  <!-- ═══ PANEL 3: Negative Correlation (rho ~ -0.8) ═══ -->
+  <text x="730" y="28" text-anchor="middle" class="title">Negative Correlation</text>
+  <text x="730" y="44" text-anchor="middle" class="anno">&#x03C1; &#x2248; &#x2212;0.8</text>
+
+  <!-- Axes -->
+  <line x1="620" y1="270" x2="840" y2="270" class="axis"/>
+  <line x1="620" y1="270" x2="620" y2="55" class="axis"/>
+
+  <!-- Tick marks - X axis -->
+  <line x1="675" y1="270" x2="675" y2="275" class="axis"/>
+  <line x1="730" y1="270" x2="730" y2="275" class="axis"/>
+  <line x1="785" y1="270" x2="785" y2="275" class="axis"/>
+
+  <!-- Tick marks - Y axis -->
+  <line x1="620" y1="216" x2="615" y2="216" class="axis"/>
+  <line x1="620" y1="162" x2="615" y2="162" class="axis"/>
+  <line x1="620" y1="108" x2="615" y2="108" class="axis"/>
+
+  <!-- Trend line (visual guide) -->
+  <line x1="635" y1="72" x2="830" y2="255" class="trend"/>
+
+  <!--
+    25 data points with rho ~ -0.8
+    Points cluster around a strong negative-slope line with moderate scatter
+  -->
+  <circle cx="638" cy="75" r="3.2" class="point"/>
+  <circle cx="648" cy="88" r="3.2" class="point"/>
+  <circle cx="655" cy="78" r="3.2" class="point"/>
+  <circle cx="662" cy="100" r="3.2" class="point"/>
+  <circle cx="675" cy="108" r="3.2" class="point"/>
+  <circle cx="680" cy="95" r="3.2" class="point"/>
+  <circle cx="690" cy="128" r="3.2" class="point"/>
+  <circle cx="698" cy="118" r="3.2" class="point"/>
+  <circle cx="705" cy="140" r="3.2" class="point"/>
+  <circle cx="712" cy="132" r="3.2" class="point"/>
+  <circle cx="720" cy="155" r="3.2" class="point"/>
+  <circle cx="725" cy="145" r="3.2" class="point"/>
+  <circle cx="732" cy="168" r="3.2" class="point"/>
+  <circle cx="740" cy="158" r="3.2" class="point"/>
+  <circle cx="745" cy="178" r="3.2" class="point"/>
+  <circle cx="755" cy="172" r="3.2" class="point"/>
+  <circle cx="762" cy="190" r="3.2" class="point"/>
+  <circle cx="768" cy="182" r="3.2" class="point"/>
+  <circle cx="778" cy="205" r="3.2" class="point"/>
+  <circle cx="785" cy="195" r="3.2" class="point"/>
+  <circle cx="795" cy="218" r="3.2" class="point"/>
+  <circle cx="800" cy="210" r="3.2" class="point"/>
+  <circle cx="810" cy="232" r="3.2" class="point"/>
+  <circle cx="818" cy="245" r="3.2" class="point"/>
+  <circle cx="828" cy="252" r="3.2" class="point"/>
+
+  <!-- Axis labels -->
+  <text x="730" y="295" text-anchor="middle" class="axis-label">X</text>
+  <text x="602" y="162" text-anchor="middle" class="axis-label" transform="rotate(-90,602,162)">Y</text>
+
+  <!-- Bottom description -->
+  <text x="430" y="312" text-anchor="middle" class="desc">covariance sign determines direction of linear association</text>
+</svg>

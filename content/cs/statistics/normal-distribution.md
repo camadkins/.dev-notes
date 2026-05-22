@@ -43,6 +43,8 @@ This lets you look up probabilities in a single $Z$-table or use a single CDF $\
 | $\mu \pm 2\sigma$ | $\approx 95.4\%$ |
 | $\mu \pm 3\sigma$ | $\approx 99.7\%$ |
 
+![Bell curve showing 68-95-99.7 rule with shaded sigma regions](assets/normal-68-95-997.svg)
+
 **Moment-generating function:**
 
 $$M_X(t) = \exp\!\left(\mu t + \frac{\sigma^2 t^2}{2}\right)$$

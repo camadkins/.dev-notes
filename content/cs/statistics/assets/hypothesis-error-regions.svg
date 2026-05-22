@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 360" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; }
+    .anno { font-size: 10px; fill: #d29922; font-weight: 600; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; }
+    .axis { stroke: #58a6ff; stroke-width: 1.5; }
+    .axis-label { font-size: 12px; fill: #e8e8e8; font-weight: 600; }
+    .tick-label { font-size: 9px; fill: #8b949e; }
+    .h0-curve { stroke: #58a6ff; stroke-width: 2; fill: none; }
+    .h1-curve { stroke: #f78166; stroke-width: 2; fill: none; }
+    .crit-line { stroke: #d29922; stroke-width: 1.5; stroke-dasharray: 6 4; }
+    .alpha-fill { fill: rgba(255,100,100,0.25); }
+    .beta-fill { fill: rgba(100,160,255,0.2); }
+    .power-fill { fill: rgba(100,220,140,0.18); }
+    .label-h0 { font-size: 13px; fill: #58a6ff; font-weight: 700; }
+    .label-h1 { font-size: 13px; fill: #f78166; font-weight: 700; }
+    .region-label { font-size: 10px; font-weight: 600; }
+    .alpha-label { fill: #f47067; }
+    .beta-label { fill: #6cb6ff; }
+    .power-label { fill: #57ab5a; }
+    .crit-label { font-size: 10px; fill: #d29922; font-weight: 600; }
+    @media (prefers-color-scheme: light) {
+      .edge { stroke: #b8b8b8; }
+      .anno { fill: #9e6000; }
+      .desc { fill: #6e7781; }
+      .axis { stroke: #284b63; }
+      .axis-label { fill: #1a1a2e; }
+      .tick-label { fill: #6e7781; }
+      .h0-curve { stroke: #284b63; }
+      .h1-curve { stroke: #bc4c00; }
+      .crit-line { stroke: #9e6000; }
+      .alpha-fill { fill: rgba(200,60,60,0.2); }
+      .beta-fill { fill: rgba(40,75,99,0.15); }
+      .power-fill { fill: rgba(40,160,80,0.15); }
+      .label-h0 { fill: #284b63; }
+      .label-h1 { fill: #bc4c00; }
+      .alpha-label { fill: #cf222e; }
+      .beta-label { fill: #284b63; }
+      .power-label { fill: #116329; }
+      .crit-label { fill: #9e6000; }
+    }
+  </style>
+
+  <!-- Axis -->
+  <line x1="40" y1="260" x2="590" y2="260" class="axis"/>
+
+  <!-- H0 distribution: centered at x=220, sd~70 -->
+  <!-- Normal curve points computed for N(220, 70) scaled to peak height 180px -->
+  <!-- H0 full curve -->
+  <path d="M 40,260
+    C 60,259 80,257 100,252
+    C 120,242 140,222 160,195
+    C 175,170 190,138 205,108
+    C 213,92 220,82 220,80
+    C 220,82 227,92 235,108
+    C 250,138 265,170 280,195
+    C 300,222 320,242 340,252
+    C 360,257 380,259 400,260" class="h0-curve"/>
+
+  <!-- H1 distribution: centered at x=380, sd~70 -->
+  <path d="M 200,260
+    C 220,259 240,257 260,252
+    C 280,242 300,222 320,195
+    C 335,170 350,138 365,108
+    C 373,92 380,82 380,80
+    C 380,82 387,92 395,108
+    C 410,138 425,170 440,195
+    C 460,222 480,242 500,252
+    C 520,257 540,259 560,260" class="h1-curve"/>
+
+  <!-- Critical value vertical line at x=330 -->
+  <line x1="330" y1="35" x2="330" y2="260" class="crit-line"/>
+
+  <!-- Alpha region: right tail of H0, from x=330 to x=400 -->
+  <path d="M 330,260
+    L 330,220
+    C 340,228 350,238 360,247
+    C 370,252 380,256 390,258
+    C 395,259 400,260 400,260
+    Z" class="alpha-fill"/>
+
+  <!-- Beta region: left portion of H1, from x=200 to x=330 -->
+  <path d="M 200,260
+    C 220,259 240,257 260,252
+    C 280,242 300,222 320,195
+    C 323,189 327,183 330,178
+    L 330,260
+    Z" class="beta-fill"/>
+
+  <!-- Power region: right portion of H1, from x=330 to x=560 -->
+  <path d="M 330,260
+    L 330,178
+    C 333,173 340,157 350,138
+    C 358,122 365,108 373,95
+    C 377,88 380,82 380,80
+    C 380,82 387,92 395,108
+    C 410,138 425,170 440,195
+    C 460,222 480,242 500,252
+    C 520,257 540,259 560,260
+    Z" class="power-fill"/>
+
+  <!-- Re-draw curves on top of fills for clarity -->
+  <path d="M 40,260
+    C 60,259 80,257 100,252
+    C 120,242 140,222 160,195
+    C 175,170 190,138 205,108
+    C 213,92 220,82 220,80
+    C 220,82 227,92 235,108
+    C 250,138 265,170 280,195
+    C 300,222 320,242 340,252
+    C 360,257 380,259 400,260" class="h0-curve"/>
+
+  <path d="M 200,260
+    C 220,259 240,257 260,252
+    C 280,242 300,222 320,195
+    C 335,170 350,138 365,108
+    C 373,92 380,82 380,80
+    C 380,82 387,92 395,108
+    C 410,138 425,170 440,195
+    C 460,222 480,242 500,252
+    C 520,257 540,259 560,260" class="h1-curve"/>
+
+  <!-- Distribution labels -->
+  <text x="220" y="68" class="label-h0" text-anchor="middle">H&#x2080;</text>
+  <text x="380" y="68" class="label-h1" text-anchor="middle">H&#x2081;</text>
+
+  <!-- Critical value label -->
+  <text x="330" y="30" class="crit-label" text-anchor="middle">critical value</text>
+
+  <!-- Tick mark at critical value -->
+  <line x1="330" y1="260" x2="330" y2="268" class="axis"/>
+  <text x="330" y="280" class="tick-label" text-anchor="middle">z&#x2090;</text>
+
+  <!-- Tick marks for distribution centers -->
+  <line x1="220" y1="260" x2="220" y2="268" class="axis"/>
+  <text x="220" y="280" class="tick-label" text-anchor="middle">&#x03BC;&#x2080;</text>
+
+  <line x1="380" y1="260" x2="380" y2="268" class="axis"/>
+  <text x="380" y="280" class="tick-label" text-anchor="middle">&#x03BC;&#x2081;</text>
+
+  <!-- Region labels with leader lines -->
+  <!-- Alpha label -->
+  <text x="365" y="240" class="region-label alpha-label" text-anchor="middle">&#x03B1;</text>
+  <text x="365" y="252" class="desc" text-anchor="middle">Type I</text>
+
+  <!-- Beta label -->
+  <text x="280" y="228" class="region-label beta-label" text-anchor="middle">&#x03B2;</text>
+  <text x="280" y="240" class="desc" text-anchor="middle">Type II</text>
+
+  <!-- Power label -->
+  <text x="430" y="210" class="region-label power-label" text-anchor="middle">1 &#x2212; &#x03B2;</text>
+  <text x="430" y="222" class="desc" text-anchor="middle">power</text>
+
+  <!-- Caption -->
+  <text x="310" y="310" class="desc" text-anchor="middle">Two distributions overlap: &#x03B1; controls false positives, &#x03B2; controls false negatives,</text>
+  <text x="310" y="324" class="desc" text-anchor="middle">power = 1 &#x2212; &#x03B2; is the probability of detecting a real effect</text>
+
+  <!-- Annotation: reject region -->
+  <text x="480" y="300" class="anno" text-anchor="middle">reject H&#x2080;</text>
+  <line x1="420" y1="296" x2="560" y2="296" class="edge" stroke-dasharray="3 3"/>
+
+  <!-- Annotation: fail to reject region -->
+  <text x="160" y="300" class="anno" text-anchor="middle">fail to reject H&#x2080;</text>
+  <line x1="40" y1="296" x2="310" y2="296" class="edge" stroke-dasharray="3 3"/>
+
+</svg>
