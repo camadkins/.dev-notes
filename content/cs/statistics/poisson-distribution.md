@@ -47,6 +47,8 @@ A distinctive (and useful) feature: the mean and variance are equal. This gives 
 
 $$\sigma = \sqrt{\mu}$$
 
+![Poisson PMF: shape change with increasing lambda](assets/poisson-pmf.svg)
+
 **Moment Generating Function:**
 
 $$M(t) = e^{\mu(e^t - 1)}$$

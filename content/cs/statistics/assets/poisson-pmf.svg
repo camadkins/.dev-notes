@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 280" width="880" height="280">
+<style>
+  text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+  .edge { stroke: #93a3b8; stroke-width: 1.5; }
+  .anno { font-size: 10px; fill: #d29922; font-weight: 600; }
+  .desc { font-size: 9px; fill: #8b949e; font-style: italic; }
+  .title { font-size: 13px; fill: #e6edf3; font-weight: 700; }
+  .panel-label { font-size: 11px; fill: #e6edf3; font-weight: 600; }
+  .axis-label { font-size: 9px; fill: #8b949e; }
+  .tick-label { font-size: 8px; fill: #8b949e; }
+  .grid { stroke: #30363d; stroke-width: 0.5; stroke-dasharray: 2,3; }
+  @media (prefers-color-scheme: light) {
+    .edge { stroke: #b8b8b8; }
+    .anno { fill: #9e6000; }
+    .desc { fill: #6e7781; }
+    .title { fill: #1f2328; }
+    .panel-label { fill: #1f2328; }
+    .axis-label { fill: #6e7781; }
+    .tick-label { fill: #6e7781; }
+    .grid { stroke: #d1d9e0; }
+  }
+</style>
+<text x="440.0" y="34" text-anchor="middle" class="title">Poisson PMF: shape change with increasing lambda</text>
+<text x="150.0" y="58" text-anchor="middle" class="panel-label">lambda = 1</text>
+<line x1="45" y1="200.0" x2="280" y2="200.0" class="grid"/>
+<text x="42" y="203.0" text-anchor="end" class="tick-label">0.0</text>
+<line x1="45" y1="165.0" x2="280" y2="165.0" class="grid"/>
+<text x="42" y="168.0" text-anchor="end" class="tick-label">0.1</text>
+<line x1="45" y1="130.0" x2="280" y2="130.0" class="grid"/>
+<text x="42" y="133.0" text-anchor="end" class="tick-label">0.2</text>
+<line x1="45" y1="95.00000000000001" x2="280" y2="95.00000000000001" class="grid"/>
+<text x="42" y="98.00000000000001" text-anchor="end" class="tick-label">0.3</text>
+<line x1="45" y1="60.0" x2="280" y2="60.0" class="grid"/>
+<text x="42" y="63.0" text-anchor="end" class="tick-label">0.4</text>
+<line x1="45" y1="60" x2="45" y2="200" class="edge"/>
+<line x1="45" y1="200" x2="280" y2="200" class="edge"/>
+<rect x="49.4" y="71.2" width="20.6" height="128.8" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<rect x="78.8" y="71.2" width="20.6" height="128.8" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<rect x="108.2" y="135.6" width="20.6" height="64.4" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<rect x="137.5" y="178.5" width="20.6" height="21.5" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<rect x="166.9" y="194.6" width="20.6" height="5.4" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<rect x="196.3" y="198.9" width="20.6" height="1.1" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<text x="59.7" y="211" text-anchor="middle" class="tick-label">0</text>
+<text x="89.1" y="211" text-anchor="middle" class="tick-label">1</text>
+<text x="118.4" y="211" text-anchor="middle" class="tick-label">2</text>
+<text x="147.8" y="211" text-anchor="middle" class="tick-label">3</text>
+<text x="177.2" y="211" text-anchor="middle" class="tick-label">4</text>
+<text x="206.6" y="211" text-anchor="middle" class="tick-label">5</text>
+<text x="235.9" y="211" text-anchor="middle" class="tick-label">6</text>
+<text x="265.3" y="211" text-anchor="middle" class="tick-label">7</text>
+<text x="150.0" y="222" text-anchor="middle" class="desc">right-skewed</text>
+<text x="440.0" y="58" text-anchor="middle" class="panel-label">lambda = 4</text>
+<line x1="335" y1="200.0" x2="570" y2="200.0" class="grid"/>
+<text x="332" y="203.0" text-anchor="end" class="tick-label">0.0</text>
+<line x1="335" y1="165.0" x2="570" y2="165.0" class="grid"/>
+<text x="332" y="168.0" text-anchor="end" class="tick-label">0.1</text>
+<line x1="335" y1="130.0" x2="570" y2="130.0" class="grid"/>
+<text x="332" y="133.0" text-anchor="end" class="tick-label">0.2</text>
+<line x1="335" y1="95.00000000000001" x2="570" y2="95.00000000000001" class="grid"/>
+<text x="332" y="98.00000000000001" text-anchor="end" class="tick-label">0.3</text>
+<line x1="335" y1="60.0" x2="570" y2="60.0" class="grid"/>
+<text x="332" y="63.0" text-anchor="end" class="tick-label">0.4</text>
+<line x1="335" y1="60" x2="335" y2="200" class="edge"/>
+<line x1="335" y1="200" x2="570" y2="200" class="edge"/>
+<rect x="337.7" y="193.6" width="12.7" height="6.4" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<rect x="355.8" y="174.4" width="12.7" height="25.6" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<rect x="373.9" y="148.7" width="12.7" height="51.3" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<rect x="391.9" y="131.6" width="12.7" height="68.4" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<rect x="410.0" y="131.6" width="12.7" height="68.4" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<rect x="428.1" y="145.3" width="12.7" height="54.7" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<rect x="446.2" y="163.5" width="12.7" height="36.5" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<rect x="464.2" y="179.2" width="12.7" height="20.8" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<rect x="482.3" y="189.6" width="12.7" height="10.4" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<rect x="500.4" y="195.4" width="12.7" height="4.6" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<rect x="518.5" y="198.1" width="12.7" height="1.9" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<rect x="536.6" y="199.3" width="12.7" height="0.7" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<text x="344.0" y="211" text-anchor="middle" class="tick-label">0</text>
+<text x="380.2" y="211" text-anchor="middle" class="tick-label">2</text>
+<text x="416.3" y="211" text-anchor="middle" class="tick-label">4</text>
+<text x="452.5" y="211" text-anchor="middle" class="tick-label">6</text>
+<text x="488.7" y="211" text-anchor="middle" class="tick-label">8</text>
+<text x="524.8" y="211" text-anchor="middle" class="tick-label">10</text>
+<text x="561.0" y="211" text-anchor="middle" class="tick-label">12</text>
+<text x="440.0" y="222" text-anchor="middle" class="desc">moderate skew</text>
+<text x="730.0" y="58" text-anchor="middle" class="panel-label">lambda = 10</text>
+<line x1="625" y1="200.0" x2="860" y2="200.0" class="grid"/>
+<text x="622" y="203.0" text-anchor="end" class="tick-label">0.0</text>
+<line x1="625" y1="165.0" x2="860" y2="165.0" class="grid"/>
+<text x="622" y="168.0" text-anchor="end" class="tick-label">0.1</text>
+<line x1="625" y1="130.0" x2="860" y2="130.0" class="grid"/>
+<text x="622" y="133.0" text-anchor="end" class="tick-label">0.2</text>
+<line x1="625" y1="95.00000000000001" x2="860" y2="95.00000000000001" class="grid"/>
+<text x="622" y="98.00000000000001" text-anchor="end" class="tick-label">0.3</text>
+<line x1="625" y1="60.0" x2="860" y2="60.0" class="grid"/>
+<text x="622" y="63.0" text-anchor="end" class="tick-label">0.4</text>
+<line x1="625" y1="60" x2="625" y2="200" class="edge"/>
+<line x1="625" y1="200" x2="860" y2="200" class="edge"/>
+<rect x="649.1" y="199.2" width="7.8" height="0.8" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<rect x="660.2" y="197.4" width="7.8" height="2.6" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<rect x="671.4" y="193.4" width="7.8" height="6.6" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<rect x="682.6" y="186.8" width="7.8" height="13.2" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<rect x="693.8" y="177.9" width="7.8" height="22.1" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<rect x="705.0" y="168.5" width="7.8" height="31.5" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<rect x="716.2" y="160.6" width="7.8" height="39.4" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<rect x="727.4" y="156.2" width="7.8" height="43.8" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<rect x="738.6" y="156.2" width="7.8" height="43.8" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<rect x="749.8" y="160.2" width="7.8" height="39.8" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<rect x="761.0" y="166.8" width="7.8" height="33.2" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<rect x="772.2" y="174.5" width="7.8" height="25.5" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<rect x="783.3" y="181.8" width="7.8" height="18.2" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<rect x="794.5" y="187.8" width="7.8" height="12.2" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<rect x="805.7" y="192.4" width="7.8" height="7.6" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<rect x="816.9" y="195.5" width="7.8" height="4.5" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<rect x="828.1" y="197.5" width="7.8" height="2.5" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<rect x="839.3" y="198.7" width="7.8" height="1.3" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<rect x="850.5" y="199.3" width="7.8" height="0.7" fill="rgba(88,166,255,0.6)" stroke="rgba(88,166,255,0.9)" stroke-width="0.5" rx="1"/>
+<text x="630.6" y="211" text-anchor="middle" class="tick-label">0</text>
+<text x="675.4" y="211" text-anchor="middle" class="tick-label">4</text>
+<text x="720.1" y="211" text-anchor="middle" class="tick-label">8</text>
+<text x="764.9" y="211" text-anchor="middle" class="tick-label">12</text>
+<text x="809.6" y="211" text-anchor="middle" class="tick-label">16</text>
+<text x="854.4" y="211" text-anchor="middle" class="tick-label">20</text>
+<text x="730.0" y="222" text-anchor="middle" class="desc">approx. symmetric</text>
+<text x="440.0" y="275" text-anchor="middle" class="axis-label">k (number of events)</text>
+</svg>

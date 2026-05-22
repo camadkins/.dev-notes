@@ -31,6 +31,8 @@ The denominator is the **law of total probability** - it ensures the posterior s
 > [!tip]
 > The denominator is often the hardest part to compute. In practice, you can evaluate the numerator for each $B_i$ and then normalize. This is exactly what many inference algorithms do.
 
+![Sample space partitioned into B1, B2, B3 with event A overlapping all three](assets/bayes-partition.svg)
+
 ### Posterior form (continuous parameter)
 
 When the "cause" is a continuous parameter $\theta$ with prior density $\pi(\theta)$ and the data $x$ have likelihood $f(x \mid \theta)$:

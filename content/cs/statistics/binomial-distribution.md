@@ -48,6 +48,8 @@ $$\sigma = \sqrt{npq}$$
 
 The binomial coefficient $\binom{n}{x}$ counts the number of ways to choose which $x$ of the $n$ trials are successes.
 
+![PMF bar charts comparing B(10,0.3), B(10,0.5), and B(10,0.7)](assets/binomial-pmf.svg)
+
 ## Example
 
 Four identical electronic components are subjected to a shock test. Each has a 75% chance of surviving ($p = 0.75$). What is the probability that exactly 2 survive?

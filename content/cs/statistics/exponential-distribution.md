@@ -45,6 +45,8 @@ $$P(X > s + t \mid X > s) = P(X > t)$$
 
 This is the only continuous distribution with this property. It means past survival gives no information about remaining lifetime.
 
+![Exponential PDF and CDF curves for varying beta](assets/exponential-pdf.svg)
+
 **Relationship to Poisson:**
 
 If events arrive at rate $\lambda$, then inter-arrival times are $\text{Exp}(1/\lambda)$ and the count in time $t$ is $\text{Pois}(\lambda t)$.

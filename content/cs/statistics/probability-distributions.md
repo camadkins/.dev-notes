@@ -72,6 +72,8 @@ The **CDF** $F(x) = P(X \le x)$ works for both discrete and continuous distribut
 | Normal | $(-\infty, \infty)$ | $\mu, \sigma^2$ | $\mu$ | $\sigma^2$ |
 | Exponential | $[0, \infty)$ | $\lambda$ | $1/\lambda$ | $1/\lambda^2$ |
 
+![Taxonomy tree of distributions: discrete branch (Bernoulli, Binomial, Poisson, Geometric) and continuous branch (Normal, Exponential) with approximation arrows](assets/distribution-family-tree.svg)
+
 ## Example
 
 **Server request arrivals.** Suppose a web server receives requests at an average rate of $\lambda = 5$ per second. The number of requests in a given second follows a Poisson distribution:

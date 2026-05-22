@@ -34,6 +34,8 @@ Each outcome $s \in S$ maps to a real number $X(s)$. The randomness comes from t
 
 For a discrete random variable, probabilities are assigned to individual values: $P(X = x)$. For a continuous random variable, probability is defined over intervals: $P(a \le X \le b) = \int_a^b f(x)\, dx$, and $P(X = x) = 0$ for any single point.
 
+![Random variable as a function mapping sample space to real numbers](assets/random-variable-mapping.svg)
+
 ## Key Formulas
 
 **Probability mass function (discrete):**

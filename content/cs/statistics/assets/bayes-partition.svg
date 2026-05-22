@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 405" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .label-s    { font-size: 14px; fill: #e8e8e8; font-weight: 600; }
+    .label-part { font-size: 13px; fill: #e8e8e8; font-weight: 600; }
+    .label-a    { font-size: 13px; fill: #58a6ff; font-weight: 600; }
+    .label-int  { font-size: 10px; fill: #e8e8e8; font-weight: 600; }
+    .formula    { font-size: 9.5px; fill: #d29922; font-weight: 600; }
+    .summary    { font-size: 9.5px; fill: #c9d1d9; font-weight: 500; }
+    .desc       { font-size: 8.5px; fill: #8b949e; font-style: italic; }
+    .sample-rect { fill: rgba(30,40,55,0.4); stroke: #484f58; stroke-width: 1.5; rx: 6; }
+    .partition   { stroke: #484f58; stroke-width: 1.5; stroke-dasharray: 6 4; }
+    .ellipse-a   { fill: none; stroke: #58a6ff; stroke-width: 2; }
+    .slice-1 { fill: rgba(88,166,255,0.16); }
+    .slice-2 { fill: rgba(210,153,34,0.18); }
+    .slice-3 { fill: rgba(126,211,143,0.16); }
+    .leader  { stroke: #6e7681; stroke-width: 0.8; }
+    .pointer { stroke: #58a6ff; stroke-width: 0.8; }
+    .sep     { stroke: #30363d; stroke-width: 0.5; }
+    @media (prefers-color-scheme: light) {
+      .label-s    { fill: #1a1a2e; }
+      .label-part { fill: #1a1a2e; }
+      .label-a    { fill: #284b63; }
+      .label-int  { fill: #1a1a2e; }
+      .formula    { fill: #9e6000; }
+      .summary    { fill: #24292f; }
+      .desc       { fill: #6e7781; }
+      .sample-rect { fill: rgba(245,245,245,0.6); stroke: #d0d7de; }
+      .partition   { stroke: #d0d7de; }
+      .ellipse-a   { stroke: #284b63; }
+      .slice-1 { fill: rgba(40,75,99,0.13); }
+      .slice-2 { fill: rgba(158,96,0,0.15); }
+      .slice-3 { fill: rgba(46,160,67,0.13); }
+      .leader  { stroke: #b8b8b8; }
+      .pointer { stroke: #284b63; }
+      .sep     { stroke: #d8dee4; }
+    }
+  </style>
+
+  <defs>
+    <clipPath id="clip-b1"><rect x="40" y="40" width="160" height="200"/></clipPath>
+    <clipPath id="clip-b2"><rect x="200" y="40" width="160" height="200"/></clipPath>
+    <clipPath id="clip-b3"><rect x="360" y="40" width="160" height="200"/></clipPath>
+  </defs>
+
+  <!-- Sample space S -->
+  <rect x="40" y="40" width="480" height="200" class="sample-rect"/>
+  <text x="58" y="65" class="label-s">S</text>
+
+  <!-- Partition boundaries -->
+  <line x1="200" y1="40" x2="200" y2="240" class="partition"/>
+  <line x1="360" y1="40" x2="360" y2="240" class="partition"/>
+
+  <!-- Slice fills: A ∩ B1 -->
+  <g clip-path="url(#clip-b1)">
+    <ellipse cx="280" cy="145" rx="170" ry="65" class="slice-1"/>
+  </g>
+  <!-- Slice fills: A ∩ B2 -->
+  <g clip-path="url(#clip-b2)">
+    <ellipse cx="280" cy="145" rx="170" ry="65" class="slice-2"/>
+  </g>
+  <!-- Slice fills: A ∩ B3 -->
+  <g clip-path="url(#clip-b3)">
+    <ellipse cx="280" cy="145" rx="170" ry="65" class="slice-3"/>
+  </g>
+
+  <!-- Ellipse A outline -->
+  <ellipse cx="280" cy="145" rx="170" ry="65" class="ellipse-a"/>
+
+  <!-- Partition labels -->
+  <text x="120" y="65" class="label-part" text-anchor="middle">B&#x2081;</text>
+  <text x="280" y="65" class="label-part" text-anchor="middle">B&#x2082;</text>
+  <text x="440" y="65" class="label-part" text-anchor="middle">B&#x2083;</text>
+
+  <!-- Event A label at upper-left boundary with pointer -->
+  <text x="82" y="103" class="label-a">A</text>
+  <line x1="94" y1="106" x2="117" y2="116" class="pointer"/>
+
+  <!-- Intersection labels -->
+  <text x="155" y="148" class="label-int" text-anchor="middle">A ∩ B&#x2081;</text>
+  <text x="280" y="148" class="label-int" text-anchor="middle">A ∩ B&#x2082;</text>
+  <text x="405" y="148" class="label-int" text-anchor="middle">A ∩ B&#x2083;</text>
+
+  <!-- Leader lines (thin solid) from formulas to slice centroids -->
+  <line x1="155" y1="270" x2="155" y2="162" class="leader"/>
+  <line x1="280" y1="270" x2="280" y2="162" class="leader"/>
+  <line x1="405" y1="270" x2="405" y2="162" class="leader"/>
+
+  <!-- Per-slice formulas (two lines each) -->
+  <text x="155" y="283" class="formula" text-anchor="middle">P(A ∩ B&#x2081;)</text>
+  <text x="155" y="296" class="formula" text-anchor="middle">= P(A|B&#x2081;)P(B&#x2081;)</text>
+
+  <text x="280" y="283" class="formula" text-anchor="middle">P(A ∩ B&#x2082;)</text>
+  <text x="280" y="296" class="formula" text-anchor="middle">= P(A|B&#x2082;)P(B&#x2082;)</text>
+
+  <text x="405" y="283" class="formula" text-anchor="middle">P(A ∩ B&#x2083;)</text>
+  <text x="405" y="296" class="formula" text-anchor="middle">= P(A|B&#x2083;)P(B&#x2083;)</text>
+
+  <!-- Separator -->
+  <line x1="80" y1="312" x2="480" y2="312" class="sep"/>
+
+  <!-- Total probability -->
+  <text x="280" y="332" class="summary" text-anchor="middle">P(A) = &#x03A3;&#x1D62; P(A ∩ B&#x1D62;) = &#x03A3;&#x1D62; P(A|B&#x1D62;)P(B&#x1D62;)</text>
+
+  <!-- Posterior normalization -->
+  <text x="280" y="354" class="summary" text-anchor="middle">P(B&#x1D62;|A) = P(A ∩ B&#x1D62;) / P(A)</text>
+
+  <!-- Scale disclaimer -->
+  <text x="280" y="390" class="desc" text-anchor="middle">Illustrative, not to scale</text>
+</svg>

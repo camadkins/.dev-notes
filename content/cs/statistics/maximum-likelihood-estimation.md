@@ -31,6 +31,8 @@ $$\ell(\theta) = \ln L(\theta) = \sum_{i=1}^n \ln f(x_i;\, \theta)$$
 
 Since $\ln$ is monotonically increasing, maximizing $\ell(\theta)$ is equivalent to maximizing $L(\theta)$.
 
+![Log-likelihood curve with peak at theta-hat MLE](assets/likelihood-curve.svg)
+
 ## Key Formulas
 
 **Finding the MLE** - set the score function to zero:

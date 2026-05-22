@@ -58,6 +58,8 @@ Choose a **significance level** $\alpha$ (commonly 0.05) *before* seeing the dat
 - **Type II error** (false negative): failing to reject $H_0$ when it is false. Probability denoted $\beta$.
 - **Power** $= 1 - \beta$: the probability of correctly rejecting a false $H_0$.
 
+![Two overlapping normal curves under H0 and H1 showing alpha (Type I) and beta (Type II) error regions, critical value, and power = 1-beta](assets/hypothesis-error-regions.svg)
+
 ### Power and sample size
 
 Power depends on four quantities: $\alpha$, effect size, sample size $n$, and variability $\sigma$. Increasing $n$ or the effect size increases power. The relationship:

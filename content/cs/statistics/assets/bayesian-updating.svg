@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 196" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .box       { fill: rgba(30,40,55,0.5); stroke: #484f58; stroke-width: 1; }
+    .title     { font-size: 10px; fill: #e8e8e8; font-weight: 600; }
+    .sub       { font-size: 8.5px; fill: #8b949e; }
+    .f-prior   { font-size: 10px; fill: #58a6ff; font-weight: 600; }
+    .f-like    { font-size: 10px; fill: #7ee787; font-weight: 600; }
+    .f-post    { font-size: 10px; fill: #d29922; font-weight: 600; }
+    .arrow     { stroke: #8b949e; stroke-width: 1.2; }
+    .arr-head  { fill: #8b949e; }
+    .anno      { font-size: 8px; fill: #d29922; font-style: italic; }
+    .anno-line { stroke: #d29922; stroke-width: 0.7; stroke-dasharray: 2 2; }
+    .eq        { font-size: 10px; fill: #c9d1d9; font-weight: 500; }
+    .note      { font-size: 8.5px; fill: #8b949e; font-style: italic; }
+    .sep       { stroke: #30363d; stroke-width: 0.5; }
+    @media (prefers-color-scheme: light) {
+      .box       { fill: rgba(245,245,245,0.7); stroke: #d0d7de; }
+      .title     { fill: #1a1a2e; }
+      .sub       { fill: #6e7781; }
+      .f-prior   { fill: #284b63; }
+      .f-like    { fill: #1a7f37; }
+      .f-post    { fill: #9e6000; }
+      .arrow     { stroke: #8b949e; }
+      .arr-head  { fill: #8b949e; }
+      .anno      { fill: #9e6000; }
+      .anno-line { stroke: #9e6000; }
+      .eq        { fill: #24292f; }
+      .note      { fill: #6e7781; }
+      .sep       { stroke: #d8dee4; }
+    }
+  </style>
+
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" class="arr-head"/>
+    </marker>
+  </defs>
+
+  <!-- ─── Box 1: Prior ─── -->
+  <rect x="20" y="42" width="88" height="58" rx="5" class="box"/>
+  <text x="64" y="62" class="title" text-anchor="middle">Prior</text>
+  <text x="64" y="82" class="f-prior" text-anchor="middle">P(&#x3B8;)</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="108" y1="71" x2="140" y2="71" class="arrow" marker-end="url(#arr)"/>
+
+  <!-- ─── Box 2: Data D₁ ─── -->
+  <rect x="142" y="42" width="108" height="58" rx="5" class="box"/>
+  <text x="196" y="57" class="title" text-anchor="middle">Data D&#x2081;</text>
+  <text x="196" y="70" class="sub" text-anchor="middle">Likelihood</text>
+  <text x="196" y="88" class="f-like" text-anchor="middle">P(D&#x2081;|&#x3B8;)</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="250" y1="71" x2="282" y2="71" class="arrow" marker-end="url(#arr)"/>
+
+  <!-- ─── Box 3: Posterior after D₁ ─── -->
+  <!-- "used as next prior" annotation -->
+  <text x="343" y="33" class="anno" text-anchor="middle">used as next prior</text>
+  <line x1="343" y1="35" x2="343" y2="42" class="anno-line"/>
+
+  <rect x="284" y="42" width="118" height="58" rx="5" class="box"/>
+  <text x="343" y="57" class="title" text-anchor="middle">Posterior</text>
+  <text x="343" y="70" class="sub" text-anchor="middle">after D&#x2081;</text>
+  <text x="343" y="88" class="f-post" text-anchor="middle">P(&#x3B8;|D&#x2081;)</text>
+
+  <!-- Arrow 3→4 -->
+  <line x1="402" y1="71" x2="434" y2="71" class="arrow" marker-end="url(#arr)"/>
+
+  <!-- ─── Box 4: New data D₂ ─── -->
+  <rect x="436" y="42" width="108" height="58" rx="5" class="box"/>
+  <text x="490" y="57" class="title" text-anchor="middle">New data D&#x2082;</text>
+  <text x="490" y="70" class="sub" text-anchor="middle">Likelihood</text>
+  <text x="490" y="88" class="f-like" text-anchor="middle">P(D&#x2082;|&#x3B8;)</text>
+
+  <!-- Arrow 4→5 -->
+  <line x1="544" y1="71" x2="576" y2="71" class="arrow" marker-end="url(#arr)"/>
+
+  <!-- ─── Box 5: Final posterior ─── -->
+  <rect x="578" y="42" width="140" height="58" rx="5" class="box"/>
+  <text x="648" y="57" class="title" text-anchor="middle">Posterior</text>
+  <text x="648" y="70" class="sub" text-anchor="middle">after D&#x2081;, D&#x2082;</text>
+  <text x="648" y="88" class="f-post" text-anchor="middle">P(&#x3B8;|D&#x2081;,D&#x2082;)</text>
+
+  <!-- ─── Equations ─── -->
+  <text x="370" y="128" class="eq" text-anchor="middle">P(&#x3B8;|D&#x2081;) &#x221D; P(D&#x2081;|&#x3B8;) P(&#x3B8;)</text>
+  <text x="370" y="148" class="eq" text-anchor="middle">P(&#x3B8;|D&#x2081;,D&#x2082;) &#x221D; P(D&#x2082;|&#x3B8;) P(&#x3B8;|D&#x2081;)</text>
+
+  <!-- ─── Separator ─── -->
+  <line x1="120" y1="162" x2="620" y2="162" class="sep"/>
+
+  <!-- ─── Order-independence note ─── -->
+  <text x="370" y="182" class="note" text-anchor="middle">Order does not matter: updating sequentially gives the same final posterior as updating on all data at once.</text>
+</svg>

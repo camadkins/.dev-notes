@@ -19,6 +19,8 @@ Expected value does not have to be a value the random variable can actually take
 
 The power of expected value lies in its **linearity**: you can break complex quantities into simpler pieces, compute each expectation separately, and add them up - no independence required.
 
+![Probability distribution of a fair die with E[X] = 3.5 marked as the balance point](assets/expected-value-balance.svg)
+
 ## Definition
 
 The **expected value** (or **mean**) of a random variable $X$ is the probability-weighted sum (or integral) of its possible values:

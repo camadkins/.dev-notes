@@ -68,6 +68,8 @@ $$\hat{y} = 42.0 + 0.30(120) = 78.0$$
 
 The predicted chemistry grade is 78. The same technique applies to predicting final animal weight from feed consumed - any scenario where one continuous variable drives another.
 
+![Scatter plot of intelligence scores vs chemistry grades with the fitted line y-hat = 42.0 + 0.30x](assets/simple-regression-fit.svg)
+
 ## Why It Matters in CS
 
 Simple linear regression is the "can a straight line explain this?" test. In ML, it's the first model you fit before reaching for anything fancier, because if a line already gets you 90% of the way there, a neural net is probably overkill. It sets both a performance floor and an interpretability ceiling.
