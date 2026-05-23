@@ -64,7 +64,7 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
           options.editBranch,
         )}/${editPath}`
         segments.push(
-          <a class="content-meta-edit" href={editUrl}>
+          <a class="content-meta-edit" href={editUrl} target="_blank" rel="noopener noreferrer">
             Edit note
           </a>,
         )
