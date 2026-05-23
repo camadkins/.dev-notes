@@ -2,6 +2,11 @@
   margin-top: 0;
   color: var(--darkgray);
 
+  .content-meta-edit {
+    color: var(--secondary);
+    white-space: nowrap;
+  }
+
   &[show-comma="true"] {
     > *:not(:last-child) {
       margin-right: 8px;
