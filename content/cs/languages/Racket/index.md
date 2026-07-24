@@ -11,3 +11,5 @@ updated:
 aliases: []
 ---
 **About.** Racket notes live here. Use this page to group Racket-specific materials (design sketches, macro experiments, interpreter bits). Quartz will auto-list any pages placed under this folder.
+
+- [[cs/languages/Racket/language-design-from-core-to-surface-racket|From Core to Surface]] - macro expansion and desugaring from a rich surface syntax into a small core

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260" fill="none" role="img" aria-label="A 3 by 3 kernel slides over a 5 by 5 input grid, computing one value of the output feature map from each local patch.">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .cell { fill: rgba(30,40,55,0.95); stroke: #93a3b8; stroke-width: 1; }
+    .hl   { fill: rgba(88,166,255,0.12); stroke: #58a6ff; stroke-width: 2; }
+    .out  { fill: rgba(30,55,40,0.6); stroke: #84a59d; stroke-width: 1.5; }
+    .edge { stroke: #93a3b8; stroke-width: 1.4; }
+    .t    { fill: #e8e8e8; }
+    .desc { fill: #8b949e; }
+    .anno { fill: #d29922; }
+  </style>
+  <text class="t" x="20" y="24" font-size="13" font-weight="bold">input (5x5)</text>
+  <!-- 5x5 grid -->
+  <g>
+    <!-- rows -->
+    <rect class="cell" x="20" y="36" width="32" height="32"/><rect class="cell" x="52" y="36" width="32" height="32"/><rect class="cell" x="84" y="36" width="32" height="32"/><rect class="cell" x="116" y="36" width="32" height="32"/><rect class="cell" x="148" y="36" width="32" height="32"/>
+    <rect class="cell" x="20" y="68" width="32" height="32"/><rect class="cell" x="52" y="68" width="32" height="32"/><rect class="cell" x="84" y="68" width="32" height="32"/><rect class="cell" x="116" y="68" width="32" height="32"/><rect class="cell" x="148" y="68" width="32" height="32"/>
+    <rect class="cell" x="20" y="100" width="32" height="32"/><rect class="cell" x="52" y="100" width="32" height="32"/><rect class="cell" x="84" y="100" width="32" height="32"/><rect class="cell" x="116" y="100" width="32" height="32"/><rect class="cell" x="148" y="100" width="32" height="32"/>
+    <rect class="cell" x="20" y="132" width="32" height="32"/><rect class="cell" x="52" y="132" width="32" height="32"/><rect class="cell" x="84" y="132" width="32" height="32"/><rect class="cell" x="116" y="132" width="32" height="32"/><rect class="cell" x="148" y="132" width="32" height="32"/>
+    <rect class="cell" x="20" y="164" width="32" height="32"/><rect class="cell" x="52" y="164" width="32" height="32"/><rect class="cell" x="84" y="164" width="32" height="32"/><rect class="cell" x="116" y="164" width="32" height="32"/><rect class="cell" x="148" y="164" width="32" height="32"/>
+  </g>
+  <!-- highlighted 3x3 kernel window (top-left) -->
+  <rect class="hl" x="20" y="36" width="96" height="96"/>
+  <text class="anno" x="24" y="222" font-size="12">3x3 kernel</text>
+  <text class="desc" x="24" y="238" font-size="11">shared weights, slides with a stride</text>
+
+  <!-- arrow -->
+  <line class="edge" x1="200" y1="90" x2="270" y2="90" marker-end="url(#a)"/>
+  <defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#93a3b8"/></marker></defs>
+  <text class="desc" x="205" y="80" font-size="10.5">weighted sum</text>
+  <text class="desc" x="205" y="106" font-size="10.5">+ nonlinearity</text>
+
+  <!-- output feature map cell -->
+  <text class="t" x="300" y="24" font-size="13" font-weight="bold">feature map</text>
+  <rect class="out" x="300" y="60" width="34" height="34"/>
+  <rect class="cell" x="334" y="60" width="34" height="34"/><rect class="cell" x="368" y="60" width="34" height="34"/>
+  <rect class="cell" x="300" y="94" width="34" height="34"/><rect class="cell" x="334" y="94" width="34" height="34"/><rect class="cell" x="368" y="94" width="34" height="34"/>
+  <rect class="cell" x="300" y="128" width="34" height="34"/><rect class="cell" x="334" y="128" width="34" height="34"/><rect class="cell" x="368" y="128" width="34" height="34"/>
+  <text class="desc" x="300" y="188" font-size="11">each patch to one output value;</text>
+  <text class="desc" x="300" y="204" font-size="11">one filter to one feature map.</text>
+</svg>

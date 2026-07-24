@@ -56,7 +56,7 @@ UDP shows up in DNS because queries are small, latency matters, and if you don't
 
 ## DNS Resolution
 
-DNS translates human-readable names (`example.com`) into IP addresses (`93.184.216.34`). The resolution process is hierarchical, which is something I didn't fully appreciate until I traced through it:
+[[dns-the-domain-name-system|DNS]] translates human-readable names (`example.com`) into IP addresses (`93.184.216.34`). The resolution process is hierarchical, which is something I didn't fully appreciate until I traced through it:
 
 1. Client asks its **recursive resolver** (usually ISP or `8.8.8.8`).
 2. Resolver queries a **root nameserver** (`.`), which points to the **TLD nameserver** (`.com`).
@@ -98,7 +98,7 @@ This is the classic interview question, and walking through it connects all the 
 
 1. **DNS**: resolve `example.com` to an IP address (UDP port 53).
 2. **TCP**: open a connection to that IP on port 443 (three-way handshake).
-3. **TLS**: negotiate encryption (certificate exchange, key agreement).
+3. **[[tls-and-the-https-handshake|TLS]]**: negotiate encryption (certificate exchange, key agreement).
 4. **HTTP**: send `GET /` over the encrypted channel.
 5. **Response**: server returns HTML; browser parses, discovers linked CSS/JS/images, and repeats steps 1-4 for each (often reusing the TCP connection).
 
@@ -111,3 +111,12 @@ At the IP layer, routers forward packets hop by hop using routing tables. At the
 
 - [[distributed-consensus|Distributed Consensus]] - what happens when networked machines must agree on shared state
 - [[processes-and-threads|Processes & Threads]] - servers use processes or threads to handle concurrent network connections
+- [[dns-the-domain-name-system|DNS - The Domain Name System]] - the name-resolution layer in depth
+- [[tls-and-the-https-handshake|TLS and the HTTPS Handshake]] - the encryption step between TCP and HTTP in depth
+
+## Sources
+
+- "Internet protocol suite," Wikipedia. https://en.wikipedia.org/wiki/Internet_protocol_suite . Supports the four-layer TCP/IP stack (Link, Internet, Transport, Application) and the layered-abstraction framing used in the Overview and stack table.
+- "Transmission Control Protocol," Wikipedia. https://en.wikipedia.org/wiki/Transmission_Control_Protocol . Supports the TCP description as connection-oriented, reliable, in-order, error-checked byte-stream delivery with congestion control, and its use by web, email, file transfer, and SSH.
+- "User Datagram Protocol," Wikipedia. https://en.wikipedia.org/wiki/User_Datagram_Protocol . Supports UDP as connectionless and best-effort with no handshake, no guaranteed delivery or ordering, and reliability left to the application, matching the TCP-vs-UDP table.
+- "Domain Name System," Wikipedia. https://en.wikipedia.org/wiki/Domain_Name_System . Supports the hierarchical resolution chain through recursive, root, TLD, and authoritative name servers and the role of caching with TTLs.

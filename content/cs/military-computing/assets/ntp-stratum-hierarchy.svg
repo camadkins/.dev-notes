@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 250" fill="none" role="img" aria-label="NTP stratum hierarchy: a stratum 0 reference clock feeds stratum 1 servers, which feed stratum 2 servers">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .edge { stroke: #93a3b8; stroke-width: 1.4; opacity: 0.7; }
+    .dot { fill: #58a6ff; }
+    .lbl { fill: #e8e8e8; font-size: 13px; }
+    .sl { fill: #8b949e; font-size: 12px; }
+  </style>
+  <line class="edge" x1="250" y1="38" x2="170" y2="112"/><line class="edge" x1="250" y1="38" x2="330" y2="112"/>
+  <line class="edge" x1="170" y1="112" x2="110" y2="186"/><line class="edge" x1="170" y1="112" x2="230" y2="186"/>
+  <line class="edge" x1="330" y1="112" x2="290" y2="186"/><line class="edge" x1="330" y1="112" x2="410" y2="186"/>
+  <circle class="dot" cx="250" cy="38" r="10"/>
+  <circle class="dot" cx="170" cy="112" r="8"/><circle class="dot" cx="330" cy="112" r="8"/>
+  <circle class="dot" cx="110" cy="186" r="7"/><circle class="dot" cx="230" cy="186" r="7"/><circle class="dot" cx="290" cy="186" r="7"/><circle class="dot" cx="410" cy="186" r="7"/>
+  <text class="lbl" x="268" y="42">Stratum 0: atomic / GPS reference clock</text>
+  <text class="sl" x="30" y="116">Stratum 1</text>
+  <text class="sl" x="30" y="190">Stratum 2</text>
+</svg>

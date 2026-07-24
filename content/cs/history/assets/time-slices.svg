@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 170" fill="none" role="img" aria-label="Time-sharing: one CPU switches among users A, B, and C in fast slices along a timeline">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .cpu { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.6; }
+    .a { fill: rgba(88,166,255,0.14); stroke: #58a6ff; stroke-width: 1.2; }
+    .b { fill: rgba(210,153,34,0.14); stroke: #d29922; stroke-width: 1.2; }
+    .c { fill: rgba(132,165,157,0.14); stroke: #84a59d; stroke-width: 1.2; }
+    .t { fill: #e8e8e8; font-size: 13px; text-anchor: middle; }
+    .ax { stroke: #93a3b8; stroke-width: 1.2; }
+    .cap { fill: #8b949e; font-size: 12px; text-anchor: middle; }
+  </style>
+  <rect class="cpu" x="180" y="14" width="100" height="30" rx="4"/><text class="t" x="230" y="34">one CPU</text>
+  <g>
+    <rect class="a" x="40"  y="70" width="42" height="40"/><text class="t" x="61"  y="95">A</text>
+    <rect class="b" x="82"  y="70" width="42" height="40"/><text class="t" x="103" y="95">B</text>
+    <rect class="c" x="124" y="70" width="42" height="40"/><text class="t" x="145" y="95">C</text>
+    <rect class="a" x="166" y="70" width="42" height="40"/><text class="t" x="187" y="95">A</text>
+    <rect class="b" x="208" y="70" width="42" height="40"/><text class="t" x="229" y="95">B</text>
+    <rect class="c" x="250" y="70" width="42" height="40"/><text class="t" x="271" y="95">C</text>
+    <rect class="a" x="292" y="70" width="42" height="40"/><text class="t" x="313" y="95">A</text>
+    <rect class="b" x="334" y="70" width="42" height="40"/><text class="t" x="355" y="95">B</text>
+    <rect class="c" x="376" y="70" width="42" height="40"/><text class="t" x="397" y="95">C</text>
+  </g>
+  <line class="ax" x1="40" y1="124" x2="418" y2="124"/><polygon points="418,124 410,120 410,128" fill="#93a3b8"/>
+  <text class="cap" x="40" y="142" text-anchor="start">time</text>
+  <text class="cap" x="240" y="160">the CPU switches fast enough that each user feels alone on the machine</text>
+</svg>

@@ -4,8 +4,8 @@ description: Techniques for sorting data that does not fit in RAM by staging wor
 draft: false  
 comments: true
 tags:
-- cs
-- dsa  
+  - cs
+  - dsa
 date: 2025-10-16  
 updated: 2025-10-29  
 aliases: 

@@ -4,8 +4,8 @@ description: Choose items with weights and values to maximize total value under 
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2025-11-19
 aliases: []

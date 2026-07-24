@@ -4,8 +4,8 @@ description: How programs request, manage, and free memory; stack vs heap, alloc
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2025-12-31
 aliases: []

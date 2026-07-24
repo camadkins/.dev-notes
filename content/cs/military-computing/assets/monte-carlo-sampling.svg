@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 270 280" fill="none" role="img" aria-label="Monte Carlo sampling: random points scattered over a square, those inside a quarter circle marked, the fraction inside estimating its area">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .sq { fill: none; stroke: #93a3b8; stroke-width: 1.4; }
+    .arc { fill: rgba(88,166,255,0.06); stroke: #58a6ff; stroke-width: 1.6; }
+    .in { fill: #58a6ff; }
+    .out { fill: #93a3b8; }
+    .cap { fill: #8b949e; font-size: 12px; text-anchor: middle; }
+  </style>
+  <rect class="sq" x="30" y="30" width="200" height="200"/>
+  <path class="arc" d="M230,230 A200,200 0 0 0 30,30 L30,230 Z"/>
+  <circle class="in" cx="70"  cy="200" r="3.5"/>
+  <circle class="in" cx="110" cy="210" r="3.5"/>
+  <circle class="in" cx="60"  cy="150" r="3.5"/>
+  <circle class="in" cx="100" cy="170" r="3.5"/>
+  <circle class="in" cx="150" cy="200" r="3.5"/>
+  <circle class="in" cx="90"  cy="120" r="3.5"/>
+  <circle class="in" cx="160" cy="205" r="3.5"/>
+  <circle class="in" cx="130" cy="155" r="3.5"/>
+  <circle class="in" cx="50"  cy="90"  r="3.5"/>
+  <circle class="out" cx="200" cy="90"  r="3.5"/>
+  <circle class="out" cx="210" cy="60"  r="3.5"/>
+  <circle class="out" cx="180" cy="70"  r="3.5"/>
+  <circle class="out" cx="160" cy="60"  r="3.5"/>
+  <circle class="out" cx="205" cy="150" r="3.5"/>
+  <circle class="out" cx="190" cy="110" r="3.5"/>
+  <text class="cap" x="135" y="262">the fraction of random points inside the curve estimates its area</text>
+</svg>

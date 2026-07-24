@@ -1,5 +1,5 @@
 ---
-title: Concurrency Models — Threads, Locks, and Actors
+title: "Concurrency Models: Threads, Locks, and Actors"
 description: How programming languages structure concurrent computation using shared memory, synchronization, and message passing.
 draft: false
 tags:
@@ -13,7 +13,7 @@ diagram: concurrency-models-timeline.svg
 
 ## Why Concurrency Models Exist
 Modern programs rarely run in isolation.  
-From web servers to simulations, systems need to handle many tasks at once — reading files, responding to users, updating shared state.  
+From web servers to simulations, systems need to handle many tasks at once: reading files, responding to users, updating shared state.  
 Concurrency models describe *how those tasks cooperate safely* while sharing time, memory, or messages.
 
 Languages choose concurrency models to balance **speed, safety, and simplicity**.  
@@ -39,7 +39,7 @@ To prevent interference, languages provide **synchronization primitives** such a
 >   unlock(m);
 > }
 > ```
-> Without the lock, increments interleave unpredictably, losing updates — a classic *race condition*.
+> Without the lock, increments interleave unpredictably, losing updates: a classic *race condition*.
 
 ### Advantages
 - **Speed:** direct memory access, zero copying.  
@@ -83,7 +83,7 @@ Messages are **immutable** and **asynchronous**.
 An actor processes one message at a time, guaranteeing isolation without locks.
 
 > [!tip]
-> “Share memory by communicating, not communicate by sharing memory.” — Go proverb
+> “Share memory by communicating, not communicate by sharing memory.” (Go proverb)
 
 ### Example
 ```erlang
@@ -188,8 +188,14 @@ CSP strikes a middle ground: it enforces communication discipline like actors bu
 
 ## See also
 
-- [[abstract-machines-cek-secd|Abstract Machines — CEK and SECD]]
+- [[abstract-machines-cek-secd|Abstract Machines: CEK and SECD]]
     
-- [[cs/pl/operational-semantics-big-step-small-step|Operational Semantics — Big-Step & Small-Step]]
+- [[cs/pl/operational-semantics-big-step-small-step|Operational Semantics: Big-Step & Small-Step]]
     
 - [[cs/pl/scoping-binding-and-closures|Scoping, Binding, and Closures]]
+
+## Sources
+
+- "Concurrency (computer science)," Wikipedia. https://en.wikipedia.org/wiki/Concurrency_%28computer_science%29 . Supports concurrency as the structuring of programs into multiple tasks that may execute and interact while sharing time, memory, or messages, and the associated hazards of race conditions and deadlocks.
+- "Actor model," Wikipedia. https://en.wikipedia.org/wiki/Actor_model . Supports actors as isolated entities with private state and a mailbox that communicate only by asynchronous message passing, processing one message at a time and avoiding shared-memory data races.
+- "Communicating sequential processes," Wikipedia. https://en.wikipedia.org/wiki/Communicating_sequential_processes . Supports CSP as a model of concurrency in which independent processes interact through channel-based message passing, and its influence on Go's goroutines and channels.

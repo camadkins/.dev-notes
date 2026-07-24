@@ -4,8 +4,8 @@ description: Maintain the heap-order and shape properties via sift-up (insert) a
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2025-12-20
 aliases: []

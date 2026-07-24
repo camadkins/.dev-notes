@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 220" fill="none" role="img" aria-label="A SIMD array: one control unit broadcasts a single instruction to five processing elements, each operating on its own data">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.6; }
+    .t { fill: #e8e8e8; font-size: 14px; text-anchor: middle; }
+    .s { fill: #8b949e; font-size: 11px; text-anchor: middle; }
+    .edge { stroke: #93a3b8; stroke-width: 1.4; opacity: 0.7; }
+  </style>
+  <rect class="box" x="150" y="20" width="140" height="46" rx="4"/>
+  <text class="t" x="220" y="48">Control Unit</text>
+  <line class="edge" x1="220" y1="66" x2="62" y2="130"/><line class="edge" x1="220" y1="66" x2="141" y2="130"/><line class="edge" x1="220" y1="66" x2="220" y2="130"/><line class="edge" x1="220" y1="66" x2="299" y2="130"/><line class="edge" x1="220" y1="66" x2="378" y2="130"/>
+  <rect class="box" x="30" y="130" width="64" height="44" rx="4"/><text class="t" x="62" y="157">PE</text>
+  <rect class="box" x="109" y="130" width="64" height="44" rx="4"/><text class="t" x="141" y="157">PE</text>
+  <rect class="box" x="188" y="130" width="64" height="44" rx="4"/><text class="t" x="220" y="157">PE</text>
+  <rect class="box" x="267" y="130" width="64" height="44" rx="4"/><text class="t" x="299" y="157">PE</text>
+  <rect class="box" x="346" y="130" width="64" height="44" rx="4"/><text class="t" x="378" y="157">PE</text>
+  <text class="s" x="220" y="196">one instruction, broadcast to every processing element</text>
+  <text class="s" x="220" y="212">each PE runs it on its own data</text>
+</svg>

@@ -11,7 +11,7 @@ aliases: []
 ---
 
 ## Overview
-Programming paradigms describe *how we think about programs* — the principles that shape how computation is expressed and reasoned about.  
+Programming paradigms describe *how we think about programs*: the principles that shape how computation is expressed and reasoned about.  
 A **model of computation** gives the *mathematical foundation* underlying those paradigms.
 
 Together, they define what a language can express, how it behaves, and how we prove its correctness.
@@ -24,14 +24,14 @@ Together, they define what a language can express, how it behaves, and how we pr
 ## Layers of Computation
 Languages, regardless of paradigm, rest on three conceptual layers:
 
-1. **Atomic computation** — the smallest evaluable operations (arithmetic, assignment, comparison).  
-2. **Composition** — rules for combining atomic parts (sequencing, conditionals, recursion).  
-3. **Abstraction** — mechanisms for naming, reusing, and hiding complexity (functions, objects, modules).
+1. **Atomic computation**: the smallest evaluable operations (arithmetic, assignment, comparison).  
+2. **Composition**: rules for combining atomic parts (sequencing, conditionals, recursion).  
+3. **Abstraction**: mechanisms for naming, reusing, and hiding complexity (functions, objects, modules).
 
 > [!tip]
 > The “Three C’s” of programming: **Compute → Compose → Conceal.**
 
-These layers recur in every paradigm — from procedural loops to functional recursion to logic inference.
+These layers recur in every paradigm, from procedural loops to functional recursion to logic inference.
 
 ---
 
@@ -43,9 +43,9 @@ These layers recur in every paradigm — from procedural loops to functional rec
 | **[[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus]]** | 1930s – Alonzo Church | Function abstraction and application | Functional languages |
 | **Predicate Logic** | 1950s | Rule-based inference and unification | Logic programming (Prolog, Datalog) |
 
-All three are **computationally equivalent** (Church–Turing thesis) — any function computable in one can be expressed in the others — but each emphasizes a different *style of reasoning*.
+All three are **computationally equivalent** (Church–Turing thesis): any function computable in one can be expressed in the others, but each emphasizes a different *style of reasoning*.
 
-![Church-Turing equivalence — three models, same expressive power](assets/paradigms-models-equivalence.svg)
+![Church-Turing equivalence: three models, same expressive power](assets/paradigms-models-equivalence.svg)
 
 ---
 
@@ -97,7 +97,7 @@ ancestor(X, Y) :- parent(X, Z), ancestor(Z, Y).
 
 ### 4. Object-Oriented
 
-Programs organize behavior around **objects** — entities combining data and methods.
+Programs organize behavior around **objects**, entities combining data and methods.
 
 ```java
 class Counter {
@@ -123,14 +123,14 @@ class Counter {
 |**Object-Oriented**|Identity, encapsulation|Modular, extensible|Complexity in hierarchies|
 
 > [!tip]  
-> Paradigms aren’t mutually exclusive — modern languages combine them.  
+> Paradigms aren’t mutually exclusive; modern languages combine them.  
 > Python, Scala, and Rust blend imperative, functional, and OO ideas.
 
 ---
 
 ## Composition and Abstraction
 
-The hallmark of good language design is **compositional semantics** — the meaning of the whole is determined by the meaning of its parts.
+The hallmark of good language design is **compositional semantics**: the meaning of the whole is determined by the meaning of its parts.
 
 A well-designed language:
 
@@ -166,7 +166,7 @@ Each paradigm provides a _mental model_ of computation:
     
 
 > [!note]  
-> Paradigms are not just technical; they’re pedagogical — they shape how programmers think about problems.
+> Paradigms are not only technical; they’re pedagogical, and they shape how programmers think about problems.
 
 ---
 
@@ -184,7 +184,7 @@ Even for imperative programmers, these ideas offer concrete benefits:
     
 
 > [!example]  
-> Functional abstractions inspired modern tools — from query languages (SQL, LINQ) to parallel frameworks (MapReduce).
+> Functional abstractions inspired modern tools, from query languages (SQL, LINQ) to parallel frameworks (MapReduce).
 
 ---
 
@@ -209,7 +209,7 @@ A single language can balance multiple axes:
 - **Static vs. Dynamic**
     
 
-![Paradigm dimensions — declarative vs imperative, stateless vs stateful](assets/paradigms-axes.svg)
+![Paradigm dimensions: declarative vs imperative, stateless vs stateful](assets/paradigms-axes.svg)
 
 ---
 
@@ -239,16 +239,22 @@ These machines provide formal grounding for reasoning about correctness, equival
 |**Compositional Semantics**|Meaning of a program = meaning of its parts|
 
 > [!tip]  
-> Understanding multiple paradigms isn’t about syntax — it’s about _mental flexibility_ and _semantic precision._
+> Understanding multiple paradigms isn’t about syntax; it’s about _mental flexibility_ and _semantic precision._
 
 ---
 
 ## See also
 
-- [[cs/pl/language-overview-syntax-semantics|Language Overview — Syntax vs Semantics]]
+- [[cs/pl/language-overview-syntax-semantics|Language Overview: Syntax vs Semantics]]
     
-- [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]
+- [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus: Syntax & Substitution]]
     
-- [[abstract-machines-cek-secd|Abstract Machines — CEK & SECD]]
+- [[abstract-machines-cek-secd|Abstract Machines: CEK & SECD]]
     
 - [[cs/pl/history-genealogy-of-languages|History & Genealogy of Languages]]
+
+## Sources
+
+- "Programming paradigm," Wikipedia. https://en.wikipedia.org/wiki/Programming_paradigm . Supports the classification of imperative, functional, logic, and object-oriented paradigms as distinct styles of expressing computation, and the point that modern languages are often multi-paradigm.
+- "Model of computation," Wikipedia. https://en.wikipedia.org/wiki/Model_of_computation . Supports Turing machines, lambda calculus, and logic-based systems as formal models underlying programming paradigms.
+- "Church–Turing thesis," Wikipedia. https://en.wikipedia.org/wiki/Church%E2%80%93Turing_thesis . Supports the claim that these models are computationally equivalent, so any function computable in one can be expressed in the others.

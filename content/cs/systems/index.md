@@ -31,14 +31,22 @@ Systems is the study of how software meets hardware - how processes get schedule
 ### Networking
 
 - [[network-protocols|Network Protocols]] - OSI/TCP-IP, TCP vs UDP, DNS, HTTP
+- [[dns-the-domain-name-system|DNS - The Domain Name System]] - hierarchical, cached, distributed name resolution
+- [[tls-and-the-https-handshake|TLS and the HTTPS Handshake]] - authenticated, encrypted connections over an open wire
+- [[bgp-and-internet-routing-as-control|BGP and Internet Routing as Control]] - path-vector routing, trust-by-default, and route hijacking
+- [[physical-layer-of-the-internet|The Physical Layer of the Internet]] - submarine cables, exchange points, and chokepoints
+- [[content-delivery-networks-and-the-centralization-of-control|Content Delivery Networks]] - edge caching, anycast, and centralization
 
 ### Distributed Systems
 
 - [[distributed-consensus|Distributed Consensus]] - CAP theorem, Paxos/Raft, Byzantine faults
+- [[blockchain-consensus-and-sanctions-evasion|Blockchain Consensus & Sanctions Evasion]] - Byzantine agreement without a central party, and money outside the state
 
 ### Security
 
-- *(coming soon - cryptographic primitives, access control, threat models)*
+- [[tls-and-the-https-handshake|TLS and the HTTPS Handshake]] - public-key bootstrap, certificate trust, and forward secrecy
+- [[onion-routing-and-anonymity-networks|Onion Routing & Anonymity Networks]] - layered encryption, the traffic-confirmation limit, and the anonymity trilemma
+- [[end-to-end-encryption-and-the-lawful-access-debate|End-to-End Encryption & the Lawful-Access Debate]] - endpoint keys, key escrow, and why a backdoor cannot be selective
 
 ---
 

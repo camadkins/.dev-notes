@@ -1,5 +1,5 @@
 ---
-title: Operational Semantics — Big-Step & Small-Step
+title: "Operational Semantics: Big-Step & Small-Step"
 description: How structural operational semantics models computation step-by-step or as complete evaluations, using inference rules to define program behavior precisely.
 draft: false
 tags:
@@ -11,12 +11,12 @@ aliases: []
 ---
 
 ## Overview
-Operational semantics gives a **mathematical account of program execution** — describing *how* a program runs, not just *what result* it produces.  
+Operational semantics gives a **mathematical account of program execution**, describing *how* a program runs, not only *what result* it produces.  
 It forms the bridge between language syntax and implementation.
 
 Two primary variants exist:
-- **Small-step (structural operational semantics)** — defines individual computation steps.
-- **Big-step (natural semantics)** — defines the overall evaluation to a value.
+- **Small-step (structural operational semantics)**: defines individual computation steps.
+- **Big-step (natural semantics)**: defines the overall evaluation to a value.
 
 > [!note]
 > Big-step = “evaluate to completion.”  
@@ -64,7 +64,7 @@ Each rule expresses how evaluation of a complex expression depends on its sub-ex
 
 ---
 
-## Example — Arithmetic Expressions (Small-Step)
+## Example: Arithmetic Expressions (Small-Step)
 Consider:
 ```
 
@@ -94,7 +94,7 @@ n1 + n2 → n3 where n3 = n1 + n2
 
 ---
 
-## Example — Conditionals (Big-Step)
+## Example: Conditionals (Big-Step)
 For booleans:
 ```
 
@@ -117,7 +117,7 @@ if c then t else e ⇓ t if c then t else e ⇓ e
 ```
 
 > [!tip]
-> Big-step semantics collapses all intermediate steps — ideal for expressing final results or static analyses.
+> Big-step semantics collapses all intermediate steps, ideal for expressing final results or static analyses.
 
 ---
 
@@ -166,7 +166,7 @@ These two notations often describe the same semantics at different resolutions.
 
 ## Adding State
 When we include mutable state (σ):
-- Each step transforms not just expressions, but the **store**.
+- Each step transforms not only expressions, but the **store**.
 - Evaluation now becomes *store-passing*:
 ```
 
@@ -177,7 +177,7 @@ When we include mutable state (σ):
 ```
 
 > [!note]
-> Big-step semantics still works with stores, but small-step captures *when* updates occur — making it better suited for reasoning about effects.
+> Big-step semantics still works with stores, but small-step captures *when* updates occur, making it better suited for reasoning about effects.
 
 ---
 
@@ -207,7 +207,7 @@ t ⇓ v ⇔ t →* v
 ```
 They describe the same mapping from terms to values.
 
-However, **non-terminating programs** are captured by small-step only — big-step evaluation diverges (no derivation tree).
+However, **non-terminating programs** are captured by small-step only; big-step evaluation diverges (no derivation tree).
 
 Example:
 ```
@@ -274,7 +274,12 @@ Languages and textbooks often use hybrid styles:
 ---
 
 ## See also
-- [[cs/pl/booleans-conditionals-semantics|Booleans & Conditionals — Semantics]]
+- [[cs/pl/booleans-conditionals-semantics|Booleans & Conditionals: Semantics]]
 - [[cs/pl/mutable-state-references-effects|Mutable State, References & Effects]]
 - [[cs/pl/language-design-values-variables-environments|Values, Variables & Environments]]
 - [[evaluation-order-and-strictness | Evaluation Order & Strictness]]
+
+## Sources
+
+- "Operational semantics," Wikipedia. https://en.wikipedia.org/wiki/Operational_semantics . Supports the distinction between small-step (structural operational semantics) and big-step (natural semantics), the use of inference rules to define a transition relation, and operational semantics as a mathematical description of how a program executes.
+- "Model of computation," Wikipedia. https://en.wikipedia.org/wiki/Model_of_computation . Supports operational semantics as a way to give meaning to computation steps and its relationship to abstract models such as the Turing machine and lambda calculus referenced for interpreter and verification work.

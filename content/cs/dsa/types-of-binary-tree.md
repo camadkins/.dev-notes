@@ -14,7 +14,7 @@ aliases: []
 Binary trees come in many flavors—**full (proper)**, **complete**, **perfect**, and **balanced**—each imposing structural constraints that affect height, memory layout, and operation costs. Understanding these definitions and how they interact prevents ambiguous claims (“this tree is balanced”) and helps choose or prove properties of data structures like heaps, BSTs, and search indexes.
 
 > [!note]
-> A **binary tree** restricts each node to at most two children: `left` and `right`. See [[cs/dsa/binary-tree|Binary Tree]] for fundamentals and [[cs/dsa/tree-traversal-overview|Tree Traversal — Overview]] for visiting orders.
+> A **binary tree** restricts each node to at most two children: `left` and `right`. See [[cs/dsa/binary-tree|Binary Tree]] for fundamentals and [[cs/dsa/tree-traversal|Tree Traversal — Overview]] for visiting orders.
 
 ## Motivation
 - **Performance guarantees:** Balanced forms bound height to `Θ(log n)`, yielding logarithmic search/update in BST-like structures.
@@ -78,7 +78,7 @@ Each panel shows a minimal witness tree with its Full / Complete / Perfect class
 - **Balanced BSTs (maps/sets):** Need **height-bounded** trees. Choices:
   - **AVL**: tighter height ⇒ faster lookups; more rotations on updates.
   - **Red–black**: looser bound but fewer rotations; common in libraries.
-  - **Splay**: no explicit height invariant; **amortized** logarithmic access; good locality for skewed access patterns. See [[cs/dsa/avl-tree|AVL Tree]], [[cs/dsa/red-black-tree|Red–Black Tree]], [[cs/dsa/splay-tree|Splay Tree]].
+  - **Splay**: no explicit height invariant; **amortized** logarithmic access; good locality for skewed access patterns. See [[cs/dsa/avl-tree|AVL Tree]], [[cs/dsa/rb-tree|Red–Black Tree]], [[cs/dsa/splay-tree|Splay Tree]].
 - **Memory/layout trade-offs:**
   - **Pointer-based** nodes are flexible but may be cache-inefficient on large trees.
   - **Array-based** layouts exploit completeness; random access and sequential scans are fast.

@@ -4,8 +4,8 @@ description: Visit Left -> Root -> Right; yields sorted order precisely on binar
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2025-11-21
 aliases: []

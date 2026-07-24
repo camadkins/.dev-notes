@@ -1,5 +1,5 @@
 ---
-title: Type Systems — Goals & Guarantees
+title: "Type Systems: Goals & Guarantees"
 description: Why programming languages enforce types, how static typing ensures safety through soundness, and what guarantees emerge from progress and preservation.
 draft: false
 tags:
@@ -12,24 +12,24 @@ aliases: []
 
 ## Overview
 A **type system** is a formal method for classifying program phrases according to the *kinds of values* they compute.  
-It acts as a **static contract** between programmer and compiler — ensuring that operations are applied only to compatible values.
+It acts as a **static contract** between programmer and compiler, ensuring that operations are applied only to compatible values.
 
 > [!note]
-> The type system doesn’t predict the *result* of computation — only that the computation will make sense.
+> The type system doesn’t predict the *result* of computation, only that the computation will make sense.
 
 ---
 
 ## Motivation
 Types serve multiple overlapping goals:
 
-1. **Safety** — prevent runtime errors (e.g., adding numbers to strings).  
-2. **Abstraction** — describe interfaces and modules.  
-3. **Documentation** — types communicate program intent.  
-4. **Optimization** — compilers use type information for efficient code generation.  
-5. **Proof connection** — under Curry–Howard, types correspond to logical propositions.
+1. **Safety**: prevent runtime errors (e.g., adding numbers to strings).  
+2. **Abstraction**: describe interfaces and modules.  
+3. **Documentation**: types communicate program intent.  
+4. **Optimization**: compilers use type information for efficient code generation.  
+5. **Proof connection**: under Curry–Howard, types correspond to logical propositions.
 
 > [!tip]
-> “A type system is a lightweight proof system that every programmer uses.” — Benjamin Pierce
+> “A type system is a lightweight proof system that every programmer uses.” (Benjamin Pierce)
 
 ---
 
@@ -69,7 +69,7 @@ Read as “under context Γ (a mapping of variables to types), expression `e` ha
 
 Each rule constrains how valid programs are built.
 
-### Example — Arithmetic
+### Example: Arithmetic
 
 ```
 ⊢ n : Int
@@ -78,7 +78,7 @@ Each rule constrains how valid programs are built.
 ⊢ n + m : Int
 ```
 
-### Example — Function Abstraction
+### Example: Function Abstraction
 
 ```
 Γ, x:T₁ ⊢ e : T₂
@@ -92,15 +92,15 @@ The combination of these rules defines _what programs are well-typed_ in a langu
 
 ## Type Soundness
 
-The **goal** of any well-designed type system is _soundness_ — that is:
+The **goal** of any well-designed type system is _soundness_, that is:
 
 > **A well-typed program will not “go wrong.”**
 
 Formally, type soundness is the combination of:
 
-- **Progress** — a well-typed expression is either a value or can take a step.
+- **Progress**: a well-typed expression is either a value or can take a step.
     
-- **Preservation** — evaluation preserves types across each step.
+- **Preservation**: evaluation preserves types across each step.
     
 
 These correspond to **safety** and **stability** of execution.
@@ -125,7 +125,7 @@ Consider this untyped fragment:
 if 3 then true else false
 ```
 
-Evaluation gets stuck — `3` isn’t a Boolean.
+Evaluation gets stuck: `3` isn’t a Boolean.
 
 Adding typing prevents this:
 
@@ -137,7 +137,7 @@ Adding typing prevents this:
 Thus the ill-typed form never reaches execution.
 
 > [!warning]  
-> A _stuck term_ is syntactically valid but has no reduction rule — the classic indicator of a type error.
+> A _stuck term_ is syntactically valid but has no reduction rule, the classic indicator of a type error.
 
 ---
 
@@ -179,12 +179,12 @@ Example:
 
 ```c
 int x = 1;
-float y = x + 0.5; // implicit conversion — weakly typed
+float y = x + 0.5; // implicit conversion, weakly typed
 ```
 
 ```rust
 let x: i32 = 1;
-let y = x as f32 + 0.5; // explicit cast — strongly typed
+let y = x as f32 + 0.5; // explicit cast, strongly typed
 ```
 
 > [!note]  
@@ -239,16 +239,22 @@ Each extension must re-prove **progress** and **preservation**, maintaining the 
 |**Soundness**|Progress + Preservation|“Well-typed programs do not go wrong”|
 
 > [!note]  
-> Type systems don’t guarantee correctness — only _well-formedness_.  
+> Type systems don’t guarantee correctness, only _well-formedness_.  
 > A well-typed infinite loop is still infinite.
 
 ---
 
 ## See also
 
-- [[cs/pl/type-soundness-progress-preservation|Type Soundness — Progress & Preservation]]
+- [[cs/pl/type-soundness-progress-preservation|Type Soundness: Progress & Preservation]]
     
 - [[cs/pl/subtyping-variance-type-constraints|Subtyping, Variance & Type Constraints]]
+
+## Sources
+
+- "Type system," Wikipedia. https://en.wikipedia.org/wiki/Type_system . Supports type systems as formal methods that classify program phrases by the kinds of values they compute, acting as a static contract for safety, abstraction, documentation, and optimization, and the static-vs-dynamic and nominal-vs-structural distinctions.
+- "Type safety," Wikipedia. https://en.wikipedia.org/wiki/Type_safety . Supports soundness as the guarantee that a well-typed program will not go wrong, decomposed into progress and preservation.
+- "Curry–Howard correspondence," Wikipedia. https://en.wikipedia.org/wiki/Curry%E2%80%93Howard_correspondence . Supports the correspondence between types and propositions and between programs and proofs, including function types as implication and product types as conjunction.
     
 - [[cs/pl/hindleymilner-type-inference|Hindley–Milner Type Inference]]
     

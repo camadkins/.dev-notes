@@ -3,7 +3,9 @@ title: Poisson Distribution
 description: Modelling the count of independent events occurring in a fixed interval at a constant average rate.
 draft: false
 comments: true
-tags: [cs, statistics]
+tags:
+  - cs
+  - statistics
 date: 2026-03-12
 updated:
 aliases: []

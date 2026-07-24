@@ -104,6 +104,7 @@ for (const f of glob.scanSync(CONTENT)) {
   files++;
   const abs = join(CONTENT, f);
   const rel = f.replace(/\\/g, "/");
+  if (rel === "index.md") { files--; continue; } // garden home page, no root/section
   const relDir = dirname(rel);
   const text = readFileSync(abs, "utf8");
   const fmMatch = text.match(/^---\n([\s\S]*?)\n---/);
@@ -155,7 +156,7 @@ for (const f of glob.scanSync(CONTENT)) {
       return true;
     });
     const remapped = tags.filter((t) => t in ALIAS && ALIAS[t]).map((t) => ALIAS[t]);
-    const newTags = [expectRoot, expectSection, ...new Set([...kept, ...remapped, ...resourceTags])].filter(Boolean) as string[];
+    const newTags = [...new Set([expectRoot, expectSection, ...kept, ...remapped, ...resourceTags].filter(Boolean))] as string[];
     const yaml = "tags:\n" + newTags.map((t) => `  - ${t}`).join("\n");
     const newFm = fm.replace(/^tags:.*(?:\n(?:\s*-\s+.*|\s+.*))*/m, yaml);
     if (newFm !== fm) { writeFileSync(abs, text.replace(fm, newFm)); fixed++; }

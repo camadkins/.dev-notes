@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 175" fill="none" role="img" aria-label="The fetch-decode-execute cycle: the control unit fetches an instruction, decodes it, the ALU executes it, then the program counter advances and the cycle repeats">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.6; }
+    .t { fill: #e8e8e8; font-size: 14px; text-anchor: middle; }
+    .s { fill: #8b949e; font-size: 11px; text-anchor: middle; }
+    .a { stroke: #93a3b8; stroke-width: 1.6; fill: none; }
+    .anno { fill: #d29922; font-size: 11px; text-anchor: middle; }
+  </style>
+  <rect class="box" x="24" y="38" width="120" height="50" rx="4"/>
+  <text class="t" x="84" y="68">fetch</text>
+  <line class="a" x1="144" y1="63" x2="178" y2="63"/><polygon points="178,63 170,59 170,67" fill="#93a3b8"/>
+  <rect class="box" x="180" y="38" width="120" height="50" rx="4"/>
+  <text class="t" x="240" y="68">decode</text>
+  <line class="a" x1="300" y1="63" x2="334" y2="63"/><polygon points="334,63 326,59 326,67" fill="#93a3b8"/>
+  <rect class="box" x="336" y="38" width="120" height="50" rx="4"/>
+  <text class="t" x="396" y="68">execute</text>
+  <path class="a" d="M 396 88 L 396 128 L 84 128 L 84 90"/>
+  <polygon points="84,90 80,98 88,98" fill="#93a3b8"/>
+  <text class="anno" x="240" y="122">program counter advances, then repeat</text>
+  <text class="s" x="240" y="158">one instruction per turn of the cycle: the heartbeat of the CPU</text>
+</svg>

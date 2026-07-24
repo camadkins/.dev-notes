@@ -116,3 +116,11 @@ Consider a 3-node key-value store partitioned into `{A}` and `{B, C}`:
 - [[graphs|Graphs]] - distributed systems are modeled as graphs of communicating nodes; graph connectivity determines partition behavior
 - [[network-protocols|Network Protocols]] - the transport layer that consensus messages travel over
 - [[processes-and-threads|Processes & Threads]] - each node in a distributed system is itself a process or set of threads
+
+## Sources
+
+- "Consensus (computer science)," Wikipedia. https://en.wikipedia.org/wiki/Consensus_%28computer_science%29 . Supports the framing of consensus as agreeing on a single value among processes that may fail, the need for fault-tolerant protocols, and the majority-vote (quorum) approach used by practical algorithms.
+- "Paxos (computer science)," Wikipedia. https://en.wikipedia.org/wiki/Paxos_%28computer_science%29 . Supports the Paxos claims: it is Lamport's consensus protocol first submitted in 1989 and published in 1998, it guarantees safety while no deterministic protocol can guarantee progress in an asynchronous network (citing Fischer, Lynch, Paterson), grounding both the Paxos and FLP-impossibility sections.
+- "Raft (algorithm)," Wikipedia. https://en.wikipedia.org/wiki/Raft_%28algorithm%29 . Supports the Raft description: designed to be more understandable than Paxos, leader election via majority vote with heartbeats and election timeouts, leader-driven log replication, and that Raft is not Byzantine fault tolerant.
+- "Byzantine fault," Wikipedia. https://en.wikipedia.org/wiki/Byzantine_fault . Supports the distinction between crash faults and Byzantine faults (nodes lying or sending conflicting messages) and the Byzantine generals framing behind BFT requiring enough honest nodes to outvote malicious ones.
+- "CAP theorem," Wikipedia. https://en.wikipedia.org/wiki/CAP_theorem . Supports the CAP section: Brewer's theorem that a distributed data store provides at most two of consistency, availability, and partition tolerance, with the partition forcing a choice between consistency and availability.

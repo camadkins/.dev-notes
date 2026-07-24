@@ -65,7 +65,7 @@ The compiler tracks which variant is active at runtime.
 > Variants correspond to **sum types**:  
 > `Shape = Circle(radius) + Square(side) + Rectangle(width,height)`.
 
-Variants can be nested, parameterized, or recursive — enabling expressive hierarchies like:
+Variants can be nested, parameterized, or recursive, enabling expressive hierarchies like:
 
 ```ocaml
 type 'a tree = Leaf | Node of 'a * 'a tree * 'a tree
@@ -91,7 +91,7 @@ Each clause tests the constructor and binds its contents to names.
 Pattern matching replaces chains of conditionals with a concise, declarative form.
 
 > [!tip]  
-> Matching is _exhaustive_ and _typed_ — every case is checked for consistency by the compiler.
+> Matching is _exhaustive_ and _typed_: every case is checked for consistency by the compiler.
 
 ---
 
@@ -162,7 +162,7 @@ Renaming is allowed during binding:
 ```
 
 > [!note]  
-> Partial record patterns are permitted — unmentioned fields are ignored.
+> Partial record patterns are permitted; unmentioned fields are ignored.
 
 ---
 
@@ -203,7 +203,7 @@ This recursive style forms the basis of interpreters, compilers, and type checke
 >     
 
 > [!tip]  
-> Treat `_` as a _temporary placeholder_ during prototyping — replace it with explicit cases for maintainability.
+> Treat `_` as a _temporary placeholder_ during prototyping, and replace it with explicit cases for maintainability.
 
 ---
 
@@ -227,4 +227,10 @@ This recursive style forms the basis of interpreters, compilers, and type checke
     
 - [[cs/pl/language-design-values-variables-environments|Values, Variables & Environments]]
     
-- [[cs/pl/type-systems-goals-guarantees|Type Systems — Goals & Guarantees]]
+- [[cs/pl/type-systems-goals-guarantees|Type Systems: Goals & Guarantees]]
+
+## Sources
+
+- "Record (computer science)," Wikipedia. https://en.wikipedia.org/wiki/Record_%28computer_science%29 . Supports records as product types: aggregates of named, labeled fields accessed by name rather than position.
+- "Tagged union," Wikipedia. https://en.wikipedia.org/wiki/Tagged_union . Supports variants as tagged unions (sum types) where a value holds one of several labeled alternatives and a tag records which alternative is active.
+- "Pattern matching," Wikipedia. https://en.wikipedia.org/wiki/Pattern_matching . Supports pattern matching as decomposing structured values by their constructors or fields, including exhaustiveness checking and guard conditions.

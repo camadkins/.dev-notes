@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 270" fill="none" role="img" aria-label="Three network topologies: centralized, decentralized, and distributed">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .edge { stroke: #93a3b8; stroke-width: 1.4; opacity: 0.7; }
+    .dot { fill: #58a6ff; }
+    .hub { fill: #58a6ff; }
+    .lbl { fill: #e8e8e8; font-size: 15px; text-anchor: middle; }
+  </style>
+  <g>
+    <line class="edge" x1="110" y1="120" x2="178" y2="120"/>
+    <line class="edge" x1="110" y1="120" x2="158" y2="168"/>
+    <line class="edge" x1="110" y1="120" x2="110" y2="188"/>
+    <line class="edge" x1="110" y1="120" x2="62"  y2="168"/>
+    <line class="edge" x1="110" y1="120" x2="42"  y2="120"/>
+    <line class="edge" x1="110" y1="120" x2="62"  y2="72"/>
+    <line class="edge" x1="110" y1="120" x2="110" y2="52"/>
+    <line class="edge" x1="110" y1="120" x2="158" y2="72"/>
+    <circle class="hub" cx="110" cy="120" r="6"/>
+    <circle class="dot" cx="178" cy="120" r="4"/><circle class="dot" cx="158" cy="168" r="4"/><circle class="dot" cx="110" cy="188" r="4"/><circle class="dot" cx="62" cy="168" r="4"/><circle class="dot" cx="42" cy="120" r="4"/><circle class="dot" cx="62" cy="72" r="4"/><circle class="dot" cx="110" cy="52" r="4"/><circle class="dot" cx="158" cy="72" r="4"/>
+    <text class="lbl" x="110" y="252">Centralized</text>
+  </g>
+  <g>
+    <line class="edge" x1="300" y1="90" x2="395" y2="150"/><line class="edge" x1="395" y1="150" x2="300" y2="205"/><line class="edge" x1="300" y1="205" x2="300" y2="90"/>
+    <line class="edge" x1="300" y1="90" x2="265" y2="58"/><line class="edge" x1="300" y1="90" x2="335" y2="58"/>
+    <line class="edge" x1="395" y1="150" x2="445" y2="135"/><line class="edge" x1="395" y1="150" x2="445" y2="170"/>
+    <line class="edge" x1="300" y1="205" x2="265" y2="238"/><line class="edge" x1="300" y1="205" x2="335" y2="238"/>
+    <circle class="hub" cx="300" cy="90" r="6"/><circle class="hub" cx="395" cy="150" r="6"/><circle class="hub" cx="300" cy="205" r="6"/>
+    <circle class="dot" cx="265" cy="58" r="4"/><circle class="dot" cx="335" cy="58" r="4"/><circle class="dot" cx="445" cy="135" r="4"/><circle class="dot" cx="445" cy="170" r="4"/><circle class="dot" cx="265" cy="238" r="4"/><circle class="dot" cx="335" cy="238" r="4"/>
+    <text class="lbl" x="350" y="252">Decentralized</text>
+  </g>
+  <g>
+    <line class="edge" x1="500" y1="80" x2="680" y2="80"/><line class="edge" x1="500" y1="140" x2="680" y2="140"/><line class="edge" x1="500" y1="200" x2="680" y2="200"/>
+    <line class="edge" x1="500" y1="80" x2="500" y2="200"/><line class="edge" x1="560" y1="80" x2="560" y2="200"/><line class="edge" x1="620" y1="80" x2="620" y2="200"/><line class="edge" x1="680" y1="80" x2="680" y2="200"/>
+    <line class="edge" x1="500" y1="80" x2="560" y2="140"/><line class="edge" x1="560" y1="80" x2="620" y2="140"/><line class="edge" x1="620" y1="80" x2="680" y2="140"/><line class="edge" x1="500" y1="140" x2="560" y2="200"/><line class="edge" x1="560" y1="140" x2="620" y2="200"/><line class="edge" x1="620" y1="140" x2="680" y2="200"/>
+    <circle class="dot" cx="500" cy="80" r="4"/><circle class="dot" cx="560" cy="80" r="4"/><circle class="dot" cx="620" cy="80" r="4"/><circle class="dot" cx="680" cy="80" r="4"/><circle class="dot" cx="500" cy="140" r="4"/><circle class="dot" cx="560" cy="140" r="4"/><circle class="dot" cx="620" cy="140" r="4"/><circle class="dot" cx="680" cy="140" r="4"/><circle class="dot" cx="500" cy="200" r="4"/><circle class="dot" cx="560" cy="200" r="4"/><circle class="dot" cx="620" cy="200" r="4"/><circle class="dot" cx="680" cy="200" r="4"/>
+    <text class="lbl" x="590" y="252">Distributed</text>
+  </g>
+</svg>

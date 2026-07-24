@@ -5,8 +5,8 @@ description: Primality tests from trial division to sieves and Miller-Rabin; per
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2025-10-30
 aliases: []

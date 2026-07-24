@@ -1,5 +1,5 @@
 ---
-title: Booleans & Conditionals — Semantics and Evaluation
+title: "Booleans & Conditionals: Semantics and Evaluation"
 description: How programming languages define, represent, and evaluate Boolean values and conditional control flow.
 draft: false
 tags:
@@ -12,11 +12,11 @@ aliases: []
 
 ## Overview
 Booleans form the logical foundation of decision-making in programming languages.  
-Though represented by only two values — `true` and `false` — they define the branching behavior that determines how every computation proceeds.  
+Though represented by only two values (`true` and `false`), they define the branching behavior that determines how every computation proceeds.  
 Their semantics specify not only what constitutes truth, but *how* truth is computed and propagated through control structures.
 
 > [!note]
-> Boolean semantics is not about syntax (`&&`, `||`, `!`), but about **how truth values drive evaluation** — the basis for understanding control flow, optimization, and type soundness.
+> Boolean semantics is not about syntax (`&&`, `||`, `!`), but about **how truth values drive evaluation**, the basis for understanding control flow, optimization, and type soundness.
 
 ---
 
@@ -41,7 +41,7 @@ This distinction matters for evaluation: in permissive systems (like JavaScript)
 ---
 
 ## Evaluation Rules
-Boolean operations (`and`, `or`, `not`) follow **short-circuit semantics** — the minimal evaluation needed to determine a result.
+Boolean operations (`and`, `or`, `not`) follow **short-circuit semantics**: the minimal evaluation needed to determine a result.
 
 Formal rules (small-step form):
 ```
@@ -58,7 +58,7 @@ These express that:
 
 ![Short-circuit evaluation trees for conjunction](assets/bool-short-circuit.svg)
 
-Short-circuiting reduces unnecessary computation and supports side-effect control — one reason Boolean semantics is often the first topic in operational semantics courses.
+Short-circuiting reduces unnecessary computation and supports side-effect control, one reason Boolean semantics is often the first topic in operational semantics courses.
 
 ---
 
@@ -83,7 +83,7 @@ Conditionals therefore act as **branching evaluators** over Boolean domains.
 - In **non-strict languages** (Haskell, ML), branch evaluation is *deferred* until chosen.
 
 > [!tip]
-> Treating `if` as an *expression* (not a statement) aligns semantics with pure λ-calculus — `if` returns a value.
+> Treating `if` as an *expression* (not a statement) aligns semantics with pure λ-calculus: `if` returns a value.
 
 ---
 
@@ -195,7 +195,7 @@ This explicit environment + continuation form is crucial for modeling control co
 |**Operational relevance**|Core to semantic modeling and runtime evaluation|
 
 > [!tip]  
-> Booleans are not “simple primitives” — they are _control mechanisms encoded as values_.
+> Booleans are not “simple primitives”; they are _control mechanisms encoded as values_.
 
 ---
 
@@ -212,8 +212,14 @@ This explicit environment + continuation form is crucial for modeling control co
 
 ## See also
 
-- [[cs/pl/operational-semantics-big-step-small-step|Operational Semantics — Big-Step & Small-Step]]
+- [[cs/pl/operational-semantics-big-step-small-step|Operational Semantics: Big-Step & Small-Step]]
     
-- [[abstract-machines-cek-secd|Abstract Machines — CEK and SECD]]
+- [[abstract-machines-cek-secd|Abstract Machines: CEK and SECD]]
     
 - [[cs/pl/evaluation-order-and-strictness|Evaluation Order & Strictness]]
+
+## Sources
+
+- "Boolean data type," Wikipedia. https://en.wikipedia.org/wiki/Boolean_data_type . Supports the Boolean domain of two values (true and false), the variation in how languages represent Booleans (distinct types versus integers), and the truthiness behavior in permissive languages.
+- "Short-circuit evaluation," Wikipedia. https://en.wikipedia.org/wiki/Short-circuit_evaluation . Supports short-circuit semantics for the logical and/or operators, where the second operand is evaluated only when the first does not already determine the result.
+- "Conditional (computer programming)," Wikipedia. https://en.wikipedia.org/wiki/Conditional_%28computer_programming%29 . Supports conditionals as branching constructs that select among alternatives based on a Boolean condition, including if-then-else forms.

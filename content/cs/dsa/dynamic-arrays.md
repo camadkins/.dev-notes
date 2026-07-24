@@ -4,8 +4,8 @@ description: Resizable contiguous arrays that grow geometrically to provide amor
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2025-11-22
 aliases: []

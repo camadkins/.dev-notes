@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 320" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+  <style>
+    .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .edge { stroke: #93a3b8; stroke-width: 1.4; fill: none; }
+    .node { fill: #58a6ff; }
+    .t { fill: #e8e8e8; font-size: 13px; }
+    .anno { fill: #d29922; font-size: 12px; }
+    .desc { fill: #8b949e; font-size: 11px; }
+    .real { fill: #84a59d; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#93a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- latent noise -->
+  <circle class="node" cx="45" cy="90" r="7"/>
+  <circle class="node" cx="45" cy="115" r="7"/>
+  <circle class="node" cx="45" cy="140" r="7"/>
+  <text class="anno" x="45" y="175" text-anchor="middle">z ~ N(0,I)</text>
+  <text class="desc" x="45" y="192" text-anchor="middle">noise</text>
+
+  <!-- generator -->
+  <rect class="box" x="120" y="90" width="110" height="60" rx="6"/>
+  <text class="t" x="175" y="118" text-anchor="middle">Generator</text>
+  <text class="anno" x="175" y="138" text-anchor="middle">G(z)</text>
+
+  <!-- real data -->
+  <rect class="box" x="120" y="200" width="110" height="60" rx="6" stroke="#84a59d"/>
+  <text class="t" x="175" y="228" text-anchor="middle">Real data</text>
+  <text class="real" x="175" y="248" text-anchor="middle">x</text>
+
+  <!-- discriminator -->
+  <rect class="box" x="340" y="130" width="120" height="70" rx="6"/>
+  <text class="t" x="400" y="160" text-anchor="middle">Discriminator</text>
+  <text class="anno" x="400" y="182" text-anchor="middle">D(&#183;)</text>
+
+  <!-- verdict -->
+  <rect class="box" x="540" y="130" width="90" height="70" rx="6"/>
+  <text class="real" x="585" y="160" text-anchor="middle" font-size="12">real</text>
+  <text class="t" x="585" y="176" text-anchor="middle" font-size="12">vs</text>
+  <text class="anno" x="585" y="192" text-anchor="middle" font-size="12">fake</text>
+
+  <!-- edges -->
+  <path class="edge" marker-end="url(#arrow)" d="M55 115 L114 118"/>
+  <path class="edge" marker-end="url(#arrow)" d="M230 120 C280 120, 300 150, 334 158"/>
+  <path class="edge" marker-end="url(#arrow)" d="M230 230 C280 230, 300 190, 334 178"/>
+  <path class="edge" marker-end="url(#arrow)" d="M460 165 L534 165"/>
+
+  <text class="desc" x="285" y="128" text-anchor="middle">fake sample</text>
+  <text class="desc" x="285" y="222" text-anchor="middle">real sample</text>
+
+  <!-- feedback labels -->
+  <text class="anno" x="330" y="40" text-anchor="middle">the minimax game</text>
+  <text class="desc" x="330" y="60" text-anchor="middle">G trains to fool D, D trains to catch G</text>
+
+  <!-- generator update loop (dashed) -->
+  <path class="edge" stroke-dasharray="5 4" marker-end="url(#arrow)" d="M585 205 C585 285, 175 300, 175 158"/>
+  <text class="desc" x="380" y="300" text-anchor="middle">gradient of D's mistake updates G</text>
+</svg>

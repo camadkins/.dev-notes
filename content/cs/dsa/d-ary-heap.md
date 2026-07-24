@@ -4,8 +4,8 @@ description: Generalized heap where each node has up to d children; reduces heig
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2026-01-23
 aliases: []

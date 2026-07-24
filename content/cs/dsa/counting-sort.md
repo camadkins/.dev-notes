@@ -4,8 +4,8 @@ description: Frequency array for small integer keys; stable variant builds prefi
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2025-11-08
 aliases: []

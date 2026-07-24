@@ -4,8 +4,8 @@ description: Equations that define sequences via earlier terms; foundational for
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2025-10-29
 aliases: []

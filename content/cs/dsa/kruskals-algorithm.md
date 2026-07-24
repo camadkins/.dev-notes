@@ -5,8 +5,8 @@ description: Greedy MST construction by sorting edges and adding those that conn
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2025-12-22
 aliases: []
@@ -194,6 +194,6 @@ Kruskal's algorithm is a **greedy, edge-sorted** approach to MST: sort edges, sc
 
 - [[prims-algorithm|Prim's Algorithm]]
 
-- [[disjoint-set-union-union-find|Disjoint Set Union (Union-Find)]]
+- [[disjoint-set|Disjoint Set Union (Union-Find)]]
 
 - [[graphs|Graphs - Overview]]

@@ -33,7 +33,7 @@ Software engineering is where computer science meets craft - the discipline of t
 
 ### DevOps & Deployment
 
-Coming soon - CI/CD pipelines, containerization, infrastructure as code, and observability.
+Coming soon - CI/CD pipelines, containerization, and observability. The language-and-tooling half of this area lives in the [[cs/languages/common/index|Languages: Common Concerns]] cluster: [[cs/languages/common/build-systems-and-dependency-management|build systems and dependency management]] and [[cs/languages/common/declarative-models-and-idempotence|declarative configuration and idempotence]]. This section keeps the pipeline-and-platform half.
 
 ---
 

@@ -11,12 +11,12 @@ aliases: []
 ---
 
 ## Why Ambiguity Matters
-An ambiguous grammar allows multiple valid parse trees for the same input string — meaning the language can’t assign a single, deterministic meaning.  
+An ambiguous grammar allows multiple valid parse trees for the same input string, meaning the language can’t assign a single, deterministic meaning.  
 In compilers, ambiguity is fatal: the parser cannot decide which structure to build, and downstream stages (like semantic analysis or code generation) may interpret the same program differently.
 
 > [!note]
 > Ambiguity is a property of the grammar, *not* the language itself.  
-> Some languages can be described by both ambiguous and unambiguous grammars — it’s the grammar’s job to enforce unique structure.
+> Some languages can be described by both ambiguous and unambiguous grammars; it’s the grammar’s job to enforce unique structure.
 
 ---
 
@@ -45,7 +45,7 @@ Each complete derivation can be visualized as a **parse tree**.
 
 ---
 
-## Fixing Ambiguity — Precedence and Associativity
+## Fixing Ambiguity: Precedence and Associativity
 To eliminate ambiguity, we split the grammar by operator *precedence* and define *associativity* explicitly.
 
 ### Precedence Hierarchy
@@ -82,7 +82,7 @@ Prefix and postfix forms avoid ambiguity by encoding precedence directly in synt
 
 ---
 
-## Classic Example — Dangling Else
+## Classic Example: Dangling Else
 A textbook case of ambiguity:
 ```
 
@@ -115,10 +115,10 @@ Now the structure is deterministic: each `else` matches the closest unmatched `i
 ---
 
 ## Sources of Ambiguity
-1. **Operator precedence gaps** — multiple rules compete for the same syntax.  
-2. **Overlapping productions** — shared prefixes that create multiple derivations.  
-3. **Implicit optionality** — missing explicit `ε` productions can lead to multiple parses.  
-4. **Grammar extensions** — adding new rules without revisiting existing ones can silently reintroduce ambiguity.
+1. **Operator precedence gaps:** multiple rules compete for the same syntax.  
+2. **Overlapping productions:** shared prefixes that create multiple derivations.  
+3. **Implicit optionality:** missing explicit `ε` productions can lead to multiple parses.  
+4. **Grammar extensions:** adding new rules without revisiting existing ones can silently reintroduce ambiguity.
 
 > [!warning]
 > Parser tools often choose one parse arbitrarily without warning.  
@@ -134,12 +134,18 @@ Now the structure is deterministic: each `else` matches the closest unmatched `i
 5. **Validate with examples:** ambiguous grammars often fail at predictable edge cases.
 
 > [!tip]
-> Ambiguity is a design smell — it hints your grammar doesn’t communicate intent clearly.  
+> Ambiguity is a design smell; it hints your grammar doesn’t communicate intent clearly.  
 > A clean grammar is one whose structure mirrors how programmers naturally think about the language.
 
 ---
 
 ## See also
-- [[cs/pl/grammars-notation-bnfebnf|Grammars — BNF & EBNF]]
+- [[cs/pl/grammars-notation-bnfebnf|Grammars: BNF & EBNF]]
 - [[cs/pl/cfg-design-refactoring|CFG Design & Refactoring]]
 - [[cs/pl/programming-paradigms-models-of-computation|Programming Paradigms & Models of Computation]]
+
+## Sources
+
+- "Ambiguous grammar," Wikipedia. https://en.wikipedia.org/wiki/Ambiguous_grammar . Supports an ambiguous grammar being a context-free grammar for which some string has more than one leftmost derivation or parse tree, ambiguity being a property of the grammar rather than the language, and resolving ambiguities by adding precedence rules.
+- "Parse tree," Wikipedia. https://en.wikipedia.org/wiki/Parse_tree . Supports a parse tree (derivation tree) being an ordered, rooted tree representing the syntactic structure of a string according to a context-free grammar, and the correspondence between derivations and tree structure.
+- "Dangling else," Wikipedia. https://en.wikipedia.org/wiki/Dangling_else . Supports the dangling-else problem where an optional else clause makes nested conditionals ambiguous, that the reference grammar is formally ambiguous with more than one correct parse tree, and the convention of matching else to the nearest if.

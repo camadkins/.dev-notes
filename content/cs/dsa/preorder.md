@@ -4,8 +4,8 @@ description: Root–Left–Right visit order for trees; useful for serialization
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2026-01-04
 aliases: []

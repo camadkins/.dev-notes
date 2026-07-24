@@ -4,8 +4,8 @@ description: A compact prefix tree that stores maximal shared substrings on edge
 draft: false
 comments: true
 tags:
-- cs
-- dsa  
+  - cs
+  - dsa
 date: 2025-10-16  
 updated:  
 aliases: []

@@ -1,5 +1,5 @@
 ---
-title: Grammars — BNF & EBNF
+title: "Grammars: BNF & EBNF"
 description: Understanding context-free grammar notation, BNF and EBNF syntax, and how they formally define language structure.
 draft: false
 tags:
@@ -11,12 +11,12 @@ aliases: []
 ---
 
 ## Overview
-A **grammar** defines the valid sentences of a language — whether natural or programming. In computer science, grammars formally specify how sequences of symbols (like source code) can be constructed.  
+A **grammar** defines the valid sentences of a language, whether natural or programming. In computer science, grammars formally specify how sequences of symbols (like source code) can be constructed.  
 
 BNF (Backus–Naur Form) and EBNF (Extended Backus–Naur Form) are the most common notations used to express **context-free grammars (CFGs)**, which underlie programming languages and most compiler front ends.
 
 > [!note]
-> Grammars aren’t just about syntax — they define structure, which allows parsers, compilers, and interpreters to *understand* code rather than just recognize keywords.
+> Grammars aren’t just about syntax; they define structure, which allows parsers, compilers, and interpreters to *understand* code rather than just recognize keywords.
 
 ---
 
@@ -28,14 +28,14 @@ Every programming language, from C to Python to Rust, relies on a grammar to def
 - How to parse programs automatically.
 
 Without grammars, compiler design would be ad hoc and error-prone.  
-A formal grammar gives structure to language design — and guarantees that the same syntax can be recognized by multiple tools consistently.
+A formal grammar gives structure to language design, and guarantees that the same syntax can be recognized by multiple tools consistently.
 
 > [!tip]
-> Learning BNF and EBNF helps you not only understand how compilers work but also how to **design DSLs, configuration parsers, and interpreters** — or reason about ambiguity, recursion, and precedence.
+> Learning BNF and EBNF helps you not only understand how compilers work but also how to **design DSLs, configuration parsers, and interpreters**, or reason about ambiguity, recursion, and precedence.
 
 ---
 
-## Chomsky Hierarchy — Where BNF Fits
+## Chomsky Hierarchy: Where BNF Fits
 Grammars fall into a formal hierarchy based on expressive power:
 
 | Type | Name | Production Form | Recognized By |
@@ -86,7 +86,7 @@ BNF expresses grammar rules in a simple, recursive, and machine-readable way.
 | `|` | Alternation (OR) |
 | Terminals | Usually written as literal tokens (`id`, `+`, `if`) |
 
-### Example — Arithmetic Expressions
+### Example: Arithmetic Expressions
 ```
 
 ::= | + | -  
@@ -99,7 +99,7 @@ This grammar describes the structure of simple arithmetic expressions.
 Each nonterminal recursively defines valid combinations of lower-level forms.
 
 > [!note]
-> Recursive definitions like `<expr> ::= <expr> + <term>` are *left-recursive* — a hallmark of context-free grammars that can describe nested and chained constructs naturally.
+> Recursive definitions like `<expr> ::= <expr> + <term>` are *left-recursive*, a hallmark of context-free grammars that can describe nested and chained constructs naturally.
 
 ---
 
@@ -129,7 +129,7 @@ EBNF’s `{ ... }` and `[ ... ]` make it more expressive for human readers and p
 
 ---
 
-## BNF vs EBNF — Expressiveness and Readability
+## BNF vs EBNF: Expressiveness and Readability
 While both describe the same class of languages (context-free), **EBNF** is more compact and expressive.
 
 | Feature | BNF | EBNF |
@@ -146,7 +146,7 @@ While both describe the same class of languages (context-free), **EBNF** is more
 
 ---
 
-## EBNF Example — Conditional Statements
+## EBNF Example: Conditional Statements
 A snippet of a small language:
 ```
 
@@ -163,7 +163,7 @@ A parser can automatically generate a syntax tree directly from these rules.
 ---
 
 ## Grammar Design and Readability
-Good grammars communicate meaning clearly — both to compilers and to humans.  
+Good grammars communicate meaning clearly, both to compilers and to humans.  
 
 When writing or studying grammars:
 1. **Keep rules short and specific.** Each rule should define one clear syntactic category.  
@@ -173,7 +173,7 @@ When writing or studying grammars:
 5. **Validate with examples.** Try expanding derivations to ensure the grammar behaves as expected.
 
 > [!warning]
-> Ambiguous grammars can still be syntactically correct — but your parser might interpret the same input differently on separate passes.
+> Ambiguous grammars can still be syntactically correct, but your parser might interpret the same input differently on separate passes.
 
 ---
 
@@ -236,7 +236,7 @@ expr = term { "+" term } ;
 This version is better for predictive parsing and clearer for human readers.
 
 > [!tip]
-> EBNF makes left-recursion removal trivial — its `{}` and `[]` constructs directly express repetition and optionality.
+> EBNF makes left-recursion removal trivial: its `{}` and `[]` constructs directly express repetition and optionality.
 
 ---
 
@@ -302,3 +302,10 @@ Both share the same expressive power but differ in **clarity and convenience**.
 - [[cs/pl/grammar-ambiguity-parse-trees|Grammar Ambiguity & Parse Trees]]
 - [[cs/pl/cfg-design-refactoring|CFG Design & Refactoring]]
 - [[cs/pl/programming-paradigms-models-of-computation|Programming Paradigms & Models of Computation]]
+
+## Sources
+
+- "Backus–Naur form," Wikipedia. https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form . Supports BNF being a notation system developed by John Backus and Peter Naur for defining the syntax of programming and formal languages, its role as a metasyntax for context-free grammars, and its wide use in official language specifications.
+- "Extended Backus–Naur form," Wikipedia. https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form . Supports EBNF being a family of metasyntax notations that extend basic BNF to express context-free grammars, and the existence of an ISO-standardized variant alongside other dialects.
+- "Chomsky hierarchy," Wikipedia. https://en.wikipedia.org/wiki/Chomsky_hierarchy . Supports the containment hierarchy of formal grammar classes (regular, context-free, context-sensitive, unrestricted) described by Noam Chomsky, situating BNF and EBNF as notations for the Type-2 context-free level.
+- "Context-free grammar," Wikipedia. https://en.wikipedia.org/wiki/Context-free_grammar . Supports the formal definition of a context-free grammar and its productions, underpinning the 4-tuple (V, Σ, R, S) and derivation/parse-tree material in this note.

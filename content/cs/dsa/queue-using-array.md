@@ -5,8 +5,8 @@ description: Circular buffer (ring) with head/tail indices, wrap-around, and una
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2025-11-03
 aliases: []

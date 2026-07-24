@@ -4,8 +4,8 @@ description: Stable divide-and-conquer sorting; O(n log n) time with O(n) extra 
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2025-10-24
 aliases: []

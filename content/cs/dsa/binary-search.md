@@ -9,8 +9,8 @@ aliases:
 - binarysearch
 - binary_search
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 ---
 

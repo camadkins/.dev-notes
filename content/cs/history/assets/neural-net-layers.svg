@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 240" fill="none" role="img" aria-label="A deep neural network: an input layer, two hidden layers, and an output layer, each unit connected to the next layer">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .edge { stroke: #93a3b8; stroke-width: 0.8; opacity: 0.4; }
+    .in { fill: rgba(132,165,157,0.5); stroke: #84a59d; stroke-width: 1.3; }
+    .hid { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.3; }
+    .out { fill: rgba(210,153,34,0.2); stroke: #d29922; stroke-width: 1.5; }
+    .lab { fill: #8b949e; font-size: 12px; text-anchor: middle; }
+  </style>
+  <g class="edge">
+    <line x1="60" y1="70" x2="160" y2="50"/><line x1="60" y1="70" x2="160" y2="100"/><line x1="60" y1="70" x2="160" y2="150"/><line x1="60" y1="70" x2="160" y2="190"/>
+    <line x1="60" y1="120" x2="160" y2="50"/><line x1="60" y1="120" x2="160" y2="100"/><line x1="60" y1="120" x2="160" y2="150"/><line x1="60" y1="120" x2="160" y2="190"/>
+    <line x1="60" y1="170" x2="160" y2="50"/><line x1="60" y1="170" x2="160" y2="100"/><line x1="60" y1="170" x2="160" y2="150"/><line x1="60" y1="170" x2="160" y2="190"/>
+    <line x1="160" y1="50" x2="270" y2="50"/><line x1="160" y1="50" x2="270" y2="100"/><line x1="160" y1="50" x2="270" y2="150"/><line x1="160" y1="50" x2="270" y2="190"/>
+    <line x1="160" y1="100" x2="270" y2="50"/><line x1="160" y1="100" x2="270" y2="100"/><line x1="160" y1="100" x2="270" y2="150"/><line x1="160" y1="100" x2="270" y2="190"/>
+    <line x1="160" y1="150" x2="270" y2="50"/><line x1="160" y1="150" x2="270" y2="100"/><line x1="160" y1="150" x2="270" y2="150"/><line x1="160" y1="150" x2="270" y2="190"/>
+    <line x1="160" y1="190" x2="270" y2="50"/><line x1="160" y1="190" x2="270" y2="100"/><line x1="160" y1="190" x2="270" y2="150"/><line x1="160" y1="190" x2="270" y2="190"/>
+    <line x1="270" y1="50" x2="380" y2="90"/><line x1="270" y1="50" x2="380" y2="150"/>
+    <line x1="270" y1="100" x2="380" y2="90"/><line x1="270" y1="100" x2="380" y2="150"/>
+    <line x1="270" y1="150" x2="380" y2="90"/><line x1="270" y1="150" x2="380" y2="150"/>
+    <line x1="270" y1="190" x2="380" y2="90"/><line x1="270" y1="190" x2="380" y2="150"/>
+  </g>
+  <circle class="in" cx="60" cy="70" r="9"/><circle class="in" cx="60" cy="120" r="9"/><circle class="in" cx="60" cy="170" r="9"/>
+  <circle class="hid" cx="160" cy="50" r="9"/><circle class="hid" cx="160" cy="100" r="9"/><circle class="hid" cx="160" cy="150" r="9"/><circle class="hid" cx="160" cy="190" r="9"/>
+  <circle class="hid" cx="270" cy="50" r="9"/><circle class="hid" cx="270" cy="100" r="9"/><circle class="hid" cx="270" cy="150" r="9"/><circle class="hid" cx="270" cy="190" r="9"/>
+  <circle class="out" cx="380" cy="90" r="9"/><circle class="out" cx="380" cy="150" r="9"/>
+  <text class="lab" x="60" y="208">input</text>
+  <text class="lab" x="215" y="224">hidden layers (depth)</text>
+  <text class="lab" x="380" y="184">output</text>
+</svg>

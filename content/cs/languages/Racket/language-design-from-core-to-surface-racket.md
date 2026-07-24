@@ -6,9 +6,9 @@ comments: true
 tags:
   - cs
   - languages
-  - racket
 date: 2025-10-24
-updated:
+updated: 2026-07-22
+maturity: seed
 aliases: []
 # potential-diagram: pipeline Source → Macro Expander → Desugared Core → Evaluator
 ---

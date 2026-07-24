@@ -182,7 +182,7 @@ Spread the cost of occasional expensive operations over many cheap ones (dynamic
 - Union–Find with path compression + union by rank: sequence of `m` ops on `n` elements in `$Θ(m α(n))$`, where `α` is the inverse Ackermann function (practically ≤ 5).
 
 
-See [[dynamic-arrays|Dynamic Arrays]] and [[disjoint-set-union-union-find|Disjoint Set Union - Union–Find]].
+See [[dynamic-arrays|Dynamic Arrays]] and [[disjoint-set|Disjoint Set Union - Union–Find]].
 
 ## Common Misunderstandings
 

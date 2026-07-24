@@ -15,7 +15,7 @@ Most programs fail sometimes.
 Exceptions give a structured, predictable way to handle errors and other “unusual” outcomes without cluttering normal control flow.  
 Instead of returning special codes or flags everywhere, exceptions let a computation *jump* directly to the nearest handler that can deal with the problem.
 
-This jump is a form of **non-local control** — skipping normal return paths and transferring execution elsewhere.
+This jump is a form of **non-local control**: skipping normal return paths and transferring execution elsewhere.
 
 > [!note]
 > The key is *structured escape*: exceptions let you leave multiple nested function calls in a single step while maintaining cleanup guarantees.
@@ -23,7 +23,7 @@ This jump is a form of **non-local control** — skipping normal return paths an
 ---
 
 ## The Semantics of Raising and Handling
-When an exception is raised, the program begins **stack unwinding** — discarding active frames until a matching handler is found.
+When an exception is raised, the program begins **stack unwinding**: discarding active frames until a matching handler is found.
 
 Formally, we can model this using **big-step semantics**:
 ```
@@ -61,7 +61,7 @@ During propagation, the runtime walks back through stack frames:
 ---
 
 ## Determinism and Propagation
-With a single active exception and one nearest enclosing handler, propagation is deterministic — there’s no ambiguity about where control goes.  
+With a single active exception and one nearest enclosing handler, propagation is deterministic: there’s no ambiguity about where control goes.  
 If the handler itself raises another exception, the process continues upward.
 
 Languages differ in how they handle *multiple matches*:
@@ -82,7 +82,7 @@ Exceptions can be modeled directly in **Continuation-Passing Style (CPS)**:
 When an exception is raised, the computation invokes the *exception continuation*, skipping the normal path entirely.
 
 > [!note]
-> This equivalence shows that exceptions are not a separate mechanism — they’re structured continuations with one entry (raise) and one recovery point (handler).
+> This equivalence shows that exceptions are not a separate mechanism: they’re structured continuations with one entry (raise) and one recovery point (handler).
 
 ---
 
@@ -113,7 +113,7 @@ This insight connects exception semantics to [[abstract-machines-cek-secd|abstra
 
 ## Dynamic Extent and Lifetime
 
-Handlers have **dynamic extent** — they exist only while their associated block is active.  
+Handlers have **dynamic extent**: they exist only while their associated block is active.  
 Once control leaves the block (normally or via another exception), the handler is gone.
 
 This is why re-entering an old handler or jumping into a closed scope causes undefined behavior in low-level languages.  
@@ -136,7 +136,7 @@ In practice, this means:
 C++ enforces this explicitly through RAII (Resource Acquisition Is Initialization): destructors automatically run during stack unwinding.
 
 > [!tip]  
-> In functional languages, purity often replaces exception safety — immutable data ensures that partially completed computations can’t corrupt shared state.
+> In functional languages, purity often replaces exception safety: immutable data ensures that partially completed computations can’t corrupt shared state.
 
 ---
 
@@ -187,7 +187,7 @@ Most modern languages unify exception handling with structured cleanup and type 
 - **Rust:** avoids exceptions entirely; it encodes error propagation via `Result<T, E>` and pattern matching.
     
 
-Understanding exceptions through **non-local control** clarifies why they interact cleanly with continuations, CPS, and semantics — they’re all different views of the same idea: **control as a first-class value**.
+Understanding exceptions through **non-local control** clarifies why they interact cleanly with continuations, CPS, and semantics: they’re all different views of the same idea, **control as a first-class value**.
 
 ---
 
@@ -195,6 +195,12 @@ Understanding exceptions through **non-local control** clarifies why they intera
 
 - [[cs/pl/continuations-cps|Continuations & CPS]]
     
-- [[cs/pl/operational-semantics-big-step-small-step|Operational Semantics — Big-Step & Small-Step]]
+- [[cs/pl/operational-semantics-big-step-small-step|Operational Semantics: Big-Step & Small-Step]]
     
-- [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]
+- [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus: Syntax & Substitution]]
+
+## Sources
+
+- "Exception handling," Wikipedia. https://en.wikipedia.org/wiki/Exception_handling . Supports exceptions as a structured non-local control mechanism, stack unwinding to the nearest matching handler, the role of finally/RAII cleanup during unwinding, and language differences in handler matching.
+- "Continuation-passing style," Wikipedia. https://en.wikipedia.org/wiki/Continuation-passing_style . Supports modeling exceptions with a normal continuation and an exceptional continuation, where raising invokes the exceptional continuation and bypasses the normal path.
+- "Call-with-current-continuation," Wikipedia. https://en.wikipedia.org/wiki/Call-with-current-continuation . Supports the comparison of exceptions to first-class continuation operators such as call/cc and the resumable-versus-abortive distinction in control flow.

@@ -4,8 +4,8 @@ description: Node-based LIFO with push/pop at the head; O(1) operations and poin
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2026-01-16
 aliases: []

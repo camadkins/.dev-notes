@@ -4,8 +4,8 @@ description: Optimal prefix codes built greedily by repeatedly merging the two l
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2025-12-30
 aliases: []

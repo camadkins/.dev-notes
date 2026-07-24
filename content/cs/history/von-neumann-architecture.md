@@ -53,6 +53,8 @@ Every instruction passes through three phases:
 
 This cycle repeats indefinitely (or until a halt instruction). Branch instructions modify the PC, enabling loops and conditionals. The cycle is the heartbeat of every conventional processor.
 
+![The fetch-decode-execute cycle: the control unit fetches an instruction, decodes it, the ALU executes it, then the program counter advances and the cycle repeats.](assets/fetch-decode-execute.svg)
+
 ### The Von Neumann Bottleneck
 
 Because instructions and data share the same memory bus, the CPU must alternate between fetching instructions and fetching/storing data. This creates a bandwidth limitation called the **von Neumann bottleneck** - the processor can compute faster than it can move data to and from memory.
@@ -73,7 +75,7 @@ The lineage from von Neumann's report to today's processors:
 
 - **1945 - EDVAC report**: First formal description of stored-program architecture.
 - **1948 - Manchester Baby**: First machine to run a stored program from electronic memory.
-- **1951 - UNIVAC I**: First commercially produced stored-program computer in the US.
+- **1951 - UNIVAC I**: The first US computer designed from the outset for business and administrative use (an earlier US stored-program machine, EDVAC, was completed around 1949 for scientific work).
 - **1960s–70s - Minicomputers and microprocessors**: The architecture shrinks onto fewer chips (Intel 4004, 1971).
 - **1980s–present - RISC vs CISC, multicore, out-of-order execution**: Massive performance gains while preserving the stored-program abstraction.
 
@@ -100,3 +102,10 @@ The cycle then repeats for the instruction at 0x0014. This mechanical rhythm - f
 - [[turing-and-computability|Turing & Computability]] - the theoretical model that von Neumann's hardware realizes
 - [[unix-and-open-source|Unix & Open Source]] - the software layer built atop stored-program machines
 - [[history-of-the-internet|History of the Internet]] - networking connects von Neumann machines into a global system
+
+## Sources
+
+- "Von Neumann architecture," Wikipedia. https://en.wikipedia.org/wiki/Von_Neumann_architecture . Supports the origin in von Neumann's 1945 "First Draft of a Report on the EDVAC," the stored-program concept (instructions and data share one memory), the components (ALU, control unit, memory, input/output), and the von Neumann bottleneck as named by John Backus in his 1977 ACM Turing Award lecture.
+- "Manchester Baby," Wikipedia. https://en.wikipedia.org/wiki/Manchester_Baby . Supports the Manchester Baby (SSEM) running the first stored program on 21 June 1948.
+- "UNIVAC I," Wikipedia. https://en.wikipedia.org/wiki/UNIVAC_I . Supports the 1951 UNIVAC I as the first US computer designed at the outset for business and administrative use, and notes EDVAC (completed around 1949) as an earlier US stored-program machine built for scientific use.
+- "Intel 4004," Wikipedia. https://en.wikipedia.org/wiki/Intel_4004 . Supports the 1971 release (15 November 1971) of the Intel 4004 as an early single-chip microprocessor.

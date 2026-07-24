@@ -5,8 +5,8 @@ description: How to set up divide-and-conquer recurrences T(n)=aT(n/b)+f(n) and 
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2026-01-21
 aliases: []

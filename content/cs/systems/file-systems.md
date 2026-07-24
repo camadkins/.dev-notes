@@ -112,3 +112,10 @@ Walking through the steps ties everything together:
 - [[bplus-tree|B+ Trees]] - the variant used in XFS, NTFS, and databases for range-friendly indexing
 - [[virtual-memory|Virtual Memory]] - memory-mapped files (`mmap`) bridge the file system and the VM subsystem
 - [[processes-and-threads|Processes & Threads]] - file descriptors are per-process resources managed by the OS
+
+## Sources
+
+- "File system," Wikipedia. https://en.wikipedia.org/wiki/File_system . Supports the framing of the file system as the layer that turns raw block storage into names, directories, and metadata, and that filenames are unique within a directory.
+- "inode," Wikipedia. https://en.wikipedia.org/wiki/Inode . Supports the inode as the central Unix metadata structure holding file type, ownership and permissions, timestamps, size, and data-block locations, plus the link count tracking how many hard links reference it.
+- "Journaling file system," Wikipedia. https://en.wikipedia.org/wiki/Journaling_file_system . Supports the crash-consistency problem from multi-step metadata updates, recording intended changes to a journal before applying them, and recovery by replaying committed transactions.
+- "B-tree," Wikipedia. https://en.wikipedia.org/wiki/B-tree . Supports B-trees as balanced, high-fanout, logarithmic-lookup structures whose nodes map onto disk blocks, explaining their use for file-system metadata indexing.

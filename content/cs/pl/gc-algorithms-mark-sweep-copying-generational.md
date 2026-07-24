@@ -1,5 +1,5 @@
 ---
-title: GC Algorithms — Mark-Sweep, Copying, and Generational
+title: "GC Algorithms: Mark-Sweep, Copying, and Generational"
 description: How common garbage collection algorithms work, what trade-offs they make, and how write barriers maintain heap invariants.
 draft: false
 tags:
@@ -11,7 +11,7 @@ aliases: []
 ---
 
 ## Overview
-Garbage collection is more than freeing unused memory — it’s about managing **time, space, and safety** while keeping performance predictable.  
+Garbage collection is more than freeing unused memory. It’s about managing **time, space, and safety** while keeping performance predictable.  
 Different algorithms optimize for different workloads: responsiveness, throughput, or simplicity.  
 This note summarizes how the most common collectors work and the principles that make them correct and efficient.
 
@@ -36,7 +36,7 @@ This is the classic tracing algorithm and the foundation for most others.
 
 > [!example]
 > Suppose an application allocates 1 GB of objects but only 200 MB remains live.  
-> Mark–sweep reclaims the rest, but allocation may still fail if no contiguous 50 MB block exists — fragmentation.
+> Mark–sweep reclaims the rest, but allocation may still fail if no contiguous 50 MB block exists (fragmentation).
 
 ---
 
@@ -69,28 +69,28 @@ The **copying collector** eliminates fragmentation by compacting live data as it
 4. Swap roles: to-space becomes the new from-space.
 
 ### Benefits
-- Always leaves a contiguous free region — no fragmentation.  
+- Always leaves a contiguous free region, so no fragmentation.  
 - Naturally compacts memory and improves cache locality.  
 - Collection time proportional to the number of *live* objects, not heap size.
 
 ### Costs
 - Requires 2× memory (half the heap unused at a time).  
 - Copying overhead for large object graphs.  
-- Relocation invalidates pointers — GC must patch all references.
+- Relocation invalidates pointers, so GC must patch all references.
 
 > [!tip]
-> Copying collection shines when most objects are short-lived — typical in functional and object-oriented programs.
+> Copying collection shines when most objects are short-lived, typical in functional and object-oriented programs.
 
 ---
 
 ## Generational Collection
-Empirical studies show most objects die young — a principle known as the **weak generational hypothesis**.  
+Empirical studies show most objects die young, a principle known as the **weak generational hypothesis**.  
 Generational collectors exploit this by dividing the heap into **young** and **old** regions.
 
 ### Mechanism
-1. **Minor collection** — runs frequently on the young generation.  
+1. **Minor collection:** runs frequently on the young generation.  
    - Copies survivors into a *survivor space* or promotes them to the old generation.  
-2. **Major collection** — scans the entire heap, including the old generation.  
+2. **Major collection:** scans the entire heap, including the old generation.  
    - Occurs rarely.
 
 Objects that survive several minor collections are assumed long-lived and promoted.
@@ -130,14 +130,20 @@ Proper GC tuning balances:
 - **JVM (HotSpot):** generational, multi-threaded collectors (G1, ZGC, Shenandoah).  
 - **.NET CLR:** generational mark–compact with concurrent phases.  
 - **Go:** concurrent mark–sweep with small heap fragments, tuned for low pause times.  
-- **Rust:** none — relies on ownership for deterministic lifetime management.
+- **Rust:** none; relies on ownership for deterministic lifetime management.
 
 > [!tip]
-> Even in non-GC languages, these principles influence *memory-safe ownership systems* — reasoning about reachability and lifetime statically rather than dynamically.
+> Even in non-GC languages, these principles influence *memory-safe ownership systems*, reasoning about reachability and lifetime statically rather than dynamically.
 
 ---
 
 ## See also
-- [[cs/pl/garbage-collection-concepts|Garbage Collection — Concepts]]
-- [[abstract-machines-cek-secd|Abstract Machines — CEK and SECD]]
+- [[cs/pl/garbage-collection-concepts|Garbage Collection: Concepts]]
+- [[abstract-machines-cek-secd|Abstract Machines: CEK and SECD]]
 - [[cs/pl/evaluation-order-and-strictness|Evaluation Order & Strictness]]
+
+## Sources
+
+- "Tracing garbage collection," Wikipedia. https://en.wikipedia.org/wiki/Tracing_garbage_collection . Supports the mark phase tracing reachable objects from roots and the sweep phase reclaiming the rest, the tri-color marking abstraction (white/grey/black sets), the invariant that no black object points to a white one, and write barriers that preserve correctness during concurrent marking.
+- "Cheney's algorithm," Wikipedia. https://en.wikipedia.org/wiki/Cheney%27s_algorithm . Supports the copying collector dividing the heap into two semispaces (from-space and to-space), copying live objects between them, updating references to new locations, and its connection to grey objects in the tri-color terminology.
+- "Mark–compact algorithm," Wikipedia. https://en.wikipedia.org/wiki/Mark%E2%80%93compact_algorithm . Supports mark-sweep leaving a fragmented heap, compaction relocating live objects to eliminate fragmentation, and the requirement to correctly update all pointers to moved objects.

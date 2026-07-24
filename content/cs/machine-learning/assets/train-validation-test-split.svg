@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 300" role="img" aria-label="A dataset split into training, validation, and test partitions with the role of each partition annotated">
+  <style>
+    .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .node { fill: #58a6ff; }
+    .t { fill: #e8e8e8; font-family: monospace; font-size: 13px; }
+    .anno { fill: #d29922; font-family: monospace; font-size: 12px; }
+    .desc { fill: #8b949e; font-family: monospace; font-size: 12px; }
+    .final { fill: #84a59d; }
+  </style>
+  <text class="t" x="40" y="52">full labeled dataset</text>
+  <rect class="box" x="40" y="70" width="378" height="64" rx="6"/>
+  <rect class="box" x="426" y="70" width="100" height="64" rx="6"/>
+  <rect class="box" x="534" y="70" width="106" height="64" rx="6" stroke="#84a59d"/>
+  <text class="t" x="185" y="107">train</text>
+  <text class="t" x="436" y="107">validation</text>
+  <text class="t" x="570" y="107" fill="#84a59d">test</text>
+  <line class="edge" x1="229" y1="134" x2="229" y2="176"/>
+  <line class="edge" x1="476" y1="134" x2="476" y2="176"/>
+  <line class="edge" x1="587" y1="134" x2="587" y2="176"/>
+  <text class="desc" x="96" y="196">fits the parameters</text>
+  <text class="desc" x="360" y="196">tunes hyperparameters,</text>
+  <text class="desc" x="360" y="214">signals early stopping</text>
+  <text class="anno" x="540" y="196">touched once,</text>
+  <text class="anno" x="540" y="214">at the very end</text>
+  <text class="desc" x="40" y="266">the model never trains on validation or test; the test score is the generalization estimate</text>
+</svg>

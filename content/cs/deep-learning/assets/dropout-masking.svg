@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+  <style>
+    .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .edge { stroke: #93a3b8; stroke-width: 1.2; fill: none; }
+    .edge-dead { stroke: #93a3b8; stroke-width: 1.2; fill: none; opacity: 0.18; }
+    .node { fill: #58a6ff; }
+    .node-dead { fill: none; stroke: #8b949e; stroke-width: 1.5; stroke-dasharray: 3 3; }
+    .t { fill: #e8e8e8; font-size: 14px; }
+    .anno { fill: #d29922; font-size: 13px; }
+    .desc { fill: #8b949e; font-size: 12px; }
+    .x { stroke: #d29922; stroke-width: 2; }
+  </style>
+
+  <text x="360" y="26" text-anchor="middle" class="t">Dropout: one training step, one random thinned network</text>
+
+  <!-- panel -->
+  <rect x="40" y="48" width="640" height="250" rx="8" class="box"/>
+
+  <!-- edges: input (x=140) to hidden (x=360). hidden units h2 (y=110) and h4 (y=214) are dropped -->
+  <!-- inputs y: 100, 172, 244 ; hidden y: 84, 136, 188, 240 (h1..h4) -->
+  <g>
+    <!-- to h1 (alive) -->
+    <line x1="140" y1="100" x2="360" y2="84" class="edge"/>
+    <line x1="140" y1="172" x2="360" y2="84" class="edge"/>
+    <line x1="140" y1="244" x2="360" y2="84" class="edge"/>
+    <!-- to h2 (dropped) -->
+    <line x1="140" y1="100" x2="360" y2="136" class="edge-dead"/>
+    <line x1="140" y1="172" x2="360" y2="136" class="edge-dead"/>
+    <line x1="140" y1="244" x2="360" y2="136" class="edge-dead"/>
+    <!-- to h3 (alive) -->
+    <line x1="140" y1="100" x2="360" y2="188" class="edge"/>
+    <line x1="140" y1="172" x2="360" y2="188" class="edge"/>
+    <line x1="140" y1="244" x2="360" y2="188" class="edge"/>
+    <!-- to h4 (dropped) -->
+    <line x1="140" y1="100" x2="360" y2="240" class="edge-dead"/>
+    <line x1="140" y1="172" x2="360" y2="240" class="edge-dead"/>
+    <line x1="140" y1="244" x2="360" y2="240" class="edge-dead"/>
+    <!-- hidden to output (x=580, y=162) -->
+    <line x1="360" y1="84" x2="580" y2="162" class="edge"/>
+    <line x1="360" y1="136" x2="580" y2="162" class="edge-dead"/>
+    <line x1="360" y1="188" x2="580" y2="162" class="edge"/>
+    <line x1="360" y1="240" x2="580" y2="162" class="edge-dead"/>
+  </g>
+
+  <!-- input nodes -->
+  <circle cx="140" cy="100" r="11" class="node"/>
+  <circle cx="140" cy="172" r="11" class="node"/>
+  <circle cx="140" cy="244" r="11" class="node"/>
+
+  <!-- hidden nodes -->
+  <circle cx="360" cy="84" r="11" class="node"/>
+  <circle cx="360" cy="136" r="11" class="node-dead"/>
+  <circle cx="360" cy="188" r="11" class="node"/>
+  <circle cx="360" cy="240" r="11" class="node-dead"/>
+
+  <!-- X marks on dropped units -->
+  <line x1="352" y1="128" x2="368" y2="144" class="x"/>
+  <line x1="368" y1="128" x2="352" y2="144" class="x"/>
+  <line x1="352" y1="232" x2="368" y2="248" class="x"/>
+  <line x1="368" y1="232" x2="352" y2="248" class="x"/>
+
+  <!-- output node -->
+  <circle cx="580" cy="162" r="11" fill="#84a59d"/>
+
+  <!-- layer labels -->
+  <text x="140" y="282" text-anchor="middle" class="desc">input</text>
+  <text x="360" y="282" text-anchor="middle" class="desc">hidden</text>
+  <text x="580" y="282" text-anchor="middle" class="desc">output</text>
+
+  <!-- annotation -->
+  <text x="430" y="120" class="anno">dropped this step</text>
+  <text x="360" y="330" text-anchor="middle" class="desc">Each unit is kept with probability p. The next step samples a different mask.</text>
+</svg>

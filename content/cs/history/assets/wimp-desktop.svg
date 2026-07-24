@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 230" fill="none" role="img" aria-label="The WIMP interface: a window, an icon, a menu, and a pointer on a desktop">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .screen { fill: rgba(30,40,55,0.6); stroke: #93a3b8; stroke-width: 1.5; }
+    .win { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .bar { fill: rgba(88,166,255,0.18); stroke: #58a6ff; stroke-width: 1.2; }
+    .icon { fill: rgba(210,153,34,0.16); stroke: #d29922; stroke-width: 1.3; }
+    .lab { fill: #d29922; font-size: 12px; }
+    .ptr { fill: #e8e8e8; stroke: #e8e8e8; stroke-width: 1; }
+  </style>
+  <rect class="screen" x="20" y="20" width="380" height="170" rx="4"/>
+  <rect class="bar" x="20" y="20" width="380" height="22"/>
+  <text class="lab" x="32" y="36" fill="#e8e8e8" font-size="11">File  Edit  View</text>
+  <text class="lab" x="300" y="16">menu</text>
+  <rect class="win" x="60" y="64" width="210" height="104" rx="3"/>
+  <rect class="bar" x="60" y="64" width="210" height="20"/>
+  <text class="lab" x="150" y="56">window</text>
+  <rect class="icon" x="320" y="70" width="40" height="40" rx="3"/>
+  <text class="lab" x="340" y="128" text-anchor="middle">icon</text>
+  <polygon class="ptr" points="210,120 210,150 218,142 224,154 230,150 224,138 234,138"/>
+  <text class="lab" x="244" y="150">pointer</text>
+</svg>

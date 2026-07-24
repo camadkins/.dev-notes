@@ -4,8 +4,8 @@ description: How and why to pass addresses so callees can read or write caller m
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2025-12-28
 aliases: []

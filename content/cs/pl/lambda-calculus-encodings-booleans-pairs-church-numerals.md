@@ -1,6 +1,6 @@
 ---
-title: Lambda Calculus — Encodings of Booleans, Pairs, and Church Numerals
-description: How core data and operations emerge purely from λ-abstraction — Booleans, pairs, and arithmetic via Church encodings.
+title: "Lambda Calculus: Encodings of Booleans, Pairs, and Church Numerals"
+description: "How core data and operations emerge purely from λ-abstraction: Booleans, pairs, and arithmetic via Church encodings."
 draft: false
 tags:
   - cs
@@ -11,14 +11,14 @@ aliases: []
 ---
 
 ## Overview
-Lambda calculus models computation using only **functions** — no built-in data, no primitives.  
+Lambda calculus models computation using only **functions**: no built-in data, no primitives.  
 Yet from pure λ-abstraction, we can encode all familiar constructs: Booleans, pairs, and even numbers.
 
 These encodings, called **Church encodings**, show that functions alone are sufficient to represent any computable data structure or operation.  
 They provide the theoretical foundation for functional languages, typed lambda calculi, and type systems like those behind ML and Haskell.
 
 > [!note]
-> Every construct here is a *function of functions* — meaning its meaning arises only through how it is applied.
+> Every construct here is a *function of functions*, meaning its meaning arises only through how it is applied.
 
 ---
 
@@ -43,7 +43,7 @@ Computation proceeds by **β-reduction**:
 Substitute all occurrences of `x` in `M` with `N`.
 
 > [!tip]
-> Evaluation in λ-calculus is substitution-based — there is no assignment or mutation.
+> Evaluation in λ-calculus is substitution-based: there is no assignment or mutation.
 
 ---
 
@@ -88,7 +88,7 @@ IF FALSE a b → b
 ```
 
 > [!note]
-> Booleans thus act as *control abstractions* — their behavior defines the notion of branching.
+> Booleans thus act as *control abstractions*: their behavior defines the notion of branching.
 
 ---
 
@@ -157,7 +157,7 @@ SECOND (PAIR a b) → b
 
 > [!note]
 > A pair is *its own eliminator*.  
-> It doesn’t store two values — it encapsulates how to choose between them.
+> It doesn’t store two values; it encapsulates how to choose between them.
 
 ### Relation to Booleans
 Notice the symmetry:
@@ -167,7 +167,7 @@ TRUE ≡ λx. λy. x
 FALSE ≡ λx. λy. y
 
 ```
-A pair can be viewed as a generalization of Boolean choice — the Boolean simply selects between two arguments.
+A pair can be viewed as a generalization of Boolean choice: the Boolean simply selects between two arguments.
 
 ---
 
@@ -198,7 +198,7 @@ Each numeral takes a function `f` and applies it `n` times to `x`.
 `n` represents the *iteration count* of a computation, rather than a quantity.
 
 > [!tip]
-> This functional view connects naturally to recursion and fixed points — numbers define repeated transformations.
+> This functional view connects naturally to recursion and fixed points: numbers define repeated transformations.
 
 ---
 
@@ -248,7 +248,7 @@ PLUS 2 3
 MULT ≡ λm. λn. λf. m (n f)
 
 ```
-The intuition: apply `n f` repeatedly — equivalent to `n × m` applications.
+The intuition: apply `n f` repeatedly, equivalent to `n × m` applications.
 
 ```
 
@@ -266,7 +266,7 @@ MULT 2 3
 EXP ≡ λm. λn. n m
 
 ```
-Read as “apply `m` n-times” — the purest possible definition.
+Read as “apply `m` n-times,” the purest possible definition.
 
 ---
 
@@ -299,7 +299,7 @@ ISZERO 2
 ```
 
 > [!note]
-> `ISZERO` uses Church numeral iteration as a control signal — each iteration overwrites the current value with `FALSE`.
+> `ISZERO` uses Church numeral iteration as a control signal: each iteration overwrites the current value with `FALSE`.
 
 ---
 
@@ -364,7 +364,7 @@ IF (ISZERO n)
 ```
 
 > [!note]
-> The Y combinator expresses recursion without named functions — a cornerstone for reasoning about self-reference and termination.
+> The Y combinator expresses recursion without named functions, a cornerstone for reasoning about self-reference and termination.
 
 ---
 
@@ -377,10 +377,10 @@ While the untyped λ-calculus allows all encodings, typed variants restrict expr
 | Pairs | `∀α β. (α → β → γ) → γ` |
 | Numerals | `∀α. (α → α) → α → α` |
 
-In typed lambda calculi (like System F), these polymorphic encodings become *universal data types* — a foundation for typed functional programming.
+In typed lambda calculi (like System F), these polymorphic encodings become *universal data types*, a foundation for typed functional programming.
 
 > [!tip]
-> System F’s universal quantification (`∀α`) formalizes Church encodings as parametric polymorphism — the same mechanism that powers generics in ML, Haskell, and Rust.
+> System F’s universal quantification (`∀α`) formalizes Church encodings as parametric polymorphism, the same mechanism that powers generics in ML, Haskell, and Rust.
 
 ---
 
@@ -402,7 +402,7 @@ Extends equality:
 
 ```
 
-This matters for Church encodings — many definitions differ syntactically but remain equivalent extensionally.
+This matters for Church encodings: many definitions differ syntactically but remain equivalent extensionally.
 
 > [!note]
 > Distinct encodings for the same concept (e.g., different `AND` formulations) may be βη-equivalent, meaning they compute identically.
@@ -433,7 +433,7 @@ For Church encodings, both reach normal forms, but reduction cost varies:
 | `PLUS`, `MULT` | Composition | Derived operations |
 | `ISZERO`, `PRED` | Conditional and state | Derived predicates |
 
-Each builds upon simpler encodings — Boolean control enables pairing; pairing enables numeric iteration and state passing.
+Each builds upon simpler encodings: Boolean control enables pairing; pairing enables numeric iteration and state passing.
 
 > [!tip]
 > This cumulative hierarchy is what makes λ-calculus *expressively complete*.  
@@ -446,7 +446,13 @@ Each builds upon simpler encodings — Boolean control enables pairing; pairing 
 ---
 
 ## See also
-- [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]
+- [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus: Syntax & Substitution]]
 - [[cs/pl/hindleymilner-type-inference|Hindley–Milner & Type Inference]]
 - [[cs/pl/evaluation-order-and-strictness|Evaluation Order & Strictness]]
 - [[cs/pl/programming-paradigms-models-of-computation|Programming Paradigms & Models of Computation]]
+
+## Sources
+
+- "Church encoding," Wikipedia. https://en.wikipedia.org/wiki/Church_encoding . Supports Church encoding as a way of representing data (Booleans, pairs, numerals, and other types usually considered primitive) in the untyped lambda calculus, where the only primitive data type is the function.
+- "Lambda calculus," Wikipedia. https://en.wikipedia.org/wiki/Lambda_calculus . Supports lambda calculus being a formal system for computation based on function abstraction and application with variable binding and substitution, its universality as a model of computation, and beta-reduction as the core transformation rule.
+- "Fixed-point combinator," Wikipedia. https://en.wikipedia.org/wiki/Fixed-point_combinator . Supports a fixed-point combinator being a higher-order function that returns a fixed point of its argument, the basis for the Y combinator and defining recursion without named functions.

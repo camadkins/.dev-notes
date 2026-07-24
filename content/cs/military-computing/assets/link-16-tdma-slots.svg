@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 150" fill="none" role="img" aria-label="A TDMA channel divided into time slots, each assigned to terminal A, B, or C in repeating order">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .a { fill: rgba(88,166,255,0.12); stroke: #58a6ff; stroke-width: 1.3; }
+    .b { fill: rgba(210,153,34,0.12); stroke: #d29922; stroke-width: 1.3; }
+    .c { fill: rgba(132,165,157,0.12); stroke: #84a59d; stroke-width: 1.3; }
+    .lt { fill: #e8e8e8; font-size: 14px; text-anchor: middle; }
+    .ax { stroke: #93a3b8; stroke-width: 1.2; }
+    .cap { fill: #8b949e; font-size: 12px; }
+  </style>
+  <rect class="a" x="30"  y="38" width="46" height="46"/><text class="lt" x="53"  y="67">A</text>
+  <rect class="b" x="76"  y="38" width="46" height="46"/><text class="lt" x="99"  y="67">B</text>
+  <rect class="c" x="122" y="38" width="46" height="46"/><text class="lt" x="145" y="67">C</text>
+  <rect class="a" x="168" y="38" width="46" height="46"/><text class="lt" x="191" y="67">A</text>
+  <rect class="b" x="214" y="38" width="46" height="46"/><text class="lt" x="237" y="67">B</text>
+  <rect class="c" x="260" y="38" width="46" height="46"/><text class="lt" x="283" y="67">C</text>
+  <rect class="a" x="306" y="38" width="46" height="46"/><text class="lt" x="329" y="67">A</text>
+  <rect class="b" x="352" y="38" width="46" height="46"/><text class="lt" x="375" y="67">B</text>
+  <rect class="c" x="398" y="38" width="46" height="46"/><text class="lt" x="421" y="67">C</text>
+  <rect class="a" x="444" y="38" width="46" height="46"/><text class="lt" x="467" y="67">A</text>
+  <rect class="b" x="490" y="38" width="46" height="46"/><text class="lt" x="513" y="67">B</text>
+  <rect class="c" x="536" y="38" width="46" height="46"/><text class="lt" x="559" y="67">C</text>
+  <line class="ax" x1="30" y1="106" x2="582" y2="106"/>
+  <polygon points="582,106 574,102 574,110" fill="#93a3b8"/>
+  <text class="cap" x="30" y="124">time</text>
+  <text class="cap" x="582" y="124" text-anchor="end">each terminal transmits only in its own slots, so transmissions never collide</text>
+</svg>

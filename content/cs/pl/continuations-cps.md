@@ -11,12 +11,12 @@ aliases: []
 ---
 
 ## What a Continuation Is
-A **continuation** represents *what should happen next* — the rest of a computation after the current expression finishes.  
+A **continuation** represents *what should happen next*: the rest of a computation after the current expression finishes.  
 When a program executes, every expression has some continuation waiting for its result. CPS (Continuation-Passing Style) makes this continuation *explicit*.
 
 > [!note]
 > Think of a continuation as a saved call stack frame or callback.  
-> Instead of returning a value, a function calls another function — the continuation — with that value.
+> Instead of returning a value, a function calls another function (the continuation) with that value.
 
 ---
 
@@ -67,19 +67,19 @@ Instead of computing a result and returning it, each stage passes the result to 
 > (λk. (+ 1 2) → (k 3))
 > ```
 > 
-> The computation `(+ 1 2)` has no hidden caller — its only way to continue is by calling `k`.
+> The computation `(+ 1 2)` has no hidden caller; its only way to continue is by calling `k`.
 
 ---
 
 ## Why CPS Matters
 
-1. **Uniform control** — early exits, exceptions, and coroutines can all be expressed through continuations.
+1. **Uniform control:** early exits, exceptions, and coroutines can all be expressed through continuations.
     
-2. **Optimization** — tail-call elimination and inlining become simple transformations.
+2. **Optimization:** tail-call elimination and inlining become simple transformations.
     
-3. **Compiler targets** — many compilers (Scheme, ML, Haskell) lower to CPS internally for optimization and analysis.
+3. **Compiler targets:** many compilers (Scheme, ML, Haskell) lower to CPS internally for optimization and analysis.
     
-4. **Language design** — continuations unify flow control: returning, breaking, and throwing are all “jumping to a continuation.”
+4. **Language design:** continuations unify flow control: returning, breaking, and throwing are all “jumping to a continuation.”
     
 
 > [!tip]  
@@ -100,7 +100,7 @@ The Scheme primitive **`call/cc`** (“call with current continuation”) lets a
 Result: `42`.
 
 Here, `(λk ...)` receives the current continuation as `k`.  
-When `k` is called, execution jumps back to the `call/cc` site with the provided value — even if it’s deep inside another computation.
+When `k` is called, execution jumps back to the `call/cc` site with the provided value, even if it’s deep inside another computation.
 
 > [!example]  
 > **Short-circuit using `call/cc`**
@@ -128,7 +128,7 @@ When `k` is called, execution jumps back to the `call/cc` site with the provided
 >     
 > 2. **Non-local control** complicates resource cleanup; finalizers or try/finally blocks may not run as expected.
 >     
-> 3. **Stack reasoning** becomes harder — continuations flatten the call hierarchy.
+> 3. **Stack reasoning** becomes harder; continuations flatten the call hierarchy.
 >     
 
 Languages that expose full continuations (Scheme, Racket) restrict them with discipline, while others (ML, Haskell) use delimited variants like `shift/reset`.
@@ -157,6 +157,12 @@ execution is just **explicitly passing control**.
 
 - [[cs/pl/exceptions-handlers-and-non-local-control|Exceptions & Non-local Control]]
     
-- [[abstract-machines-cek-secd|Abstract Machines — CEK and SECD]]
+- [[abstract-machines-cek-secd|Abstract Machines: CEK and SECD]]
     
-- [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]
+- [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus: Syntax & Substitution]]
+
+## Sources
+
+- "Continuation-passing style," Wikipedia. https://en.wikipedia.org/wiki/Continuation-passing_style . Supports CPS as a style in which control is passed explicitly via a continuation argument rather than returned, its use as an internal compiler intermediate form, and its role in expressing tail calls and control flow uniformly.
+- "Continuation," Wikipedia. https://en.wikipedia.org/wiki/Continuation . Supports the definition of a continuation as a representation of the rest of a computation and its use to model early exits, exceptions, coroutines, and generators.
+- "call-with-current-continuation," Wikipedia. https://en.wikipedia.org/wiki/Call-with-current-continuation . Supports Scheme's call/cc capturing the current continuation as a first-class function and invoking it to jump back to the capture site.

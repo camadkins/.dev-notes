@@ -1,6 +1,6 @@
 ---
 title: Computer Science
-description: Hub for DS&A, PL Concepts, and Language-specific notes.
+description: The top-level map of the CS garden. Pick an area and drill in.
 draft: false
 comments: false
 tags:
@@ -9,18 +9,32 @@ permalink: /cs/
 aliases:
   - Computer Science
 date: 2025-10-16
-updated: 2026-03-12
+updated: 2026-06-20
 ---
 
-This is the top-level map for all CS notes. The garden is split into three domains, each with its own concept map. Click through to explore a domain, or use the sidebar to browse individual notes directly.
+The top-level map for the CS notes. Each area below has its own index that lays out how its topics fit together. Pick one and drill in, or use the sidebar and graph view to browse directly.
 
-### Domains
+### Foundations and theory
 
-**[[cs/dsa/index | Data Structures & Algorithms]]**
-How to represent data and design algorithms that scale. Covers arrays, linked lists, trees, graphs, heaps, hash tables, sorting, searching, dynamic programming, greedy strategies, and complexity analysis.
+- [[cs/dsa/index|Data Structures & Algorithms]] - representing data and designing algorithms that scale.
+- [[cs/pl/index|Programming Language Concepts]] - how languages are defined, evaluated, and typed.
+- [[cs/math/index|Mathematics]] - the discrete mathematics underneath the rest of CS.
+- [[cs/statistics/index|Statistics]] - probability and inference for data and machine learning.
 
-**[[cs/pl/index | Programming Language Concepts]]**
-How languages are defined and evaluated. Covers grammars and parsing, lambda calculus, operational semantics, type systems, effects, garbage collection, concurrency, and module systems.
+### Machine learning and deep learning
 
-**[[cs/languages/index | Languages]]**
-Language-specific notes - implementations, idioms, and design patterns tied to individual languages. Currently covers Racket, with more to come.
+- [[cs/machine-learning/index|Machine Learning]] - learning from data: paradigms, training, and honest evaluation.
+- [[cs/deep-learning/index|Deep Learning]] - neural networks with depth, from the perceptron to CNNs, sequence models, generative models, and reinforcement learning.
+
+### Systems and software
+
+- [[cs/systems/index|Systems]] - operating systems, networks, and how machines actually run programs.
+- [[cs/software-engineering/index|Software Engineering]] - building and maintaining software that lasts.
+- [[cs/languages/index|Languages]] - a comparative layer on the concerns every real language must answer, across Rust, C++, Python, and Ansible.
+
+### History and context
+
+- [[cs/history/index|History of Computing]] - the arc from the Antikythera mechanism to deep learning.
+- [[cs/military-computing/index|Computing & the U.S. Military]] - how computing evolved through military history.
+- [[cs/geopolitics/index|Geopolitics]] - security, sovereignty, and the politics of technology.
+- [[cs/ethics/index|Ethics of AI & Big Data]] - whether a machine can be a mind, and what we would owe it if it could.

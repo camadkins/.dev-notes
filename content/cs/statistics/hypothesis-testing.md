@@ -96,3 +96,4 @@ For a two-sided test at $\alpha = 0.05$, the critical value is $z_{0.025} = 1.96
 - [[probability-distributions|Probability Distributions]] - test statistics follow known distributions under $H_0$
 - [[regression-fundamentals|Regression Fundamentals]] - hypothesis tests on regression coefficients
 - [[bayesian-inference|Bayesian Inference]] - an alternative framework that quantifies $P(H_0 \mid \text{data})$ directly
+- [[the-impossibility-of-algorithmic-fairness|The Impossibility of Algorithmic Fairness]] - false-positive and false-negative rates are the same error types that fairness criteria try, and fail, to equalize across groups

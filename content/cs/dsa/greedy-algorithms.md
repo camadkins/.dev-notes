@@ -4,8 +4,8 @@ description: Locally optimal choices that yield globally optimal solutions when 
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2025-11-08
 aliases: []

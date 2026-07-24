@@ -4,8 +4,8 @@ description: Sort fixed-width keys by processing digits from least or most signi
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2026-01-23
 aliases: []
@@ -27,7 +27,7 @@ Key constraints:
 - Requires **known digit structure** and benefits from **fixed widths**; extra care for **negatives**, **variable lengths**, or **locale/collation**.
 
 > [!note]
-> Radix sort is non-comparative; it can beat the `Ω(n log n)` lower bound that applies to **comparison** sorts like [[merge-sort|Merge Sort]] or [[quicksort|Quick Sort]].
+> Radix sort is non-comparative; it can beat the `Ω(n log n)` lower bound that applies to **comparison** sorts like [[merge-sort|Merge Sort]] or [[quick-sort|Quick Sort]].
 
 ## Core Idea
 

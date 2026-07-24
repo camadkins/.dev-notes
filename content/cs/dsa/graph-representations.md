@@ -4,8 +4,8 @@ description: When to store a graph as adjacency lists or as an adjacency matrix,
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2025-10-31
 aliases: []

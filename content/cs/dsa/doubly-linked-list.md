@@ -4,8 +4,8 @@ description: A bidirectional linked structure with constant-time insertion and d
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2026-01-10
 aliases: []
