@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 200" fill="none" role="img" aria-label="The address 192.168.10.0 slash 24 split into 24 network bits across the first three octets and 8 host bits in the last octet">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .box  { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .host { fill: rgba(210,153,34,0.14); stroke: #d29922; stroke-width: 1.5; }
+    .oct  { fill: #e8e8e8; font-size: 20px; text-anchor: middle; }
+    .dot  { fill: #e8e8e8; font-size: 20px; text-anchor: middle; }
+    .anno { fill: #d29922; font-size: 13px; text-anchor: middle; }
+    .net  { fill: #58a6ff; font-size: 13px; text-anchor: middle; }
+    .desc { fill: #8b949e; font-size: 12px; text-anchor: middle; }
+    .edge { stroke: #93a3b8; stroke-width: 1.4; }
+  </style>
+
+  <rect class="box"  x="24"  y="60" width="96" height="48" rx="4"/>
+  <rect class="box"  x="140" y="60" width="96" height="48" rx="4"/>
+  <rect class="box"  x="256" y="60" width="96" height="48" rx="4"/>
+  <rect class="host" x="372" y="60" width="96" height="48" rx="4"/>
+
+  <text class="oct" x="72"  y="91">192</text>
+  <text class="dot" x="130" y="91">.</text>
+  <text class="oct" x="188" y="91">168</text>
+  <text class="dot" x="246" y="91">.</text>
+  <text class="oct" x="304" y="91">10</text>
+  <text class="dot" x="362" y="91">.</text>
+  <text class="oct" x="420" y="91">0</text>
+
+  <line class="edge" x1="24" y1="46" x2="352" y2="46"/>
+  <text class="net"  x="188" y="36">network prefix / 24 bits</text>
+
+  <line class="edge" x1="372" y1="46" x2="468" y2="46"/>
+  <text class="anno" x="420" y="36">host / 8 bits</text>
+
+  <text class="desc" x="188" y="140">mask 255.255.255.0</text>
+  <text class="desc" x="420" y="140">2^8 = 256 addresses</text>
+  <text class="desc" x="420" y="160">254 usable hosts</text>
+  <text class="desc" x="188" y="160">fixed for the subnet</text>
+</svg>
