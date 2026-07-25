@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 250" fill="none" role="img" aria-label="ARP poisoning: the attacker sends a forged ARP reply claiming the gateway's IP maps to the attacker's MAC, so the victim's traffic to the gateway is diverted through the attacker.">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .box  { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .edge { stroke: #93a3b8; stroke-width: 1.4; }
+    .bad  { stroke: #d29922; stroke-width: 1.6; stroke-dasharray: 5 3; }
+    .t    { fill: #e8e8e8; font-size: 13px; }
+    .sub  { fill: #8b949e; font-size: 10px; }
+    .anno { fill: #d29922; font-size: 11px; }
+  </style>
+
+  <!-- Victim -->
+  <rect class="box" x="20" y="95" width="120" height="52" rx="6"/>
+  <text class="t" x="80" y="118" text-anchor="middle">Victim</text>
+  <text class="sub" x="80" y="135" text-anchor="middle">wants gateway</text>
+
+  <!-- Attacker -->
+  <rect class="box" x="260" y="95" width="120" height="52" rx="6"/>
+  <text class="t" x="320" y="118" text-anchor="middle">Attacker</text>
+  <text class="sub" x="320" y="135" text-anchor="middle">MAC: aa:aa</text>
+
+  <!-- Gateway -->
+  <rect class="box" x="500" y="95" width="120" height="52" rx="6"/>
+  <text class="t" x="560" y="118" text-anchor="middle">Gateway</text>
+  <text class="sub" x="560" y="135" text-anchor="middle">IP: .1</text>
+
+  <!-- forged ARP reply arrow: attacker -> victim -->
+  <path class="bad" d="M255 100 L145 100" marker-end="url(#a)"/>
+  <text class="anno" x="200" y="88" text-anchor="middle">forged reply:</text>
+  <text class="anno" x="200" y="76" text-anchor="middle">".1 is at aa:aa"</text>
+
+  <!-- diverted traffic flow victim -> attacker -> gateway -->
+  <path class="edge" d="M140 128 L258 128" marker-end="url(#g)"/>
+  <path class="edge" d="M382 128 L498 128" marker-end="url(#g)"/>
+  <text class="sub" x="320" y="172" text-anchor="middle">traffic for the gateway now flows through the attacker</text>
+
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#d29922"/></marker>
+    <marker id="g" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#93a3b8"/></marker>
+  </defs>
+</svg>
