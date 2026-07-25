@@ -35,7 +35,7 @@ const FOLDER_SECTION: [string, string][] = [
   ["cs/statistics", "statistics"], ["cs/math", "math"], ["cs/history", "history"],
   ["cs/military-computing", "military"], ["cs/ethics", "ethics"],
   ["cs/geopolitics", "geopolitics"], ["cs/software-engineering", "software-engineering"],
-  ["cs/security", "security"], ["cs/networking", "networking"], ["cs/resources", "resources"],
+  ["cs/security", "security"], ["cs/networking", "networking"], ["cs/cisco", "cisco"], ["cs/resources", "resources"],
   ["off-watch/books", "books"], ["off-watch/media", "media"], ["off-watch/golf", "golf"],
   ["off-watch/games", "games"], ["off-watch/dnd", "dnd"], ["off-watch", "off-watch"],
   ["meta", "meta"], ["cs", "cs"],

@@ -44,6 +44,7 @@ The section tag is **mechanically the note's folder**, via this map. This is the
 | `content/cs/software-engineering` | `software-engineering` |
 | `content/cs/security` | `security` |
 | `content/cs/networking` | `networking` |
+| `content/cs/cisco` | `cisco` |
 | `content/cs/resources` | `resources` |
 | `content/off-watch/books` | `books` |
 | `content/off-watch/media` | `media` |
