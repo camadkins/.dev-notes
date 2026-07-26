@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 240" fill="none" role="img" aria-label="Under a shear, a generic vector changes direction while an eigenvector stays on its own line and only changes length.">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; font-size: 12px; }
+    .edge     { stroke: #93a3b8; stroke-width: 1.4; }
+    .vec      { stroke: #58a6ff; stroke-width: 2; }
+    .vec2     { stroke: #d29922; stroke-width: 2; }
+    .eig      { stroke: #84a59d; stroke-width: 2; }
+    .line     { stroke: #84a59d; stroke-width: 1; stroke-dasharray: 4 3; }
+    .t        { fill: #e8e8e8; }
+    .anno     { fill: #d29922; }
+    .desc     { fill: #8b949e; }
+    .node     { fill: #58a6ff; }
+  </style>
+  <defs>
+    <marker id="ah-blue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#58a6ff"/></marker>
+    <marker id="ah-amber" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#d29922"/></marker>
+    <marker id="ah-green" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#84a59d"/></marker>
+  </defs>
+
+  <!-- left panel: before -->
+  <line class="edge" x1="30" y1="200" x2="200" y2="200"/>
+  <line class="edge" x1="40" y1="210" x2="40" y2="40"/>
+  <text class="desc" x="30" y="30">before  T</text>
+  <line class="eig" x1="40" y1="200" x2="160" y2="200" marker-end="url(#ah-green)"/>
+  <line class="vec2" x1="40" y1="200" x2="120" y2="90" marker-end="url(#ah-amber)"/>
+  <text class="anno" x="122" y="82">v</text>
+  <text class="t" x="120" y="195" fill="#84a59d">e</text>
+
+  <!-- right panel: after -->
+  <line class="edge" x1="260" y1="200" x2="440" y2="200"/>
+  <line class="edge" x1="270" y1="210" x2="270" y2="40"/>
+  <text class="desc" x="260" y="30">after  T (shear)</text>
+  <line class="line" x1="270" y1="200" x2="430" y2="200"/>
+  <line class="eig" x1="270" y1="200" x2="410" y2="200" marker-end="url(#ah-green)"/>
+  <line class="vec2" x1="270" y1="200" x2="380" y2="90" marker-end="url(#ah-amber)"/>
+  <text class="anno" x="382" y="82">Tv</text>
+  <text class="t" x="360" y="195" fill="#84a59d">Te = &#955;e</text>
+
+  <text class="desc" x="260" y="228">e keeps its direction, only stretched by &#955;; v tilts away</text>
+</svg>
