@@ -42,7 +42,11 @@ Divisibility, primes, and modular arithmetic - the engine behind cryptography.
 
 Formal reasoning techniques that underpin verification, type theory, and specification.
 
+- [[propositional-logic|Propositional Logic]] - connectives, truth tables, tautology vs contradiction
+- [[predicate-logic-and-quantifiers|Predicate Logic and Quantifiers]] - predicates, quantifiers, nested-quantifier order
+- [[proof-techniques|Proof Techniques]] - direct, contrapositive, contradiction, cases, counterexample
 - [[mathematical-induction|Mathematical Induction]] - weak, strong, and structural induction
+- [[set-theory-basics|Set Theory Basics]] - sets, operations, subsets, power sets, cardinality
 
 ### Combinatorics & Probability
 
