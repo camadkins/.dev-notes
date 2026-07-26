@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 300" fill="none" role="img" aria-label="An SDN controller holding the control plane sits at the top. It connects by OpenFlow to three switches below that make up the data plane, each holding only a flow table and forwarding matched packets out a port at wire speed. An unmatched packet at the first switch is punted up to the controller, which installs a new flow rule.">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .box   { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .sw    { fill: rgba(30,40,55,0.95); stroke: #93a3b8; stroke-width: 1.4; }
+    .edge  { stroke: #93a3b8; stroke-width: 1.4; }
+    .miss  { stroke: #d29922; stroke-width: 1.6; stroke-dasharray: 5 3; }
+    .t     { fill: #e8e8e8; font-size: 13px; text-anchor: middle; }
+    .lbl   { fill: #58a6ff; font-size: 11px; text-anchor: middle; }
+    .anno  { fill: #d29922; font-size: 11px; text-anchor: middle; }
+    .desc  { fill: #8b949e; font-size: 11px; text-anchor: middle; }
+  </style>
+
+  <!-- controller (control plane) -->
+  <rect class="box" x="190" y="24" width="180" height="46" rx="6"/>
+  <text class="t" x="280" y="44">Controller</text>
+  <text class="lbl" x="280" y="60">control plane (the brains)</text>
+
+  <!-- openflow edges -->
+  <line class="edge" x1="280" y1="70" x2="90"  y2="150"/>
+  <line class="edge" x1="280" y1="70" x2="280" y2="150"/>
+  <line class="edge" x1="280" y1="70" x2="470" y2="150"/>
+  <text class="lbl" x="150" y="112">OpenFlow</text>
+
+  <!-- switches (data plane) -->
+  <rect class="sw" x="30"  y="152" width="120" height="52" rx="5"/>
+  <text class="t"    x="90"  y="174">switch</text>
+  <text class="desc" x="90"  y="192">flow table</text>
+
+  <rect class="sw" x="220" y="152" width="120" height="52" rx="5"/>
+  <text class="t"    x="280" y="174">switch</text>
+  <text class="desc" x="280" y="192">flow table</text>
+
+  <rect class="sw" x="410" y="152" width="120" height="52" rx="5"/>
+  <text class="t"    x="470" y="174">switch</text>
+  <text class="desc" x="470" y="192">flow table</text>
+
+  <text class="lbl" x="280" y="230">data plane: forward matched packets at wire speed</text>
+
+  <!-- miss path: unmatched packet punted up -->
+  <line class="miss" x1="60" y1="152" x2="205" y2="70"/>
+  <text class="anno" x="120" y="146">unmatched packet -&gt; controller</text>
+  <text class="anno" x="280" y="262">a miss installs a new rule; the rest of the flow forwards locally</text>
+
+  <text class="desc" x="280" y="288">blue = control / rules   gray = fast dumb forwarders   amber = table miss</text>
+</svg>
