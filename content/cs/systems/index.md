@@ -40,6 +40,11 @@ Systems is the study of how software meets hardware - how processes get schedule
 ### Distributed Systems
 
 - [[distributed-consensus|Distributed Consensus]] - CAP theorem, Paxos/Raft, Byzantine faults
+- [[cap-theorem|CAP Theorem]] - the consistency/availability choice under partition, and PACELC's latency extension
+- [[consistency-models|Consistency Models]] - the spectrum from linearizable down to eventual, and its cost in latency
+- [[logical-clocks-lamport-and-vector|Logical Clocks: Lamport and Vector]] - ordering events by causality without synchronized time
+- [[two-phase-commit-and-distributed-transactions|Two-Phase Commit and Distributed Transactions]] - atomic commit across nodes, the blocking problem, 3PC and sagas
+- [[replication-and-quorums|Replication and Quorums]] - primary-backup vs multi-primary, and the R + W > N quorum rule
 - [[blockchain-consensus-and-sanctions-evasion|Blockchain Consensus & Sanctions Evasion]] - Byzantine agreement without a central party, and money outside the state
 
 ### Security
