@@ -1,23 +1,31 @@
 ---
 title: Talks
-description: Curated free and open talks the garden's notes draw on, each with what it is good for.
+description: Talks and recorded material cited by the garden's notes. Deliberately empty until a note cites one.
 draft: false
 comments: true
 tags:
   - cs
   - resources
   - resource/talk
-date: 2026-07-24
+date: 2026-07-26
 updated:
 aliases:
   - Talks
 maturity: seed
 ---
 
-Curated talks, video summaries, and video podcasts. Each entry: what it is, who it is for, and the garden notes that cite it. Every link verified non-404 before an entry is promoted from seed to published.
+This shelf is empty, and that is the accurate state rather than an unfinished one.
 
-<!-- Entries added by the resources fan-out. Each: **[Title](url)** by Author - one line on what it is good for, and [[note]] links that cite it. -->
+The other four shelves are built by a single rule: an entry appears here because a note in this garden cites it, and the entry carries back-links to those notes. Auditing every `## Sources` section across the garden turns up books, papers, courses, and code, and no talks. Not one note currently rests a claim on a recorded talk.
 
-## Sources
+The alternative would be to fill this page with famous conference talks nobody here has drawn on. That would make the shelf look complete while quietly breaking the rule that makes the other four trustworthy: everything listed is something the garden actually used. An unread link is worth less than an honest gap.
 
-<!-- populated as entries are verified -->
+So the entry condition is simple. When a note cites a talk in its `## Sources`, that talk gets an entry here with a back-link to the note, the same as everywhere else.
+
+## Related Notes
+
+- [[cs/resources/index|Resources]]
+- [[cs/resources/books|Books]]
+- [[cs/resources/papers|Papers]]
+- [[cs/resources/courses|Courses]]
+- [[cs/resources/code|Code]]

@@ -7,14 +7,15 @@ tags:
   - cs
   - resources
 date: 2026-07-24
-updated:
+updated: 2026-07-26
 aliases:
   - Resources
   - The Shelf
-maturity: seed
 ---
 
-The reading list behind the garden. Everything here is free, open-source, or openly accessible: canonical texts, university courses, peer-reviewed papers, open-source implementations, and talks worth your time. Each entry says what it is good for and links to the notes that draw on it.
+The reading list behind the garden. Everything here is free, open-source, or openly accessible: canonical texts, university courses, peer-reviewed papers, and open-source implementations.
+
+One rule builds these shelves. **An entry appears only because a note in this garden cites it**, and every entry carries back-links to the notes that do. That makes this a record of what the garden was actually built from rather than a wishlist, and it means the shelves grow as a side effect of writing notes. It also means a shelf can be honestly empty, which is why [[cs/resources/talks|Talks]] is.
 
 Browse by type:
 
