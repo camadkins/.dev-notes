@@ -26,6 +26,12 @@ Software engineering is where computer science meets craft - the discipline of t
 ### Testing & Quality
 
 - [[testing-strategies|Testing Strategies]]
+- [[code-review|Code Review]]
+
+### Maintaining a Codebase
+
+- [[refactoring|Refactoring]]
+- [[technical-debt|Technical Debt]]
 
 ### Version Control
 
@@ -33,7 +39,10 @@ Software engineering is where computer science meets craft - the discipline of t
 
 ### DevOps & Deployment
 
-Coming soon - CI/CD pipelines, containerization, and observability. The language-and-tooling half of this area lives in the [[cs/languages/common/index|Languages: Common Concerns]] cluster: [[cs/languages/common/build-systems-and-dependency-management|build systems and dependency management]] and [[cs/languages/common/declarative-models-and-idempotence|declarative configuration and idempotence]]. This section keeps the pipeline-and-platform half.
+- [[continuous-integration|Continuous Integration]]
+- [[semantic-versioning|Semantic Versioning]]
+
+More coming - containerization and observability. The language-and-tooling half of this area lives in the [[cs/languages/common/index|Languages: Common Concerns]] cluster: [[cs/languages/common/build-systems-and-dependency-management|build systems and dependency management]] and [[cs/languages/common/declarative-models-and-idempotence|declarative configuration and idempotence]]. This section keeps the pipeline-and-platform half.
 
 ---
 
