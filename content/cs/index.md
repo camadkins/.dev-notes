@@ -9,7 +9,7 @@ permalink: /cs/
 aliases:
   - Computer Science
 date: 2025-10-16
-updated: 2026-06-20
+updated: 2026-07-26
 ---
 
 The top-level map for the CS notes. Each area below has its own index that lays out how its topics fit together. Pick one and drill in, or use the sidebar and graph view to browse directly.
@@ -31,6 +31,15 @@ The top-level map for the CS notes. Each area below has its own index that lays 
 - [[cs/systems/index|Systems]] - operating systems, networks, and how machines actually run programs.
 - [[cs/software-engineering/index|Software Engineering]] - building and maintaining software that lasts.
 - [[cs/languages/index|Languages]] - a comparative layer on the concerns every real language must answer, across Rust, C++, Python, and Ansible.
+
+### Security and networking
+
+- [[cs/security/index|Security]] - cryptography, attacks, defenses, and the systems that hold under adversarial pressure.
+- [[cs/networking/index|Networking]] - how packets, protocols, and routing carry data between machines.
+
+### Resources
+
+- [[cs/resources/index|Resources]] - vetted free and open books, courses, papers, code, and talks behind these notes.
 
 ### History and context
 
