@@ -22,6 +22,11 @@ Python-specific study collects here.
 - [[cs/languages/Python/decorators|Decorators]] - `@` as a rebinding rule, `functools.wraps`, and decorators that take arguments
 - [[cs/languages/Python/context-managers-and-with|Context Managers and the with Statement]] - the exact expansion of `with`, and `__exit__` as an exception switch
 - [[cs/languages/Python/the-gil-and-python-concurrency|The GIL and Python Concurrency]] - what the lock protects, why it was hard to remove, and choosing threads, processes, or asyncio
+- [[cs/languages/Python/iterators-vs-iterables-and-the-sequence-protocol|Iterators vs Iterables and the Sequence Protocol]] - the two protocols, the `__getitem__` fallback, and what `iter()` really accepts
+- [[cs/languages/Python/comprehensions-and-generator-expressions|Comprehensions and Generator Expressions]] - displays, the implicitly nested scope, and when laziness is the right call
+- [[cs/languages/Python/type-hints-and-gradual-typing|Type Hints and Gradual Typing]] - annotations as a side channel the runtime records and never checks
+- [[cs/languages/Python/dataclasses-and-attrs-style-classes|Dataclasses and attrs-Style Classes]] - generated methods, `field()` options, and the mutable-default trap
+- [[cs/languages/Python/the-import-system|The Import System]] - the `sys.modules` cache, `sys.path`, and what happens on first import
 
 ### Read through the comparative notes
 
