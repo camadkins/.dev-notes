@@ -11,7 +11,6 @@ date: 2026-07-23
 updated:
 aliases:
   - Linear Regression
-  - Logistic Regression
   - Softmax Regression
 ---
 

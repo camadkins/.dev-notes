@@ -18,6 +18,8 @@ Software engineering is where computer science meets craft - the discipline of t
 
 - [[design-patterns|Design Patterns]]
 - [[api-design|API Design]]
+- [[solid-principles|SOLID Principles]] - the five principles, what each actually prevents, and the common misreadings
+- [[coupling-and-cohesion|Coupling and Cohesion]] - the two forces behind every modularity argument
 
 ### Architecture & Patterns
 
@@ -40,9 +42,15 @@ Software engineering is where computer science meets craft - the discipline of t
 ### DevOps & Deployment
 
 - [[continuous-integration|Continuous Integration]]
+- [[continuous-delivery-and-deployment|Continuous Delivery and Deployment]] - the pipeline past CI, and blue-green against canary
 - [[semantic-versioning|Semantic Versioning]]
 
-More coming - containerization and observability. The language-and-tooling half of this area lives in the [[cs/languages/common/index|Languages: Common Concerns]] cluster: [[cs/languages/common/build-systems-and-dependency-management|build systems and dependency management]] and [[cs/languages/common/declarative-models-and-idempotence|declarative configuration and idempotence]]. This section keeps the pipeline-and-platform half.
+### Running Systems in Production
+
+- [[observability-logging-metrics-tracing|Observability: Logging, Metrics, Tracing]] - the three signals, and how observability differs from monitoring
+- [[incident-postmortems-and-blameless-culture|Incident Postmortems and Blameless Culture]] - why blame suppresses the information you need most
+
+More coming - containerization. The language-and-tooling half of this area lives in the [[cs/languages/common/index|Languages: Common Concerns]] cluster: [[cs/languages/common/build-systems-and-dependency-management|build systems and dependency management]] and [[cs/languages/common/declarative-models-and-idempotence|declarative configuration and idempotence]]. This section keeps the pipeline-and-platform half.
 
 ---
 

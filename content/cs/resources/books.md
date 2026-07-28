@@ -10,7 +10,7 @@ tags:
 date: 2026-07-26
 updated:
 aliases:
-  - Books
+  - Resource Books
 ---
 
 Free and open texts that notes in this garden actually cite. Every entry below is here because at least one note draws on it, and the "cited by" links are the back-links to those notes. Nothing is listed on reputation alone. Each title and author line was read off the publisher's own page.

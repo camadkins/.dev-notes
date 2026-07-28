@@ -18,7 +18,7 @@ aliases:
 
 Earning your dolphins means learning the whole boat, every system and every valve, until the crew can trust you with their lives, and then standing a board that can still fail you. Only once that is done do you get to sit in the lounge and watch a movie. So that is what this is: the Dolphin Lounge, films and shows watched by someone who earned the right to sit down, and held to the same standard. What holds up. What teaches something. What was worth the time.
 
-Takes, the lesson where there is one, and the threads that run back into the rest of [[cs/index|the garden]]. Notes start as a seed and grow on a rewatch. How a note here is logged lives in [[dolphin-lounge|the meta entry]].
+Takes, the lesson where there is one, and the threads that run back into the rest of [[cs/index|the garden]]. Notes start as a seed and grow on a rewatch. How a note here is logged lives in [[meta/dolphin-lounge|the meta entry]].
 
 ### Currently watching
 

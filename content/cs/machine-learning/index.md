@@ -13,7 +13,7 @@ aliases:
   - ML
 ---
 
-The fundamentals of machine learning, built from the University of Nebraska CSCE 479/879 course. This section is the roots. It covers what learning from data means, the paradigms, and the training and evaluation machinery that every model shares, from a linear regression to a deep network. The [[deep-learning|deep learning]] section grows out of these ideas, and each note there links back to the fundamental it depends on.
+The fundamentals of machine learning, built from the University of Nebraska CSCE 479/879 course. This section is the roots. It covers what learning from data means, the paradigms, and the training and evaluation machinery that every model shares, from a linear regression to a deep network. The [[cs/deep-learning/index|deep learning]] section grows out of these ideas, and each note there links back to the fundamental it depends on.
 
 ### Start here
 
@@ -29,7 +29,11 @@ The fundamentals of machine learning, built from the University of Nebraska CSCE
 ### The models
 
 - [[regression|Regression: Linear, Logistic, and Softmax]] - the weighted-sum model in three forms, and the output layer of a neural network.
+- [[logistic-regression|Logistic Regression]] - the log-odds model in depth, and why it is a regression that people use as a classifier.
 - [[decision-trees-and-ensembles|Decision Trees and Ensembles]] - rule-based models, and the random forests and gradient boosting that win on tabular data.
+- [[support-vector-machines|Support Vector Machines]] - the maximum-margin hyperplane, and the kernel trick.
+- [[k-nearest-neighbors|k-Nearest Neighbors]] - the model that stores the training set instead of summarizing it.
+- [[k-means-clustering|k-Means Clustering]] - Lloyd's alternation, and why initialization decides the answer.
 - [[pca-and-dimensionality-reduction|PCA and Dimensionality Reduction]] - the unsupervised workhorse, and the linear ancestor of the autoencoder.
 
 ### Training and evaluation
@@ -37,6 +41,7 @@ The fundamentals of machine learning, built from the University of Nebraska CSCE
 - [[loss-functions|Loss Functions]] - how wrong an answer is.
 - [[gradient-descent|Gradient Descent]] - how a model reduces its loss.
 - [[bias-variance-tradeoff|Bias-Variance Tradeoff]] - overfitting, underfitting, and the sweet spot between them.
+- [[regularization-ridge-and-lasso|Regularization: Ridge and Lasso]] - the L2 and L1 penalties, and why only one of them zeroes coefficients out.
 - [[train-validation-test|Train, Validation, Test]] - measuring performance honestly and avoiding leakage.
 - [[evaluation-metrics|Evaluation Metrics]] - beyond accuracy: precision, recall, and ROC-AUC.
 

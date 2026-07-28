@@ -32,7 +32,13 @@ Deep learning, built from the University of Nebraska CSCE 479/879 course. Where 
 
 - [[recurrent-neural-networks|Recurrent Neural Networks]] - networks with state over sequences, and LSTM/GRU.
 - [[embeddings|Embeddings]] - learned dense vectors whose geometry encodes meaning.
+- [[tokenization-and-subword-units|Tokenization and Subword Units]] - how text becomes the integers a model actually sees, and what BPE buys.
 - [[attention-and-transformers|Attention and Transformers]] - every position attends to every other, no recurrence, the architecture behind large language models.
+- [[self-supervised-learning-and-pretraining|Self-Supervised Learning and Pretraining]] - inventing labels from unlabeled data, and the pretrain-then-finetune pattern.
+
+### Graphs
+
+- [[graph-neural-networks|Graph Neural Networks]] - message passing over graph structure, and permutation invariance.
 
 ### Generative models
 
@@ -48,10 +54,16 @@ Deep learning, built from the University of Nebraska CSCE 479/879 course. Where 
 ### Training deep networks
 
 - [[vanishing-and-exploding-gradients|Vanishing and Exploding Gradients]] - why depth stalled training, and the initialization and normalization that fixed it.
+- [[weight-initialization|Weight Initialization]] - the variance-preserving argument behind Xavier and He.
+- [[normalization-batch-and-layer|Normalization: Batch and Layer]] - what each normalizes over, and why transformers reach for layer norm.
 - [[faster-optimizers-and-learning-rate-scheduling|Faster Optimizers and Learning Rate Scheduling]] - momentum through Adam, and scheduling the learning rate they share.
 - [[transfer-learning|Transfer Learning and Reusing Pretrained Layers]] - reuse a pretrained network instead of training from scratch.
 - [[regularization-in-deep-learning|Regularization in Deep Learning]] - dropout, batch norm, weight decay, early stopping.
 - [[meta-learning|Meta-Learning]] - learning to learn across tasks.
+
+### Reading notes
+
+- [[geron-catchup-ch-1-4-10|Géron Catch-Up: Chapters 1, 4, 10]] - the through-line across Hands-On ML chapters 1, 4, and 10.
 
 ### Connects to
 

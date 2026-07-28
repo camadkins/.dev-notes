@@ -17,16 +17,29 @@ Systems is the study of how software meets hardware - how processes get schedule
 
 - [[processes-and-threads|Processes & Threads]] - execution units, context switching, scheduling
 - [[file-systems|File Systems]] - inodes, journaling, B-tree indexes
+- [[process-scheduling-algorithms|Process Scheduling Algorithms]] - how the scheduler decides who runs next
+- [[context-switching|Context Switching]] - saving and restoring execution state, and what it costs
+- [[system-calls-and-the-kernel-boundary|System Calls and the Kernel Boundary]] - the controlled crossing into privileged code
+- [[interrupts-and-traps|Interrupts and Traps]] - how hardware and software force the kernel's attention
 
 ### Memory & Storage
 
 - [[virtual-memory|Virtual Memory]] - address spaces, paging, TLB
 - [[file-systems|File Systems]] - on-disk layout and reliability
+- [[memory-hierarchy-and-caching|Memory Hierarchy and Caching]] - the latency pyramid and why locality decides performance
+- [[cache-coherence|Cache Coherence]] - keeping per-core caches agreeing on shared memory
 
 ### Concurrency & Parallelism
 
 - [[processes-and-threads|Processes & Threads]] - OS-level concurrency primitives
 - [[concurrency-models-threads-locks-and-actors|Concurrency Models]] - threads, locks, actors, and beyond
+- [[concurrency-primitives|Concurrency Primitives]] - mutexes, semaphores, condition variables
+- [[deadlock|Deadlock]] - the four conditions, and prevention against detection
+- [[inter-process-communication|Inter-Process Communication]] - pipes, message queues, shared memory
+
+### Virtualization
+
+- [[virtualization-vms-and-containers|Virtualization, VMs, and Containers]] - two different things people call the same word
 
 ### Networking
 

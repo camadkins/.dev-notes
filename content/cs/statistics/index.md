@@ -33,8 +33,13 @@ Statistics provides the mathematical framework for reasoning under uncertainty. 
 ### Statistical Inference
 
 - [[central-limit-theorem|Central Limit Theorem]] - why sample averages converge to normality
+- [[law-of-large-numbers|Law of Large Numbers]] - why the sample mean converges at all, and how that differs from the CLT
+- [[sampling-and-sampling-distributions|Sampling and Sampling Distributions]] - the distribution of a statistic, and standard error
 - [[hypothesis-testing|Hypothesis Testing]] - null and alternative hypotheses, p-values, significance levels, Type I/II errors, and power
+- [[confidence-intervals|Confidence Intervals]] - interval estimation, and what the coverage claim does not say
+- [[t-distribution-and-t-tests|The t-Distribution and t-Tests]] - heavier tails, degrees of freedom, and the one-sample, two-sample, and paired tests
 - [[maximum-likelihood-estimation|Maximum Likelihood Estimation]] - choosing parameters that make observed data most probable
+- [[bootstrap-and-resampling|Bootstrap and Resampling]] - estimating a sampling distribution by resampling the data you already have
 
 ### Regression & Modeling
 

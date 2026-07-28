@@ -9,7 +9,6 @@ tags:
 date: 2026-01-17
 updated:
 aliases:
-  - Boolean algebra
   - George Boole
 ---
 
