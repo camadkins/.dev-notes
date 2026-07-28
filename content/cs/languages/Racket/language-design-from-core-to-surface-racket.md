@@ -32,5 +32,7 @@ Programs are **expanded** (desugared) before evaluation.
 - Reasoning about programs happens at the **core** level; surfaces are convenience layers.
 
 **See also**
-- [[lambda-calculus-evaluation-strategies|Lambda Calculus - Evaluation Strategies]]
-- [[cs/languages/racket/index|Racket]]
+- [[cs/pl/lambda-calculus-evaluation-strategies|Lambda Calculus - Evaluation Strategies]]
+- [[cs/languages/Racket/index|Racket]]
+- [[cs/languages/Racket/s-expressions-and-evaluation|S-Expressions and Evaluation]]
+- [[cs/languages/Racket/hygienic-macros-and-syntax-rules|Hygienic Macros and syntax-rules]]
