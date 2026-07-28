@@ -25,6 +25,17 @@ Rust-specific study collects here.
 
 - [[cs/languages/Rust/traits-and-generic-bounds|Traits and Generic Bounds]] - bounds as a compile-time contract, the orphan rule, and static versus dynamic dispatch
 - [[cs/languages/Rust/error-handling-result-and-question-mark|Error Handling: Result, Option, and ?]] - failure in the return type, what `?` desugars to, and when to panic instead
+- [[cs/languages/Rust/pattern-matching-and-enums|Pattern Matching and Enums]] - exhaustiveness as a compile error, refutability, and the binding modes that insert `ref` for you
+
+### Abstraction without cost
+
+- [[cs/languages/Rust/iterators-and-adapters|Iterators and Adapters]] - one required method, lazy adapters, and the benchmark behind the zero-cost claim
+- [[cs/languages/Rust/closures-fn-fnmut-fnonce|Closures: Fn, FnMut, and FnOnce]] - the three call traits, the four capture modes, and why `move` does not pick the trait
+
+### Concurrency and the unsafe boundary
+
+- [[cs/languages/Rust/send-sync-and-fearless-concurrency|Send, Sync, and Fearless Concurrency]] - two marker traits, auto-derivation through composition, and the data race they exclude
+- [[cs/languages/Rust/unsafe-rust-and-its-contract|Unsafe Rust and Its Contract]] - the five superpowers, proof obligations created and discharged, and what Miri proves
 
 ### Read from the comparative layer
 
