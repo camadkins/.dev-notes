@@ -62,7 +62,7 @@ The smallest language that can compute anything, and the substrate most semantic
 - [[subtyping-variance-type-constraints|Subtyping and Variance]] - when one type may stand in for another
 - [[records-variants-and-pattern-matching|Records, Variants, Pattern Matching]] - product and sum types, and how you take them apart
 - [[type-classes-and-traits|Type Classes and Traits]] - ad-hoc polymorphism and dictionary passing
-- [[ownership-and-linear-types|Ownership and Linear Types]] - types that count uses, not just shapes
+- [[ownership-and-linear-types|Ownership and Linear Types]] - types that constrain how many times a value may be used
 
 ### Abstraction and program structure
 
