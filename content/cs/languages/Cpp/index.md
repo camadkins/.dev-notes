@@ -24,6 +24,14 @@ C++-specific study collects here.
 - [[cs/languages/Cpp/smart-pointers|Smart Pointers in C++]] - `unique_ptr`, `shared_ptr`, `weak_ptr`, the control block, and the cycle leak
 - [[cs/languages/Cpp/the-rule-of-zero-three-five|The Rule of Zero, Three, and Five]] - the special member functions as a matched set
 - [[cs/languages/Cpp/templates-and-generic-programming|Templates and Generic Programming]] - instantiation as code generation, and C++20 concepts
+- [[cs/languages/Cpp/const-correctness|Const Correctness]] - cv-qualifiers, const member functions, `mutable`, and why constness is not transitive
+- [[cs/languages/Cpp/lambdas-and-captures|Lambdas and Captures]] - the closure type as a class, capture by copy and reference, and the `[=]` trap
+
+### The standard library
+
+- [[cs/languages/Cpp/stl-containers|STL Containers]] - the three categories, the invalidation contracts, and choosing between them
+- [[cs/languages/Cpp/iterators-and-ranges|Iterators and Ranges]] - iterator categories, the half-open range, and what C++20 sentinels changed
+- [[cs/languages/Cpp/stl-algorithms|STL Algorithms]] - the algorithm/container seam, and the names worth knowing
 
 ### Cross-cutting
 
