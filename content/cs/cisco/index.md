@@ -34,6 +34,14 @@ The protocol theory underneath all of this lives in [[cs/networking/index|Networ
 - [[portfast-and-bpdu-guard|PortFast and BPDU Guard]] - skipping listening and learning on access ports, and the guard that must come with it
 - [[etherchannel-and-lacp|EtherChannel and LACP]] - bundling links, LACP against PAgP and static, and how traffic is distributed
 
+### Routing
+
+- [[static-routing-and-administrative-distance|Static Routing and Administrative Distance]] - next-hop against exit-interface, floating statics, and AD as the tie-breaker between sources
+- [[ospf-fundamentals|OSPF Fundamentals]] - link-state operation, areas, LSA types, and DR/BDR election on multiaccess segments
+- [[eigrp-fundamentals|EIGRP Fundamentals]] - DUAL, successors and feasible successors, and the feasibility condition
+- [[bgp-fundamentals|BGP Fundamentals]] - path vector, eBGP against iBGP, and why BGP is a policy protocol rather than a shortest-path one
+- [[hsrp-vrrp-and-first-hop-redundancy|HSRP, VRRP, and First-Hop Redundancy]] - the default-gateway single point of failure, virtual IP and MAC, and preemption
+
 ### ASA and firewalling
 
 Every command in this cluster comes from the ASA 9.17 configuration guides. Check your own version before applying any of it.
