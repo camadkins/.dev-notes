@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 260" fill="none" role="img" aria-label="Rc of RefCell of T shown as three nested layers: the outer Rc holds the strong count and permits many owners with read-only access, the inner RefCell holds a runtime borrow count and hands out Ref or RefMut, and the innermost layer is the value T.">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .box      { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .box-final{ fill: rgba(30,55,40,0.6);  stroke: #84a59d; stroke-width: 1.5; }
+    .edge     { stroke: #93a3b8; stroke-width: 1.4; }
+    .node     { fill: #58a6ff; }
+    .t        { fill: #e8e8e8; font-size: 13px; }
+    .ttl      { fill: #e8e8e8; font-size: 14px; }
+    .anno     { fill: #d29922; font-size: 12px; }
+    .desc     { fill: #8b949e; font-size: 12px; }
+  </style>
+
+  <rect class="box" x="16" y="34" width="608" height="196" rx="6"/>
+  <text class="ttl" x="34" y="58">Rc&lt;T&gt;</text>
+  <text class="desc" x="34" y="78">strong_count, many owners, read-only</text>
+  <text class="anno" x="34" y="98">checked at compile time</text>
+
+  <rect class="box" x="200" y="80" width="408" height="134" rx="6"/>
+  <text class="ttl" x="218" y="104">RefCell&lt;T&gt;</text>
+  <text class="desc" x="218" y="124">borrow() -&gt; Ref, borrow_mut() -&gt; RefMut</text>
+  <text class="anno" x="218" y="144">checked at run time, panics on violation</text>
+
+  <rect class="box-final" x="416" y="126" width="176" height="70" rx="6"/>
+  <text class="ttl" x="434" y="152">T</text>
+  <text class="desc" x="434" y="176">the value, mutable</text>
+
+  <circle class="node" cx="26" cy="14" r="4"/>
+  <circle class="node" cx="56" cy="14" r="4"/>
+  <circle class="node" cx="86" cy="14" r="4"/>
+  <path class="edge" d="M26 18 L26 34 M56 18 L56 34 M86 18 L86 34"/>
+  <text class="desc" x="104" y="18">three owners, one value</text>
+</svg>
