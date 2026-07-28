@@ -24,10 +24,25 @@ def fetch_text(url):
     key = hashlib.sha1(url.encode()).hexdigest()[:16]
     raw = CACHE / f"{key}.bin"
     if not raw.exists():
-        subprocess.run(["curl", "-sL", "--max-time", "60", "-A",
-                        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
-                        url, "-o", str(raw)], capture_output=True, timeout=90)
+        # Use the full Chrome header set. Cisco's Akamai edge blocks on TLS/header
+        # fingerprint, and a plain -A UA gets a 455-byte Access Denied stub.
+        cget = pathlib.Path.home() / "Desktop/dev-notes/.garden/cget.sh"
+        if cget.exists():
+            subprocess.run(["bash", str(cget), url, str(raw)],
+                           capture_output=True, timeout=120)
+        if not raw.exists() or raw.stat().st_size == 0:
+            subprocess.run(["curl", "-sL", "--max-time", "60", "-A",
+                            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
+                            url, "-o", str(raw)], capture_output=True, timeout=90)
     if not raw.exists() or raw.stat().st_size == 0:
+        cache[url] = ""
+        return ""
+    # NEVER cache a block page as content. A silently cached Access Denied stub makes
+    # every claim against that URL look unverifiable, or worse, would let a future
+    # looser matcher "confirm" against boilerplate. Treat it as a fetch failure.
+    probe = raw.open("rb").read(4000)
+    if b"Access Denied" in probe or b"errors.edgesuite.net" in probe:
+        raw.unlink(missing_ok=True)
         cache[url] = ""
         return ""
     head = raw.open("rb").read(5)
