@@ -26,6 +26,14 @@ The protocol theory underneath all of this lives in [[cs/networking/index|Networ
 - [[console-ssh-and-device-access|Console, SSH, and Device Access]] - console against VTY lines, enabling SSH correctly, and refusing Telnet
 - [[tacacs-vs-radius|TACACS+ vs RADIUS]] - what each protocol actually protects on the wire, TCP against UDP, and command authorization
 
+### Switching
+
+- [[vlans-and-vlan-design|VLANs and VLAN Design]] - the broadcast domain as the unit of segmentation, access ports, and the management VLAN
+- [[trunking-and-802-1q|Trunking and 802.1Q]] - carrying many VLANs on one link, the tag, and the native-VLAN mismatch that bites
+- [[spanning-tree-protocol|Spanning Tree Protocol]] - why a switched loop is catastrophic, root election, port states, and RSTP convergence
+- [[portfast-and-bpdu-guard|PortFast and BPDU Guard]] - skipping listening and learning on access ports, and the guard that must come with it
+- [[etherchannel-and-lacp|EtherChannel and LACP]] - bundling links, LACP against PAgP and static, and how traffic is distributed
+
 ---
 
 *The full file listing follows below, generated automatically by Quartz.*
