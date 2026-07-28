@@ -34,6 +34,10 @@ Learning Center, official docs, university course pages, canonical open-source r
 ## Sidecar: .garden/claims/<slug>.json per note
 {"slug":"...","claims":[{"claim":"<load-bearing sentence>","url":"<source it rests on>","quote":"<verbatim span copied from the fetched document>"}]}
 
+ONE CLAIM PER QUOTE. If a sentence asserts two things (a statistic AND a list of companies; a definition AND a date), SPLIT it into
+two entries, each with the quote that licenses that part. A compound claim logged against a quote covering only one conjunct passes
+the verifier on partial evidence, which is the one failure the automated check cannot catch.
+
 ## Diagram (optional)
 Only where it genuinely clarifies ONE concept: a palette-matched SVG per Palette.md in content/cs/<section>/assets/,
 IBM Plex Mono, stroke #58a6ff, never currentColor. Otherwise none.
