@@ -37,6 +37,21 @@ Systems is the study of how software meets hardware - how processes get schedule
 - [[deadlock|Deadlock]] - the four conditions, and prevention against detection
 - [[inter-process-communication|Inter-Process Communication]] - pipes, message queues, shared memory
 
+### Kernel design
+
+- [[kernel-architectures-monolithic-and-microkernel|Kernel Architectures]] - monolithic against microkernel, what moves to user space, and the isolation/performance trade
+- [[io-devices-and-drivers|I/O Devices and Drivers]] - how the kernel talks to hardware, and polling against interrupts against DMA
+
+### Memory management
+
+- [[memory-allocators-and-fragmentation|Memory Allocators and Fragmentation]] - how allocators work, and internal against external fragmentation
+- [[page-replacement-algorithms|Page Replacement Algorithms]] - FIFO, LRU, clock, optimal as a bound, and Bélády's anomaly
+- [[numa-and-multiprocessor-memory|NUMA and Multiprocessor Memory]] - non-uniform access, locality across sockets, and the scheduling consequence
+
+### Storage
+
+- [[raid-and-storage-redundancy|RAID and Storage Redundancy]] - the standard levels, what each trades, and why RAID is not a backup
+
 ### Virtualization
 
 - [[virtualization-vms-and-containers|Virtualization, VMs, and Containers]] - two different things people call the same word

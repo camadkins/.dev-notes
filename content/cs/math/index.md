@@ -32,6 +32,7 @@ Vectors, matrices, and transformations that power graphics, machine learning, an
 - [[vectors-and-dot-products|Vectors and Dot Products]] - vectors as magnitude and direction, and what the dot product measures
 - [[matrices-and-linear-transformations|Matrices and Linear Transformations]] - a matrix as a map between spaces, rank, and composition
 - [[eigenvalues-and-eigenvectors|Eigenvalues and Eigenvectors]] - the directions a transformation only stretches
+- [[singular-value-decomposition|Singular Value Decomposition]] - rotate, scale, rotate, and the optimal low-rank approximation
 
 ### Calculus
 
@@ -39,6 +40,18 @@ Continuous mathematics for analysis of algorithms, probability distributions, an
 
 - [[limits-and-continuity|Limits and Continuity]] - the limit as the foundation, and what continuity actually requires
 - [[derivatives-and-gradients|Derivatives and Gradients]] - instantaneous rate of change, and the gradient as the direction of steepest ascent
+- [[integrals-and-the-fundamental-theorem|Integrals and the Fundamental Theorem]] - the integral as accumulation, and the theorem tying it to differentiation
+- [[sequences-and-series|Sequences and Series]] - convergence, geometric closed forms, and the sums that show up in algorithm analysis
+- [[taylor-series-and-approximation|Taylor Series and Approximation]] - approximating a function by a polynomial built from its derivatives, and the remainder as an engineering contract
+
+### Growth and scale
+
+- [[logarithms-and-exponentials|Logarithms and Exponentials]] - the inverse pair, change of base, and why the base vanishes from complexity results
+
+### Optimization
+
+- [[convexity-and-optimization-basics|Convexity and Optimization Basics]] - convex sets and functions, and why convexity makes a local minimum global
+- [[linear-programming-and-duality|Linear Programming and Duality]] - the feasible region as a polytope, simplex against interior-point, and what duality buys
 
 ### Number Theory
 
