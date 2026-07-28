@@ -34,6 +34,16 @@ The protocol theory underneath all of this lives in [[cs/networking/index|Networ
 - [[portfast-and-bpdu-guard|PortFast and BPDU Guard]] - skipping listening and learning on access ports, and the guard that must come with it
 - [[etherchannel-and-lacp|EtherChannel and LACP]] - bundling links, LACP against PAgP and static, and how traffic is distributed
 
+### ASA and firewalling
+
+Every command in this cluster comes from the ASA 9.17 configuration guides. Check your own version before applying any of it.
+
+- [[asa-security-levels|ASA Security Levels]] - the security-level model and the default inter-interface behavior it implies
+- [[asa-access-rules-and-acls|ASA Access Rules and ACLs]] - access rules, how they interact with security levels, and rule order
+- [[asa-nat|ASA NAT]] - object NAT against twice NAT, the ordering of the NAT table, and how NAT meets access rules
+- [[asa-modular-policy-framework|ASA Modular Policy Framework]] - class maps, policy maps, and service policies
+- [[asa-failover|ASA Failover]] - active/standby against active/active, what state replicates, and the failover link
+
 ---
 
 *The full file listing follows below, generated automatically by Quartz.*
