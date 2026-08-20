@@ -7,6 +7,8 @@ tags:
   - cs
   - security
   - serialization
+date: 2026-07-25
+updated:
 ---
 
 Serialization looks like plumbing. You flatten an object into bytes to store or send it, and later you rebuild it. The rebuild is where the danger hides, because rebuilding is not a passive copy. In many languages, reconstructing an object runs code: constructors, callbacks, hooks that fire as the object comes back to life. If the attacker controls the bytes, the attacker controls which objects get built and, through those hooks, what runs while they are built. No injected script is required. The serialized stream is the payload.

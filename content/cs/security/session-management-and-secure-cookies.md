@@ -7,6 +7,8 @@ tags:
   - cs
   - security
   - web
+date: 2026-07-25
+updated:
 ---
 
 Log in once and you stay logged in for the rest of your visit, across dozens of independent requests. That continuity is an illusion the server has to manufacture, because the protocol underneath has no memory. The way it manufactures it is a small secret handed to your browser and presented on every subsequent request. Everything about session security follows from one uncomfortable fact about that secret: while it is valid, holding it is as good as knowing your password.

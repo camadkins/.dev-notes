@@ -7,6 +7,8 @@ tags:
   - cs
   - security
   - web
+date: 2026-07-25
+updated:
 ---
 
 Every [[cross-site-scripting-xss|cross-site scripting]] defense on the server side is a bet that you found and neutralized every injection point. Real applications lose that bet eventually, because the attack surface is large and one missed output context is enough. Content Security Policy accepts that premise and adds a second gate the attacker cannot see or touch: even if malicious script reaches the page, the browser decides whether to run it, according to rules the server declared in advance.
