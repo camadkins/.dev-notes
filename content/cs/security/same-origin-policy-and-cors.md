@@ -7,6 +7,8 @@ tags:
   - cs
   - security
   - web
+date: 2026-07-25
+updated:
 ---
 
 The browser holds two things at once: your logged-in session at your bank, and a tab open to some random site. Nothing stops that random site's JavaScript from making a request to your bank, and the browser will attach your bank cookie when it does. The only reason the random site cannot then read your balance is a single rule baked into the browser. That rule is the same-origin policy, and understanding it as a *default deny* is the key to understanding CORS, which is nothing more than the controlled way to say "except here."

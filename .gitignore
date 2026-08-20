@@ -9,6 +9,7 @@ tsconfig.tsbuildinfo
 private/
 .replit
 replit.nix
-*.local.md
-.claude
+.quartz/
+quartz/cli/tui/dist/
+.turbo/
 .garden
