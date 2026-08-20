@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -10 955 300" fill="none">
+  <style>
+    text { font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .phase-label { font-size: 12px; fill: #7b97aa; font-weight: 700; text-anchor: middle; }
+    .internal { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 2; }
+    .leaf { fill: rgba(30,40,55,0.95); stroke: #3fb950; stroke-width: 2; }
+    .leaf-new { fill: rgba(30,40,55,0.95); stroke: #3fb950; stroke-width: 2; stroke-dasharray: 5 3; }
+    .leaf-overflow { fill: rgba(60,20,20,0.6); stroke: #f85149; stroke-width: 2.5; }
+    .node-text { font-size: 11px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+    .key-sep { stroke: #58a6ff; stroke-width: 1; opacity: 0.4; }
+    .key-sep-leaf { stroke: #3fb950; stroke-width: 1; opacity: 0.4; }
+    .key-sep-overflow { stroke: #f85149; stroke-width: 1; opacity: 0.4; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; }
+    .edge-gold { stroke: #d29922; stroke-width: 2; }
+    .next-ptr { stroke: #d29922; stroke-width: 2; }
+    .next-arrow { fill: #d29922; }
+    .anno { font-size: 11px; fill: #d29922; font-weight: 600; }
+    .anno-red { font-size: 11px; fill: #f85149; font-weight: 600; }
+    .caption { font-size: 10px; fill: #8b949e; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    .step-arrow { stroke: #7b97aa; stroke-width: 1.5; fill: none; }
+    .step-head { fill: #7b97aa; }
+    .step-label { font-size: 11px; fill: #7b97aa; text-anchor: middle; font-style: italic; }
+
+    @media (prefers-color-scheme: light) {
+      .phase-label { fill: #284b63; }
+      .internal { fill: #1a1a2e; stroke: #284b63; }
+      .leaf { fill: #1a1a2e; stroke: #1a7f37; }
+      .leaf-new { fill: #1a1a2e; stroke: #1a7f37; }
+      .leaf-overflow { fill: rgba(180,40,40,0.15); stroke: #cf222e; }
+      .edge { stroke: #b8b8b8; }
+      .edge-gold { stroke: #9e6000; }
+      .next-ptr { stroke: #9e6000; }
+      .next-arrow { fill: #9e6000; }
+      .anno { fill: #9e6000; }
+      .anno-red { fill: #cf222e; }
+      .caption { fill: #6e7781; }
+      .sep { stroke: #e5e5e5; }
+      .step-arrow { stroke: #6e7781; }
+      .step-head { fill: #6e7781; }
+      .step-label { fill: #6e7781; }
+    }
+  </style>
+
+  <!-- Separators -->
+  <line x1="295" y1="5" x2="295" y2="222" class="sep"/>
+  <line x1="620" y1="5" x2="620" y2="222" class="sep"/>
+
+  <!-- Transition arrows -->
+  <line x1="296" y1="122" x2="325" y2="122" class="step-arrow"/>
+  <polygon points="330,122 320,117 320,127" class="step-head"/>
+  <text x="312" y="110" class="step-label">insert 30</text>
+
+  <line x1="621" y1="122" x2="650" y2="122" class="step-arrow"/>
+  <polygon points="655,122 645,117 645,127" class="step-head"/>
+  <text x="637" y="110" class="step-label">split</text>
+
+  <!-- ============================================================ -->
+  <!-- STEP 1: BEFORE                                               -->
+  <!-- ============================================================ -->
+  <text x="148" y="30" class="phase-label">Before</text>
+
+  <!-- Root [10] at x=148 -->
+  <rect x="108" y="52" width="80" height="28" rx="4" class="internal"/>
+  <text x="148" y="66" class="node-text">10</text>
+
+  <!-- Edges -->
+  <line x1="128" y1="80" x2="75" y2="137" class="edge"/>
+  <line x1="168" y1="80" x2="220" y2="137" class="edge"/>
+
+  <!-- Leaf 1 [5,6] at x=75 -->
+  <rect x="20" y="137" width="110" height="30" rx="4" class="leaf"/>
+  <line x1="75" y1="137" x2="75" y2="167" class="key-sep-leaf"/>
+  <text x="47" y="152" class="node-text">5</text>
+  <text x="103" y="152" class="node-text">6</text>
+
+  <!-- Leaf 2 [10,12,20] at x=220 -->
+  <rect x="150" y="137" width="140" height="30" rx="4" class="leaf"/>
+  <line x1="197" y1="137" x2="197" y2="167" class="key-sep-leaf"/>
+  <line x1="243" y1="137" x2="243" y2="167" class="key-sep-leaf"/>
+  <text x="173" y="152" class="node-text">10</text>
+  <text x="220" y="152" class="node-text">12</text>
+  <text x="267" y="152" class="node-text">20</text>
+
+  <!-- Next ptr -->
+  <line x1="130" y1="152" x2="146" y2="152" class="next-ptr"/>
+  <polygon points="150,152 142,147 142,157" class="next-arrow"/>
+
+  <text x="148" y="187" class="caption" text-anchor="middle">Leaf at capacity (max 3 keys)</text>
+
+  <!-- ============================================================ -->
+  <!-- STEP 2: OVERFLOW                                             -->
+  <!-- ============================================================ -->
+  <text x="458" y="30" class="phase-label">Overflow</text>
+
+  <!-- Root [10] at x=458 -->
+  <rect x="418" y="52" width="80" height="28" rx="4" class="internal"/>
+  <text x="458" y="66" class="node-text">10</text>
+
+  <!-- Edges -->
+  <line x1="438" y1="80" x2="385" y2="137" class="edge"/>
+  <line x1="478" y1="80" x2="510" y2="137" class="edge"/>
+
+  <!-- Leaf 1 [5,6] -->
+  <rect x="330" y="137" width="110" height="30" rx="4" class="leaf"/>
+  <line x1="385" y1="137" x2="385" y2="167" class="key-sep-leaf"/>
+  <text x="357" y="152" class="node-text">5</text>
+  <text x="413" y="152" class="node-text">6</text>
+
+  <!-- Leaf 2 OVERFLOW [10,12,20,30] RED -->
+  <rect x="450" y="137" width="165" height="30" rx="4" class="leaf-overflow"/>
+  <line x1="491" y1="137" x2="491" y2="167" class="key-sep-overflow"/>
+  <line x1="533" y1="137" x2="533" y2="167" class="key-sep-overflow"/>
+  <line x1="574" y1="137" x2="574" y2="167" class="key-sep-overflow"/>
+  <text x="470" y="152" class="node-text">10</text>
+  <text x="512" y="152" class="node-text">12</text>
+  <text x="554" y="152" class="node-text">20</text>
+  <text x="595" y="152" class="node-text">30</text>
+
+  <!-- Next ptr -->
+  <line x1="440" y1="152" x2="446" y2="152" class="next-ptr"/>
+  <polygon points="450,152 442,147 442,157" class="next-arrow"/>
+
+  <text x="532" y="184" class="anno-red" text-anchor="middle">overflow! (4 keys &gt; max 3)</text>
+
+  <!-- ============================================================ -->
+  <!-- STEP 3: AFTER SPLIT                                          -->
+  <!-- ============================================================ -->
+  <text x="790" y="30" class="phase-label">After Split</text>
+
+  <!-- Root [10,20] at x=790 -->
+  <rect x="740" y="52" width="100" height="28" rx="4" class="internal"/>
+  <line x1="790" y1="52" x2="790" y2="80" class="key-sep"/>
+  <text x="765" y="66" class="node-text">10</text>
+  <text x="815" y="66" class="node-text">20</text>
+
+  <!-- Edges: 3 children, evenly spaced at x=700, 790, 880 -->
+  <!-- Left edge -->
+  <line x1="757" y1="80" x2="700" y2="137" class="edge"/>
+  <!-- Middle edge -->
+  <line x1="790" y1="80" x2="790" y2="137" class="edge"/>
+  <!-- Right edge — GOLD (this is the copy-separator edge) -->
+  <line x1="823" y1="80" x2="880" y2="137" class="edge-gold"/>
+  <text x="880" y="104" class="anno" text-anchor="middle">copy separator</text>
+  <text x="880" y="117" class="anno" text-anchor="middle">20 up</text>
+
+  <!-- Leaf 1 [5,6] centered at x=700, width=70 (same as others) -->
+  <rect x="665" y="137" width="70" height="30" rx="4" class="leaf"/>
+  <line x1="700" y1="137" x2="700" y2="167" class="key-sep-leaf"/>
+  <text x="682" y="152" class="node-text">5</text>
+  <text x="718" y="152" class="node-text">6</text>
+
+  <!-- Leaf 2 [10,12] centered at x=790, width=70 -->
+  <rect x="755" y="137" width="70" height="30" rx="4" class="leaf"/>
+  <line x1="790" y1="137" x2="790" y2="167" class="key-sep-leaf"/>
+  <text x="772" y="152" class="node-text">10</text>
+  <text x="808" y="152" class="node-text">12</text>
+
+  <!-- Leaf 3 [20,30] centered at x=880, width=70, dashed new leaf -->
+  <rect x="845" y="137" width="70" height="30" rx="4" class="leaf-new"/>
+  <line x1="880" y1="137" x2="880" y2="167" class="key-sep-leaf"/>
+  <text x="862" y="152" class="node-text">20</text>
+  <text x="898" y="152" class="node-text">30</text>
+  <text x="880" y="184" class="anno" text-anchor="middle">new leaf</text>
+
+  <!-- Next ptrs: 1→2→3 -->
+  <line x1="735" y1="152" x2="751" y2="152" class="next-ptr"/>
+  <polygon points="755,152 747,147 747,157" class="next-arrow"/>
+  <line x1="825" y1="152" x2="841" y2="152" class="next-ptr"/>
+  <polygon points="845,152 837,147 837,157" class="next-arrow"/>
+
+  <!-- ===== SINGLE-LINE CAPTION centered across full width ===== -->
+  <text x="470" y="230" class="caption" text-anchor="middle">Insert 30 → overflow [10,12,20,30] → split into [10,12] and [20,30] → copy separator 20 up to parent → parent becomes [10, 20]</text>
+  <text x="470" y="248" class="caption" text-anchor="middle" font-weight="600">Order 4: max 3 keys per node, max 4 children. Leaf overflow at 4 keys triggers split.</text>
+</svg>

@@ -1,0 +1,265 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 440" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .title { font-size: 13px; fill: #e8e8e8; font-weight: 700; text-anchor: middle; }
+    .slot { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.2; }
+    .slot-empty { fill: rgba(30,40,55,0.4); stroke: #30363d; stroke-width: 1; }
+    .slot-text { font-size: 10px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+    .slot-text-dim { font-size: 10px; fill: #484f58; text-anchor: middle; dominant-baseline: central; }
+    .anno { font-size: 10px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    .label { font-size: 9px; fill: #7b97aa; text-anchor: middle; dominant-baseline: central; }
+    .edge { stroke: #93a3b8; stroke-width: 1.2; }
+    .brace { stroke: #93a3b8; stroke-width: 1; fill: none; }
+    .bit { font-size: 10px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+    .bit-dim { font-size: 10px; fill: #484f58; text-anchor: middle; dominant-baseline: central; }
+    .accent { fill: #84a59d; }
+    .accent-stroke { stroke: #84a59d; stroke-width: 1.2; }
+    @media (prefers-color-scheme: light) {
+      .title { fill: #1a1a2e; }
+      .slot { fill: #1a1a2e; stroke: #284b63; }
+      .slot-empty { fill: rgba(26,26,46,0.15); stroke: #e5e5e5; }
+      .slot-text { fill: #e8e8e8; }
+      .slot-text-dim { fill: #b8b8b8; }
+      .anno { fill: #9e6000; }
+      .desc { fill: #6e7781; }
+      .sep { stroke: #e5e5e5; }
+      .label { fill: #6e7781; }
+      .edge { stroke: #b8b8b8; }
+      .brace { stroke: #b8b8b8; }
+      .bit { fill: #1a1a2e; }
+      .bit-dim { fill: #b8b8b8; }
+    }
+  </style>
+
+  <!-- Panel separators -->
+  <line class="sep" x1="293" y1="30" x2="293" y2="400"/>
+  <line class="sep" x1="587" y1="30" x2="587" y2="400"/>
+
+  <!-- ═══════════════ PANEL 1: Fixed Array ═══════════════ -->
+  <text class="title" x="147" y="50">Fixed Array</text>
+  <text class="desc" x="147" y="68">(e.g. 26 slots for a..z)</text>
+
+  <!-- Array of 26 slots, showing indices a-z. Populated: a(0), b(1), r(17) -->
+  <!-- Show 13 slots per row, 2 rows. Each slot 18x20, gap 2 -->
+  <!-- Row 1: a-m (indices 0-12) starting at x=22 -->
+  <!-- Row 2: n-z (indices 13-25) starting at x=22 -->
+
+  <!-- Row 1: slots a through m -->
+  <!-- slot a - POPULATED -->
+  <rect class="slot" x="22" y="100" width="18" height="22" rx="2"/>
+  <text class="slot-text" x="31" y="111">a</text>
+  <!-- slot b - POPULATED -->
+  <rect class="slot" x="42" y="100" width="18" height="22" rx="2"/>
+  <text class="slot-text" x="51" y="111">b</text>
+  <!-- slots c-m: EMPTY -->
+  <rect class="slot-empty" x="62" y="100" width="18" height="22" rx="2"/>
+  <text class="slot-text-dim" x="71" y="111">c</text>
+  <rect class="slot-empty" x="82" y="100" width="18" height="22" rx="2"/>
+  <text class="slot-text-dim" x="91" y="111">d</text>
+  <rect class="slot-empty" x="102" y="100" width="18" height="22" rx="2"/>
+  <text class="slot-text-dim" x="111" y="111">e</text>
+  <rect class="slot-empty" x="122" y="100" width="18" height="22" rx="2"/>
+  <text class="slot-text-dim" x="131" y="111">f</text>
+  <rect class="slot-empty" x="142" y="100" width="18" height="22" rx="2"/>
+  <text class="slot-text-dim" x="151" y="111">g</text>
+  <rect class="slot-empty" x="162" y="100" width="18" height="22" rx="2"/>
+  <text class="slot-text-dim" x="171" y="111">h</text>
+  <rect class="slot-empty" x="182" y="100" width="18" height="22" rx="2"/>
+  <text class="slot-text-dim" x="191" y="111">i</text>
+  <rect class="slot-empty" x="202" y="100" width="18" height="22" rx="2"/>
+  <text class="slot-text-dim" x="211" y="111">j</text>
+  <rect class="slot-empty" x="222" y="100" width="18" height="22" rx="2"/>
+  <text class="slot-text-dim" x="231" y="111">k</text>
+  <rect class="slot-empty" x="242" y="100" width="18" height="22" rx="2"/>
+  <text class="slot-text-dim" x="251" y="111">l</text>
+  <rect class="slot-empty" x="262" y="100" width="18" height="22" rx="2"/>
+  <text class="slot-text-dim" x="271" y="111">m</text>
+
+  <!-- Row 2: slots n-z -->
+  <rect class="slot-empty" x="22" y="128" width="18" height="22" rx="2"/>
+  <text class="slot-text-dim" x="31" y="139">n</text>
+  <rect class="slot-empty" x="42" y="128" width="18" height="22" rx="2"/>
+  <text class="slot-text-dim" x="51" y="139">o</text>
+  <rect class="slot-empty" x="62" y="128" width="18" height="22" rx="2"/>
+  <text class="slot-text-dim" x="71" y="139">p</text>
+  <rect class="slot-empty" x="82" y="128" width="18" height="22" rx="2"/>
+  <text class="slot-text-dim" x="91" y="139">q</text>
+  <!-- slot r - POPULATED -->
+  <rect class="slot" x="102" y="128" width="18" height="22" rx="2"/>
+  <text class="slot-text" x="111" y="139">r</text>
+  <!-- slots s-z: EMPTY -->
+  <rect class="slot-empty" x="122" y="128" width="18" height="22" rx="2"/>
+  <text class="slot-text-dim" x="131" y="139">s</text>
+  <rect class="slot-empty" x="142" y="128" width="18" height="22" rx="2"/>
+  <text class="slot-text-dim" x="151" y="139">t</text>
+  <rect class="slot-empty" x="162" y="128" width="18" height="22" rx="2"/>
+  <text class="slot-text-dim" x="171" y="139">u</text>
+  <rect class="slot-empty" x="182" y="128" width="18" height="22" rx="2"/>
+  <text class="slot-text-dim" x="191" y="139">v</text>
+  <rect class="slot-empty" x="202" y="128" width="18" height="22" rx="2"/>
+  <text class="slot-text-dim" x="211" y="139">w</text>
+  <rect class="slot-empty" x="222" y="128" width="18" height="22" rx="2"/>
+  <text class="slot-text-dim" x="231" y="139">x</text>
+  <rect class="slot-empty" x="242" y="128" width="18" height="22" rx="2"/>
+  <text class="slot-text-dim" x="251" y="139">y</text>
+  <rect class="slot-empty" x="262" y="128" width="18" height="22" rx="2"/>
+  <text class="slot-text-dim" x="271" y="139">z</text>
+
+  <!-- Highlight: 3 of 26 populated -->
+  <text class="anno" x="147" y="176">3 of 26 slots used</text>
+
+  <!-- Downward pointers from populated slots -->
+  <!-- Three child node circles below -->
+  <circle class="slot" cx="35" cy="210" r="12"/>
+  <text class="slot-text" x="35" y="210">...</text>
+  <line class="edge" x1="31" y1="122" x2="35" y2="198"/>
+
+  <circle class="slot" cx="51" cy="210" r="12"/>
+  <text class="slot-text" x="51" y="210">...</text>
+  <line class="edge" x1="51" y1="122" x2="51" y2="198"/>
+
+  <circle class="slot" cx="111" cy="210" r="12"/>
+  <text class="slot-text" x="111" y="210">...</text>
+  <line class="edge" x1="111" y1="150" x2="111" y2="198"/>
+
+  <!-- Performance annotations -->
+  <text class="anno" x="147" y="252">O(1) access</text>
+  <text class="anno" x="147" y="270">O(|&#x3A3;|) memory per node</text>
+  <text class="desc" x="147" y="296">Sequential memory layout</text>
+  <text class="desc" x="147" y="312">Good cache locality</text>
+  <text class="desc" x="147" y="328">Wasteful when degree &lt;&lt; |&#x3A3;|</text>
+
+  <!-- ═══════════════ PANEL 2: Hash Map ═══════════════ -->
+  <text class="title" x="440" y="50">Hash Map</text>
+  <text class="desc" x="440" y="68">(sparse dictionary)</text>
+
+  <!-- Three key-value entry boxes -->
+  <!-- Entry 'a' -->
+  <rect class="slot" x="354" y="100" width="70" height="26" rx="3"/>
+  <text class="slot-text" x="375" y="113">a</text>
+  <text class="slot-text-dim" x="405" y="113">&#x2192;</text>
+  <!-- Entry 'b' -->
+  <rect class="slot" x="354" y="134" width="70" height="26" rx="3"/>
+  <text class="slot-text" x="375" y="147">b</text>
+  <text class="slot-text-dim" x="405" y="147">&#x2192;</text>
+  <!-- Entry 'r' -->
+  <rect class="slot" x="354" y="168" width="70" height="26" rx="3"/>
+  <text class="slot-text" x="375" y="181">r</text>
+  <text class="slot-text-dim" x="405" y="181">&#x2192;</text>
+
+  <!-- Hash function indicator -->
+  <text class="label" x="440" y="92">{ key: child_ptr }</text>
+
+  <!-- Child node circles -->
+  <circle class="slot" cx="470" cy="113" r="12"/>
+  <text class="slot-text" x="470" y="113">...</text>
+  <line class="edge" x1="424" y1="113" x2="458" y2="113"/>
+
+  <circle class="slot" cx="470" cy="147" r="12"/>
+  <text class="slot-text" x="470" y="147">...</text>
+  <line class="edge" x1="424" y1="147" x2="458" y2="147"/>
+
+  <circle class="slot" cx="470" cy="181" r="12"/>
+  <text class="slot-text" x="470" y="181">...</text>
+  <line class="edge" x1="424" y1="181" x2="458" y2="181"/>
+
+  <!-- No wasted slots annotation -->
+  <text class="anno" x="440" y="224">Only 3 entries stored</text>
+
+  <!-- Performance annotations -->
+  <text class="anno" x="440" y="252">O(1) expected access</text>
+  <text class="anno" x="440" y="270">O(degree) memory</text>
+  <text class="desc" x="440" y="296">Pointer-heavy, scattered memory</text>
+  <text class="desc" x="440" y="312">Hash overhead per lookup</text>
+  <text class="desc" x="440" y="328">Flexible alphabet size</text>
+
+  <!-- ═══════════════ PANEL 3: Bitset + Vector ═══════════════ -->
+  <text class="title" x="733" y="50">Bitset + Vector</text>
+  <text class="desc" x="733" y="68">(rank/select indexing)</text>
+
+  <!-- Bitset: 26 bits, show as compact strip -->
+  <!-- Show as a single row of small bit cells -->
+  <!-- bits: 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 -->
+  <!--        a b c d e f g h i j k l m n o p q r s t u v w x y z -->
+
+  <text class="label" x="733" y="92">26-bit presence mask</text>
+
+  <!-- Bitset cells - compact, 10px each -->
+  <!-- a=1 -->
+  <rect x="616" y="100" width="11" height="16" rx="1" class="slot"/>
+  <text class="bit" x="621" y="108">1</text>
+  <!-- b=1 -->
+  <rect x="629" y="100" width="11" height="16" rx="1" class="slot"/>
+  <text class="bit" x="634" y="108">1</text>
+  <!-- c=0 -->
+  <rect x="642" y="100" width="11" height="16" rx="1" class="slot-empty"/>
+  <text class="bit-dim" x="647" y="108">0</text>
+  <!-- d=0 -->
+  <rect x="655" y="100" width="11" height="16" rx="1" class="slot-empty"/>
+  <text class="bit-dim" x="660" y="108">0</text>
+  <!-- e=0 -->
+  <rect x="668" y="100" width="11" height="16" rx="1" class="slot-empty"/>
+  <text class="bit-dim" x="673" y="108">0</text>
+
+  <!-- ellipsis for f-q -->
+  <text class="slot-text-dim" x="694" y="108">...</text>
+
+  <!-- r=1 -->
+  <rect x="714" y="100" width="11" height="16" rx="1" class="slot"/>
+  <text class="bit" x="719" y="108">1</text>
+
+  <!-- ellipsis for s-z -->
+  <text class="slot-text-dim" x="745" y="108">...</text>
+
+  <!-- z=0 -->
+  <rect x="764" y="100" width="11" height="16" rx="1" class="slot-empty"/>
+  <text class="bit-dim" x="769" y="108">0</text>
+
+  <!-- Letter labels below bitset -->
+  <text class="label" x="621" y="130">a</text>
+  <text class="label" x="634" y="130">b</text>
+  <text class="label" x="647" y="130">c</text>
+  <text class="label" x="660" y="130">d</text>
+  <text class="label" x="673" y="130">e</text>
+  <text class="label" x="719" y="130">r</text>
+  <text class="label" x="769" y="130">z</text>
+
+  <!-- Compact child vector -->
+  <text class="label" x="733" y="156">compact child vector (popcount = 3)</text>
+
+  <!-- Three vector slots -->
+  <rect class="slot" x="668" y="168" width="40" height="26" rx="3"/>
+  <text class="slot-text" x="688" y="181">[0]</text>
+  <rect class="slot" x="714" y="168" width="40" height="26" rx="3"/>
+  <text class="slot-text" x="734" y="181">[1]</text>
+  <rect class="slot" x="760" y="168" width="40" height="26" rx="3"/>
+  <text class="slot-text" x="780" y="181">[2]</text>
+
+  <!-- Mapping annotations: bit position -> vector index -->
+  <text class="label" x="688" y="206">a</text>
+  <text class="label" x="734" y="206">b</text>
+  <text class="label" x="780" y="206">r</text>
+
+  <!-- Rank operation annotation -->
+  <text class="anno" x="733" y="236">rank(bit_pos) &#x2192; vector index</text>
+
+  <!-- Performance annotations -->
+  <text class="anno" x="733" y="264">O(1) via rank/select</text>
+  <text class="anno" x="733" y="282">O(degree) memory</text>
+  <text class="desc" x="733" y="308">Contiguous child storage</text>
+  <text class="desc" x="733" y="324">Best cache locality</text>
+  <text class="desc" x="733" y="340">Extra arithmetic per access</text>
+
+  <!-- ═══════════════ Bottom comparison bar ═══════════════ -->
+  <line class="sep" x1="30" y1="365" x2="850" y2="365"/>
+
+  <text class="label" x="147" y="385">Memory: |&#x3A3;| per node</text>
+  <text class="label" x="440" y="385">Memory: degree per node</text>
+  <text class="label" x="733" y="385">Memory: degree + |&#x3A3;|/8</text>
+
+  <text class="label" x="147" y="402">Cache: excellent</text>
+  <text class="label" x="440" y="402">Cache: poor (pointers)</text>
+  <text class="label" x="733" y="402">Cache: good (contiguous)</text>
+</svg>

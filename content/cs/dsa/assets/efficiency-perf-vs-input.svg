@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 565 380" fill="none">
+  <style>
+    text { font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .title { font-size: 15px; font-weight: 700; text-anchor: middle; }
+    .axis-label { font-size: 13px; font-weight: 600; text-anchor: middle; }
+    .curve-label { font-size: 10px; font-weight: 600; }
+    .tick { font-size: 9px; text-anchor: middle; }
+
+    /* Dark mode (default) */
+    .title { fill: #58a6ff; }
+    .axis-label { fill: #c9d1d9; }
+    .axis-line { stroke: #93a3b8; stroke-width: 1.5; }
+    .arrow { fill: #93a3b8; }
+    .c-1 { stroke: #8b949e; stroke-width: 2; fill: none; }
+    .c-log { stroke: #3fb950; stroke-width: 2.5; fill: none; }
+    .c-n { stroke: #58a6ff; stroke-width: 2.5; fill: none; }
+    .c-nlogn { stroke: #d29922; stroke-width: 2.5; fill: none; }
+    .c-n2 { stroke: #f85149; stroke-width: 2.5; fill: none; }
+    .l-1 { fill: #8b949e; }
+    .l-log { fill: #3fb950; }
+    .l-n { fill: #58a6ff; }
+    .l-nlogn { fill: #d29922; }
+    .l-n2 { fill: #f85149; }
+    .grid { stroke: #30363d; stroke-width: 0.5; stroke-dasharray: 2 4; }
+    .tick { fill: #8b949e; }
+    .region-good { fill: rgba(63,185,80,0.04); }
+    .region-bad { fill: rgba(248,81,73,0.04); }
+    .region-label { font-size: 9px; font-style: italic; }
+    .region-label-good { fill: #3fb950; }
+    .region-label-bad { fill: #f85149; }
+
+    @media (prefers-color-scheme: light) {
+      .title { fill: #284b63; }
+      .axis-label { fill: #4e4e4e; }
+      .axis-line { stroke: #4e4e4e; }
+      .arrow { fill: #4e4e4e; }
+      .c-1 { stroke: #999; }
+      .c-log { stroke: #1a7f37; }
+      .c-n { stroke: #284b63; }
+      .c-nlogn { stroke: #c87800; }
+      .c-n2 { stroke: #cf222e; }
+      .l-1 { fill: #999; }
+      .l-log { fill: #1a7f37; }
+      .l-n { fill: #284b63; }
+      .l-nlogn { fill: #9e6000; }
+      .l-n2 { fill: #cf222e; }
+      .grid { stroke: #e5e5e5; }
+      .tick { fill: #6e7781; }
+      .region-good { fill: rgba(26,127,55,0.03); }
+      .region-bad { fill: rgba(207,34,46,0.03); }
+      .region-label-good { fill: #1a7f37; }
+      .region-label-bad { fill: #cf222e; }
+    }
+  </style>
+
+  <!-- Title -->
+  <text x="300" y="24" class="title">Growth Rate Comparison</text>
+
+  <!-- Subtle region shading -->
+  <rect x="71" y="220" width="430" height="90" class="region-good"/>
+  <rect x="71" y="45" width="430" height="120" class="region-bad"/>
+
+  <!-- Region labels (right-aligned to stay in viewBox) -->
+  <text x="495" y="283" class="region-label region-label-good" text-anchor="end">slower growth</text>
+  <text x="480" y="45" class="region-label region-label-bad" text-anchor="end">faster growth</text>
+
+  <!-- Grid lines -->
+  <line x1="70" y1="240" x2="500" y2="240" class="grid"/>
+  <line x1="70" y1="170" x2="500" y2="170" class="grid"/>
+  <line x1="70" y1="100" x2="500" y2="100" class="grid"/>
+
+  <!-- Axes (lines only, no markers) -->
+  <line x1="70" y1="310" x2="70" y2="45" class="axis-line"/>
+  <line x1="70" y1="310" x2="505" y2="310" class="axis-line"/>
+
+  <!-- Y-axis arrowhead (pointing UP) -->
+  <polygon points="70,38 64,50 76,50" class="arrow"/>
+  <!-- X-axis arrowhead (pointing RIGHT) -->
+  <polygon points="512,310 500,304 500,316" class="arrow"/>
+
+  <!-- Axis labels -->
+  <text x="300" y="340" class="axis-label">Input Size n</text>
+  <text x="30" y="175" class="axis-label" transform="rotate(-90, 30, 175)">Operations</text>
+
+  <!-- Curves (stylized, not to exact mathematical scale) -->
+
+  <!-- Θ(1) — flat -->
+  <line x1="70" y1="290" x2="490" y2="290" class="c-1" stroke-dasharray="6 3"/>
+
+  <!-- Θ(log n) — gentle rise, flattening -->
+  <path d="M 70,300 C 130,265 220,240 490,218" class="c-log"/>
+
+  <!-- Θ(n) — straight diagonal -->
+  <line x1="70" y1="305" x2="490" y2="135" class="c-n"/>
+
+  <!-- Θ(n log n) — slightly steeper, curves away from Θ(n) -->
+  <path d="M 70,305 C 180,280 320,180 490,75" class="c-nlogn"/>
+
+  <!-- Θ(n²) — steep parabola -->
+  <path d="M 70,308 C 160,300 280,250 490,48" class="c-n2"/>
+
+  <!-- Curve labels (positioned at end of each curve) -->
+  <text x="496" y="293" class="curve-label l-1">Θ(1)</text>
+  <text x="496" y="215" class="curve-label l-log">Θ(log n)</text>
+  <text x="496" y="131" class="curve-label l-n">Θ(n)</text>
+  <text x="496" y="71" class="curve-label l-nlogn">Θ(n log n)</text>
+  <text x="496" y="45" class="curve-label l-n2">Θ(n²)</text>
+
+  <!-- Key insight annotation -->
+  <text x="300" y="360" class="tick" font-size="10" text-anchor="middle" font-style="italic">
+    As n grows, growth rate dominates constants
+  </text>
+</svg>

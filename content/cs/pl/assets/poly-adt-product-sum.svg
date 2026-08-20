@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 300" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .node-text { font-size: 12px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .title { font-size: 13px; fill: #58a6ff; font-weight: 700; }
+    .label { font-size: 11px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .type-label { font-size: 10px; fill: #84a59d; font-weight: 600; text-anchor: middle; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    .brace { font-size: 18px; fill: #d29922; text-anchor: middle; dominant-baseline: central; }
+    .field-text { font-size: 11px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+    .alt-node { fill: rgba(30,40,55,0.95); stroke: #3fb950; stroke-width: 1.5; }
+    .alt-edge { stroke: #3fb950; stroke-width: 1.5; fill: none; }
+    .alt-label { font-size: 10px; fill: #3fb950; font-weight: 600; text-anchor: middle; }
+    @media (prefers-color-scheme: light) {
+      .node { fill: #1a1a2e; stroke: #284b63; }
+      .node-text { fill: #f0f0f0; }
+      .edge { stroke: #b8b8b8; }
+      .title { fill: #284b63; }
+      .label { fill: #9e6000; }
+      .type-label { fill: #2d6a4f; }
+      .desc { fill: #6e7781; }
+      .sep { stroke: #e5e5e5; }
+      .brace { fill: #9e6000; }
+      .alt-node { fill: #1a1a2e; stroke: #1a7f37; }
+      .alt-edge { stroke: #1a7f37; }
+      .alt-label { fill: #1a7f37; }
+    }
+  </style>
+
+  <!-- ===== LEFT: Product Type ===== -->
+  <text x="150" y="30" class="title" text-anchor="middle">Product Type</text>
+  <text x="150" y="48" class="type-label">Pair(a, b)  ~  a x b</text>
+
+  <!-- Parent node: Pair -->
+  <rect x="110" y="68" width="80" height="32" rx="6" class="node"/>
+  <text x="150" y="84" class="node-text">Pair</text>
+
+  <!-- Left child: a -->
+  <rect x="50" y="155" width="60" height="32" rx="6" class="node"/>
+  <text x="80" y="171" class="node-text">a</text>
+
+  <!-- Right child: b -->
+  <rect x="190" y="155" width="60" height="32" rx="6" class="node"/>
+  <text x="220" y="171" class="node-text">b</text>
+
+  <!-- Edges -->
+  <line x1="130" y1="100" x2="95" y2="155" class="edge"/>
+  <line x1="170" y1="100" x2="205" y2="155" class="edge"/>
+
+  <!-- AND label -->
+  <text x="150" y="130" class="label">AND</text>
+
+  <!-- Description -->
+  <text x="150" y="218" class="desc">both fields present</text>
+  <text x="150" y="236" class="desc">every instance carries a AND b</text>
+
+  <!-- Brace connecting children -->
+  <text x="80" y="144" class="brace">{</text>
+  <text x="220" y="144" class="brace">}</text>
+
+  <!-- ===== Separator ===== -->
+  <line x1="310" y1="20" x2="310" y2="280" class="sep"/>
+
+  <!-- ===== RIGHT: Sum Type ===== -->
+  <text x="465" y="30" class="title" text-anchor="middle">Sum Type</text>
+  <text x="465" y="48" class="type-label">Option = None | Some(a)  ~  1 + a</text>
+
+  <!-- Parent node: Option -->
+  <rect x="425" y="68" width="80" height="32" rx="6" class="node"/>
+  <text x="465" y="84" class="node-text">Option</text>
+
+  <!-- Left branch: None -->
+  <rect x="360" y="155" width="64" height="32" rx="6" class="alt-node"/>
+  <text x="392" y="171" class="node-text">None</text>
+
+  <!-- Right branch: Some(a) -->
+  <rect x="480" y="155" width="90" height="32" rx="6" class="alt-node"/>
+  <text x="525" y="171" class="node-text">Some(a)</text>
+
+  <!-- Edges -->
+  <line x1="445" y1="100" x2="407" y2="155" class="alt-edge"/>
+  <line x1="485" y1="100" x2="510" y2="155" class="alt-edge"/>
+
+  <!-- OR label -->
+  <text x="465" y="130" class="alt-label">OR</text>
+
+  <!-- Description -->
+  <text x="465" y="218" class="desc">one alternative active</text>
+  <text x="465" y="236" class="desc">each instance is None OR Some(a)</text>
+
+  <!-- Active indicator: only one branch lights up -->
+  <text x="392" y="200" class="desc">active</text>
+  <text x="525" y="200" class="desc">- or -</text>
+</svg>

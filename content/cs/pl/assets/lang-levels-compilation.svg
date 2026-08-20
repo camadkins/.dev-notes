@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 340" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; }
+    .box-alt { fill: rgba(30,40,55,0.95); stroke: #d29922; stroke-width: 1.5; rx: 6; stroke-dasharray: 5 3; }
+    .box-label { font-size: 11px; fill: #e8e8e8; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+    .box-sub { font-size: 8px; fill: #8b949e; text-anchor: middle; dominant-baseline: central; }
+    .edge { stroke: #58a6ff; stroke-width: 1.5; fill: none; }
+    .edge-alt { stroke: #d29922; stroke-width: 1.5; fill: none; }
+    .path-label { font-size: 9px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .path-label-c { font-size: 9px; fill: #58a6ff; font-weight: 600; text-anchor: middle; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .title { font-size: 10px; fill: #7b97aa; font-weight: 600; text-anchor: start; }
+    @media (prefers-color-scheme: light) {
+      .box { fill: #1a1a2e; stroke: #284b63; }
+      .box-alt { fill: #1a1a2e; stroke: #9e6000; }
+      .box-label { fill: #e8e8e8; }
+      .box-sub { fill: #6e7781; }
+      .edge { stroke: #284b63; }
+      .edge-alt { stroke: #9e6000; }
+      .path-label { fill: #9e6000; }
+      .path-label-c { fill: #284b63; }
+      .desc { fill: #6e7781; }
+      .title { fill: #284b63; }
+    }
+  </style>
+
+  <defs>
+    <marker id="ah" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#58a6ff"/>
+    </marker>
+    <marker id="ah-alt" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#d29922"/>
+    </marker>
+  </defs>
+
+  <!-- === COMPILATION PATH (top) === -->
+  <text class="path-label-c" x="390" y="25">Compilation Pipeline</text>
+
+  <!-- Source Code -->
+  <rect class="box" x="20" y="55" width="100" height="50" rx="6"/>
+  <text class="box-label" x="70" y="75">Source</text>
+  <text class="box-sub" x="70" y="90">Code</text>
+
+  <!-- Arrow -->
+  <line class="edge" x1="120" y1="80" x2="145" y2="80" marker-end="url(#ah)"/>
+
+  <!-- Lexer / Parser -->
+  <rect class="box" x="148" y="55" width="100" height="50" rx="6"/>
+  <text class="box-label" x="198" y="75">Lexer /</text>
+  <text class="box-sub" x="198" y="90">Parser</text>
+
+  <!-- Arrow -->
+  <line class="edge" x1="248" y1="80" x2="273" y2="80" marker-end="url(#ah)"/>
+
+  <!-- AST -->
+  <rect class="box" x="276" y="55" width="70" height="50" rx="6"/>
+  <text class="box-label" x="311" y="80">AST</text>
+
+  <!-- Arrow -->
+  <line class="edge" x1="346" y1="80" x2="371" y2="80" marker-end="url(#ah)"/>
+
+  <!-- Type Checker -->
+  <rect class="box" x="374" y="55" width="100" height="50" rx="6"/>
+  <text class="box-label" x="424" y="75">Type</text>
+  <text class="box-sub" x="424" y="90">Checker</text>
+
+  <!-- Arrow -->
+  <line class="edge" x1="474" y1="80" x2="499" y2="80" marker-end="url(#ah)"/>
+
+  <!-- IR -->
+  <rect class="box" x="502" y="55" width="70" height="50" rx="6"/>
+  <text class="box-label" x="537" y="80">IR</text>
+
+  <!-- Arrow -->
+  <line class="edge" x1="572" y1="80" x2="597" y2="80" marker-end="url(#ah)"/>
+
+  <!-- Optimizer -->
+  <rect class="box" x="600" y="55" width="80" height="50" rx="6"/>
+  <text class="box-label" x="640" y="80">Optimizer</text>
+
+  <!-- Arrow down to Machine Code -->
+  <line class="edge" x1="640" y1="105" x2="640" y2="130" marker-end="url(#ah)"/>
+
+  <!-- Machine Code (shared target) -->
+  <rect class="box" x="580" y="133" width="120" height="50" rx="6"/>
+  <text class="box-label" x="640" y="153">Machine</text>
+  <text class="box-sub" x="640" y="168">Code</text>
+
+  <!-- === INTERPRETATION PATH (bottom) === -->
+  <text class="path-label" x="300" y="230">Interpretation Path</text>
+
+  <!-- Source Code (repeated for clarity) -->
+  <rect class="box-alt" x="20" y="250" width="100" height="50" rx="6"/>
+  <text class="box-label" x="70" y="270">Source</text>
+  <text class="box-sub" x="70" y="285">Code</text>
+
+  <!-- Arrow -->
+  <line class="edge-alt" x1="120" y1="275" x2="195" y2="275" marker-end="url(#ah-alt)"/>
+
+  <!-- Interpreter -->
+  <rect class="box-alt" x="198" y="250" width="120" height="50" rx="6"/>
+  <text class="box-label" x="258" y="275">Interpreter</text>
+
+  <!-- Arrow -->
+  <line class="edge-alt" x1="318" y1="275" x2="393" y2="275" marker-end="url(#ah-alt)"/>
+
+  <!-- Execute Directly -->
+  <rect class="box-alt" x="396" y="250" width="120" height="50" rx="6"/>
+  <text class="box-label" x="456" y="270">Execute</text>
+  <text class="box-sub" x="456" y="285">Directly</text>
+
+  <!-- Comparison annotations -->
+  <text class="desc" x="456" y="320">no separate binary — step-by-step evaluation</text>
+  <text class="desc" x="560" y="200">produces optimized native binary</text>
+
+  <!-- Separator -->
+  <line x1="20" y1="205" x2="760" y2="205" stroke="#30363d" stroke-width="1" stroke-dasharray="6 4"/>
+</svg>

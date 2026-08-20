@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="9 0 580 320" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .node-bottom { fill: rgba(30,40,55,0.95); stroke: #d29922; stroke-width: 1.5; }
+    .node-text { font-size: 13px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+    .node-text-sym { font-size: 14px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .edge-ext { stroke: #d29922; stroke-width: 1.5; fill: none; }
+    .anno { font-size: 11px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .label { font-size: 12px; fill: #7b97aa; font-weight: 600; text-anchor: middle; }
+    .label-domain { font-size: 13px; fill: #84a59d; font-weight: 600; text-anchor: middle; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .title { font-size: 11px; fill: #7b97aa; font-weight: 600; text-anchor: middle; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    .brace { font-size: 16px; fill: #8b949e; text-anchor: middle; dominant-baseline: central; }
+    @media (prefers-color-scheme: light) {
+      .node { fill: #1a1a2e; stroke: #284b63; }
+      .node-bottom { fill: #1a1a2e; stroke: #9e6000; }
+      .edge { stroke: #b8b8b8; }
+      .edge-ext { stroke: #9e6000; }
+      .anno { fill: #9e6000; }
+      .label { fill: #284b63; }
+      .label-domain { fill: #4a7c6f; }
+      .desc { fill: #6e7781; }
+      .title { fill: #284b63; }
+      .sep { stroke: #e5e5e5; }
+      .brace { fill: #6e7781; }
+    }
+  </style>
+
+  <!-- Left panel: Standard 2-value Boolean domain -->
+  <text x="155" y="32" class="title">Standard Boolean Domain</text>
+  <text x="155" y="52" class="label-domain">B = { true, false }</text>
+
+  <!-- true node -->
+  <circle cx="105" cy="120" r="28" class="node" />
+  <text x="105" y="120" class="node-text">true</text>
+
+  <!-- false node -->
+  <circle cx="205" cy="120" r="28" class="node" />
+  <text x="205" y="120" class="node-text">false</text>
+
+  <!-- Description -->
+  <text x="155" y="180" class="desc">two-valued: every expression</text>
+  <text x="155" y="194" class="desc">evaluates to true or false</text>
+
+  <!-- ======================================== -->
+  <!-- Separator -->
+  <line x1="290" y1="22" x2="290" y2="280" class="sep" />
+
+  <!-- Right panel: Extended 3-value domain (Hasse diagram) -->
+  <text x="430" y="32" class="title">Extended Boolean Domain</text>
+  <text x="430" y="52" class="label-domain">B' = { true, false, ⊥ }</text>
+
+  <!-- true node (top left) -->
+  <circle cx="380" cy="100" r="28" class="node" />
+  <text x="380" y="100" class="node-text">true</text>
+
+  <!-- false node (top right) -->
+  <circle cx="480" cy="100" r="28" class="node" />
+  <text x="480" y="100" class="node-text">false</text>
+
+  <!-- bottom node -->
+  <circle cx="430" cy="210" r="28" class="node-bottom" />
+  <text x="430" y="210" class="node-text-sym">⊥</text>
+
+  <!-- Edges: bottom to true, bottom to false -->
+  <line x1="412" y1="185" x2="392" y2="125" class="edge-ext" />
+  <line x1="448" y1="185" x2="468" y2="125" class="edge-ext" />
+
+  <!-- Annotation on bottom -->
+  <text x="430" y="254" class="anno">bottom / undefined</text>
+
+  <!-- Description -->
+  <text x="430" y="274" class="desc">⊥ ≤ true and ⊥ ≤ false</text>
+  <text x="430" y="288" class="desc">models nontermination or error</text>
+</svg>

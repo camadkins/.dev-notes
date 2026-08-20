@@ -1,0 +1,210 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 -20 560 700" fill="none">
+  <style>
+    text { font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .case-title { font-size: 13px; font-weight: 700; fill: #58a6ff; }
+    .case-sub { font-size: 10px; fill: #8b949e; font-style: italic; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 2; }
+    .node-new { fill: rgba(30,40,55,0.95); stroke: #3fb950; stroke-width: 2; }
+    .node-text { font-size: 11px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; }
+    .anno { font-size: 9px; fill: #d29922; font-weight: 600; }
+    .arr-line { stroke: #3fb950; stroke-width: 2; }
+    .arr-head { fill: #3fb950; }
+    .arr-label { font-size: 9px; fill: #3fb950; font-weight: 600; text-anchor: middle; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+
+    @media (prefers-color-scheme: light) {
+      .case-title { fill: #284b63; }
+      .case-sub { fill: #6e7781; }
+      .node { fill: #1a1a2e; stroke: #284b63; }
+      .node-new { fill: #1a1a2e; stroke: #1a7f37; }
+      .edge { stroke: #b8b8b8; }
+      .anno { fill: #9e6000; }
+      .arr-line { stroke: #1a7f37; }
+      .arr-head { fill: #1a7f37; }
+      .arr-label { fill: #1a7f37; }
+      .sep { stroke: #e5e5e5; }
+    }
+  </style>
+
+  <!-- ============================================================ -->
+  <!-- ROW 0: LL Case → Right Rotation (insert 30, 20, 10)         -->
+  <!-- ============================================================ -->
+  <text x="10" y="15" class="case-title">LL Case → Right Rotation</text>
+  <text x="10" y="30" class="case-sub">Insert 30, 20, 10 — imbalance at 30</text>
+
+  <!-- Before: chain 30→20→10 leaning left -->
+  <!-- 30(110,48) → 20(75,93) → 10(40,138) -->
+  <line x1="101" y1="59" x2="84" y2="82" class="edge"/>
+  <line x1="66" y1="104" x2="49" y2="127" class="edge"/>
+  <circle cx="110" cy="48" r="14" class="node"/>
+  <text x="110" y="49" class="node-text">30</text>
+  <circle cx="75" cy="93" r="14" class="node"/>
+  <text x="75" y="94" class="node-text">20</text>
+  <circle cx="40" cy="138" r="14" class="node"/>
+  <text x="40" y="139" class="node-text">10</text>
+  <text x="130" y="44" class="anno">bf=+2</text>
+
+  <!-- Arrow -->
+  <line x1="155" y1="93" x2="225" y2="93" class="arr-line"/>
+  <polygon points="230,93 220,87 220,99" class="arr-head"/>
+  <text x="192" y="83" class="arr-label">rotR(30)</text>
+
+  <!-- After: balanced 20→{10,30} -->
+  <!-- 20(340,48), 10(305,93), 30(375,93) -->
+  <line x1="331" y1="59" x2="314" y2="82" class="edge"/>
+  <line x1="349" y1="59" x2="366" y2="82" class="edge"/>
+  <circle cx="340" cy="48" r="14" class="node-new"/>
+  <text x="340" y="49" class="node-text">20</text>
+  <circle cx="305" cy="93" r="14" class="node"/>
+  <text x="305" y="94" class="node-text">10</text>
+  <circle cx="375" cy="93" r="14" class="node"/>
+  <text x="375" y="94" class="node-text">30</text>
+  <text x="360" y="44" class="anno">bf=0</text>
+
+  <!-- Separator -->
+  <line x1="10" y1="162" x2="520" y2="162" class="sep"/>
+
+  <!-- ============================================================ -->
+  <!-- ROW 1: RR Case → Left Rotation (insert 10, 20, 30)          -->
+  <!-- ============================================================ -->
+  <text x="10" y="180" class="case-title">RR Case → Left Rotation</text>
+  <text x="10" y="195" class="case-sub">Insert 10, 20, 30 — imbalance at 10</text>
+
+  <!-- Before: chain 10→20→30 leaning right -->
+  <!-- 10(80,213) → 20(115,258) → 30(150,303) -->
+  <line x1="89" y1="224" x2="106" y2="247" class="edge"/>
+  <line x1="124" y1="269" x2="141" y2="292" class="edge"/>
+  <circle cx="80" cy="213" r="14" class="node"/>
+  <text x="80" y="214" class="node-text">10</text>
+  <circle cx="115" cy="258" r="14" class="node"/>
+  <text x="115" y="259" class="node-text">20</text>
+  <circle cx="150" cy="303" r="14" class="node"/>
+  <text x="150" y="304" class="node-text">30</text>
+  <text x="60" y="209" class="anno" text-anchor="end">bf=−2</text>
+
+  <!-- Arrow -->
+  <line x1="185" y1="258" x2="255" y2="258" class="arr-line"/>
+  <polygon points="260,258 250,252 250,264" class="arr-head"/>
+  <text x="222" y="248" class="arr-label">rotL(10)</text>
+
+  <!-- After: balanced 20→{10,30} -->
+  <!-- 20(370,213), 10(335,258), 30(405,258) -->
+  <line x1="361" y1="224" x2="344" y2="247" class="edge"/>
+  <line x1="379" y1="224" x2="396" y2="247" class="edge"/>
+  <circle cx="370" cy="213" r="14" class="node-new"/>
+  <text x="370" y="214" class="node-text">20</text>
+  <circle cx="335" cy="258" r="14" class="node"/>
+  <text x="335" y="259" class="node-text">10</text>
+  <circle cx="405" cy="258" r="14" class="node"/>
+  <text x="405" y="259" class="node-text">30</text>
+  <text x="390" y="209" class="anno">bf=0</text>
+
+  <!-- Separator -->
+  <line x1="10" y1="327" x2="520" y2="327" class="sep"/>
+
+  <!-- ============================================================ -->
+  <!-- ROW 2: LR Case → Left-Right (insert 30, 10, 20)             -->
+  <!-- ============================================================ -->
+  <text x="10" y="345" class="case-title">LR Case → Left-Right Double Rotation</text>
+  <text x="10" y="360" class="case-sub">Insert 30, 10, 20 — zigzag left-right</text>
+
+  <!-- Before: zigzag 30→10→20 -->
+  <!-- 30(65,378), 10(30,423), 20(65,468) -->
+  <line x1="56" y1="389" x2="39" y2="412" class="edge"/>
+  <line x1="39" y1="434" x2="56" y2="457" class="edge"/>
+  <circle cx="65" cy="378" r="14" class="node"/>
+  <text x="65" y="379" class="node-text">30</text>
+  <circle cx="30" cy="423" r="14" class="node"/>
+  <text x="30" y="424" class="node-text">10</text>
+  <circle cx="65" cy="468" r="14" class="node"/>
+  <text x="65" y="469" class="node-text">20</text>
+  <text x="85" y="374" class="anno">bf=+2</text>
+
+  <!-- Arrow 1 -->
+  <line x1="100" y1="423" x2="145" y2="423" class="arr-line"/>
+  <polygon points="150,423 140,417 140,429" class="arr-head"/>
+  <text x="125" y="413" class="arr-label">rotL(10)</text>
+
+  <!-- Step 1: LL chain 30→20→10 -->
+  <!-- 30(225,378), 20(190,423), 10(155,468) -->
+  <line x1="216" y1="389" x2="199" y2="412" class="edge"/>
+  <line x1="181" y1="434" x2="164" y2="457" class="edge"/>
+  <circle cx="225" cy="378" r="14" class="node"/>
+  <text x="225" y="379" class="node-text">30</text>
+  <circle cx="190" cy="423" r="14" class="node"/>
+  <text x="190" y="424" class="node-text">20</text>
+  <circle cx="155" cy="468" r="14" class="node"/>
+  <text x="155" y="469" class="node-text">10</text>
+
+  <!-- Arrow 2 -->
+  <line x1="260" y1="423" x2="305" y2="423" class="arr-line"/>
+  <polygon points="310,423 300,417 300,429" class="arr-head"/>
+  <text x="285" y="413" class="arr-label">rotR(30)</text>
+
+  <!-- Result: balanced 20→{10,30} -->
+  <!-- 20(400,378), 10(365,423), 30(435,423) -->
+  <line x1="391" y1="389" x2="374" y2="412" class="edge"/>
+  <line x1="409" y1="389" x2="426" y2="412" class="edge"/>
+  <circle cx="400" cy="378" r="14" class="node-new"/>
+  <text x="400" y="379" class="node-text">20</text>
+  <circle cx="365" cy="423" r="14" class="node"/>
+  <text x="365" y="424" class="node-text">10</text>
+  <circle cx="435" cy="423" r="14" class="node"/>
+  <text x="435" y="424" class="node-text">30</text>
+  <text x="420" y="374" class="anno">bf=0</text>
+
+  <!-- Separator -->
+  <line x1="10" y1="492" x2="520" y2="492" class="sep"/>
+
+  <!-- ============================================================ -->
+  <!-- ROW 3: RL Case → Right-Left (insert 10, 30, 20)             -->
+  <!-- ============================================================ -->
+  <text x="10" y="510" class="case-title">RL Case → Right-Left Double Rotation</text>
+  <text x="10" y="525" class="case-sub">Insert 10, 30, 20 — zigzag right-left</text>
+
+  <!-- Before: zigzag 10→30→20 -->
+  <!-- 10(65,543), 30(100,588), 20(65,633) -->
+  <line x1="74" y1="554" x2="91" y2="577" class="edge"/>
+  <line x1="91" y1="599" x2="74" y2="622" class="edge"/>
+  <circle cx="65" cy="543" r="14" class="node"/>
+  <text x="65" y="544" class="node-text">10</text>
+  <circle cx="100" cy="588" r="14" class="node"/>
+  <text x="100" y="589" class="node-text">30</text>
+  <circle cx="65" cy="633" r="14" class="node"/>
+  <text x="65" y="634" class="node-text">20</text>
+  <text x="45" y="539" class="anno" text-anchor="end">bf=−2</text>
+
+  <!-- Arrow 1 -->
+  <line x1="130" y1="588" x2="175" y2="588" class="arr-line"/>
+  <polygon points="180,588 170,582 170,594" class="arr-head"/>
+  <text x="155" y="578" class="arr-label">rotR(30)</text>
+
+  <!-- Step 1: RR chain 10→20→30 -->
+  <!-- 10(245,543), 20(280,588), 30(315,633) -->
+  <line x1="254" y1="554" x2="271" y2="577" class="edge"/>
+  <line x1="289" y1="599" x2="306" y2="622" class="edge"/>
+  <circle cx="245" cy="543" r="14" class="node"/>
+  <text x="245" y="544" class="node-text">10</text>
+  <circle cx="280" cy="588" r="14" class="node"/>
+  <text x="280" y="589" class="node-text">20</text>
+  <circle cx="315" cy="633" r="14" class="node"/>
+  <text x="315" y="634" class="node-text">30</text>
+
+  <!-- Arrow 2 -->
+  <line x1="345" y1="588" x2="390" y2="588" class="arr-line"/>
+  <polygon points="395,588 385,582 385,594" class="arr-head"/>
+  <text x="370" y="578" class="arr-label">rotL(10)</text>
+
+  <!-- Result: balanced 20→{10,30} -->
+  <!-- 20(465,543), 10(430,588), 30(500,588) -->
+  <line x1="456" y1="554" x2="439" y2="577" class="edge"/>
+  <line x1="474" y1="554" x2="491" y2="577" class="edge"/>
+  <circle cx="465" cy="543" r="14" class="node-new"/>
+  <text x="465" y="544" class="node-text">20</text>
+  <circle cx="430" cy="588" r="14" class="node"/>
+  <text x="430" y="589" class="node-text">10</text>
+  <circle cx="500" cy="588" r="14" class="node"/>
+  <text x="500" y="589" class="node-text">30</text>
+  <text x="485" y="539" class="anno">bf=0</text>
+</svg>

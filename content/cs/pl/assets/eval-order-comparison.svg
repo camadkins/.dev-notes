@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 0 840 520" style="background:transparent">
+  <style>
+    text { font-family: 'SF Mono','Fira Code','Consolas',monospace; fill: #e8e8e8; }
+    .title { font-size: 15px; font-weight: 700; }
+    .node-label { font-size: 13px; font-weight: 600; }
+    .step-label { font-size: 11px; fill: #d29922; font-weight: 600; }
+    .desc { font-size: 11px; fill: #8b949e; }
+    .anno { font-size: 11px; fill: #d29922; font-style: italic; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 6,4; }
+    .node-box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; }
+    .thunk-box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; stroke-dasharray: 5,3; }
+    .arrow-line { stroke: #d29922; stroke-width: 1.5; fill: none; }
+    .result-line { stroke: #58a6ff; stroke-width: 1.2; fill: none; stroke-dasharray: 4,3; }
+    @media (prefers-color-scheme: light) {
+      text { fill: #1e2028; }
+      .step-label { fill: #9a6700; }
+      .desc { fill: #57606a; }
+      .anno { fill: #9a6700; }
+      .node-box { fill: rgba(240,243,248,0.95); stroke: #0969da; }
+      .thunk-box { fill: rgba(240,243,248,0.95); stroke: #0969da; }
+      .edge { stroke: #57606a; }
+      .sep { stroke: #d0d7de; }
+      .arrow-line { stroke: #9a6700; }
+      .result-line { stroke: #0969da; }
+    }
+  </style>
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#d29922"/>
+    </marker>
+    <marker id="arr-blue" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#58a6ff"/>
+    </marker>
+  </defs>
+
+  <!-- Grid: left panel x=20..390, right panel x=430..800, sep at x=410 -->
+  <!-- Vertical: titles y=35, trees y=80..380, annotations y=400..500 -->
+
+  <!-- Separator -->
+  <line x1="410" y1="20" x2="410" y2="500" class="sep"/>
+
+  <!-- === LEFT PANEL: Strict (CBV) — Inside-Out === -->
+  <text x="200" y="38" text-anchor="middle" class="title">Strict (Call-by-Value)</text>
+  <text x="200" y="56" text-anchor="middle" class="desc">Inside-Out: arguments first</text>
+
+  <!-- Tree nodes: f at (200,110), g at (200,210), x at (200,310) -->
+  <!-- Node: f -->
+  <rect x="155" y="90" width="90" height="36" class="node-box"/>
+  <text x="200" y="113" text-anchor="middle" class="node-label">f ...</text>
+  <!-- Node: g -->
+  <rect x="155" y="192" width="90" height="36" class="node-box"/>
+  <text x="200" y="215" text-anchor="middle" class="node-label">g x</text>
+  <!-- Node: x -->
+  <rect x="163" y="294" width="74" height="36" class="node-box"/>
+  <text x="200" y="317" text-anchor="middle" class="node-label">x</text>
+
+  <!-- Edges: f -> g -> x -->
+  <line x1="200" y1="126" x2="200" y2="192" class="edge"/>
+  <line x1="200" y1="228" x2="200" y2="294" class="edge"/>
+
+  <!-- Step annotations (numbered, right side) -->
+  <!-- Step 1: x evaluates first -->
+  <text x="245" y="317" class="step-label">(1) value</text>
+
+  <!-- Step 2: g x reduces to v1 -->
+  <line x1="250" y1="210" x2="290" y2="210" class="arrow-line" marker-end="url(#arr)"/>
+  <text x="296" y="206" class="step-label">(2) reduce</text>
+  <text x="296" y="220" class="step-label">g x -> v1</text>
+
+  <!-- Step 3: f v1 reduces to result -->
+  <line x1="250" y1="108" x2="290" y2="108" class="arrow-line" marker-end="url(#arr)"/>
+  <text x="296" y="104" class="step-label">(3) reduce</text>
+  <text x="296" y="118" class="step-label">f v1 -> result</text>
+
+  <!-- Upward flow indicator -->
+  <text x="120" y="200" text-anchor="end" class="anno">eval</text>
+  <line x1="130" y1="300" x2="130" y2="140" class="arrow-line" marker-end="url(#arr)"/>
+  <text x="120" y="220" text-anchor="end" class="anno">flows</text>
+  <text x="120" y="240" text-anchor="end" class="anno">up</text>
+
+  <!-- Summary -->
+  <text x="200" y="390" text-anchor="middle" class="desc">All sub-expressions reduced</text>
+  <text x="200" y="406" text-anchor="middle" class="desc">before the enclosing call.</text>
+  <text x="200" y="430" text-anchor="middle" class="anno">f(g(x))  =>  g(x) first  =>  f(v1)</text>
+
+  <!-- === RIGHT PANEL: Non-Strict (CBN) — Outside-In === -->
+  <text x="615" y="38" text-anchor="middle" class="title">Non-Strict (Call-by-Name)</text>
+  <text x="615" y="56" text-anchor="middle" class="desc">Outside-In: functions first</text>
+
+  <!-- Tree nodes: f at (615,110), (g x) thunk at (615,210), x at (615,310) -->
+  <!-- Node: f -->
+  <rect x="570" y="90" width="90" height="36" class="node-box"/>
+  <text x="615" y="113" text-anchor="middle" class="node-label">f ...</text>
+
+  <!-- Step 1: f applied first with thunk -->
+  <line x1="665" y1="108" x2="705" y2="108" class="arrow-line" marker-end="url(#arr)"/>
+  <text x="711" y="104" class="step-label">(1) apply f</text>
+  <text x="711" y="118" class="step-label">arg = thunk</text>
+
+  <!-- Thunk node: (g x) — dashed border = deferred -->
+  <rect x="570" y="192" width="90" height="36" class="thunk-box"/>
+  <text x="615" y="215" text-anchor="middle" class="node-label">(g x)</text>
+
+  <!-- Edge f -> thunk -->
+  <line x1="615" y1="126" x2="615" y2="192" class="edge"/>
+
+  <!-- x inside thunk -->
+  <rect x="578" y="294" width="74" height="36" class="thunk-box"/>
+  <text x="615" y="317" text-anchor="middle" class="node-label">x</text>
+  <line x1="615" y1="228" x2="615" y2="294" class="edge"/>
+
+  <!-- Thunk annotation just right of the dashed box, vertically centered -->
+  <text x="666" y="205" class="desc" font-style="italic">thunk</text>
+  <text x="666" y="218" class="desc" font-style="italic">(deferred)</text>
+
+  <!-- Step 2: only if needed — arrow from bottom-right of thunk box -->
+  <line x1="660" y1="228" x2="700" y2="242" class="arrow-line" marker-end="url(#arr)"/>
+  <text x="706" y="238" class="step-label">(2) if needed</text>
+  <text x="706" y="252" class="step-label">force g x</text>
+
+  <!-- Conditional arrow label -->
+  <text x="535" y="220" text-anchor="end" class="anno">eval</text>
+  <text x="535" y="240" text-anchor="end" class="anno">flows</text>
+  <text x="535" y="260" text-anchor="end" class="anno">down</text>
+  <line x1="545" y1="140" x2="545" y2="300" class="arrow-line" marker-end="url(#arr)"/>
+
+  <!-- "needed?" annotation on the edge between f and thunk -->
+  <text x="625" y="162" class="anno">needed?</text>
+
+  <!-- Summary -->
+  <text x="615" y="390" text-anchor="middle" class="desc">Outer function applied first.</text>
+  <text x="615" y="406" text-anchor="middle" class="desc">Arguments forced only on demand.</text>
+  <text x="615" y="430" text-anchor="middle" class="anno">f(g(x))  =>  f(thunk)  =>  force if used</text>
+
+  <!-- Bottom comparison -->
+  <line x1="20" y1="460" x2="800" y2="460" class="sep"/>
+  <text x="200" y="486" text-anchor="middle" class="desc">Always terminates only if all</text>
+  <text x="200" y="502" text-anchor="middle" class="desc">sub-expressions terminate.</text>
+  <text x="615" y="486" text-anchor="middle" class="desc">May terminate even when some</text>
+  <text x="615" y="502" text-anchor="middle" class="desc">sub-expressions diverge (bottom).</text>
+</svg>

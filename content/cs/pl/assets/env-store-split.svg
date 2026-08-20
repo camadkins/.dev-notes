@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 360" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .env-box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; }
+    .store-box { fill: rgba(30,40,55,0.95); stroke: #d29922; stroke-width: 1.5; rx: 6; }
+    .mutate-box { fill: rgba(30,40,55,0.95); stroke: #f47067; stroke-width: 1.5; rx: 6; stroke-dasharray: 6 3; }
+    .label { font-size: 11px; fill: #58a6ff; font-weight: 600; }
+    .label-store { font-size: 11px; fill: #d29922; font-weight: 600; }
+    .label-mutate { font-size: 11px; fill: #f47067; font-weight: 600; }
+    .txt { font-size: 11px; fill: #e8e8e8; }
+    .arrow { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .arrow-red { stroke: #f47067; stroke-width: 1.5; fill: none; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; }
+    .unchanged { font-size: 9px; fill: #58a6ff; font-weight: 600; }
+    .changed { font-size: 9px; fill: #f47067; font-weight: 600; }
+    @media (prefers-color-scheme: light) {
+      .env-box { fill: #1a1a2e; stroke: #284b63; }
+      .store-box { fill: #1a1a2e; stroke: #9e6000; }
+      .mutate-box { fill: #1a1a2e; stroke: #cf222e; }
+      .label { fill: #284b63; }
+      .label-store { fill: #9e6000; }
+      .label-mutate { fill: #cf222e; }
+      .arrow { stroke: #b8b8b8; }
+      .arrow-red { stroke: #cf222e; }
+      .desc { fill: #6e7781; }
+      .unchanged { fill: #284b63; }
+      .changed { fill: #cf222e; }
+    }
+  </style>
+  <defs>
+    <marker id="ah" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#93a3b8"/>
+    </marker>
+    <marker id="ahRed" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#f47067"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text class="desc" x="20" y="20">environment (ρ) maps names to addresses; store (σ) maps addresses to values</text>
+
+  <!-- Environment layer -->
+  <text class="label" x="20" y="52">environment ρ</text>
+
+  <!-- x binding -->
+  <rect class="env-box" x="20" y="62" width="120" height="36"/>
+  <text class="txt" x="38" y="85">x</text>
+  <line class="arrow" x1="55" y1="82" x2="90" y2="82" marker-end="url(#ah)"/>
+  <text class="txt" x="100" y="85">ℓ₁</text>
+
+  <!-- y binding -->
+  <rect class="env-box" x="170" y="62" width="120" height="36"/>
+  <text class="txt" x="188" y="85">y</text>
+  <line class="arrow" x1="205" y1="82" x2="240" y2="82" marker-end="url(#ah)"/>
+  <text class="txt" x="250" y="85">ℓ₂</text>
+
+  <text class="unchanged" x="320" y="90">unchanged by mutation</text>
+
+  <!-- Arrows from env to store -->
+  <line class="arrow" x1="80" y1="98" x2="80" y2="178" marker-end="url(#ah)"/>
+  <line class="arrow" x1="230" y1="98" x2="230" y2="178" marker-end="url(#ah)"/>
+
+  <!-- Store layer -->
+  <text class="label-store" x="20" y="172">store σ</text>
+
+  <!-- l1 value -->
+  <rect class="store-box" x="20" y="182" width="120" height="36"/>
+  <text class="txt" x="38" y="205">ℓ₁</text>
+  <line class="arrow" x1="60" y1="202" x2="90" y2="202" marker-end="url(#ah)"/>
+  <text class="txt" x="100" y="205">3</text>
+
+  <!-- l2 value -->
+  <rect class="store-box" x="170" y="182" width="120" height="36"/>
+  <text class="txt" x="188" y="205">ℓ₂</text>
+  <line class="arrow" x1="210" y1="202" x2="240" y2="202" marker-end="url(#ah)"/>
+  <text class="txt" x="250" y="205">5</text>
+
+  <!-- Mutation section -->
+  <line class="arrow-red" x1="20" y1="260" x2="540" y2="260" stroke-dasharray="4 3"/>
+  <text class="label-mutate" x="20" y="280">after  x := 7</text>
+
+  <!-- Mutated store entry for l1 -->
+  <rect class="mutate-box" x="20" y="290" width="120" height="36"/>
+  <text class="txt" x="38" y="313">ℓ₁</text>
+  <line class="arrow-red" x1="60" y1="310" x2="90" y2="310" marker-end="url(#ahRed)"/>
+  <text class="txt" x="100" y="313">7</text>
+  <text class="changed" x="160" y="312">σ updated</text>
+
+  <!-- l2 unchanged -->
+  <rect class="store-box" x="310" y="290" width="120" height="36"/>
+  <text class="txt" x="328" y="313">ℓ₂</text>
+  <line class="arrow" x1="350" y1="310" x2="380" y2="310" marker-end="url(#ah)"/>
+  <text class="txt" x="390" y="313">5</text>
+  <text class="unchanged" x="450" y="312">unchanged</text>
+
+  <text class="desc" x="20" y="355">mutation changes σ (store); ρ (environment) bindings remain stable</text>
+</svg>

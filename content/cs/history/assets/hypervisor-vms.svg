@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 220" fill="none" role="img" aria-label="A hypervisor multiplexes one physical machine into several isolated virtual machines">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .vm { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .hyp { fill: rgba(210,153,34,0.14); stroke: #d29922; stroke-width: 1.6; }
+    .phys { fill: rgba(132,165,157,0.12); stroke: #84a59d; stroke-width: 1.6; }
+    .t { fill: #e8e8e8; font-size: 13px; text-anchor: middle; }
+    .s { fill: #8b949e; font-size: 11px; text-anchor: middle; }
+  </style>
+  <rect class="vm" x="40"  y="24" width="100" height="70" rx="4"/><text class="t" x="90"  y="52">VM</text><text class="s" x="90"  y="72">OS + app</text>
+  <rect class="vm" x="160" y="24" width="100" height="70" rx="4"/><text class="t" x="210" y="52">VM</text><text class="s" x="210" y="72">OS + app</text>
+  <rect class="vm" x="280" y="24" width="100" height="70" rx="4"/><text class="t" x="330" y="52">VM</text><text class="s" x="330" y="72">OS + app</text>
+  <rect class="hyp" x="40" y="110" width="340" height="32" rx="4"/><text class="t" x="210" y="131">hypervisor</text>
+  <rect class="phys" x="40" y="158" width="340" height="36" rx="4"/><text class="t" x="210" y="181">one physical machine (CPU, memory, disk)</text>
+</svg>

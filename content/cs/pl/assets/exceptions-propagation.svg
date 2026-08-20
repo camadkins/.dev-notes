@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-11 0 711 540" fill="none">
+  <style>
+    text { font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .frame { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; }
+    .frame-label { font-size: 11px; fill: #e8e8e8; font-weight: 600; }
+    .frame-detail { font-size: 9px; fill: #8b949e; }
+    .handler-frame { fill: rgba(30,40,55,0.95); stroke: #3fb950; stroke-width: 2; rx: 6; }
+    .handler-label { font-size: 9px; fill: #3fb950; font-weight: 600; }
+    .raise-frame { fill: rgba(30,40,55,0.95); stroke: #f85149; stroke-width: 2; rx: 6; }
+    .raise-label { font-size: 10px; fill: #f85149; font-weight: 600; }
+    .title { font-size: 12px; fill: #d29922; font-weight: 600; }
+    .arrow { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .raise-arrow { stroke: #f85149; stroke-width: 2; fill: none; }
+    .cleanup-arrow { stroke: #d29922; stroke-width: 1.5; fill: none; stroke-dasharray: 5 3; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; }
+    .anno { font-size: 9px; fill: #d29922; font-weight: 600; }
+    .catch-label { font-size: 10px; fill: #3fb950; font-weight: 600; }
+    .discard { font-size: 9px; fill: #f85149; font-style: italic; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 6 3; }
+    .component { font-size: 10px; fill: #e8e8e8; }
+    .stack-label { font-size: 10px; fill: #58a6ff; font-weight: 600; }
+    .step-num { font-size: 9px; fill: #58a6ff; font-weight: 600; }
+    @media (prefers-color-scheme: light) {
+      .frame { fill: #1a1a2e; stroke: #284b63; }
+      .handler-frame { fill: #1a1a2e; stroke: #2da44e; }
+      .raise-frame { fill: #1a1a2e; stroke: #cf222e; }
+      .arrow { stroke: #b8b8b8; }
+      .raise-arrow { stroke: #cf222e; }
+      .cleanup-arrow { stroke: #9e6000; }
+      .title { fill: #9e6000; }
+      .desc { fill: #6e7781; }
+      .anno { fill: #9e6000; }
+      .handler-label { fill: #1a7f37; }
+      .raise-label { fill: #cf222e; }
+      .catch-label { fill: #1a7f37; }
+      .discard { fill: #cf222e; }
+      .sep { stroke: #d0d7de; }
+      .stack-label { fill: #284b63; }
+      .frame-label { fill: #e8e8e8; }
+      .component { fill: #e8e8e8; }
+      .step-num { fill: #284b63; }
+    }
+  </style>
+  <defs>
+    <marker id="tri" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#93a3b8"/>
+    </marker>
+    <marker id="tri-red" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#f85149"/>
+    </marker>
+    <marker id="tri-gold" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#d29922"/>
+    </marker>
+    <marker id="tri-green" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#3fb950"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text class="title" x="20" y="30">Stack unwinding: raise, handler catch, finally cleanup</text>
+
+  <!-- Stack direction label - far left -->
+  <text class="stack-label" x="20" y="75">STACK</text>
+  <path class="arrow" d="M 28,85 L 28,135" marker-end="url(#tri)"/>
+  <text class="desc" x="4" y="150" text-anchor="start">grows</text>
+
+  <!-- ═══ FRAME: h() — raise point (top of stack) ═══ -->
+  <rect class="raise-frame" x="60" y="60" width="230" height="65"/>
+  <text class="frame-label" x="75" y="82">h()</text>
+  <text class="raise-label" x="75" y="102">raise e</text>
+  <text class="desc" x="148" y="102">&#8592; exception originates</text>
+  <text class="step-num" x="300" y="82">&#9312;</text>
+
+  <!-- ═══ FRAME: g() — has finally ═══ -->
+  <rect class="frame" x="60" y="165" width="230" height="65"/>
+  <text class="frame-label" x="75" y="187">g()</text>
+  <text class="frame-detail" x="75" y="205">calls h(); finally: close db</text>
+  <text class="discard" x="205" y="220">discarded</text>
+
+  <!-- ═══ FRAME: f() — has finally ═══ -->
+  <rect class="frame" x="60" y="270" width="230" height="65"/>
+  <text class="frame-label" x="75" y="292">f()</text>
+  <text class="frame-detail" x="75" y="310">calls g(); finally: close file</text>
+  <text class="discard" x="205" y="325">discarded</text>
+
+  <!-- ═══ FRAME: main() — has try/catch handler ═══ -->
+  <rect class="handler-frame" x="60" y="375" width="230" height="80"/>
+  <text class="frame-label" x="75" y="397">main()</text>
+  <text class="handler-label" x="75" y="417">try { f(x) }</text>
+  <text class="handler-label" x="75" y="437">with e &#8594; handle(e)</text>
+
+  <!-- ═══ RAISE ARROW: h() -> main(), along left side ═══ -->
+  <path class="raise-arrow" d="M 60,125 L 40,125 L 40,415 L 60,415" marker-end="url(#tri-red)"/>
+  <text class="raise-label" x="22" y="230" text-anchor="end">&#8593;</text>
+  <text class="raise-label" x="22" y="280" text-anchor="end">&#8593;</text>
+  <text class="raise-label" x="22" y="330" text-anchor="end">&#8593;</text>
+  <text class="desc" x="30" y="370" text-anchor="end">unwind</text>
+
+  <!-- ═══ CLEANUP ARROWS: finally blocks fire during unwinding ═══ -->
+  <!-- g() finally -->
+  <path class="cleanup-arrow" d="M 290,195 L 450,195" marker-end="url(#tri-gold)"/>
+  <rect class="frame" x="455" y="177" width="210" height="36" stroke="#d29922" stroke-dasharray="4 2"/>
+  <text class="anno" x="465" y="195">finally:</text>
+  <text class="component" x="525" y="195">close db</text>
+  <text class="desc" x="465" y="207">runs during unwinding</text>
+  <text class="step-num" x="300" y="187">&#9313;</text>
+
+  <!-- f() finally -->
+  <path class="cleanup-arrow" d="M 290,300 L 450,300" marker-end="url(#tri-gold)"/>
+  <rect class="frame" x="455" y="282" width="210" height="36" stroke="#d29922" stroke-dasharray="4 2"/>
+  <text class="anno" x="465" y="300">finally:</text>
+  <text class="component" x="525" y="300">close file</text>
+  <text class="desc" x="465" y="312">runs during unwinding</text>
+  <text class="step-num" x="300" y="292">&#9314;</text>
+
+  <!-- ═══ HANDLER CATCH: main() transfers to handler body ═══ -->
+  <path class="arrow" d="M 290,425 L 450,425" marker-end="url(#tri-green)" stroke="#3fb950"/>
+  <rect class="handler-frame" x="455" y="395" width="210" height="60"/>
+  <text class="catch-label" x="465" y="417">handler body</text>
+  <text class="component" x="465" y="435">handle(e)</text>
+  <text class="desc" x="465" y="449">control resumes here</text>
+  <text class="step-num" x="300" y="407">&#9315;</text>
+
+  <!-- ═══ SEPARATOR ═══ -->
+  <line class="sep" x1="20" y1="475" x2="680" y2="475"/>
+
+  <!-- ═══ ANNOTATIONS ═══ -->
+  <text class="desc" x="20" y="493">&#9312; h() raises exception e</text>
+  <text class="desc" x="20" y="507">&#9313; Runtime unwinds g(): finally block runs close db, frame discarded</text>
+  <text class="desc" x="20" y="521">&#9314; Runtime unwinds f(): finally block runs close file, frame discarded</text>
+  <text class="desc" x="20" y="535">&#9315; main() handler catches e, control transfers to handler body</text>
+</svg>

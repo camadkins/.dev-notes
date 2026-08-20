@@ -1,0 +1,190 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-28.9 0 780 510" fill="none">
+<style>
+  text { font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+  .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+  .node-key { fill: rgba(30,40,55,0.95); stroke: #84a59d; stroke-width: 2; }
+  .node-text { font-size: 10px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+  .edge { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+  .edge-label { font-size: 11px; fill: #58a6ff; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+  .anno { font-size: 10px; fill: #d29922; font-weight: 600; }
+  .anno-center { font-size: 10px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+  .desc { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+  .title { font-size: 12px; fill: #7b97aa; font-weight: 600; text-anchor: middle; }
+  .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+  .stat { font-size: 10px; fill: #d29922; font-weight: 600; text-anchor: start; }
+  .depth-label { font-size: 9px; fill: #d29922; font-weight: 600; text-anchor: end; }
+  @media (prefers-color-scheme: light) {
+    .node { fill: #1a1a2e; stroke: #284b63; }
+    .node-key { fill: #1a1a2e; stroke: #3a7d5c; }
+    .node-text { fill: #e8e8e8; }
+    .edge { stroke: #b8b8b8; }
+    .edge-label { fill: #284b63; }
+    .anno { fill: #9e6000; }
+    .anno-center { fill: #9e6000; }
+    .desc { fill: #6e7781; }
+    .title { fill: #284b63; }
+    .sep { stroke: #e5e5e5; }
+    .stat { fill: #9e6000; }
+    .depth-label { fill: #9e6000; }
+  }
+</style>
+
+<!-- Panel titles -->
+<text class="title" x="190" y="24">Standard Trie</text>
+<text class="title" x="600" y="24">Compressed Trie</text>
+
+<!-- Separator -->
+<line class="sep" x1="390" y1="10" x2="390" y2="460"/>
+
+<!-- ===== LEFT PANEL: STANDARD TRIE ===== -->
+<!-- Keys: bear, bell, bid -->
+<!-- Structure: root -> b -> e -> a -> r(key), e -> l -> l(key), b -> i -> d(key) -->
+<!-- 9 nodes total, height = 5 (root at d0, leaves at d4) -->
+
+<!-- Depth labels (left margin) -->
+<text class="depth-label" x="38" y="60">d0</text>
+<text class="depth-label" x="38" y="140">d1</text>
+<text class="depth-label" x="38" y="220">d2</text>
+<text class="depth-label" x="38" y="300">d3</text>
+<text class="depth-label" x="38" y="380">d4</text>
+
+<!-- Edges (behind nodes) -->
+<!-- root -> b -->
+<line class="edge" x1="190" y1="75" x2="190" y2="125"/>
+<!-- b -> e -->
+<line class="edge" x1="190" y1="155" x2="140" y2="205"/>
+<!-- b -> i -->
+<line class="edge" x1="190" y1="155" x2="260" y2="205"/>
+<!-- e -> a -->
+<line class="edge" x1="140" y1="235" x2="100" y2="285"/>
+<!-- e -> l -->
+<line class="edge" x1="140" y1="235" x2="180" y2="285"/>
+<!-- a -> r -->
+<line class="edge" x1="100" y1="315" x2="100" y2="365"/>
+<!-- l -> l -->
+<line class="edge" x1="180" y1="315" x2="180" y2="365"/>
+<!-- i -> d -->
+<line class="edge" x1="260" y1="235" x2="260" y2="285"/>
+
+<!-- Arrowheads -->
+<polygon points="190,125 185,115 195,115" fill="#93a3b8"/>
+<polygon points="140,205 135,195 145,195" fill="#93a3b8"/>
+<polygon points="260,205 255,195 265,195" fill="#93a3b8"/>
+<polygon points="100,285 95,275 105,275" fill="#93a3b8"/>
+<polygon points="180,285 175,275 185,275" fill="#93a3b8"/>
+<polygon points="100,365 95,355 105,355" fill="#93a3b8"/>
+<polygon points="180,365 175,355 185,355" fill="#93a3b8"/>
+<polygon points="260,285 255,275 265,275" fill="#93a3b8"/>
+
+<!-- Edge labels -->
+<text class="edge-label" x="200" y="100">"b"</text>
+<text class="edge-label" x="155" y="175">"e"</text>
+<text class="edge-label" x="235" y="175">"i"</text>
+<text class="edge-label" x="110" y="255">"a"</text>
+<text class="edge-label" x="170" y="255">"l"</text>
+<text class="edge-label" x="110" y="340">"r"</text>
+<text class="edge-label" x="190" y="340">"l"</text>
+<text class="edge-label" x="270" y="255">"d"</text>
+
+<!-- Nodes -->
+<!-- d0: root -->
+<circle class="node" cx="190" cy="60" r="15"/>
+<text class="node-text" x="190" y="60">root</text>
+
+<!-- d1: b -->
+<circle class="node" cx="190" cy="140" r="15"/>
+<text class="node-text" x="190" y="140"></text>
+
+<!-- d2: e, i -->
+<circle class="node" cx="140" cy="220" r="15"/>
+<text class="node-text" x="140" y="220"></text>
+<circle class="node" cx="260" cy="220" r="15"/>
+<text class="node-text" x="260" y="220"></text>
+
+<!-- d3: a, l, d(key) -->
+<circle class="node" cx="100" cy="300" r="15"/>
+<text class="node-text" x="100" y="300"></text>
+<circle class="node" cx="180" cy="300" r="15"/>
+<text class="node-text" x="180" y="300"></text>
+<circle class="node-key" cx="260" cy="300" r="15"/>
+<text class="node-text" x="260" y="300">bid</text>
+
+<!-- d4: r(key), l(key) -->
+<circle class="node-key" cx="100" cy="380" r="15"/>
+<text class="node-text" x="100" y="380">bear</text>
+<circle class="node-key" cx="180" cy="380" r="15"/>
+<text class="node-text" x="180" y="380">bell</text>
+
+<!-- Stats annotation -->
+<text class="stat" x="50" y="430">Nodes: 9</text>
+<text class="stat" x="50" y="448">Height: 5</text>
+
+<!-- ===== RIGHT PANEL: COMPRESSED TRIE ===== -->
+<!-- Keys: bear, bell, bid -->
+<!-- Structure: root -> "b" -> node -> "e" -> node -> "ar" -> bear, "ll" -> bell -->
+<!--                                  -> "id" -> bid -->
+<!-- 6 nodes total, height = 4 (root at d0, leaves at d3) -->
+
+<!-- Depth labels (right margin) -->
+<text class="depth-label" x="430" y="60">d0</text>
+<text class="depth-label" x="430" y="160">d1</text>
+<text class="depth-label" x="430" y="260">d2</text>
+<text class="depth-label" x="430" y="360">d3</text>
+
+<!-- Edges -->
+<!-- root -> b-node -->
+<line class="edge" x1="600" y1="75" x2="600" y2="145"/>
+<!-- b-node -> be-node -->
+<line class="edge" x1="600" y1="175" x2="530" y2="245"/>
+<!-- b-node -> bid -->
+<line class="edge" x1="600" y1="175" x2="680" y2="245"/>
+<!-- be-node -> bear -->
+<line class="edge" x1="530" y1="275" x2="490" y2="345"/>
+<!-- be-node -> bell -->
+<line class="edge" x1="530" y1="275" x2="570" y2="345"/>
+
+<!-- Arrowheads -->
+<polygon points="600,145 595,135 605,135" fill="#93a3b8"/>
+<polygon points="530,245 525,235 535,235" fill="#93a3b8"/>
+<polygon points="680,245 675,235 685,235" fill="#93a3b8"/>
+<polygon points="490,345 485,335 495,335" fill="#93a3b8"/>
+<polygon points="570,345 565,335 575,335" fill="#93a3b8"/>
+
+<!-- Edge labels -->
+<text class="edge-label" x="614" y="110">"b"</text>
+<text class="edge-label" x="555" y="205">"e"</text>
+<text class="edge-label" x="652" y="205">"id"</text>
+<text class="edge-label" x="498" y="305">"ar"</text>
+<text class="edge-label" x="562" y="305">"ll"</text>
+
+<!-- Nodes -->
+<!-- d0: root -->
+<circle class="node" cx="600" cy="60" r="15"/>
+<text class="node-text" x="600" y="60">root</text>
+
+<!-- d1: b-node -->
+<circle class="node" cx="600" cy="160" r="15"/>
+<text class="node-text" x="600" y="160"></text>
+
+<!-- d2: be-node, bid(key) -->
+<circle class="node" cx="530" cy="260" r="15"/>
+<text class="node-text" x="530" y="260"></text>
+<circle class="node-key" cx="680" cy="260" r="15"/>
+<text class="node-text" x="680" y="260">bid</text>
+
+<!-- d3: bear(key), bell(key) -->
+<circle class="node-key" cx="490" cy="360" r="15"/>
+<text class="node-text" x="490" y="360">bear</text>
+<circle class="node-key" cx="570" cy="360" r="15"/>
+<text class="node-text" x="570" y="360">bell</text>
+
+<!-- Stats annotation -->
+<text class="stat" x="450" y="430">Nodes: 6</text>
+<text class="stat" x="450" y="448">Height: 4</text>
+
+<!-- Comparison annotation -->
+<text class="anno-center" x="600" y="448">33% fewer nodes, 20% shorter</text>
+
+<!-- Description -->
+<text class="desc" x="390" y="474">Same keys {bear, bell, bid}: compressed trie collapses single-child chains</text>
+</svg>

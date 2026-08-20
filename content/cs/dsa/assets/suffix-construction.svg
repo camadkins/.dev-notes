@@ -1,0 +1,128 @@
+<svg viewBox="11.1 0 585 460" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <title>Suffix Trie Construction — S = "banana$"</title>
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .leaf { fill: rgba(30,40,55,0.95); stroke: #84a59d; stroke-width: 2; }
+    .edge { stroke: #93a3b8; stroke-width: 1.2; }
+    .shared { stroke: #58a6ff; stroke-width: 2; }
+    .elabel { font-size: 10px; fill: #e8e8e8; font-weight: 600; text-anchor: middle; dominant-baseline: auto; }
+    .anno { font-size: 9px; fill: #d29922; font-weight: 600; }
+    .rlabel { font-size: 10px; fill: #7b97aa; font-weight: 600; text-anchor: middle; }
+    .legend-text { font-size: 8px; fill: #8b949e; }
+    @media (prefers-color-scheme: light) {
+      .node { fill: #1a1a2e; stroke: #284b63; }
+      .leaf { fill: #1a1a2e; stroke: #3a7a5a; }
+      .edge { stroke: #b8b8b8; }
+      .shared { stroke: #284b63; }
+      .elabel { fill: #1a1a2e; }
+      .anno { fill: #9e6000; }
+      .rlabel { fill: #284b63; }
+      .legend-text { fill: #6e7781; }
+    }
+  </style>
+
+  <!-- Root label -->
+  <text x="280" y="37" class="rlabel">root</text>
+
+  <!-- ═══ EDGES ═══ -->
+  <!-- Shared edges (blue, thick) — traversed by 2+ suffixes -->
+  <line x1="275" y1="55" x2="233" y2="91" class="shared"/>   <!-- root→a (suf 1,3,5) -->
+  <line x1="223" y1="101" x2="180" y2="137" class="shared"/> <!-- a→an (suf 1,3) -->
+  <line x1="175" y1="149" x2="175" y2="181" class="shared"/> <!-- an→ana (suf 1,3) -->
+  <line x1="286" y1="53" x2="404" y2="93" class="shared"/>   <!-- root→n (suf 2,4) -->
+  <line x1="410" y1="103" x2="410" y2="135" class="shared"/> <!-- n→na (suf 2,4) -->
+
+  <!-- Non-shared edges (gray) — unique to one suffix -->
+  <line x1="273" y1="52" x2="77" y2="95" class="edge"/>      <!-- root→b -->
+  <line x1="287" y1="52" x2="507" y2="94" class="edge"/>     <!-- root→$ -->
+  <line x1="70" y1="103" x2="70" y2="135" class="edge"/>     <!-- b→ba -->
+  <line x1="233" y1="101" x2="274" y2="137" class="edge"/>   <!-- a→a$ -->
+  <line x1="70" y1="149" x2="70" y2="181" class="edge"/>     <!-- ba→ban -->
+  <line x1="406" y1="148" x2="379" y2="182" class="edge"/>   <!-- na→nan -->
+  <line x1="414" y1="148" x2="440" y2="182" class="edge"/>   <!-- na→na$ -->
+  <line x1="70" y1="195" x2="70" y2="227" class="edge"/>     <!-- ban→bana -->
+  <line x1="171" y1="194" x2="144" y2="228" class="edge"/>   <!-- ana→anan -->
+  <line x1="179" y1="194" x2="205" y2="228" class="edge"/>   <!-- ana→ana$ -->
+  <line x1="375" y1="195" x2="375" y2="227" class="edge"/>   <!-- nan→nana -->
+  <line x1="70" y1="241" x2="70" y2="273" class="edge"/>     <!-- bana→banan -->
+  <line x1="140" y1="241" x2="140" y2="273" class="edge"/>   <!-- anan→anana -->
+  <line x1="375" y1="241" x2="375" y2="272" class="edge"/>   <!-- nana→nana$ -->
+  <line x1="70" y1="287" x2="70" y2="319" class="edge"/>     <!-- banan→banana -->
+  <line x1="140" y1="287" x2="140" y2="318" class="edge"/>   <!-- anana→anana$ -->
+  <line x1="70" y1="333" x2="70" y2="364" class="edge"/>     <!-- banana→banana$ -->
+
+  <!-- ═══ EDGE LABELS ═══ -->
+  <!-- Root-level edges -->
+  <text x="163" y="69" class="elabel">b</text>
+  <text x="242" y="69" class="elabel">a</text>
+  <text x="355" y="69" class="elabel">n</text>
+  <text x="410" y="69" class="elabel">$</text>
+  <!-- Level 1→2 -->
+  <text x="82" y="123" class="elabel">a</text>
+  <text x="190" y="115" class="elabel">n</text>
+  <text x="266" y="115" class="elabel">$</text>
+  <text x="422" y="123" class="elabel">a</text>
+  <!-- Level 2→3 -->
+  <text x="82" y="169" class="elabel">n</text>
+  <text x="187" y="169" class="elabel">a</text>
+  <text x="381" y="161" class="elabel">n</text>
+  <text x="440" y="161" class="elabel">$</text>
+  <!-- Level 3→4 -->
+  <text x="82" y="215" class="elabel">a</text>
+  <text x="146" y="207" class="elabel">n</text>
+  <text x="205" y="207" class="elabel">$</text>
+  <text x="387" y="215" class="elabel">a</text>
+  <!-- Level 4→5 -->
+  <text x="82" y="261" class="elabel">n</text>
+  <text x="152" y="261" class="elabel">a</text>
+  <text x="387" y="261" class="elabel">$</text>
+  <!-- Level 5→6 -->
+  <text x="82" y="307" class="elabel">a</text>
+  <text x="152" y="307" class="elabel">$</text>
+  <!-- Level 6→7 -->
+  <text x="82" y="353" class="elabel">$</text>
+
+  <!-- ═══ NODES ═══ -->
+  <!-- Internal nodes -->
+  <circle cx="280" cy="50" r="7" class="node"/>   <!-- root -->
+  <circle cx="70" cy="96" r="7" class="node"/>    <!-- b -->
+  <circle cx="228" cy="96" r="7" class="node"/>   <!-- a -->
+  <circle cx="410" cy="96" r="7" class="node"/>   <!-- n -->
+  <circle cx="70" cy="142" r="7" class="node"/>   <!-- ba -->
+  <circle cx="175" cy="142" r="7" class="node"/>  <!-- an -->
+  <circle cx="410" cy="142" r="7" class="node"/>  <!-- na -->
+  <circle cx="70" cy="188" r="7" class="node"/>   <!-- ban -->
+  <circle cx="175" cy="188" r="7" class="node"/>  <!-- ana -->
+  <circle cx="375" cy="188" r="7" class="node"/>  <!-- nan -->
+  <circle cx="70" cy="234" r="7" class="node"/>   <!-- bana -->
+  <circle cx="140" cy="234" r="7" class="node"/>  <!-- anan -->
+  <circle cx="375" cy="234" r="7" class="node"/>  <!-- nana -->
+  <circle cx="70" cy="280" r="7" class="node"/>   <!-- banan -->
+  <circle cx="140" cy="280" r="7" class="node"/>  <!-- anana -->
+  <circle cx="70" cy="326" r="7" class="node"/>   <!-- banana -->
+
+  <!-- Leaf nodes (suffix terminals) -->
+  <circle cx="515" cy="96" r="7" class="leaf"/>   <!-- $ (i=6) -->
+  <circle cx="280" cy="142" r="7" class="leaf"/>  <!-- a$ (i=5) -->
+  <circle cx="445" cy="188" r="7" class="leaf"/>  <!-- na$ (i=4) -->
+  <circle cx="210" cy="234" r="7" class="leaf"/>  <!-- ana$ (i=3) -->
+  <circle cx="375" cy="280" r="7" class="leaf"/>  <!-- nana$ (i=2) -->
+  <circle cx="140" cy="326" r="7" class="leaf"/>  <!-- anana$ (i=1) -->
+  <circle cx="70" cy="372" r="7" class="leaf"/>   <!-- banana$ (i=0) -->
+
+  <!-- ═══ LEAF ANNOTATIONS ═══ -->
+  <text x="528" y="100" class="anno">i=6</text>
+  <text x="293" y="146" class="anno">i=5</text>
+  <text x="458" y="192" class="anno">i=4</text>
+  <text x="223" y="238" class="anno">i=3</text>
+  <text x="388" y="284" class="anno">i=2</text>
+  <text x="153" y="330" class="anno">i=1</text>
+  <text x="83" y="376" class="anno">i=0</text>
+
+  <!-- ═══ LEGEND ═══ -->
+  <line x1="70" y1="412" x2="92" y2="412" class="shared"/>
+  <text x="97" y="415" class="legend-text">shared prefix (2+ suffixes)</text>
+  <line x1="290" y1="412" x2="312" y2="412" stroke="#93a3b8" stroke-width="1.2"/>
+  <text x="317" y="415" class="legend-text">unique to one suffix</text>
+</svg>

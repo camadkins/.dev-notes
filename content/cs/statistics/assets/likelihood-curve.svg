@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="12.1 0 520 340" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; }
+    .anno { font-size: 10px; fill: #d29922; font-weight: 600; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; }
+    .axis { stroke: #58a6ff; stroke-width: 1.5; }
+    .axis-label { font-size: 12px; fill: #e8e8e8; font-weight: 600; }
+    .tick-label { font-size: 9px; fill: #8b949e; }
+    .curve { stroke: #58a6ff; stroke-width: 2.5; fill: none; }
+    .peak-dot { fill: #d29922; }
+    .peak-line { stroke: #d29922; stroke-width: 1.2; stroke-dasharray: 5 4; }
+    .tangent { stroke: #8b949e; stroke-width: 1; stroke-dasharray: 3 3; }
+    .score-label { font-size: 9px; fill: #8b949e; font-style: italic; }
+    .mle-label { font-size: 11px; fill: #d29922; font-weight: 600; }
+    .region-fill { fill: rgba(88,166,255,0.06); }
+    @media (prefers-color-scheme: light) {
+      .edge { stroke: #b8b8b8; }
+      .anno { fill: #9e6000; }
+      .desc { fill: #6e7781; }
+      .axis { stroke: #284b63; }
+      .axis-label { fill: #1a1a2e; }
+      .tick-label { fill: #6e7781; }
+      .curve { stroke: #284b63; }
+      .peak-dot { fill: #9e6000; }
+      .peak-line { stroke: #9e6000; }
+      .tangent { stroke: #b8b8b8; }
+      .score-label { fill: #6e7781; }
+      .mle-label { fill: #9e6000; }
+      .region-fill { fill: rgba(40,75,99,0.06); }
+    }
+  </style>
+
+  <!-- Axes -->
+  <line x1="70" y1="280" x2="490" y2="280" class="axis"/>
+  <line x1="70" y1="280" x2="70" y2="40" class="axis"/>
+
+  <!-- Axis arrowheads -->
+  <polygon points="490,280 482,276 482,284" fill="#58a6ff"/>
+  <polygon points="70,40 66,48 74,48" fill="#58a6ff"/>
+
+  <!-- X-axis label: θ -->
+  <text x="495" y="284" class="axis-label">θ</text>
+
+  <!-- Y-axis label: ℓ(θ) -->
+  <text x="42" y="38" class="axis-label">ℓ(θ)</text>
+
+  <!-- Log-likelihood curve: concave-down bell-like shape -->
+  <!-- Curve spans from roughly x=90 to x=470, peak at x=280, y=70 -->
+  <path d="M 90,265 C 120,250 150,210 180,175 C 210,140 240,95 280,70 C 320,95 350,140 380,175 C 410,210 440,250 470,265" class="curve"/>
+
+  <!-- Subtle fill under curve -->
+  <path d="M 90,265 C 120,250 150,210 180,175 C 210,140 240,95 280,70 C 320,95 350,140 380,175 C 410,210 440,250 470,265 L 470,280 L 90,280 Z" class="region-fill"/>
+
+  <!-- Peak vertical dashed line -->
+  <line x1="280" y1="70" x2="280" y2="280" class="peak-line"/>
+
+  <!-- Peak dot -->
+  <circle cx="280" cy="70" r="5" class="peak-dot"/>
+
+  <!-- Tangent line at peak (horizontal, slope = 0) -->
+  <line x1="220" y1="70" x2="340" y2="70" class="tangent"/>
+
+  <!-- Score = 0 annotation at tangent -->
+  <text x="345" y="67" class="score-label">slope = 0</text>
+  <text x="345" y="80" class="score-label">∂ℓ/∂θ = 0</text>
+
+  <!-- MLE label at peak -->
+  <text x="280" y="55" class="mle-label" text-anchor="middle">θ̂_MLE</text>
+
+  <!-- Tick mark on x-axis at peak -->
+  <line x1="280" y1="280" x2="280" y2="286" class="axis" stroke-dasharray="none"/>
+  <text x="280" y="300" class="tick-label" text-anchor="middle">θ̂_MLE</text>
+
+  <!-- Arrows showing increase then decrease -->
+  <!-- Left side: likelihood increasing -->
+  <text x="175" y="225" class="desc" text-anchor="middle">ℓ increasing</text>
+  <text x="385" y="225" class="desc" text-anchor="middle">ℓ decreasing</text>
+
+  <!-- Caption -->
+  <text x="280" y="328" class="desc" text-anchor="middle">MLE maximizes log-likelihood: the peak where the score function equals zero</text>
+
+</svg>

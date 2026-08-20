@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 320" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .node-text { font-size: 10px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; }
+    .anno { font-size: 10px; fill: #d29922; font-weight: 600; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    .label-large { font-size: 14px; fill: #e8e8e8; font-weight: 600; }
+    .label-event { font-size: 13px; fill: #e8e8e8; font-weight: 600; }
+    .formula { font-size: 11px; fill: #d29922; font-weight: 600; }
+    .circle-a { fill: rgba(88,166,255,0.12); stroke: #58a6ff; stroke-width: 2; }
+    .circle-b { fill: rgba(147,163,184,0.10); stroke: #93a3b8; stroke-width: 1.5; stroke-dasharray: 5 3; }
+    .intersection { fill: rgba(210,153,34,0.25); }
+    .reduced-fill { fill: rgba(88,166,255,0.06); }
+    .sample-rect { fill: rgba(30,40,55,0.4); stroke: #484f58; stroke-width: 1.5; rx: 6; }
+    @media (prefers-color-scheme: light) {
+      .node { fill: #1a1a2e; stroke: #284b63; }
+      .edge { stroke: #b8b8b8; }
+      .anno { fill: #9e6000; }
+      .desc { fill: #6e7781; }
+      .sep { stroke: #e5e5e5; }
+      .label-large { fill: #1a1a2e; }
+      .label-event { fill: #1a1a2e; }
+      .formula { fill: #9e6000; }
+      .circle-a { fill: rgba(40,75,99,0.12); stroke: #284b63; }
+      .circle-b { fill: rgba(184,184,184,0.10); stroke: #b8b8b8; }
+      .intersection { fill: rgba(158,96,0,0.20); }
+      .reduced-fill { fill: rgba(40,75,99,0.06); }
+      .sample-rect { fill: rgba(245,245,245,0.6); stroke: #d0d7de; }
+    }
+  </style>
+
+  <defs>
+    <!-- Clip path for intersection of A and B -->
+    <clipPath id="clip-a">
+      <circle cx="190" cy="150" r="80"/>
+    </clipPath>
+    <clipPath id="clip-b">
+      <circle cx="270" cy="150" r="80"/>
+    </clipPath>
+    <!-- Clip for A-only (A minus intersection) -->
+    <clipPath id="clip-a-only">
+      <rect x="30" y="30" width="460" height="260"/>
+    </clipPath>
+  </defs>
+
+  <!-- Sample space S rectangle -->
+  <rect x="30" y="30" width="460" height="260" class="sample-rect"/>
+
+  <!-- S label -->
+  <text x="52" y="56" class="label-large">S</text>
+
+  <!-- Reduced sample space highlight on A -->
+  <circle cx="190" cy="150" r="80" class="reduced-fill"/>
+
+  <!-- Circle A (solid border - reduced sample space) -->
+  <circle cx="190" cy="150" r="80" class="circle-a"/>
+
+  <!-- Circle B (dashed border) -->
+  <circle cx="270" cy="150" r="80" class="circle-b"/>
+
+  <!-- Intersection A ∩ B (highlighted) -->
+  <g clip-path="url(#clip-a)">
+    <circle cx="270" cy="150" r="80" class="intersection"/>
+  </g>
+
+  <!-- Event labels -->
+  <text x="155" y="120" class="label-event">A</text>
+  <text x="305" y="120" class="label-event">B</text>
+
+  <!-- Intersection label -->
+  <text x="230" y="150" class="anno" text-anchor="middle">A ∩ B</text>
+
+  <!-- Annotation: reduced sample space bracket on left -->
+  <line x1="110" y1="238" x2="110" y2="248" stroke="#8b949e" stroke-width="1"/>
+  <line x1="110" y1="248" x2="270" y2="248" stroke="#8b949e" stroke-width="1"/>
+  <line x1="270" y1="238" x2="270" y2="248" stroke="#8b949e" stroke-width="1"/>
+  <text x="190" y="266" class="desc" text-anchor="middle">reduced sample space</text>
+
+  <!-- Formula annotation on the right side -->
+  <text x="400" y="110" class="formula" text-anchor="middle">P(B | A)</text>
+  <text x="400" y="130" class="desc" text-anchor="middle">P(A ∩ B)</text>
+  <line x1="370" y1="135" x2="430" y2="135" stroke="#8b949e" stroke-width="1"/>
+  <text x="400" y="150" class="desc" text-anchor="middle">P(A)</text>
+
+  <!-- Pointer line from formula to intersection -->
+  <line x1="370" y1="120" x2="262" y2="145" class="sep" stroke-dasharray="3 3"/>
+
+</svg>

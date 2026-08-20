@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 150" fill="none" role="img" aria-label="Inertial navigation integrates acceleration into velocity and velocity into position; sensor errors integrate into drift">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .t { fill: #e8e8e8; font-size: 14px; text-anchor: middle; }
+    .a { stroke: #93a3b8; stroke-width: 1.6; }
+    .op { fill: #d29922; font-size: 13px; text-anchor: middle; }
+    .cap { fill: #8b949e; font-size: 12px; text-anchor: middle; }
+  </style>
+  <rect class="box" x="20"  y="44" width="140" height="50" rx="4"/><text class="t" x="90"  y="74">acceleration</text>
+  <line class="a" x1="160" y1="69" x2="212" y2="69"/><polygon points="212,69 204,65 204,73" fill="#93a3b8"/>
+  <text class="op" x="186" y="58">integrate</text>
+  <rect class="box" x="214" y="44" width="130" height="50" rx="4"/><text class="t" x="279" y="74">velocity</text>
+  <line class="a" x1="344" y1="69" x2="396" y2="69"/><polygon points="396,69 388,65 388,73" fill="#93a3b8"/>
+  <text class="op" x="370" y="58">integrate</text>
+  <rect class="box" x="398" y="44" width="140" height="50" rx="4"/><text class="t" x="468" y="74">position</text>
+  <text class="cap" x="280" y="128">small measurement errors integrate into a growing position drift</text>
+</svg>

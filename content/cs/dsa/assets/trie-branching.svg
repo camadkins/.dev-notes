@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-21 0 520 380" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .node-text { font-size: 11px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; }
+    .edge-label { font-size: 10px; fill: #d29922; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+    .terminal { fill: #d29922; }
+    .anno { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; }
+    .depth-label { font-size: 9px; fill: #8b949e; text-anchor: end; dominant-baseline: central; }
+    @media (prefers-color-scheme: light) {
+      .node { fill: #1a1a2e; stroke: #284b63; }
+      .edge { stroke: #b8b8b8; }
+      .edge-label { fill: #9e6000; }
+      .terminal { fill: #9e6000; }
+      .anno { fill: #6e7781; }
+      .desc { fill: #6e7781; }
+      .depth-label { fill: #6e7781; }
+    }
+  </style>
+
+  <!-- Layout grid constants:
+       viewBox: 520 x 340
+       Padding: 20px all sides
+       Content area: 40..500 x 30..320
+
+       Depth rows (cy):
+         depth 0 (root):  y = 50
+         depth 1 (t, i):  y = 120
+         depth 2 (o, e, n_in): y = 190
+         depth 3 (a, d, n_ten, n_inn): y = 260
+
+       Row spacing: 70px
+       Node radius: 18px
+       Terminal dot radius: 4px
+
+       Horizontal positions (cx):
+         Left subtree (t): centered at x=200
+           t: 200
+           o: 120, e: 280
+           a: 220, d: 280, n_ten: 340
+
+         Right subtree (i): centered at x=420
+           i: 420
+           n_in: 420
+           n_inn: 420
+
+         Root: centered over t and i = (200+420)/2 = 310
+  -->
+
+  <!-- Depth labels (left margin) -->
+  <text class="depth-label" x="30" y="50">d0</text>
+  <text class="depth-label" x="30" y="120">d1</text>
+  <text class="depth-label" x="30" y="190">d2</text>
+  <text class="depth-label" x="30" y="260">d3</text>
+
+  <!-- Edges (drawn first, behind nodes) -->
+  <!-- root -> t -->
+  <line class="edge" x1="296" y1="63" x2="214" y2="107"/>
+  <!-- root -> i -->
+  <line class="edge" x1="324" y1="63" x2="406" y2="107"/>
+
+  <!-- t -> o -->
+  <line class="edge" x1="186" y1="133" x2="134" y2="177"/>
+  <!-- t -> e -->
+  <line class="edge" x1="214" y1="133" x2="266" y2="177"/>
+
+  <!-- e -> a -->
+  <line class="edge" x1="268.3" y1="203.7" x2="231.7" y2="246.3"/>
+  <!-- e -> d -->
+  <line class="edge" x1="280" y1="208" x2="280" y2="242"/>
+  <!-- e -> n_ten -->
+  <line class="edge" x1="291.7" y1="203.7" x2="328.3" y2="246.3"/>
+
+  <!-- i -> n_in -->
+  <line class="edge" x1="420" y1="138" x2="420" y2="172"/>
+
+  <!-- n_in -> n_inn -->
+  <line class="edge" x1="420" y1="208" x2="420" y2="242"/>
+
+  <!-- Edge labels -->
+  <!-- root -> t label -->
+  <text class="edge-label" x="248" y="78">t</text>
+  <!-- root -> i label -->
+  <text class="edge-label" x="372" y="78">i</text>
+  <!-- t -> o label -->
+  <text class="edge-label" x="162" y="148">o</text>
+  <!-- t -> e label -->
+  <text class="edge-label" x="244" y="148">e</text>
+  <!-- e -> a label -->
+  <text class="edge-label" x="244" y="222">a</text>
+  <!-- e -> d label -->
+  <text class="edge-label" x="268" y="222">d</text>
+  <!-- e -> n_ten label -->
+  <text class="edge-label" x="316" y="222">n</text>
+  <!-- i -> n_in label -->
+  <text class="edge-label" x="408" y="155">n</text>
+  <!-- n_in -> n_inn label -->
+  <text class="edge-label" x="408" y="225">n</text>
+
+  <!-- Nodes -->
+  <!-- root (depth 0) -->
+  <circle class="node" cx="310" cy="50" r="18" id="root"/>
+  <text class="node-text" x="310" y="50">root</text>
+
+  <!-- t (depth 1) -->
+  <circle class="node" cx="200" cy="120" r="18" id="n-t"/>
+  <text class="node-text" x="200" y="120">t</text>
+
+  <!-- i (depth 1) -->
+  <circle class="node" cx="420" cy="120" r="18" id="n-i"/>
+  <text class="node-text" x="420" y="120">i</text>
+
+  <!-- o (depth 2) - terminal for "to" -->
+  <circle class="node" cx="120" cy="190" r="18" id="n-o"/>
+  <text class="node-text" x="120" y="190">o</text>
+  <circle class="terminal" cx="120" cy="211" r="4"/>
+
+  <!-- e (depth 2) -->
+  <circle class="node" cx="280" cy="190" r="18" id="n-e"/>
+  <text class="node-text" x="280" y="190">e</text>
+
+  <!-- n_in (depth 2) - terminal for "in" -->
+  <circle class="node" cx="420" cy="190" r="18" id="n-n-in"/>
+  <text class="node-text" x="420" y="190">n</text>
+  <circle class="terminal" cx="420" cy="211" r="4"/>
+
+  <!-- a (depth 3) - terminal for "tea" -->
+  <circle class="node" cx="220" cy="260" r="18" id="n-a"/>
+  <text class="node-text" x="220" y="260">a</text>
+  <circle class="terminal" cx="220" cy="281" r="4"/>
+
+  <!-- d (depth 3) - terminal for "ted" -->
+  <circle class="node" cx="280" cy="260" r="18" id="n-d"/>
+  <text class="node-text" x="280" y="260">d</text>
+  <circle class="terminal" cx="280" cy="281" r="4"/>
+
+  <!-- n_ten (depth 3) - terminal for "ten" -->
+  <circle class="node" cx="340" cy="260" r="18" id="n-n-ten"/>
+  <text class="node-text" x="340" y="260">n</text>
+  <circle class="terminal" cx="340" cy="281" r="4"/>
+
+  <!-- n_inn (depth 3) - terminal for "inn" -->
+  <circle class="node" cx="420" cy="260" r="18" id="n-n-inn"/>
+  <text class="node-text" x="420" y="260">n</text>
+  <circle class="terminal" cx="420" cy="281" r="4"/>
+
+  <!-- Word annotations below terminal dots -->
+  <text class="anno" x="92" y="211">"to"</text>
+  <text class="anno" x="220" y="296">"tea"</text>
+  <text class="anno" x="280" y="296">"ted"</text>
+  <text class="anno" x="340" y="296">"ten"</text>
+  <text class="anno" x="448" y="211">"in"</text>
+  <text class="anno" x="420" y="296">"inn"</text>
+
+  <!-- Legend -->
+  <circle class="terminal" cx="50" cy="330" r="4"/>
+  <text class="desc" x="60" y="330" text-anchor="start">= terminal (complete key)</text>
+</svg>

@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-35 0 660 340" fill="none">
+  <style>
+    text { font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .title { font-size: 13px; font-weight: 700; fill: #e8e8e8; text-anchor: middle; }
+    .internal { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 2; }
+    .leaf { fill: rgba(30,40,55,0.95); stroke: #3fb950; stroke-width: 2; }
+    .node-text { font-size: 12px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+    .key-sep { stroke: #58a6ff; stroke-width: 1; opacity: 0.4; }
+    .key-sep-leaf { stroke: #3fb950; stroke-width: 1; opacity: 0.4; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; }
+    .leaf-link { stroke: #d29922; stroke-width: 1.5; }
+    .leaf-arrow { fill: #d29922; }
+    .anno { font-size: 10px; fill: #d29922; font-weight: 600; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .label { font-size: 9px; fill: #8b949e; }
+    .legend-box { fill: rgba(30,40,55,0.95); stroke-width: 1.5; }
+    .legend-text { font-size: 9px; fill: #8b949e; }
+    .data-ptr { font-size: 8px; fill: #7b97aa; text-anchor: middle; }
+
+    @media (prefers-color-scheme: light) {
+      .title { fill: #284b63; }
+      .internal { fill: #1a1a2e; stroke: #284b63; }
+      .leaf { fill: #1a1a2e; stroke: #1a7f37; }
+      .node-text { fill: #e8e8e8; }
+      .key-sep { stroke: #284b63; }
+      .key-sep-leaf { stroke: #1a7f37; }
+      .edge { stroke: #b8b8b8; }
+      .leaf-link { stroke: #9e6000; }
+      .leaf-arrow { fill: #9e6000; }
+      .anno { fill: #9e6000; }
+      .desc { fill: #6e7781; }
+      .label { fill: #6e7781; }
+      .legend-text { fill: #6e7781; }
+      .data-ptr { fill: #6e7781; }
+    }
+  </style>
+
+  <!-- Title -->
+  <text x="330" y="22" class="title">B+ Tree Structure (Order 4: max 3 keys, max 4 children)</text>
+  <text x="330" y="38" class="desc">internal nodes: keys only | leaf nodes: keys + data pointers | leaves linked</text>
+
+  <!-- ===== Root [10 | 20] centered at x=330 ===== -->
+  <rect x="260" y="60" width="140" height="36" rx="4" class="internal"/>
+  <line x1="330" y1="60" x2="330" y2="96" class="key-sep"/>
+  <text x="295" y="78" class="node-text">10</text>
+  <text x="365" y="78" class="node-text">20</text>
+
+  <text x="20" y="82" class="anno">d=0</text>
+  <text x="20" y="94" class="label">root</text>
+
+  <!-- ===== Leaves: centered at x=150, 330, 510 (evenly spaced, middle under root) ===== -->
+
+  <!-- Leaf 1 [5 | 6] centered at x=150 -->
+  <rect x="90" y="170" width="120" height="50" rx="4" class="leaf"/>
+  <line x1="150" y1="170" x2="150" y2="220" class="key-sep-leaf"/>
+  <text x="120" y="188" class="node-text">5</text>
+  <text x="180" y="188" class="node-text">6</text>
+  <text x="120" y="208" class="data-ptr">d*</text>
+  <text x="180" y="208" class="data-ptr">d*</text>
+
+  <!-- Leaf 2 [10 | 12] centered at x=330 (directly under root) -->
+  <rect x="270" y="170" width="120" height="50" rx="4" class="leaf"/>
+  <line x1="330" y1="170" x2="330" y2="220" class="key-sep-leaf"/>
+  <text x="300" y="188" class="node-text">10</text>
+  <text x="360" y="188" class="node-text">12</text>
+  <text x="300" y="208" class="data-ptr">d*</text>
+  <text x="360" y="208" class="data-ptr">d*</text>
+
+  <!-- Leaf 3 [20 | 30] centered at x=510 -->
+  <rect x="450" y="170" width="120" height="50" rx="4" class="leaf"/>
+  <line x1="510" y1="170" x2="510" y2="220" class="key-sep-leaf"/>
+  <text x="480" y="188" class="node-text">20</text>
+  <text x="540" y="188" class="node-text">30</text>
+  <text x="480" y="208" class="data-ptr">d*</text>
+  <text x="540" y="208" class="data-ptr">d*</text>
+
+  <text x="20" y="192" class="anno">d=1</text>
+  <text x="20" y="204" class="label">leaves</text>
+
+  <!-- ===== Tree edges (symmetric fan from root to leaves) ===== -->
+  <line x1="280" y1="96" x2="150" y2="170" class="edge"/>
+  <line x1="330" y1="96" x2="330" y2="170" class="edge"/>
+  <line x1="380" y1="96" x2="510" y2="170" class="edge"/>
+
+  <!-- ===== Leaf linkage arrows ===== -->
+  <line x1="210" y1="195" x2="265" y2="195" class="leaf-link"/>
+  <polygon points="270,195 262,190 262,200" class="leaf-arrow"/>
+
+  <line x1="390" y1="195" x2="445" y2="195" class="leaf-link"/>
+  <polygon points="450,195 442,190 442,200" class="leaf-arrow"/>
+
+  <!-- ===== Legend ===== -->
+  <rect x="80" y="270" width="30" height="16" rx="3" class="legend-box" stroke="#58a6ff"/>
+  <text x="118" y="282" class="legend-text">internal node (keys only)</text>
+
+  <rect x="80" y="296" width="30" height="16" rx="3" class="legend-box" stroke="#3fb950"/>
+  <text x="118" y="308" class="legend-text">leaf node (keys + data ptrs)</text>
+
+  <line x1="340" y1="280" x2="380" y2="280" class="leaf-link"/>
+  <polygon points="385,280 377,275 377,285" class="leaf-arrow"/>
+  <text x="395" y="284" class="legend-text">leaf chain (sequential access)</text>
+
+  <text x="340" y="306" class="legend-text">d* = data pointer to record</text>
+</svg>

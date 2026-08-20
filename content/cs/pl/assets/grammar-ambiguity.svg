@@ -1,0 +1,209 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 520" fill="none">
+  <style>
+    text { font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .node-op { fill: rgba(30,40,55,0.95); stroke: #d29922; stroke-width: 2; }
+    .node-text { font-size: 13px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+    .op-text { font-size: 14px; fill: #d29922; font-weight: 700; text-anchor: middle; dominant-baseline: central; }
+    .term-text { font-size: 13px; fill: #58a6ff; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .anno { font-size: 11px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .desc { font-size: 11px; fill: #8b949e; text-anchor: middle; }
+    .desc-it { font-size: 10px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .title { font-size: 13px; fill: #e8e8e8; font-weight: 600; text-anchor: middle; }
+    .gram { font-size: 11px; fill: #e8e8e8; text-anchor: start; }
+    .gram-nt { font-size: 11px; fill: #58a6ff; font-weight: 600; text-anchor: start; }
+    .gram-op { font-size: 11px; fill: #d29922; font-weight: 600; text-anchor: start; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 6,4; }
+    @media (prefers-color-scheme: light) {
+      .node { fill: #1a1a2e; stroke: #284b63; }
+      .node-op { fill: #1a1a2e; stroke: #9e6000; }
+      .node-text { fill: #e8e8e8; }
+      .op-text { fill: #9e6000; }
+      .term-text { fill: #284b63; }
+      .edge { stroke: #b8b8b8; }
+      .anno { fill: #9e6000; }
+      .desc { fill: #6e7781; }
+      .desc-it { fill: #6e7781; }
+      .title { fill: #1a1a2e; }
+      .gram { fill: #1a1a2e; }
+      .gram-nt { fill: #284b63; }
+      .gram-op { fill: #9e6000; }
+      .sep { stroke: #d0d7de; }
+    }
+  </style>
+
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto">
+      <path d="M0,0 L6,2 L0,4" fill="#93a3b8" stroke="none"/>
+    </marker>
+  </defs>
+
+  <!-- Layout grid:
+       viewBox: 760 x 520, padding: 20px
+       Left tree center: x=190, Right tree center: x=570
+       Separator: x=380
+       Tree depth 0 (root E): y=80
+       Tree depth 1 (E op E children): y=155
+       Tree depth 2 (leaf terminals or deeper E): y=230
+       Tree depth 3 (deepest terminals): y=295
+       Node radius: 18px
+       Grammar section: y=370+
+  -->
+
+  <!-- Section title: Ambiguous Grammar -->
+  <text class="desc" x="380" y="28">Ambiguous grammar: E &#x2192; E + E | E * E | ( E ) | id</text>
+
+  <!-- ===== LEFT TREE: (a + b) * c ===== -->
+  <text class="title" x="190" y="52">Parse 1: (a + b) * c</text>
+
+  <!-- Edges (behind nodes) -->
+  <!-- Root E -> left E -->
+  <line class="edge" x1="178" y1="95" x2="108" y2="140"/>
+  <!-- Root E -> * -->
+  <line class="edge" x1="190" y1="98" x2="190" y2="137"/>
+  <!-- Root E -> right E -->
+  <line class="edge" x1="202" y1="95" x2="272" y2="140"/>
+
+  <!-- Left E -> E(a) -->
+  <line class="edge" x1="95" y1="173" x2="58" y2="215"/>
+  <!-- Left E -> + -->
+  <line class="edge" x1="105" y1="173" x2="105" y2="212"/>
+  <!-- Left E -> E(b) -->
+  <line class="edge" x1="115" y1="173" x2="152" y2="215"/>
+
+  <!-- E(a) -> a -->
+  <line class="edge" x1="55" y1="248" x2="55" y2="278"/>
+  <!-- E(b) -> b -->
+  <line class="edge" x1="155" y1="248" x2="155" y2="278"/>
+  <!-- Right E(c) -> c -->
+  <line class="edge" x1="275" y1="173" x2="275" y2="203"/>
+
+  <!-- Depth 0: Root E -->
+  <circle class="node" cx="190" cy="80" r="18"/>
+  <text class="node-text" x="190" y="80">E</text>
+
+  <!-- Depth 1: E, *, E -->
+  <circle class="node" cx="105" cy="155" r="18"/>
+  <text class="node-text" x="105" y="155">E</text>
+
+  <circle class="node-op" cx="190" cy="155" r="14"/>
+  <text class="op-text" x="190" y="155">*</text>
+
+  <circle class="node" cx="275" cy="155" r="18"/>
+  <text class="node-text" x="275" y="155">E</text>
+
+  <!-- Depth 2 left subtree: E, +, E -->
+  <circle class="node" cx="55" cy="230" r="18"/>
+  <text class="node-text" x="55" y="230">E</text>
+
+  <circle class="node-op" cx="105" cy="230" r="14"/>
+  <text class="op-text" x="105" y="230">+</text>
+
+  <circle class="node" cx="155" cy="230" r="18"/>
+  <text class="node-text" x="155" y="230">E</text>
+
+  <!-- Depth 3: terminals a, b -->
+  <text class="term-text" x="55" y="295">a</text>
+  <text class="term-text" x="155" y="295">b</text>
+
+  <!-- Depth 2 right: terminal c -->
+  <text class="term-text" x="275" y="218">c</text>
+
+  <!-- Grouping annotation -->
+  <text class="anno" x="190" y="325">&#x2217; binds last &#x2192; + evaluated first</text>
+
+  <!-- ===== VERTICAL SEPARATOR ===== -->
+  <line class="sep" x1="380" y1="45" x2="380" y2="340"/>
+
+  <!-- ===== RIGHT TREE: a + (b * c) ===== -->
+  <text class="title" x="570" y="52">Parse 2: a + (b * c)</text>
+
+  <!-- Edges -->
+  <!-- Root E -> left E -->
+  <line class="edge" x1="558" y1="95" x2="488" y2="140"/>
+  <!-- Root E -> + -->
+  <line class="edge" x1="570" y1="98" x2="570" y2="137"/>
+  <!-- Root E -> right E -->
+  <line class="edge" x1="582" y1="95" x2="652" y2="140"/>
+
+  <!-- Right E -> E(b) -->
+  <line class="edge" x1="639" y1="173" x2="602" y2="215"/>
+  <!-- Right E -> * -->
+  <line class="edge" x1="652" y1="173" x2="652" y2="212"/>
+  <!-- Right E -> E(c) -->
+  <line class="edge" x1="665" y1="173" x2="702" y2="215"/>
+
+  <!-- E(a) -> a -->
+  <line class="edge" x1="485" y1="173" x2="485" y2="203"/>
+  <!-- E(b) -> b -->
+  <line class="edge" x1="600" y1="248" x2="600" y2="278"/>
+  <!-- E(c) -> c -->
+  <line class="edge" x1="705" y1="248" x2="705" y2="278"/>
+
+  <!-- Depth 0: Root E -->
+  <circle class="node" cx="570" cy="80" r="18"/>
+  <text class="node-text" x="570" y="80">E</text>
+
+  <!-- Depth 1: E, +, E -->
+  <circle class="node" cx="485" cy="155" r="18"/>
+  <text class="node-text" x="485" y="155">E</text>
+
+  <circle class="node-op" cx="570" cy="155" r="14"/>
+  <text class="op-text" x="570" y="155">+</text>
+
+  <circle class="node" cx="655" cy="155" r="18"/>
+  <text class="node-text" x="655" y="155">E</text>
+
+  <!-- Depth 2 right subtree: E, *, E -->
+  <circle class="node" cx="600" cy="230" r="18"/>
+  <text class="node-text" x="600" y="230">E</text>
+
+  <circle class="node-op" cx="655" cy="230" r="14"/>
+  <text class="op-text" x="655" y="230">*</text>
+
+  <circle class="node" cx="710" cy="230" r="18"/>
+  <text class="node-text" x="710" y="230">E</text>
+
+  <!-- Depth 2 left: terminal a -->
+  <text class="term-text" x="485" y="218">a</text>
+
+  <!-- Depth 3: terminals b, c -->
+  <text class="term-text" x="600" y="295">b</text>
+  <text class="term-text" x="710" y="295">c</text>
+
+  <!-- Grouping annotation -->
+  <text class="anno" x="570" y="325">+ binds last &#x2192; &#x2217; evaluated first</text>
+
+  <!-- ===== HORIZONTAL SEPARATOR ===== -->
+  <line class="sep" x1="20" y1="350" x2="740" y2="350"/>
+
+  <!-- ===== REFACTORED GRAMMAR ===== -->
+  <text class="title" x="380" y="378">Unambiguous Grammar &#x2014; Precedence Layers</text>
+
+  <!-- Grammar rules -->
+  <!-- Expr -->
+  <text class="gram-nt" x="120" y="410">Expr</text>
+  <text class="gram" x="170" y="410">&#x2192; Expr <tspan class="gram-op">+</tspan> Term | Expr <tspan class="gram-op">&#x2212;</tspan> Term | Term</text>
+
+  <!-- Term -->
+  <text class="gram-nt" x="120" y="435">Term</text>
+  <text class="gram" x="170" y="435">&#x2192; Term <tspan class="gram-op">*</tspan> Factor | Term <tspan class="gram-op">/</tspan> Factor | Factor</text>
+
+  <!-- Factor -->
+  <text class="gram-nt" x="120" y="460">Factor</text>
+  <text class="gram" x="178" y="460">&#x2192; ( Expr ) | id | num</text>
+
+  <!-- Precedence annotations -->
+  <text class="desc-it" x="560" y="410">lowest precedence (binds last)</text>
+  <text class="desc-it" x="560" y="435">higher precedence (binds tighter)</text>
+  <text class="desc-it" x="560" y="460">highest precedence (atoms, parens)</text>
+
+  <!-- Precedence arrows -->
+  <line class="edge" x1="680" y1="415" x2="680" y2="453" marker-end="url(#arrow)"/>
+  <text class="anno" x="710" y="438">binds</text>
+  <text class="anno" x="710" y="451">tighter</text>
+
+  <!-- Bottom caption -->
+  <text class="desc" x="380" y="498">Each precedence level gets its own nonterminal &#x2014; only one parse tree per string</text>
+</svg>

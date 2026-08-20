@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 545 385" width="545" height="385">
+<style>
+  text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+  .edge { stroke: #93a3b8; stroke-width: 1.5; }
+  .anno { font-size: 10px; fill: #d29922; font-weight: 600; }
+  .desc { font-size: 9px; fill: #8b949e; font-style: italic; }
+  .axis-line { stroke: #93a3b8; stroke-width: 1; }
+  .tick-label { font-size: 9px; fill: #8b949e; }
+  .axis-label { font-size: 10px; fill: #c9d1d9; font-weight: 600; }
+  .grid { stroke: #30363d; stroke-width: 0.5; stroke-dasharray: 3,3; }
+  .point { fill: #58a6ff; opacity: 0.85; }
+  .fit-line { stroke: #e8e8e8; stroke-width: 2; }
+  .eq-label { font-size: 11px; fill: #d29922; font-weight: 600; }
+  @media (prefers-color-scheme: light) {
+    .edge { stroke: #b8b8b8; }
+    .anno { fill: #9e6000; }
+    .desc { fill: #6e7781; }
+    .axis-line { stroke: #b8b8b8; }
+    .tick-label { fill: #6e7781; }
+    .axis-label { fill: #24292f; }
+    .grid { stroke: #d0d7de; }
+    .point { fill: #0969da; }
+    .fit-line { stroke: #57606a; }
+    .eq-label { fill: #9e6000; }
+  }
+</style>
+<line x1="85.0" y1="304.54545454545456" x2="505.0" y2="304.54545454545456" class="grid"/>
+<line x1="85.0" y1="253.63636363636363" x2="505.0" y2="253.63636363636363" class="grid"/>
+<line x1="85.0" y1="202.72727272727275" x2="505.0" y2="202.72727272727275" class="grid"/>
+<line x1="85.0" y1="151.8181818181818" x2="505.0" y2="151.8181818181818" class="grid"/>
+<line x1="85.0" y1="100.9090909090909" x2="505.0" y2="100.9090909090909" class="grid"/>
+<line x1="85.0" y1="50.0" x2="505.0" y2="50.0" class="grid"/>
+<line x1="85.0" y1="50.0" x2="85.0" y2="330.0" class="grid"/>
+<line x1="169.0" y1="50.0" x2="169.0" y2="330.0" class="grid"/>
+<line x1="253.0" y1="50.0" x2="253.0" y2="330.0" class="grid"/>
+<line x1="337.0" y1="50.0" x2="337.0" y2="330.0" class="grid"/>
+<line x1="421.0" y1="50.0" x2="421.0" y2="330.0" class="grid"/>
+<line x1="505.0" y1="50.0" x2="505.0" y2="330.0" class="grid"/>
+<line x1="85.0" y1="330.0" x2="505.0" y2="330.0" class="axis-line"/>
+<line x1="85.0" y1="330.0" x2="85.0" y2="50.0" class="axis-line"/>
+<line x1="85.0" y1="330.0" x2="85.0" y2="335.0" class="axis-line"/>
+<text x="85.0" y="346.0" text-anchor="middle" class="tick-label">60</text>
+<line x1="169.0" y1="330.0" x2="169.0" y2="335.0" class="axis-line"/>
+<text x="169.0" y="346.0" text-anchor="middle" class="tick-label">80</text>
+<line x1="253.0" y1="330.0" x2="253.0" y2="335.0" class="axis-line"/>
+<text x="253.0" y="346.0" text-anchor="middle" class="tick-label">100</text>
+<line x1="337.0" y1="330.0" x2="337.0" y2="335.0" class="axis-line"/>
+<text x="337.0" y="346.0" text-anchor="middle" class="tick-label">120</text>
+<line x1="421.0" y1="330.0" x2="421.0" y2="335.0" class="axis-line"/>
+<text x="421.0" y="346.0" text-anchor="middle" class="tick-label">140</text>
+<line x1="505.0" y1="330.0" x2="505.0" y2="335.0" class="axis-line"/>
+<text x="505.0" y="346.0" text-anchor="middle" class="tick-label">160</text>
+<line x1="80.0" y1="304.54545454545456" x2="85.0" y2="304.54545454545456" class="axis-line"/>
+<text x="77.0" y="307.54545454545456" text-anchor="end" class="tick-label">50</text>
+<line x1="80.0" y1="253.63636363636363" x2="85.0" y2="253.63636363636363" class="axis-line"/>
+<text x="77.0" y="256.6363636363636" text-anchor="end" class="tick-label">60</text>
+<line x1="80.0" y1="202.72727272727275" x2="85.0" y2="202.72727272727275" class="axis-line"/>
+<text x="77.0" y="205.72727272727275" text-anchor="end" class="tick-label">70</text>
+<line x1="80.0" y1="151.8181818181818" x2="85.0" y2="151.8181818181818" class="axis-line"/>
+<text x="77.0" y="154.8181818181818" text-anchor="end" class="tick-label">80</text>
+<line x1="80.0" y1="100.9090909090909" x2="85.0" y2="100.9090909090909" class="axis-line"/>
+<text x="77.0" y="103.9090909090909" text-anchor="end" class="tick-label">90</text>
+<line x1="80.0" y1="50.0" x2="85.0" y2="50.0" class="axis-line"/>
+<text x="77.0" y="53.0" text-anchor="end" class="tick-label">100</text>
+<text x="295.0" y="360.0" text-anchor="middle" class="axis-label">Intelligence Score (x)</text>
+<text x="30" y="190.0" text-anchor="middle" class="axis-label" transform="rotate(-90,30,190.0)">Chemistry Grade (Y)</text>
+<line x1="85.0" y1="253.63636363636363" x2="505.0" y2="100.9090909090909" class="fit-line"/>
+<circle cx="135.4" cy="239.89090909090908" r="4" class="point"/>
+<circle cx="160.6" cy="231.2363636363636" r="4" class="point"/>
+<circle cx="190.0" cy="219.01818181818183" r="4" class="point"/>
+<circle cx="202.60000000000002" cy="189.49090909090913" r="4" class="point"/>
+<circle cx="219.4" cy="208.83636363636364" r="4" class="point"/>
+<circle cx="232.0" cy="246.0" r="4" class="point"/>
+<circle cx="253.0" cy="182.36363636363637" r="4" class="point"/>
+<circle cx="261.4" cy="197.63636363636363" r="4" class="point"/>
+<circle cx="274.0" cy="191.5272727272727" r="4" class="point"/>
+<circle cx="286.6" cy="176.7636363636364" r="4" class="point"/>
+<circle cx="303.4" cy="167.0909090909091" r="4" class="point"/>
+<circle cx="316.0" cy="134.0" r="4" class="point"/>
+<circle cx="328.6" cy="145.20000000000002" r="4" class="point"/>
+<circle cx="337.0" cy="158.4363636363636" r="4" class="point"/>
+<circle cx="358.0" cy="176.7636363636364" r="4" class="point"/>
+<circle cx="370.6" cy="180.83636363636364" r="4" class="point"/>
+<circle cx="387.4" cy="136.03636363636366" r="4" class="point"/>
+<circle cx="412.6" cy="94.29090909090911" r="4" class="point"/>
+<circle cx="429.4" cy="127.38181818181818" r="4" class="point"/>
+<circle cx="454.6" cy="122.29090909090908" r="4" class="point"/>
+<text x="379.0" y="85.63636363636365" class="eq-label">ŷ = 42.0 + 0.30x</text>
+<circle cx="295.0" cy="177.27272727272728" r="5" fill="none" stroke="#d29922" stroke-width="1.5"/>
+<text x="303.0" y="171.27272727272728" class="desc">(x̄, Ȳ) = (110, 75)</text>
+</svg>

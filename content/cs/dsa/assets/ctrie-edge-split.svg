@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="21.7 0 700 370" fill="none">
+<style>
+  text { font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+  .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+  .node-key { fill: rgba(30,40,55,0.95); stroke: #84a59d; stroke-width: 2; }
+  .node-new { fill: rgba(30,40,55,0.95); stroke: #d29922; stroke-width: 2; stroke-dasharray: 4 2; }
+  .node-text { font-size: 10px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+  .edge { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+  .edge-new { stroke: #d29922; stroke-width: 1.5; stroke-dasharray: 4 2; fill: none; }
+  .edge-label { font-size: 11px; fill: #58a6ff; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+  .edge-label-new { font-size: 11px; fill: #d29922; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+  .anno { font-size: 10px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+  .desc { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+  .title { font-size: 12px; fill: #7b97aa; font-weight: 600; text-anchor: middle; }
+  .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+  .arrow-label { font-size: 11px; fill: #d29922; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+  @media (prefers-color-scheme: light) {
+    .node { fill: #1a1a2e; stroke: #284b63; }
+    .node-key { fill: #1a1a2e; stroke: #3a7d5c; }
+    .node-new { fill: #1a1a2e; stroke: #9e6000; }
+    .node-text { fill: #e8e8e8; }
+    .edge { stroke: #b8b8b8; }
+    .edge-new { stroke: #9e6000; }
+    .edge-label { fill: #284b63; }
+    .edge-label-new { fill: #9e6000; }
+    .anno { fill: #9e6000; }
+    .desc { fill: #6e7781; }
+    .title { fill: #284b63; }
+    .sep { stroke: #e5e5e5; }
+    .arrow-label { fill: #9e6000; }
+  }
+</style>
+
+<!-- Panel titles -->
+<text class="title" x="160" y="24">BEFORE</text>
+<text class="title" x="530" y="24">AFTER insert("belt")</text>
+
+<!-- Separator -->
+<line class="sep" x1="350" y1="10" x2="350" y2="320"/>
+
+<!-- Transition label + arrow (centered on separator) -->
+<text class="arrow-label" x="350" y="148" text-anchor="middle">SPLIT</text>
+<polygon points="368,165 353,158 353,172" fill="#d29922"/>
+
+<!-- ===== LEFT PANEL: BEFORE ===== -->
+<!-- Parent node (represents "be" context) -->
+<circle class="node" cx="160" cy="70" r="15"/>
+<text class="node-text" x="160" y="70"></text>
+<text class="anno" x="160" y="50">...be</text>
+
+<!-- Edge: parent -> bell -->
+<line class="edge" x1="160" y1="85" x2="160" y2="175"/>
+<text class="edge-label" x="177" y="130">"ll"</text>
+
+<!-- Arrowhead: parent -> bell -->
+<polygon points="160,175 155,165 165,165" fill="#93a3b8"/>
+
+<!-- bell node (is_key) -->
+<circle class="node-key" cx="160" cy="190" r="15"/>
+<text class="node-text" x="160" y="190">bell</text>
+
+<!-- No children shown, simple case -->
+
+<!-- ===== RIGHT PANEL: AFTER ===== -->
+<!-- Parent node (same "be" context) -->
+<circle class="node" cx="530" cy="70" r="15"/>
+<text class="node-text" x="530" y="70"></text>
+<text class="anno" x="530" y="50">...be</text>
+
+<!-- Edge: parent -> mid-node "bel" -->
+<line class="edge" x1="530" y1="85" x2="530" y2="145"/>
+<text class="edge-label" x="547" y="115">"l"</text>
+
+<!-- Arrowhead: parent -> mid -->
+<polygon points="530,145 525,135 535,135" fill="#93a3b8"/>
+
+<!-- Mid-node (new, created by split) -->
+<circle class="node-new" cx="530" cy="160" r="15"/>
+<text class="node-text" x="530" y="160">mid</text>
+<text class="anno" x="555" y="148">bel</text>
+
+<!-- Edge: mid -> bell (old tail "l") -->
+<line class="edge" x1="519" y1="172" x2="470" y2="248"/>
+<text class="edge-label" x="483" y="204">"l"</text>
+
+<!-- Arrowhead: mid -> bell -->
+<polygon points="470,248 463,240 475,238" fill="#93a3b8"/>
+
+<!-- Edge: mid -> belt (new branch "t") -->
+<line class="edge-new" x1="541" y1="172" x2="590" y2="248"/>
+<text class="edge-label-new" x="577" y="204">"t"</text>
+
+<!-- Arrowhead: mid -> belt -->
+<polygon points="590,248 585,238 597,240" fill="#d29922"/>
+
+<!-- bell node (is_key, preserved) -->
+<circle class="node-key" cx="470" cy="262" r="15"/>
+<text class="node-text" x="470" y="262">bell</text>
+
+<!-- belt node (is_key, new) -->
+<circle class="node-new" cx="590" cy="262" r="15"/>
+<text class="node-text" x="590" y="262">belt</text>
+<text class="anno" x="590" y="286">new</text>
+
+<!-- Description -->
+<text class="desc" x="350" y="330">Inserting "belt" splits edge "ll" at shared prefix "l", creating a mid-node</text>
+</svg>

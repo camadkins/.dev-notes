@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-128 0 696 270" fill="none" role="img" aria-label="A buffer overflow: input longer than the buffer runs past it and overwrites the saved return address">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .hit { fill: rgba(210,153,34,0.16); stroke: #d29922; stroke-width: 1.8; }
+    .t { fill: #e8e8e8; font-size: 13px; text-anchor: middle; }
+    .a { stroke: #d29922; stroke-width: 1.8; }
+    .lab { fill: #d29922; font-size: 12px; }
+    .cap { fill: #8b949e; font-size: 12px; text-anchor: middle; }
+  </style>
+  <rect class="hit" x="150" y="34"  width="210" height="44" rx="4"/><text class="t" x="255" y="61">return address (overwritten)</text>
+  <rect class="box" x="150" y="82"  width="210" height="40" rx="4"/><text class="t" x="255" y="107">saved frame pointer</text>
+  <rect class="box" x="150" y="126" width="210" height="86" rx="4"/><text class="t" x="255" y="173">buffer (fixed size)</text>
+  <line class="a" x1="120" y1="205" x2="120" y2="52"/>
+  <polygon points="120,44 115,56 125,56" fill="#d29922"/>
+  <text class="lab" x="40" y="135">input</text><text class="lab" x="40" y="151">runs</text><text class="lab" x="40" y="167">past</text>
+  <text class="cap" x="220" y="248">unchecked input overruns the buffer and overwrites the return address, redirecting the program</text>
+</svg>

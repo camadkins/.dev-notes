@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-32.9 0 680 340" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .node-text { font-size: 13px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; }
+    .anno { font-size: 11px; fill: #d29922; font-weight: 600; }
+    .anno-sm { font-size: 10px; fill: #d29922; font-weight: 600; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    .layer-label { font-size: 11px; fill: #d29922; font-weight: 600; text-anchor: end; }
+    .q-box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1; rx: 3; }
+    .q-text { font-size: 10px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+    .q-step { font-size: 9px; fill: #8b949e; text-anchor: end; }
+    .section-label { font-size: 12px; fill: #7b97aa; font-weight: 600; text-anchor: middle; }
+    @media (prefers-color-scheme: light) {
+      .node { fill: #1a1a2e; stroke: #284b63; }
+      .edge { stroke: #b8b8b8; }
+      .anno, .anno-sm, .layer-label { fill: #9e6000; }
+      .desc, .q-step { fill: #6e7781; }
+      .sep { stroke: #e5e5e5; }
+      .q-box { fill: #1a1a2e; stroke: #284b63; }
+      .section-label { fill: #284b63; }
+    }
+  </style>
+
+  <!-- LAYOUT CONSTANTS -->
+  <!-- Graph panel: x=30..340 -->
+  <!-- Queue panel: x=400..660 -->
+  <!-- Vertical separator at x=370 -->
+  <!-- Layer rows: y=70 (L0), y=140 (L1), y=210 (L2), y=280 (L3) -->
+  <!-- Node radius: 18 -->
+
+  <!-- Section headers -->
+  <text class="section-label" x="185" y="30">Frontier Layers</text>
+  <text class="section-label" x="530" y="30">Queue Evolution</text>
+
+  <!-- Vertical separator -->
+  <line class="sep" x1="370" y1="45" x2="370" y2="320" />
+
+  <!-- Horizontal layer separators -->
+  <line class="sep" x1="30" y1="105" x2="340" y2="105" />
+  <line class="sep" x1="30" y1="175" x2="340" y2="175" />
+  <line class="sep" x1="30" y1="245" x2="340" y2="245" />
+
+  <!-- Layer labels (left margin) -->
+  <text class="layer-label" x="55" y="70">L0</text>
+  <text class="layer-label" x="55" y="140">L1</text>
+  <text class="layer-label" x="55" y="210">L2</text>
+  <text class="layer-label" x="55" y="280">L3</text>
+
+  <!-- Distance annotations (right of layer labels) -->
+  <text class="desc" x="36" y="84">dist=0</text>
+  <text class="desc" x="36" y="154">dist=1</text>
+  <text class="desc" x="36" y="224">dist=2</text>
+  <text class="desc" x="36" y="294">dist=3</text>
+
+  <!-- EDGES (drawn first, behind nodes) -->
+  <!-- A(185,70) -> B(140,140): from bottom of A to top of B -->
+  <line class="edge" x1="175.4" y1="87.2" x2="147.3" y2="122.8" />
+  <!-- A(185,70) -> C(230,140): from bottom of A to top of C -->
+  <line class="edge" x1="194.6" y1="87.2" x2="222.7" y2="122.8" />
+  <!-- B(140,140) -> D(140,210): vertical -->
+  <line class="edge" x1="140" y1="158" x2="140" y2="192" />
+  <!-- C(230,140) -> E(230,210): vertical -->
+  <line class="edge" x1="230" y1="158" x2="230" y2="192" />
+  <!-- E(230,210) -> F(230,280): vertical -->
+  <line class="edge" x1="230" y1="228" x2="230" y2="262" />
+
+  <!-- NODES -->
+  <!-- L0: A at (185, 70) -->
+  <circle class="node" cx="185" cy="70" r="18" />
+  <text class="node-text" x="185" y="70">A</text>
+
+  <!-- L1: B at (140, 140), C at (230, 140) -->
+  <circle class="node" cx="140" cy="140" r="18" />
+  <text class="node-text" x="140" y="140">B</text>
+  <circle class="node" cx="230" cy="140" r="18" />
+  <text class="node-text" x="230" y="140">C</text>
+
+  <!-- L2: D at (140, 210), E at (230, 210) -->
+  <circle class="node" cx="140" cy="210" r="18" />
+  <text class="node-text" x="140" y="210">D</text>
+  <circle class="node" cx="230" cy="210" r="18" />
+  <text class="node-text" x="230" y="210">E</text>
+
+  <!-- L3: F at (230, 280) -->
+  <circle class="node" cx="230" cy="280" r="18" />
+  <text class="node-text" x="230" y="280">F</text>
+
+  <!-- QUEUE EVOLUTION (right panel) -->
+  <!-- Step 0: Init -->
+  <text class="q-step" x="430" y="72">enqueue s:</text>
+  <rect class="q-box" x="440" y="60" width="32" height="24" />
+  <text class="q-text" x="456" y="72">A</text>
+
+  <!-- Step 1: Dequeue A, enqueue B, C -->
+  <text class="q-step" x="430" y="112">deq A:</text>
+  <rect class="q-box" x="440" y="100" width="32" height="24" />
+  <text class="q-text" x="456" y="112">B</text>
+  <rect class="q-box" x="476" y="100" width="32" height="24" />
+  <text class="q-text" x="492" y="112">C</text>
+
+  <!-- Step 2: Dequeue B, enqueue D -->
+  <text class="q-step" x="430" y="152">deq B:</text>
+  <rect class="q-box" x="440" y="140" width="32" height="24" />
+  <text class="q-text" x="456" y="152">C</text>
+  <rect class="q-box" x="476" y="140" width="32" height="24" />
+  <text class="q-text" x="492" y="152">D</text>
+
+  <!-- Step 3: Dequeue C, enqueue E -->
+  <text class="q-step" x="430" y="192">deq C:</text>
+  <rect class="q-box" x="440" y="180" width="32" height="24" />
+  <text class="q-text" x="456" y="192">D</text>
+  <rect class="q-box" x="476" y="180" width="32" height="24" />
+  <text class="q-text" x="492" y="192">E</text>
+
+  <!-- Step 4: Dequeue D (no new) -->
+  <text class="q-step" x="430" y="232">deq D:</text>
+  <rect class="q-box" x="440" y="220" width="32" height="24" />
+  <text class="q-text" x="456" y="232">E</text>
+
+  <!-- Step 5: Dequeue E, enqueue F -->
+  <text class="q-step" x="430" y="272">deq E:</text>
+  <rect class="q-box" x="440" y="260" width="32" height="24" />
+  <text class="q-text" x="456" y="272">F</text>
+
+  <!-- Step 6: Dequeue F, queue empty -->
+  <text class="q-step" x="430" y="308">deq F:</text>
+  <text class="desc" x="456" y="308">(empty)</text>
+
+  <!-- Layer bracket annotations -->
+  <text class="anno-sm" x="295" y="70">{A}</text>
+  <text class="anno-sm" x="295" y="140">{B, C}</text>
+  <text class="anno-sm" x="295" y="210">{D, E}</text>
+  <text class="anno-sm" x="295" y="280">{F}</text>
+</svg>

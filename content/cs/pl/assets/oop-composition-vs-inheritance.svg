@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 310" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .title { font-size: 13px; font-weight: 700; fill: #e8e8e8; text-anchor: middle; }
+    .panel-label { font-size: 11px; fill: #58a6ff; font-weight: 700; text-anchor: middle; }
+    .panel-tag { font-size: 10px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .class-box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; }
+    .class-header { fill: rgba(22,30,42,0.98); stroke: #58a6ff; stroke-width: 1.5; }
+    .class-name { font-size: 12px; fill: #e8e8e8; font-weight: 700; text-anchor: middle; dominant-baseline: central; }
+    .member { font-size: 9px; fill: #93a3b8; text-anchor: start; }
+    .arrow-inherit { stroke: #58a6ff; stroke-width: 1.5; fill: none; }
+    .arrow-compose { stroke: #3fb950; stroke-width: 1.5; fill: none; }
+    .diamond { fill: #3fb950; }
+    .label { font-size: 9px; fill: #8b949e; text-anchor: middle; }
+    .label-rel { font-size: 10px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+
+    @media (prefers-color-scheme: light) {
+      .title { fill: #284b63; }
+      .panel-label { fill: #284b63; }
+      .panel-tag { fill: #9e6000; }
+      .class-box { fill: #1a1a2e; stroke: #284b63; }
+      .class-header { fill: #12122a; stroke: #284b63; }
+      .class-name { fill: #e8e8e8; }
+      .member { fill: #b0b8c4; }
+      .arrow-inherit { stroke: #284b63; }
+      .arrow-compose { stroke: #1a7f37; }
+      .diamond { fill: #1a7f37; }
+      .label { fill: #6e7781; }
+      .label-rel { fill: #9e6000; }
+      .sep { stroke: #e5e5e5; }
+      .desc { fill: #6e7781; }
+    }
+  </style>
+  <defs>
+    <marker id="arr-inh" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="none" stroke="#58a6ff" stroke-width="1"/>
+    </marker>
+    <marker id="arr-comp" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#3fb950"/>
+    </marker>
+    <marker id="diamond-comp" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <path d="M0,4 L5,0 L10,4 L5,8 Z" fill="#3fb950"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="280" y="28" class="title">Composition vs Inheritance</text>
+
+  <!-- Vertical separator -->
+  <line x1="280" y1="48" x2="280" y2="290" class="sep"/>
+
+  <!-- === LEFT PANEL: Inheritance === -->
+  <text x="140" y="56" class="panel-label">Inheritance</text>
+  <text x="140" y="72" class="panel-tag">"is-a"</text>
+
+  <!-- Vehicle (superclass) -->
+  <rect class="class-box" x="65" y="86" width="150" height="56"/>
+  <rect class="class-header" x="65" y="86" width="150" height="22" rx="6"/>
+  <text x="140" y="98" class="class-name">Vehicle</text>
+  <text x="78" y="124" class="member">speed: int</text>
+  <text x="78" y="136" class="member">drive(): void</text>
+
+  <!-- Car (subclass) -->
+  <rect class="class-box" x="65" y="196" width="150" height="70"/>
+  <rect class="class-header" x="65" y="196" width="150" height="22" rx="6"/>
+  <text x="140" y="208" class="class-name">Car</text>
+  <text x="78" y="234" class="member">doors: int</text>
+  <text x="78" y="248" class="member">park(): void</text>
+  <text x="78" y="260" class="member desc" style="text-anchor:start;">inherits drive()</text>
+
+  <!-- Inheritance arrow: Car -> Vehicle (upward, open triangle) -->
+  <path class="arrow-inherit" d="M 140,196 L 140,142" marker-end="url(#arr-inh)"/>
+  <text x="160" y="174" class="label-rel">extends</text>
+
+  <!-- Description -->
+  <text x="140" y="286" class="desc">Car IS A Vehicle</text>
+
+  <!-- === RIGHT PANEL: Composition === -->
+  <text x="420" y="56" class="panel-label">Composition</text>
+  <text x="420" y="72" class="panel-tag">"has-a"</text>
+
+  <!-- Car (owner) -->
+  <rect class="class-box" x="345" y="86" width="150" height="70"/>
+  <rect class="class-header" x="345" y="86" width="150" height="22" rx="6"/>
+  <text x="420" y="98" class="class-name">Car</text>
+  <text x="358" y="124" class="member">engine: Engine</text>
+  <text x="358" y="138" class="member">doors: int</text>
+  <text x="358" y="150" class="member">drive(): void</text>
+
+  <!-- Engine (component) -->
+  <rect class="class-box" x="345" y="210" width="150" height="56"/>
+  <rect class="class-header" x="345" y="210" width="150" height="22" rx="6"/>
+  <text x="420" y="222" class="class-name">Engine</text>
+  <text x="358" y="248" class="member">hp: int</text>
+  <text x="358" y="260" class="member">start(): void</text>
+
+  <!-- Composition arrow: Car -[diamond]-> Engine (downward, filled diamond at Car end) -->
+  <path class="arrow-compose" d="M 420,166 L 420,210" marker-start="url(#diamond-comp)" marker-end="url(#arr-comp)"/>
+  <text x="448" y="186" class="label-rel">contains</text>
+
+  <!-- Description -->
+  <text x="420" y="286" class="desc">Car HAS AN Engine</text>
+</svg>

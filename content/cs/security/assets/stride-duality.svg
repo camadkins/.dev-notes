@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" fill="none" role="img" aria-label="Each STRIDE threat is the negation of one security property: Spoofing negates Authentication, Tampering negates Integrity, Repudiation negates Non-repudiation, Information disclosure negates Confidentiality, Denial of service negates Availability, Elevation of privilege negates Authorization.">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .box   { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .box-p { fill: rgba(30,55,40,0.6);  stroke: #84a59d; stroke-width: 1.5; }
+    .edge  { stroke: #93a3b8; stroke-width: 1.4; }
+    .t     { fill: #e8e8e8; }
+    .anno  { fill: #d29922; }
+    .desc  { fill: #8b949e; }
+  </style>
+  <text class="t" x="70" y="24" font-size="13" font-weight="bold">Threat (STRIDE)</text>
+  <text class="t" x="370" y="24" font-size="13" font-weight="bold">Property it negates</text>
+  <text class="anno" x="250" y="24" font-size="12">breaks</text>
+
+  <!-- rows: y positions -->
+  <!-- Spoofing / Authentication -->
+  <rect class="box"   x="30"  y="40"  width="200" height="34" rx="4"/>
+  <text class="t"     x="42"  y="61"  font-size="12">Spoofing</text>
+  <line class="edge"  x1="230" y1="57" x2="350" y2="57"/>
+  <rect class="box-p" x="350" y="40"  width="180" height="34" rx="4"/>
+  <text class="t"     x="362" y="61"  font-size="12">Authentication</text>
+
+  <!-- Tampering / Integrity -->
+  <rect class="box"   x="30"  y="84"  width="200" height="34" rx="4"/>
+  <text class="t"     x="42"  y="105" font-size="12">Tampering</text>
+  <line class="edge"  x1="230" y1="101" x2="350" y2="101"/>
+  <rect class="box-p" x="350" y="84"  width="180" height="34" rx="4"/>
+  <text class="t"     x="362" y="105" font-size="12">Integrity</text>
+
+  <!-- Repudiation / Non-repudiation -->
+  <rect class="box"   x="30"  y="128" width="200" height="34" rx="4"/>
+  <text class="t"     x="42"  y="149" font-size="12">Repudiation</text>
+  <line class="edge"  x1="230" y1="145" x2="350" y2="145"/>
+  <rect class="box-p" x="350" y="128" width="180" height="34" rx="4"/>
+  <text class="t"     x="362" y="149" font-size="12">Non-repudiation</text>
+
+  <!-- Information disclosure / Confidentiality -->
+  <rect class="box"   x="30"  y="172" width="200" height="34" rx="4"/>
+  <text class="t"     x="42"  y="193" font-size="12">Information disclosure</text>
+  <line class="edge"  x1="230" y1="189" x2="350" y2="189"/>
+  <rect class="box-p" x="350" y="172" width="180" height="34" rx="4"/>
+  <text class="t"     x="362" y="193" font-size="12">Confidentiality</text>
+
+  <!-- Denial of service / Availability -->
+  <rect class="box"   x="30"  y="216" width="200" height="34" rx="4"/>
+  <text class="t"     x="42"  y="237" font-size="12">Denial of service</text>
+  <line class="edge"  x1="230" y1="233" x2="350" y2="233"/>
+  <rect class="box-p" x="350" y="216" width="180" height="34" rx="4"/>
+  <text class="t"     x="362" y="237" font-size="12">Availability</text>
+
+  <!-- Elevation of privilege / Authorization -->
+  <rect class="box"   x="30"  y="260" width="200" height="34" rx="4"/>
+  <text class="t"     x="42"  y="281" font-size="12">Elevation of privilege</text>
+  <line class="edge"  x1="230" y1="277" x2="350" y2="277"/>
+  <rect class="box-p" x="350" y="260" width="180" height="34" rx="4"/>
+  <text class="t"     x="362" y="281" font-size="12">Authorization</text>
+
+  <text class="desc" x="30" y="320" font-size="11">Six threats, six guarantees. Enumerating one is enumerating the other.</text>
+</svg>

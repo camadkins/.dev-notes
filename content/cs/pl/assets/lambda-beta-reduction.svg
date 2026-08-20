@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 320" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; }
+    .box-final { fill: rgba(30,55,40,0.6); stroke: #84a59d; stroke-width: 1.5; rx: 6; }
+    .redex-highlight { fill: rgba(88,166,255,0.12); stroke: #58a6ff; stroke-width: 1; stroke-dasharray: 4 3; rx: 4; }
+    .term { font-size: 13px; fill: #e8e8e8; font-weight: 600; }
+    .term-c { font-size: 13px; fill: #e8e8e8; font-weight: 600; text-anchor: middle; }
+    .step-label { font-size: 10px; fill: #d29922; font-weight: 600; }
+    .arrow-label { font-size: 10px; fill: #7b97aa; }
+    .anno { font-size: 10px; fill: #d29922; font-weight: 600; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; }
+    .ok { font-size: 10px; fill: #84a59d; font-weight: 600; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .edge-beta { stroke: #58a6ff; stroke-width: 1.5; fill: none; }
+    @media (prefers-color-scheme: light) {
+      .box { fill: #1a1a2e; stroke: #284b63; }
+      .box-final { fill: rgba(80,160,100,0.15); stroke: #2d6a4f; }
+      .redex-highlight { fill: rgba(40,75,99,0.08); stroke: #284b63; }
+      .edge { stroke: #b8b8b8; }
+      .edge-beta { stroke: #284b63; }
+      .step-label { fill: #9e6000; }
+      .arrow-label { fill: #284b63; }
+      .anno { fill: #9e6000; }
+      .desc { fill: #6e7781; }
+      .ok { fill: #2d6a4f; }
+    }
+  </style>
+  <defs>
+    <marker id="ah" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#93a3b8"/>
+    </marker>
+    <marker id="ahBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#58a6ff"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text class="desc" x="330" y="28" text-anchor="middle">&#x03B2;-reduction trace: two steps to normal form</text>
+
+  <!-- Step 0: Initial term -->
+  <text class="step-label" x="30" y="72">Step 0</text>
+  <rect class="box" x="100" y="52" width="520" height="38"/>
+  <!-- Highlight the outer redex -->
+  <rect class="redex-highlight" x="114" y="57" width="180" height="28"/>
+  <text class="term" x="120" y="76">(&#x03BB;x. &#x03BB;y. x y) (&#x03BB;z. z)</text>
+  <text class="desc" x="410" y="76">&#x2190; outer redex highlighted</text>
+
+  <!-- Arrow: beta step 1 -->
+  <line class="edge-beta" x1="330" y1="90" x2="330" y2="120" marker-end="url(#ahBlue)"/>
+  <text class="arrow-label" x="340" y="110">&#x03B2;: x &#x2192; (&#x03BB;z. z)</text>
+
+  <!-- Step 1: After first reduction -->
+  <text class="step-label" x="30" y="152">Step 1</text>
+  <rect class="box" x="100" y="132" width="520" height="38"/>
+  <rect class="redex-highlight" x="155" y="137" width="100" height="28"/>
+  <text class="term" x="120" y="156">&#x03BB;y. (&#x03BB;z. z) y</text>
+  <text class="desc" x="410" y="156">&#x2190; inner redex highlighted</text>
+
+  <!-- Arrow: beta step 2 -->
+  <line class="edge-beta" x1="330" y1="170" x2="330" y2="200" marker-end="url(#ahBlue)"/>
+  <text class="arrow-label" x="340" y="190">&#x03B2;: z &#x2192; y</text>
+
+  <!-- Step 2: Normal form -->
+  <text class="step-label" x="30" y="232">Step 2</text>
+  <rect class="box-final" x="100" y="212" width="520" height="38"/>
+  <text class="term" x="120" y="236">&#x03BB;y. y</text>
+  <text class="ok" x="230" y="236">normal form (identity)</text>
+
+  <!-- Strategy annotation box -->
+  <rect x="100" y="268" width="520" height="32" rx="4" fill="rgba(30,40,55,0.4)" stroke="#30363d" stroke-width="1"/>
+  <text class="anno" x="120" y="288">Normal-order</text>
+  <text class="desc" x="240" y="288">outermost first &#x2014;</text>
+  <text class="anno" x="380" y="288">CBV</text>
+  <text class="desc" x="415" y="288">same result (arg is already a value)</text>
+</svg>

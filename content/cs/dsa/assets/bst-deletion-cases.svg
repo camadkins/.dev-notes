@@ -1,0 +1,217 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 520" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .node-del { fill: rgba(80,30,30,0.7); stroke: #f85149; stroke-width: 2; stroke-dasharray: 4 3; }
+    .node-new { fill: rgba(30,55,40,0.95); stroke: #84a59d; stroke-width: 2; }
+    .node-text { font-size: 12px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; }
+    .edge-del { stroke: #f85149; stroke-width: 1.5; stroke-dasharray: 4 3; }
+    .edge-new { stroke: #84a59d; stroke-width: 1.5; }
+    .anno { font-size: 10px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .title { font-size: 11px; fill: #7b97aa; font-weight: 600; text-anchor: middle; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    .arrow-label { font-size: 10px; fill: #8b949e; text-anchor: middle; }
+    @media (prefers-color-scheme: light) {
+      .node { fill: #1a1a2e; stroke: #284b63; }
+      .node-del { fill: rgba(120,40,40,0.5); stroke: #cf222e; }
+      .node-new { fill: #1a2e1a; stroke: #2da44e; }
+      .edge { stroke: #b8b8b8; }
+      .edge-del { stroke: #cf222e; }
+      .edge-new { stroke: #2da44e; }
+      .anno { fill: #9e6000; }
+      .desc { fill: #6e7781; }
+      .title { fill: #284b63; }
+      .sep { stroke: #e5e5e5; }
+      .arrow-label { fill: #6e7781; }
+    }
+  </style>
+
+  <!-- Layout grid:
+       viewBox: 820 x 520
+       3 panels, each ~253px wide with separators
+       Panel 1 (Case 1: Leaf): x=0..253
+       Sep 1: x=263
+       Panel 2 (Case 2: One child): x=273..526
+       Sep 2: x=536
+       Panel 3 (Case 3: Two children): x=546..820
+       
+       Each panel has Before (top) and After (bottom)
+       Before trees: root y=90, depth1 y=150, depth2 y=210
+       Arrow region: y=240..270
+       After trees: root y=310, depth1 y=370, depth2 y=430
+       Node radius: 18px
+       Padding: 20px all edges
+  -->
+
+  <!-- Panel titles -->
+  <text class="title" x="132" y="30">Case 1: Leaf</text>
+  <text class="title" x="405" y="30">Case 2: One Child</text>
+  <text class="title" x="683" y="30">Case 3: Two Children</text>
+
+  <!-- Separators -->
+  <line class="sep" x1="263" y1="20" x2="263" y2="500"/>
+  <line class="sep" x1="536" y1="20" x2="536" y2="500"/>
+
+  <!-- ============ PANEL 1: Delete leaf node 10 ============ -->
+  <!-- Before label -->
+  <text class="anno" x="132" y="55">delete(10)</text>
+
+  <!-- Before tree: 50, 25, 75, 10(del), 37, 60, 90 -->
+  <!-- Root 50 at cx=132 -->
+  <line class="edge" x1="120.4" y1="103.6" x2="86.6" y2="136.4"/>
+  <line class="edge" x1="143.6" y1="103.6" x2="177.4" y2="136.4"/>
+  <line class="edge-del" x1="64.2" y1="163.6" x2="48.8" y2="196.4"/>
+  <line class="edge" x1="87.8" y1="163.6" x2="103.2" y2="196.4"/>
+  <line class="edge" x1="177.4" y1="163.6" x2="161.6" y2="196.4"/>
+  <line class="edge" x1="200.6" y1="163.6" x2="216.4" y2="196.4"/>
+
+  <circle class="node" id="p1-n50" cx="132" cy="90" r="18"/>
+  <text class="node-text" x="132" y="90">50</text>
+  <circle class="node" id="p1-n25" cx="75" cy="150" r="18"/>
+  <text class="node-text" x="75" y="150">25</text>
+  <circle class="node" id="p1-n75" cx="189" cy="150" r="18"/>
+  <text class="node-text" x="189" y="150">75</text>
+  <circle class="node-del" id="p1-n10" cx="40" cy="210" r="18"/>
+  <text class="node-text" x="40" y="210">10</text>
+  <circle class="node" id="p1-n37" cx="110" cy="210" r="18"/>
+  <text class="node-text" x="110" y="210">37</text>
+  <circle class="node" id="p1-n60" cx="155" cy="210" r="18"/>
+  <text class="node-text" x="155" y="210">60</text>
+  <circle class="node" id="p1-n90" cx="223" cy="210" r="18"/>
+  <text class="node-text" x="223" y="210">90</text>
+
+  <!-- Arrow down -->
+  <text class="arrow-label" x="132" y="262">&#x2193;</text>
+
+  <!-- After tree: 50, 25, 75, 37, 60, 90 (10 removed)
+       50 at cx=132, 25 at cx=80 (centered over child 37 at cx=80), 75 at cx=184 (centered over 150,218)
+       midpoint(80,184) = 132 = 50's cx. CHECK.
+       25 single child 37: near-vertical at cx=80. CHECK.
+       75 children: 60 at cx=150, 90 at cx=218. midpoint=184. CHECK.
+  -->
+  <line class="edge" x1="120.8" y1="323.2" x2="91.2" y2="356.8"/>
+  <line class="edge" x1="143.2" y1="323.2" x2="172.8" y2="356.8"/>
+  <line class="edge" x1="80.0" y1="388.0" x2="80.0" y2="412.0"/>
+  <line class="edge" x1="173.0" y1="383.6" x2="160.0" y2="416.4"/>
+  <line class="edge" x1="195.0" y1="383.6" x2="208.0" y2="416.4"/>
+
+  <circle class="node" id="p1a-n50" cx="132" cy="310" r="18"/>
+  <text class="node-text" x="132" y="310">50</text>
+  <circle class="node" id="p1a-n25" cx="80" cy="370" r="18"/>
+  <text class="node-text" x="80" y="370">25</text>
+  <circle class="node" id="p1a-n75" cx="184" cy="370" r="18"/>
+  <text class="node-text" x="184" y="370">75</text>
+  <circle class="node" id="p1a-n37" cx="80" cy="430" r="18"/>
+  <text class="node-text" x="80" y="430">37</text>
+  <circle class="node" id="p1a-n60" cx="150" cy="430" r="18"/>
+  <text class="node-text" x="150" y="430">60</text>
+  <circle class="node" id="p1a-n90" cx="218" cy="430" r="18"/>
+  <text class="node-text" x="218" y="430">90</text>
+
+  <text class="desc" x="132" y="475">simply remove the leaf</text>
+
+  <!-- ============ PANEL 2: Delete single-child node 25 ============ -->
+  <!-- Use tree after Panel 1: 50, 25(only child 37), 75, 60, 90 -->
+  <text class="anno" x="405" y="55">delete(25)</text>
+
+  <!-- Before tree: 50, 25(del), 75, 37, 60, 90  (25 has only right child 37) -->
+  <line class="edge" x1="393.4" y1="103.6" x2="359.6" y2="136.4"/>
+  <line class="edge" x1="416.6" y1="103.6" x2="450.4" y2="136.4"/>
+  <line class="edge-del" x1="359.6" y1="163.6" x2="373.4" y2="196.4"/>
+  <line class="edge" x1="450.4" y1="163.6" x2="434.6" y2="196.4"/>
+  <line class="edge" x1="473.6" y1="163.6" x2="489.4" y2="196.4"/>
+
+  <circle class="node" id="p2-n50" cx="405" cy="90" r="18"/>
+  <text class="node-text" x="405" y="90">50</text>
+  <circle class="node-del" id="p2-n25" cx="348" cy="150" r="18"/>
+  <text class="node-text" x="348" y="150">25</text>
+  <circle class="node" id="p2-n75" cx="462" cy="150" r="18"/>
+  <text class="node-text" x="462" y="150">75</text>
+  <circle class="node-new" id="p2-n37" cx="380" cy="210" r="18"/>
+  <text class="node-text" x="380" y="210">37</text>
+  <circle class="node" id="p2-n60" cx="428" cy="210" r="18"/>
+  <text class="node-text" x="428" y="210">60</text>
+  <circle class="node" id="p2-n90" cx="496" cy="210" r="18"/>
+  <text class="node-text" x="496" y="210">90</text>
+
+  <!-- Arrow down -->
+  <text class="arrow-label" x="405" y="262">&#x2193;</text>
+
+  <!-- After tree: 50, 37(promoted), 75, 60, 90
+       50 at cx=405. Children: 37 at cx=348, 75 at cx=462. midpoint=(348+462)/2=405. CHECK.
+       75 children: 60 at cx=428, 90 at cx=496. midpoint=(428+496)/2=462. CHECK.
+  -->
+  <line class="edge" x1="393.0" y1="323.4" x2="360.0" y2="356.6"/>
+  <line class="edge" x1="417.0" y1="323.4" x2="450.0" y2="356.6"/>
+  <line class="edge" x1="450.6" y1="383.6" x2="439.4" y2="416.4"/>
+  <line class="edge" x1="473.4" y1="383.6" x2="484.6" y2="416.4"/>
+
+  <circle class="node" id="p2a-n50" cx="405" cy="310" r="18"/>
+  <text class="node-text" x="405" y="310">50</text>
+  <circle class="node-new" id="p2a-n37" cx="348" cy="370" r="18"/>
+  <text class="node-text" x="348" y="370">37</text>
+  <circle class="node" id="p2a-n75" cx="462" cy="370" r="18"/>
+  <text class="node-text" x="462" y="370">75</text>
+  <circle class="node" id="p2a-n60" cx="428" cy="430" r="18"/>
+  <text class="node-text" x="428" y="430">60</text>
+  <circle class="node" id="p2a-n90" cx="496" cy="430" r="18"/>
+  <text class="node-text" x="496" y="430">90</text>
+
+  <text class="desc" x="405" y="475">promote the only child</text>
+
+  <!-- ============ PANEL 3: Delete two-child node 50 ============ -->
+  <text class="anno" x="683" y="55">delete(50)</text>
+
+  <!-- Before tree: full original 50, 25, 75, 10, 37, 60, 90 -->
+  <line class="edge" x1="671.0" y1="103.6" x2="637.6" y2="136.4"/>
+  <line class="edge" x1="695.0" y1="103.6" x2="728.4" y2="136.4"/>
+  <line class="edge" x1="615.6" y1="163.6" x2="601.4" y2="196.4"/>
+  <line class="edge" x1="637.4" y1="163.6" x2="651.6" y2="196.4"/>
+  <line class="edge" x1="728.4" y1="163.6" x2="714.6" y2="196.4"/>
+  <line class="edge" x1="750.6" y1="163.6" x2="764.4" y2="196.4"/>
+
+  <circle class="node-del" id="p3-n50" cx="683" cy="90" r="18"/>
+  <text class="node-text" x="683" y="90">50</text>
+  <circle class="node" id="p3-n25" cx="626" cy="150" r="18"/>
+  <text class="node-text" x="626" y="150">25</text>
+  <circle class="node" id="p3-n75" cx="740" cy="150" r="18"/>
+  <text class="node-text" x="740" y="150">75</text>
+  <circle class="node" id="p3-n10" cx="594" cy="210" r="18"/>
+  <text class="node-text" x="594" y="210">10</text>
+  <circle class="node" id="p3-n37" cx="658" cy="210" r="18"/>
+  <text class="node-text" x="658" y="210">37</text>
+  <circle class="node-new" id="p3-n60" cx="708" cy="210" r="18"/>
+  <text class="node-text" x="708" y="210">60</text>
+  <circle class="node" id="p3-n90" cx="772" cy="210" r="18"/>
+  <text class="node-text" x="772" y="210">90</text>
+
+  <!-- Annotation: inorder successor -->
+  <text class="anno" x="708" y="240">successor</text>
+
+  <!-- Arrow down -->
+  <text class="arrow-label" x="683" y="262">&#x2193;</text>
+
+  <!-- After tree: 60 at root, 25, 75, 10, 37, 90 -->
+  <line class="edge" x1="671.0" y1="323.6" x2="637.6" y2="356.4"/>
+  <line class="edge" x1="695.0" y1="323.6" x2="728.4" y2="356.4"/>
+  <line class="edge" x1="615.6" y1="383.6" x2="601.4" y2="416.4"/>
+  <line class="edge" x1="637.4" y1="383.6" x2="651.6" y2="416.4"/>
+  <line class="edge" x1="748.5" y1="385.9" x2="763.5" y2="414.1"/>
+
+  <circle class="node-new" id="p3a-n60" cx="683" cy="310" r="18"/>
+  <text class="node-text" x="683" y="310">60</text>
+  <circle class="node" id="p3a-n25" cx="626" cy="370" r="18"/>
+  <text class="node-text" x="626" y="370">25</text>
+  <circle class="node" id="p3a-n75" cx="740" cy="370" r="18"/>
+  <text class="node-text" x="740" y="370">75</text>
+  <circle class="node" id="p3a-n10" cx="594" cy="430" r="18"/>
+  <text class="node-text" x="594" y="430">10</text>
+  <circle class="node" id="p3a-n37" cx="658" cy="430" r="18"/>
+  <text class="node-text" x="658" y="430">37</text>
+  <circle class="node" id="p3a-n90" cx="772" cy="430" r="18"/>
+  <text class="node-text" x="772" y="430">90</text>
+
+  <text class="desc" x="683" y="475">replace with inorder successor</text>
+</svg>

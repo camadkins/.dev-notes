@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" role="img" aria-label="Bias falls and variance rises as model complexity grows; total error forms a U shape with a sweet spot in the middle">
+  <style>
+    .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .node { fill: #58a6ff; }
+    .t { fill: #e8e8e8; font-family: monospace; font-size: 13px; }
+    .anno { fill: #d29922; font-family: monospace; font-size: 12px; }
+    .desc { fill: #8b949e; font-family: monospace; font-size: 12px; }
+    .final { fill: #84a59d; }
+  </style>
+  <!-- axes -->
+  <line class="edge" x1="80" y1="40" x2="80" y2="310"/>
+  <line class="edge" x1="80" y1="310" x2="640" y2="310"/>
+  <text class="t" x="30" y="50">error</text>
+  <text class="t" x="440" y="345">model complexity</text>
+  <!-- curves -->
+  <polyline class="edge" stroke="#93a3b8" stroke-dasharray="6 4" points="80,110.0 90,122.4 100,134.0 110,144.7 120,154.7 130,164.1 140,172.7 150,180.8 160,188.4 170,195.4 180,201.9 190,208.0 200,213.6 210,218.9 220,223.8 230,228.3 240,232.6 250,236.6 260,240.2 270,243.7 280,246.9 290,249.8 300,252.6 310,255.2 320,257.6 330,259.8 340,261.9 350,263.8 360,265.6 370,267.3 380,268.9 390,270.3 400,271.7 410,273.0 420,274.1 430,275.2 440,276.2 450,277.2 460,278.1 470,278.9 480,279.7 490,280.4 500,281.0 510,281.7 520,282.2 530,282.8 540,283.3 550,283.7 560,284.2 570,284.6 580,284.9 590,285.3 600,285.6"/>
+  <polyline class="edge" stroke="#93a3b8" stroke-dasharray="2 4" points="80,285.6 90,285.3 100,284.9 110,284.6 120,284.2 130,283.7 140,283.3 150,282.8 160,282.2 170,281.7 180,281.0 190,280.4 200,279.7 210,278.9 220,278.1 230,277.2 240,276.2 250,275.2 260,274.1 270,273.0 280,271.7 290,270.3 300,268.9 310,267.3 320,265.6 330,263.8 340,261.9 350,259.8 360,257.6 370,255.2 380,252.6 390,249.8 400,246.9 410,243.7 420,240.2 430,236.6 440,232.6 450,228.3 460,223.8 470,218.9 480,213.6 490,208.0 500,201.9 510,195.4 520,188.4 530,180.8 540,172.7 550,164.1 560,154.7 570,144.7 580,134.0 590,122.4 600,110.0"/>
+  <polyline class="edge" stroke="#58a6ff" stroke-width="2.5" points="80,70.6 90,82.7 100,93.9 110,104.3 120,113.9 130,122.8 140,131.0 150,138.6 160,145.6 170,152.0 180,157.9 190,163.3 200,168.3 210,172.8 220,176.9 230,180.5 240,183.8 250,186.8 260,189.4 270,191.6 280,193.6 290,195.2 300,196.5 310,197.5 320,198.2 330,198.7 340,198.8 350,198.7 360,198.2 370,197.5 380,196.5 390,195.2 400,193.6 410,191.6 420,189.4 430,186.8 440,183.8 450,180.5 460,176.9 470,172.8 480,168.3 490,163.3 500,157.9 510,152.0 520,145.6 530,138.6 540,131.0 550,122.8 560,113.9 570,104.3 580,93.9 590,82.7 600,70.6"/>
+  <text class="desc" x="96" y="163">bias^2</text>
+  <text class="desc" x="540" y="163">variance</text>
+  <text class="t" x="300" y="225" fill="#58a6ff">total error</text>
+  <!-- sweet spot -->
+  <line class="edge" stroke="#84a59d" stroke-dasharray="4 4" x1="340" y1="199" x2="340" y2="310"/>
+  <circle class="final" cx="340" cy="198.8" r="7"/>
+  <text class="t" x="300" y="330" fill="#84a59d">sweet spot</text>
+  <text class="anno" x="100" y="80">underfitting</text>
+  <text class="anno" x="480" y="80">overfitting</text>
+  <text class="desc" x="120" y="378">total error = bias^2 + variance + irreducible noise</text>
+</svg>

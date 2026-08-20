@@ -1,0 +1,148 @@
+<svg viewBox="16 0 560 430" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <title>Suffix Trie Query Trace — querying "ana" in S = "banana$"</title>
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .leaf { fill: rgba(30,40,55,0.95); stroke: #84a59d; stroke-width: 2; }
+    .edge { stroke: #93a3b8; stroke-width: 1.2; }
+    .elabel { font-size: 10px; fill: #e8e8e8; font-weight: 600; text-anchor: middle; dominant-baseline: auto; }
+    .anno { font-size: 9px; fill: #d29922; font-weight: 600; }
+    .rlabel { font-size: 10px; fill: #7b97aa; font-weight: 600; text-anchor: middle; }
+    .qedge { stroke: #d29922; stroke-width: 2.5; }
+    .highlighted { fill: rgba(30,40,55,0.95); stroke: #d29922; stroke-width: 2; }
+    .highlighted-target { fill: rgba(30,40,55,0.95); stroke: #d29922; stroke-width: 2.5; }
+    .qlabel { font-size: 11px; fill: #d29922; font-weight: 700; text-anchor: middle; }
+    .qanno { font-size: 10px; fill: #d29922; font-weight: 600; }
+    .qresult { font-size: 9px; fill: #e8e8e8; font-style: italic; }
+    .qheader { font-size: 10px; fill: #8b949e; font-style: italic; text-anchor: end; }
+    @media (prefers-color-scheme: light) {
+      .node { fill: #1a1a2e; stroke: #284b63; }
+      .leaf { fill: #1a1a2e; stroke: #3a7a5a; }
+      .edge { stroke: #b8b8b8; }
+      .elabel { fill: #1a1a2e; }
+      .anno { fill: #9e6000; }
+      .rlabel { fill: #284b63; }
+      .qedge { stroke: #9e6000; }
+      .highlighted { fill: #1a1a2e; stroke: #9e6000; }
+      .highlighted-target { fill: #1a1a2e; stroke: #9e6000; }
+      .qlabel { fill: #9e6000; }
+      .qanno { fill: #9e6000; }
+      .qresult { fill: #1a1a2e; }
+      .qheader { fill: #6e7781; }
+    }
+  </style>
+
+  <!-- Query header -->
+  <text x="530" y="37" class="qheader">query: "ana"</text>
+
+  <!-- ═══ DIMMED BASE TREE ═══ -->
+  <g opacity="0.45">
+    <!-- Root label -->
+
+    <!-- All edges -->
+    <line x1="273" y1="52" x2="77" y2="95" class="edge"/>
+    <line x1="275" y1="55" x2="233" y2="91" class="edge"/>
+    <line x1="286" y1="53" x2="379" y2="93" class="edge"/>
+    <line x1="287" y1="52" x2="482" y2="94" class="edge"/>
+    <line x1="70" y1="103" x2="70" y2="135" class="edge"/>
+    <line x1="223" y1="101" x2="180" y2="137" class="edge"/>
+    <line x1="233" y1="101" x2="274" y2="137" class="edge"/>
+    <line x1="385" y1="103" x2="385" y2="135" class="edge"/>
+    <line x1="70" y1="149" x2="70" y2="181" class="edge"/>
+    <line x1="175" y1="149" x2="175" y2="181" class="edge"/>
+    <line x1="381" y1="148" x2="354" y2="182" class="edge"/>
+    <line x1="389" y1="148" x2="415" y2="182" class="edge"/>
+    <line x1="70" y1="195" x2="70" y2="227" class="edge"/>
+    <line x1="171" y1="194" x2="144" y2="228" class="edge"/>
+    <line x1="179" y1="194" x2="205" y2="228" class="edge"/>
+    <line x1="350" y1="195" x2="350" y2="227" class="edge"/>
+    <line x1="70" y1="241" x2="70" y2="273" class="edge"/>
+    <line x1="140" y1="241" x2="140" y2="273" class="edge"/>
+    <line x1="350" y1="241" x2="350" y2="272" class="edge"/>
+    <line x1="70" y1="287" x2="70" y2="319" class="edge"/>
+    <line x1="140" y1="287" x2="140" y2="318" class="edge"/>
+    <line x1="70" y1="333" x2="70" y2="364" class="edge"/>
+
+    <!-- All edge labels -->
+    <text x="163" y="69" class="elabel">b</text>
+    <text x="345" y="69" class="elabel">n</text>
+    <text x="397" y="69" class="elabel">$</text>
+    <text x="82" y="123" class="elabel">a</text>
+    <text x="266" y="115" class="elabel">$</text>
+    <text x="397" y="123" class="elabel">a</text>
+    <text x="82" y="169" class="elabel">n</text>
+    <text x="356" y="161" class="elabel">n</text>
+    <text x="415" y="161" class="elabel">$</text>
+    <text x="82" y="215" class="elabel">a</text>
+    <text x="146" y="207" class="elabel">n</text>
+    <text x="205" y="207" class="elabel">$</text>
+    <text x="362" y="215" class="elabel">a</text>
+    <text x="82" y="261" class="elabel">n</text>
+    <text x="152" y="261" class="elabel">a</text>
+    <text x="362" y="261" class="elabel">$</text>
+    <text x="82" y="307" class="elabel">a</text>
+    <text x="152" y="307" class="elabel">$</text>
+    <text x="82" y="353" class="elabel">$</text>
+
+    <!-- All internal nodes (excluding query-path nodes) -->
+    <circle cx="70" cy="96" r="7" class="node"/>
+    <circle cx="385" cy="96" r="7" class="node"/>
+    <circle cx="70" cy="142" r="7" class="node"/>
+    <circle cx="385" cy="142" r="7" class="node"/>
+    <circle cx="70" cy="188" r="7" class="node"/>
+    <circle cx="350" cy="188" r="7" class="node"/>
+    <circle cx="70" cy="234" r="7" class="node"/>
+    <circle cx="140" cy="234" r="7" class="node"/>
+    <circle cx="350" cy="234" r="7" class="node"/>
+    <circle cx="70" cy="280" r="7" class="node"/>
+    <circle cx="140" cy="280" r="7" class="node"/>
+    <circle cx="70" cy="326" r="7" class="node"/>
+
+    <!-- All leaf nodes -->
+    <circle cx="490" cy="96" r="8" class="leaf"/>
+    <circle cx="280" cy="142" r="8" class="leaf"/>
+    <circle cx="420" cy="188" r="8" class="leaf"/>
+    <circle cx="210" cy="234" r="8" class="leaf"/>
+    <circle cx="350" cy="280" r="8" class="leaf"/>
+    <circle cx="140" cy="326" r="8" class="leaf"/>
+    <circle cx="70" cy="372" r="8" class="leaf"/>
+
+    <!-- All leaf annotations -->
+    <text x="503" y="100" class="anno">i=6</text>
+    <text x="293" y="146" class="anno">i=5</text>
+    <text x="433" y="192" class="anno">i=4</text>
+    <text x="223" y="238" class="anno">i=3</text>
+    <text x="363" y="284" class="anno">i=2</text>
+    <text x="153" y="330" class="anno">i=1</text>
+    <text x="83" y="376" class="anno">i=0</text>
+  </g>
+
+  <!-- ═══ QUERY PATH OVERLAY ═══ -->
+  <!-- Query edges: root → a → an → ana -->
+  <line x1="275" y1="55" x2="233" y2="91" class="qedge"/>
+  <line x1="223" y1="101" x2="180" y2="137" class="qedge"/>
+  <line x1="175" y1="149" x2="175" y2="181" class="qedge"/>
+
+  <!-- Query edge labels -->
+  <text x="242" y="69" class="qlabel">a</text>
+  <text x="190" y="115" class="qlabel">n</text>
+  <text x="187" y="169" class="qlabel">a</text>
+
+  <!-- Query path nodes (highlighted, outside dimmed group) -->
+  <circle cx="280" cy="50" r="7" class="highlighted"/>        <!-- root -->
+  <circle cx="228" cy="96" r="7" class="highlighted"/>        <!-- a -->
+  <circle cx="175" cy="142" r="7" class="highlighted"/>       <!-- an -->
+  <circle cx="175" cy="188" r="7" class="highlighted-target"/> <!-- ana (target) -->
+
+  <!-- Root label (query overlay) -->
+  <text x="280" y="37" class="rlabel">root</text>
+
+  <!-- ═══ ANNOTATIONS ═══ -->
+  <!-- Dashed line from ana node to annotation -->
+  <line x1="184" y1="188" x2="228" y2="188" stroke="#d29922" stroke-width="1" stroke-dasharray="3 2"/>
+
+  <!-- Position result -->
+  <text x="233" y="184" class="qanno">positions: [1, 3]</text>
+  <text x="233" y="198" class="qresult">S[1..3] = "ana"</text>
+  <text x="233" y="210" class="qresult">S[3..5] = "ana"</text>
+</svg>

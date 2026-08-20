@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-7.5 0 620 340">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .node-text { font-size: 10px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+    .edge { stroke: #93a3b8; stroke-width: 1.2; fill: none; }
+    .anno { font-size: 10px; fill: #d29922; font-weight: 600; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; }
+    .label { font-size: 12px; fill: #e8e8e8; font-weight: 600; text-anchor: middle; }
+    .math { font-size: 11px; fill: #58a6ff; font-weight: 600; text-anchor: middle; }
+    .set-border { fill: rgba(30,40,55,0.4); stroke: #58a6ff; stroke-width: 1.5; stroke-dasharray: 6 3; }
+    .number-line { stroke: #93a3b8; stroke-width: 1.5; }
+    .tick { stroke: #93a3b8; stroke-width: 1.2; }
+    .tick-label { font-size: 9px; fill: #8b949e; text-anchor: middle; }
+    .coin-node { fill: rgba(30,40,55,0.95); stroke: #7ee787; stroke-width: 1.5; }
+    .coin-edge { stroke: #7ee787; stroke-width: 1.2; fill: none; opacity: 0.7; }
+    .coin-anno { font-size: 10px; fill: #7ee787; font-weight: 600; }
+    .coin-border { fill: rgba(30,40,55,0.4); stroke: #7ee787; stroke-width: 1.5; stroke-dasharray: 6 3; }
+    @media (prefers-color-scheme: light) {
+      .node { fill: #1a1a2e; stroke: #284b63; }
+      .edge { stroke: #b8b8b8; }
+      .anno { fill: #9e6000; }
+      .desc { fill: #6e7781; }
+      .label { fill: #1a1a2e; }
+      .math { fill: #284b63; }
+      .set-border { fill: rgba(240,240,245,0.6); stroke: #284b63; }
+      .number-line { stroke: #b8b8b8; }
+      .tick { stroke: #b8b8b8; }
+      .tick-label { fill: #6e7781; }
+      .coin-node { fill: #1a1a2e; stroke: #1a7f37; }
+      .coin-edge { stroke: #1a7f37; }
+      .coin-anno { fill: #1a7f37; }
+      .coin-border { fill: rgba(240,240,245,0.6); stroke: #1a7f37; }
+      .node-text { fill: #e8e8e8; }
+    }
+  </style>
+
+  <defs>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 L2,3 Z" fill="#93a3b8"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 L2,3 Z" fill="#7ee787"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="310" y="28" class="label" font-size="13">Random Variable as a Function</text>
+  <text x="310" y="44" class="desc" text-anchor="middle">X : S → ℝ maps outcomes to numbers</text>
+
+  <!-- === DIE EXAMPLE (top) === -->
+
+  <!-- Sample space oval -->
+  <ellipse cx="105" cy="140" rx="80" ry="95" class="set-border"/>
+  <text x="105" y="62" class="math">S (die roll)</text>
+
+  <!-- Die face elements -->
+  <rect x="72" y="78" width="30" height="22" rx="4" class="node"/>
+  <text x="87" y="89" class="node-text">⚀ 1</text>
+
+  <rect x="118" y="78" width="30" height="22" rx="4" class="node"/>
+  <text x="133" y="89" class="node-text">⚁ 2</text>
+
+  <rect x="72" y="115" width="30" height="22" rx="4" class="node"/>
+  <text x="87" y="126" class="node-text">⚂ 3</text>
+
+  <rect x="118" y="115" width="30" height="22" rx="4" class="node"/>
+  <text x="133" y="126" class="node-text">⚃ 4</text>
+
+  <rect x="72" y="152" width="30" height="22" rx="4" class="node"/>
+  <text x="87" y="163" class="node-text">⚄ 5</text>
+
+  <rect x="118" y="152" width="30" height="22" rx="4" class="node"/>
+  <text x="133" y="163" class="node-text">⚅ 6</text>
+
+  <!-- Number line (ℝ) -->
+  <text x="480" y="62" class="math">ℝ</text>
+  <line x1="380" y1="140" x2="580" y2="140" class="number-line"/>
+  <!-- Ticks for 1-6 -->
+  <line x1="400" y1="133" x2="400" y2="147" class="tick"/>
+  <text x="400" y="158" class="tick-label">1</text>
+  <circle cx="400" cy="140" r="3.5" fill="#58a6ff"/>
+
+  <line x1="432" y1="133" x2="432" y2="147" class="tick"/>
+  <text x="432" y="158" class="tick-label">2</text>
+  <circle cx="432" cy="140" r="3.5" fill="#58a6ff"/>
+
+  <line x1="464" y1="133" x2="464" y2="147" class="tick"/>
+  <text x="464" y="158" class="tick-label">3</text>
+  <circle cx="464" cy="140" r="3.5" fill="#58a6ff"/>
+
+  <line x1="496" y1="133" x2="496" y2="147" class="tick"/>
+  <text x="496" y="158" class="tick-label">4</text>
+  <circle cx="496" cy="140" r="3.5" fill="#58a6ff"/>
+
+  <line x1="528" y1="133" x2="528" y2="147" class="tick"/>
+  <text x="528" y="158" class="tick-label">5</text>
+  <circle cx="528" cy="140" r="3.5" fill="#58a6ff"/>
+
+  <line x1="560" y1="133" x2="560" y2="147" class="tick"/>
+  <text x="560" y="158" class="tick-label">6</text>
+  <circle cx="560" cy="140" r="3.5" fill="#58a6ff"/>
+
+  <!-- Curved arrows: die face → number line -->
+  <path d="M102,79 C160,50 340,55 396,137" class="edge" marker-end="url(#arrow-blue)"/>
+  <path d="M148,83 C200,55 360,60 428,137" class="edge" marker-end="url(#arrow-blue)"/>
+  <path d="M102,116 C180,90 380,85 460,137" class="edge" marker-end="url(#arrow-blue)"/>
+  <path d="M148,126 C210,108 410,100 492,137" class="edge" marker-end="url(#arrow-blue)"/>
+  <path d="M102,160 C190,170 420,180 524,145" class="edge" marker-end="url(#arrow-blue)"/>
+  <path d="M148,168 C220,195 440,195 556,145" class="edge" marker-end="url(#arrow-blue)"/>
+
+  <!-- X label on arrows -->
+  <text x="250" y="58" class="anno">X(s) = s</text>
+  <text x="250" y="72" class="desc" text-anchor="middle">identity: face value</text>
+
+  <!-- === COIN EXAMPLE (bottom) === -->
+
+  <!-- Sample space oval -->
+  <ellipse cx="105" cy="275" rx="65" ry="45" class="coin-border"/>
+  <text x="105" y="238" class="math" fill="#7ee787" style="font-size:11px">S (coin flip)</text>
+
+  <!-- Coin outcomes -->
+  <rect x="62" y="262" width="36" height="22" rx="4" class="coin-node"/>
+  <text x="80" y="273" class="node-text" font-size="9">H</text>
+
+  <rect x="112" y="262" width="36" height="22" rx="4" class="coin-node"/>
+  <text x="130" y="273" class="node-text" font-size="9">T</text>
+
+  <!-- Number line for coin -->
+  <line x1="380" y1="275" x2="520" y2="275" class="number-line" opacity="0.7"/>
+  <line x1="420" y1="268" x2="420" y2="282" class="tick"/>
+  <text x="420" y="296" class="tick-label">0</text>
+  <circle cx="420" cy="275" r="3.5" fill="#7ee787"/>
+
+  <line x1="480" y1="268" x2="480" y2="282" class="tick"/>
+  <text x="480" y="296" class="tick-label">1</text>
+  <circle cx="480" cy="275" r="3.5" fill="#7ee787"/>
+
+  <text x="510" y="268" class="math" fill="#7ee787" style="font-size:10px" text-anchor="start">ℝ</text>
+
+  <!-- Arrows: coin → number line (H→1, T→0) -->
+  <path d="M98,263 C160,230 380,235 476,272" class="coin-edge" marker-end="url(#arrow-green)"/>
+  <path d="M148,268 C200,240 340,240 416,272" class="coin-edge" marker-end="url(#arrow-green)"/>
+
+  <!-- Labels -->
+  <text x="246" y="243" class="coin-anno" font-size="9">X(H) = 1</text>
+  <text x="246" y="258" class="coin-anno" font-size="9">X(T) = 0</text>
+
+  <!-- Bottom description -->
+  <text x="310" y="328" class="desc" text-anchor="middle">A random variable X is a deterministic function applied to a random outcome</text>
+</svg>

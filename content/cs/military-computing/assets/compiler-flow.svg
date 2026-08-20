@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 150" fill="none" role="img" aria-label="A compiler turns readable source code into machine code">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.6; }
+    .t { fill: #e8e8e8; font-size: 14px; text-anchor: middle; }
+    .s { fill: #8b949e; font-size: 11px; text-anchor: middle; }
+    .a { stroke: #93a3b8; stroke-width: 1.6; }
+  </style>
+  <rect class="box" x="20" y="40" width="130" height="54" rx="4"/>
+  <text class="t" x="85" y="64">readable</text><text class="t" x="85" y="82">source code</text>
+  <line class="a" x1="150" y1="67" x2="184" y2="67"/><polygon points="184,67 176,63 176,71" fill="#93a3b8"/>
+  <rect class="box" x="186" y="40" width="108" height="54" rx="4"/>
+  <text class="t" x="240" y="72">compiler</text>
+  <line class="a" x1="294" y1="67" x2="328" y2="67"/><polygon points="328,67 320,63 320,71" fill="#93a3b8"/>
+  <rect class="box" x="330" y="40" width="130" height="54" rx="4"/>
+  <text class="t" x="395" y="72">machine code</text>
+  <text class="s" x="240" y="124">people write readable code; the compiler does the translating</text>
+</svg>

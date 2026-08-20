@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 470" role="img" aria-label="DQN training loop with experience replay and a target network" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+  <style>
+    .box  { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .edge { fill: none; stroke: #93a3b8; stroke-width: 1.5; }
+    .t    { fill: #e8e8e8; font-size: 14px; }
+    .sub  { fill: #8b949e; font-size: 11px; }
+    .lbl  { fill: #93a3b8; font-size: 12px; }
+    .anno { fill: #d29922; font-size: 12px; }
+    .desc { fill: #8b949e; font-size: 12px; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#93a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- Row 1: acting loop -->
+  <rect class="box" x="40" y="70" width="180" height="64" rx="8"/>
+  <text class="t" x="130" y="98" text-anchor="middle">Atari emulator</text>
+  <text class="sub" x="130" y="118" text-anchor="middle">screen pixels + score</text>
+
+  <rect class="box" x="330" y="70" width="180" height="64" rx="8"/>
+  <text class="t" x="420" y="98" text-anchor="middle">conv net Q&#952;</text>
+  <text class="sub" x="420" y="118" text-anchor="middle">input 84&#215;84&#215;4</text>
+
+  <rect class="box" x="630" y="70" width="200" height="64" rx="8"/>
+  <text class="t" x="730" y="98" text-anchor="middle">&#949;-greedy choice</text>
+  <text class="sub" x="730" y="118" text-anchor="middle">argmax&#8336; Q(s,a) or random</text>
+
+  <path class="edge" d="M 220 102 H 322" marker-end="url(#arrow)"/>
+  <text class="lbl" x="271" y="92" text-anchor="middle">state s</text>
+
+  <path class="edge" d="M 510 102 H 622" marker-end="url(#arrow)"/>
+  <text class="lbl" x="566" y="92" text-anchor="middle">Q(s,a) per action</text>
+
+  <!-- action loops back over the top -->
+  <path class="edge" d="M 730 70 V 30 H 130 V 62" marker-end="url(#arrow)"/>
+  <text class="lbl" x="430" y="22" text-anchor="middle">action a</text>
+
+  <!-- Row 2: learning loop -->
+  <rect class="box" x="120" y="270" width="210" height="64" rx="8"/>
+  <text class="t" x="225" y="298" text-anchor="middle">replay memory</text>
+  <text class="sub" x="225" y="318" text-anchor="middle">stored (s, a, r, s&#8242;) tuples</text>
+
+  <rect class="box" x="500" y="270" width="230" height="64" rx="8"/>
+  <text class="t" x="615" y="298" text-anchor="middle">gradient step</text>
+  <text class="sub" x="615" y="318" text-anchor="middle">loss (y &#8722; Q&#952;(s,a))&#178;</text>
+
+  <path class="edge" d="M 130 134 V 262" marker-end="url(#arrow)"/>
+  <text class="lbl" x="142" y="204" text-anchor="start">store transition</text>
+
+  <path class="edge" d="M 330 302 H 492" marker-end="url(#arrow)"/>
+  <text class="lbl" x="411" y="292" text-anchor="middle">random minibatch</text>
+
+  <path class="edge" d="M 615 270 V 200 H 420 V 142" marker-end="url(#arrow)"/>
+  <text class="lbl" x="527" y="192" text-anchor="middle">update &#952;</text>
+
+  <text class="anno" x="615" y="368" text-anchor="middle">target y = r + &#947; max&#8336;&#8242; Q&#952;&#8315;(s&#8242;, a&#8242;)</text>
+  <text class="anno" x="615" y="388" text-anchor="middle">&#952;&#8315; is a frozen copy of &#952;, refreshed every C steps</text>
+
+  <text class="desc" x="440" y="440" text-anchor="middle">random replay breaks the correlation between consecutive frames;</text>
+  <text class="desc" x="440" y="458" text-anchor="middle">the frozen target network stops the labels from chasing the weights they train</text>
+</svg>

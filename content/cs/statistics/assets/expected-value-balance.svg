@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-13.1 0 460 300" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; }
+    .anno { font-size: 10px; fill: #d29922; font-weight: 600; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; }
+    .axis { stroke: #93a3b8; stroke-width: 1.5; }
+    .axis-label { font-size: 11px; fill: #e8e8e8; font-weight: 600; }
+    .tick-label { font-size: 10px; fill: #8b949e; }
+    .bar { fill: rgba(88,166,255,0.6); }
+    .bar-stroke { stroke: #58a6ff; stroke-width: 1.2; fill: none; }
+    .fulcrum { fill: #d29922; }
+    .balance-line { stroke: #d29922; stroke-width: 1.2; stroke-dasharray: 5 4; }
+    .ev-label { font-size: 11px; fill: #d29922; font-weight: 600; }
+    .prob-label { font-size: 9px; fill: #8b949e; }
+    @media (prefers-color-scheme: light) {
+      .edge { stroke: #b8b8b8; }
+      .anno { fill: #9e6000; }
+      .desc { fill: #6e7781; }
+      .axis { stroke: #b8b8b8; }
+      .axis-label { fill: #1a1a2e; }
+      .tick-label { fill: #6e7781; }
+      .bar { fill: rgba(40,75,99,0.5); }
+      .bar-stroke { stroke: #284b63; }
+      .fulcrum { fill: #9e6000; }
+      .balance-line { stroke: #9e6000; }
+      .ev-label { fill: #9e6000; }
+      .prob-label { fill: #6e7781; }
+    }
+  </style>
+
+  <!-- X-axis (beam) -->
+  <line x1="40" y1="200" x2="420" y2="200" class="axis"/>
+
+  <!-- Y-axis -->
+  <line x1="40" y1="200" x2="40" y2="40" class="axis"/>
+
+  <!-- Y-axis label -->
+  <text x="20" y="36" class="axis-label">P(X)</text>
+
+  <!-- Y-axis tick: 1/6 -->
+  <line x1="36" y1="80" x2="44" y2="80" class="axis"/>
+  <text x="30" y="84" class="prob-label" text-anchor="end">1/6</text>
+
+  <!-- Bars: each bar width=44, gap=8, starting at x=68 -->
+  <!-- Bar centers: 90, 142, 194, 246, 298, 350 -->
+  <!-- Bar 1 (x=1) -->
+  <rect x="68" y="80" width="44" height="120" class="bar"/>
+  <rect x="68" y="80" width="44" height="120" class="bar-stroke"/>
+  <text x="90" y="216" class="tick-label" text-anchor="middle">1</text>
+
+  <!-- Bar 2 (x=2) -->
+  <rect x="120" y="80" width="44" height="120" class="bar"/>
+  <rect x="120" y="80" width="44" height="120" class="bar-stroke"/>
+  <text x="142" y="216" class="tick-label" text-anchor="middle">2</text>
+
+  <!-- Bar 3 (x=3) -->
+  <rect x="172" y="80" width="44" height="120" class="bar"/>
+  <rect x="172" y="80" width="44" height="120" class="bar-stroke"/>
+  <text x="194" y="216" class="tick-label" text-anchor="middle">3</text>
+
+  <!-- Bar 4 (x=4) -->
+  <rect x="224" y="80" width="44" height="120" class="bar"/>
+  <rect x="224" y="80" width="44" height="120" class="bar-stroke"/>
+  <text x="246" y="216" class="tick-label" text-anchor="middle">4</text>
+
+  <!-- Bar 5 (x=5) -->
+  <rect x="276" y="80" width="44" height="120" class="bar"/>
+  <rect x="276" y="80" width="44" height="120" class="bar-stroke"/>
+  <text x="298" y="216" class="tick-label" text-anchor="middle">5</text>
+
+  <!-- Bar 6 (x=6) -->
+  <rect x="328" y="80" width="44" height="120" class="bar"/>
+  <rect x="328" y="80" width="44" height="120" class="bar-stroke"/>
+  <text x="350" y="216" class="tick-label" text-anchor="middle">6</text>
+
+  <!-- X-axis label -->
+  <text x="400" y="216" class="axis-label">x</text>
+
+  <!-- Balance point dashed line at E[X] = 3.5 -->
+  <!-- 3.5 is halfway between bar 3 center (194) and bar 4 center (246), so x = 220 -->
+  <line x1="220" y1="75" x2="220" y2="200" class="balance-line"/>
+
+  <!-- Fulcrum triangle beneath x-axis at 3.5 -->
+  <polygon points="220,204 208,230 232,230" class="fulcrum"/>
+
+  <!-- E[X] = 3.5 label -->
+  <text x="220" y="248" class="ev-label" text-anchor="middle">E[X] = 3.5</text>
+
+  <!-- Annotation -->
+  <text x="220" y="264" class="desc" text-anchor="middle">balance point of the distribution</text>
+
+  <!-- Caption -->
+  <text x="220" y="290" class="desc" text-anchor="middle">Fair die PMF: each face has P = 1/6; the mean is the fulcrum</text>
+
+</svg>

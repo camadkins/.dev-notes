@@ -1,0 +1,235 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-23.1 0 960 640" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .node-term { fill: rgba(30,40,55,0.95); stroke: #d29922; stroke-width: 2; }
+    .node-text { font-size: 10px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+    .edge { stroke: #93a3b8; stroke-width: 1.2; fill: none; }
+    .edge-label { font-size: 11px; fill: #58a6ff; text-anchor: middle; dominant-baseline: central; font-weight: 700; }
+    .anno { font-size: 9px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .anno-left { font-size: 9px; fill: #d29922; font-weight: 600; text-anchor: end; }
+    .anno-right { font-size: 8px; fill: #d29922; font-weight: 600; text-anchor: start; }
+    .desc { font-size: 10px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .title { font-size: 13px; fill: #e8e8e8; font-weight: 700; text-anchor: middle; }
+    .suffix-idx { font-size: 8px; fill: #7b97aa; text-anchor: middle; }
+    .highlight { stroke: #d29922; stroke-width: 1.5; stroke-dasharray: 4 3; fill: rgba(210,153,34,0.06); }
+    @media (prefers-color-scheme: light) {
+      .node { fill: #1a1a2e; stroke: #284b63; }
+      .node-term { fill: #1a1a2e; stroke: #9e6000; }
+      .edge { stroke: #b8b8b8; }
+      .edge-label { fill: #284b63; }
+      .anno { fill: #9e6000; }
+      .anno-left { fill: #9e6000; }
+      .anno-right { fill: #9e6000; }
+      .desc { fill: #6e7781; }
+      .title { fill: #1a1a2e; }
+      .suffix-idx { fill: #6e7781; }
+      .highlight { stroke: #9e6000; fill: rgba(158,96,0,0.06); }
+    }
+  </style>
+
+  <!-- Title -->
+  <text x="480" y="28" class="title">Suffix Trie for "banana$"</text>
+  <text x="480" y="46" class="desc">7 suffixes, 23 nodes — edges carry single characters, gold border = terminal</text>
+
+  <!--
+    Layout: nodes are small circles (r=8), edge labels carry characters.
+    Node positions define the trie shape; labels are on the edges.
+
+    Depth rows: y = 72, 140, 208, 276, 344, 412, 480, 548
+    Row spacing: 68px
+    Node radius: 8px
+
+    Root: (480, 72)
+    Depth 1 (4 children of root):
+      $ at (100, 140)   - terminal leaf
+      b at (260, 140)
+      a at (560, 140)
+      n at (810, 140)
+
+    Depth 2:
+      ba at (260, 208)
+      a$ at (470, 208) - terminal leaf
+      an at (630, 208)
+      na at (810, 208)
+
+    Depth 3:
+      ban at (260, 276)
+      ana at (630, 276)
+      na$ at (750, 276) - terminal leaf
+      nan at (870, 276)
+
+    Depth 4:
+      bana at (260, 344)
+      ana$ at (570, 344) - terminal leaf
+      anan at (690, 344)
+      nana at (870, 344)
+
+    Depth 5:
+      banan at (260, 412)
+      anana at (690, 412)
+      nana$ at (870, 412) - terminal leaf
+
+    Depth 6:
+      banana at (260, 480)
+      anana$ at (690, 480) - terminal leaf
+
+    Depth 7:
+      banana$ at (260, 548) - terminal leaf
+  -->
+
+  <!-- ======================== EDGES ======================== -->
+
+  <!-- Root to depth-1 children -->
+  <line x1="480" y1="80" x2="100" y2="132" class="edge"/>
+  <line x1="480" y1="80" x2="260" y2="132" class="edge"/>
+  <line x1="480" y1="80" x2="560" y2="132" class="edge"/>
+  <line x1="480" y1="80" x2="810" y2="132" class="edge"/>
+
+  <!-- b-chain (vertical) -->
+  <line x1="260" y1="148" x2="260" y2="200" class="edge"/>
+  <line x1="260" y1="216" x2="260" y2="268" class="edge"/>
+  <line x1="260" y1="284" x2="260" y2="336" class="edge"/>
+  <line x1="260" y1="352" x2="260" y2="404" class="edge"/>
+  <line x1="260" y1="420" x2="260" y2="472" class="edge"/>
+  <line x1="260" y1="488" x2="260" y2="540" class="edge"/>
+
+  <!-- a-branch -->
+  <line x1="560" y1="148" x2="470" y2="200" class="edge"/>
+  <line x1="560" y1="148" x2="630" y2="200" class="edge"/>
+  <line x1="630" y1="216" x2="630" y2="268" class="edge"/>
+  <line x1="630" y1="284" x2="570" y2="336" class="edge"/>
+  <line x1="630" y1="284" x2="690" y2="336" class="edge"/>
+  <line x1="690" y1="352" x2="690" y2="404" class="edge"/>
+  <line x1="690" y1="420" x2="690" y2="472" class="edge"/>
+
+  <!-- n-branch -->
+  <line x1="810" y1="148" x2="810" y2="200" class="edge"/>
+  <line x1="810" y1="216" x2="750" y2="268" class="edge"/>
+  <line x1="810" y1="216" x2="870" y2="268" class="edge"/>
+  <line x1="870" y1="284" x2="870" y2="336" class="edge"/>
+  <line x1="870" y1="352" x2="870" y2="404" class="edge"/>
+
+  <!-- ======================== EDGE LABELS ======================== -->
+
+  <!-- Root edges -->
+  <text x="280" y="100" class="edge-label">$</text>
+  <text x="360" y="100" class="edge-label">b</text>
+  <text x="526" y="100" class="edge-label">a</text>
+  <text x="660" y="100" class="edge-label">n</text>
+
+  <!-- b-chain -->
+  <text x="248" y="174" class="edge-label">a</text>
+  <text x="248" y="242" class="edge-label">n</text>
+  <text x="248" y="310" class="edge-label">a</text>
+  <text x="248" y="378" class="edge-label">n</text>
+  <text x="248" y="446" class="edge-label">a</text>
+  <text x="248" y="514" class="edge-label">$</text>
+
+  <!-- a-branch -->
+  <text x="506" y="174" class="edge-label">$</text>
+  <text x="602" y="174" class="edge-label">n</text>
+  <text x="618" y="242" class="edge-label">a</text>
+  <text x="592" y="310" class="edge-label">$</text>
+  <text x="668" y="310" class="edge-label">n</text>
+  <text x="678" y="378" class="edge-label">a</text>
+  <text x="678" y="446" class="edge-label">$</text>
+
+  <!-- n-branch -->
+  <text x="798" y="174" class="edge-label">a</text>
+  <text x="772" y="242" class="edge-label">$</text>
+  <text x="848" y="242" class="edge-label">n</text>
+  <text x="858" y="310" class="edge-label">a</text>
+  <text x="858" y="378" class="edge-label">$</text>
+
+  <!-- ======================== NODES ======================== -->
+
+  <!-- Root -->
+  <circle cx="480" cy="72" r="10" class="node"/>
+  <text x="480" y="72" class="node-text" font-size="9">root</text>
+
+  <!-- Depth 1 -->
+  <circle cx="100" cy="140" r="8" class="node-term"/>
+  <text x="100" y="158" class="suffix-idx">s₆</text>
+
+  <circle cx="260" cy="140" r="8" class="node"/>
+
+  <circle cx="560" cy="140" r="8" class="node"/>
+
+  <circle cx="810" cy="140" r="8" class="node"/>
+
+  <!-- Depth 2 -->
+  <circle cx="260" cy="208" r="8" class="node"/>
+
+  <circle cx="470" cy="208" r="8" class="node-term"/>
+  <text x="470" y="226" class="suffix-idx">s₅</text>
+
+  <circle cx="630" cy="208" r="8" class="node"/>
+
+  <circle cx="810" cy="208" r="8" class="node"/>
+
+  <!-- Depth 3 -->
+  <circle cx="260" cy="276" r="8" class="node"/>
+
+  <circle cx="630" cy="276" r="8" class="node"/>
+
+  <circle cx="750" cy="276" r="8" class="node-term"/>
+  <text x="750" y="294" class="suffix-idx">s₄</text>
+
+  <circle cx="870" cy="276" r="8" class="node"/>
+
+  <!-- Depth 4 -->
+  <circle cx="260" cy="344" r="8" class="node"/>
+
+  <circle cx="570" cy="344" r="8" class="node-term"/>
+  <text x="570" y="362" class="suffix-idx">s₃</text>
+
+  <circle cx="690" cy="344" r="8" class="node"/>
+
+  <circle cx="870" cy="344" r="8" class="node"/>
+
+  <!-- Depth 5 -->
+  <circle cx="260" cy="412" r="8" class="node"/>
+
+  <circle cx="690" cy="412" r="8" class="node"/>
+
+  <circle cx="870" cy="412" r="8" class="node-term"/>
+  <text x="870" y="430" class="suffix-idx">s₂</text>
+
+  <!-- Depth 6 -->
+  <circle cx="260" cy="480" r="8" class="node"/>
+
+  <circle cx="690" cy="480" r="8" class="node-term"/>
+  <text x="690" y="498" class="suffix-idx">s₁</text>
+
+  <!-- Depth 7 -->
+  <circle cx="260" cy="548" r="8" class="node-term"/>
+  <text x="260" y="566" class="suffix-idx">s₀</text>
+
+  <!-- ======================== ANNOTATIONS ======================== -->
+
+  <!-- Highlight the "ana" subtree duplication -->
+  <!-- a-branch "ana" subtree: nodes at (630,276), children (570,344) and (690,344) -->
+  <rect x="550" y="260" width="160" height="100" rx="8" class="highlight"/>
+  <text x="630" y="252" class="anno">"ana" subtree</text>
+
+  <!-- b-branch also contains a-n-a at depths 4-5-6: (260,344)-(260,412)-(260,480) internal path -->
+  <!-- The b-chain contains ...b-a-n-a-n-a-$ which includes "ana" as a substring path -->
+
+  <!-- Depth labels on left margin -->
+  <text x="52" y="72" class="anno-left">d=0</text>
+  <text x="52" y="140" class="anno-left">d=1</text>
+  <text x="52" y="208" class="anno-left">d=2</text>
+  <text x="52" y="276" class="anno-left">d=3</text>
+  <text x="52" y="344" class="anno-left">d=4</text>
+  <text x="52" y="412" class="anno-left">d=5</text>
+  <text x="52" y="480" class="anno-left">d=6</text>
+  <text x="52" y="548" class="anno-left">d=7</text>
+
+  <!-- Suffixes: s₀=banana$, s₁=anana$, s₂=nana$, s₃=ana$, s₄=na$, s₅=a$, s₆=$ -->
+
+  <!-- Legend -->
+  <text x="480" y="600" class="desc">Gold border = terminal node (suffix endpoint)  |  s₀..s₆ = suffix start index in "banana$"</text>
+  <text x="480" y="618" class="desc">23 nodes for a 7-char string — repeated substrings like "ana" cause Theta(|T|^2) blowup</text>
+
+</svg>

@@ -1,0 +1,187 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 520" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; }
+    .box-ok { fill: rgba(30,55,40,0.6); stroke: #84a59d; stroke-width: 1.5; rx: 6; }
+    .box-fail { fill: rgba(70,30,30,0.6); stroke: #f85149; stroke-width: 1.5; rx: 6; }
+    .term { font-size: 13px; fill: #e8e8e8; font-weight: 600; }
+    .term-c { font-size: 13px; fill: #e8e8e8; font-weight: 600; text-anchor: middle; }
+    .term-sm { font-size: 11px; fill: #e8e8e8; }
+    .label { font-size: 11px; fill: #58a6ff; font-weight: 700; text-anchor: middle; }
+    .anno { font-size: 10px; fill: #d29922; font-weight: 600; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; }
+    .desc-c { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .ok { font-size: 11px; fill: #84a59d; font-weight: 600; text-anchor: middle; }
+    .fail { font-size: 11px; fill: #f85149; font-weight: 600; text-anchor: middle; }
+    .step { font-size: 9px; fill: #7b97aa; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 3; }
+    @media (prefers-color-scheme: light) {
+      .box { fill: #1a1a2e; stroke: #284b63; }
+      .box-ok { fill: rgba(80,160,100,0.15); stroke: #2d6a4f; }
+      .box-fail { fill: rgba(200,60,60,0.12); stroke: #a0342e; }
+      .term, .term-c, .term-sm { fill: #f0f0f0; }
+      .label { fill: #284b63; }
+      .anno { fill: #9e6000; }
+      .desc, .desc-c { fill: #6e7781; }
+      .ok { fill: #2d6a4f; }
+      .fail { fill: #a0342e; }
+      .step { fill: #284b63; }
+      .edge { stroke: #b8b8b8; }
+      .sep { stroke: #d0d7de; }
+    }
+  </style>
+  <defs>
+    <marker id="ah" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#93a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text class="desc-c" x="410" y="24">same &#x03BB;-term, four evaluation strategies &#x2014; different reduction paths</text>
+
+  <!-- Definition box -->
+  <rect class="box" x="220" y="36" width="380" height="44"/>
+  <text class="anno" x="240" y="54">let</text>
+  <text class="term" x="270" y="54">&#x03A9; = (&#x03BB;x. x x)(&#x03BB;x. x x)</text>
+  <text class="term" x="240" y="70">E = (&#x03BB;x. 1) &#x03A9;</text>
+
+  <!-- Branching arrows from E -->
+  <!-- CBV branch: x=115 -->
+  <line class="edge" x1="330" y1="80" x2="115" y2="120" marker-end="url(#ah)"/>
+  <!-- CBN branch: x=320 -->
+  <line class="edge" x1="380" y1="80" x2="320" y2="120" marker-end="url(#ah)"/>
+  <!-- Normal branch: x=520 -->
+  <line class="edge" x1="440" y1="80" x2="520" y2="120" marker-end="url(#ah)"/>
+  <!-- Need branch: x=710 -->
+  <line class="edge" x1="500" y1="80" x2="710" y2="120" marker-end="url(#ah)"/>
+
+  <!-- ════════════ CBV Column (x=115) ════════════ -->
+  <text class="label" x="115" y="138">Call-by-Value</text>
+  <text class="desc-c" x="115" y="152">strict / eager</text>
+
+  <!-- Step 1: try to reduce argument -->
+  <rect class="box" x="20" y="164" width="190" height="32"/>
+  <text class="step" x="28" y="178">1</text>
+  <text class="term-sm" x="42" y="182">eval arg: &#x03A9; &#x2192; ?</text>
+
+  <line class="edge" x1="115" y1="196" x2="115" y2="218" marker-end="url(#ah)"/>
+
+  <!-- Step 2: Omega self-applies -->
+  <rect class="box" x="20" y="224" width="190" height="32"/>
+  <text class="step" x="28" y="238">2</text>
+  <text class="term-sm" x="42" y="242">(&#x03BB;x.x x)(&#x03BB;x.x x) &#x2192; &#x03A9;</text>
+
+  <line class="edge" x1="115" y1="256" x2="115" y2="278" marker-end="url(#ah)"/>
+
+  <!-- Step 3: infinite loop -->
+  <rect class="box" x="20" y="284" width="190" height="32"/>
+  <text class="step" x="28" y="298">3</text>
+  <text class="term-sm" x="42" y="302">&#x03A9; &#x2192; &#x03A9; &#x2192; &#x03A9; &#x2192; ...</text>
+
+  <!-- Diverges -->
+  <rect class="box-fail" x="40" y="332" width="150" height="28"/>
+  <text class="fail" x="115" y="350">&#x2717; diverges</text>
+  <text class="desc-c" x="115" y="374">arg evaluated before</text>
+  <text class="desc-c" x="115" y="386">function applied</text>
+
+  <!-- ════════════ CBN Column (x=320) ════════════ -->
+  <text class="label" x="320" y="138">Call-by-Name</text>
+  <text class="desc-c" x="320" y="152">non-strict</text>
+
+  <!-- Step 1: substitute unevaluated -->
+  <rect class="box" x="225" y="164" width="190" height="32"/>
+  <text class="step" x="233" y="178">1</text>
+  <text class="term-sm" x="247" y="182">(&#x03BB;x. 1) &#x03A9; &#x2192; 1[x:=&#x03A9;]</text>
+
+  <line class="edge" x1="320" y1="196" x2="320" y2="218" marker-end="url(#ah)"/>
+
+  <!-- Step 2: x unused, Omega discarded -->
+  <rect class="box" x="225" y="224" width="190" height="32"/>
+  <text class="step" x="233" y="238">2</text>
+  <text class="term-sm" x="247" y="242">x unused &#x2192; &#x03A9; discarded</text>
+
+  <line class="edge" x1="320" y1="256" x2="320" y2="278" marker-end="url(#ah)"/>
+
+  <!-- Result -->
+  <rect class="box-ok" x="265" y="284" width="110" height="32"/>
+  <text class="ok" x="320" y="304">&#x2713; 1</text>
+  <text class="desc-c" x="320" y="330">reduces function first;</text>
+  <text class="desc-c" x="320" y="342">may recompute args</text>
+
+  <!-- ════════════ Normal Column (x=520) ════════════ -->
+  <text class="label" x="520" y="138">Normal Order</text>
+  <text class="desc-c" x="520" y="152">leftmost outermost</text>
+
+  <!-- Step 1: select outermost redex -->
+  <rect class="box" x="425" y="164" width="190" height="32"/>
+  <text class="step" x="433" y="178">1</text>
+  <text class="term-sm" x="447" y="182">outer redex: (&#x03BB;x.1) &#x03A9;</text>
+
+  <line class="edge" x1="520" y1="196" x2="520" y2="218" marker-end="url(#ah)"/>
+
+  <!-- Step 2: beta reduce -->
+  <rect class="box" x="425" y="224" width="190" height="32"/>
+  <text class="step" x="433" y="238">2</text>
+  <text class="term-sm" x="447" y="242">&#x03B2;: 1[x:=&#x03A9;] &#x2192; 1</text>
+
+  <line class="edge" x1="520" y1="256" x2="520" y2="278" marker-end="url(#ah)"/>
+
+  <!-- Result -->
+  <rect class="box-ok" x="465" y="284" width="110" height="32"/>
+  <text class="ok" x="520" y="304">&#x2713; 1</text>
+  <text class="desc-c" x="520" y="330">if normal form exists,</text>
+  <text class="desc-c" x="520" y="342">this strategy finds it</text>
+
+  <!-- ════════════ Need Column (x=710) ════════════ -->
+  <text class="label" x="710" y="138">Call-by-Need</text>
+  <text class="desc-c" x="710" y="152">lazy + memoized</text>
+
+  <!-- Step 1: create thunk -->
+  <rect class="box" x="615" y="164" width="190" height="32"/>
+  <text class="step" x="623" y="178">1</text>
+  <text class="term-sm" x="637" y="182">(&#x03BB;x. 1) [&#x03A9;&#x2093;]</text>
+  <text class="desc" x="740" y="182">thunk</text>
+
+  <line class="edge" x1="710" y1="196" x2="710" y2="218" marker-end="url(#ah)"/>
+
+  <!-- Step 2: x unused, thunk never forced -->
+  <rect class="box" x="615" y="224" width="190" height="32"/>
+  <text class="step" x="623" y="238">2</text>
+  <text class="term-sm" x="637" y="242">x unused &#x2192; thunk skipped</text>
+
+  <line class="edge" x1="710" y1="256" x2="710" y2="278" marker-end="url(#ah)"/>
+
+  <!-- Result -->
+  <rect class="box-ok" x="655" y="284" width="110" height="32"/>
+  <text class="ok" x="710" y="304">&#x2713; 1</text>
+  <text class="desc-c" x="710" y="330">like CBN but caches</text>
+  <text class="desc-c" x="710" y="342">evaluated thunks</text>
+
+  <!-- Separator line -->
+  <line class="sep" x1="20" y1="410" x2="800" y2="410"/>
+
+  <!-- Second example row: (λx. x+x)(2*3) showing duplication difference -->
+  <text class="desc-c" x="410" y="430">second example: E&#x2082; = (&#x03BB;x. x + x)(2 &#xd7; 3)  &#x2014;  argument used twice</text>
+
+  <!-- CBV -->
+  <text class="term-sm" x="32" y="458">2&#xd7;3 &#x2192; 6, then 6+6</text>
+  <text class="anno" x="32" y="474">1 multiply</text>
+
+  <!-- CBN -->
+  <text class="term-sm" x="237" y="458">(2&#xd7;3)+(2&#xd7;3)</text>
+  <text class="anno" x="237" y="474">2 multiplies</text>
+
+  <!-- Normal -->
+  <text class="term-sm" x="437" y="458">(2&#xd7;3)+(2&#xd7;3)</text>
+  <text class="anno" x="437" y="474">2 multiplies</text>
+
+  <!-- Need -->
+  <text class="term-sm" x="627" y="458">2&#xd7;3 &#x2192; 6&#x2093;, then 6&#x2093;+6&#x2093;</text>
+  <text class="anno" x="627" y="474">1 multiply (shared)</text>
+
+  <!-- Summary row -->
+  <rect x="20" y="488" width="780" height="24" rx="4" fill="rgba(30,40,55,0.4)" stroke="#30363d" stroke-width="1"/>
+  <text class="anno" x="32" y="504">key:</text>
+  <text class="desc" x="70" y="504">CBV evaluates args eagerly &#x2014; CBN/Normal substitute unevaluated &#x2014; Need = CBN + memoization</text>
+</svg>

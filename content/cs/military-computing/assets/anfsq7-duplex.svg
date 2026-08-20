@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 219" fill="none" role="img" aria-label="A duplex AN/FSQ-7: an active computer and a standby computer both feeding the SAGE site, with the standby ready to take over">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.6; }
+    .box-sb { fill: rgba(30,40,55,0.6); stroke: #58a6ff; stroke-width: 1.6; stroke-dasharray: 6 4; opacity: 0.8; }
+    .box-out { fill: rgba(30,55,40,0.6); stroke: #84a59d; stroke-width: 1.6; }
+    .t { fill: #e8e8e8; font-size: 14px; text-anchor: middle; }
+    .s { fill: #8b949e; font-size: 11px; text-anchor: middle; }
+    .link { stroke: #93a3b8; stroke-width: 1.6; }
+    .link-sb { stroke: #93a3b8; stroke-width: 1.6; stroke-dasharray: 6 4; opacity: 0.7; }
+  </style>
+  <rect class="box" x="30" y="30" width="140" height="58" rx="4"/>
+  <text class="t" x="100" y="55">AN/FSQ-7 A</text><text class="s" x="100" y="74">active</text>
+  <rect class="box-sb" x="210" y="30" width="140" height="58" rx="4"/>
+  <text class="t" x="280" y="55">AN/FSQ-7 B</text><text class="s" x="280" y="74">standby</text>
+  <line class="link" x1="100" y1="88" x2="180" y2="150"/>
+  <line class="link-sb" x1="280" y1="88" x2="200" y2="150"/>
+  <rect class="box-out" x="135" y="150" width="110" height="44" rx="4"/>
+  <text class="t" x="190" y="177">SAGE site</text>
+  <text class="s" x="190" y="208">if A fails, B takes over with no gap</text>
+</svg>

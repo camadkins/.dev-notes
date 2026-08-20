@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="47 0 820 380"
+     font-family="'SF Mono','Fira Code','Consolas',monospace" font-size="13">
+
+  <!-- ════ palette ════ -->
+  <style>
+    .node   { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.6; rx: 6; }
+    .edge   { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .label  { fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+    .anno   { fill: #d29922; font-size: 11px; text-anchor: middle; dominant-baseline: central; }
+    .desc   { fill: #8b949e; font-size: 11px; text-anchor: middle; }
+    .title  { fill: #e8e8e8; font-size: 15px; font-weight: bold; text-anchor: middle; }
+    .sep    { stroke: #30363d; stroke-width: 1.2; stroke-dasharray: 6,4; }
+    .marker { fill: #93a3b8; }
+
+    @media (prefers-color-scheme: light) {
+      .node   { fill: rgba(235,240,248,0.95); stroke: #0969da; }
+      .edge   { stroke: #57606a; }
+      .label  { fill: #1f2328; }
+      .anno   { fill: #9a6700; }
+      .desc   { fill: #656d76; }
+      .title  { fill: #1f2328; }
+      .sep    { stroke: #d0d7de; }
+      .marker { fill: #57606a; }
+    }
+  </style>
+
+  <defs>
+    <!-- arrow marker — orient="auto" per memory rule -->
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3"
+            orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" class="marker"/>
+    </marker>
+    <!-- return arrow (upward, same marker) -->
+    <marker id="arr-ret" markerWidth="8" markerHeight="6" refX="7" refY="3"
+            orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" class="marker"/>
+    </marker>
+  </defs>
+
+  <!-- ════ GRID CONSTANTS ════
+       pad     = 20
+       left-cx = 200   (center of left panel)
+       right-cx= 610   (center of right panel)
+       sep-x   = 410
+       node-w  = 160, node-h = 44
+       stack-gap = 70  (vertical between stack frames)
+       chain-gap = 10  (horizontal gap between chain nodes)
+  -->
+
+  <!-- ═══ separator ═══ -->
+  <line x1="410" y1="30" x2="410" y2="360" class="sep"/>
+
+  <!-- ════════════════════════════════
+       LEFT PANEL — Direct Style
+       ════════════════════════════════ -->
+  <text x="200" y="45" class="title">Direct Style</text>
+  <text x="200" y="66" class="desc">vertical call stack</text>
+
+  <!-- Frame 0: main -->
+  <rect x="120" y="88" width="160" height="44" class="node"/>
+  <text x="200" y="110" class="label">main</text>
+
+  <!-- arrow down: main → add -->
+  <line x1="200" y1="132" x2="200" y2="158" class="edge" marker-end="url(#arr)"/>
+  <text x="240" y="148" class="anno">call</text>
+
+  <!-- Frame 1: add(1,2) -->
+  <rect x="120" y="158" width="160" height="44" class="node"/>
+  <text x="200" y="180" class="label">(+ 1 2)</text>
+
+  <!-- arrow down: add → print -->
+  <line x1="200" y1="202" x2="200" y2="228" class="edge" marker-end="url(#arr)"/>
+  <text x="244" y="218" class="anno">call</text>
+
+  <!-- Frame 2: print(3) -->
+  <rect x="120" y="228" width="160" height="44" class="node"/>
+  <text x="200" y="250" class="label">print 3</text>
+
+  <!-- return arrows (right side, going up) -->
+  <line x1="290" y1="250" x2="320" y2="250" class="edge"/>
+  <line x1="320" y1="250" x2="320" y2="180" class="edge"/>
+  <line x1="320" y1="180" x2="290" y2="180" class="edge" marker-end="url(#arr-ret)"/>
+  <text x="348" y="218" class="anno">return</text>
+
+  <line x1="290" y1="180" x2="350" y2="180" class="edge" opacity="0"/>
+  <!-- return from add to main -->
+  <line x1="290" y1="110" x2="360" y2="110" class="edge" opacity="0"/>
+  <line x1="350" y1="180" x2="350" y2="110" class="edge" opacity="0"/>
+
+  <line x1="320" y1="180" x2="320" y2="110" class="edge"/>
+  <line x1="320" y1="110" x2="290" y2="110" class="edge" marker-end="url(#arr-ret)"/>
+  <text x="348" y="148" class="anno">return</text>
+
+  <!-- stack direction annotation: vertical label, left of stack -->
+  <text x="200" y="286" class="desc" font-size="10"
+        text-anchor="middle">stack grows ↓</text>
+
+  <!-- ════════════════════════════════
+       RIGHT PANEL — CPS
+       ════════════════════════════════ -->
+  <text x="610" y="45" class="title">CPS (Continuation-Passing)</text>
+  <text x="610" y="66" class="desc">horizontal continuation chain</text>
+
+  <!-- Node 0: main-k -->
+  <rect x="430" y="128" width="110" height="44" class="node"/>
+  <text x="485" y="144" class="label" font-size="12">main</text>
+  <text x="485" y="160" class="label" font-size="10">(λk₁. ...)</text>
+
+  <!-- arrow right: main → add-cps -->
+  <line x1="540" y1="150" x2="560" y2="150" class="edge" marker-end="url(#arr)"/>
+  <text x="550" y="140" class="anno">k₁</text>
+
+  <!-- Node 1: add-cps -->
+  <rect x="560" y="128" width="110" height="44" class="node"/>
+  <text x="615" y="144" class="label" font-size="12">(+ 1 2)</text>
+  <text x="615" y="160" class="label" font-size="10">(λk₂. ...)</text>
+
+  <!-- arrow right: add → print-cps -->
+  <line x1="670" y1="150" x2="690" y2="150" class="edge" marker-end="url(#arr)"/>
+  <text x="680" y="140" class="anno">k₂</text>
+
+  <!-- Node 2: print-cps -->
+  <rect x="690" y="128" width="110" height="44" class="node"/>
+  <text x="745" y="144" class="label" font-size="12">print 3</text>
+  <text x="745" y="160" class="label" font-size="10">(λk₃. ...)</text>
+
+  <!-- annotation: no return arrows -->
+  <text x="610" y="210" class="desc" font-size="11">no return — each step invokes k</text>
+
+  <!-- call/cc capture annotation: arc from print back to main -->
+  <path d="M745,172 Q745,230 485,172" class="edge" stroke-dasharray="5,3"
+        marker-end="url(#arr)"/>
+  <text x="615" y="248" class="anno">call/cc — jump back to k₁</text>
+
+  <!-- bottom legend -->
+  <text x="200" y="310" class="desc" font-size="11">Caller waits on the stack,</text>
+  <text x="200" y="326" class="desc" font-size="11">callee returns a value.</text>
+
+  <text x="610" y="310" class="desc" font-size="11">No waiting — each function calls</text>
+  <text x="610" y="326" class="desc" font-size="11">its continuation explicitly.</text>
+
+  <!-- key insight -->
+  <text x="410" y="362" class="anno" font-size="12">"return" → "call k"</text>
+</svg>

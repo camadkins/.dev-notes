@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="9.8 0 680 310" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; }
+    .store-box { fill: rgba(30,40,55,0.95); stroke: #d29922; stroke-width: 1.5; rx: 6; }
+    .label { font-size: 11px; fill: #d29922; font-weight: 600; }
+    .txt { font-size: 11px; fill: #e8e8e8; }
+    .id-label { font-size: 13px; fill: #84a59d; font-weight: 600; }
+    .loc-label { font-size: 12px; fill: #58a6ff; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+    .arrow { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .arrow-blue { stroke: #58a6ff; stroke-width: 1.5; fill: none; }
+    .arrow-gold { stroke: #d29922; stroke-width: 1.8; fill: none; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; }
+    .title { font-size: 12px; fill: #7b97aa; font-weight: 600; text-anchor: middle; }
+    .phase { font-size: 11px; fill: #7b97aa; font-weight: 600; text-anchor: middle; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    .loc-node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .update-label { font-size: 10px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .result { font-size: 10px; fill: #84a59d; text-anchor: middle; }
+    @media (prefers-color-scheme: light) {
+      .box { fill: #1a1a2e; stroke: #284b63; }
+      .store-box { fill: #1a1a2e; stroke: #9e6000; }
+      .label { fill: #9e6000; }
+      .id-label { fill: #2d6a4f; }
+      .loc-label { fill: #284b63; }
+      .arrow { stroke: #b8b8b8; }
+      .arrow-blue { stroke: #284b63; }
+      .arrow-gold { stroke: #9e6000; }
+      .desc { fill: #6e7781; }
+      .title { fill: #284b63; }
+      .phase { fill: #284b63; }
+      .sep { stroke: #e5e5e5; }
+      .loc-node { fill: #1a1a2e; stroke: #284b63; }
+      .update-label { fill: #9e6000; }
+      .result { fill: #2d6a4f; }
+    }
+  </style>
+
+  <defs>
+    <marker id="ah" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#93a3b8"/>
+    </marker>
+    <marker id="ahBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#58a6ff"/>
+    </marker>
+    <marker id="ahGold" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#d29922"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text class="title" x="340" y="28">aliasing: shared location, shared mutation</text>
+
+  <!-- ═══ BEFORE STATE (left half) ═══ -->
+  <text class="phase" x="160" y="56">before: let b = a</text>
+
+  <!-- Identifier a -->
+  <text class="id-label" x="40" y="120">a</text>
+
+  <!-- Identifier b -->
+  <text class="id-label" x="40" y="180">b</text>
+
+  <!-- Location node ℓ₁ -->
+  <circle class="loc-node" cx="170" cy="148" r="22"/>
+  <text class="loc-label" x="170" y="148">ℓ₁</text>
+
+  <!-- Arrows from a and b to ℓ₁ -->
+  <line class="arrow-blue" x1="56" y1="116" x2="146" y2="140" marker-end="url(#ahBlue)"/>
+  <line class="arrow-blue" x1="56" y1="176" x2="146" y2="156" marker-end="url(#ahBlue)"/>
+
+  <!-- Store box (before) -->
+  <rect class="store-box" x="80" y="210" width="160" height="50"/>
+  <text class="label" x="95" y="230">store (σ)</text>
+  <text class="txt" x="95" y="248">ℓ₁ ↦ 0</text>
+
+  <!-- Arrow from location to store -->
+  <line class="arrow" x1="170" y1="170" x2="170" y2="208" marker-end="url(#ah)"/>
+
+  <!-- ═══ SEPARATOR ═══ -->
+  <line class="sep" x1="340" y1="48" x2="340" y2="290"/>
+
+  <!-- Transition label -->
+  <text class="update-label" x="340" y="148">b := 5</text>
+  <path class="arrow-gold" d="M305,142 L325,142" marker-end="url(#ahGold)"/>
+  <path class="arrow-gold" d="M355,142 L375,142" marker-end="url(#ahGold)"/>
+
+  <!-- ═══ AFTER STATE (right half) ═══ -->
+  <text class="phase" x="510" y="56">after: b := 5</text>
+
+  <!-- Identifier a -->
+  <text class="id-label" x="400" y="120">a</text>
+
+  <!-- Identifier b -->
+  <text class="id-label" x="400" y="180">b</text>
+
+  <!-- Location node ℓ₁ -->
+  <circle class="loc-node" cx="530" cy="148" r="22"/>
+  <text class="loc-label" x="530" y="148">ℓ₁</text>
+
+  <!-- Arrows from a and b to ℓ₁ -->
+  <line class="arrow-blue" x1="416" y1="116" x2="506" y2="140" marker-end="url(#ahBlue)"/>
+  <line class="arrow-blue" x1="416" y1="176" x2="506" y2="156" marker-end="url(#ahBlue)"/>
+
+  <!-- Store box (after) -->
+  <rect class="store-box" x="440" y="210" width="170" height="50"/>
+  <text class="label" x="455" y="230">store (σ')</text>
+  <text class="txt" x="455" y="248">ℓ₁ ↦ 5</text>
+
+  <!-- Arrow from location to store -->
+  <line class="arrow" x1="530" y1="170" x2="530" y2="208" marker-end="url(#ah)"/>
+
+  <!-- Result annotation -->
+  <text class="result" x="530" y="284">!a = 5</text>
+  <text class="desc" x="340" y="302">both a and b alias ℓ₁ — mutation through b is visible via a</text>
+</svg>

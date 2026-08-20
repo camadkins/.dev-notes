@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; }
+    .box-text { font-size: 12px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+    .arrow { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .label { font-size: 11px; fill: #d29922; font-weight: 600; }
+    .label-lg { font-size: 13px; fill: #d29922; font-weight: 600; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .check { font-size: 14px; fill: #3fb950; font-weight: 700; }
+    .error-box { fill: rgba(55,30,30,0.95); stroke: #f85149; stroke-width: 1.5; rx: 6; }
+    .error-text { font-size: 12px; fill: #f85149; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+    .highlight { stroke: #3fb950; stroke-width: 2; fill: none; rx: 10; stroke-dasharray: 6 3; }
+    .highlight-err { stroke: #f85149; stroke-width: 2; fill: none; rx: 10; stroke-dasharray: 6 3; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    .timing { font-size: 10px; fill: #8b949e; text-anchor: middle; }
+    .timing-good { font-size: 10px; fill: #3fb950; font-weight: 600; text-anchor: middle; }
+    .timing-bad { font-size: 10px; fill: #f85149; font-weight: 600; text-anchor: middle; }
+    @media (prefers-color-scheme: light) {
+      .box { fill: #1a1a2e; stroke: #284b63; }
+      .arrow { stroke: #b8b8b8; }
+      .label, .label-lg { fill: #9e6000; }
+      .desc, .timing { fill: #6e7781; }
+      .sep { stroke: #e5e5e5; }
+      .error-box { fill: #2e1a1a; stroke: #cf222e; }
+      .error-text { fill: #cf222e; }
+      .highlight { stroke: #1a7f37; }
+      .highlight-err { stroke: #cf222e; }
+      .timing-good { fill: #1a7f37; }
+      .timing-bad { fill: #cf222e; }
+    }
+  </style>
+  <defs>
+    <marker id="ah" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#93a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- Row labels -->
+  <text class="label-lg" x="20" y="90">Static</text>
+  <text class="label-lg" x="20" y="200">Dynamic</text>
+
+  <!-- Horizontal separator -->
+  <line class="sep" x1="20" y1="140" x2="700" y2="140"/>
+
+  <!-- === STATIC TYPING ROW (y=80) === -->
+  <!-- Source -->
+  <rect class="box" x="95" y="65" width="90" height="34"/>
+  <text class="box-text" x="140" y="82">Source</text>
+
+  <!-- Arrow Source -> Type Checker -->
+  <line class="arrow" x1="185" y1="82" x2="228" y2="82" marker-end="url(#ah)"/>
+
+  <!-- Type Checker with checkmark -->
+  <rect class="box" x="230" y="65" width="140" height="34"/>
+  <text class="box-text" x="290" y="82">Type Checker</text>
+  <text class="check" x="365" y="86">&#x2713;</text>
+
+  <!-- Compile-time highlight around Type Checker -->
+  <rect class="highlight" x="224" y="55" width="148" height="54"/>
+  <text class="timing-good" x="298" y="50">error caught here</text>
+
+  <!-- Arrow Type Checker -> Evaluator -->
+  <line class="arrow" x1="374" y1="82" x2="418" y2="82" marker-end="url(#ah)"/>
+
+  <!-- Evaluator -->
+  <rect class="box" x="420" y="65" width="110" height="34"/>
+  <text class="box-text" x="475" y="82">Evaluator</text>
+
+  <!-- Arrow Evaluator -> Result -->
+  <line class="arrow" x1="530" y1="82" x2="574" y2="82" marker-end="url(#ah)"/>
+
+  <!-- Result -->
+  <rect class="box" x="576" y="65" width="90" height="34"/>
+  <text class="box-text" x="621" y="82">Result</text>
+
+  <!-- Compile-time label -->
+  <text class="desc" x="298" y="125">compile-time</text>
+
+  <!-- === DYNAMIC TYPING ROW (y=190) === -->
+  <!-- Source -->
+  <rect class="box" x="95" y="178" width="90" height="34"/>
+  <text class="box-text" x="140" y="195">Source</text>
+
+  <!-- Arrow Source -> Evaluator -->
+  <line class="arrow" x1="185" y1="195" x2="228" y2="195" marker-end="url(#ah)"/>
+
+  <!-- No type checker - gap label -->
+  <text class="desc" x="270" y="195">(no check)</text>
+
+  <!-- Arrow -> Evaluator -->
+  <line class="arrow" x1="318" y1="195" x2="418" y2="195" marker-end="url(#ah)"/>
+
+  <!-- Evaluator -->
+  <rect class="box" x="420" y="178" width="110" height="34"/>
+  <text class="box-text" x="475" y="195">Evaluator</text>
+
+  <!-- Arrow Evaluator -> TypeError! -->
+  <line class="arrow" x1="530" y1="195" x2="574" y2="195" marker-end="url(#ah)"/>
+
+  <!-- TypeError! (error box) -->
+  <rect class="error-box" x="576" y="178" width="110" height="34"/>
+  <text class="error-text" x="631" y="195">TypeError!</text>
+
+  <!-- Runtime highlight around TypeError -->
+  <rect class="highlight-err" x="414" y="168" width="280" height="54"/>
+  <text class="timing-bad" x="554" y="163">error caught here</text>
+
+  <!-- Runtime label -->
+  <text class="desc" x="554" y="238">runtime</text>
+
+  <!-- Bottom summary -->
+  <text class="desc" x="320" y="265">Static: errors rejected before execution</text>
+  <text class="desc" x="560" y="265">Dynamic: errors surface during execution</text>
+</svg>

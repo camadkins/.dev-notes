@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 260" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+  <style>
+    .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .fwd { stroke: #d29922; stroke-width: 1.6; fill: none; }
+    .rev { stroke: #84a59d; stroke-width: 1.6; fill: none; }
+    .t { fill: #e8e8e8; font-size: 13px; }
+    .anno { fill: #d29922; font-size: 12px; }
+    .green { fill: #84a59d; font-size: 12px; }
+    .desc { fill: #8b949e; font-size: 11px; }
+  </style>
+  <defs>
+    <marker id="af" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#d29922"/>
+    </marker>
+    <marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#84a59d"/>
+    </marker>
+  </defs>
+
+  <!-- states x0 ... xt-1 xt ... xT -->
+  <g>
+    <rect class="box" x="30"  y="105" width="70" height="55" rx="6"/>
+    <text class="t" x="65" y="138" text-anchor="middle">x&#8320;</text>
+    <text class="desc" x="65" y="180" text-anchor="middle">clean image</text>
+
+    <rect class="box" x="185" y="105" width="70" height="55" rx="6"/>
+    <text class="t" x="220" y="138" text-anchor="middle">x&#8348;&#8331;&#8321;</text>
+
+    <rect class="box" x="340" y="105" width="70" height="55" rx="6"/>
+    <text class="t" x="375" y="138" text-anchor="middle">x&#8348;</text>
+
+    <rect class="box" x="560" y="105" width="70" height="55" rx="6"/>
+    <text class="t" x="595" y="138" text-anchor="middle">x<tspan baseline-shift="sub" font-size="0.7em">T</tspan></text>
+    <text class="green" x="595" y="180" text-anchor="middle">pure noise</text>
+  </g>
+
+  <!-- dots between xt and xT -->
+  <text class="t" x="485" y="138" text-anchor="middle">&#183; &#183; &#183;</text>
+  <text class="t" x="142" y="138" text-anchor="middle">&#183; &#183; &#183;</text>
+
+  <!-- forward arrows (add noise), top -->
+  <path class="fwd" marker-end="url(#af)" d="M100 118 C130 100, 155 100, 183 118"/>
+  <path class="fwd" marker-end="url(#af)" d="M255 118 C285 100, 310 100, 338 118"/>
+  <path class="fwd" marker-end="url(#af)" d="M410 118 C445 100, 505 100, 558 118"/>
+  <text class="anno" x="330" y="60" text-anchor="middle">forward: q(x&#8348; | x&#8348;&#8331;&#8321;) adds a little Gaussian noise, T steps</text>
+
+  <!-- reverse arrows (denoise), bottom -->
+  <path class="rev" marker-end="url(#ar)" d="M183 148 C155 166, 130 166, 102 148"/>
+  <path class="rev" marker-end="url(#ar)" d="M338 148 C310 166, 285 166, 257 148"/>
+  <path class="rev" marker-end="url(#ar)" d="M558 148 C505 166, 445 166, 412 148"/>
+  <text class="green" x="330" y="215" text-anchor="middle">reverse: learned p&#952;(x&#8348;&#8331;&#8321; | x&#8348;) predicts and subtracts the noise</text>
+</svg>

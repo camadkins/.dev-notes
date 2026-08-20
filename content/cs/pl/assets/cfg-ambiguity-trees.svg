@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 490" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .node-text { font-size: 11px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+    .op-text { font-size: 10px; fill: #d29922; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .anno { font-size: 11px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    .correct-node { fill: rgba(30,55,40,0.95); stroke: #84a59d; stroke-width: 1.5; }
+    @media (prefers-color-scheme: light) {
+      .node { fill: #1a1a2e; stroke: #284b63; }
+      .correct-node { fill: #1a2e1a; stroke: #3a6b4a; }
+      .edge { stroke: #b8b8b8; }
+      .anno { fill: #9e6000; }
+      .op-text { fill: #9e6000; }
+      .desc { fill: #6e7781; }
+      .sep { stroke: #e5e5e5; }
+    }
+  </style>
+
+  <!-- Panel titles -->
+  <text class="anno" x="150" y="30">Tree 1: (num + num) * num</text>
+  <text class="anno" x="460" y="30">Tree 2: num + (num * num)</text>
+  <text class="anno" x="780" y="30">Refactored (one tree)</text>
+
+  <!-- Bottom descriptions -->
+  <text class="desc" x="305" y="480">Ambiguous: Expr -> Expr + Expr | Expr * Expr | num</text>
+  <text class="desc" x="780" y="480">Expr -> Term Expr' (precedence resolves to one parse)</text>
+
+  <!-- Separators -->
+  <line class="sep" x1="310" y1="22" x2="310" y2="468"/>
+  <line class="sep" x1="620" y1="22" x2="620" y2="468"/>
+
+  <!-- ===== TREE 1: (num + num) * num ===== -->
+  <!-- The * is at the root level, + is deeper => groups + first -->
+  <!-- D0: Expr -->
+  <rect class="node" x="115" y="60" width="70" height="28" rx="4"/>
+  <text class="node-text" x="150" y="74">Expr</text>
+
+  <!-- D1: Expr * Expr -->
+  <rect class="node" x="50" y="140" width="70" height="28" rx="4"/>
+  <text class="node-text" x="85" y="154">Expr</text>
+  <rect class="node" x="180" y="140" width="70" height="28" rx="4"/>
+  <text class="node-text" x="215" y="154">Expr</text>
+
+  <line class="edge" x1="135" y1="88" x2="100" y2="140"/>
+  <line class="edge" x1="165" y1="88" x2="200" y2="140"/>
+  <text class="op-text" x="150" y="118">*</text>
+
+  <!-- D2: left Expr -> Expr + Expr -->
+  <rect class="node" x="25" y="225" width="55" height="28" rx="4"/>
+  <text class="node-text" x="52" y="239">Expr</text>
+  <rect class="node" x="100" y="225" width="55" height="28" rx="4"/>
+  <text class="node-text" x="127" y="239">Expr</text>
+
+  <line class="edge" x1="70" y1="168" x2="58" y2="225"/>
+  <line class="edge" x1="100" y1="168" x2="120" y2="225"/>
+  <text class="op-text" x="90" y="200">+</text>
+
+  <!-- D2: right Expr -> num -->
+  <rect class="node" x="190" y="225" width="50" height="28" rx="4"/>
+  <text class="node-text" x="215" y="239">num</text>
+  <line class="edge" x1="215" y1="168" x2="215" y2="225"/>
+
+  <!-- D3: leaves -->
+  <rect class="node" x="27" y="305" width="50" height="28" rx="4"/>
+  <text class="node-text" x="52" y="319">num</text>
+  <rect class="node" x="102" y="305" width="50" height="28" rx="4"/>
+  <text class="node-text" x="127" y="319">num</text>
+
+  <line class="edge" x1="52" y1="253" x2="52" y2="305"/>
+  <line class="edge" x1="127" y1="253" x2="127" y2="305"/>
+
+  <!-- ===== TREE 2: num + (num * num) ===== -->
+  <!-- The + is at the root level, * is deeper => groups * first -->
+  <!-- D0: Expr -->
+  <rect class="node" x="425" y="60" width="70" height="28" rx="4"/>
+  <text class="node-text" x="460" y="74">Expr</text>
+
+  <!-- D1: Expr + Expr -->
+  <rect class="node" x="355" y="140" width="70" height="28" rx="4"/>
+  <text class="node-text" x="390" y="154">Expr</text>
+  <rect class="node" x="490" y="140" width="70" height="28" rx="4"/>
+  <text class="node-text" x="525" y="154">Expr</text>
+
+  <line class="edge" x1="445" y1="88" x2="405" y2="140"/>
+  <line class="edge" x1="475" y1="88" x2="510" y2="140"/>
+  <text class="op-text" x="460" y="118">+</text>
+
+  <!-- D2: left Expr -> num -->
+  <rect class="node" x="365" y="225" width="50" height="28" rx="4"/>
+  <text class="node-text" x="390" y="239">num</text>
+  <line class="edge" x1="390" y1="168" x2="390" y2="225"/>
+
+  <!-- D2: right Expr -> Expr * Expr -->
+  <rect class="node" x="475" y="225" width="55" height="28" rx="4"/>
+  <text class="node-text" x="502" y="239">Expr</text>
+  <rect class="node" x="555" y="225" width="55" height="28" rx="4"/>
+  <text class="node-text" x="582" y="239">Expr</text>
+
+  <line class="edge" x1="510" y1="168" x2="505" y2="225"/>
+  <line class="edge" x1="540" y1="168" x2="575" y2="225"/>
+  <text class="op-text" x="540" y="200">*</text>
+
+  <!-- D3: leaves -->
+  <rect class="node" x="477" y="305" width="50" height="28" rx="4"/>
+  <text class="node-text" x="502" y="319">num</text>
+  <rect class="node" x="557" y="305" width="50" height="28" rx="4"/>
+  <text class="node-text" x="582" y="319">num</text>
+
+  <line class="edge" x1="502" y1="253" x2="502" y2="305"/>
+  <line class="edge" x1="582" y1="253" x2="582" y2="305"/>
+
+  <!-- ===== TREE 3: Refactored (single parse) ===== -->
+  <!-- Expr -> Term Expr' -->
+  <!-- Term -> Factor Term'(e) -> num -->
+  <!-- Expr' -> + Term Expr'(e) -->
+  <!--   Term -> Factor Term' -->
+  <!--     Factor -> num -->
+  <!--     Term' -> * Factor Term'(e) -> * num -->
+
+  <!-- D0: Expr -->
+  <rect class="correct-node" x="745" y="60" width="70" height="28" rx="4"/>
+  <text class="node-text" x="780" y="74">Expr</text>
+
+  <!-- D1: Term, Expr' -->
+  <rect class="correct-node" x="670" y="140" width="60" height="28" rx="4"/>
+  <text class="node-text" x="700" y="154">Term</text>
+  <rect class="correct-node" x="790" y="140" width="60" height="28" rx="4"/>
+  <text class="node-text" x="820" y="154">Expr'</text>
+
+  <line class="edge" x1="760" y1="88" x2="710" y2="140"/>
+  <line class="edge" x1="800" y1="88" x2="810" y2="140"/>
+
+  <!-- Under Term: Factor(num) -->
+  <rect class="correct-node" x="660" y="225" width="55" height="28" rx="4"/>
+  <text class="node-text" x="687" y="239">Factor</text>
+  <line class="edge" x1="700" y1="168" x2="687" y2="225"/>
+
+  <rect class="correct-node" x="662" y="305" width="50" height="28" rx="4"/>
+  <text class="node-text" x="687" y="319">num</text>
+  <line class="edge" x1="687" y1="253" x2="687" y2="305"/>
+
+  <!-- Under Expr': + Term Expr'(e) -->
+  <text class="op-text" x="780" y="200">+</text>
+  <rect class="correct-node" x="800" y="225" width="55" height="28" rx="4"/>
+  <text class="node-text" x="827" y="239">Term</text>
+
+  <line class="edge" x1="810" y1="168" x2="810" y2="225"/>
+  <line class="edge" x1="830" y1="168" x2="827" y2="225"/>
+
+  <!-- Under second Term: Factor(num), Term'(*,Factor(num)) -->
+  <rect class="correct-node" x="770" y="305" width="55" height="28" rx="4"/>
+  <text class="node-text" x="797" y="319">Factor</text>
+  <rect class="correct-node" x="850" y="305" width="55" height="28" rx="4"/>
+  <text class="node-text" x="877" y="319">Term'</text>
+
+  <line class="edge" x1="815" y1="253" x2="800" y2="305"/>
+  <line class="edge" x1="840" y1="253" x2="870" y2="305"/>
+
+  <!-- Factor -> num -->
+  <rect class="correct-node" x="772" y="380" width="50" height="28" rx="4"/>
+  <text class="node-text" x="797" y="394">num</text>
+  <line class="edge" x1="797" y1="333" x2="797" y2="380"/>
+
+  <!-- Term' -> * Factor(num) -->
+  <text class="op-text" x="860" y="365">*</text>
+  <rect class="correct-node" x="875" y="380" width="55" height="28" rx="4"/>
+  <text class="node-text" x="902" y="394">Factor</text>
+  <line class="edge" x1="870" y1="333" x2="870" y2="380"/>
+  <line class="edge" x1="885" y1="333" x2="902" y2="380"/>
+
+  <!-- bottom num -->
+  <line class="edge" x1="902" y1="408" x2="902" y2="440"/>
+  <rect class="correct-node" x="877" y="440" width="50" height="28" rx="4"/>
+  <text class="node-text" x="902" y="454">num</text>
+</svg>

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 240" fill="none">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#d29922" class="marker-fill"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; }
+    .rule-text { font-size: 13px; fill: #e8e8e8; }
+    .label { font-size: 11px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .anno { font-size: 11px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .transform-arrow { stroke: #d29922; stroke-width: 2; marker-end: url(#arrow); }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    @media (prefers-color-scheme: light) {
+      .box { fill: #1a1a2e; stroke: #284b63; }
+      .anno { fill: #9e6000; }
+      .label { fill: #9e6000; }
+      .desc { fill: #6e7781; }
+      .sep { stroke: #e5e5e5; }
+      .marker-fill { fill: #9e6000; }
+    }
+  </style>
+
+  <!-- Left panel: Left-recursive -->
+  <text class="anno" x="140" y="32">Left-Recursive</text>
+  <text class="desc" x="140" y="48">(causes infinite loop in LL parsers)</text>
+
+  <rect class="box" x="40" y="65" width="200" height="110"/>
+  <text class="rule-text" x="65" y="100">A → A α | β</text>
+
+  <text class="desc" x="140" y="145">A calls itself first —</text>
+  <text class="desc" x="140" y="160">no input consumed</text>
+
+  <!-- Transform arrow -->
+  <line class="transform-arrow" x1="265" y1="120" x2="345" y2="120"/>
+  <text class="anno" x="305" y="108">rewrite</text>
+
+  <!-- Right panel: Right-recursive -->
+  <text class="anno" x="480" y="32">Right-Recursive</text>
+  <text class="desc" x="480" y="48">(LL-compatible)</text>
+
+  <rect class="box" x="370" y="65" width="220" height="110"/>
+  <text class="rule-text" x="395" y="100">A  → β A'</text>
+  <text class="rule-text" x="395" y="125">A' → α A' | ε</text>
+
+  <text class="desc" x="480" y="155">β consumed first,</text>
+  <text class="desc" x="480" y="170">then A' iterates</text>
+
+  <!-- Bottom annotation -->
+  <text class="desc" x="310" y="215">The rewrite preserves the language: L(A) is unchanged.</text>
+</svg>

@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="54.4 0 484 520" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; }
+    .box-text { font-size: 13px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+    .arrow { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .label { font-size: 10px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .stage-label { font-size: 10px; fill: #3fb950; font-weight: 600; text-anchor: start; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: start; }
+    .title { font-size: 14px; fill: #d29922; font-weight: 700; text-anchor: middle; }
+    @media (prefers-color-scheme: light) {
+      .box { fill: #1a1a2e; stroke: #284b63; }
+      .arrow { stroke: #b8b8b8; }
+      .label { fill: #9e6000; }
+      .stage-label { fill: #1a7f37; }
+      .desc { fill: #6e7781; }
+      .title { fill: #9e6000; }
+    }
+  </style>
+  <defs>
+    <marker id="ah" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#93a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text class="title" x="210" y="30">Formalization Pipeline</text>
+
+  <!-- Stage 1: Source Text -->
+  <rect class="box" x="120" y="55" width="180" height="38"/>
+  <text class="box-text" x="210" y="74">Source Text</text>
+
+  <!-- Arrow 1 -->
+  <line class="arrow" x1="210" y1="93" x2="210" y2="130" marker-end="url(#ah)"/>
+  <text class="label" x="200" y="115" text-anchor="end">parse</text>
+
+  <!-- Stage 2: Parser / Grammar -->
+  <rect class="box" x="120" y="132" width="180" height="38"/>
+  <text class="box-text" x="210" y="151">Parser (Grammar)</text>
+  <text class="stage-label" x="310" y="145">well-formed</text>
+  <text class="desc" x="310" y="158">syntactically valid</text>
+
+  <!-- Arrow 2 -->
+  <line class="arrow" x1="210" y1="170" x2="210" y2="207" marker-end="url(#ah)"/>
+  <text class="label" x="200" y="192" text-anchor="end">build AST</text>
+
+  <!-- Stage 3: AST -->
+  <rect class="box" x="120" y="209" width="180" height="38"/>
+  <text class="box-text" x="210" y="228">Abstract Syntax Tree</text>
+
+  <!-- Arrow 3 -->
+  <line class="arrow" x1="210" y1="247" x2="210" y2="284" marker-end="url(#ah)"/>
+  <text class="label" x="200" y="269" text-anchor="end">check types</text>
+
+  <!-- Stage 4: Type Checker -->
+  <rect class="box" x="120" y="286" width="180" height="38"/>
+  <text class="box-text" x="210" y="305">Type Checker</text>
+  <text class="stage-label" x="310" y="299">well-typed</text>
+  <text class="desc" x="310" y="312">static semantics</text>
+
+  <!-- Arrow 4 -->
+  <line class="arrow" x1="210" y1="324" x2="210" y2="361" marker-end="url(#ah)"/>
+  <text class="label" x="200" y="346" text-anchor="end">evaluate</text>
+
+  <!-- Stage 5: Evaluator -->
+  <rect class="box" x="120" y="363" width="180" height="38"/>
+  <text class="box-text" x="210" y="382">Evaluator</text>
+  <text class="stage-label" x="310" y="376">evaluated</text>
+  <text class="desc" x="310" y="389">dynamic semantics</text>
+
+  <!-- Arrow 5 -->
+  <line class="arrow" x1="210" y1="401" x2="210" y2="438" marker-end="url(#ah)"/>
+
+  <!-- Stage 6: Result -->
+  <rect class="box" x="120" y="440" width="180" height="38"/>
+  <text class="box-text" x="210" y="459">Result / Value</text>
+
+  <!-- Bottom annotation -->
+  <text class="desc" x="210" y="498" text-anchor="middle">Each layer refines precision from form to meaning</text>
+</svg>

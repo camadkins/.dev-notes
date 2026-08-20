@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="25.9 0 715 400" role="img" aria-label="Gradient descent taking successively smaller steps down a convex loss curve toward the minimum">
+  <style>
+    .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .node { fill: #58a6ff; }
+    .t { fill: #e8e8e8; font-family: monospace; font-size: 13px; }
+    .anno { fill: #d29922; font-family: monospace; font-size: 12px; }
+    .desc { fill: #8b949e; font-family: monospace; font-size: 12px; }
+    .final { fill: #84a59d; }
+  </style>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#93a3b8"/>
+    </marker>
+  </defs>
+  <!-- axes -->
+  <line class="edge" x1="100" y1="40" x2="100" y2="330"/>
+  <line class="edge" x1="100" y1="330" x2="640" y2="330"/>
+  <text class="t" x="60" y="50">J(w)</text>
+  <text class="t" x="628" y="352">w</text>
+  <!-- loss curve -->
+  <polyline class="edge" stroke="#58a6ff" stroke-width="2.5" points="140,63.7 150,80.0 160,95.7 170,110.7 180,125.1 190,138.9 200,152.0 210,164.5 220,176.3 230,187.5 240,198.1 250,208.0 260,217.3 270,225.9 280,233.9 290,241.3 300,248.0 310,254.1 320,259.5 330,264.3 340,268.5 350,272.0 360,274.9 370,277.1 380,278.7 390,279.7 400,280.0 410,279.7 420,278.7 430,277.1 440,274.9 450,272.0 460,268.5 470,264.3 480,259.5 490,254.1 500,248.0 510,241.3 520,233.9 530,225.9 540,217.3 550,208.0 560,198.1 570,187.5 580,176.3 590,164.5 600,152.0 610,138.9 620,125.1 630,110.7 640,95.7 650,80.0 660,63.7"/>
+  <line class="edge" stroke-dasharray="4 4" x1="150" y1="80.0" x2="235" y2="192.9" marker-end="url(#arr)"/>
+  <line class="edge" stroke-dasharray="4 4" x1="235" y1="192.9" x2="305" y2="251.1" marker-end="url(#arr)"/>
+  <line class="edge" stroke-dasharray="4 4" x1="305" y1="251.1" x2="355" y2="273.5" marker-end="url(#arr)"/>
+  <line class="edge" stroke-dasharray="4 4" x1="355" y1="273.5" x2="385" y2="279.3" marker-end="url(#arr)"/>
+  <line class="edge" stroke-dasharray="4 4" x1="385" y1="279.3" x2="400" y2="280.0" marker-end="url(#arr)"/>
+  <circle class="node" cx="150" cy="80.0" r="6"/>
+  <circle class="node" cx="235" cy="192.9" r="6"/>
+  <circle class="node" cx="305" cy="251.1" r="6"/>
+  <circle class="node" cx="355" cy="273.5" r="6"/>
+  <circle class="node" cx="385" cy="279.3" r="6"/>
+  <circle class="final" cx="400" cy="280" r="7"/>
+  <text class="t" x="112" y="72">start</text>
+  <text class="anno" x="170" y="150">steep slope, big step</text>
+  <text class="anno" x="404" y="240">flat slope, small steps</text>
+  <text class="t" x="376" y="308" fill="#84a59d">minimum</text>
+  <text class="desc" x="230" y="378">w' = w  -  eta * grad J(w)   (each step follows the negative gradient)</text>
+</svg>

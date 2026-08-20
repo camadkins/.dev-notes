@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10.1 0 800 495" fill="none">
+  <!-- GRID CONSTANTS:
+    Layout: 2 panels side-by-side (Before / After)
+    Panel 1 (Before): x=30..370, showing a skewed tree with keys 1-7
+    Panel 2 (After):  x=430..770, showing reshaped tree after accesses to 4,6,2
+    Separator at x=400
+
+    Node radius: 16px
+    Depth spacing: 55px vertical
+    Root y: 95
+    Depths: 95, 150, 205, 260, 315, 370
+  -->
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .node-hot { fill: rgba(50,45,30,0.95); stroke: #d29922; stroke-width: 2; }
+    .node-text { font-size: 11px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; }
+    .edge-hot { stroke: #d29922; stroke-width: 1.5; stroke-dasharray: 4 2; }
+    .anno { font-size: 10px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .anno-left { font-size: 10px; fill: #d29922; font-weight: 600; text-anchor: start; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .section-title { font-size: 13px; fill: #7b97aa; font-weight: 700; text-anchor: middle; }
+    .depth-label { font-size: 9px; fill: #8b949e; text-anchor: end; font-style: italic; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    .note-text { font-size: 9px; fill: #84a59d; text-anchor: start; }
+    .brace { stroke: #d29922; stroke-width: 1; fill: none; }
+    @media (prefers-color-scheme: light) {
+      .node { fill: #1a1a2e; stroke: #284b63; }
+      .node-hot { fill: #2e2a1a; stroke: #9e6000; }
+      .edge { stroke: #b8b8b8; }
+      .edge-hot { stroke: #9e6000; }
+      .anno { fill: #9e6000; }
+      .anno-left { fill: #9e6000; }
+      .desc { fill: #6e7781; }
+      .section-title { fill: #284b63; }
+      .depth-label { fill: #6e7781; }
+      .sep { stroke: #e5e5e5; }
+      .note-text { fill: #2d6a4f; }
+      .brace { stroke: #9e6000; }
+    }
+  </style>
+
+  <!-- Title -->
+  <text x="400" y="30" class="section-title">Effect of Splaying on Tree Shape</text>
+  <text x="400" y="46" class="desc">Repeated accesses pull hot keys toward the root, reducing path lengths</text>
+
+  <!-- PANEL 1: BEFORE (Initial right-spine tree) -->
+  <text x="170" y="68" class="anno">Initial tree (ascending inserts)</text>
+
+  <!-- Depth labels on left margin -->
+  <text x="50" y="98" class="depth-label">d=0</text>
+  <text x="50" y="153" class="depth-label">d=1</text>
+  <text x="50" y="208" class="depth-label">d=2</text>
+  <text x="50" y="263" class="depth-label">d=3</text>
+  <text x="50" y="318" class="depth-label">d=4</text>
+  <text x="50" y="373" class="depth-label">d=5</text>
+  <text x="50" y="428" class="depth-label">d=6</text>
+
+  <!-- Right-spine BST: 1, 2, 3, 4, 5, 6, 7 -->
+  <!-- Node 1 at root (depth 0) -->
+  <circle cx="100" cy="95" r="16" class="node"/>
+  <text x="100" y="95" class="node-text">1</text>
+
+  <!-- Node 2 (depth 1, right child of 1) -->
+  <circle cx="140" cy="150" r="16" class="node"/>
+  <text x="140" y="150" class="node-text">2</text>
+
+  <!-- Node 3 (depth 2) -->
+  <circle cx="180" cy="205" r="16" class="node"/>
+  <text x="180" y="205" class="node-text">3</text>
+
+  <!-- Node 4 (depth 3), hot key -->
+  <circle cx="220" cy="260" r="16" class="node"/>
+  <text x="220" y="260" class="node-text">4</text>
+
+  <!-- Node 5 (depth 4) -->
+  <circle cx="260" cy="315" r="16" class="node"/>
+  <text x="260" y="315" class="node-text">5</text>
+
+  <!-- Node 6 (depth 5), hot key -->
+  <circle cx="300" cy="370" r="16" class="node"/>
+  <text x="300" y="370" class="node-text">6</text>
+
+  <!-- Node 7 (depth 6) -->
+  <circle cx="340" cy="425" r="16" class="node"/>
+  <text x="340" y="425" class="node-text">7</text>
+
+  <!-- Edges for right spine -->
+  <line x1="112" y1="107" x2="128" y2="138" class="edge"/>
+  <line x1="152" y1="162" x2="168" y2="193" class="edge"/>
+  <line x1="192" y1="217" x2="208" y2="248" class="edge"/>
+  <line x1="232" y1="272" x2="248" y2="303" class="edge"/>
+  <line x1="272" y1="327" x2="288" y2="358" class="edge"/>
+  <line x1="312" y1="382" x2="328" y2="413" class="edge"/>
+
+  <!-- Path length annotation -->
+  <text x="100" y="455" class="note-text">Path to key 4: depth 3</text>
+  <text x="100" y="467" class="note-text">Path to key 6: depth 5</text>
+
+  <!-- Vertical separator -->
+  <line x1="395" y1="60" x2="395" y2="415" class="sep"/>
+
+  <!-- PANEL 2: AFTER (After accessing 4, 6, 6, 2) -->
+  <text x="600" y="68" class="anno">After accessing 4, 6, 6, 2</text>
+
+  <!-- After splaying 4, then 6, then 6 (noop), then 2.
+       2 is root, 1 left, right side: 4 with 3 left and 6 right (5 left, 7 right).
+  -->
+
+  <!-- Node 2 at root (depth 0), hot, last accessed -->
+  <circle cx="580" cy="95" r="16" class="node-hot"/>
+  <text x="580" y="95" class="node-text">2</text>
+
+  <!-- Node 1 (depth 1, left child of 2) -->
+  <circle cx="530" cy="165" r="16" class="node"/>
+  <text x="530" y="165" class="node-text">1</text>
+
+  <!-- Node 4 (depth 1, right child of 2), hot -->
+  <circle cx="650" cy="165" r="16" class="node-hot"/>
+  <text x="650" y="165" class="node-text">4</text>
+
+  <!-- Node 3 (depth 2, left child of 4) -->
+  <circle cx="610" cy="235" r="16" class="node"/>
+  <text x="610" y="235" class="node-text">3</text>
+
+  <!-- Node 6 (depth 2, right child of 4), hot -->
+  <circle cx="700" cy="235" r="16" class="node-hot"/>
+  <text x="700" y="235" class="node-text">6</text>
+
+  <!-- Node 5 (depth 3, left child of 6) -->
+  <circle cx="670" cy="305" r="16" class="node"/>
+  <text x="670" y="305" class="node-text">5</text>
+
+  <!-- Node 7 (depth 3, right child of 6) -->
+  <circle cx="730" cy="305" r="16" class="node"/>
+  <text x="730" y="305" class="node-text">7</text>
+
+  <!-- Edges for after-tree -->
+  <line x1="568" y1="107" x2="542" y2="153" class="edge"/>
+  <line x1="592" y1="107" x2="638" y2="153" class="edge"/>
+  <line x1="638" y1="177" x2="622" y2="223" class="edge"/>
+  <line x1="662" y1="177" x2="688" y2="223" class="edge"/>
+  <line x1="688" y1="247" x2="678" y2="293" class="edge"/>
+  <line x1="712" y1="247" x2="722" y2="293" class="edge"/>
+
+  <!-- Highlight bracket: hot keys near root -->
+  <!-- Bracket showing accessed keys clustered near root (depths 0-2) -->
+  <path d="M 500,80 L 490,80 L 490,250 L 500,250" class="brace"/>
+  <text x="480" y="160" class="anno" text-anchor="end" style="font-size:8px;">hot keys</text>
+  <text x="480" y="172" class="anno" text-anchor="end" style="font-size:8px;">cluster</text>
+
+  <!-- Path length annotation -->
+  <text x="480" y="360" class="note-text">Path to key 2: depth 0 (was 1)</text>
+  <text x="480" y="376" class="note-text">Path to key 4: depth 1 (was 3)</text>
+  <text x="480" y="392" class="note-text">Path to key 6: depth 2 (was 5)</text>
+  <text x="480" y="412" class="note-text">Hot keys cluster near root</text>
+</svg>

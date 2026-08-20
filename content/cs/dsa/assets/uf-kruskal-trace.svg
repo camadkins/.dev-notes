@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 530" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .node-text { font-size: 13px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; }
+    .edge-mst { stroke: #84a59d; stroke-width: 2.5; }
+    .edge-reject { stroke: #f47067; stroke-width: 1.5; stroke-dasharray: 5 3; }
+    .edge-pending { stroke: #484f58; stroke-width: 1; }
+    .weight { font-size: 10px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+    .weight-bg { fill: rgba(30,40,55,0.9); stroke: none; }
+    .anno { font-size: 11px; fill: #d29922; font-weight: 600; }
+    .desc { font-size: 10px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .title { font-size: 13px; fill: #7b97aa; font-weight: 600; text-anchor: middle; }
+    .step-num { font-size: 10px; fill: #7b97aa; text-anchor: end; dominant-baseline: central; }
+    .step-text { font-size: 10px; fill: #e8e8e8; dominant-baseline: central; }
+    .step-accept { font-size: 10px; fill: #84a59d; font-weight: 600; dominant-baseline: central; }
+    .step-reject { font-size: 10px; fill: #f47067; font-weight: 600; dominant-baseline: central; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    .legend-dot { r: 4; }
+    @media (prefers-color-scheme: light) {
+      .node { fill: #1a1a2e; stroke: #284b63; }
+      .edge { stroke: #b8b8b8; }
+      .edge-mst { stroke: #2d6a4f; }
+      .edge-reject { stroke: #cf222e; }
+      .edge-pending { stroke: #d0d7de; }
+      .weight-bg { fill: rgba(255,255,255,0.9); }
+      .anno { fill: #9e6000; }
+      .desc { fill: #6e7781; }
+      .title { fill: #284b63; }
+      .step-num { fill: #284b63; }
+      .step-text { fill: #1a1a2e; }
+      .step-accept { fill: #2d6a4f; }
+      .step-reject { fill: #cf222e; }
+      .sep { stroke: #e5e5e5; }
+    }
+  </style>
+
+  <!-- ============ GRAPH: Weighted undirected graph ============ -->
+  <!-- Layout: Pentagon-ish arrangement -->
+  <!-- A(120,70) B(280,70) C(340,180) D(120,180) E(200,270) -->
+  <text x="350" y="28" class="title">Kruskal's MST via Union-Find</text>
+
+  <!-- Edges (drawn first, behind nodes) -->
+  <!-- Sort order: AB=1, CD=2, BC=3, AD=4, BD=5, CE=6 -->
+
+  <!-- A-B: weight 1 (MST) -->
+  <line x1="138" y1="70" x2="212" y2="70" class="edge-mst" />
+  <rect x="165" y="57" width="20" height="16" rx="3" class="weight-bg" />
+  <text x="175" y="66" class="weight">1</text>
+
+  <!-- C-D: weight 2 (MST) -->
+  <line x1="138" y1="180" x2="322" y2="180" class="edge-mst" />
+  <rect x="220" y="167" width="20" height="16" rx="3" class="weight-bg" />
+  <text x="230" y="176" class="weight">2</text>
+
+  <!-- B-C: weight 3 (MST) -->
+  <line x1="242.7" y1="82.7" x2="327.3" y2="167.3" class="edge-mst" />
+  <rect x="275" y="117" width="20" height="16" rx="3" class="weight-bg" />
+  <text x="285" y="126" class="weight">3</text>
+
+  <!-- A-D: weight 4 (REJECT) -->
+  <line x1="120" y1="88" x2="120" y2="162" class="edge-reject" />
+  <rect x="94" y="117" width="20" height="16" rx="3" class="weight-bg" />
+  <text x="104" y="126" class="weight">4</text>
+
+  <!-- B-D: weight 5 (REJECT) -->
+  <line x1="217.3" y1="82.7" x2="132.7" y2="167.3" class="edge-reject" />
+  <rect x="165" y="117" width="20" height="16" rx="3" class="weight-bg" />
+  <text x="175" y="126" class="weight">5</text>
+
+  <!-- C-E: weight 6 (MST) -->
+  <line x1="327" y1="193" x2="213" y2="257" class="edge-mst" />
+  <rect x="260" y="218" width="20" height="16" rx="3" class="weight-bg" />
+  <text x="270" y="227" class="weight">6</text>
+
+  <!-- Nodes -->
+  <circle cx="120" cy="70" r="18" class="node" />
+  <text x="120" y="70" class="node-text">A</text>
+
+  <circle cx="230" cy="70" r="18" class="node" />
+  <text x="230" y="70" class="node-text">B</text>
+
+  <circle cx="340" cy="180" r="18" class="node" />
+  <text x="340" y="180" class="node-text">C</text>
+
+  <circle cx="120" cy="180" r="18" class="node" />
+  <text x="120" y="180" class="node-text">D</text>
+
+  <circle cx="200" cy="270" r="18" class="node" />
+  <text x="200" y="270" class="node-text">E</text>
+
+  <!-- Legend -->
+  <line x1="440" y1="60" x2="470" y2="60" class="edge-mst" />
+  <text x="478" y="60" class="step-accept" text-anchor="start">MST edge</text>
+  <line x1="440" y1="78" x2="470" y2="78" class="edge-reject" />
+  <text x="478" y="78" class="step-reject" text-anchor="start">Rejected (cycle)</text>
+
+  <!-- ============ SEPARATOR ============ -->
+  <line x1="30" y1="310" x2="670" y2="310" class="sep" />
+
+  <!-- ============ TRACE TABLE ============ -->
+  <text x="350" y="338" class="title">Edge Processing (sorted by weight)</text>
+
+  <!-- Column headers -->
+  <text x="65" y="362" class="anno" text-anchor="end">Step</text>
+  <text x="80" y="362" class="anno" text-anchor="start">Edge</text>
+  <text x="185" y="362" class="anno" text-anchor="start">Wt</text>
+  <text x="230" y="362" class="anno" text-anchor="start">FIND(u)</text>
+  <text x="330" y="362" class="anno" text-anchor="start">FIND(v)</text>
+  <text x="430" y="362" class="anno" text-anchor="start">Equal?</text>
+  <text x="520" y="362" class="anno" text-anchor="start">Action</text>
+
+  <!-- Header underline -->
+  <line x1="40" y1="370" x2="670" y2="370" class="sep" />
+
+  <!-- Row 1: A-B, w=1, ACCEPT -->
+  <text x="65" y="390" class="step-num">1.</text>
+  <text x="80" y="390" class="step-text">(A, B)</text>
+  <text x="185" y="390" class="step-text">1</text>
+  <text x="230" y="390" class="step-text">A</text>
+  <text x="330" y="390" class="step-text">B</text>
+  <text x="430" y="390" class="step-text">No</text>
+  <text x="520" y="390" class="step-accept">UNION  &#10003;</text>
+
+  <!-- Row 2: C-D, w=2, ACCEPT -->
+  <text x="65" y="412" class="step-num">2.</text>
+  <text x="80" y="412" class="step-text">(C, D)</text>
+  <text x="185" y="412" class="step-text">2</text>
+  <text x="230" y="412" class="step-text">C</text>
+  <text x="330" y="412" class="step-text">D</text>
+  <text x="430" y="412" class="step-text">No</text>
+  <text x="520" y="412" class="step-accept">UNION  &#10003;</text>
+
+  <!-- Row 3: B-C, w=3, ACCEPT -->
+  <text x="65" y="434" class="step-num">3.</text>
+  <text x="80" y="434" class="step-text">(B, C)</text>
+  <text x="185" y="434" class="step-text">3</text>
+  <text x="230" y="434" class="step-text">A</text>
+  <text x="330" y="434" class="step-text">C</text>
+  <text x="430" y="434" class="step-text">No</text>
+  <text x="520" y="434" class="step-accept">UNION  &#10003;</text>
+
+  <!-- Row 4: A-D, w=4, REJECT -->
+  <text x="65" y="456" class="step-num">4.</text>
+  <text x="80" y="456" class="step-text">(A, D)</text>
+  <text x="185" y="456" class="step-text">4</text>
+  <text x="230" y="456" class="step-text">A</text>
+  <text x="330" y="456" class="step-text">A</text>
+  <text x="430" y="456" class="step-text">Yes</text>
+  <text x="520" y="456" class="step-reject">REJECT &#10007;</text>
+
+  <!-- Row 5: B-D, w=5, REJECT -->
+  <text x="65" y="478" class="step-num">5.</text>
+  <text x="80" y="478" class="step-text">(B, D)</text>
+  <text x="185" y="478" class="step-text">5</text>
+  <text x="230" y="478" class="step-text">A</text>
+  <text x="330" y="478" class="step-text">A</text>
+  <text x="430" y="478" class="step-text">Yes</text>
+  <text x="520" y="478" class="step-reject">REJECT &#10007;</text>
+
+  <!-- Row 6: C-E, w=6, ACCEPT -->
+  <text x="65" y="500" class="step-num">6.</text>
+  <text x="80" y="500" class="step-text">(C, E)</text>
+  <text x="185" y="500" class="step-text">6</text>
+  <text x="230" y="500" class="step-text">A</text>
+  <text x="330" y="500" class="step-text">E</text>
+  <text x="430" y="500" class="step-text">No</text>
+  <text x="520" y="500" class="step-accept">UNION  &#10003;</text>
+</svg>

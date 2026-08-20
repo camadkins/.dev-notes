@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 400" fill="none">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#93a3b8"/>
+    </marker>
+    <marker id="arrow-light" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#b8b8b8"/>
+    </marker>
+    <marker id="arrow-bracket" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#d29922" class="marker-bracket"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .tier-box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; }
+    .tier-label { font-size: 13px; fill: #e8e8e8; font-weight: 600; }
+    .tier-rule { font-size: 11px; fill: #e8e8e8; }
+    .anno { font-size: 10px; fill: #d29922; font-weight: 600; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; }
+    .bind-label { font-size: 10px; fill: #7b97aa; text-anchor: middle; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; marker-end: url(#arrow); }
+    .bracket { stroke: #d29922; stroke-width: 1.5; fill: none; }
+    @media (prefers-color-scheme: light) {
+      .tier-box { fill: #1a1a2e; stroke: #284b63; }
+      .edge { stroke: #b8b8b8; marker-end: url(#arrow-light); }
+      .anno { fill: #9e6000; }
+      .desc { fill: #6e7781; }
+      .bind-label { fill: #4a6a7a; }
+      .bracket { stroke: #9e6000; }
+      .marker-bracket { fill: #9e6000; }
+    }
+  </style>
+
+  <!-- Binding strength arrow on left -->
+  <text class="anno" x="42" y="90" text-anchor="middle">loosest</text>
+  <text class="anno" x="42" y="345" text-anchor="middle">tightest</text>
+  <line class="bracket" x1="42" y1="100" x2="42" y2="330" marker-end="url(#arrow-bracket)"/>
+  <text class="bind-label" x="28" y="215" transform="rotate(-90 28 215)">binding strength</text>
+
+  <!-- Tier 1: Expr (top, loosest) -->
+  <rect class="tier-box" x="90" y="40" width="400" height="80"/>
+  <text class="tier-label" x="110" y="68">Expr (addition)</text>
+  <text class="tier-rule" x="110" y="90">Expr  → Term Expr'</text>
+  <text class="tier-rule" x="110" y="106">Expr' → + Term Expr' | ε</text>
+
+  <!-- Arrow from Expr to Term -->
+  <line class="edge" x1="290" y1="120" x2="290" y2="158"/>
+  <text class="desc" x="305" y="143">references</text>
+
+  <!-- Tier 2: Term (middle) -->
+  <rect class="tier-box" x="90" y="160" width="400" height="80"/>
+  <text class="tier-label" x="110" y="188">Term (multiplication)</text>
+  <text class="tier-rule" x="110" y="210">Term  → Factor Term'</text>
+  <text class="tier-rule" x="110" y="226">Term' → * Factor Term' | ε</text>
+
+  <!-- Arrow from Term to Factor -->
+  <line class="edge" x1="290" y1="240" x2="290" y2="278"/>
+  <text class="desc" x="305" y="263">references</text>
+
+  <!-- Tier 3: Factor (bottom, tightest) -->
+  <rect class="tier-box" x="90" y="280" width="400" height="80"/>
+  <text class="tier-label" x="110" y="308">Factor (atoms)</text>
+  <text class="tier-rule" x="110" y="330">Factor → ( Expr ) | num</text>
+
+  <!-- Recursive arrow from Factor back to Expr -->
+  <path class="edge" d="M490,320 C510,320 510,310 510,200 C510,90 510,60 490,60" fill="none"/>
+  <text class="desc" x="500" y="195" transform="rotate(-90 500 195)">( Expr ) recurses</text>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-54 0 408 300" fill="none" role="img" aria-label="Multics protection rings: concentric levels of privilege with the most trusted code in the innermost ring">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .ring { fill: none; stroke: #58a6ff; stroke-width: 1.5; opacity: 0.8; }
+    .ring-core { fill: rgba(88,166,255,0.16); stroke: #58a6ff; stroke-width: 1.7; }
+    .t { fill: #e8e8e8; font-size: 13px; text-anchor: middle; }
+    .s { fill: #8b949e; font-size: 11px; text-anchor: middle; }
+  </style>
+  <circle class="ring" cx="150" cy="150" r="132"/>
+  <circle class="ring" cx="150" cy="150" r="98"/>
+  <circle class="ring" cx="150" cy="150" r="64"/>
+  <circle class="ring-core" cx="150" cy="150" r="32"/>
+  <text class="t" x="150" y="154">Ring 0</text>
+  <text class="s" x="150" y="100">Ring 1</text>
+  <text class="s" x="150" y="66">Ring 2</text>
+  <text class="s" x="150" y="34">user code (least trusted)</text>
+  <text class="s" x="150" y="292">inner rings hold more privilege; outer code cannot reach in</text>
+</svg>

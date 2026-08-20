@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 340">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; }
+    .anno { font-size: 10px; fill: #d29922; font-weight: 600; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; }
+    .axis-label { font-size: 11px; fill: #c9d1d9; font-weight: 600; }
+    .title { font-size: 11px; fill: #c9d1d9; font-weight: 600; }
+    .point { fill: #58a6ff; }
+    .fit-line { stroke: #93a3b8; stroke-width: 1.8; }
+    .residual { stroke: #d29922; stroke-width: 1.2; stroke-dasharray: 4,3; }
+    .zero-line { stroke: #484f58; stroke-width: 1; stroke-dasharray: 6,4; }
+    .axis { stroke: #484f58; stroke-width: 1.2; }
+    .tick-label { font-size: 8px; fill: #8b949e; }
+    @media (prefers-color-scheme: light) {
+      .edge { stroke: #b8b8b8; }
+      .anno { fill: #9e6000; }
+      .desc { fill: #6e7781; }
+      .axis-label { fill: #1f2328; }
+      .title { fill: #1f2328; }
+      .point { fill: #0969da; }
+      .fit-line { stroke: #b8b8b8; }
+      .residual { stroke: #9e6000; }
+      .zero-line { stroke: #d0d7de; }
+      .axis { stroke: #d0d7de; }
+      .tick-label { fill: #6e7781; }
+    }
+  </style>
+
+  <!-- ═══ LEFT PANEL: Scatter + OLS line + Residuals ═══ -->
+  <!-- Panel title -->
+  <text x="210" y="30" text-anchor="middle" class="title">Scatter + OLS Fitted Line</text>
+
+  <!-- Axes -->
+  <line x1="60" y1="290" x2="380" y2="290" class="axis"/>
+  <line x1="60" y1="290" x2="60" y2="45" class="axis"/>
+
+  <!-- Axis labels -->
+  <text x="220" y="318" text-anchor="middle" class="axis-label">X</text>
+  <text x="30" y="168" text-anchor="middle" class="axis-label" transform="rotate(-90,30,168)">Y</text>
+
+  <!--
+    Data points (8 points) with a rough linear trend.
+    OLS line: Ŷ = 60 + 1.8X   (in pixel coords, mapped to panel)
+    Panel X range: 70..370 maps to data x: 0..10
+    Panel Y range: 280..55 maps to data y: 0..90
+    Pixel mapping: px = 70 + x*30, py = 280 - y*2.5
+    Line at data: x=0 → y=12, x=10 → y=72  (intercept 12, slope 6)
+    Pixel line: (70,250) to (370,100)
+  -->
+
+  <!-- OLS fitted line -->
+  <line x1="70" y1="250" x2="370" y2="100" class="fit-line"/>
+
+  <!-- Data points + residual segments -->
+  <!-- Point 1: data (1, 25) → px=(100, 217.5), fitted y=18 → py=235 -->
+  <line x1="100" y1="217" x2="100" y2="235" class="residual"/>
+  <circle cx="100" cy="217" r="4" class="point"/>
+
+  <!-- Point 2: data (2, 20) → px=(130, 230), fitted y=24 → py=220 -->
+  <line x1="130" y1="230" x2="130" y2="220" class="residual"/>
+  <circle cx="130" cy="230" r="4" class="point"/>
+
+  <!-- Point 3: data (3, 35) → px=(160, 192.5), fitted y=30 → py=205 -->
+  <line x1="160" y1="193" x2="160" y2="205" class="residual"/>
+  <circle cx="160" cy="193" r="4" class="point"/>
+
+  <!-- Point 4: data (4, 32) → px=(190, 200), fitted y=36 → py=190 -->
+  <line x1="190" y1="200" x2="190" y2="190" class="residual"/>
+  <circle cx="190" cy="200" r="4" class="point"/>
+
+  <!-- Point 5: data (5, 48) → px=(220, 160), fitted y=42 → py=175 -->
+  <line x1="220" y1="160" x2="220" y2="175" class="residual"/>
+  <circle cx="220" cy="160" r="4" class="point"/>
+
+  <!-- Point 6: data (6.5, 45) → px=(265, 167.5), fitted y=51 → py=152.5 -->
+  <line x1="265" y1="168" x2="265" y2="153" class="residual"/>
+  <circle cx="265" cy="168" r="4" class="point"/>
+
+  <!-- Point 7: data (8, 62) → px=(310, 125), fitted y=60 → py=130 -->
+  <line x1="310" y1="125" x2="310" y2="130" class="residual"/>
+  <circle cx="310" cy="125" r="4" class="point"/>
+
+  <!-- Point 8: data (9, 55) → px=(340, 142.5), fitted y=66 → py=115 -->
+  <line x1="340" y1="143" x2="340" y2="115" class="residual"/>
+  <circle cx="340" cy="143" r="4" class="point"/>
+
+  <!-- Residual annotation on a visible one -->
+  <text x="233" y="155" class="anno">e&#8322; = Y&#8322; &#x2212; &#x0176;&#8322;</text>
+
+  <!-- Fitted line label -->
+  <text x="300" y="92" class="desc">&#x0176; = &#x03B2;&#x0302;&#8320; + &#x03B2;&#x0302;&#8321;X</text>
+
+  <!-- ═══ RIGHT PANEL: Residuals vs Fitted ═══ -->
+  <!-- Panel title -->
+  <text x="600" y="30" text-anchor="middle" class="title">Residuals vs Fitted</text>
+
+  <!-- Axes -->
+  <line x1="460" y1="290" x2="750" y2="290" class="axis"/>
+  <line x1="460" y1="290" x2="460" y2="45" class="axis"/>
+
+  <!-- Zero line for residuals -->
+  <line x1="460" y1="168" x2="750" y2="168" class="zero-line"/>
+  <text x="755" y="172" class="tick-label">0</text>
+
+  <!-- Axis labels -->
+  <text x="605" y="318" text-anchor="middle" class="axis-label">&#x0176; (fitted)</text>
+  <text x="432" y="168" text-anchor="middle" class="axis-label" transform="rotate(-90,432,168)">e (residual)</text>
+
+  <!--
+    Residuals vs fitted values - should look like random scatter around 0.
+    Fitted range maps to px 480..730.
+    Residual range maps vertically: 0 → py=168, positive up, negative down.
+    Scale: 1 unit of residual ≈ 5px.
+
+    Point 1: fitted=18 → fx=490, e=+7 → ry=133
+    Point 2: fitted=24 → fx=510, e=-4 → ry=188
+    Point 3: fitted=30 → fx=530, e=+5 → ry=143
+    Point 4: fitted=36 → fx=550, e=-4 → ry=188
+    Point 5: fitted=42 → fx=570, e=+6 → ry=138
+    Point 6: fitted=51 → fx=600, e=-6 → ry=198
+    Point 7: fitted=60 → fx=630, e=+2 → ry=158
+    Point 8: fitted=66 → fx=650, e=-11 → ry=223
+  -->
+
+  <circle cx="490" cy="133" r="4" class="point"/>
+  <circle cx="510" cy="188" r="4" class="point"/>
+  <circle cx="530" cy="143" r="4" class="point"/>
+  <circle cx="550" cy="188" r="4" class="point"/>
+  <circle cx="570" cy="138" r="4" class="point"/>
+  <circle cx="600" cy="198" r="4" class="point"/>
+  <circle cx="630" cy="158" r="4" class="point"/>
+  <circle cx="650" cy="223" r="4" class="point"/>
+
+  <!-- Annotation: no pattern = good -->
+  <text x="605" y="60" text-anchor="middle" class="desc">random scatter &#x2192; assumptions met</text>
+</svg>

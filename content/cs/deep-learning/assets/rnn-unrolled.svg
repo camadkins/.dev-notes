@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-9.4 0 760 320" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+  <style>
+    .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 8; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .node { fill: #58a6ff; }
+    .t { fill: #e8e8e8; font-size: 14px; }
+    .anno { fill: #d29922; font-size: 12px; }
+    .desc { fill: #8b949e; font-size: 12px; }
+  </style>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#93a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- rolled cell -->
+  <rect class="box" x="40" y="130" width="80" height="56" rx="8"/>
+  <text class="t" x="80" y="163" text-anchor="middle">h</text>
+  <!-- loop arrow -->
+  <path class="edge" d="M 110 130 C 140 90, 20 90, 52 128" marker-end="url(#arr)"/>
+  <text class="desc" x="80" y="86" text-anchor="middle">state feeds back</text>
+  <!-- x in, y out -->
+  <line class="edge" x1="80" y1="250" x2="80" y2="190" marker-end="url(#arr)"/>
+  <text class="t" x="80" y="272" text-anchor="middle">x</text>
+  <line class="edge" x1="80" y1="126" x2="80" y2="112" marker-end="url(#arr)" transform="translate(0,-58)"/>
+  <text class="t" x="80" y="46" text-anchor="middle">y</text>
+
+  <!-- equals -->
+  <text class="t" x="175" y="164" text-anchor="middle" font-size="20">=</text>
+  <text class="desc" x="175" y="186" text-anchor="middle">unrolled</text>
+
+  <!-- unrolled cells -->
+  <g>
+    <rect class="box" x="240" y="130" width="80" height="56" rx="8"/>
+    <rect class="box" x="400" y="130" width="80" height="56" rx="8"/>
+    <rect class="box" x="560" y="130" width="80" height="56" rx="8"/>
+    <text class="t" x="280" y="163" text-anchor="middle">h(0)</text>
+    <text class="t" x="440" y="163" text-anchor="middle">h(1)</text>
+    <text class="t" x="600" y="163" text-anchor="middle">h(2)</text>
+
+    <!-- state arrows between cells -->
+    <line class="edge" x1="320" y1="158" x2="396" y2="158" marker-end="url(#arr)"/>
+    <line class="edge" x1="480" y1="158" x2="556" y2="158" marker-end="url(#arr)"/>
+    <line class="edge" x1="640" y1="158" x2="700" y2="158" marker-end="url(#arr)" stroke-dasharray="4 4"/>
+
+    <!-- inputs -->
+    <line class="edge" x1="280" y1="250" x2="280" y2="190" marker-end="url(#arr)"/>
+    <line class="edge" x1="440" y1="250" x2="440" y2="190" marker-end="url(#arr)"/>
+    <line class="edge" x1="600" y1="250" x2="600" y2="190" marker-end="url(#arr)"/>
+    <text class="t" x="280" y="272" text-anchor="middle">x(0)</text>
+    <text class="t" x="440" y="272" text-anchor="middle">x(1)</text>
+    <text class="t" x="600" y="272" text-anchor="middle">x(2)</text>
+
+    <!-- outputs -->
+    <line class="edge" x1="280" y1="126" x2="280" y2="68" marker-end="url(#arr)"/>
+    <line class="edge" x1="440" y1="126" x2="440" y2="68" marker-end="url(#arr)"/>
+    <line class="edge" x1="600" y1="126" x2="600" y2="68" marker-end="url(#arr)"/>
+    <text class="t" x="280" y="46" text-anchor="middle">y(0)</text>
+    <text class="t" x="440" y="46" text-anchor="middle">y(1)</text>
+    <text class="t" x="600" y="46" text-anchor="middle">y(2)</text>
+  </g>
+
+  <!-- annotations -->
+  <text class="anno" x="440" y="216" text-anchor="middle">same weights W, b reused at every step</text>
+  <line class="edge" x1="240" y1="300" x2="660" y2="300" marker-end="url(#arr)"/>
+  <text class="desc" x="690" y="304">time</text>
+</svg>

@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 0 700 380" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .title { font-size: 14px; font-weight: 700; fill: #e8e8e8; text-anchor: middle; }
+    .expr { font-size: 13px; fill: #e8e8e8; text-anchor: middle; font-weight: 600; }
+    .expr-sm { font-size: 11px; fill: #c9d1d9; text-anchor: middle; }
+    .type-tag { font-size: 10px; fill: #58a6ff; text-anchor: middle; font-weight: 600; }
+    .reject { font-size: 11px; fill: #f85149; text-anchor: middle; font-weight: 700; }
+    .reject-sm { font-size: 10px; fill: #f85149; text-anchor: middle; }
+    .ok { font-size: 11px; fill: #3fb950; text-anchor: middle; font-weight: 700; }
+    .ok-sm { font-size: 10px; fill: #3fb950; text-anchor: middle; }
+    .rule { font-size: 10px; fill: #8b949e; text-anchor: middle; font-style: italic; }
+    .sub { font-size: 10px; fill: #8b949e; text-anchor: middle; font-style: italic; }
+    .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; }
+    .box-err { fill: rgba(30,40,55,0.95); stroke: #f85149; stroke-width: 2; rx: 6; }
+    .box-ok { fill: rgba(30,40,55,0.95); stroke: #3fb950; stroke-width: 2; rx: 6; }
+    .box-stuck { fill: rgba(248,81,73,0.08); stroke: #f85149; stroke-width: 2; rx: 6; stroke-dasharray: 6 3; }
+    .deriv-line { stroke: #58a6ff; stroke-width: 1.5; }
+    .deriv-err { stroke: #f85149; stroke-width: 2; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    .shield { fill: rgba(63,185,80,0.12); stroke: #3fb950; stroke-width: 1.5; rx: 8; }
+    .cross-line { stroke: #f85149; stroke-width: 3; stroke-linecap: round; }
+    .arrow { stroke: #8b949e; stroke-width: 1.5; fill: none; marker-end: url(#arrowM); }
+
+    @media (prefers-color-scheme: light) {
+      .title { fill: #1a1a2e; }
+      .expr { fill: #1a1a2e; }
+      .expr-sm { fill: #24292f; }
+      .type-tag { fill: #284b63; }
+      .reject { fill: #cf222e; }
+      .reject-sm { fill: #cf222e; }
+      .ok { fill: #1a7f37; }
+      .ok-sm { fill: #1a7f37; }
+      .rule { fill: #6e7781; }
+      .sub { fill: #6e7781; }
+      .box { fill: #f6f8fa; stroke: #284b63; }
+      .box-err { fill: #f6f8fa; stroke: #cf222e; }
+      .box-ok { fill: #f6f8fa; stroke: #1a7f37; }
+      .box-stuck { fill: rgba(207,34,46,0.06); stroke: #cf222e; }
+      .deriv-line { stroke: #284b63; }
+      .deriv-err { stroke: #cf222e; }
+      .sep { stroke: #e5e5e5; }
+      .shield { fill: rgba(26,127,55,0.08); stroke: #1a7f37; }
+      .cross-line { stroke: #cf222e; }
+      .arrow { stroke: #b8b8b8; }
+    }
+  </style>
+
+  <defs>
+    <marker id="arrowM" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#8b949e"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="350" y="24" class="title">Stuck State: Type System Prevents Runtime Failure</text>
+
+  <!-- Expression under analysis -->
+  <rect x="200" y="36" width="300" height="30" class="box"/>
+  <text x="350" y="56" class="expr">if 3 then true else false</text>
+
+  <!-- Separator: Left vs Right -->
+  <line x1="350" y1="80" x2="350" y2="360" class="sep"/>
+
+  <!-- ===== LEFT SIDE: Type Checker Rejects ===== -->
+  <text x="175" y="96" class="ok">Static Analysis (Compile Time)</text>
+
+  <!-- Typing rule for if -->
+  <rect x="30" y="108" width="290" height="100" class="box-err"/>
+
+  <text x="175" y="130" class="expr-sm">&#x22a2; e&#x2081; : Bool   &#x22a2; e&#x2082; : T   &#x22a2; e&#x2083; : T</text>
+  <line x1="60" y1="138" x2="290" y2="138" class="deriv-err"/>
+  <text x="175" y="156" class="expr-sm">&#x22a2; if e&#x2081; then e&#x2082; else e&#x2083; : T</text>
+
+  <!-- The mismatch -->
+  <text x="175" y="180" class="type-tag">Required: e&#x2081; : Bool</text>
+  <text x="175" y="196" class="reject">Actual:   3 : Int</text>
+
+  <!-- Red X -->
+  <rect x="80" y="216" width="190" height="44" class="box-err"/>
+  <text x="175" y="234" class="reject">TYPE ERROR</text>
+  <text x="175" y="250" class="reject-sm">Int &#x2260; Bool  &#x2014;  rejected</text>
+
+  <!-- Shield: protection message -->
+  <rect x="40" y="278" width="270" height="52" class="shield"/>
+  <text x="175" y="298" class="ok">Program never runs</text>
+  <text x="175" y="316" class="ok-sm">Type system rejects before execution</text>
+
+  <!-- ===== RIGHT SIDE: Hypothetical Runtime (Stuck) ===== -->
+  <text x="525" y="96" class="reject">Hypothetical Runtime (If Unchecked)</text>
+
+  <!-- Evaluation attempt -->
+  <rect x="390" y="108" width="260" height="56" class="box"/>
+  <text x="520" y="130" class="expr-sm">Evaluate the condition:</text>
+  <text x="520" y="150" class="expr">3 is a value (Int)</text>
+
+  <!-- Arrow down -->
+  <path d="M520,168 L520,196" class="arrow"/>
+  <text x="570" y="186" class="rule">match rules?</text>
+
+  <!-- No matching rule -->
+  <rect x="390" y="200" width="260" height="72" class="box-stuck"/>
+  <text x="520" y="222" class="expr-sm">No rule for:  if 3 then ...</text>
+  <text x="520" y="244" class="reject">STUCK STATE</text>
+  <text x="520" y="260" class="reject-sm">Not a value, cannot step</text>
+
+  <!-- Stop symbol -->
+  <circle cx="520" cy="306" r="20" fill="none" stroke="#f85149" stroke-width="2.5"/>
+  <rect x="508" y="302" width="24" height="8" rx="2" fill="#f85149"/>
+
+  <text x="520" y="342" class="reject-sm">No reduction rule applies</text>
+  <text x="520" y="356" class="reject-sm">Execution halts mid-program</text>
+
+  <!-- Footer -->
+  <text x="350" y="376" class="sub">Soundness guarantee: well-typed programs never reach stuck states</text>
+</svg>

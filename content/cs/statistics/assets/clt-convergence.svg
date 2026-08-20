@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="9.2 0 780 310" fill="none">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .node-text { font-size: 10px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; }
+    .anno { font-size: 10px; fill: #d29922; font-weight: 600; }
+    .desc { font-size: 9px; fill: #8b949e; font-style: italic; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    .title { font-size: 12px; fill: #e8e8e8; font-weight: 600; text-anchor: middle; }
+    .panel-label { font-size: 11px; fill: #58a6ff; font-weight: 600; text-anchor: middle; }
+    .axis { stroke: #8b949e; stroke-width: 1; }
+    .axis-label { font-size: 8px; fill: #8b949e; text-anchor: middle; }
+    .curve-fill-1 { fill: rgba(88,166,255,0.15); }
+    .curve-fill-2 { fill: rgba(88,166,255,0.2); }
+    .curve-fill-3 { fill: rgba(88,166,255,0.25); }
+    .curve-stroke { stroke: #58a6ff; stroke-width: 2; fill: none; }
+    .ref-line { stroke: #d29922; stroke-width: 1; stroke-dasharray: 3 3; }
+    .arrow-text { font-size: 20px; fill: #93a3b8; text-anchor: middle; dominant-baseline: central; }
+    @media (prefers-color-scheme: light) {
+      .node { fill: #1a1a2e; stroke: #284b63; }
+      .edge { stroke: #b8b8b8; }
+      .anno { fill: #9e6000; }
+      .desc { fill: #6e7781; }
+      .sep { stroke: #e5e5e5; }
+      .title { fill: #1a1a2e; }
+      .panel-label { fill: #284b63; }
+      .axis { stroke: #6e7781; }
+      .axis-label { fill: #6e7781; }
+      .curve-fill-1 { fill: rgba(40,75,99,0.12); }
+      .curve-fill-2 { fill: rgba(40,75,99,0.17); }
+      .curve-fill-3 { fill: rgba(40,75,99,0.22); }
+      .curve-stroke { stroke: #284b63; }
+      .ref-line { stroke: #9e6000; }
+      .arrow-text { fill: #b8b8b8; }
+    }
+  </style>
+
+  <!-- Title -->
+  <text x="390" y="26" class="title">Sampling Distribution of X&#x0304; Converges to Normal</text>
+  <text x="390" y="42" class="desc">population: right-skewed (e.g. resistor resistance)</text>
+
+  <!-- ==================== Panel 1: n=2 ==================== -->
+  <g transform="translate(30, 55)">
+    <text x="105" y="10" class="panel-label">n = 2</text>
+    <text x="105" y="24" class="desc">still visibly skewed</text>
+
+    <!-- Axes -->
+    <line x1="15" y1="195" x2="195" y2="195" class="axis"/>
+    <line x1="15" y1="35" x2="15" y2="195" class="axis"/>
+
+    <!-- Strongly right-skewed: peak early, long right tail -->
+    <path d="M 20,195
+             C 22,194 28,190 35,178
+             C 40,168 45,145 52,110
+             C 56,90 60,68 65,55
+             C 68,48 72,44 76,42
+             C 80,41 84,43 88,48
+             C 95,60 102,80 110,105
+             C 118,130 126,150 135,165
+             C 142,175 150,183 158,188
+             C 165,191 175,194 185,195
+             L 195,195" class="curve-fill-1"/>
+    <path d="M 20,195
+             C 22,194 28,190 35,178
+             C 40,168 45,145 52,110
+             C 56,90 60,68 65,55
+             C 68,48 72,44 76,42
+             C 80,41 84,43 88,48
+             C 95,60 102,80 110,105
+             C 118,130 126,150 135,165
+             C 142,175 150,183 158,188
+             C 165,191 175,194 185,195" class="curve-stroke"/>
+
+    <!-- Mean reference line at the peak -->
+    <line x1="76" y1="38" x2="76" y2="195" class="ref-line"/>
+    <text x="76" y="210" class="anno">&#956;</text>
+
+    <!-- SE annotation -->
+    <text x="105" y="225" class="axis-label">SE = &#963;/&#x221A;2</text>
+  </g>
+
+  <!-- Arrow between panel 1 and 2 -->
+  <text x="265" y="170" class="arrow-text">&#x2192;</text>
+
+  <!-- ==================== Panel 2: n=10 ==================== -->
+  <g transform="translate(285, 55)">
+    <text x="105" y="10" class="panel-label">n = 10</text>
+    <text x="105" y="24" class="desc">skew diminishing</text>
+
+    <!-- Axes -->
+    <line x1="15" y1="195" x2="195" y2="195" class="axis"/>
+    <line x1="15" y1="35" x2="15" y2="195" class="axis"/>
+
+    <!-- Moderately skewed: more symmetric, tighter -->
+    <path d="M 30,195
+             C 35,194 42,190 50,178
+             C 56,168 62,145 70,110
+             C 75,85 80,65 87,52
+             C 91,46 95,43 100,41
+             C 105,40 109,42 113,47
+             C 118,55 124,70 130,92
+             C 136,115 142,138 148,158
+             C 154,172 160,183 166,189
+             C 172,193 178,195 185,195
+             L 195,195" class="curve-fill-2"/>
+    <path d="M 30,195
+             C 35,194 42,190 50,178
+             C 56,168 62,145 70,110
+             C 75,85 80,65 87,52
+             C 91,46 95,43 100,41
+             C 105,40 109,42 113,47
+             C 118,55 124,70 130,92
+             C 136,115 142,138 148,158
+             C 154,172 160,183 166,189
+             C 172,193 178,195 185,195" class="curve-stroke"/>
+
+    <!-- Mean reference line -->
+    <line x1="100" y1="38" x2="100" y2="195" class="ref-line"/>
+    <text x="100" y="210" class="anno">&#956;</text>
+
+    <!-- SE annotation -->
+    <text x="105" y="225" class="axis-label">SE = &#963;/&#x221A;10</text>
+  </g>
+
+  <!-- Arrow between panel 2 and 3 -->
+  <text x="520" y="170" class="arrow-text">&#x2192;</text>
+
+  <!-- ==================== Panel 3: n=30 ==================== -->
+  <g transform="translate(540, 55)">
+    <text x="105" y="10" class="panel-label">n = 30</text>
+    <text x="105" y="24" class="desc">approximately normal</text>
+
+    <!-- Axes -->
+    <line x1="15" y1="195" x2="195" y2="195" class="axis"/>
+    <line x1="15" y1="35" x2="15" y2="195" class="axis"/>
+
+    <!-- Near-symmetric bell curve, tighter spread -->
+    <path d="M 40,195
+             C 45,194 52,192 60,185
+             C 66,178 72,162 78,138
+             C 83,115 87,88 92,68
+             C 95,56 98,48 101,44
+             C 103,42 105,41 107,41
+             C 109,41 111,42 113,44
+             C 116,48 119,56 122,68
+             C 127,88 131,115 136,138
+             C 142,162 148,178 154,185
+             C 162,192 169,194 174,195
+             L 195,195" class="curve-fill-3"/>
+    <path d="M 40,195
+             C 45,194 52,192 60,185
+             C 66,178 72,162 78,138
+             C 83,115 87,88 92,68
+             C 95,56 98,48 101,44
+             C 103,42 105,41 107,41
+             C 109,41 111,42 113,44
+             C 116,48 119,56 122,68
+             C 127,88 131,115 136,138
+             C 142,162 148,178 154,185
+             C 162,192 169,194 174,195" class="curve-stroke"/>
+
+    <!-- Mean reference line -->
+    <line x1="107" y1="38" x2="107" y2="195" class="ref-line"/>
+    <text x="107" y="210" class="anno">&#956;</text>
+
+    <!-- SE annotation -->
+    <text x="105" y="225" class="axis-label">SE = &#963;/&#x221A;30</text>
+  </g>
+
+  <!-- Bottom annotation -->
+  <text x="390" y="298" class="anno" text-anchor="middle">as n increases: skew vanishes, spread narrows (SE = &#963;/&#x221A;n)</text>
+</svg>

@@ -1,0 +1,258 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 590" fill="none">
+  <!--
+    LAYOUT GRID:
+    - 2 panels side by side: Recursive (left), Iterative (right)
+    - Left panel: x=30..420, Right panel: x=460..850
+    - Separator: vertical dashed line at x=440
+    - ViewBox: 880x540 with 20px+ margin
+    - Shows PREORDER traversal of a small 5-node tree: A(8), B(3), C(10), D(1), E(6)
+    - Left: call stack frames expanding and unwinding
+    - Right: explicit stack snapshots at each step
+
+    TREE (simplified for clarity):
+         8
+        / \
+       3   10
+      / \
+     1   6
+
+    Preorder: 8, 3, 1, 6, 10
+  -->
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .node-text { font-size: 11px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+    .edge { stroke: #93a3b8; stroke-width: 1.2; }
+    .anno { font-size: 11px; fill: #d29922; font-weight: 600; }
+    .title { font-size: 15px; fill: #7b97aa; font-weight: 600; text-anchor: middle; }
+    .subtitle { font-size: 10px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .sep { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    .frame { fill: rgba(30,40,55,0.7); stroke: #58a6ff; stroke-width: 1; rx: 3; }
+    .frame-active { fill: rgba(30,40,55,0.95); stroke: #d29922; stroke-width: 1.5; rx: 3; }
+    .frame-text { font-size: 10px; fill: #e8e8e8; text-anchor: start; dominant-baseline: central; }
+    .stack-box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1; }
+    .stack-text { font-size: 10px; fill: #e8e8e8; text-anchor: middle; dominant-baseline: central; }
+    .step-label { font-size: 10px; fill: #d29922; font-weight: 600; text-anchor: middle; }
+    .visit-text { font-size: 10px; fill: #84a59d; font-weight: 600; text-anchor: middle; }
+    .desc { font-size: 10px; fill: #8b949e; font-style: italic; text-anchor: middle; }
+    .arrow { stroke: #d29922; stroke-width: 1; fill: none; marker-end: url(#arrowhead); }
+    .section-label { font-size: 11px; fill: #7b97aa; font-weight: 600; text-anchor: start; }
+    @media (prefers-color-scheme: light) {
+      .node { fill: #1a1a2e; stroke: #284b63; }
+      .edge { stroke: #b8b8b8; }
+      .anno { fill: #9e6000; }
+      .title { fill: #284b63; }
+      .subtitle { fill: #6e7781; }
+      .sep { stroke: #e5e5e5; }
+      .frame { fill: rgba(240,240,245,0.9); stroke: #284b63; }
+      .frame-active { fill: rgba(240,240,245,0.95); stroke: #9e6000; }
+      .frame-text { fill: #1a1a2e; }
+      .stack-box { fill: rgba(240,240,245,0.95); stroke: #284b63; }
+      .stack-text { fill: #1a1a2e; }
+      .step-label { fill: #9e6000; }
+      .visit-text { fill: #2d6a4f; }
+      .desc { fill: #6e7781; }
+      .section-label { fill: #284b63; }
+    }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#d29922"/>
+    </marker>
+  </defs>
+
+  <!-- Main titles -->
+  <text class="title" x="235" y="30">Recursive (Call Stack)</text>
+  <text class="subtitle" x="235" y="46">Program stack grows with each call</text>
+  <text class="title" x="715" y="30">Iterative (Explicit Stack)</text>
+  <text class="subtitle" x="715" y="46">Manual stack replaces recursion</text>
+
+  <!-- Separator -->
+  <line class="sep" x1="475" y1="20" x2="475" y2="570"/>
+
+  <!-- ============================================================ -->
+  <!-- LEFT PANEL: RECURSIVE CALL STACK (Preorder on 5-node tree)   -->
+  <!-- Shows stack frames growing and shrinking                      -->
+  <!-- ============================================================ -->
+
+  <!-- Reference tree (small, top-left) -->
+  <text class="section-label" x="30" y="70">Tree:</text>
+  <circle class="node" cx="90" cy="80" r="12"/>
+  <text class="node-text" x="90" y="80">8</text>
+  <circle class="node" cx="65" cy="110" r="12"/>
+  <text class="node-text" x="65" y="110">3</text>
+  <circle class="node" cx="115" cy="110" r="12"/>
+  <text class="node-text" x="115" y="110">10</text>
+  <circle class="node" cx="45" cy="140" r="12"/>
+  <text class="node-text" x="45" y="140">1</text>
+  <circle class="node" cx="85" cy="140" r="12"/>
+  <text class="node-text" x="85" y="140">6</text>
+  <line class="edge" x1="90" y1="92" x2="65" y2="98"/>
+  <line class="edge" x1="90" y1="92" x2="115" y2="98"/>
+  <line class="edge" x1="65" y1="122" x2="45" y2="128"/>
+  <line class="edge" x1="65" y1="122" x2="85" y2="128"/>
+
+  <!-- Call stack snapshots — 5 columns showing key moments -->
+  <!-- Column positions: 40, 120, 200, 280, 360 -->
+
+  <!-- Step 1: pre(8) called -->
+  <text class="step-label" x="55" y="185">Step 1</text>
+  <text class="visit-text" x="55" y="197">visit 8</text>
+  <rect class="frame-active" x="30" y="205" width="50" height="20" rx="3"/>
+  <text class="frame-text" x="34" y="215">pre(8)</text>
+
+  <!-- Step 2: pre(8) -> pre(3) -->
+  <text class="step-label" x="135" y="185">Step 2</text>
+  <text class="visit-text" x="135" y="197">visit 3</text>
+  <rect class="frame" x="110" y="225" width="50" height="20" rx="3"/>
+  <text class="frame-text" x="114" y="235">pre(8)</text>
+  <rect class="frame-active" x="110" y="205" width="50" height="20" rx="3"/>
+  <text class="frame-text" x="114" y="215">pre(3)</text>
+
+  <!-- Step 3: pre(8) -> pre(3) -> pre(1) -->
+  <text class="step-label" x="215" y="185">Step 3</text>
+  <text class="visit-text" x="215" y="197">visit 1</text>
+  <rect class="frame" x="190" y="245" width="50" height="20" rx="3"/>
+  <text class="frame-text" x="194" y="255">pre(8)</text>
+  <rect class="frame" x="190" y="225" width="50" height="20" rx="3"/>
+  <text class="frame-text" x="194" y="235">pre(3)</text>
+  <rect class="frame-active" x="190" y="205" width="50" height="20" rx="3"/>
+  <text class="frame-text" x="194" y="215">pre(1)</text>
+
+  <!-- Step 4: pre(1) returns, pre(6) called -->
+  <text class="step-label" x="295" y="185">Step 4</text>
+  <text class="visit-text" x="295" y="197">visit 6</text>
+  <rect class="frame" x="270" y="245" width="50" height="20" rx="3"/>
+  <text class="frame-text" x="274" y="255">pre(8)</text>
+  <rect class="frame" x="270" y="225" width="50" height="20" rx="3"/>
+  <text class="frame-text" x="274" y="235">pre(3)</text>
+  <rect class="frame-active" x="270" y="205" width="50" height="20" rx="3"/>
+  <text class="frame-text" x="274" y="215">pre(6)</text>
+
+  <!-- Step 5: pre(6),pre(3) return, pre(10) called -->
+  <text class="step-label" x="375" y="185">Step 5</text>
+  <text class="visit-text" x="375" y="197">visit 10</text>
+  <rect class="frame" x="350" y="225" width="55" height="20" rx="3"/>
+  <text class="frame-text" x="354" y="235">pre(8)</text>
+  <rect class="frame-active" x="350" y="205" width="55" height="20" rx="3"/>
+  <text class="frame-text" x="354" y="215">pre(10)</text>
+
+  <!-- Annotation: stack depth -->
+  <text class="anno" x="30" y="310">Max depth = 3 (tree height)</text>
+  <text class="desc" x="210" y="328">Stack grows with recursion depth, shrinks on return</text>
+
+  <!-- Output sequence -->
+  <text class="section-label" x="30" y="360">Output:</text>
+  <text class="anno" x="85" y="360" text-anchor="start">8, 3, 1, 6, 10</text>
+
+  <!-- ============================================================ -->
+  <!-- RIGHT PANEL: ITERATIVE EXPLICIT STACK (Preorder)             -->
+  <!-- Shows stack contents at each step                             -->
+  <!-- ============================================================ -->
+
+  <!-- Reference tree (small, top-right) -->
+  <text class="section-label" x="495" y="70">Tree:</text>
+  <circle class="node" cx="555" cy="80" r="12"/>
+  <text class="node-text" x="555" y="80">8</text>
+  <circle class="node" cx="530" cy="110" r="12"/>
+  <text class="node-text" x="530" y="110">3</text>
+  <circle class="node" cx="580" cy="110" r="12"/>
+  <text class="node-text" x="580" y="110">10</text>
+  <circle class="node" cx="510" cy="140" r="12"/>
+  <text class="node-text" x="510" y="140">1</text>
+  <circle class="node" cx="550" cy="140" r="12"/>
+  <text class="node-text" x="550" y="140">6</text>
+  <line class="edge" x1="555" y1="92" x2="530" y2="98"/>
+  <line class="edge" x1="555" y1="92" x2="580" y2="98"/>
+  <line class="edge" x1="530" y1="122" x2="510" y2="128"/>
+  <line class="edge" x1="530" y1="122" x2="550" y2="128"/>
+
+  <!-- Stack snapshots as vertical columns -->
+  <!-- Each column: step label, "pop X" action, remaining stack shown as boxes -->
+  <!-- Stack grows upward from a baseline -->
+
+  <!-- Baseline label -->
+  <text class="desc" x="715" y="170">Explicit stack (top = rightmost box)</text>
+
+  <!-- Step labels and pop actions sit ABOVE stacks; stacks grow downward from y=230 -->
+
+  <!-- Init: push(8) -> Stack: [8] -->
+  <text class="step-label" x="525" y="185">Init</text>
+  <text class="desc" x="525" y="197">push 8</text>
+  <rect class="stack-box" x="509" y="210" width="32" height="22" rx="2"/>
+  <text class="stack-text" x="525" y="221">8</text>
+  <text class="visit-text" x="525" y="248">S=[8]</text>
+
+  <!-- Step 1: pop 8, visit 8, push right(10), push left(3) -> Stack: [10, 3] -->
+  <text class="step-label" x="590" y="185">Step 1</text>
+  <text class="visit-text" x="590" y="197">pop 8</text>
+  <rect class="stack-box" x="574" y="232" width="32" height="22" rx="2"/>
+  <text class="stack-text" x="590" y="243">10</text>
+  <rect class="stack-box" x="574" y="210" width="32" height="22" rx="2"/>
+  <text class="stack-text" x="590" y="221">3</text>
+  <text class="visit-text" x="590" y="270">S=[10,3]</text>
+
+  <!-- Step 2: pop 3, visit 3, push right(6), push left(1) -> Stack: [10, 6, 1] -->
+  <text class="step-label" x="655" y="185">Step 2</text>
+  <text class="visit-text" x="655" y="197">pop 3</text>
+  <rect class="stack-box" x="639" y="254" width="32" height="22" rx="2"/>
+  <text class="stack-text" x="655" y="265">10</text>
+  <rect class="stack-box" x="639" y="232" width="32" height="22" rx="2"/>
+  <text class="stack-text" x="655" y="243">6</text>
+  <rect class="stack-box" x="639" y="210" width="32" height="22" rx="2"/>
+  <text class="stack-text" x="655" y="221">1</text>
+  <text class="visit-text" x="655" y="292">S=[10,6,1]</text>
+
+  <!-- Step 3: pop 1, visit 1, no children -> Stack: [10, 6] -->
+  <text class="step-label" x="720" y="185">Step 3</text>
+  <text class="visit-text" x="720" y="197">pop 1</text>
+  <rect class="stack-box" x="704" y="232" width="32" height="22" rx="2"/>
+  <text class="stack-text" x="720" y="243">10</text>
+  <rect class="stack-box" x="704" y="210" width="32" height="22" rx="2"/>
+  <text class="stack-text" x="720" y="221">6</text>
+  <text class="visit-text" x="720" y="270">S=[10,6]</text>
+
+  <!-- Step 4: pop 6, visit 6, no children -> Stack: [10] -->
+  <text class="step-label" x="785" y="185">Step 4</text>
+  <text class="visit-text" x="785" y="197">pop 6</text>
+  <rect class="stack-box" x="769" y="210" width="32" height="22" rx="2"/>
+  <text class="stack-text" x="785" y="221">10</text>
+  <text class="visit-text" x="785" y="248">S=[10]</text>
+
+  <!-- Step 5: pop 10, visit 10, no children -> Stack: [] -->
+  <text class="step-label" x="850" y="185">Step 5</text>
+  <text class="visit-text" x="850" y="197">pop 10</text>
+  <text class="desc" x="850" y="221">(empty)</text>
+  <text class="visit-text" x="850" y="248">S=[]</text>
+
+  <!-- Annotation -->
+  <text class="anno" x="495" y="310">Max stack size = 3 (never exceeds tree height + 1)</text>
+
+  <!-- Output sequence -->
+  <text class="section-label" x="495" y="340">Output:</text>
+  <text class="anno" x="555" y="340" text-anchor="start">8, 3, 1, 6, 10</text>
+
+  <!-- ============================================================ -->
+  <!-- BOTTOM: Key comparison points                                 -->
+  <!-- ============================================================ -->
+  <line class="sep" x1="30" y1="380" x2="930" y2="380"/>
+
+  <text class="title" x="480" y="405">Key Differences</text>
+
+  <!-- Left: Recursive traits -->
+  <text class="section-label" x="60" y="435">Recursive</text>
+  <text class="frame-text" x="60" y="457">-- Implicit stack (program call stack)</text>
+  <text class="frame-text" x="60" y="477">-- Stack depth = O(h), h = tree height</text>
+  <text class="frame-text" x="60" y="497">-- Risk of stack overflow on deep trees</text>
+  <text class="frame-text" x="60" y="517">-- Concise code, natural structure</text>
+
+  <!-- Right: Iterative traits -->
+  <text class="section-label" x="520" y="435">Iterative</text>
+  <text class="frame-text" x="520" y="457">-- Explicit stack (heap-allocated)</text>
+  <text class="frame-text" x="520" y="477">-- Stack size = O(h), same asymptotic</text>
+  <text class="frame-text" x="520" y="497">-- No overflow risk (limited by heap)</text>
+  <text class="frame-text" x="520" y="517">-- More control, interruptible</text>
+
+  <text class="desc" x="480" y="565">Both produce the same output: visit order is identical regardless of mechanism</text>
+</svg>
