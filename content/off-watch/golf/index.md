@@ -23,6 +23,7 @@ It starts as notes and grows on the next round. Some of this could become a blog
 - [[off-watch/golf/science/index|The Science of Golf]] - why the ball flies, curves, and stops the way it does, and what the swing is actually doing.
 - [[off-watch/golf/courses/index|Course Reviews]] - the courses I have played, what I enjoyed, what I did not, how I scored, and the scorecard.
 - [[off-watch/golf/bucket-list|The Bucket List]] - one course in every state, then the world. Plain text until I play it, a link to the review once I have.
+- [[off-watch/golf/nebraska-scramble|The Nebraska Scramble]] - a four-person format I made up. Rotating harvest, Second Wind Tokens, Team Mulligans, and a rope called the Corn Row.
 
 ### How a round gets logged
 
