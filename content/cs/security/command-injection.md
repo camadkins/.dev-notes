@@ -6,6 +6,8 @@ comments: true
 tags:
   - cs
   - security
+date: 2026-07-25
+updated:
 ---
 
 It is tempting to file command injection next to code injection and move on, because both end with the attacker running something they should not. But the mechanisms differ in a way that changes how you defend against them, and the difference is instructive. In code injection the attacker smuggles in new code. In command injection they do not need to. The application already runs system commands. The attacker just steers them.

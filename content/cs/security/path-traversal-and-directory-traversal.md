@@ -7,6 +7,8 @@ tags:
   - cs
   - security
   - web
+date: 2026-07-25
+updated:
 ---
 
 An application that serves files usually thinks in terms of a folder. Downloads live in `/var/www/files`, and the user picks one by name. The mistake is assuming the name the user supplies stays inside that folder. It does not have to. A path is a small language, and `..` is a word in it that means "go up one level." String three or four of them together and the name walks straight out of the intended directory and into the rest of the file system.

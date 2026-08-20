@@ -7,6 +7,8 @@ tags:
   - cs
   - security
   - web
+date: 2026-07-25
+updated:
 ---
 
 Most web attacks forge something: a request the user never made, input the parser misreads, a token the attacker guessed. Clickjacking forges nothing. The click is genuine, made by the real user, on the real target page, with the real session attached. What the attacker forged is the user's *understanding* of what they clicked. That distinction sounds academic until you try to defend against it, and discover that every request-level check passes, because at the request level nothing is wrong.
