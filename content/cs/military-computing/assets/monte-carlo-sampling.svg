@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 270 280" fill="none" role="img" aria-label="Monte Carlo sampling: random points scattered over a square, those inside a quarter circle marked, the fraction inside estimating its area">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-108 0 486 280" fill="none" role="img" aria-label="Monte Carlo sampling: random points scattered over a square, those inside a quarter circle marked, the fraction inside estimating its area">
   <style>
     text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
     .sq { fill: none; stroke: #93a3b8; stroke-width: 1.4; }

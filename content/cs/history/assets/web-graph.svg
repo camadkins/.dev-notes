@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 230" fill="none" role="img" aria-label="The web as a directed graph: pages link to one another, and a page that receives many links from important pages ranks higher">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-43 0 486 230" fill="none" role="img" aria-label="The web as a directed graph: pages link to one another, and a page that receives many links from important pages ranks higher">
   <style>
     text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
     .edge { stroke: #93a3b8; stroke-width: 1.4; opacity: 0.7; }

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 190" fill="none" role="img" aria-label="A transistor as a switch: a control voltage on the gate decides whether current flows from source to drain">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-18 0 456 190" fill="none" role="img" aria-label="A transistor as a switch: a control voltage on the gate decides whether current flows from source to drain">
   <style>
     text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
     .wire { stroke: #93a3b8; stroke-width: 2; }

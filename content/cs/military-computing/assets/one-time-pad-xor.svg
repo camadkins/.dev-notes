@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 200" fill="none" role="img" aria-label="A one-time pad combines each message bit with a random key bit using exclusive-or to produce the ciphertext">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="10.9 0 746 200" fill="none" role="img" aria-label="A one-time pad combines each message bit with a random key bit using exclusive-or to produce the ciphertext">
   <style>
     text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
     .lab { fill: #8b949e; font-size: 13px; }

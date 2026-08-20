@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" role="img" aria-label="Gradient descent taking successively smaller steps down a convex loss curve toward the minimum">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="25.9 0 715 400" role="img" aria-label="Gradient descent taking successively smaller steps down a convex loss curve toward the minimum">
   <style>
     .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
     .edge { stroke: #93a3b8; stroke-width: 1.5; fill: none; }

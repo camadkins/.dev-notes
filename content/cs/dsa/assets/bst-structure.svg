@@ -74,9 +74,9 @@
 
   <!-- Search path annotations -->
   <text class="step-label" x="155" y="72">37 &lt; 50</text>
-  <text class="step-label" x="130" y="80">go left</text>
+  <text class="step-label" x="130" y="84">go left</text>
   <text class="step-label" x="162" y="147">37 &gt; 25</text>
-  <text class="step-label" x="162" y="155">go right</text>
+  <text class="step-label" x="162" y="159">go right</text>
 
   <!-- Found annotation -->
   <text class="anno" x="170" y="225">found!</text>

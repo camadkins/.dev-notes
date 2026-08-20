@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 170" fill="none" role="img" aria-label="Time-sharing: one CPU switches among users A, B, and C in fast slices along a timeline">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-21 0 522 170" fill="none" role="img" aria-label="Time-sharing: one CPU switches among users A, B, and C in fast slices along a timeline">
   <style>
     text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
     .cpu { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.6; }

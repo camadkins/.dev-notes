@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 240" fill="none" role="img" aria-label="Transistors per chip on a logarithmic scale rise in a straight line over the decades, doubling roughly every two years">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-16.6 -105 440 345" fill="none" role="img" aria-label="Transistors per chip on a logarithmic scale rise in a straight line over the decades, doubling roughly every two years">
   <style>
     text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
     .axis { stroke: #93a3b8; stroke-width: 1.4; }

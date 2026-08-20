@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 200" fill="none" role="img" aria-label="Truth table for material implication p implies q, with the two rows where p is false highlighted as vacuously true">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="5.7 0 492 200" fill="none" role="img" aria-label="Truth table for material implication p implies q, with the two rows where p is false highlighted as vacuously true">
   <style>
     text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
     .edge { stroke: #93a3b8; stroke-width: 1.4; }

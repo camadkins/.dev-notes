@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 300" fill="none" role="img" aria-label="The four components of COMSEC: cryptographic security, transmission security, emission security, and physical security, with cryptographic security marked as only one of the four.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="10 0 560 300" fill="none" role="img" aria-label="The four components of COMSEC: cryptographic security, transmission security, emission security, and physical security, with cryptographic security marked as only one of the four.">
   <style>
     text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
     .box   { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }

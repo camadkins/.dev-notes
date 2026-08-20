@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 340" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15.9 0 640 340" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
   <style>
     .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
     .edge { stroke: #93a3b8; stroke-width: 1.5; fill: none; }

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" fill="none" role="img" aria-label="Multics protection rings: concentric levels of privilege with the most trusted code in the innermost ring">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-54 0 408 300" fill="none" role="img" aria-label="Multics protection rings: concentric levels of privilege with the most trusted code in the innermost ring">
   <style>
     text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
     .ring { fill: none; stroke: #58a6ff; stroke-width: 1.5; opacity: 0.8; }
