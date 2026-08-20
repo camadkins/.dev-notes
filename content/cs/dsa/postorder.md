@@ -4,8 +4,8 @@ description: Left–Right–Root visit order for trees; ideal for delete/free, s
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2025-11-06
 aliases: []

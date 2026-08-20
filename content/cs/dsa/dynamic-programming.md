@@ -4,8 +4,8 @@ description: Solve problems by decomposing into overlapping subproblems with opt
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2025-10-19
 aliases: []

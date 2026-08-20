@@ -176,7 +176,7 @@ Asymptotics hide constant factors, but implementations reveal:
 - **Average-case:** expectation under a **distribution** of inputs (e.g., quicksort `$Θ(n \log n)$` with random pivots). State assumptions.
 
 
-See [[dynamic-arrays|Dynamic Arrays]] and [[disjoint-set-union-union-find|Disjoint Set Union - Union–Find]].
+See [[dynamic-arrays|Dynamic Arrays]] and [[disjoint-set|Disjoint Set Union - Union–Find]].
 
 ## Common Misunderstandings
 

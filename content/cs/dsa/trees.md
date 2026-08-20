@@ -104,7 +104,7 @@ function HEIGHT(u):
 
 ### Traversals (binary trees)
 
-See [[tree-traversal-overview|Tree Traversal - Overview]] for detailed recursive and iterative patterns:
+See [[tree-traversal|Tree Traversal - Overview]] for detailed recursive and iterative patterns:
 
 - **Preorder** (Root, Left, Right)
     

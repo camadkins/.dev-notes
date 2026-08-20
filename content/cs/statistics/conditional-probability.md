@@ -88,3 +88,5 @@ Using total probability: $P(A) = 0.85 \times 0.965 + 0.15 \times 0.30 = 0.865$. 
 - [[bayes-rule|Bayes' Rule]] - reverses the conditioning direction using conditional probability
 - [[probability-distributions|Probability Distributions]] - the distributions that conditional probabilities operate over
 - [[bayesian-inference|Bayesian Inference]] - the full framework for updating beliefs with data
+- [[the-impossibility-of-algorithmic-fairness|The Impossibility of Algorithmic Fairness]] - the confusion matrix is a table of conditional probabilities, and the fairness criteria are conditions on them that cannot all hold at once
+- [[social-categories-and-machine-learning|Social Categories and Machine Learning]] - the Berkeley admissions case as a real instance of Simpson's paradox

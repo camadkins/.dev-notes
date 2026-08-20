@@ -14,7 +14,8 @@ Every note here is a living document. Pages move through stages - from rough dra
 
 ### Areas
 
-- [[cs/index | Computer Science]] - data structures & algorithms, programming language concepts, and language-specific notes
+- [[cs/index | Computer Science]] - from data structures and theory to systems, history, and the politics of technology
+- [[off-watch/index | Off Watch]] - the off-duty notes: films in the Dolphin Lounge, golf in the Clubhouse, and books in the Ship's Library
 - [[meta/index | About This Site]] - how the garden is organized, note types, and writing standards
 
 ### Navigating

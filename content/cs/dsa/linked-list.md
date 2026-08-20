@@ -5,8 +5,8 @@ description: Node-based dynamic sequences with next pointers; options for sentin
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2025-12-21
 aliases: []
@@ -289,7 +289,7 @@ Linked lists provide **O(1)** local updates with simple pointer rewiring and **O
 
 ## Related Notes
 
-- [[singly-linked-list|Singly Linked List]]
+- Singly Linked List
 
 - [[doubly-linked-list|Doubly Linked List]]
 

@@ -5,8 +5,8 @@ description: Singly linked nodes with head/tail pointers for O(1) enqueue/dequeu
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2025-12-05
 aliases: []

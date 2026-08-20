@@ -4,8 +4,8 @@ description: Partition an array around a pivot and recurse; average n log n with
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2026-01-04
 aliases: []

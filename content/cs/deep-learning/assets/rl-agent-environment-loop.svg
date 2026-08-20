@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" role="img" aria-label="Agent-environment interaction loop in reinforcement learning" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+  <style>
+    .box  { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .edge { fill: none; stroke: #93a3b8; stroke-width: 1.5; }
+    .rew  { fill: none; stroke: #84a59d; stroke-width: 1.5; }
+    .t    { fill: #e8e8e8; font-size: 15px; }
+    .lbl  { fill: #93a3b8; font-size: 13px; }
+    .grn  { fill: #84a59d; font-size: 13px; }
+    .anno { fill: #d29922; font-size: 13px; }
+    .desc { fill: #8b949e; font-size: 12px; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#93a3b8"/>
+    </marker>
+    <marker id="arrow-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#84a59d"/>
+    </marker>
+  </defs>
+
+  <!-- Agent -->
+  <rect class="box" x="300" y="44" width="200" height="60" rx="8"/>
+  <text class="t" x="400" y="80" text-anchor="middle">Agent</text>
+
+  <!-- Environment -->
+  <rect class="box" x="300" y="300" width="200" height="60" rx="8"/>
+  <text class="t" x="400" y="336" text-anchor="middle">Environment</text>
+
+  <!-- Action: agent to environment (right side) -->
+  <path class="edge" d="M 500 74 H 620 V 330 H 508" marker-end="url(#arrow)"/>
+  <text class="lbl" x="632" y="206" text-anchor="start">action a&#8348;</text>
+
+  <!-- State: environment to agent (outer left) -->
+  <path class="edge" d="M 300 330 H 150 V 74 H 292" marker-end="url(#arrow)"/>
+  <text class="lbl" x="138" y="206" text-anchor="end">state s&#8348;&#8330;&#8321;</text>
+
+  <!-- Reward: environment to agent (inner left, green) -->
+  <path class="rew" d="M 300 314 H 216 V 90 H 292" marker-end="url(#arrow-g)"/>
+  <text class="grn" x="228" y="206" text-anchor="start">reward r&#8348;</text>
+
+  <!-- Objective -->
+  <text class="anno" x="380" y="398" text-anchor="middle">goal: choose actions that maximize r&#8320; + &#947;r&#8321; + &#947;&#178;r&#8322; + &#8230;, with discount 0 &#8804; &#947; &lt; 1</text>
+  <text class="desc" x="380" y="416" text-anchor="middle">one loop per time step: observe state, act, collect reward, repeat</text>
+</svg>

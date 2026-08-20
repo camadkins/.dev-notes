@@ -1,5 +1,5 @@
 ---
-title: Type Soundness — Progress & Preservation
+title: "Type Soundness: Progress & Preservation"
 description: How type systems ensure that well-typed programs don’t “get stuck,” linking static typing rules to dynamic execution behavior through the key theorems of progress and preservation.
 draft: false
 tags:
@@ -15,13 +15,13 @@ The **type soundness theorem** connects a language’s *static* and *dynamic* se
 > **If a program type-checks, it will not get stuck at runtime.**
 
 This guarantee emerges from two complementary properties:
-1. **Progress** — a well-typed term can either take a computation step or is already a value.  
-2. **Preservation** — each computation step maintains the program’s type.
+1. **Progress**: a well-typed term can either take a computation step or is already a value.  
+2. **Preservation**: each computation step maintains the program’s type.
 
 Together, these theorems formalize the intuition that *types prevent runtime type errors*.
 
 > [!note]
-> “Well-typed programs do not go wrong.” — Robin Milner, *1978*
+> “Well-typed programs do not go wrong.” (Robin Milner, *1978*)
 
 ---
 
@@ -44,7 +44,7 @@ If neither holds (a “stuck” term), the type system is unsound.
 ### Informal Statement
 > If `e` is well-typed (`⊢ e : T`), then `e` is either a value or there exists an `e'` such that `e → e'`.
 
-This ensures that evaluation can always make progress — a well-typed program never halts mid-execution because of a missing rule.
+This ensures that evaluation can always make progress: a well-typed program never halts mid-execution because of a missing rule.
 
 ### Proof Sketch
 Induction on the structure of typing derivations:
@@ -69,7 +69,7 @@ By IH:
 Thus, progress holds.
 
 > [!tip]
-> Every typing rule must correspond to at least one evaluation rule — missing a case breaks progress.
+> Every typing rule must correspond to at least one evaluation rule; missing a case breaks progress.
 
 ---
 
@@ -77,7 +77,7 @@ Thus, progress holds.
 ### Informal Statement
 > If `⊢ e : T` and `e → e'`, then `⊢ e' : T`.
 
-This ensures that type information remains valid as execution proceeds — evaluation doesn’t “break” typing.
+This ensures that type information remains valid as execution proceeds: evaluation doesn’t “break” typing.
 
 ### Proof Sketch
 Induction on the typing derivation for `e`.  
@@ -112,7 +112,7 @@ Hence, preservation holds.
 
 ---
 
-## Combining the Two — Type Soundness
+## Combining the Two: Type Soundness
 Together, progress and preservation guarantee **type safety**:
 ```
 
@@ -126,7 +126,7 @@ In plain terms:
 - Every step either computes further or produces a result consistent with its type.
 
 > [!note]
-> Type soundness does **not** guarantee logical correctness — only that the program won’t crash due to type mismatches.
+> Type soundness does **not** guarantee logical correctness, only that the program won’t crash due to type mismatches.
 
 ---
 
@@ -211,6 +211,11 @@ Now, preservation must hold for both expression *and* store:
 ---
 
 ## See also
-- [[cs/pl/type-systems-goals-guarantees|Type Systems — Goals & Guarantees]]
-- [[cs/pl/operational-semantics-big-step-small-step|Operational Semantics — Big-Step & Small-Step]]
+- [[cs/pl/type-systems-goals-guarantees|Type Systems: Goals & Guarantees]]
+- [[cs/pl/operational-semantics-big-step-small-step|Operational Semantics: Big-Step & Small-Step]]
 - [[cs/pl/hindleymilner-type-inference|Hindley–Milner Type Inference]]
+
+## Sources
+
+- "Type safety," Wikipedia. https://en.wikipedia.org/wiki/Type_safety . Supports the type soundness slogan that well-typed programs do not go wrong and the framing of soundness as preventing stuck states at runtime.
+- "Type system," Wikipedia. https://en.wikipedia.org/wiki/Type_system . Supports type soundness as the property that a type system's static rules correctly approximate runtime behavior, expressed via the progress and preservation theorems and their extension when new features like references are added.

@@ -5,8 +5,8 @@ description: Abstract interface for retrieving the highest-priority element effi
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2026-01-06
 aliases: []

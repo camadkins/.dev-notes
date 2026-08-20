@@ -4,8 +4,8 @@ description: Build a binary heap from an array in linear time using bottom-up si
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2025-11-11
 aliases: []

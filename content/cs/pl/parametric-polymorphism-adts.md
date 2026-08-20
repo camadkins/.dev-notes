@@ -18,7 +18,7 @@ They let us write code that works *for any type* while retaining full static gua
 > Polymorphism = generality of behavior.  
 > ADTs = generality of structure.
 
-Together, they allow a language to encode rich relationships between data and operations — without runtime type checks or code duplication.
+Together, they allow a language to encode rich relationships between data and operations, without runtime type checks or code duplication.
 
 ---
 
@@ -39,7 +39,7 @@ fun id x = x
 
 ### Key Idea
 
-The function cannot depend on the _specifics_ of `'a` — it must behave _uniformly_.  
+The function cannot depend on the _specifics_ of `'a`; it must behave _uniformly_.  
 This is enforced by the **type system**: no operations are allowed on `'a` except passing it through.
 
 > [!tip]  
@@ -84,7 +84,7 @@ id true  : bool
 
 ## Algebraic Data Types (ADTs)
 
-ADTs combine types through **product** and **sum** constructions — forming the algebra of data.
+ADTs combine types through **product** and **sum** constructions, forming the algebra of data.
 
 ### Product Types
 
@@ -99,7 +99,7 @@ Each instance contains _both_ components.
 
 ### Sum Types
 
-Represent alternatives — a value of _one of several shapes_:
+Represent alternatives, a value of _one of several shapes_:
 
 ```sml
 datatype option = None | Some of int
@@ -160,7 +160,7 @@ fun count t =
 ```
 
 > [!tip]  
-> Pattern matching is a **semantic inverse** of data construction — it unpacks the structure guaranteed by the type.
+> Pattern matching is a **semantic inverse** of data construction: it unpacks the structure guaranteed by the type.
 
 ![Pattern matching: exhaustive vs partial coverage](assets/poly-pattern-matching.svg)
 
@@ -168,7 +168,7 @@ fun count t =
 
 ## Laws of Parametric Polymorphism
 
-A parametric function cannot behave differently for different type arguments — this constraint yields **free theorems** (Wadler, 1989).
+A parametric function cannot behave differently for different type arguments; this constraint yields **free theorems** (Wadler, 1989).
 
 For example:
 
@@ -186,13 +186,13 @@ must satisfy:
 Such properties follow automatically from the function’s type alone.
 
 > [!note]  
-> These theorems are _semantic consequences_ of parametricity — not explicit syntax rules.
+> These theorems are _semantic consequences_ of parametricity, not explicit syntax rules.
 
 ---
 
 ## ADTs and Data Abstraction
 
-ADTs naturally support **data abstraction** — users manipulate values only through constructors and pattern matches.
+ADTs naturally support **data abstraction**: users manipulate values only through constructors and pattern matches.
 
 Example (Option abstraction):
 
@@ -244,7 +244,7 @@ Recursive ADTs encode **inductive structures** like lists and trees:
 datatype 'a list = Nil | Cons of 'a * 'a list
 ```
 
-Their structure matches **inductive reasoning** — recursion in code corresponds to induction in proofs.
+Their structure matches **inductive reasoning**: recursion in code corresponds to induction in proofs.
 
 ---
 
@@ -253,8 +253,8 @@ Their structure matches **inductive reasoning** — recursion in code correspond
 |Concept|Description|Example|
 |---|---|---|
 |Parametric Polymorphism|Uniform behavior for all types|`id : ∀α. α → α`|
-|ADT — Product|Combine data|`Pair(a, b)`|
-|ADT — Sum|Alternate cases|`Option a = None|
+|ADT (Product)|Combine data|`Pair(a, b)`|
+|ADT (Sum)|Alternate cases|`Option a = None|
 |Pattern Matching|Deconstruct ADTs|`case xs of Nil => ...|
 |Type Inference|Generalizes automatically|`fun f x = x` → `'a -> 'a`|
 
@@ -269,4 +269,9 @@ Their structure matches **inductive reasoning** — recursion in code correspond
     
 - [[cs/pl/records-variants-and-pattern-matching|Records, Variants, and Pattern Matching]]
     
-- [[cs/pl/type-systems-goals-guarantees|Type Systems — Goals & Guarantees]]
+- [[cs/pl/type-systems-goals-guarantees|Type Systems: Goals & Guarantees]]
+
+## Sources
+
+- "Parametric polymorphism," Wikipedia. https://en.wikipedia.org/wiki/Parametric_polymorphism . Supports parametric polymorphism as writing functions and data types generically so they operate uniformly over any type without depending on its specifics.
+- "Algebraic data type," Wikipedia. https://en.wikipedia.org/wiki/Algebraic_data_type . Supports algebraic data types as composites built from product and sum (variant) constructions and decomposed by pattern matching over their constructors.

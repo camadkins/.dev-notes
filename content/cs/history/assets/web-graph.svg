@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-43 0 486 230" fill="none" role="img" aria-label="The web as a directed graph: pages link to one another, and a page that receives many links from important pages ranks higher">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .edge { stroke: #93a3b8; stroke-width: 1.4; opacity: 0.7; }
+    .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .hi { fill: rgba(210,153,34,0.18); stroke: #d29922; stroke-width: 2; }
+    .cap { fill: #8b949e; font-size: 12px; text-anchor: middle; }
+  </style>
+  <defs><marker id="ah" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#93a3b8"/></marker></defs>
+  <line class="edge" x1="92"  y1="66"  x2="296" y2="92" marker-end="url(#ah)"/>
+  <line class="edge" x1="204" y1="52"  x2="300" y2="82" marker-end="url(#ah)"/>
+  <line class="edge" x1="152" y1="162" x2="300" y2="104" marker-end="url(#ah)"/>
+  <line class="edge" x1="276" y1="168" x2="312" y2="108" marker-end="url(#ah)"/>
+  <line class="edge" x1="88"  y1="70"  x2="188" y2="48" marker-end="url(#ah)"/>
+  <line class="edge" x1="148" y1="160" x2="264" y2="172" marker-end="url(#ah)"/>
+  <circle class="node" cx="80"  cy="60"  r="11"/>
+  <circle class="node" cx="195" cy="42"  r="11"/>
+  <circle class="hi"   cx="315" cy="95"  r="19"/>
+  <circle class="node" cx="138" cy="168" r="11"/>
+  <circle class="node" cx="270" cy="178" r="11"/>
+  <text class="cap" x="200" y="216">a link is a vote; rank flows along the edges to well-linked pages</text>
+</svg>

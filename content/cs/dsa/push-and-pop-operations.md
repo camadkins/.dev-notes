@@ -4,8 +4,8 @@ description: Implement and reason about push/pop operations and invariants for a
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2025-10-17
 aliases: []

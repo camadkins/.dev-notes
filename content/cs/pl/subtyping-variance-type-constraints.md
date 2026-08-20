@@ -12,7 +12,7 @@ aliases: []
 
 ## Overview
 Subtyping adds **hierarchy** to type systems, enabling reuse and polymorphism.  
-When combined with generics or functions, however, it introduces **variance problems** — subtle but essential for type safety.
+When combined with generics or functions, however, it introduces **variance problems**, subtle but essential for type safety.
 
 > [!note]
 > Subtyping extends type systems *horizontally* (via relationships between types), while parametric polymorphism extends them *vertically* (via generic abstraction).
@@ -28,7 +28,7 @@ Formally:
 A <: B ⇒ for all contexts C[•], if C[B] is valid, then C[A] is valid
 
 ````
-This property is known as **substitutability** — the foundation of type-safe reuse.
+This property is known as **substitutability**, the foundation of type-safe reuse.
 
 Example:
 ```java
@@ -111,11 +111,11 @@ When a type constructor `F` (like `List` or `Box`) wraps a type `T`, the questio
 |**Invariant**|Neither direction holds|`Array[Dog] ≮: Array[Animal]`|Mutable containers|
 
 > [!warning]  
-> Covariance becomes unsafe when mutation is allowed — you could insert a `Cat` into an array of `Dog`.
+> Covariance becomes unsafe when mutation is allowed: you could insert a `Cat` into an array of `Dog`.
 
 ---
 
-## Example — Why Arrays Are Invariant
+## Example: Why Arrays Are Invariant
 
 Java allows **covariant arrays**, but it’s unsound:
 
@@ -149,7 +149,7 @@ To control variance and maintain soundness, languages introduce **type bounds**:
 
 ### Upper Bounds
 
-`T <: U` — type parameter `T` must be a subtype of `U`.
+`T <: U`: type parameter `T` must be a subtype of `U`.
 
 ```java
 class Box<T extends Number> { ... }
@@ -157,7 +157,7 @@ class Box<T extends Number> { ... }
 
 ### Lower Bounds
 
-`L <: T` — type parameter `T` must be a supertype of `L`.
+`L <: T`: type parameter `T` must be a supertype of `L`.
 
 ```java
 void copy(List<? super Integer> dest, List<? extends Integer> src)
@@ -198,11 +198,11 @@ Constraints (`T <: U`, `L <: T`) form a **constraint graph**, solved during comp
 
 Subtyping and polymorphism interact in two main ways:
 
-1. **Ad-hoc polymorphism (overloading)** — multiple implementations for distinct subtypes.
+1. **Ad-hoc polymorphism (overloading)**: multiple implementations for distinct subtypes.
     
-2. **Parametric polymorphism** — one generic definition for all types.
+2. **Parametric polymorphism**: one generic definition for all types.
     
-3. **Subtype polymorphism** — one definition reused through subtyping hierarchy.
+3. **Subtype polymorphism**: one definition reused through subtyping hierarchy.
     
 
 > [!tip]  
@@ -226,8 +226,13 @@ Subtyping and polymorphism interact in two main ways:
 
 - [[cs/pl/hindleymilner-type-inference|Hindley–Milner Type Inference]]
     
-- [[cs/pl/type-systems-goals-guarantees|Type Systems — Goals & Guarantees]]
+- [[cs/pl/type-systems-goals-guarantees|Type Systems: Goals & Guarantees]]
     
 - [[cs/pl/objects-classes-and-dispatch|Objects, Classes, and Dispatch]]
     
 - [[cs/pl/parametric-polymorphism-adts|Parametric Polymorphism & ADTs]]
+
+## Sources
+
+- "Subtyping," Wikipedia. https://en.wikipedia.org/wiki/Subtyping . Supports subtyping as a relation `A <: B` grounded in substitutability (a value of a subtype is usable wherever a supertype is expected), and its reflexive and transitive structure.
+- "Covariance and contravariance (computer science)," Wikipedia. https://en.wikipedia.org/wiki/Covariance_and_contravariance_%28computer_science%29 . Supports the covariant, contravariant, and invariant treatment of type constructors, the contravariant-input/covariant-output rule for function subtyping, and the unsoundness of covariant mutable arrays.

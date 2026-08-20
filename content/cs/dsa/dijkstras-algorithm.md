@@ -4,8 +4,8 @@ description: Single-source shortest paths on non-negative weighted graphs using 
 draft: false
 comments: true
 tags:
-- cs
-- dsa  
+  - cs
+  - dsa
 date: 2025-10-16  
 updated:  
 aliases: []

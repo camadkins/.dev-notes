@@ -28,7 +28,7 @@ The stakes are high because AI governance decisions made now - while the technol
 - **Limited risk** - transparency obligations only. Users must be told they are interacting with an AI system (chatbots, deepfake generators).
 - **Minimal risk** - largely unregulated. Spam filters, video game AI, inventory optimization.
 
-General-purpose AI models (including large language models) face additional obligations: technical documentation, copyright compliance disclosures, and - for models deemed to pose "systemic risk" - adversarial testing, incident reporting, and cybersecurity requirements. The systemic-risk threshold is set at 10^25 FLOPs of training compute, a bright line that will require periodic revision as training efficiency improves.
+General-purpose AI models (including [[deep-learning-revolution|large language models]]) face additional obligations: technical documentation, copyright compliance disclosures, and - for models deemed to pose "systemic risk" - adversarial testing, incident reporting, and cybersecurity requirements. The systemic-risk threshold is set at 10^25 FLOPs of training compute, a bright line that will require periodic revision as training efficiency improves.
 
 The Act's enforcement timeline stretches from 2024 to 2027, with different provisions taking effect at different dates. The full regulatory apparatus - notified bodies, conformity assessments, market surveillance - is still being built.
 
@@ -81,3 +81,11 @@ The pattern echoes GDPR: the EU sets a standard, multinational companies adopt i
 - [[semiconductor-supply-chains|Semiconductor Supply Chains]] - compute access is a prerequisite for frontier AI, making chip policy and AI policy inseparable
 - [[cyber-sovereignty|Cyber Sovereignty]] - AI governance is the newest layer in the broader contest over digital sovereignty
 - [[surveillance-and-privacy|Surveillance & Privacy]] - AI-powered surveillance (facial recognition, predictive policing) is a primary driver of AI regulation
+- [[deep-learning-revolution|The Deep Learning Revolution]] - the frontier models and training-compute thresholds these regimes regulate
+- [[could-an-llm-be-conscious|Could an LLM Be Conscious?]] - the moral-status question these governance regimes quietly assume an answer to
+
+## Sources
+
+- "Artificial Intelligence Act," Wikipedia. https://en.wikipedia.org/wiki/Artificial_Intelligence_Act . Supports the 2024 EU AI Act, its risk-based tiers (unacceptable / high / limited / minimal), bans on social scoring and biometric identification, general-purpose AI obligations, and the 10^25 FLOPs systemic-risk threshold.
+- "Executive Order 14110," Wikipedia. https://en.wikipedia.org/wiki/Executive_Order_14110 . Supports the October 30, 2023 order requiring developers to share safety-test results, the NIST safety-standards tasking, and its rescission by the Trump administration in January 2025.
+- "Regulation of artificial intelligence," Wikipedia. https://en.wikipedia.org/wiki/Regulation_of_artificial_intelligence . Supports China's deep-synthesis and generative-AI rules, the Bletchley Park AI Safety Summit, and the G7 Hiroshima AI Process.

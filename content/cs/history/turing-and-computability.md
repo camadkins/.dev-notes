@@ -32,6 +32,8 @@ A Turing machine consists of:
 
 Computation proceeds step-by-step: read the current symbol, consult the transition function, write a symbol, move left or right, and enter a new state. The machine halts when it reaches an accepting or rejecting state (or it may run forever).
 
+![A Turing machine: a finite-state head reads and writes one cell of an infinite tape, then moves and changes state.](assets/turing-machine-tape.svg)
+
 ### The Halting Problem
 
 Turing proved that no algorithm can determine, for every possible program-input pair, whether the program will eventually halt or loop forever. The proof is a diagonal argument:
@@ -91,3 +93,9 @@ This machine halts on every input - it is a **decider**. The halting problem tel
 - [[programming-paradigms-models-of-computation|Programming Paradigms & Models of Computation]] - how Turing's ideas map to real language design
 - [[von-neumann-architecture|Von Neumann Architecture]] - the practical realization of stored-program computation
 - [[history-of-the-internet|History of the Internet]] - a later chapter in computing's timeline
+
+## Sources
+
+- "Turing machine," Wikipedia. https://en.wikipedia.org/wiki/Turing_machine . Supports the machine's components (infinite tape over a finite alphabet, read/write head, finite state register, transition function), its origin in Turing's paper "On Computable Numbers, with an Application to the Entscheidungsproblem" (submitted 31 May 1936, published 1937), and its use as a reference model in complexity theory.
+- "Halting problem," Wikipedia. https://en.wikipedia.org/wiki/Halting_problem . Supports the undecidability of the halting problem, the proof by contradiction/diagonalization using a hypothetical decider, and the generalization to Rice's theorem.
+- "Church–Turing thesis," Wikipedia. https://en.wikipedia.org/wiki/Church%E2%80%93Turing_thesis . Supports Church's lambda calculus, the proven equivalence of lambda calculus and Turing machines, the thesis being informally stated (not a theorem) because "effective calculability" lacks a formal definition, and the equivalence of other models such as register machines and cellular automata.

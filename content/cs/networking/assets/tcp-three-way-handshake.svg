@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260" fill="none" role="img" aria-label="The TCP three-way handshake: client sends SYN with sequence 100, server replies SYN-ACK with sequence 300 acknowledging 101, client replies ACK 301, and both reach the established state">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .host { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .life { stroke: #93a3b8; stroke-width: 1.2; stroke-dasharray: 4 4; }
+    .edge { stroke: #58a6ff; stroke-width: 1.6; }
+    .name { fill: #e8e8e8; font-size: 15px; text-anchor: middle; }
+    .seg  { fill: #e8e8e8; font-size: 12px; text-anchor: middle; }
+    .st   { fill: #84a59d; font-size: 12px; text-anchor: middle; }
+    .desc { fill: #8b949e; font-size: 12px; text-anchor: middle; }
+  </style>
+
+  <rect class="host" x="40"  y="16" width="120" height="34" rx="4"/>
+  <rect class="host" x="360" y="16" width="120" height="34" rx="4"/>
+  <text class="name" x="100" y="38">client (A)</text>
+  <text class="name" x="420" y="38">server (B)</text>
+
+  <line class="life" x1="100" y1="50" x2="100" y2="240"/>
+  <line class="life" x1="420" y1="50" x2="420" y2="240"/>
+
+  <!-- SYN -->
+  <line class="edge" x1="100" y1="82" x2="416" y2="106" marker-end="url(#a)"/>
+  <text class="seg" x="258" y="82">SYN  SEQ=100</text>
+
+  <!-- SYN-ACK -->
+  <line class="edge" x1="420" y1="140" x2="104" y2="164" marker-end="url(#a)"/>
+  <text class="seg" x="262" y="140">SYN,ACK  SEQ=300 ACK=101</text>
+
+  <!-- ACK -->
+  <line class="edge" x1="100" y1="198" x2="416" y2="222" marker-end="url(#a)"/>
+  <text class="seg" x="258" y="198">ACK  SEQ=101 ACK=301</text>
+
+  <text class="st" x="100" y="120">SYN-SENT</text>
+  <text class="st" x="420" y="178">SYN-RECEIVED</text>
+  <text class="st" x="100" y="236">ESTABLISHED</text>
+  <text class="st" x="420" y="236">ESTABLISHED</text>
+
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#58a6ff"/>
+    </marker>
+  </defs>
+</svg>

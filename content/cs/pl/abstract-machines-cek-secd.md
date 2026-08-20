@@ -1,5 +1,5 @@
 ---
-title: Abstract Machines — CEK & SECD
+title: "Abstract Machines: CEK & SECD"
 description: How abstract machines model the step-by-step execution of programs through environments, continuations, and control structures.
 draft: false
 tags:
@@ -12,7 +12,7 @@ aliases:
 ---
 
 ## Overview
-Abstract machines are **executable semantic models** — they show *how* a language’s semantics can be realized through explicit computation states.  
+Abstract machines are **executable semantic models**. They show *how* a language’s semantics can be realized through explicit computation states.  
 Where operational semantics specifies transitions symbolically, abstract machines **simulate execution concretely** using environments, continuations, and stacks.
 
 > [!note]
@@ -109,7 +109,7 @@ Each state captures **expression**, **environment**, and **continuation**; the m
 - **CEK** corresponds to **call-by-value β-reduction**.  
 - **SECD** corresponds to a **stack-based CPS** execution style.
 
-A CPS transform explicitly passes continuations as functions — mirroring what CEK represents structurally.  
+A CPS transform explicitly passes continuations as functions, mirroring what CEK represents structurally.  
 CEK often bridges *theory* ([[lambda-calculus-syntax-substitution|λ-calculus]]) and *implementation* (interpreter loops).
 
 ### Relation to Modern Runtimes (from original)
@@ -150,7 +150,7 @@ Operand pushes to **S**, code in **C**, and call/return via **D**; mirrors a sta
 > - **Forgetting determinism:** every machine step must be defined for every well-formed state.
 
 > [!tip]
-> When debugging abstract machine traces, track all state components — missing one leads to apparent “nondeterminism.”
+> When debugging abstract machine traces, track all state components; missing one leads to apparent “nondeterminism.”
 
 > [!warning] Common pitfalls
 > - Mishandling environment capture leads to free-variable errors.
@@ -160,5 +160,11 @@ Operand pushes to **S**, code in **C**, and call/return via **D**; mirrors a sta
 
 ## See also
 - [[operational-semantics-big-step-small-step|Operational Semantics]]
-- [[lambda-calculus-encodings-booleans-pairs-church-numerals|Lambda Calculus — Basics]]
+- [[lambda-calculus-encodings-booleans-pairs-church-numerals|Lambda Calculus: Basics]]
 - [[cs/pl/continuations-cps|Continuations & CPS]]
+
+## Sources
+
+- "CEK Machine," Wikipedia. https://en.wikipedia.org/wiki/CEK_Machine . Supports the CEK machine modeling call-by-value evaluation with Control, Environment, and Continuation components, its invention by Matthias Felleisen and Daniel P. Friedman, its use of environment lookups and closures instead of textual substitution, and its derivation as a simplified form of the SECD machine.
+- "SECD machine," Wikipedia. https://en.wikipedia.org/wiki/SECD_machine . Supports the SECD machine's four components (Stack, Environment, Control, Dump), its origin with Peter Landin, and its use of the dump as a call stack saved during function calls.
+- "Abstract machine," Wikipedia. https://en.wikipedia.org/wiki/Abstract_machine . Supports the framing of abstract machines as models of computation used to analyze and implement programming language semantics independently of specific hardware.

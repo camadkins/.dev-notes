@@ -130,3 +130,10 @@ The fork model is safer (one crash doesn't take down others) but uses more memor
 - [[concurrency-models-threads-locks-and-actors|Concurrency Models - Threads, Locks & Actors]] - higher-level abstractions built on OS threads
 - [[virtual-memory|Virtual Memory]] - the address-space isolation that makes processes safe
 - [[file-systems|File Systems]] - another OS abstraction processes depend on
+
+## Sources
+
+- "Process (computing)," Wikipedia. https://en.wikipedia.org/wiki/Process_%28computing%29 . Supports the process model: isolated resources including file descriptors, OS-mediated isolation that prevents direct interference, and inter-process communication as the controlled sharing mechanism.
+- "Thread (computing)," Wikipedia. https://en.wikipedia.org/wiki/Thread_%28computing%29 . Supports threads sharing process memory and the 1:1 (kernel-level), M:1 (user-level), and M:N (hybrid) threading models behind the user-vs-kernel thread table and goroutine example.
+- "Context switch," Wikipedia. https://en.wikipedia.org/wiki/Context_switch . Supports saving and restoring registers, stack pointer, and program counter on a switch, and the TLB flush plus cold-cache cost that makes switches expensive.
+- "Scheduling (computing)," Wikipedia. https://en.wikipedia.org/wiki/Scheduling_%28computing%29 . Supports the scheduling policies in the table, including first-come-first-served, round-robin, and priority scheduling, and the responsiveness-vs-throughput quantum tradeoff.

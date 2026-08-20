@@ -1,6 +1,11 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
 
+const contentMetaOptions = {
+  editRepository: "https://github.com/camadkins/.dev-notes",
+  editBranch: "dev",
+}
+
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
@@ -14,9 +19,9 @@ export const sharedPageComponents: SharedLayout = {
         category: "Comments",
         categoryId: "DIC_kwDOQEDKCc4CwxwK",
         mapping: "pathname",
-        lang: "en"
-      }
-    })
+        lang: "en",
+      },
+    }),
   ],
   footer: Component.Footer({
     links: {
@@ -34,7 +39,7 @@ export const defaultContentPageLayout: PageLayout = {
       condition: (page) => page.fileData.slug !== "index",
     }),
     Component.ArticleTitle(),
-    Component.ContentMeta(),
+    Component.ContentMeta(contentMetaOptions),
     Component.TagList(),
   ],
   left: [
@@ -50,7 +55,7 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.ReaderMode() },
       ],
     }),
-    Component.DesktopOnly(Component.RecentNotes({limit: 3, showTags: false})),
+    Component.DesktopOnly(Component.RecentNotes({ limit: 3, showTags: false })),
     Component.Explorer(),
   ],
   right: [
@@ -62,7 +67,11 @@ export const defaultContentPageLayout: PageLayout = {
 
 // components for pages that display lists of pages  (e.g. tags or folders)
 export const defaultListPageLayout: PageLayout = {
-  beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],
+  beforeBody: [
+    Component.Breadcrumbs(),
+    Component.ArticleTitle(),
+    Component.ContentMeta(contentMetaOptions),
+  ],
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),

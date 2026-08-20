@@ -3,7 +3,9 @@ title: Binomial Distribution
 description: Counting successes in a fixed number of independent Bernoulli trials with constant probability.
 draft: false
 comments: true
-tags: [cs, statistics]
+tags:
+  - cs
+  - statistics
 date: 2026-03-12
 updated:
 aliases: []

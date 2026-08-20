@@ -1,6 +1,6 @@
 ---
 title: History & Genealogy of Languages
-description: From early high-level languages to structured, object-oriented, and modern multiparadigm design lines — tracing the lineage and evolution of programming languages.
+description: From early high-level languages to structured, object-oriented, and modern multiparadigm design lines, tracing the lineage and evolution of programming languages.
 draft: false
 tags:
   - cs
@@ -12,11 +12,11 @@ aliases: []
 
 ## Overview
 Programming languages didn’t evolve in isolation.  
-Each generation reflected the hardware, theory, and human goals of its time — from the need to simplify machine code to the modern push for safety, abstraction, and concurrency.
+Each generation reflected the hardware, theory, and human goals of its time, from the need to simplify machine code to the modern push for safety, abstraction, and concurrency.
 
 The story of programming languages is one of **layered innovation**.  
 Designs rarely appear from scratch; they inherit, borrow, and reinterpret ideas from earlier systems.  
-This genealogical perspective — tracing conceptual “bloodlines” — reveals how languages evolve as tools shaped by both **theory** and **practice**.
+This genealogical perspective, tracing conceptual “bloodlines,” reveals how languages evolve as tools shaped by both **theory** and **practice**.
 
 > [!note]
 > The genealogy of programming languages isn’t strictly hierarchical.  
@@ -26,11 +26,11 @@ This genealogical perspective — tracing conceptual “bloodlines” — reveal
 
 ## The Foundations (1940s–1950s)
 ### Assembly and Machine Codes
-Early computers like the ENIAC (1945) and UNIVAC (1951) were programmed directly in **machine instructions** — raw binary operations tied to specific architectures.  
+Early computers like the ENIAC (1945) and UNIVAC (1951) were programmed directly in **machine instructions**: raw binary operations tied to specific architectures.  
 Soon after, **assembly languages** emerged: symbolic mnemonics that abstracted opcodes into human-readable form (e.g., `MOV`, `ADD`, `JMP`).
 
 Although still hardware-bound, assembly introduced a key principle that persists today:
-> **Abstraction as productivity** — humans reason better about symbols than bits.
+> **Abstraction as productivity:** humans reason better about symbols than bits.
 
 ### FORTRAN (1957)
 **FORTRAN** (FORmula TRANslation), designed by John Backus and IBM, was the first widely adopted high-level programming language.  
@@ -42,7 +42,7 @@ Key innovations:
 - Early procedure abstractions via subroutines.
 
 > [!tip]
-> FORTRAN demonstrated that high-level abstraction could coexist with performance — a pivotal moment that legitimized compiled languages.
+> FORTRAN demonstrated that high-level abstraction could coexist with performance, a pivotal moment that legitimized compiled languages.
 
 ### LISP and the Rise of Symbolic Computation (1958)
 John McCarthy’s **LISP** introduced a new paradigm: programs as lists, and code as data.  
@@ -55,14 +55,14 @@ Distinctive traits:
 - Metaprogramming through homoiconicity (code = data).
 
 > [!note]
-> LISP’s ideas — higher-order functions, recursion, garbage collection — would shape functional languages and even modern scripting languages like Python and JavaScript.
+> LISP’s ideas (higher-order functions, recursion, garbage collection) would shape functional languages and even modern scripting languages like Python and JavaScript.
 
 ---
 
 ## The ALGOL Line (1960s–1970s)
 ### ALGOL (1958 → 1960)
 **ALGOL (ALGOrithmic Language)** emerged from European and American collaborations to formalize algorithm description.  
-It introduced **block structure**, **lexical scoping**, and **nested functions** — ideas foundational to almost every modern language.
+It introduced **block structure**, **lexical scoping**, and **nested functions**, ideas foundational to almost every modern language.
 
 Influences:
 - Introduced the **[[cs/pl/grammars-notation-bnfebnf|BNF grammar notation]]**, formalizing syntax description.
@@ -85,10 +85,10 @@ Pascal’s descendants include **Modula-2**, **Delphi**, and its conceptual infl
 
 ---
 
-## The Systems Line — C and Its Descendants
+## The Systems Line: C and Its Descendants
 ### C (1972)
 Developed by Dennis Ritchie at Bell Labs, **C** evolved from **B** (itself a descendant of BCPL).  
-It balanced high-level expressiveness with low-level control, making it ideal for system software — including **UNIX** itself.
+It balanced high-level expressiveness with low-level control, making it ideal for system software, including **UNIX** itself.
 
 Design philosophy:
 - Minimal abstraction overhead.
@@ -97,14 +97,14 @@ Design philosophy:
 - Manual resource management.
 
 > [!tip]
-> C pioneered the “close-to-metal but portable” ethos — becoming the lingua franca of operating systems, embedded systems, and compilers.
+> C pioneered the “close-to-metal but portable” ethos, becoming the lingua franca of operating systems, embedded systems, and compilers.
 
 ### Descendants and Influence
 C’s syntax and model became the DNA for an entire family:
-- **C++ (1983)** — added classes, templates, and RAII for resource safety.  
-- **Objective-C (1984)** — blended C with Smalltalk’s messaging model.  
-- **C# (2000)** — brought C syntax to managed runtime environments (the .NET CLR).  
-- **Rust (2015)** — reimagined systems programming with ownership and borrow checking to eliminate memory errors.
+- **C++ (1983):** added classes, templates, and RAII for resource safety.  
+- **Objective-C (1984):** blended C with Smalltalk’s messaging model.  
+- **C# (2000):** brought C syntax to managed runtime environments (the .NET CLR).  
+- **Rust (2015):** reimagined systems programming with ownership and borrow checking to eliminate memory errors.
 
 The “C lineage” defines a spectrum from **manual control (C)** to **safe abstraction (Rust)**.
 
@@ -116,11 +116,11 @@ The first **object-oriented language**, **Simula 67**, introduced *classes*, *ob
 It extended ALGOL with runtime environments where each object encapsulated both data and behavior.
 
 > [!note]
-> “Object” in Simula meant an autonomous entity with internal state and communication channels — not just a data record.
+> “Object” in Simula meant an autonomous entity with internal state and communication channels, more than a data record.
 
 ### Smalltalk (1972–1980)
 Developed at Xerox PARC by Alan Kay’s team, **Smalltalk** expanded OOP into a complete paradigm:
-- Everything is an object — even control structures.
+- Everything is an object, even control structures.
 - Interaction via message passing.
 - Dynamic typing and live image environments.
 
@@ -144,7 +144,7 @@ Key characteristics:
 - Used in AI, natural language processing, and rule-based reasoning.
 
 > [!note]
-> Prolog embodies declarative semantics — the program describes facts and rules, not control flow.
+> Prolog embodies declarative semantics: the program describes facts and rules, not control flow.
 
 ### SQL (1974)
 Though domain-specific, **SQL** (Structured Query Language) exemplified declarative power applied to data manipulation.  
@@ -166,21 +166,21 @@ Guido van Rossum’s **Python** distilled readability and simplicity:
 - Dynamic typing with safe high-level abstractions.
 - Extensive standard library.
 
-Python balanced scripting convenience with general-purpose design — later dominating AI, data science, and education.
+Python balanced scripting convenience with general-purpose design, later dominating AI, data science, and education.
 
 ### JavaScript (1995)
 Created by Brendan Eich in just ten days, **JavaScript** introduced event-driven, prototype-based programming to the browser.  
 Despite its rushed origins, it evolved into one of the most ubiquitous languages ever created.
 
 > [!tip]
-> JavaScript’s early dynamic nature and functional mix (via closures) mirrored LISP’s ideas in disguise — proof that paradigms reemerge in new contexts.
+> JavaScript’s early dynamic nature and functional mix (via closures) mirrored LISP’s ideas in disguise, proof that paradigms reemerge in new contexts.
 
 ---
 
 ## Functional Renaissance (1980s–2000s)
 ### ML and Hindley–Milner Typing
 **ML (MetaLanguage)**, developed in the 1970s for theorem proving, introduced **type inference** via the **[[cs/pl/hindleymilner-type-inference|Hindley–Milner]]** system.  
-This made strong static typing practical and expressive — later adopted by OCaml, F#, and Haskell.
+This made strong static typing practical and expressive, later adopted by OCaml, F#, and Haskell.
 
 ### Haskell (1990)
 A purely functional language built to unify research efforts:
@@ -197,7 +197,7 @@ Haskell became a testbed for type system research and influenced modern language
 
 ## The Multiparadigm Era (2000s–Present)
 Modern languages don’t commit to a single paradigm.  
-They borrow across lines — combining functional purity, OO modularity, and declarative clarity.
+They borrow across lines, combining functional purity, OO modularity, and declarative clarity.
 
 | Language | Influences | Key Focus |
 |-----------|-------------|-----------|
@@ -210,11 +210,11 @@ They borrow across lines — combining functional purity, OO modularity, and dec
 | **TypeScript** | JavaScript, ML | Gradual typing, structural inference |
 
 > [!tip]
-> The evolution of languages is converging on a few central goals: **safety, composability, concurrency, and clarity** — regardless of syntax or paradigm.
+> The evolution of languages is converging on a few central goals: **safety, composability, concurrency, and clarity**, regardless of syntax or paradigm.
 
 ---
 
-## Design Evolution — Shifts in Philosophy
+## Design Evolution: Shifts in Philosophy
 Across seven decades, language design priorities have cycled through recurring themes:
 
 | Era | Core Motivation | Design Emphasis |
@@ -244,16 +244,22 @@ No single paradigm dominates; instead, designers selectively integrate proven id
 - Declarative constraints for clarity.
 - Systems-level efficiency for scale.
 
-The result is a mature ecosystem — where learning one language often unlocks conceptual fluency in many others.
+The result is a mature ecosystem, where learning one language often unlocks conceptual fluency in many others.
 
 > [!tip]
-> Understanding language genealogy isn’t nostalgia — it’s **pattern recognition**.  
+> Understanding language genealogy isn’t nostalgia; it’s **pattern recognition**.  
 > Each “new” paradigm is a refinement of older ones, adapted to contemporary hardware, theory, and human needs.
 
 ---
 
 ## See also
-- [[cs/pl/grammars-notation-bnfebnf|Grammars — BNF & EBNF]]
+- [[cs/pl/grammars-notation-bnfebnf|Grammars: BNF & EBNF]]
 - [[cs/pl/grammar-ambiguity-parse-trees|Grammar Ambiguity & Parse Trees]]
 - [[cs/pl/programming-paradigms-models-of-computation|Programming Paradigms & Models of Computation]]
 - [[cs/pl/evaluation-order-and-strictness|Evaluation Order & Strictness]]
+
+## Sources
+
+- "History of programming languages," Wikipedia. https://en.wikipedia.org/wiki/History_of_programming_languages . Supports the overall progression from early specialized/mechanical languages through high-level languages, and FORTRAN as the first commercially available high-level language developed in the mid-1950s.
+- "Fortran," Wikipedia. https://en.wikipedia.org/wiki/Fortran . Supports FORTRAN being developed by IBM with a reference manual released in 1956, its design for numeric and scientific computation, and its status as an early compiled high-level language.
+- "Lisp (programming language)," Wikipedia. https://en.wikipedia.org/wiki/Lisp_%28programming_language%29 . Supports LISP originating in the late 1950s, its fully parenthesized prefix notation, list processing roots, and its standing as the second-oldest high-level language still in common use after Fortran.

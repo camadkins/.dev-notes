@@ -4,8 +4,8 @@ description: Systematic exploration of graphs using queues (BFS) and stacks/recu
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2025-12-17
 aliases: []

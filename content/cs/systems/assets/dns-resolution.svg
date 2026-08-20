@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 175" fill="none" role="img" aria-label="DNS resolution: a recursive resolver walks the hierarchy from a root nameserver to the TLD server to the authoritative server, and the answer is cached with a TTL on the way back">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .box   { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .boxf  { fill: rgba(30,55,40,0.6);  stroke: #84a59d; stroke-width: 1.5; }
+    .t  { fill: #e8e8e8; font-size: 12px; text-anchor: middle; }
+    .s  { fill: #8b949e; font-size: 11px; text-anchor: middle; }
+    .a  { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .anno { fill: #d29922; font-size: 11px; text-anchor: middle; }
+  </style>
+  <rect class="box" x="14"  y="46" width="92" height="46" rx="4"/><text class="t" x="60"  y="66">stub</text><text class="t" x="60"  y="82">client</text>
+  <rect class="box" x="124" y="46" width="92" height="46" rx="4"/><text class="t" x="170" y="66">recursive</text><text class="t" x="170" y="82">resolver</text>
+  <rect class="box" x="234" y="46" width="92" height="46" rx="4"/><text class="t" x="280" y="73">root (.)</text>
+  <rect class="box" x="344" y="46" width="92" height="46" rx="4"/><text class="t" x="390" y="73">.com TLD</text>
+  <rect class="boxf" x="454" y="46" width="92" height="46" rx="4"/><text class="t" x="500" y="66">authorit-</text><text class="t" x="500" y="82">ative</text>
+  <line class="a" x1="106" y1="69" x2="122" y2="69"/><polygon points="122,69 114,65 114,73" fill="#93a3b8"/>
+  <line class="a" x1="216" y1="69" x2="232" y2="69"/><polygon points="232,69 224,65 224,73" fill="#93a3b8"/>
+  <line class="a" x1="326" y1="69" x2="342" y2="69"/><polygon points="342,69 334,65 334,73" fill="#93a3b8"/>
+  <line class="a" x1="436" y1="69" x2="452" y2="69"/><polygon points="452,69 444,65 444,73" fill="#93a3b8"/>
+  <path class="a" d="M 500 92 L 500 132 L 60 132 L 60 94"/>
+  <polygon points="60,94 56,102 64,102" fill="#93a3b8"/>
+  <text class="anno" x="280" y="126">IP address returned, cached with a TTL at each hop</text>
+  <text class="s" x="280" y="160">the resolver walks the hierarchy once; caching keeps the next lookup local</text>
+</svg>

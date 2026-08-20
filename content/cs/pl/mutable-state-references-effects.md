@@ -16,15 +16,15 @@ However, real-world programming requires **mutation**: variables that change, da
 To reason about this, programming languages extend their semantics with **locations** and a **store (σ)**.
 
 > [!note]
-> Mutable state introduces *time* into semantics — expressions no longer evaluate to a single value, but to a value **and a new store**.
+> Mutable state introduces *time* into semantics: expressions no longer evaluate to a single value, but to a value **and a new store**.
 
 ---
 
 ## Core Concepts
 ### Values, Locations, and the Store
-- **Values** — immutable entities (integers, booleans, closures).
-- **Locations (ℓ)** — addresses in memory where values reside.
-- **Store (σ)** — mapping of locations to values:  
+- **Values**: immutable entities (integers, booleans, closures).
+- **Locations (ℓ)**: addresses in memory where values reside.
+- **Store (σ)**: mapping of locations to values:  
 ```
 
 σ : Location → Value
@@ -150,7 +150,7 @@ Final result:
 ```
 
 > [!tip]  
-> This pattern — read, modify, write — is fundamental in imperative programming.  
+> This pattern (read, modify, write) is fundamental in imperative programming.  
 > In semantics, it manifests as _store-passing_ between expressions.
 
 ---
@@ -179,7 +179,7 @@ because both `a` and `b` point to the same ℓ.
 
 ![Aliasing: two identifiers pointing to the same store location](assets/mutation-aliasing.svg)
 
-Aliasing is powerful but dangerous — it couples parts of a program through shared state.  
+Aliasing is powerful but dangerous: it couples parts of a program through shared state.  
 Optimizations and reasoning become harder because order now matters.
 
 ---
@@ -206,7 +206,7 @@ Each step mutates the shared store.
 Effects compose _through time_, not through function return values.
 
 > [!tip]  
-> Effects break referential transparency — two identical expressions may yield different results depending on σ.
+> Effects break referential transparency: two identical expressions may yield different results depending on σ.
 
 ---
 
@@ -219,7 +219,7 @@ Effects compose _through time_, not through function return values.
 |`!r`|same result for same r|may differ if store changes|
 
 A pure function `f(x)` always yields the same result for the same input.  
-With mutable state, the meaning depends on σ — the _state of the world_.
+With mutable state, the meaning depends on σ, the _state of the world_.
 
 > [!warning]  
 > Mutation makes equational reasoning (substitution, simplification) invalid unless effects are controlled or isolated.
@@ -259,7 +259,7 @@ ref x       ↦  newRef x
 r := v      ↦  writeRef r v
 ```
 
-This bridges imperative effects and functional purity — making mutations _explicit in type signatures_.
+This bridges imperative effects and functional purity, making mutations _explicit in type signatures_.
 
 ---
 
@@ -291,10 +291,19 @@ This bridges imperative effects and functional purity — making mutations _expl
 
 ## See also
 
-- [[cs/pl/language-design-values-variables-environments|Language Design — Values, Variables & Environments]]
+- [[cs/pl/language-design-values-variables-environments|Language Design: Values, Variables & Environments]]
     
 - [[cs/pl/scoping-binding-and-closures|Scoping, Binding, and Closures]]
     
-- [[cs/pl/operational-semantics-big-step-small-step|Operational Semantics — Big-Step & Small-Step]]
+- [[cs/pl/operational-semantics-big-step-small-step|Operational Semantics: Big-Step & Small-Step]]
     
 - [[evaluation-order-and-strictness | Evaluation Order & Strictness]]
+
+---
+
+## Sources
+
+- "Reference (computer science)," Wikipedia. https://en.wikipedia.org/wiki/Reference_%28computer_science%29 . Supports a reference as a value enabling indirect access to a datum in memory, and dereferencing as the act of accessing that datum, grounding `ref`, `!`, and `:=`.
+- "Side effect (computer science)," Wikipedia. https://en.wikipedia.org/wiki/Side_effect_%28computer_science%29 . Supports a side effect as an observable effect beyond returning a value, such as modifying a non-local or static variable, which is what mutation introduces.
+- "Referential transparency," Wikipedia. https://en.wikipedia.org/wiki/Referential_transparency . Supports referential transparency as the property that a subexpression can be replaced by another with the same value without changing meaning, which mutation can break.
+- "Aliasing (computing)," Wikipedia. https://en.wikipedia.org/wiki/Aliasing_%28computing%29 . Supports aliasing as a situation where one memory location is reachable through multiple names, so modifying through one name affects the others.

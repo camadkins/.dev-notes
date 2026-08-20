@@ -13,7 +13,7 @@ aliases: []
 
 ## Intuition
 
-Unix is not just an operating system - it is a **design philosophy** that shaped how we think about software. The core idea is radical simplicity: build small programs that each do one thing well, connect them with text streams, and let the user compose complex behavior from simple parts. This philosophy, born at Bell Labs in 1969, led directly to C, influenced every major OS that followed, and seeded the open-source movement that now powers most of the internet's infrastructure.
+Unix is more than an operating system; it is a **design philosophy** that shaped how we think about software. The core idea is radical simplicity: build small programs that each do one thing well, connect them with text streams, and let the user compose complex behavior from simple parts. This philosophy, born at Bell Labs in 1969, led directly to C, influenced every major OS that followed, and seeded the open-source movement that now powers most of the internet's infrastructure.
 
 If modern software development has a cultural origin story, it runs through Unix. The terminal you open, the pipes you chain, the package manager you invoke - all trace back to decisions made by Ken Thompson, Dennis Ritchie, and their colleagues over fifty years ago.
 
@@ -26,7 +26,7 @@ If modern software development has a cultural origin story, it runs through Unix
 After Bell Labs withdrew from the Multics project (an ambitious but overengineered time-sharing system), Ken Thompson and Dennis Ritchie built a stripped-down alternative on a spare PDP-7:
 
 - **1969**: Thompson wrote the first Unix in assembly - a single-user system with a file system, a shell, and a few utilities.
-- **1971**: Unix moved to the PDP-11. The first edition was documented in the famous "Unix Programmer's Manual."
+- **1970–1971**: Unix was officially named and ran on the PDP-11; the First Edition "Unix Programmer's Manual" followed in 1971.
 - **1973**: Ritchie rewrote Unix in **C**, a language he designed specifically for systems programming. This made Unix **portable** - it could be recompiled for different hardware, an unprecedented capability for an OS.
 
 The decision to write an OS in a high-level language was revolutionary. It tied Unix's fate to C and gave both enormous momentum.
@@ -59,7 +59,7 @@ See [[compilation-vs-interpretation|Compilation vs Interpretation]] for how C's 
 In the late 1970s, UC Berkeley developed its own Unix variant - the **Berkeley Software Distribution (BSD)**:
 
 - Added virtual memory, the TCP/IP networking stack (which became the internet's reference implementation), and the C shell.
-- **1983–1994**: Legal battles between AT&T (which owned Unix rights) and BSD delayed BSD's adoption, opening a window for Linux.
+- **1992–1994**: Legal battles between AT&T's Unix subsidiary and BSDi delayed BSD's adoption, opening a window for Linux.
 - BSD lives on today in **FreeBSD**, **OpenBSD**, **NetBSD**, and as the kernel underpinning **macOS** (Darwin/XNU).
 
 ### GNU and Linux (1983–1991)
@@ -102,6 +102,8 @@ This pipeline:
 
 Seven small programs, none of which knows about the others, composed via pipes to answer a specific question. No single monolithic tool needed. This is the Unix philosophy at work - and it is why Unix-descended systems dominate server infrastructure decades later.
 
+![A Unix pipeline: grep, sort, uniq and sort each do one job, composed left to right by pipes into a query no single tool implements.](assets/unix-pipeline.svg)
+
 ---
 
 ## Related Notes
@@ -111,3 +113,9 @@ Seven small programs, none of which knows about the others, composed via pipes t
 - [[von-neumann-architecture|Von Neumann Architecture]] - the hardware model Unix was built to manage
 - [[turing-and-computability|Turing & Computability]] - the theoretical universality that makes portable OSes possible
 - [[history-of-the-internet|History of the Internet]] - BSD's TCP/IP stack became the internet's foundation
+
+## Sources
+
+- "History of Unix," Wikipedia. https://en.wikipedia.org/wiki/History_of_Unix . Supports Unix's start at Bell Labs in 1969 after the withdrawal from Multics (Ken Thompson on a PDP-7), the move to the PDP-11 and the system being named around 1970, the 1973 rewrite in C (Version 4) that gave portability, the BSD networking releases, and the AT&T/BSDi copyright litigation of the early 1990s.
+- "Unix philosophy," Wikipedia. https://en.wikipedia.org/wiki/Unix_philosophy . Supports Doug McIlroy as inventor of the Unix pipe and source of the "do one thing well / work together / handle text streams" summary, and "worse is better" as Richard P. Gabriel's phrase.
+- "History of free and open-source software," Wikipedia. https://en.wikipedia.org/wiki/History_of_free_and_open-source_software . Supports the 1983 launch of the GNU Project by Richard Stallman, the 1991 release of the Linux kernel by Linus Torvalds, the GPL as a copyleft license, and the 1998 coinage of "open source" and founding of the Open Source Initiative.

@@ -170,7 +170,7 @@ function insertNonFull(x, k):
 - Example: **HFS+, NTFS, ext4**.
     
 
-![B-tree nodes mapped to disk pages — each node read is one disk I/O loading multiple keys](assets/btree-disk-blocks.svg)
+![Each B-tree node sits on one disk page, so one read compares many keys](assets/btree-disk-blocks.svg)
 
 ---
 

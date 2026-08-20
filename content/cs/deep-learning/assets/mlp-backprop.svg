@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+  <style>
+    .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .back { stroke: #d29922; stroke-width: 1.5; fill: none; stroke-dasharray: 5 4; }
+    .node { fill: #58a6ff; }
+    .t { fill: #e8e8e8; font-size: 13px; }
+    .anno { fill: #d29922; font-size: 12px; }
+    .desc { fill: #8b949e; font-size: 12px; }
+    .green { fill: #84a59d; }
+  </style>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#93a3b8"/>
+    </marker>
+    <marker id="barr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#d29922"/>
+    </marker>
+  </defs>
+
+  <!-- layer labels -->
+  <text class="desc" x="110" y="40" text-anchor="middle">input</text>
+  <text class="desc" x="340" y="40" text-anchor="middle">hidden</text>
+  <text class="desc" x="540" y="40" text-anchor="middle">output</text>
+  <text class="desc" x="650" y="40" text-anchor="middle">loss</text>
+
+  <!-- input nodes -->
+  <circle class="node" cx="110" cy="140" r="14"/>
+  <circle class="node" cx="110" cy="230" r="14"/>
+  <text class="t" x="110" y="145" text-anchor="middle">x1</text>
+  <text class="t" x="110" y="235" text-anchor="middle">x2</text>
+
+  <!-- hidden nodes -->
+  <circle class="box" cx="340" cy="120" r="24"/>
+  <circle class="box" cx="340" cy="240" r="24"/>
+  <text class="t" x="340" y="125" text-anchor="middle">h1</text>
+  <text class="t" x="340" y="245" text-anchor="middle">h2</text>
+
+  <!-- output node -->
+  <circle class="box" cx="540" cy="180" r="26"/>
+  <text class="t" x="540" y="185" text-anchor="middle">o</text>
+
+  <!-- loss node -->
+  <rect class="box" x="628" y="158" width="46" height="44" rx="8"/>
+  <text class="t" x="651" y="185" text-anchor="middle">J</text>
+
+  <!-- forward edges -->
+  <line class="edge" x1="124" y1="136" x2="317" y2="123" marker-end="url(#arr)"/>
+  <line class="edge" x1="124" y1="146" x2="318" y2="232" marker-end="url(#arr)"/>
+  <line class="edge" x1="124" y1="224" x2="318" y2="128" marker-end="url(#arr)"/>
+  <line class="edge" x1="124" y1="234" x2="317" y2="237" marker-end="url(#arr)"/>
+  <line class="edge" x1="364" y1="120" x2="516" y2="172" marker-end="url(#arr)"/>
+  <line class="edge" x1="364" y1="240" x2="516" y2="188" marker-end="url(#arr)"/>
+  <line class="edge" x1="566" y1="180" x2="626" y2="180" marker-end="url(#arr)"/>
+
+  <!-- forward label -->
+  <text class="desc" x="250" y="300" text-anchor="middle">forward pass: inputs flow to outputs, each node stores its value</text>
+
+  <!-- backward gradient flow -->
+  <path class="back" d="M 626 205 C 560 250, 430 250, 366 250" marker-end="url(#barr)"/>
+  <path class="back" d="M 512 210 C 440 300, 400 300, 340 268" marker-end="url(#barr)"/>
+  <path class="back" d="M 320 262 C 240 320, 190 300, 128 250" marker-end="url(#barr)"/>
+  <text class="anno" x="470" y="335" text-anchor="middle">backward pass: chain rule carries &#8706;J/&#8706;w from J back to every weight</text>
+</svg>

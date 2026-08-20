@@ -4,8 +4,8 @@ description: FIFO container supporting enqueue/dequeue; designs for arrays (ring
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2026-01-10
 aliases: []

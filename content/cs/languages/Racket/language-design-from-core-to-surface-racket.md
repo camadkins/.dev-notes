@@ -6,9 +6,9 @@ comments: true
 tags:
   - cs
   - languages
-  - racket
 date: 2025-10-24
-updated:
+updated: 2026-07-22
+maturity: seed
 aliases: []
 # potential-diagram: pipeline Source → Macro Expander → Desugared Core → Evaluator
 ---
@@ -32,5 +32,7 @@ Programs are **expanded** (desugared) before evaluation.
 - Reasoning about programs happens at the **core** level; surfaces are convenience layers.
 
 **See also**
-- [[lambda-calculus-evaluation-strategies|Lambda Calculus - Evaluation Strategies]]
-- [[cs/languages/racket/index|Racket]]
+- [[cs/pl/lambda-calculus-evaluation-strategies|Lambda Calculus - Evaluation Strategies]]
+- [[cs/languages/Racket/index|Racket]]
+- [[cs/languages/Racket/s-expressions-and-evaluation|S-Expressions and Evaluation]]
+- [[cs/languages/Racket/hygienic-macros-and-syntax-rules|Hygienic Macros and syntax-rules]]

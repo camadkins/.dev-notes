@@ -55,7 +55,7 @@ Consider keys `{to, tea, ted, ten, in, inn}` over lowercase ASCII.
 - **Compressed trie:** The chain `t → e → a` can remain separate from `t → e → d` by labeling edges `"te"` then `"a"`/`"d"`/`"n"`, or by compressing `"to"` as a single edge from `t`. Node count drops; search compares **substrings** per edge.
 - **Suffix trie** (for `”banana$”`): Insert `$`, `a$`, `na$`, `ana$`, `nana$`, `anana$`, `banana$`. Substring `”ana”` appears as a path multiple times via different suffix starts.
 
-![Suffix trie for “banana$” — 23 nodes from 7 suffixes, showing quadratic space from repeated substrings like “ana”](assets/suffix-trie-fanout.svg)
+![A suffix trie for banana$ with the repeated ana subtree marked](assets/suffix-trie-fanout.svg)
 
 ![Path compression: a standard trie's single-child chain (i,n,t,e,r) collapsed into one “inter” edge in a compressed trie](assets/trie-path-compression.svg)
 

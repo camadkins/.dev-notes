@@ -4,8 +4,8 @@ description: Fixed-size ring buffer with wrap-around indexing for bounded FIFO; 
 draft: false
 comments: true
 tags:
- - cs
- - dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2025-12-11
 aliases: []

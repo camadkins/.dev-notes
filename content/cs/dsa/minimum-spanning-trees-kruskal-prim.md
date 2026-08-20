@@ -5,8 +5,8 @@ description: MST fundamentals via cut/cycle properties and two classic workflows
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2026-01-03
 aliases: []

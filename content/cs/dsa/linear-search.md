@@ -4,8 +4,8 @@ description: Sequentially scan an array or list for a target with early exit; op
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2025-11-14
 aliases: []

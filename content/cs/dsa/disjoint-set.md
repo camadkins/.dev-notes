@@ -3,8 +3,8 @@ title: Disjoint Set (Union–Find)
 description: Maintain dynamic connectivity via find/union with path compression and union by rank/size; supports near-constant-time operations.
 draft: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated:
 aliases:

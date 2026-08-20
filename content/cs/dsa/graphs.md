@@ -4,8 +4,8 @@ description: Vertices and edges; directed vs undirected; weighted vs unweighted;
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2026-01-14
 aliases: []

@@ -100,7 +100,7 @@ There are three common approaches:
 > [!warning]  
 > Duplicate-handling must be consistent — mixing policies can silently violate ordering.
 
-![BST insertion trace: inserting 42 into right-skewed tree [40, 50, 60] — recursive descent finds null left link at 50](assets/bst-insertion-trace.svg)
+![Inserting 42 into the chain 40, 50, 60, descending right then left](assets/bst-insertion-trace.svg)
 
 ---
 

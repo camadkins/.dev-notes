@@ -97,3 +97,4 @@ The most famous application is the **Naive Bayes classifier**, which is really j
 - [[conditional-probability|Conditional Probability]] - the foundation Bayes' rule rearranges
 - [[bayesian-inference|Bayesian Inference]] - the full inference framework built around this rule
 - [[probability-distributions|Probability Distributions]] - priors and likelihoods are distributions
+- [[the-impossibility-of-algorithmic-fairness|The Impossibility of Algorithmic Fairness]] - calibration and base rates are Bayes' rule applied to risk scores, and why fairness criteria collide

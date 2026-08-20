@@ -108,3 +108,10 @@ Every step in this chain traces back to a design decision made between 1969 and 
 - [[turing-and-computability|Turing & Computability]] - the theoretical foundation underlying all networked computation
 - [[von-neumann-architecture|Von Neumann Architecture]] - the machines the internet connects
 - [[unix-and-open-source|Unix & Open Source]] - the OS culture that shaped internet infrastructure
+
+## Sources
+
+- "History of the Internet," Wikipedia. https://en.wikipedia.org/wiki/History_of_the_Internet . Supports packet switching developed independently by Paul Baran (RAND, early 1960s) and Donald Davies (NPL, 1965), the 1969 ARPANET first message between UCLA and SRI (the link crashed as the G of "LOG" was typed, after "LO" went through), Cerf and Kahn publishing TCP/IP in 1974, the ARPANET cutover to TCP/IP in January 1983, and the World Wide Web resulting from Tim Berners-Lee's work at CERN in 1989-90.
+- "Ray Tomlinson," Wikipedia. https://en.wikipedia.org/wiki/Ray_Tomlinson . Supports Tomlinson writing the first network email on ARPANET in 1971 and choosing the @ sign to separate user from host.
+- "Domain Name System," Wikipedia. https://en.wikipedia.org/wiki/Domain_Name_System . Supports Paul Mockapetris creating DNS in 1983 (RFC 882 and RFC 883, November 1983) as a hierarchical, distributed system mapping domain names to IP addresses.
+- "Mosaic (web browser)," Wikipedia. https://en.wikipedia.org/wiki/Mosaic_%28web_browser%29 . Supports NCSA Mosaic's 1993 release popularizing graphical browsing and its developers going on to found Netscape (Navigator released 1994).

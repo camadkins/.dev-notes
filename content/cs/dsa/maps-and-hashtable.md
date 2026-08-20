@@ -5,8 +5,8 @@ description: Key→value dictionary ADT and its fast hash-table implementations;
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2025-11-06
 aliases: []

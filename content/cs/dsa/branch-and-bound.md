@@ -4,8 +4,8 @@ description: Optimization framework that explores solution spaces through branch
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2025-10-29
 aliases:

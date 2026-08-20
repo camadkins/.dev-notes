@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 232" fill="none" role="img" aria-label="The four layers of the DoD internet model with an example protocol at each level">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .name { fill: #e8e8e8; font-size: 16px; }
+    .eg { fill: #8b949e; font-size: 12px; text-anchor: end; }
+  </style>
+  <rect class="box" x="40" y="16"  width="300" height="44" rx="4"/>
+  <rect class="box" x="40" y="68"  width="300" height="44" rx="4"/>
+  <rect class="box" x="40" y="120" width="300" height="44" rx="4"/>
+  <rect class="box" x="40" y="172" width="300" height="44" rx="4"/>
+  <text class="name" x="56" y="43">Application</text><text class="eg" x="324" y="43">HTTP, DNS, SMTP</text>
+  <text class="name" x="56" y="95">Transport</text><text class="eg" x="324" y="95">TCP, UDP</text>
+  <text class="name" x="56" y="147">Internet</text><text class="eg" x="324" y="147">IP</text>
+  <text class="name" x="56" y="199">Link</text><text class="eg" x="324" y="199">Ethernet, Wi-Fi</text>
+</svg>

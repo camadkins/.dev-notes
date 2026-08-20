@@ -4,8 +4,8 @@ description: Practical mechanics of pushing to and popping from a queue, with in
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2025-11-11
 aliases: []

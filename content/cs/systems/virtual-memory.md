@@ -148,3 +148,10 @@ On subsequent accesses to the same page, the TLB hits and the translation costs 
 - [[memory-allocation|Memory Allocation]] - how user-space allocators (malloc, arenas) work on top of virtual memory
 - [[processes-and-threads|Processes & Threads]] - virtual memory provides the isolation between processes
 - [[file-systems|File Systems]] - memory-mapped files bridge virtual memory and the file system
+
+## Sources
+
+- "Virtual memory," Wikipedia. https://en.wikipedia.org/wiki/Virtual_memory . Supports the core claims that virtual memory is a hardware+OS technique creating the illusion of a large contiguous private address space, that the MMU maps virtual to physical addresses, and that it provides memory isolation and the ability to reference more memory than is physically present.
+- "Translation lookaside buffer," Wikipedia. https://en.wikipedia.org/wiki/Translation_lookaside_buffer . Supports the description of the TLB as a fast MMU cache of recent virtual-to-physical translations, the TLB hit path, and the TLB miss triggering a multi-level page-table walk that is slow relative to processor speed.
+- "Page replacement algorithm," Wikipedia. https://en.wikipedia.org/wiki/Page_replacement_algorithm . Supports the section on choosing which page to evict on a page fault when RAM is full, and the use of LRU approximations rather than exact LRU in practice.
+- "Copy-on-write," Wikipedia. https://en.wikipedia.org/wiki/Copy-on-write . Supports the copy-on-write account: after fork, pages are shared read-only and a write faults so the kernel copies just that page, making fork efficient especially when the child immediately execs.

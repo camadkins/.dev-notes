@@ -11,7 +11,7 @@ aliases: []
 ---
 
 ## Overview
-Object-oriented programming (OOP) organizes software around **objects** — entities that combine data (*state*) and functions (*behavior*).  
+Object-oriented programming (OOP) organizes software around **objects**: entities that combine data (*state*) and functions (*behavior*).  
 Languages like Java, C++, and Python implement OOP through **classes**, **inheritance**, and **method dispatch** systems.
 
 While OOP is sometimes treated as a paradigm shift, it’s fundamentally a set of **language-level abstractions for modularity, polymorphism, and code reuse**.
@@ -77,7 +77,7 @@ class FlyingFish extends Animal, Swimmer, Flyer
 ```
 
 > [!warning]  
-> Multiple inheritance introduces the **diamond problem** — ambiguity when two superclasses define the same method or field.
+> Multiple inheritance introduces the **diamond problem**: ambiguity when two superclasses define the same method or field.
 
 ### Composition vs Inheritance
 
@@ -107,7 +107,7 @@ Shape s = new Circle(5);
 System.out.println(s.area());
 ```
 
-The method invoked depends on the **runtime type**, not the static type — that’s **dynamic dispatch**.
+The method invoked depends on the **runtime type**, not the static type. That’s **dynamic dispatch**.
 
 ---
 
@@ -226,7 +226,7 @@ a == b    # true  (structural equality)
 a is b    # false (distinct objects)
 ```
 
-Identity allows mutable state tracking — essential for references and effects.
+Identity allows mutable state tracking, essential for references and effects.
 
 ---
 
@@ -264,7 +264,7 @@ Languages differ in how they express object and class relationships:
 
 ## Design Perspective
 
-Classes aren’t just technical — they define **modularity boundaries**:
+Classes aren’t just technical. They define **modularity boundaries**:
 
 - Abstract data types (ADTs) evolved into objects.
     
@@ -285,6 +285,15 @@ Classes aren’t just technical — they define **modularity boundaries**:
     
 - [[cs/pl/records-variants-and-pattern-matching|Records, Variants, and Pattern Matching]]
     
-- [[cs/pl/language-design-values-variables-environments|Language Design — Values, Variables & Environments]]
+- [[cs/pl/language-design-values-variables-environments|Language Design: Values, Variables & Environments]]
     
 - [[cs/pl/compilation-vs-interpretation|Compilation vs Interpretation]]
+
+---
+
+## Sources
+
+- "Object-oriented programming," Wikipedia. https://en.wikipedia.org/wiki/Object-oriented_programming . Supports OOP as a paradigm based on objects that encapsulate data and functions, with programs built from interacting objects.
+- "Inheritance (object-oriented programming)," Wikipedia. https://en.wikipedia.org/wiki/Inheritance_%28object-oriented_programming%29 . Supports inheritance as deriving new subclasses from existing super/base classes while retaining and extending implementation.
+- "Dynamic dispatch," Wikipedia. https://en.wikipedia.org/wiki/Dynamic_dispatch . Supports dynamic dispatch as selecting which implementation of a polymorphic method to call at run time, a defining characteristic of OOP languages.
+- "Multiple dispatch," Wikipedia. https://en.wikipedia.org/wiki/Multiple_dispatch . Supports multiple dispatch as dispatching a function based on the runtime types of more than one argument, generalizing single-dispatch polymorphism.

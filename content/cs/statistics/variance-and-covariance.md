@@ -96,7 +96,7 @@ A moderately strong positive linear association - more study hours correlate wit
 
 ## Why It Matters in CS
 
-- **PCA and dimensionality reduction.** Principal Component Analysis finds directions of maximum variance by computing eigenvectors of the **covariance matrix**. Features with high covariance are collapsed into single components, reducing dimensionality while preserving information.
+- **PCA and dimensionality reduction.** [[pca-and-dimensionality-reduction|Principal Component Analysis]] finds directions of maximum variance by computing eigenvectors of the **covariance matrix**. Features with high covariance are collapsed into single components, reducing dimensionality while preserving information.
 - **Stability of randomized algorithms.** Low variance in a randomized algorithm's runtime means its performance is predictable. Chebyshev's inequality bounds tail probabilities using variance: $P(|X - \mu| \geq k\sigma) \leq 1/k^2$.
 - **Sensor fusion and robotics.** Kalman filters propagate **covariance matrices** to track how uncertainty evolves over time. Sensor measurements with lower variance receive more weight in the fused estimate.
 - **Portfolio and resource optimization.** In distributed systems, covariance between server loads determines whether load-balancing reduces total variance or not - negatively correlated loads are ideal.

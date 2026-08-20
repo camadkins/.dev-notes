@@ -5,8 +5,8 @@ description: Parameter passing models and aliasing; when a callee's mutations af
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2025-12-13
 aliases: []

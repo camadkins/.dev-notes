@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+  <style>
+    .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .edge { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .node { fill: #58a6ff; }
+    .t { fill: #e8e8e8; font-size: 13px; }
+    .anno { fill: #d29922; font-size: 12px; }
+    .desc { fill: #8b949e; font-size: 12px; }
+    .good { fill: #84a59d; }
+    .bad { fill: #d29922; }
+  </style>
+  <defs>
+    <marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#93a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- plot frame -->
+  <rect class="box" x="60" y="30" width="560" height="320" rx="8"/>
+  <line class="edge" x1="60" y1="350" x2="620" y2="350" marker-end="url(#arr2)"/>
+  <line class="edge" x1="60" y1="350" x2="60" y2="30" marker-end="url(#arr2)"/>
+  <text class="desc" x="340" y="382" text-anchor="middle">dimension 1 (2D projection of a learned space)</text>
+  <text class="desc" x="30" y="190" text-anchor="middle" transform="rotate(-90 30 190)">dimension 2</text>
+
+  <!-- function-word cluster (blue) -->
+  <circle class="node" cx="130" cy="90" r="4"/>
+  <circle class="node" cx="165" cy="72" r="4"/>
+  <circle class="node" cx="190" cy="105" r="4"/>
+  <circle class="node" cx="150" cy="125" r="4"/>
+  <text class="t" x="118" y="82">to</text>
+  <text class="t" x="175" y="66">by</text>
+  <text class="t" x="200" y="110">that</text>
+  <text class="t" x="130" y="145">now</text>
+  <text class="desc" x="160" y="170" text-anchor="middle">function words</text>
+
+  <!-- negative cluster (amber) -->
+  <circle class="bad" cx="480" cy="85" r="4"/>
+  <circle class="bad" cx="520" cy="105" r="4"/>
+  <circle class="bad" cx="545" cy="70" r="4"/>
+  <circle class="bad" cx="500" cy="130" r="4"/>
+  <text class="t" x="450" y="76">bad</text>
+  <text class="t" x="530" y="112">worse</text>
+  <text class="t" x="555" y="64">worst</text>
+  <text class="t" x="452" y="150">dislike</text>
+  <text class="desc" x="510" y="175" text-anchor="middle">negative words</text>
+
+  <!-- positive cluster (green) -->
+  <circle class="good" cx="330" cy="270" r="4"/>
+  <circle class="good" cx="375" cy="250" r="4"/>
+  <circle class="good" cx="410" cy="290" r="4"/>
+  <circle class="good" cx="355" cy="305" r="4"/>
+  <text class="t" x="290" y="264">good</text>
+  <text class="t" x="385" y="244">great</text>
+  <text class="t" x="420" y="296">amazing</text>
+  <text class="t" x="285" y="322">wonderful</text>
+  <text class="desc" x="370" y="335" text-anchor="middle">positive words</text>
+
+  <!-- annotation -->
+  <text class="anno" x="640" y="230">words used in</text>
+  <text class="anno" x="640" y="248">similar contexts</text>
+  <text class="anno" x="640" y="266">land close</text>
+  <text class="anno" x="640" y="284">together</text>
+  <path class="edge" d="M 645 296 C 600 320, 500 310, 430 292" marker-end="url(#arr2)" stroke-dasharray="4 4"/>
+</svg>

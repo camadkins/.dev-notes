@@ -3,7 +3,9 @@ title: Exponential Distribution
 description: Modelling the continuous waiting time between independent events in a Poisson process.
 draft: false
 comments: true
-tags: [cs, statistics]
+tags:
+  - cs
+  - statistics
 date: 2026-03-12
 updated:
 aliases: []

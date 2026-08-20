@@ -1,5 +1,5 @@
 ---
-title: Lambda Calculus — Evaluation Strategies
+title: "Lambda Calculus: Evaluation Strategies"
 description: Call-by-value, call-by-name, normal-order, and call-by-need; how strategy shapes reduction, termination, and language semantics.
 draft: false
 tags:
@@ -12,13 +12,13 @@ aliases: []
 
 ## Overview
 Lambda calculus defines *what* it means to compute, but **evaluation strategy** defines *how* that computation proceeds.  
-Even in a purely functional setting, the choice of which subexpression to reduce first — the **redex selection strategy** — can drastically affect termination, efficiency, and observable outcomes.
+Even in a purely functional setting, the choice of which subexpression to reduce first (the **redex selection strategy**) can drastically affect termination, efficiency, and observable outcomes.
 
 Languages like **Scheme**, **Haskell**, and **OCaml** differ primarily in their evaluation order and reduction model.  
 Understanding these strategies bridges theoretical lambda calculus and practical implementation.
 
 > [!note]
-> All strategies obey the same substitution rules — they differ only in *where* those rules are applied first.
+> All strategies obey the same substitution rules; they differ only in *where* those rules are applied first.
 
 ---
 
@@ -96,7 +96,7 @@ This strategy corresponds to **lazy substitution without memoization**.
 → 1
 
 ```
-The argument `Ω` is never evaluated — only substituted (but unused).
+The argument `Ω` is never evaluated, only substituted (but unused).
 
 > [!note]
 > CBN is **non-strict**: it only evaluates what’s necessary to produce a result.
@@ -126,14 +126,14 @@ but for `(λx. 1) Ω`, normal order stops immediately:
 ```
 
 > [!tip]
-> Normal-order = "evaluate the outermost redex first" — it is the most *complete* evaluation strategy.
+> Normal-order = "evaluate the outermost redex first." It is the most *complete* evaluation strategy.
 
 ---
 
 ### 4. Call-by-Need
 An optimization of CBN that **shares** evaluated results.
 
-When an argument is first used, it is evaluated and then *memoized* for subsequent uses — avoiding redundant work.
+When an argument is first used, it is evaluated and then *memoized* for subsequent uses, avoiding redundant work.
 
 #### Example
 ```
@@ -144,7 +144,7 @@ When an argument is first used, it is evaluated and then *memoized* for subseque
 - **CBN:** recomputes `3 + 4` twice.
 - **CBNeed:** evaluates once and reuses the result.
 
-Languages like **Haskell** implement call-by-need through **graph reduction**, where expressions are stored as *thunks* — suspended computations updated with their results upon first evaluation.
+Languages like **Haskell** implement call-by-need through **graph reduction**, where expressions are stored as *thunks*: suspended computations updated with their results upon first evaluation.
 
 > [!note]
 > Call-by-need = laziness with caching.  
@@ -253,7 +253,7 @@ Thus, evaluation order becomes part of the **language semantics**.
 
 > If a λ-term reduces to two results under different strategies, both results are equivalent (converge to a common normal form).
 
-This ensures **confluence**: evaluation strategy affects performance and termination, not meaning — for pure λ-calculus.
+This ensures **confluence**: evaluation strategy affects performance and termination, not meaning, for pure λ-calculus.
 
 ### Standardization Theorem
 
@@ -283,8 +283,16 @@ This ensures **confluence**: evaluation strategy affects performance and termina
 
 - [[cs/pl/evaluation-order-and-strictness|Evaluation Order & Strictness]]
     
-- [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]
+- [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus: Syntax & Substitution]]
     
-- [[cs/pl/lambda-calculus-encodings-booleans-pairs-church-numerals|Lambda Calculus — Encodings]]
+- [[cs/pl/lambda-calculus-encodings-booleans-pairs-church-numerals|Lambda Calculus: Encodings]]
     
 - [[cs/pl/hindleymilner-type-inference|Hindley–Milner Type Inference]]
+
+---
+
+## Sources
+
+- "Evaluation strategy," Wikipedia. https://en.wikipedia.org/wiki/Evaluation_strategy . Supports the definition of an evaluation strategy as rules for evaluating expressions, the distinction between parameter-passing/binding strategies and reduction order, and the framing of call-by-value versus call-by-name.
+- "Lazy evaluation," Wikipedia. https://en.wikipedia.org/wiki/Lazy_evaluation . Supports call-by-need as an evaluation strategy that delays evaluation until a value is needed and avoids repeated evaluation through sharing (memoization), as implemented in Haskell.
+- "Church–Rosser theorem," Wikipedia. https://en.wikipedia.org/wiki/Church%E2%80%93Rosser_theorem . Supports the claim that in lambda calculus the order in which reductions are chosen does not change the eventual result (confluence).

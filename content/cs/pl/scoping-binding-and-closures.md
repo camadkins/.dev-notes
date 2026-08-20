@@ -23,7 +23,7 @@ Closures extend this by capturing the environment where a function was defined, 
 
 ## Lexical vs Dynamic Scope
 ### Lexical (Static) Scope
-Under **lexical scope**, a variable’s meaning depends on *where it’s written* in the source code — not where it’s called.
+Under **lexical scope**, a variable’s meaning depends on *where it’s written* in the source code, not where it’s called.
 
 Example (ML-like pseudocode):
 ```ml
@@ -67,9 +67,9 @@ Evaluation looks up names through these structures:
 lookup(x, ρ, σ) = σ(ρ(x))
 ```
 
-Lexical scoping creates an **environment chain** — each new function introduces a new environment linked to its parent.
+Lexical scoping creates an **environment chain**: each new function introduces a new environment linked to its parent.
 
-![Nested environment chain: global contains x, f links to global, g links to f — variables resolve by following parent pointers](assets/scope-lexical-chain.svg)
+![Nested environment chain: global contains x, f links to global, g links to f, and variables resolve by following parent pointers](assets/scope-lexical-chain.svg)
 
 ---
 
@@ -109,7 +109,7 @@ let x = 5 in
 
 ## Closures: Capturing the Environment
 
-A **closure** is a pair ⟨function, environment⟩ — it remembers the bindings present when it was created.
+A **closure** is a pair ⟨function, environment⟩: it remembers the bindings present when it was created.
 
 Example:
 
@@ -142,9 +142,9 @@ At creation time:
 
 Closures can either:
 
-- **Capture values** (immutable model — e.g., purely functional languages), or
+- **Capture values** (immutable model, e.g., purely functional languages), or
     
-- **Capture locations** (mutable model — e.g., ML, JavaScript).
+- **Capture locations** (mutable model, e.g., ML, JavaScript).
     
 
 In the latter, multiple closures share mutable state:
@@ -157,7 +157,7 @@ inc(); inc(); get()  (* ⇒ 2 *)
 ```
 
 > [!warning]  
-> Sharing mutable cells across closures can introduce aliasing bugs — e.g., updates in one closure affect others unexpectedly.
+> Sharing mutable cells across closures can introduce aliasing bugs, e.g., updates in one closure affect others unexpectedly.
 
 ---
 
@@ -197,7 +197,7 @@ This **chain of captured environments** enables higher-order abstractions withou
 >     
 
 > [!tip]  
-> Prefer **immutable captures** or **copying semantics** when possible — especially in concurrent or asynchronous code.
+> Prefer **immutable captures** or **copying semantics** when possible, especially in concurrent or asynchronous code.
 
 ---
 
@@ -228,8 +228,13 @@ This **chain of captured environments** enables higher-order abstractions withou
 
 - [[cs/pl/language-design-values-variables-environments|Values, Variables & Environments]]
     
-- [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]
+- [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus: Syntax & Substitution]]
     
 - [[evaluation-order-and-strictness | Evaluation Order & Strictness]]
     
 - [[cs/pl/mutable-state-references-effects|Mutable State, References & Effects]]
+
+## Sources
+
+- "Scope (computer science)," Wikipedia. https://en.wikipedia.org/wiki/Scope_%28computer_science%29 . Supports the distinction between lexical (static) scope, where name resolution follows where a name is written, and dynamic scope, where resolution follows the runtime call chain, plus shadowing of bindings.
+- "Closure (computer programming)," Wikipedia. https://en.wikipedia.org/wiki/Closure_%28computer_programming%29 . Supports a closure as a function bundled with its defining lexical environment, capturing free variables (by value or by reference) so the bindings persist after the enclosing scope returns.

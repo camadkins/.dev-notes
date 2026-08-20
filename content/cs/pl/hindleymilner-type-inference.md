@@ -12,7 +12,7 @@ aliases: []
 
 ## Overview
 The **Hindley–Milner type system (HM)** is the foundation of type inference in functional languages such as ML, OCaml, and Haskell (in their pure fragments).  
-Its power lies in automatically assigning the *most general* — or **principal** — types to expressions *without explicit annotations*.
+Its power lies in automatically assigning the *most general* (or **principal**) types to expressions *without explicit annotations*.
 
 HM achieves this by combining:
 1. **Polymorphism** (via universal quantification).  
@@ -77,12 +77,12 @@ let id = λx. x in (id 3, id true)
 
 ---
 
-## Algorithm W — Structure
+## Algorithm W: Structure
 
 Algorithm W is the canonical type inference procedure for HM.  
 It systematically traverses an expression and synthesizes a type along with a _substitution_ (mapping of type variables to concrete types).
 
-Each inference step returns `(S, τ)` — a substitution and a type.
+Each inference step returns `(S, τ)`: a substitution and a type.
 
 ### Step-by-step Skeleton
 
@@ -149,7 +149,7 @@ creates the constraint:
 
 ### 2. Unification
 
-Unification is the process of solving these constraints — finding substitutions that make both sides identical.
+Unification is the process of solving these constraints: finding substitutions that make both sides identical.
 
 #### Example
 
@@ -237,7 +237,7 @@ Formally:
 > A type `σ` is principal for expression `e` in environment `Γ` if for every other type `σ'` such that `Γ ⊢ e : σ'`,  
 > there exists a substitution `S` with `S(σ) = σ'`.
 
-This ensures type inference is **complete** — it finds the single most general typing consistent with the program.
+This ensures type inference is **complete**: it finds the single most general typing consistent with the program.
 
 > [!tip]  
 > Principal types guarantee _modularity_: changing how a polymorphic function is used never changes its own definition’s type.
@@ -287,7 +287,7 @@ Modern languages extend it in several directions:
 |**Effect systems**|Track purity or side effects|Koka, Eff, F★|
 
 > [!note]  
-> Each extension adds expressive power but often breaks HM’s guarantee of principal types — inference becomes partial or requires user annotations.
+> Each extension adds expressive power but often breaks HM’s guarantee of principal types: inference becomes partial or requires user annotations.
 
 ---
 
@@ -299,7 +299,7 @@ Modern languages extend it in several directions:
 
 > [!warning]
 > 
-> - Forgetting to **generalize** at a `let` — losing polymorphism.
+> - Forgetting to **generalize** at a `let`, losing polymorphism.
 >     
 > - Failing to apply **all substitutions** when unifying nested expressions.
 >     
@@ -316,8 +316,14 @@ Modern languages extend it in several directions:
 
 - [[cs/pl/parametric-polymorphism-adts|Parametric Polymorphism & ADTs]]
     
-- [[cs/pl/type-soundness-and-progress|Type Soundness & Progress Theorems]]
+- [[cs/pl/type-soundness-progress-preservation|Type Soundness & Progress Theorems]]
     
-- [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus — Syntax & Substitution]]
+- [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus: Syntax & Substitution]]
     
 - [[cs/pl/evaluation-order-and-strictness|Evaluation Order & Strictness]]
+
+## Sources
+
+- "Hindley–Milner type system," Wikipedia. https://en.wikipedia.org/wiki/Hindley%E2%80%93Milner_type_system . Supports HM being a type system for the lambda calculus with parametric polymorphism (also called Damas–Milner), its completeness and ability to infer the most general type without annotations, and Algorithm W as the efficient practical inference method.
+- "Unification (computer science)," Wikipedia. https://en.wikipedia.org/wiki/Unification_%28computer_science%29 . Supports unification as solving equations between symbolic expressions, first-order syntactic unification yielding a unique most-general solution, and its use in programming-language type system implementation.
+- "Parametric polymorphism," Wikipedia. https://en.wikipedia.org/wiki/Parametric_polymorphism . Supports the notion of universally quantified type schemes (let-polymorphism, generalization, and instantiation) and parametric polymorphism as the form of polymorphism underlying ML-style generics.

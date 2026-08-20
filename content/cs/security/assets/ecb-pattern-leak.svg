@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="9.3 0 560 250" fill="none" role="img" aria-label="Under ECB, two identical plaintext blocks encrypt to two identical ciphertext blocks, so the repeated pattern survives; a chained mode maps the same two blocks to different ciphertext.">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .box      { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .box-leak { fill: rgba(45,35,30,0.9);  stroke: #d29922; stroke-width: 1.5; }
+    .edge     { stroke: #93a3b8; stroke-width: 1.4; marker-end: url(#a); }
+    .t        { fill: #e8e8e8; font-size: 13px; }
+    .anno     { fill: #d29922; font-size: 12px; }
+    .desc     { fill: #8b949e; font-size: 12px; }
+  </style>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#93a3b8"/>
+    </marker>
+  </defs>
+
+  <text class="desc" x="20" y="24">same two plaintext blocks P, P</text>
+
+  <!-- ECB row -->
+  <text class="anno" x="20" y="70">ECB</text>
+  <rect class="box" x="70" y="52" width="52" height="30" rx="3"/>
+  <text class="t" x="88" y="72">P</text>
+  <rect class="box" x="128" y="52" width="52" height="30" rx="3"/>
+  <text class="t" x="146" y="72">P</text>
+  <line class="edge" x1="190" y1="67" x2="240" y2="67"/>
+  <rect class="box-leak" x="248" y="52" width="52" height="30" rx="3"/>
+  <text class="anno" x="262" y="72">C1</text>
+  <rect class="box-leak" x="306" y="52" width="52" height="30" rx="3"/>
+  <text class="anno" x="320" y="72">C1</text>
+  <text class="anno" x="378" y="72">C1 = C1  pattern leaks</text>
+
+  <!-- Chained row -->
+  <text class="anno" x="20" y="150" style="fill:#84a59d">CBC/CTR</text>
+  <rect class="box" x="70" y="132" width="52" height="30" rx="3"/>
+  <text class="t" x="88" y="152">P</text>
+  <rect class="box" x="128" y="132" width="52" height="30" rx="3"/>
+  <text class="t" x="146" y="152">P</text>
+  <line class="edge" x1="190" y1="147" x2="240" y2="147"/>
+  <rect class="box" x="248" y="132" width="52" height="30" rx="3"/>
+  <text class="t" x="262" y="152">C1</text>
+  <rect class="box" x="306" y="132" width="52" height="30" rx="3"/>
+  <text class="t" x="320" y="152">C2</text>
+  <text class="desc" x="378" y="152">C1 &#8800; C2  via IV + chaining</text>
+
+  <text class="desc" x="20" y="210">A block cipher transforms one fixed-size block. The mode decides</text>
+  <text class="desc" x="20" y="228">whether identical blocks stay distinguishable in the ciphertext.</text>
+</svg>

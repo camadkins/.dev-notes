@@ -4,8 +4,8 @@ description: Foundational binary operators (AND, OR, XOR, NOT, shifts) and bit m
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2026-03-12
 aliases:

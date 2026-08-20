@@ -12,6 +12,9 @@ interface ContentMetaOptions {
    */
   showReadingTime: boolean
   showComma: boolean
+  editRepository?: string
+  editBranch?: string
+  editPathPrefix?: string
 }
 
 const defaultOptions: ContentMetaOptions = {
@@ -19,11 +22,23 @@ const defaultOptions: ContentMetaOptions = {
   showComma: true,
 }
 
+function encodePath(path: string) {
+  return path
+    .split("/")
+    .filter((segment) => segment.length > 0)
+    .map(encodeURIComponent)
+    .join("/")
+}
+
+function directoryName(path: string) {
+  return path.split(/[\\/]/).filter(Boolean).pop()
+}
+
 export default ((opts?: Partial<ContentMetaOptions>) => {
   // Merge options with defaults
   const options: ContentMetaOptions = { ...defaultOptions, ...opts }
 
-  function ContentMetadata({ cfg, fileData, displayClass }: QuartzComponentProps) {
+  function ContentMetadata({ cfg, ctx, fileData, displayClass }: QuartzComponentProps) {
     const text = fileData.text
 
     if (text) {
@@ -40,6 +55,19 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
           minutes: Math.ceil(minutes),
         })
         segments.push(<span>{displayedTime}</span>)
+      }
+
+      if (options.editRepository && options.editBranch && fileData.relativePath) {
+        const prefix = options.editPathPrefix ?? directoryName(ctx.argv.directory)
+        const editPath = encodePath([prefix, fileData.relativePath].filter(Boolean).join("/"))
+        const editUrl = `${options.editRepository.replace(/\/$/, "")}/edit/${encodeURIComponent(
+          options.editBranch,
+        )}/${editPath}`
+        segments.push(
+          <a class="content-meta-edit" href={editUrl} target="_blank" rel="noopener noreferrer">
+            Edit note
+          </a>,
+        )
       }
 
       return (

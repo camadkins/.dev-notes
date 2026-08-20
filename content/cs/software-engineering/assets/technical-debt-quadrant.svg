@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 599 380" fill="none" role="img" aria-label="Martin Fowler's technical debt quadrant, crossing reckless versus prudent against deliberate versus inadvertent. Deliberate and reckless: knows good design but goes quick and dirty. Deliberate and prudent: takes on debt to reach a release after weighing payoff against the cost of paying it off. Inadvertent and reckless: a team ignorant of design practices, producing a mess. Inadvertent and prudent: the team realizes, after building, what the design ought to have been.">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .box      { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .box-final{ fill: rgba(30,55,40,0.6);  stroke: #84a59d; stroke-width: 1.5; }
+    .edge     { stroke: #93a3b8; stroke-width: 1.4; }
+    .t        { fill: #e8e8e8; }
+    .anno     { fill: #d29922; }
+    .desc     { fill: #8b949e; }
+  </style>
+
+  <text class="anno" x="170" y="26" font-size="13" font-weight="bold">Reckless</text>
+  <text class="anno" x="410" y="26" font-size="13" font-weight="bold">Prudent</text>
+  <text class="anno" x="14"  y="112" font-size="13" font-weight="bold">Deliberate</text>
+  <text class="anno" x="14"  y="262" font-size="13" font-weight="bold">Inadvertent</text>
+
+  <rect class="box" x="120" y="44" width="210" height="130" rx="4"/>
+  <text class="t"    x="136" y="80"  font-size="12">knows good design,</text>
+  <text class="t"    x="136" y="100" font-size="12">goes "quick and dirty"</text>
+  <text class="desc" x="136" y="136" font-size="11">underestimates the</text>
+  <text class="desc" x="136" y="152" font-size="11">design payoff line</text>
+
+  <rect class="box-final" x="350" y="44" width="210" height="130" rx="4"/>
+  <text class="t"    x="366" y="80"  font-size="12">takes on debt to</text>
+  <text class="t"    x="366" y="100" font-size="12">reach a release</text>
+  <text class="desc" x="366" y="136" font-size="11">weighed payoff against</text>
+  <text class="desc" x="366" y="152" font-size="11">cost of paying it off</text>
+
+  <rect class="box" x="120" y="194" width="210" height="130" rx="4"/>
+  <text class="t"    x="136" y="230" font-size="12">ignorant of design</text>
+  <text class="t"    x="136" y="250" font-size="12">practice: a mess</text>
+  <text class="desc" x="136" y="286" font-size="11">unaware how much hock</text>
+  <text class="desc" x="136" y="302" font-size="11">it is getting into</text>
+
+  <rect class="box-final" x="350" y="194" width="210" height="130" rx="4"/>
+  <text class="t"    x="366" y="230" font-size="12">now realizes what</text>
+  <text class="t"    x="366" y="250" font-size="12">the design should</text>
+  <text class="t"    x="366" y="270" font-size="12">have been</text>
+  <text class="desc" x="366" y="304" font-size="11">inevitable; you learn</text>
+
+  <line class="edge" x1="120" y1="184" x2="560" y2="184"/>
+  <line class="edge" x1="340" y1="44"  x2="340" y2="324"/>
+
+  <text class="desc" x="120" y="356" font-size="11">Interest is only paid when you have to work with that part of the code.</text>
+</svg>

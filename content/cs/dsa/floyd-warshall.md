@@ -4,8 +4,8 @@ description: All-pairs shortest paths via dynamic programming on path "via" sets
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2025-11-03
 aliases: []

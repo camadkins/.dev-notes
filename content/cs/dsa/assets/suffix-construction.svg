@@ -1,4 +1,4 @@
-<svg viewBox="0 0 585 460" xmlns="http://www.w3.org/2000/svg" fill="none">
+<svg viewBox="11.1 0 585 460" xmlns="http://www.w3.org/2000/svg" fill="none">
   <title>Suffix Trie Construction — S = "banana$"</title>
   <style>
     text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }

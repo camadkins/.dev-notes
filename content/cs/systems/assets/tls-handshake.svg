@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 250" fill="none" role="img" aria-label="The TLS handshake: the client and server exchange a hello and a certificate, agree an ephemeral key with public-key cryptography, then switch to fast symmetric encryption for the rest of the session">
+  <style>
+    text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
+    .life { stroke: #93a3b8; stroke-width: 1.2; stroke-dasharray: 3 3; }
+    .a  { stroke: #93a3b8; stroke-width: 1.5; fill: none; }
+    .t  { fill: #e8e8e8; font-size: 12px; text-anchor: middle; }
+    .lbl { fill: #e8e8e8; font-size: 11px; text-anchor: middle; }
+    .anno { fill: #d29922; font-size: 11px; text-anchor: middle; }
+    .sec { fill: rgba(30,55,40,0.6); stroke: #84a59d; stroke-width: 1.4; }
+    .s  { fill: #8b949e; font-size: 11px; text-anchor: middle; }
+  </style>
+  <rect class="box" x="40"  y="16" width="110" height="34" rx="4"/><text class="t" x="95"  y="38">client</text>
+  <rect class="box" x="330" y="16" width="110" height="34" rx="4"/><text class="t" x="385" y="38">server</text>
+  <line class="life" x1="95"  y1="50" x2="95"  y2="210"/>
+  <line class="life" x1="385" y1="50" x2="385" y2="210"/>
+  <line class="a" x1="95"  y1="74" x2="383" y2="74"/><polygon points="385,74 377,70 377,78" fill="#93a3b8"/>
+  <text class="lbl" x="240" y="68">ClientHello (+ SNI, key share)</text>
+  <line class="a" x1="385" y1="104" x2="97" y2="104"/><polygon points="95,104 103,100 103,108" fill="#93a3b8"/>
+  <text class="lbl" x="240" y="98">Certificate (X.509, CA-signed) + key share</text>
+  <text class="anno" x="240" y="134">public key authenticates the server and agrees</text>
+  <text class="anno" x="240" y="148">one ephemeral shared secret</text>
+  <rect class="sec" x="95" y="166" width="290" height="30" rx="4"/>
+  <text class="lbl" x="240" y="185">symmetric-encrypted application data</text>
+  <text class="s" x="240" y="226">asymmetric crypto runs once to bootstrap a fast symmetric channel</text>
+</svg>

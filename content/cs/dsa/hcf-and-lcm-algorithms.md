@@ -4,8 +4,8 @@ description: Practical computation of gcd/hcf and lcm, including overflow-safe f
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2026-01-10
 aliases: []

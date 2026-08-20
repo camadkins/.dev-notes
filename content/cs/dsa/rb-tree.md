@@ -4,8 +4,8 @@ description: Height-balanced binary search tree with coloring and rotation rules
 draft: false
 comments: true
 tags:
-- cs
-- dsa  
+  - cs
+  - dsa
 date: 2025-10-16  
 updated:  
 aliases: []

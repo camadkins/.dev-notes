@@ -4,13 +4,13 @@ description: Extension of B-trees optimized for range queries and disk-based ind
 draft: false
 comments: true
 tags:
-- cs
-- dsa  
+  - cs
+  - dsa
 date: 2025-10-16  
 updated: 2025-10-29  
 aliases:
 - bplus-tree
-- b+tree
+- b-plus-tree
 
 ---
 
@@ -83,7 +83,7 @@ function insert(node, key, value):
             splitInternal(child)
 ```
 
-![B+ tree leaf split and key promotion — inserting 30 causes overflow, leaf splits, key 20 promoted to parent](assets/bplus-tree-insertion.svg)
+![Inserting 30 overflows a leaf, which splits and copies 20 upward](assets/bplus-tree-insertion.svg)
 
 **Cost:** O(log_m n) I/O operations.
 
@@ -114,7 +114,7 @@ Range queries (e.g., `find all keys in [k1, k2]`) are where B+ Trees excel:
 2. Follow the **leaf-level linked list** until `k2` is reached.
     
 
-![B+ tree range query — root-to-leaf descent to find k1, then leaf chain traversal to k2](assets/bplus-tree-range-query.svg)
+![A range query descending to 6 then scanning the leaf chain to 20](assets/bplus-tree-range-query.svg)
 
 This design supports efficient **ordered scans** - a major reason B+ Trees dominate database indexing.
 
@@ -145,7 +145,7 @@ This design supports efficient **ordered scans** - a major reason B+ Trees domin
 |**Order (m)**|Maximum number of children for any internal node.|
 |**Height (h)**|Determines search cost; typically small due to high fan-out.|
 
-![B+ tree structure — order 3 with internal nodes (blue) storing keys only, leaf nodes (green) storing keys and data pointers, leaves linked left to right](assets/bplus-tree-structure.svg)
+![An order 4 B+ tree with keys above and records in linked leaves](assets/bplus-tree-structure.svg)
 
 ### Practical Notes
 

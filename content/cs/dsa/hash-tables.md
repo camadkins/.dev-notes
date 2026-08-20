@@ -4,8 +4,8 @@ description: Key–value dictionaries that provide expected O(1) lookup/insert/d
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2025-11-15
 aliases: []

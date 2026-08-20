@@ -5,8 +5,8 @@ description: Search patterns on singly and doubly linked lists; trade-offs vs in
 draft: false
 comments: true
 tags:
-- cs
-- dsa
+  - cs
+  - dsa
 date: 2025-10-16
 updated: 2026-01-28
 aliases: []
@@ -224,7 +224,7 @@ Using **sentinel nodes** (head for SLL, head+tail for DLL) simplifies:
 
 - **Frequent lookups by key without order →** [[hash-tables|Hash Tables]].
 
-- **Ordered set/map with logarithmic search →** balanced trees (e.g., [[red-black-tree|Red–Black Tree]], [[avl-tree|AVL Tree]]).
+- **Ordered set/map with logarithmic search →** balanced trees (e.g., [[rb-tree|Red–Black Tree]], [[avl-tree|AVL Tree]]).
 
 - **Ordered list with occasional mid-inserts but faster search →** consider **skip lists** (layered indexes) or a **vector + gap buffer** depending on edits.
 
