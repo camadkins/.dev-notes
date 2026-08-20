@@ -33,7 +33,7 @@ Efficient algorithms scale to larger inputs, reduce resource usage, and deliver 
 > - **RAM model** with unit-cost integer arithmetic is standard for intro analysis.
 > - For large integers, hashing, I/O, or cache effects, annotate what counts as O(1) vs variable.
 
-![[efficiency-layers.svg]]
+![Asymptotic theory above, implementation constants below, and where the two meet](assets/efficiency-layers.svg)
 
 ### 1. Asymptotic Growth
 Describes how runtime grows with input size `n`:
@@ -102,7 +102,7 @@ Examples:
 - **Hashing**: expected O(1), but collisions can make it O(n).
     
 
-> ![[efficiency-perf-vs-input.svg]]
+> ![Five growth curves plotted against input size, constant through quadratic](assets/efficiency-perf-vs-input.svg)
 
 > [!tip]  
 > Benchmark on realistic workloads, not just random data.
