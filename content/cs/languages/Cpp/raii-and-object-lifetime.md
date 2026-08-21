@@ -24,7 +24,7 @@ The cross-language framing of who releases memory sits in [[cs/languages/common/
 
 ## The definition, and the two halves of it
 
-cppreference defines RAII as a C++ programming technique which binds the life cycle of a resource that must be acquired before use to the lifetime of an object. The parenthetical list of what counts as a resource is worth reading in full, because it is much wider than the heap: allocated heap memory, thread of execution, open socket, open file, locked mutex, disk space, database connection, anything that exists in limited supply.
+cppreference defines RAII as a C++ programming technique which binds the life cycle of a resource that must be acquired before use to the lifetime of an object. The parenthetical list of what counts as a resource is worth reading in full, because it is much wider than the heap: allocated heap memory, thread of execution, [[cs/networking/ports-and-sockets|open socket]], open file, [[cs/systems/concurrency-primitives|locked mutex]], disk space, database connection, anything that exists in limited supply.
 
 The technique has a two-part summary on that page. Encapsulate each resource into a class where the constructor acquires the resource and establishes all class invariants or throws an exception if that cannot be done, and the destructor releases the resource and never throws exceptions. Then always use the resource via an instance of a RAII class that either has automatic storage duration or temporary lifetime itself, or has lifetime bounded by the lifetime of an automatic or temporary object.
 
@@ -38,7 +38,7 @@ cppreference lists what RAII buys, and the second and third items are the ones t
 
 That second clause is the interesting one. A class with four resource-holding members whose fourth member's constructor throws does not leak the first three. The language unwinds the partially constructed object for you, releasing exactly the subobjects that finished initializing, in reverse. Writing that by hand with raw handles means tracking how far you got and cleaning up a prefix, per constructor, forever.
 
-cppreference names the underlying machinery: RAII leverages the core language features of object lifetime, scope exit, order of initialization, and stack unwinding to eliminate resource leaks and guarantee exception safety. The alternative name for the technique, Scope-Bound Resource Management (SBRM), comes from the basic case where the RAII object's lifetime ends due to scope exit.
+cppreference names the underlying machinery: RAII leverages the core language features of object lifetime, scope exit, order of initialization, and [[cs/languages/Cpp/exceptions-and-stack-unwinding|stack unwinding]] to eliminate resource leaks and guarantee exception safety. The alternative name for the technique, Scope-Bound Resource Management (SBRM), comes from the basic case where the RAII object's lifetime ends due to scope exit.
 
 ## The canonical before and after
 
@@ -60,7 +60,7 @@ Two details from that page have direct consequences for RAII code.
 
 Temporaries are destroyed at the end of the full expression. All temporary objects are destroyed as the last step in evaluating the full expression that lexically contains the point where they were created, and if multiple temporaries were created they are destroyed in the order opposite to creation. cppreference notes this holds even if that evaluation ends in throwing an exception. This is why an unnamed `std::lock_guard<std::mutex>(m)` is a bug: it is a temporary, so it locks and unlocks within the same statement. The named variable is the point.
 
-References have their own lifetime, separate from the referent. The lifetime of a reference begins when its initialization is complete and ends as if it were a scalar object, and cppreference attaches the note that the lifetime of the referred object may end before the end of the lifetime of the reference, which makes dangling references possible. A reference outliving its referent is the C++ hole that Rust's borrow checker was built to close; see [[cs/languages/Rust/borrowing-and-lifetimes|Borrowing and Lifetimes]] for the contrast.
+References have their own lifetime, separate from the referent. The lifetime of a reference begins when its initialization is complete and ends as if it were a scalar object, and cppreference attaches the note that the lifetime of the referred object may end before the end of the lifetime of the reference, which makes [[cs/security/use-after-free-and-heap-exploitation|dangling references]] possible. A reference outliving its referent is the C++ hole that Rust's borrow checker was built to close; see [[cs/languages/Rust/borrowing-and-lifetimes|Borrowing and Lifetimes]] for the contrast.
 
 > [!warning] RAII does not cover resources you do not acquire
 > cppreference is explicit about the boundary. RAII does not apply to the management of resources that are not acquired before use: CPU time, core availability, cache capacity, entropy pool capacity, network bandwidth, electric power consumption, stack memory. For those, a constructor cannot guarantee availability for the duration of the object's lifetime, and other means of resource management have to be used. The technique needs something to hold. A resource you merely consume as you run is not holdable, so no destructor can release it.
