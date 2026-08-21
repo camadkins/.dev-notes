@@ -79,7 +79,7 @@ class MyNode extends Node {
 
 Now `MyNode` does have a method with the superclass's erased descriptor, so virtual dispatch finds it, and its body casts and delegates: "The bridge method `MyNode.setData(Object)` delegates to the original `MyNode.setData(Integer)` method."
 
-The cast in that generated body is load-bearing. It is the runtime check that the value flowing through the erased path really is an `Integer`. If something upstream violated the static guarantee, through a raw type or an unchecked cast, the `ClassCastException` is thrown here, inside a method that does not appear in the source. This is one of the most common ways a program discovers [[cs/languages/Java/raw-types-and-migration-compatibility|an unchecked warning it ignored]] hours or days after the fact.
+The cast in that generated body is load-bearing. It is the runtime check that the value flowing through the erased path really is an `Integer`. If something upstream violated [[cs/pl/type-soundness-progress-preservation|the static guarantee]], through a raw type or an unchecked cast, the `ClassCastException` is thrown here, inside a method that does not appear in the source. This is one of the most common ways a program discovers [[cs/languages/Java/raw-types-and-migration-compatibility|an unchecked warning it ignored]] hours or days after the fact.
 
 > [!example] Reading a bridge method in a stack trace
 > A `ClassCastException` whose stack trace names a method you wrote, at a line that contains no cast, with the expected and found types both being ordinary domain classes, is nearly always a bridge method. The frame is real, the line number points at the method declaration rather than a statement, and the cast being reported is the one the compiler generated. The fix is never at that line. It is at whatever earlier point put the wrong type into a container the type system thought it knew.
@@ -96,7 +96,7 @@ Interface implementations across erasure. Implementing `Comparable<MyType>` give
 
 The alternative would be to teach the JVM about type arguments so that overriding could be decided on generic rather than erased signatures. That is reification, and it was ruled out by the compatibility constraint that shaped the whole feature. Given erasure, the choices are broken polymorphism, a change to dispatch, or generated code, and generated code is the only one that leaves existing class files and existing JVMs untouched.
 
-The mechanism generalizes past Java. Any system that compiles a richer type discipline onto a poorer runtime ends up emitting adapters at the boundary, whether they are called bridges, thunks, or shims. The general form is in [[cs/pl/objects-classes-and-dispatch|Objects, Classes, and Dispatch]], and the languages that avoid the problem avoid it by not erasing: see [[cs/languages/CSharp/reified-generics-in-the-clr|Reified Generics in the CLR]] and [[cs/languages/Rust/traits-and-generic-bounds|Traits and Generic Bounds in Rust]].
+The mechanism generalizes past Java. Any system that compiles a richer type discipline onto a poorer runtime ends up emitting [[cs/software-engineering/design-patterns|adapters]] at the boundary, whether they are called bridges, thunks, or shims. The general form is in [[cs/pl/objects-classes-and-dispatch|Objects, Classes, and Dispatch]], and the languages that avoid the problem avoid it by not erasing: see [[cs/languages/CSharp/reified-generics-in-the-clr|Reified Generics in the CLR]] and [[cs/languages/Rust/traits-and-generic-bounds|Traits and Generic Bounds in Rust]].
 
 ## Related Notes
 

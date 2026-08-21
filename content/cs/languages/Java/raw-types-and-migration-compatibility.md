@@ -60,7 +60,7 @@ found   : Box
 required: Box<java.lang.Integer>
 ```
 
-Read "unchecked" literally. It does not mean "probably fine" and it does not mean "wrong." It means the compiler has performed no check here and is telling you that the static guarantee for this expression is your responsibility. The consequence is deferred, not cancelled: the cast erasure inserted at some later call site is still there, so a violated assumption surfaces as a `ClassCastException` at a line that contains no visible cast, in a method that did nothing wrong.
+Read "unchecked" literally. It does not mean "probably fine" and it does not mean "wrong." It means the compiler has performed no check here and is telling you that [[cs/pl/type-soundness-progress-preservation|the static guarantee]] for this expression is your responsibility. The consequence is deferred, not cancelled: the cast erasure inserted at some later call site is still there, so a violated assumption surfaces as a `ClassCastException` at a line that contains no visible cast, in a method that did nothing wrong.
 
 `-Xlint:-unchecked` turns the warnings off entirely, and `@SuppressWarnings("unchecked")` turns them off for one declaration. The annotation is the honest one, because it is local, reviewable, and can carry a comment explaining the proof the compiler could not do.
 
@@ -72,7 +72,7 @@ Reject raw types outright, and every non-generic caller of a generified library 
 
 Reify the type arguments, and the class file format changes, which means the same break in a different place plus a new one at the JVM boundary. [[cs/languages/CSharp/reified-generics-in-the-clr|C# took that path]] and its documentation advertises the result as the distinguishing feature, describing its generics as similar to Java's but "with full runtime type information and no type erasure." That is the same feature list Java's designers wanted and the same one the compatibility requirement priced out of reach.
 
-Java bought source and binary compatibility in both directions and paid with a type system that has a documented, warned-about hole. [[cs/languages/Java/generics-and-type-erasure|Erasure]] is the implementation of that decision and raw types are its user-visible seam.
+Java bought [[cs/software-engineering/semantic-versioning|source and binary compatibility]] in both directions and paid with a type system that has a documented, warned-about hole. [[cs/languages/Java/generics-and-type-erasure|Erasure]] is the implementation of that decision and raw types are its user-visible seam.
 
 > [!warning] A raw type is not the same as a wildcard
 > `Box` and `Box<?>` are often confused and behave differently in the way that matters. `Box<?>` is fully type-checked: you can read from it as `Object` and you cannot write to it, so the compiler enforces safety by restricting the operations. `Box` disables checking: you can call anything and the compiler will let you, with a warning. When you genuinely do not care about the type argument, `Box<?>` is what you meant, and it costs nothing.

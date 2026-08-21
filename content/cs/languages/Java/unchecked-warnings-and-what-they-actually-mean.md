@@ -14,7 +14,7 @@ aliases:
   - SuppressWarnings unchecked
 ---
 
-Most compiler warnings say you probably made a mistake. An unchecked warning says something narrower and stranger: the compiler has stopped checking. Nothing at the marked line is wrong yet. The code compiles, links, and may run correctly for the life of the program. What changed at that expression is who owns the proof of type safety, and the compiler is filing a record of the handover.
+Most compiler warnings say you probably made a mistake. An unchecked warning says something narrower and stranger: the compiler has stopped checking. Nothing at the marked line is wrong yet. The code compiles, links, and may run correctly for the life of the program. What changed at that expression is who owns [[cs/pl/type-soundness-progress-preservation|the proof of type safety]], and the compiler is filing a record of the handover.
 
 That record is the whole value of the diagnostic, and it is why the two ways of silencing it are not equivalent.
 
@@ -39,7 +39,7 @@ The fourth shape hides inside varargs. A variable arity parameter of a non-reifi
 
 `-Xlint` on its own "Enables all recommended warnings", and the keyed form "Supplies warnings to enable or disable, separated by comma", where a hyphen before a key is what tells the compiler "to disable the specified warning". The key that governs this family is `unchecked`, documented tersely as "Warns about the unchecked operations".
 
-The important detail sits in the extended description rather than the option list. `-Xlint:unchecked` "Gives more detail for unchecked conversion warnings that are mandated by the Java Language Specification". The warning is mandated; the lint key buys the detail. That is the difference between knowing a compilation unit contains unchecked operations and knowing which line and which types. Running without the flag leaves you holding the first fact, which is nearly useless for review.
+The important detail sits in the extended description rather than the option list. `-Xlint:unchecked` "Gives more detail for unchecked conversion warnings that are mandated by the Java Language Specification". The warning is mandated; the lint key buys the detail. That is the difference between knowing a compilation unit contains unchecked operations and knowing which line and which types. Running without the flag leaves you holding the first fact, which is nearly useless for [[cs/software-engineering/code-review|review]].
 
 `-Xlint:-unchecked` is the blunt instrument, and `-Xlint:none` is the blunter one, documented as "Disables all warnings". Both operate on an entire compilation, which means they suppress the sites you reasoned about and the sites you have never seen, including the ones a colleague adds next month.
 
@@ -55,7 +55,7 @@ There is one relative of the annotation with different reach. `@SafeVarargs` "ha
 
 The `javac` example ends with the consequence rather than the diagnostic: after the unchecked assignment, "heap pollution occurs". A collection now holds elements whose actual type contradicts its static type, and nothing has failed. The failure waits for a read.
 
-That read is where erasure inserts a cast, and it is frequently not a line you wrote. In a generified hierarchy the cast can live inside a synthetic [[cs/languages/Java/bridge-methods|bridge method]], so the stack trace names a method with no source and the exception cites types that appear nowhere near the suppression that permitted them. Debugging starts at the effect, and the cause is a `@SuppressWarnings` in a file the trace never mentions. The same distance argument runs through [[cs/languages/Java/raw-types-and-migration-compatibility|Raw Types and Migration Compatibility]], where the compatibility bargain that created these warnings is set out in full.
+That read is where erasure inserts a cast, and it is frequently not a line you wrote. In a generified hierarchy the cast can live inside a synthetic [[cs/languages/Java/bridge-methods|bridge method]], so [[cs/pl/exceptions-handlers-and-non-local-control|the stack trace]] names a method with no source and the exception cites types that appear nowhere near the suppression that permitted them. Debugging starts at the effect, and the cause is a `@SuppressWarnings` in a file the trace never mentions. The same distance argument runs through [[cs/languages/Java/raw-types-and-migration-compatibility|Raw Types and Migration Compatibility]], where the compatibility bargain that created these warnings is set out in full.
 
 > [!tip] When suppressing is legitimate
 > Suppress only when you can write the proof the compiler could not. Three conditions, all required. First, you can state in one sentence why the runtime type genuinely matches the static claim, referring to code you control. Second, the annotation sits on the smallest declaration that silences the warning, usually a local variable rather than a method and never a class. Third, a comment records the argument, so the next reader adjudicates your reasoning instead of rediscovering the problem from a stack trace. Failing any of the three, the honest move is to fix the types or leave the warning visible.

@@ -36,17 +36,17 @@ public static <T extends Comparable<T>> int countGreaterThan(T[] anArray, T elem
 
 and the tutorial is blunt about why this matters: "Bounded type parameters are key to the implementation of generic algorithms."
 
-The shape has a name in type theory. When a type variable appears inside its own bound, the bound is a function of the variable it constrains, and the quantification is called f-bounded. The mechanical consequence inside the method body is small and specific. `T` now has a `compareTo` that accepts a `T`, so `e.compareTo(elem)` type-checks with no cast, and the argument type lines up with the element type instead of degrading to `Object`. [[cs/languages/Java/bounded-type-parameters|Bounded Type Parameters]] covers the rest of what a bound buys, including the fact that the leftmost bound is what the parameter erases to.
+The shape has a name in type theory. When a type variable appears inside its own bound, the bound is a function of the variable it constrains, and the [[cs/pl/parametric-polymorphism-adts|quantification]] is called f-bounded. The mechanical consequence inside the method body is small and specific. `T` now has a `compareTo` that accepts a `T`, so `e.compareTo(elem)` type-checks with no cast, and the argument type lines up with the element type instead of degrading to `Object`. [[cs/languages/Java/bounded-type-parameters|Bounded Type Parameters]] covers the rest of what a bound buys, including the fact that the leftmost bound is what the parameter erases to.
 
 ## What the bound actually promises
 
-Read `T extends Comparable<T>` as a constraint solver would. It admits any type argument `X` for which `X` is a subtype of `Comparable<X>`. That is the whole check. `Comparable` itself is declared with an unconstrained parameter, `public interface Comparable<T>`, so the interface places no restriction at all on what you compare against. The doc describes the intent, that the interface "imposes a total ordering on the objects of each class that implements it," and the payoff, that "Objects that implement this interface can be used as keys in a sorted map or as elements in a sorted set" without an explicit comparator. But intent is not enforcement.
+Read `T extends Comparable<T>` as a constraint solver would. It admits any type argument `X` for which `X` is a [[cs/pl/subtyping-variance-type-constraints|subtype]] of `Comparable<X>`. That is the whole check. `Comparable` itself is declared with an unconstrained parameter, `public interface Comparable<T>`, so the interface places no restriction at all on what you compare against. The doc describes the intent, that the interface "imposes a total ordering on the objects of each class that implements it," and the payoff, that "Objects that implement this interface can be used as keys in a sorted map or as elements in a sorted set" without an explicit comparator. But intent is not enforcement.
 
 `class Sneaky implements Comparable<String>` compiles. So does `class Backwards implements Comparable<Object>`. Neither is what anyone meant, and the type system has no opinion. The gap is visible in `compareTo`'s own contract, which reserves a runtime exception for exactly this situation: `ClassCastException - if the specified object's type prevents it from being compared to this object.` A statically enforced self type would make that exception unreachable. It is in the API because the bound cannot rule the case out.
 
 ## The JDK could not use the textbook form
 
-The clean demonstration is in `java.util.Collections`. The naive signature for a natural-ordering sort would be `<T extends Comparable<T>>`. What ships is wider, and the maximum-finder is stranger still:
+The clean demonstration is in `java.util.Collections`. The naive signature for a [[cs/math/relations-and-equivalence|natural-ordering]] sort would be `<T extends Comparable<T>>`. What ships is wider, and the maximum-finder is stranger still:
 
 ```java
 public static <T extends Comparable<? super T>> void sort(List<T> list)

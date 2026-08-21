@@ -14,7 +14,7 @@ aliases:
   - Type Witness
 ---
 
-A generic class parameterizes every one of its members at once. A generic method parameterizes a single call. The distinction matters because most polymorphic code in a real Java codebase is the second kind: static utilities, converters, and helpers whose type relationship holds for one invocation and has nothing to do with the enclosing class.
+A generic class parameterizes every one of its members at once. A generic method parameterizes a single call. The distinction matters because most [[cs/pl/parametric-polymorphism-adts|polymorphic code]] in a real Java codebase is the second kind: static utilities, converters, and helpers whose type relationship holds for one invocation and has nothing to do with the enclosing class.
 
 > [!note] The idea
 > A generic method's type parameter lives in its own scope, declared before the return type, and the compiler almost always works out what it should be from the call itself. The inference is deliberately local: it looks at the arguments, at the type the surrounding context expects, and at nothing else. That restriction is what keeps Java's inference predictable at the cost of occasionally needing help, and it is the design line separating this from [[cs/pl/hindleymilner-type-inference|Hindley-Milner inference]], which propagates constraints across a whole definition and can infer types no annotation ever mentions.
@@ -49,7 +49,7 @@ The tutorial states the inference algorithm's inputs and its hard limit in one s
 
 That final clause is the whole design. A variable's inferred type argument is fixed at the point of the call, from information available at that point. Nothing you write three lines later can reach back and change it. The consequence is that inference failures are local and readable: when the compiler cannot infer a type argument, the problem is in the call or its immediate context, never in a distant use.
 
-The algorithm also finds "the most specific type that works with all arguments." Pass an `Integer` and a `Double` to a method expecting two `T`s and `T` does not fail to infer; it infers something that accommodates both, which in practice is a compiler-generated intersection involving `Number` and `Comparable`. That is a frequent source of error messages naming types nobody wrote, and reading them is easier once you know the compiler is reporting a least upper bound rather than a type from your source.
+The algorithm also finds "the most specific type that works with all arguments." Pass an `Integer` and a `Double` to a method expecting two `T`s and `T` does not fail to infer; it infers something that accommodates both, which in practice is a compiler-generated intersection involving `Number` and `Comparable`. That is a frequent source of error messages naming types nobody wrote, and reading them is easier once you know the compiler is reporting a [[cs/math/relations-and-equivalence|least upper bound]] rather than a type from your source.
 
 > [!example] When you actually need the witness
 > The remaining case is a call whose arguments carry no information about the type parameter and whose context does not either. `Collections.emptyList()` in a position that is not an assignment or a typed argument is the standard example: there is no argument to infer from, so the compiler needs either a target type or an explicit `Collections.<String>emptyList()`. Java 8's expansion of target typing removed most of these, which is why the witness has largely disappeared from modern code.

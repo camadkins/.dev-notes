@@ -33,7 +33,7 @@ Leaving the brackets off entirely is a different thing and worse:
 Map<String, List<String>> myMap = new HashMap();  // unchecked conversion warning
 ```
 
-That is a [[cs/languages/Java/raw-types-and-migration-compatibility|raw type]] assigned to a parameterized variable, which is an unchecked conversion. The diamond is checked and the raw form is not, so the two-character difference is the difference between a guarantee and a warning.
+That is a [[cs/languages/Java/raw-types-and-migration-compatibility|raw type]] assigned to a parameterized variable, which is an unchecked conversion. The diamond is checked and the raw form is not, so the two-character difference is the difference between [[cs/pl/type-systems-goals-guarantees|a guarantee]] and a warning.
 
 ## Target type, precisely
 
@@ -49,7 +49,7 @@ processStringList(Collections.emptyList());       // Java 7: does not compile
 processStringList(Collections.<String>emptyList()); // Java 7: explicit witness required
 ```
 
-In Java 8 and later the second line compiles, because the parameter's declared type `List<String>` is now a target type the inference algorithm may use. This is the single change that retired the explicit type witness from most codebases.
+In Java 8 and later the second line compiles, because the parameter's declared type `List<String>` is now a target type [[cs/pl/hindleymilner-type-inference|the inference algorithm]] may use. This is the single change that retired the explicit type witness from most codebases.
 
 ## Why this matters past the syntax
 

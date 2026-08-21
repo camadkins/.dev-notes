@@ -67,7 +67,7 @@ The last clause is the one people skip. A parameter that is genuinely read and w
 
 ## Do not put a wildcard on a return type
 
-The guidelines carry a separate instruction that reads like style advice and is really about blast radius: "Using a wildcard as a return type should be avoided because it forces programmers using the code to deal with wildcards."
+The guidelines carry a separate instruction that reads like style advice and is really about [[cs/software-engineering/coupling-and-cohesion|blast radius]]: "Using a wildcard as a return type should be avoided because it forces programmers using the code to deal with wildcards."
 
 A wildcard in a parameter is a widening. It costs the caller nothing and lets more code call you. A wildcard in a return type is a narrowing pushed onto every caller, all of whom now hold a value of an unknown type and have to introduce their own wildcards or captures to work with it. Wildcards belong on the way in.
 

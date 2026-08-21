@@ -23,7 +23,7 @@ A reifiable type is one whose type information is fully available at runtime. `S
 
 `Pair<int, char> p = new Pair<>(8, 'a')` does not compile. Only reference types can be type arguments, so you write `Pair<Integer, Character>` and accept the boxing.
 
-This is downstream of erasure in a specific way. The erased class holds an `Object` field, and an `int` is not an `Object`, so there is nothing for the field to hold without a wrapper. A reifying runtime can specialize the class per primitive, which is what [[cs/languages/CSharp/reified-generics-in-the-clr|C# does]] and why `List<int>` there stores unboxed integers. The cost of Java's answer is an allocation per element and a pointer chase per read, which is a real difference on a numeric workload and the motivation for the long-running work on value types.
+This is downstream of erasure in a specific way. The erased class holds an `Object` field, and an `int` is not an `Object`, so there is nothing for the field to hold without a wrapper. A reifying runtime can specialize the class per primitive, which is what [[cs/languages/CSharp/reified-generics-in-the-clr|C# does]] and why `List<int>` there stores unboxed integers. The cost of Java's answer is an allocation per element and [[cs/systems/memory-hierarchy-and-caching|a pointer chase]] per read, which is a real difference on a numeric workload and the motivation for the long-running work on value types.
 
 ## You cannot instantiate a type parameter
 
@@ -74,7 +74,7 @@ Casts follow the same rule from the other direction. `(List<Number>) li` on a `L
 List<Integer>[] arrayOfLists = new List<Integer>[2];  // compile-time error
 ```
 
-The reason is the most interesting one in the list, because it is about an existing runtime check rather than a missing one. Arrays are covariant and self-checking: every store into an array is verified against the array's actual element type, and a bad store throws `ArrayStoreException`. That check is what makes covariant arrays tolerable, and it is explored in [[cs/languages/Java/covariant-arrays-vs-invariant-generics|Covariant Arrays vs Invariant Generics]].
+The reason is the most interesting one in the list, because it is about an existing runtime check rather than a missing one. Arrays are [[cs/pl/subtyping-variance-type-constraints|covariant]] and self-checking: every store into an array is verified against the array's actual element type, and a bad store throws `ArrayStoreException`. That check is what makes covariant arrays tolerable, and it is explored in [[cs/languages/Java/covariant-arrays-vs-invariant-generics|Covariant Arrays vs Invariant Generics]].
 
 The tutorial's example shows what would happen if generic arrays were allowed:
 
@@ -98,7 +98,7 @@ class QueueFullException<T> extends Throwable { } // compile-time error
 catch (T e) { }                                   // compile-time error
 ```
 
-Exception dispatch is a runtime class match against the handler table in the class file, so a handler for `T` is a handler for nothing in particular. The `throws` clause is the exception to the exception: `public void parse(File file) throws T` is legal, because a `throws` clause is a compile-time declaration that nothing at runtime consults.
+[[cs/pl/exceptions-handlers-and-non-local-control|Exception dispatch]] is a runtime class match against the handler table in the class file, so a handler for `T` is a handler for nothing in particular. The `throws` clause is the exception to the exception: `public void parse(File file) throws T` is legal, because a `throws` clause is a compile-time declaration that nothing at runtime consults.
 
 ## You cannot overload on erased-identical signatures
 

@@ -14,7 +14,7 @@ aliases:
   - Multiple Bounds
 ---
 
-An unbounded type parameter is almost useless inside the method that declares it. You can move a `T` around, store it, and return it, and that is the whole list. Calling anything on it beyond the methods of `Object` is a compile error, because the compiler has no evidence any particular method exists. A bound is how you supply that evidence.
+An unbounded type parameter is almost useless inside the method that declares it. You can move a `T` around, store it, and return it, and that is the whole list. Calling anything on it beyond the methods of `Object` is a [[cs/pl/type-systems-goals-guarantees|compile error]], because the compiler has no evidence any particular method exists. A bound is how you supply that evidence.
 
 > [!note] The idea
 > A bound is a promise made to the compiler at the declaration site and enforced at every call site, and it pays for itself twice. It restricts which type arguments are legal, which is the part everyone notices. It also determines what the type parameter erases to, which is the part that decides whether the generic body compiles to a virtual call or to a cast followed by a virtual call. `<T>` erases to `Object`; `<T extends Comparable<T>>` erases to `Comparable`. The bound is simultaneously the constraint on the caller and the static type the method body actually gets to use.
@@ -64,7 +64,7 @@ class D <T extends B & A & C> { }  // compile-time error
 
 The rule looks arbitrary until you connect it to [[cs/languages/Java/generics-and-type-erasure|erasure]]. The Java Language Specification defines the erasure of a type variable as the erasure of its leftmost bound. A type can extend at most one class, so if a class bound were allowed anywhere in the list, the leftmost bound might be an interface while the class bound sat behind it, and the erased type would be an interface that the class bound has to be cast to on every use. Forcing the class first makes the erasure the most informative type available.
 
-That same specification sentence is the practical reason to think about bound ordering at all. `<T extends Serializable & Comparable<T>>` erases to `Serializable`, which supports nothing, so every call to `compareTo` in the body goes through a cast. Reversing the two, where the language allows it, erases to `Comparable` and the calls become direct interface invocations. The ordering is a code-generation decision dressed as a syntax preference.
+That same specification sentence is the practical reason to think about bound ordering at all. `<T extends Serializable & Comparable<T>>` erases to `Serializable`, which supports nothing, so every call to `compareTo` in the body goes through a cast. Reversing the two, where the language allows it, erases to `Comparable` and the calls become [[cs/pl/objects-classes-and-dispatch|direct interface invocations]]. The ordering is a code-generation decision dressed as a syntax preference.
 
 ## Bounds versus wildcards
 
