@@ -46,7 +46,7 @@ Exhaustiveness does not mean enumerating everything by hand. A named catch-all a
 
 A pattern is refutable when it has the possibility of not being matched by the value it is matched against; irrefutable patterns always match. `let (x, y) = (1, 2)` is irrefutable. `if let (a, 3) = (1, 2)` is refutable and does not match.
 
-That single distinction explains the shape of the whole family. `if let` takes a pattern and an expression separated by `=`, and works the same way as a `match` where the expression is the scrutinee and the pattern is its first arm. It is syntax sugar for a `match` that runs code when the value matches one pattern and ignores all other values. The trade is stated plainly in the Book: less typing, less indentation, less boilerplate, but you lose the exhaustive checking that `match` enforces.
+That single distinction explains the shape of the whole family. `if let` takes a pattern and an expression separated by `=`, and works the same way as a `match` where the expression is the scrutinee and the pattern is its first arm. It is [[cs/pl/language-overview-syntax-semantics|syntax sugar]] for a `match` that runs code when the value matches one pattern and ignores all other values. The trade is stated plainly in the Book: less typing, less indentation, less boilerplate, but you lose the exhaustive checking that `match` enforces.
 
 `let...else` closes the remaining gap. It takes a pattern on the left and an expression on the right, very similar to `if let`, but has no `if` branch, only an `else` branch. If the pattern matches, it binds the value from the pattern in the outer scope. If it does not match, the program flows into the `else` arm, which must return from the function.
 

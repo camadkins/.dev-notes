@@ -14,7 +14,7 @@ aliases:
   - Move Semantics in Rust
 ---
 
-A `String` in Rust is three words on the stack (a pointer, a length, a capacity) plus a buffer on the heap. Copy the three stack words into a second variable and you have two things that believe they own the same buffer. When both go out of scope, both run the code that returns that buffer to the allocator, and the allocator's bookkeeping is now corrupt. Rust's whole ownership system exists to make that arrangement unrepresentable rather than merely discouraged.
+A `String` in Rust is three words on the stack (a pointer, a length, a capacity) plus a buffer on the heap. Copy the three stack words into a second variable and you have two things that believe they own the same buffer. When both go out of scope, both run the code that returns that buffer to [[cs/systems/memory-allocators-and-fragmentation|the allocator]], and the allocator's bookkeeping is now corrupt. Rust's whole ownership system exists to make that arrangement unrepresentable rather than merely discouraged.
 
 The comparative framing (manual freeing, RAII, refcounting, tracing GC) lives in [[cs/languages/common/memory-ownership-refcounting-gc|Who Frees the Memory]], and the type theory that ownership descends from is in [[cs/pl/ownership-and-linear-types|Ownership and Linear Types]]. This note is about the concrete Rust mechanics: what the rules say, what a move does to the source variable, and what the compiler emits when a scope ends.
 
@@ -33,7 +33,7 @@ What makes this more than RAII-with-different-syntax is the second rule. RAII gi
 
 Assigning `s1` to `s2` copies the pointer, length, and capacity, and does not touch the heap buffer. Other languages would call that a shallow copy. Rust invalidates `s1` at the same time, so the Book's name for it is a **move**: `s1` was moved into `s2`. Using `s1` afterward is a compile error, and the compiler's message names the reason directly, that the move occurred because the type does not implement the `Copy` trait.
 
-The Book is blunt about why: with both pointers live, when `s2` and `s1` go out of scope they will both try to free the same memory, a double free, and one of the memory-safety bugs the language is built to exclude. Invalidation is not a stylistic preference, it is the double free being deleted from the space of programs.
+The Book is blunt about why: with both pointers live, when `s2` and `s1` go out of scope they will both try to free the same memory, [[cs/security/use-after-free-and-heap-exploitation|a double free]], and one of the memory-safety bugs the language is built to exclude. Invalidation is not a stylistic preference, it is the double free being deleted from the space of programs.
 
 Two consequences follow that surprise people coming from C++ or Python.
 

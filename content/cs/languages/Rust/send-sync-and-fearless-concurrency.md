@@ -14,14 +14,14 @@ aliases:
   - Rust Thread Safety Traits
 ---
 
-Most of what Rust offers for concurrency is library code. Channels, `Mutex<T>`, and `Arc<T>` all live in the standard library, and the Book is explicit that almost every concurrency feature in the chapter is part of the standard library rather than the language. Two things are not. `Send` and `Sync` are `std::marker` traits embedded in the language, and they are the reason the library types can be trusted.
+Most of what Rust offers for concurrency is library code. [[cs/systems/concurrency-primitives|Channels]], `Mutex<T>`, and `Arc<T>` all live in the standard library, and the Book is explicit that almost every concurrency feature in the chapter is part of the standard library rather than the language. Two things are not. `Send` and `Sync` are `std::marker` traits embedded in the language, and they are the reason the library types can be trusted.
 
 > [!note] The idea
 > `Send` and `Sync` hold a strange combination of properties. They are unsafe traits, so they are unsafe to implement and other unsafe code is entitled to assume they were implemented correctly. They are also automatically derived, meaning that unlike every other trait, a type composed entirely of `Send` or `Sync` types is itself `Send` or `Sync`. Put those together and you get the actual design: thread safety propagates upward through composition for free, and the only places a human has to think are the leaves where raw pointers or interior mutability enter. The safety of the whole program's concurrency reduces to a handful of hand-audited types.
 
 ## What each trait claims
 
-The Nomicon's two-line statement is the one to memorize. A type is `Send` if it is safe to send it to another thread. A type is `Sync` if it is safe to share between threads, and `T` is `Sync` if and only if `&T` is `Send`.
+The Nomicon's two-line statement is the one to memorize. A type is `Send` if it is safe to send it to [[cs/systems/processes-and-threads|another thread]]. A type is `Sync` if it is safe to share between threads, and `T` is `Sync` if and only if `&T` is `Send`.
 
 The Book says the same thing operationally. `Send` indicates that ownership of values of the implementing type can be transferred between threads. `Sync` indicates that it is safe for the type to be referenced from multiple threads, which is the same statement as `&T` being `Send`. The biconditional is not decoration; it is what lets one trait be defined entirely in terms of the other, so a checker only has to reason about transfer.
 

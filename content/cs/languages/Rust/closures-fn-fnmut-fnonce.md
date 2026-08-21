@@ -40,7 +40,7 @@ The [[cs/languages/Rust/borrowing-and-lifetimes|borrow rules]] then apply to the
 
 ## `move`, and the reason it exists
 
-`move` before the parameter list forces the closure to take ownership of the values it uses from the environment even when the body does not strictly need ownership. Its main use is passing a closure to a new thread so the data is owned by that thread.
+`move` before the parameter list forces the closure to take ownership of the values it uses from the environment even when the body does not strictly need ownership. Its main use is passing a closure to [[cs/systems/processes-and-threads|a new thread]] so the data is owned by that thread.
 
 The Book's justification is a lifetime argument, not a convenience argument. `thread::spawn(move || println!("From thread: {list:?}"))` needs `move` even though printing needs only a shared reference, because if the main thread kept ownership of `list` and ended before the spawned thread, dropping `list` would leave the thread holding an invalid reference. The compiler requires the move so the reference stays valid. That is the same reasoning that appears again under [[cs/languages/Rust/send-sync-and-fearless-concurrency|Send and Sync]].
 
@@ -57,7 +57,7 @@ And `move` still does not fix the trait. `move` closures may implement `Fn` or `
 
 ## Inference locks in on first use
 
-Closures usually need no type annotations, because unlike a function signature they are not an exposed interface; they are stored in variables and used without being named to a library's users. Within that narrow context the compiler infers the parameter and return types.
+Closures usually need no type annotations, because unlike a function signature they are not an exposed interface; they are stored in variables and used without being named to a library's users. Within that narrow context the compiler [[cs/pl/hindleymilner-type-inference|infers the parameter and return types]].
 
 The inference is one-shot, not polymorphic. The compiler infers one concrete type for each parameter and for the return value, so `let example_closure = |x| x;` called first with a `String` locks `x` and the return type to `String`, and a subsequent call with an integer is `error[E0308]: mismatched types`. An unannotated closure is not generic. It is a concrete type whose annotations you were allowed to omit.
 

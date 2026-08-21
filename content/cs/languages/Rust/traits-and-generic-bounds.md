@@ -33,7 +33,7 @@ Concretely, in an `aggregator` crate you can implement the standard library's `D
 
 This restriction is part of a property called coherence, and more specifically the orphan rule, so named because the parent type is not present. The justification is stated plainly and is worth internalizing: the rule ensures that other people's code cannot break yours and vice versa. Without it, two crates could implement the same trait for the same type, and Rust would not know which implementation to use.
 
-Read the justification carefully and it is an argument about linking, not about style. The ambiguity the Book describes appears only when two crates that each compiled fine are combined, so the conflict surfaces at integration time, in code neither author wrote. The orphan rule pushes the check back to the point where a single author can act on it.
+Read the justification carefully and it is an argument about [[cs/pl/modules-signatures-and-separate-compilation|linking]], not about style. The ambiguity the Book describes appears only when two crates that each compiled fine are combined, so the conflict surfaces at integration time, in code neither author wrote. The orphan rule pushes the check back to the point where a single author can act on it.
 
 ## Bounds: `impl Trait`, `T: Trait`, and `where`
 
@@ -53,7 +53,7 @@ Generics resolve by monomorphization: the compiler generates nongeneric implemen
 
 Sometimes you cannot know the types. A GUI `Screen` holding a heterogeneous list of components needs a `Vec<Box<dyn Draw>>`, a vector of trait objects. A trait object is made by specifying a pointer, such as a reference or a `Box<T>`, then the `dyn` keyword, then the trait. Wherever a trait object is used, the type system still ensures at compile time that any value used in that context implements the trait, so you never have to check at runtime whether a value has a method, and code that would fail that check does not compile.
 
-The cost is dynamic dispatch, which is when the compiler cannot tell at compile time which method you are calling and must emit code that figures it out at runtime. Rust uses the pointers inside the trait object to find the method. That lookup has a runtime cost static dispatch does not, and it also prevents the compiler from inlining the method, which in turn blocks some optimizations. The Book's guidance is direct: if you will only ever have homogeneous collections, generics and trait bounds are preferable because the definitions get monomorphized to the concrete types.
+The cost is [[cs/pl/objects-classes-and-dispatch|dynamic dispatch]], which is when the compiler cannot tell at compile time which method you are calling and must emit code that figures it out at runtime. Rust uses the pointers inside the trait object to find the method. That lookup has a runtime cost static dispatch does not, and it also prevents the compiler from inlining the method, which in turn blocks some optimizations. The Book's guidance is direct: if you will only ever have homogeneous collections, generics and trait bounds are preferable because the definitions get monomorphized to the concrete types.
 
 ## Dyn compatibility: not every trait can be a trait object
 
