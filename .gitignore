@@ -13,3 +13,5 @@ replit.nix
 quartz/cli/tui/dist/
 .turbo/
 .garden
+CLAUDE.md
+CLAUDE.local.md
