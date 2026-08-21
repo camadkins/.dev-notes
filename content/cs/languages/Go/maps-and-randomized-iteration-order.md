@@ -21,7 +21,7 @@ Print the contents of a Go map twice in the same process and the lines come out 
 
 ## What the language actually promises
 
-The spec is short about it. "A map is an unordered group of elements of one type" indexed by unique keys, and in the section on `range`, "The iteration order over maps is not specified" and it "is not guaranteed to be the same from one iteration to the next." The second clause is the interesting half. It rules out per-process stability, not just cross-implementation stability.
+The spec is short about it. "A map is an unordered group of elements of one type" indexed by unique keys, and in the section on `range`, "The iteration order over maps is not specified" and it "is not guaranteed to be the same from one iteration to the next." The second clause is the interesting half. It rules out per-process stability, and cross-implementation stability along with it.
 
 The spec also spells out what happens when you mutate a map mid-loop, which most languages simply forbid. If an entry that has not yet been reached is removed, "the corresponding iteration value will not be produced." If one is created, it may be produced or skipped, and "the choice may vary for each entry created and from one iteration to the next." That permissiveness turns out to be expensive, and the implementation notes say so directly: the permissiveness of Go maps with iteration results in iteration being the most complex part of the map implementation.
 
@@ -29,7 +29,7 @@ One more constraint shapes everything below. The equality operators must be full
 
 ## The table underneath
 
-Since Go 1.24 the built-in map is "a completely new implementation of the built-in map type, based on the Swiss Table design," replacing the older bucketed chaining scheme. Swiss Tables are open addressed, so every entry lives in one backing array and collisions are resolved by probing elsewhere in that array rather than by hanging a list off a bucket. The classic tradeoffs of that choice belong to [[cs/dsa/hash-tables|hash tables]] generally.
+Since Go 1.24 the built-in map is "a completely new implementation of the built-in map type, based on the Swiss Table design," replacing the implementation that shipped for the language's first decade. Swiss Tables are open addressed, so every entry lives in one backing array and collisions are resolved by probing elsewhere in that array rather than by hanging a list off a bucket. The classic tradeoffs of that choice belong to [[cs/dsa/hash-tables|hash tables]] generally.
 
 What Swiss Tables add is a metadata trick. The backing array is cut into groups of eight slots, and "each group has a 64-bit control word for metadata." One byte per slot records empty, deleted, or in use, and when in use, "the byte contains the lower 7 bits of the hash for that" slot's key. A lookup broadcasts the seven-bit fragment of the key it wants across the control word and compares all eight bytes in a single operation. The blog's summary of the payoff is the whole design in one line: "we have effectively performed 8 steps of a probe sequence at once, in parallel."
 
@@ -54,7 +54,7 @@ The failure this prevents is the one that does not look like a failure. Suppose 
 
 Randomization moves that break to the earliest, cheapest, most local moment: the second time anyone runs the program. The bug surfaces in the developer's terminal, in a form that points straight at the map, before it has been written into anyone's expectations.
 
-The remedy is the one the standard library documents. Collect the keys, sort them, and iterate the sorted slice. The order then exists in your code where a reader can see it, rather than in a memory layout that nobody promised you.
+The remedy is mechanical. Collect the keys, sort them, and iterate the sorted slice. The order then exists in your code where a reader can see it, rather than in a memory layout that nobody promised you.
 
 ## Related Notes
 
