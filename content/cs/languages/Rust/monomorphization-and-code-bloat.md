@@ -23,7 +23,7 @@ Assembly has no type parameters. Whatever a language does with generics, the mac
 
 The Book's worked example is deliberately small. Two uses of `Option<T>`, one holding an `i32` and one holding an `f64`, cause the compiler to read the values used in `Option<T>` instances, identify the two kinds in play, and expand the generic definition into two definitions specialized to `i32` and `f64`, replacing the generic definition with the specific ones. The output resembles hand-written `Option_i32` and `Option_f64` enums. Because the code that specifies the type in each instance is what gets compiled, no runtime cost is paid for generics, and the running program performs as it would if each definition had been duplicated by hand. That last phrase is the honest one: duplicated by hand is exactly what the binary contains.
 
-The mechanics sit at a specific place in the pipeline. Before the compiler can generate machine code it has to know which concrete instantiations exist, a step called collection, performed by the monomorphization collector. For `fn banana() { peach::<u64>(); }` called from `main`, the collector returns the list `[main, banana, peach::<u64>]`, and those are the functions that will have machine code generated for them. Monomorphization is the first step in the backend, run just before MIR lowering and codegen, which is why a type error in a generic body is caught once at definition (see [[cs/languages/Rust/traits-and-generic-bounds|Traits and Generic Bounds in Rust]]) while a codegen cost is paid once per instantiation.
+The mechanics sit at a specific place in the pipeline. Before the compiler can generate machine code it has to know which concrete instantiations exist, a step called collection, performed by the monomorphization collector. For `fn banana() { peach::<u64>(); }` called from `main`, the collector returns the list `[main, banana, peach::<u64>]`, and those are the functions that will have machine code generated for them. Monomorphization is the first step in the backend, run just before MIR lowering and codegen, which is why a type error in a generic body is caught once at the definition while a codegen cost is paid once per instantiation.
 
 ## Where the copies land
 
@@ -55,9 +55,9 @@ Rust sits at the extreme of that axis on purpose. It has no runtime to consult, 
 - [[cs/languages/Rust/generic-code-and-compile-times|Generic Code and Compile Times]] - the other half of the same bill, and the techniques that reduce it
 - [[cs/languages/common/generics-monomorphization-vs-erasure|Generics, Monomorphization vs Erasure]] - the cross-language framing of the axis this note prices for Rust
 - [[cs/languages/Rust/trait-objects-vtables-and-fat-pointers|Trait Objects, Vtables, and Fat Pointers]] - the opt-out, where one body serves every type at the cost of an indirect call
-- [[cs/systems/memory-hierarchy-and-caching|Memory Hierarchy and Caching]] - why instruction footprint is a performance quantity and not just a storage one
+- [[cs/systems/memory-hierarchy-and-caching|Memory Hierarchy and Caching]] - why instruction footprint is a performance quantity rather than a storage one
 - [[cs/pl/parametric-polymorphism-adts|Parametric Polymorphism and Algebraic Data Types]] - the type-theory reading of what generics promise before any compiler decides how to implement them
-- [[cs/languages/Cpp/templates-and-generic-programming|Templates and Generic Programming]] - the same instantiation-per-use model, arrived at a decade earlier and without the type checking
+- [[cs/languages/Rust/traits-and-generic-bounds|Traits and Generic Bounds in Rust]] - where bounds are checked once at the definition, and what `dyn` costs instead
 
 ## Sources
 
