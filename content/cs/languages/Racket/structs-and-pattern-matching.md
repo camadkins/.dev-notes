@@ -51,7 +51,7 @@ Opacity reaches further than printing. A generic `equal?` comparison automatical
 (equal? slab (lead 1 2))           ; => #f
 ```
 
-The escape is `#:methods` with `gen:equal+hash`, implementing three procedures: an equality procedure whose third argument is used instead of `equal?` for recursive testing so that data cycles can be handled correctly, and primary and secondary hash procedures for use with hash tables. The equality procedure is not required to recursively compare the fields; the Guide's example of a set structure comparing members irrespective of internal order is exactly the case that motivates the freedom. The obligation that comes with it is that the hash functions must produce the same value for any two structures that are supposed to be equivalent.
+The escape is `#:methods` with `gen:equal+hash`, implementing three procedures: an equality procedure whose third argument is used instead of `equal?` for recursive testing so that data cycles can be handled correctly, and primary and secondary hash procedures for use with [[cs/dsa/hash-tables|hash tables]]. The equality procedure is not required to recursively compare the fields; the Guide's example of a set structure comparing members irrespective of internal order is exactly the case that motivates the freedom. The obligation that comes with it is that the hash functions must produce the same value for any two structures that are supposed to be equivalent.
 
 ## Generativity, and the bug it causes
 
