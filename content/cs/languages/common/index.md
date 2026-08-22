@@ -1,6 +1,6 @@
 ---
 title: Common Concerns
-description: The comparative layer. One cross-cutting engineering concern per note, answered several ways across Rust, C++, Python, and Ansible, with the tradeoff named.
+description: The comparative layer. One cross-cutting engineering concern per note, answered several ways across the section's languages, with the tradeoff named.
 draft: false
 comments: false
 tags:
