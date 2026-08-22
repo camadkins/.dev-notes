@@ -45,7 +45,7 @@ This is one of those comparisons that comes up constantly, and the tradeoff is s
 | Overhead | Higher (20-byte header + state) | Lower (8-byte header) |
 | Use cases | Web, email, file transfer, SSH | DNS queries, video streaming, gaming, VoIP |
 
-TCP's three-way handshake: SYN, SYN-ACK, ACK. After that, data flows as a reliable byte stream. The sender adapts its rate using congestion-control algorithms (Reno, Cubic, BBR).
+TCP's [[cs/networking/tcp-three-way-handshake|three-way handshake]]: SYN, SYN-ACK, ACK. After that, data flows as a reliable byte stream. The sender adapts its rate using [[cs/networking/tcp-congestion-control|congestion-control algorithms]] (Reno, Cubic, BBR).
 
 > [!tip]
 > A quick way to remember which to use: if losing a packet would break your application (file transfer, database queries), use TCP. If a dropped packet just means a slightly choppy frame (video call, game state), UDP is probably fine.
@@ -84,7 +84,7 @@ Content-Length: 1256
 <!DOCTYPE html>...
 ```
 
-The evolution of HTTP tells you a lot about what bottlenecks mattered at each stage:
+[[cs/networking/http-evolution-1-1-to-3|The evolution of HTTP]] tells you a lot about what bottlenecks mattered at each stage:
 
 - **HTTP/1.1** added persistent connections and chunked transfer (stop opening a new TCP connection for every image on a page).
 - **HTTP/2** introduced binary framing, multiplexed streams, and header compression (stop waiting for one resource before requesting the next).
@@ -102,7 +102,7 @@ This is the classic interview question, and walking through it connects all the 
 4. **HTTP**: send `GET /` over the encrypted channel.
 5. **Response**: server returns HTML; browser parses, discovers linked CSS/JS/images, and repeats steps 1-4 for each (often reusing the TCP connection).
 
-At the IP layer, routers forward packets hop by hop using routing tables. At the link layer, each hop uses ARP (or NDP for IPv6) to map IP addresses to MAC addresses for local delivery.
+At the IP layer, routers forward packets hop by hop using routing tables. At the link layer, each hop uses [[cs/networking/arp-and-mac-addressing|ARP]] (or NDP for IPv6) to map IP addresses to MAC addresses for local delivery.
 
 > [!note]
 > The browser reusing TCP connections is a huge performance win. Without connection reuse, every resource on a page (and modern pages load dozens) would require a fresh three-way handshake plus TLS negotiation. HTTP/2 takes this further by multiplexing multiple requests over a single connection.

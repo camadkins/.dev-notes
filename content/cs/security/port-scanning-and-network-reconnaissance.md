@@ -16,14 +16,14 @@ aliases:
   - nmap
 ---
 
-Before anyone attacks a system, they have to find it, and find out what it runs. Reconnaissance is the unglamorous first phase: which hosts are alive, which ports are open, which services and versions sit behind them. The elegant part is that a target volunteers most of this. The TCP state machine answers a probe differently depending on a port's state, so an attacker (or a defender auditing their own exposure) can read the state straight off the reply without logging in to anything.
+Before anyone attacks a system, they have to find it, and find out what it runs. Reconnaissance is the unglamorous first phase: which hosts are alive, [[cs/networking/ports-and-sockets|which ports are open]], which services and versions sit behind them. The elegant part is that a target volunteers most of this. [[cs/networking/tcp-vs-udp|The TCP state machine]] answers a probe differently depending on a port's state, so an attacker (or a defender auditing their own exposure) can read the state straight off the reply without logging in to anything.
 
 > [!note] The idea
 > The TCP three-way handshake is an oracle you can query. Send a lone SYN and the remote stack's response reveals the port's state: a SYN/ACK means open, a RST means closed, and silence means filtered by something upstream. The SYN scan weaponizes this by never sending the final ACK, so it learns the answer while leaving the connection half-open and unestablished. The same three-way distinction is the defender's map of their own attack surface.
 
 ## The half-open scan reads the reply, not the connection
 
-A normal TCP connection completes a three-way handshake: SYN, SYN/ACK, ACK. A SYN scan stops one step short. As the Nmap reference explains, "because the three-way handshake is never completed, SYN scan is sometimes called half-open scanning." The scanner sends the opening SYN, reads whatever comes back, and never sends the ACK that would finalize a connection. That is enough, because the diagnostic information is entirely in the response.
+A normal TCP connection completes a [[cs/networking/tcp-three-way-handshake|three-way handshake]]: SYN, SYN/ACK, ACK. A SYN scan stops one step short. As the Nmap reference explains, "because the three-way handshake is never completed, SYN scan is sometimes called half-open scanning." The scanner sends the opening SYN, reads whatever comes back, and never sends the ACK that would finalize a connection. That is enough, because the diagnostic information is entirely in the response.
 
 The value is precision. A SYN scan "allows clear, reliable differentiation between `open`, `closed`, and `filtered` states." Those three states map directly to three behaviors of the remote stack. A SYN/ACK reply means a service is listening: the port is open. A RST reply means the host is reachable but nothing is listening there: the port is closed. No reply at all, even after retransmissions, means a firewall or filter silently dropped the probe: the port is filtered. That last state is why a scan doubles as [[firewalls|firewall]] reconnaissance, because the absence of an answer is itself an answer about what sits in front of the host.
 

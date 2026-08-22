@@ -29,7 +29,7 @@ The purpose is abstraction: "the main purpose of device drivers is to provide ha
 
 The article's own example is the cleanest illustration of what that buys. "A high-level application for interacting with a serial port may simply have two functions for *send data* and *receive data*. At a lower level, a device driver implementing these functions would communicate with the particular serial port controller installed on a user's computer. The commands needed to control a 16550 UART are much different from the commands needed to control a USB-to-serial adapter, but each hardware-specific device driver abstracts these details into the same (or similar) software interface." Two radically different pieces of silicon, one interface. That interface is the driver's entire product.
 
-Note also that "drivers are hardware-dependent and operating-system-specific," which is why the driver matrix is a cross product rather than a list, and why a driver is written twice for two operating systems.
+Note also that "drivers are [[cs/languages/common/portability-and-cross-compilation|hardware-dependent and operating-system-specific]]," which is why the driver matrix is a cross product rather than a list, and why a driver is written twice for two operating systems.
 
 ## Polling: the CPU waits
 
@@ -50,7 +50,7 @@ The failure mode is one of scale: "polling has the disadvantage that if there ar
 >
 > Count the bytes moved per round trip: one. That is the number to hold onto when DMA shows up below.
 
-How low-level is this really? "Polling a parallel printer port to check whether it is ready for another character involves examining as little as one bit of a byte. That bit represents, at the time of reading, whether a single wire in the printer cable is at low or high voltage. The I/O instruction that reads this byte directly transfers the voltage state of eight real world wires to the eight circuits (flip flops) that make up one byte of a CPU register." Eight wires, eight flip-flops, one register. There is no abstraction left at that layer, which is precisely why the driver exists above it.
+How low-level is this really? "Polling a parallel printer port to check whether it is ready for another character involves examining as little as one bit of a byte. That bit represents, at the time of reading, whether a single wire in the printer cable is at low or high voltage. The I/O instruction that reads this byte directly transfers the voltage state of eight real world wires to the eight circuits ([[cs/history/shannon-boolean-algebra-switching|flip flops]]) that make up one byte of a CPU register." Eight wires, eight flip-flops, one register. There is no abstraction left at that layer, which is precisely why the driver exists above it.
 
 Polling also generalizes past device I/O. A **polling cycle** is "the time in which each element is monitored once," and "the optimal polling cycle will vary according to several factors, including the desired speed of response and the overhead (e.g., processor time and bandwidth) of the polling." In **roll call polling** "the polling device or process queries each element on a list in a fixed sequence," which "can be inefficient if the overhead for the polling messages is high, there are numerous elements to be polled in each polling cycle and only a few elements are active." In **hub polling**, "also referred to as token polling, each element polls the next element in some fixed sequence."
 

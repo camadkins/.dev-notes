@@ -44,10 +44,10 @@ The simplest posture is to assume deadlock will never happen. This "is also an a
 
 Prevention "works by preventing one of the four Coffman conditions from occurring." Each condition suggests an attack, and each attack has a cost:
 
-- Removing **mutual exclusion** gives non-blocking synchronization algorithms, but it "proves impossible for resources that cannot be spooled."
+- Removing **mutual exclusion** gives [[cs/languages/Cpp/the-cpp-memory-model-and-atomics|non-blocking synchronization algorithms]], but it "proves impossible for resources that cannot be spooled."
 - Removing **hold and wait** means "requiring processes to request all the resources they will need before starting up." This "advance knowledge is frequently difficult to satisfy and, in any case, is an inefficient use of resources."
 - Removing **no preemption** implies rollback of a locked-out resource, which "is to be avoided since it is very costly in overhead."
-- Removing **circular wait** is the cheapest and most common: impose "a hierarchy to determine a partial ordering of resources." Everyone acquires locks in the same global order, so no cycle can form. "If no obvious hierarchy exists, even the memory address of resources has been used to determine ordering."
+- Removing **circular wait** is the cheapest and most common: impose "a hierarchy to determine a [[cs/math/relations-and-equivalence|partial ordering]] of resources." Everyone acquires locks in the same global order, so no cycle can form. "If no obvious hierarchy exists, even the memory address of resources has been used to determine ordering."
 
 That last one is the trick most real codebases actually use: pick a lock order, enforce it everywhere.
 
@@ -62,7 +62,7 @@ The canonical avoidance algorithm is Dijkstra's Banker's algorithm, "a resource 
 
 ### Detection: let it happen, then recover
 
-The last posture allows deadlock and cleans up after. "The state of the system is examined to detect that a deadlock has occurred and subsequently it is corrected." An algorithm "tracks resource allocation and process states, it rolls back and restarts one or more of the processes in order to remove the detected deadlock." Detection is easy because "the resources that each process has locked and/or currently requested are known to the resource scheduler." This is the database-engine posture: run fast in the common case, and when a wait-for cycle appears, kill a victim transaction and let it retry.
+The last posture allows deadlock and cleans up after. "The state of the system is examined to detect that a deadlock has occurred and subsequently it is corrected." An algorithm "tracks resource allocation and process states, it rolls back and restarts one or more of the processes in order to remove the detected deadlock." Detection is easy because "the resources that each process has locked and/or currently requested are known to the resource scheduler." This is the database-engine posture: run fast in the common case, and when a [[cs/math/graph-theory|wait-for cycle]] appears, kill a victim transaction and let it retry.
 
 ## The trade-off
 

@@ -16,7 +16,7 @@ aliases:
   - EMSEC
 ---
 
-Civilian information security tends to treat "we encrypted it" as the finish line. Military communications security has always treated encryption as one line item on a longer list, because the ways a communication betrays you do not stop at the ciphertext. That older doctrine, COMSEC, decomposes the problem in a way that names exactly where a perfectly encrypted link still leaks.
+Civilian information security tends to treat "we encrypted it" as the finish line. Military communications security has always treated encryption as one line item on a longer list, because the ways a communication betrays you do not stop at the ciphertext. That older doctrine, [[cs/military-computing/naval-cryptology-roof-gang|COMSEC]], decomposes the problem in a way that names exactly where a perfectly encrypted link still leaks.
 
 > [!note] The idea
 > Communications security "includes cryptographic security, transmission security, emissions security and physical security of COMSEC equipment and associated keying material." Encryption is only the first of those four. A link can be uncrackable and still give you away through when and how it transmits, through the emanations of the equipment, or through captured keys. The doctrine's payload is that protecting message content is necessary and nowhere near sufficient.
@@ -29,7 +29,7 @@ Each component is defined against a different attack surface.
 
 Cryptographic security is the part civilians recognize: "the component of communications security that results from the provision of technically sound cryptosystems and their proper use," ensuring confidentiality and authenticity. This is the domain of ciphers, key exchange, and [[symmetric-vs-asymmetric-cryptography|symmetric and asymmetric algorithms]].
 
-Transmission security (TRANSEC) defends the signal itself, not its content: "the component of communications security that results from the application of measures designed to protect transmissions from interception and exploitation by means other than cryptanalysis (e.g. frequency hopping and spread spectrum)." Even if the payload is unreadable, the mere presence, timing, and volume of a transmission is intelligence. Frequency hopping and spread spectrum hide the signal so it cannot be easily found, jammed, or traffic-analyzed.
+Transmission security (TRANSEC) defends the signal itself, not its content: "the component of communications security that results from the application of measures designed to protect transmissions from interception and exploitation by means other than cryptanalysis (e.g. [[cs/military-computing/link-16-tactical-data-links|frequency hopping]] and spread spectrum)." Even if the payload is unreadable, the mere presence, timing, and volume of a transmission is intelligence. Frequency hopping and spread spectrum hide the signal so it cannot be easily found, jammed, or traffic-analyzed.
 
 Emission security (EMSEC) addresses the hardware leaking on its own. It is "the protection resulting from all measures taken to deny unauthorized persons information of value that might be derived from communications systems and cryptographic equipment intercepts and the interception and analysis of compromising emanations." A cipher machine can radiate information through unintended emanations from the equipment itself, entirely bypassing the strength of the cipher.
 

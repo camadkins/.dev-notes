@@ -15,7 +15,7 @@ aliases:
   - integrity attribute
 ---
 
-A modern web page is assembled from other people's servers: a framework from one CDN, a font from another, an analytics script from a third. Every one of those is code running with your page's full privileges. The transport-security stack, TLS plus [[hsts-and-http-security-headers|HSTS]] plus [[certificate-pinning|key pinning]], does an excellent job of one thing and a poor job of another. As the SRI specification puts it, these mechanisms "authenticate only the server, not the content." You can be certain you are really talking to the CDN. You have no assurance the CDN is sending what you expect.
+A modern web page is assembled from other people's servers: a framework from one [[cs/networking/cdn-and-edge-caching|CDN]], a font from another, an analytics script from a third. Every one of those is code running with your page's full privileges. The transport-security stack, TLS plus [[hsts-and-http-security-headers|HSTS]] plus [[certificate-pinning|key pinning]], does an excellent job of one thing and a poor job of another. As the SRI specification puts it, these mechanisms "authenticate only the server, not the content." You can be certain you are really talking to the CDN. You have no assurance the CDN is sending what you expect.
 
 > [!note] The idea
 > Subresource Integrity lets a page declare the exact cryptographic hash of a resource it intends to load, in an `integrity` attribute on the `<script>` or `<link>` tag, and the browser refuses to use the resource if the bytes do not hash to that value. The spec's framing is precise: authors want to "not only be able to pin the keys of a server, but also pin the content." SRI moves the trust anchor from *who served the file* to *what the file actually is*.
@@ -24,7 +24,7 @@ A modern web page is assembled from other people's servers: a framework from one
 
 The gap SRI fills is easy to miss because TLS feels like it should cover it. It does not. An attacker who replaces the file on a CDN server, or an administrator with legitimate access, or a compromise of the third-party service itself, "has the ability to inject arbitrary content," and TLS will deliver that malicious content over a perfectly valid, perfectly encrypted connection. The lock icon is honest: you really are talking securely to the server. The server is simply lying about the payload.
 
-SRI's stated goal makes the threat model explicit: a compromise of a third-party service "should not automatically mean compromise of every site which includes its scripts." Without SRI, one breached popular CDN is a breach of every site that hot-links it. With SRI, the breached CDN can serve altered bytes all day and every SRI-protected page silently rejects them.
+SRI's stated goal makes the threat model explicit: [[cs/languages/common/software-supply-chain-and-provenance|a compromise of a third-party service]] "should not automatically mean compromise of every site which includes its scripts." Without SRI, one breached popular CDN is a breach of every site that hot-links it. With SRI, the breached CDN can serve altered bytes all day and every SRI-protected page silently rejects them.
 
 ## A hash in the tag
 

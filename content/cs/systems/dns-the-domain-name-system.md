@@ -30,7 +30,7 @@ The work of walking this tree is done by a **recursive resolver**, usually run b
 
 ![DNS resolution: a recursive resolver walks the hierarchy from a root nameserver to the TLD server to the authoritative server, and the answer is cached with a TTL on the way back.](assets/dns-resolution.svg)
 
-Most of this happens over UDP on port 53. A DNS query is a small question with a small answer, latency matters, and if a packet drops you just ask again, so the [[network-protocols|lightweight, connectionless transport]] fits better than TCP's handshake. Large responses and zone transfers fall back to TCP.
+Most of this happens over [[cs/networking/tcp-vs-udp|UDP]] on port 53. A DNS query is a small question with a small answer, latency matters, and if a packet drops you just ask again, so the [[network-protocols|lightweight, connectionless transport]] fits better than TCP's handshake. Large responses and zone transfers fall back to TCP.
 
 ## Caching: why it scales
 
@@ -45,7 +45,7 @@ That trade is deliberate. A naming system for the entire internet cannot afford 
 
 Because resolution is a step every connection takes before any data flows, whoever controls or observes the resolver controls or observes the user. That makes DNS a favorite lever for both censorship and defense:
 
-- **DNS poisoning / spoofing** returns a wrong (or null) address for a name, silently blocking or redirecting it. National firewalls use this to make sites simply fail to resolve.
+- **[[cs/security/dnssec|DNS poisoning]] / spoofing** returns a wrong (or null) address for a name, silently blocking or redirecting it. National firewalls use this to make sites simply fail to resolve.
 - **Plaintext queries leak.** Classic DNS is unencrypted, so a network observer sees every name you look up even when the page itself is HTTPS.
 - **Encrypted DNS** closes that gap. DNS over HTTPS (DoH, RFC 8484) and DNS over TLS (DoT, RFC 7858) wrap queries in [[tls-and-the-https-handshake|TLS]] so they cannot be read or tampered with in transit.
 - **DNSSEC** signs records cryptographically, so a resolver can verify an answer is authentic and was not forged, even if it cannot keep it private.

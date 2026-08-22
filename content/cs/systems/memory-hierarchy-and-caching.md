@@ -16,7 +16,7 @@ aliases:
   - Locality of Reference
 ---
 
-There is no single kind of memory in a computer, and the reason is economic before it is technical. Fast memory is small and expensive; large memory is cheap and slow. You cannot buy a terabyte of register-speed storage, and you would not want to run a program out of a hard drive. So machines stack several kinds of memory into a ladder and try to keep the data you are about to use near the top. That ladder is the memory hierarchy, and caching is the machinery that decides what lives where.
+There is no single kind of memory in a computer, and the reason is economic before it is technical. Fast memory is small and expensive; large memory is cheap and slow. You cannot buy a terabyte of register-speed storage, and you would not want to run a program out of a [[cs/history/magnetic-disk-storage|hard drive]]. So machines stack several kinds of memory into a ladder and try to keep the data you are about to use near the top. That ladder is the memory hierarchy, and caching is the machinery that decides what lives where.
 
 In computer architecture, "the memory hierarchy separates computer storage into a hierarchy based on response time. Since response time, complexity, and capacity are related, the levels may also be distinguished by their performance and controlling technologies."
 
@@ -39,7 +39,7 @@ Each step down is larger, cheaper per byte, and slower. Registers answer in a si
 The principle that makes the layering pay is locality of reference, "the tendency of a processor to access the same set of memory locations repetitively over a short period of time." It comes in two flavors:
 
 - **Temporal locality** "refers to the reuse of specific data and/or resources within a relatively small time duration." If you touched an address just now, you will probably touch it again soon (a loop counter, a hot object).
-- **Spatial locality** "refers to the use of data elements within relatively close storage locations." If you touched one address, you will probably touch its neighbors (the next element of an array, the next field of a struct). Its special case is sequential locality, walking "the elements in a one-dimensional array."
+- **Spatial locality** "refers to the use of data elements within relatively close storage locations." If you touched one address, you will probably touch its neighbors (the next element of an array, the next field of a struct). Its special case is sequential locality, walking "the elements in a [[cs/dsa/arrays|one-dimensional array]]."
 
 Temporal locality justifies keeping recently used data in a fast layer. Spatial locality justifies fetching data in blocks rather than one byte at a time, on the bet that the neighbors are coming.
 

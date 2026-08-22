@@ -30,10 +30,10 @@ The 2021 list, in order, is:
 3. A03 Injection
 4. A04 Insecure Design
 5. A05 Security Misconfiguration
-6. A06 Vulnerable and Outdated Components
+6. A06 [[cs/languages/common/software-supply-chain-and-provenance|Vulnerable and Outdated Components]]
 7. A07 Identification and Authentication Failures
 8. A08 Software and Data Integrity Failures
-9. A09 Security Logging and Monitoring Failures
+9. A09 [[cs/software-engineering/observability-logging-metrics-tracing|Security Logging and Monitoring Failures]]
 10. A10 Server Side Request Forgery (SSRF)
 
 ## The ranking carries the information
@@ -44,7 +44,7 @@ The order is not editorial. It reflects how often each class showed up in a cont
 
 ## Why "map, not checklist" is the correct reading
 
-A checklist implies completeness: tick every box and you are safe. The Top 10 makes no such promise and cannot, because ten categories cannot enumerate every web risk. What it can do is tell you where the base rates are highest, so a team with finite review time knows that an access-control audit and a misconfiguration sweep will, on the average codebase, retire more real risk than chasing an exotic bug. The document is a prior over where to look, refreshed from evidence, not a specification of what secure means.
+A checklist implies completeness: tick every box and you are safe. The Top 10 makes no such promise and cannot, because ten categories cannot enumerate every web risk. What it can do is tell you where the base rates are highest, so a team with finite review time knows that an access-control audit and a misconfiguration sweep will, on the average codebase, retire more real risk than chasing an exotic bug. The document is [[cs/statistics/bayes-rule|a prior]] over where to look, refreshed from evidence, not a specification of what secure means.
 
 > [!warning] The list lags, by construction
 > Because ranks come from accumulated real-world data, the Top 10 describes where the field has been, not where the next class of attack is heading. A brand-new risk category is invisible until enough evidence piles up to rank it. Use the list to allocate attention across known-recurring failures; use threat modeling to reason about the ones no dataset has caught yet.

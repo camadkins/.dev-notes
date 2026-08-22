@@ -35,13 +35,13 @@ No real network is safe from failures, so partition tolerance has to be tolerate
 > [!warning]
 > The "two out of three" slogan is what Brewer himself walked back in 2012. In the absence of a partition a well-built system covers all three; designers only surrender consistency or availability *in the presence of partitions*, and partition management and recovery techniques exist to shrink how often that presence occurs. Reading CAP as a permanent one-of-three sacrifice overstates the cost.
 
-Traditional relational systems built around ACID lean toward consistency; systems built on the BASE philosophy common in NoSQL lean toward availability. Cassandra and ScyllaDB are examples of AP stores. There is no useful CA category, because a system that assumed no partitions would simply be undefined the moment one occurred. This is why the [[distributed-consensus|consensus]] protocols that back coordination metadata (etcd, ZooKeeper) sit firmly on the CP side, while a session cache can afford to be AP.
+Traditional [[cs/history/relational-model-and-sql|relational systems]] built around ACID lean toward consistency; systems built on the BASE philosophy common in NoSQL lean toward availability. Cassandra and ScyllaDB are examples of AP stores. There is no useful CA category, because a system that assumed no partitions would simply be undefined the moment one occurred. This is why the [[distributed-consensus|consensus]] protocols that back coordination metadata (etcd, ZooKeeper) sit firmly on the CP side, while a session cache can afford to be AP.
 
 ## PACELC: the part CAP leaves out
 
 CAP only says anything during a partition, which is the rare case. Daniel Abadi's objection, published as PACELC in 2010, is that ignoring the consistency-versus-latency tradeoff of a replicated system is a major oversight, because that tradeoff is present at all times the system runs.
 
-PACELC reads as a two-branch rule. **If** there is a Partition (P), trade between Availability (A) and Consistency (C), exactly as CAP says. **Else** (E), when the system runs normally, trade between Latency (L) and Consistency (C). The reason the second branch exists at all is mechanical: if a store is atomically consistent, the sum of its read and write delay is at least one message delay, because most systems wait for explicit acknowledgments over a full round trip before confirming. Relaxing consistency is how a low-latency system buys back that round trip.
+PACELC reads as a two-branch rule. **If** there is a Partition (P), trade between Availability (A) and Consistency (C), exactly as CAP says. **Else** (E), when the system runs normally, trade between Latency (L) and Consistency (C). The reason the second branch exists at all is mechanical: if a store is atomically consistent, the sum of its read and write delay is at least one message delay, because most systems wait for explicit acknowledgments over a full [[cs/networking/tcp-three-way-handshake|round trip]] before confirming. Relaxing consistency is how a low-latency system buys back that round trip.
 
 The space has four labels:
 

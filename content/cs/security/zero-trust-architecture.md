@@ -14,14 +14,14 @@ aliases:
   - never trust always verify
 ---
 
-The old network security model was a castle: a hard perimeter of [[firewalls|firewalls]] and VPN gateways, and inside, a soft trusted zone where being *on the LAN* was itself a credential. That model fails the moment anything inside is compromised, because an attacker who breaches one internal host inherits the network's implicit trust and moves laterally at will. Zero trust throws out the premise that location implies trust.
+The old network security model was a castle: a hard perimeter of [[firewalls|firewalls]] and VPN gateways, and inside, a soft trusted zone where being *on the LAN* was itself a credential. That model fails the moment anything inside is compromised, because an attacker who breaches one internal host inherits the network's implicit trust and [[cs/forensics/flow-records-and-log-based-investigation|moves laterally]] at will. Zero trust throws out the premise that location implies trust.
 
 > [!note] The idea
 > Zero trust deletes the trusted interior. It assumes the network is already compromised and makes every single access request prove itself, verifying identity, device, and context per request, regardless of where the request comes from. NIST SP 800-207 frames it as minimizing uncertainty in "least privilege per-request access decisions" made "in the face of a network viewed as compromised."
 
 ## No trust from location
 
-The load-bearing sentence in SP 800-207 is about what stops counting as a credential: "Zero trust assumes there is no implicit trust granted to assets or user accounts based solely on their physical or network location (i.e., local area networks versus the internet) or based on asset ownership (enterprise or personally owned)." Being plugged into the corporate switch, sitting behind the VPN, or carrying a company-issued laptop earns nothing by itself. "Authentication and authorization (both subject and device) are discrete functions performed before a session to an enterprise resource is established."
+The load-bearing sentence in SP 800-207 is about what stops counting as a credential: "Zero trust assumes there is no implicit trust granted to assets or user accounts based solely on their physical or network location (i.e., local area networks versus the internet) or based on asset ownership (enterprise or personally owned)." Being [[cs/networking/vlans-and-802-1q-trunking|plugged into the corporate switch]], sitting behind the VPN, or carrying a company-issued laptop earns nothing by itself. "Authentication and authorization (both subject and device) are discrete functions performed before a session to an enterprise resource is established."
 
 This is the inversion. The perimeter model verified you once, at the edge, and trusted you thereafter. Zero trust verifies continuously and trusts nothing by default. The document's operative definition: "Zero trust (ZT) provides a collection of concepts and ideas designed to minimize uncertainty in enforcing accurate, least privilege per-request access decisions in information systems and services in the face of a network viewed as compromised."
 

@@ -16,7 +16,7 @@ aliases:
   - quantum-resistant cryptography
 ---
 
-The public-key cryptography holding the internet together rests on a bet: that factoring a large number and computing a discrete logarithm are hard. That bet is safe against every classical computer we know how to build. It is not safe against a large quantum one, and the gap is not a constant factor you can outrun with bigger keys. It is a change in complexity class.
+The public-key cryptography holding the internet together rests on a bet: that factoring a large number and [[cs/math/number-theory-and-modular-arithmetic|computing a discrete logarithm]] are hard. That bet is safe against every classical computer we know how to build. It is not safe against a large quantum one, and the gap is not a constant factor you can outrun with bigger keys. It is [[cs/dsa/time-complexity-analysis|a change in complexity class]].
 
 > [!note] The idea
 > Shor's algorithm "runs in polynomial time" on a quantum computer for both integer factoring and discrete logs, which collapses the exact hardness assumptions under RSA, Diffie-Hellman, and elliptic-curve crypto. Post-quantum cryptography swaps those assumptions for problems, chiefly on lattices, that no efficient quantum algorithm is known to solve. In 2024 NIST finalized the first standards, and the lead one, ML-KEM, rests on the Module Learning with Errors problem rather than factoring.
@@ -27,7 +27,7 @@ The instinct when a cipher weakens is to lengthen the key. That works against a 
 
 ## Changing the hard problem, not the key size
 
-Post-quantum cryptography does not patch RSA. It moves to problems whose difficulty survives a quantum attacker, and builds fresh primitives on them. NIST's FIPS 203 standardizes a key-encapsulation mechanism called ML-KEM whose "security of ML-KEM is related to the computational difficulty of the Module Learning with Errors problem." Lattice problems like this one have no known efficient quantum solution, and the standard states plainly that "at present, ML-KEM is believed to be secure, even against adversaries who possess a quantum computer." The word "believed" is doing honest work: this is a hardness conjecture, the same kind of bet RSA always was, just one Shor does not touch.
+Post-quantum cryptography does not patch RSA. It moves to problems whose difficulty survives a quantum attacker, and builds fresh primitives on them. NIST's [[cs/standards/what-a-standard-actually-is|FIPS 203]] standardizes a key-encapsulation mechanism called ML-KEM whose "security of ML-KEM is related to the computational difficulty of the Module Learning with Errors problem." Lattice problems like this one have no known efficient quantum solution, and the standard states plainly that "at present, ML-KEM is believed to be secure, even against adversaries who possess a quantum computer." The word "believed" is doing honest work: this is a hardness conjecture, the same kind of bet RSA always was, just one Shor does not touch.
 
 ## The standards are already here
 

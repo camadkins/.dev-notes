@@ -18,9 +18,9 @@ Every [[cross-site-scripting-xss|cross-site scripting]] defense on the server si
 
 ## A website telling the browser what it may do
 
-MDN's definition puts the direction of trust up front: "Content Security Policy (CSP) is a feature that helps to prevent or minimize the risk of certain types of security threats. It consists of a series of instructions from a website to a browser, which instruct the browser to place restrictions on the things that the code comprising the site is allowed to do." The policy travels as a header: "A CSP should be delivered to the browser in the Content-Security-Policy response header."
+MDN's definition puts the direction of trust up front: "Content Security Policy (CSP) is a feature that helps to prevent or minimize the risk of certain types of security threats. It consists of a series of instructions from a website to a browser, which instruct the browser to place restrictions on the things that the code comprising the site is allowed to do." The policy travels as a header: "A CSP should be delivered to the browser in the Content-Security-Policy [[cs/networking/http-evolution-1-1-to-3|response header]]."
 
-The important structural fact is who enforces it. The server writes the policy, but the browser applies it, and it applies it to everything on the page including script the server never intended to be there. An attacker who injects a `<script>` tag cannot also rewrite the response header, so the injected script faces a rule the attacker had no hand in.
+The important structural fact is who enforces it. The server writes the policy, but [[cs/history/world-wide-web-browser-wars|the browser applies it]], and it applies it to everything on the page including script the server never intended to be there. An attacker who injects a `<script>` tag cannot also rewrite the response header, so the injected script faces a rule the attacker had no hand in.
 
 ## What the policy actually controls
 

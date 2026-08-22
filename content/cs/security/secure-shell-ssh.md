@@ -14,14 +14,14 @@ aliases:
   - SSH Protocol
 ---
 
-Telnet and rlogin sent your password across the wire in the clear. Anyone on the path read it. SSH replaced them, and RFC 4251 states the goal plainly: it is "a protocol for secure remote login and other secure network services over an insecure network." The interesting part is not that SSH encrypts, it is *where the security actually comes from*. Encryption alone buys nothing if you handed the key to an impostor. SSH's entire guarantee rests on one earlier step, verifying that the machine you reached is the machine you meant.
+[[cs/history/history-of-the-internet|Telnet and rlogin]] sent your password across the wire in the clear. Anyone on the path read it. SSH replaced them, and [[cs/standards/what-a-standard-actually-is|RFC 4251]] states the goal plainly: it is "a protocol for secure remote login and other secure network services over an insecure network." The interesting part is not that SSH encrypts, it is *where the security actually comes from*. Encryption alone buys nothing if you handed the key to an impostor. SSH's entire guarantee rests on one earlier step, verifying that the machine you reached is the machine you meant.
 
 > [!note] The idea
 > SSH is three protocols stacked. The Transport Layer "provides server authentication, confidentiality, and integrity with perfect forward secrecy," the User Authentication Protocol "authenticates the client to the server," and the Connection Protocol "multiplexes the encrypted tunnel into several logical channels." The confidentiality of the whole stack bootstraps from a single act: the client verifying the server's host key during key exchange. Get that wrong and the encryption protects your traffic to an attacker.
 
 ## The three components
 
-The split matters because each layer has a different job and a different failure mode. The transport layer runs first, negotiating "key exchange method, public key algorithm, symmetric encryption algorithm, message authentication algorithm, and hash algorithm," then establishing an encrypted, integrity-protected channel using [[diffie-hellman-and-key-exchange|Diffie-Hellman key exchange]]. Only after that channel exists does user authentication happen, which is why your password or key never crosses an unencrypted link. The connection layer then rides inside, letting a single SSH session carry your shell, a port forward, and an `scp` transfer as separate channels.
+The split matters because each layer has a different job and a different failure mode. The transport layer runs first, negotiating "key exchange method, public key algorithm, symmetric encryption algorithm, message authentication algorithm, and hash algorithm," then establishing an encrypted, integrity-protected channel using [[diffie-hellman-and-key-exchange|Diffie-Hellman key exchange]]. Only after that channel exists does user authentication happen, which is why your password or key never crosses an unencrypted link. The connection layer then rides inside, letting a single SSH session carry your shell, [[cs/networking/ports-and-sockets|a port forward]], and an `scp` transfer as separate channels.
 
 Server authentication happens in the transport layer, not the user layer. That ordering is the whole point: the server proves who it is *before* you prove who you are, so you never surrender a credential to an unverified peer.
 

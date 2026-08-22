@@ -22,13 +22,13 @@ Classic web sessions keep state on the server: the browser holds an opaque sessi
 
 ## Compact by design
 
-JWTs target tight spaces: "space constrained environments such as HTTP Authorization headers and URI query parameters." The serialization reflects that, three base64url segments joined by dots, header, payload, signature. The header names the algorithm, the payload carries the claims (issuer, expiry, subject, and whatever else), and the signature covers the first two.
+JWTs target tight spaces: "space constrained environments such as [[cs/networking/http-evolution-1-1-to-3|HTTP Authorization headers]] and URI query parameters." The [[cs/languages/common/serialization-and-wire-formats|serialization]] reflects that, three base64url segments joined by dots, header, payload, signature. The header names the algorithm, the payload carries the claims (issuer, expiry, subject, and whatever else), and the signature covers the first two.
 
 The self-contained structure is the whole appeal. A resource server that receives a JWT does not phone home. It recomputes the signature over the header and payload with the issuer's key and, if it matches, treats the claims as authentic. This is the same offline-verification property that lets an [[oauth2-and-openid-connect|OpenID Connect]] ID token or a [[kerberos-authentication|Kerberos]] ticket be checked without a callback, and it is exactly why JWTs became the default carrier for [[oauth2-and-openid-connect|OAuth]] access tokens and OIDC identity claims.
 
 ## alg:none, the mode that removes the lock
 
-Here is the sharp edge. RFC 7519 defines the Unsecured JWT: "JWTs MAY also be created without a signature or encryption." Such a token "is a JWS using the 'alg' Header Parameter value 'none' and with the empty string for its JWS Signature value." A perfectly spec-compliant JWT can therefore carry `{"alg":"none"}` and no signature at all.
+Here is the sharp edge. RFC 7519 defines the Unsecured JWT: "JWTs [[cs/standards/normative-versus-informative-and-the-word-shall|MAY also be created]] without a signature or encryption." Such a token "is a JWS using the 'alg' Header Parameter value 'none' and with the empty string for its JWS Signature value." A perfectly spec-compliant JWT can therefore carry `{"alg":"none"}` and no signature at all.
 
 The token's own header declares which algorithm to verify with. A naive library that trusts the header's `alg` field will, when handed `alg:none`, dutifully "verify" a token that anyone could have forged, because there is nothing to verify. The classic attack is to take a legitimate token, flip its algorithm to `none`, strip the signature, and edit the claims freely. The defect is not in the format; it is in a verifier that lets the attacker choose the verification algorithm.
 

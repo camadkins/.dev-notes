@@ -18,7 +18,7 @@ Log in once and you stay logged in for the rest of your visit, across dozens of 
 
 ## Why the token carries so much weight
 
-OWASP starts from the protocol's amnesia: "HTTP is a stateless protocol (RFC2616 section 5), where each request and response pair is independent of other web interactions." To make a session out of independent requests, the server issues an identifier and the browser returns it each time. The consequence is the part people underrate. OWASP: once issued, "the session ID (or token) is temporarily equivalent to the strongest authentication method used by the application, such as username and password, passphrases, one-time passwords (OTP)."
+OWASP starts from the protocol's amnesia: "[[cs/networking/http-evolution-1-1-to-3|HTTP is a stateless protocol]] (RFC2616 section 5), where each request and response pair is independent of other web interactions." To make a session out of independent requests, the server issues an identifier and the browser returns it each time. The consequence is the part people underrate. OWASP: once issued, "the session ID (or token) is temporarily equivalent to the strongest authentication method used by the application, such as username and password, passphrases, one-time passwords (OTP)."
 
 Read that literally. If you protected login with a password and a one-time code, the session token that login produces is, for its lifetime, worth exactly as much as both of those together. Stealing it skips the password, skips the second factor, skips everything. So the entire job of the cookie flags is to keep this one string from leaving the browser through any of the channels an attacker can open.
 
@@ -26,7 +26,7 @@ Read that literally. If you protected login with a password and a one-time code,
 
 The flags line up one-to-one with distinct attacks, which is the useful way to remember them.
 
-`Secure` closes the network. OWASP: "The Secure cookie attribute instructs web browsers to only send the cookie through an encrypted HTTPS (SSL/TLS) connection. This session protection mechanism is mandatory to prevent the disclosure of the session ID through MitM (Man-in-the-Middle) attacks." Without it, the cookie can ride an unencrypted request and be read off the wire.
+`Secure` closes the network. OWASP: "The Secure cookie attribute instructs web browsers to only send the cookie through an encrypted HTTPS (SSL/TLS) connection. This session protection mechanism is mandatory to prevent the disclosure of the session ID through MitM (Man-in-the-Middle) attacks." Without it, the cookie can ride an unencrypted request and be [[cs/forensics/network-forensics-and-packet-capture|read off the wire]].
 
 `HttpOnly` closes the script. OWASP: "The HttpOnly cookie attribute instructs web browsers not to allow scripts (e.g. JavaScript or VBscript) an ability to access the cookies via the DOM document.cookie object. This session ID protection is mandatory to prevent session ID stealing through XSS attacks." This is the direct link to [[cross-site-scripting-xss|XSS]]: if an attacker runs script in your page, `HttpOnly` is what stops that script from simply reading the cookie and exfiltrating it.
 

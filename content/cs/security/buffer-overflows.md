@@ -15,14 +15,14 @@ aliases:
   - stack buffer overflow
 ---
 
-A buffer overflow starts as an unglamorous bug: a program writes more bytes into a fixed-size region than the region holds, and the extra bytes spill into whatever sits next in memory. What turns this from a crash into the most consequential exploit class in systems history is a detail of layout. On the stack, the thing sitting next to a local buffer is often the address the CPU will jump to when the current function returns. Overwrite that, and you are no longer corrupting data. You are choosing the program's next instruction.
+[[cs/military-computing/morris-worm-and-buffer-overflows|A buffer overflow]] starts as an unglamorous bug: a program writes more bytes into a fixed-size region than the region holds, and the extra bytes spill into whatever sits next in memory. What turns this from a crash into the most consequential exploit class in systems history is a detail of layout. On the stack, the thing sitting next to a local buffer is often the address the CPU will jump to when the current function returns. Overwrite that, and you are no longer corrupting data. You are choosing the program's next instruction.
 
 > [!note] The idea
 > A stack buffer overflow is a memory-safety bug that becomes a control-flow hijack because of adjacency. The overflow reaches past the buffer into the saved return address, and since the CPU trusts that address blindly on return, controlling those bytes means controlling where execution goes. A missing bounds check is promoted into arbitrary code execution by the stack's own layout.
 
 ## The missing check
 
-The precondition is a language that will let you write out of bounds without complaint. Aleph One's canonical 1996 walkthrough puts it at the root: C "does not have any built-in bounds checking," and standard functions like `strcpy()`, `strcat()`, and `gets()` "perform no boundary checking." Hand one of them a source longer than the destination and it keeps copying past the end, because nothing in the language or the library is watching the buffer's edge. Wikipedia's definition is the same fact stated structurally: a stack buffer overflow "occurs when a program writes to a memory address on the program's call stack outside of the intended data structure."
+The precondition is a language that will let you write out of bounds without complaint. Aleph One's canonical 1996 walkthrough puts it at the root: C "does not have any [[cs/languages/common/undefined-behavior-as-a-contract|built-in bounds checking]]," and standard functions like `strcpy()`, `strcat()`, and `gets()` "perform no boundary checking." Hand one of them a source longer than the destination and it keeps copying past the end, because nothing in the language or the library is watching the buffer's edge. Wikipedia's definition is the same fact stated structurally: a stack buffer overflow "occurs when a program writes to a memory address on the program's [[cs/dsa/stack|call stack]] outside of the intended data structure."
 
 ## Why the return address is the prize
 

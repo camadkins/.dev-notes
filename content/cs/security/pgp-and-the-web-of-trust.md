@@ -15,14 +15,14 @@ aliases:
   - OpenPGP trust model
 ---
 
-In [[pki-and-x509-certificates|X.509 PKI]] the question "is this key really theirs?" has one kind of answer: a certificate authority your software already trusts put its signature on it. Authority flows down a tree from a small set of roots. OpenPGP, the format PGP and GnuPG implement, answers the same question with no roots at all. Anyone can sign anyone's key, and validity is something your own keyring computes from the signatures it has collected. That inversion, from a delegated hierarchy to a peer-signed graph, is the web of trust.
+In [[pki-and-x509-certificates|X.509 PKI]] the question "is this key really theirs?" has one kind of answer: a certificate authority your software already trusts put its signature on it. Authority flows down a tree from a small set of roots. OpenPGP, the format PGP and GnuPG implement, answers the same question with no roots at all. Anyone can sign anyone's key, and validity is something your own keyring computes from the signatures it has collected. That inversion, from a delegated hierarchy to [[cs/math/graph-theory|a peer-signed graph]], is the web of trust.
 
 > [!note] The idea
 > A PGP key's binding to an identity is asserted not by an authority but by other users who signed it, and each signature carries a graded claim about how carefully the signer checked. OpenPGP goes further and lets you sign a key as a *trusted introducer*, delegating your judgment about that person's future signatures. Trust becomes a quantity that flows through a graph you assemble yourself, rather than a yes/no verdict handed down from a root.
 
 ## A signature is a claim, and the claim has a strength
 
-When you sign someone's key in OpenPGP you are certifying a statement: this User ID (a name and email) belongs to the holder of this public key. The self-signature on a key is, in RFC 4880's words, the statement "My name X is tied to my signing key K" and is "corroborated by other users' certifications." Your signature is one such corroboration.
+When you sign someone's key in OpenPGP you are certifying a statement: this User ID (a name and email) belongs to the holder of this public key. The self-signature on a key is, in [[cs/standards/what-a-standard-actually-is|RFC 4880]]'s words, the statement "My name X is tied to my signing key K" and is "corroborated by other users' certifications." Your signature is one such corroboration.
 
 The spec makes those corroborations gradeable. Certification signatures come in levels 0x10 through 0x13. A `0x11` "Persona" certification means the issuer "has not done any verification of the claim that the owner of this key is the User ID specified." A `0x13` "Positive" certification means the issuer "has done substantial verification of the claim of identity." So the graph records more than *that* Alice signed Bob's key; it can record *how hard she looked* before doing so. In practice, the RFC notes, most implementations make their key signatures as plain `0x10` certifications and "few differentiate between the types," which is one of the model's quiet weaknesses: the expressive grading exists but is rarely used.
 
@@ -36,7 +36,7 @@ This is delegation without a central authority. If you mark Carol as a trusted i
 
 The gain is the removal of a single point of failure. There is no [[certificate-transparency|CA whose compromise forges any identity]]; an attacker must instead insinuate a bad key into enough of your trusted introducers' judgments, which is far harder to do quietly. The trust is also yours: you decide who introduces whom, at what strength.
 
-The cost is scale. Every edge in the graph is a human act of verification, ideally an in-person key-fingerprint check. The grading that would make weak edges visible is mostly unused. Trust does not transit cleanly across social distance, and a newcomer with no signatures is invisible to everyone. The web of trust is genuinely decentralized and genuinely hard to bootstrap, which is why the centralized PKI it critiques still runs the public web.
+The cost is scale. Every edge in the graph is a human act of verification, ideally an in-person key-fingerprint check. The grading that would make weak edges visible is mostly unused. Trust does not transit cleanly across social distance, and a newcomer with no signatures is invisible to everyone. The web of trust is [[cs/history/blockchain-and-nakamoto-consensus|genuinely decentralized]] and genuinely hard to bootstrap, which is why the centralized PKI it critiques still runs the public web.
 
 > [!warning] Signing is not encrypting
 > A key signature says nothing about whether the key is *good* cryptographically; it attests only to the name-to-key binding. A perfectly valid, heavily signed key can still use a weak algorithm, and a technically strong key with no signatures gives you no reason to believe it is the right person's.

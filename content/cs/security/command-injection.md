@@ -19,7 +19,7 @@ It is tempting to file command injection next to code injection and move on, bec
 
 OWASP states the goal plainly: "Command injection is an attack in which the goal is execution of arbitrary commands on the host operating system via a vulnerable application." The precondition is equally plain: "Command injection attacks are possible when an application passes unsafe user supplied data (forms, cookies, HTTP headers etc.) to a system shell."
 
-That phrase, *to a system shell*, is where the danger concentrates. A shell is a language interpreter. Hand it a string and it does far more than run one program: it parses metacharacters, semicolons chain commands, pipes redirect output, backticks and `$()` spawn subshells. So when an application concatenates a filename into `cat <file>` and shells out, a user who supplies `report.txt; rm -rf /` has not broken anything. The shell parsed exactly what it was given. The application handed a sentence to something that reads sentences and expected it to read a single word.
+That phrase, *to a system shell*, is where the danger concentrates. A shell is [[cs/pl/compilation-vs-interpretation|a language interpreter]]. Hand it a string and it does far more than run one program: it parses metacharacters, semicolons chain commands, [[cs/systems/inter-process-communication|pipes]] redirect output, backticks and `$()` spawn subshells. So when an application concatenates a filename into `cat <file>` and shells out, a user who supplies `report.txt; rm -rf /` has not broken anything. The shell parsed exactly what it was given. The application handed a sentence to something that reads sentences and expected it to read a single word.
 
 ## Extending, not injecting
 
@@ -29,7 +29,7 @@ This distinction is not pedantry. It tells you where the authority comes from. T
 
 ## Why the fix is to avoid the shell, not to clean the string
 
-The reflex is to scrub metacharacters. This fails for the same reason it fails in [[sql-injection|SQL injection]]: you are trying to out-parse an interpreter with many escaping contexts, from the outside. The structural fix removes the interpreter from the path. Use the language's API that takes a program name and an argument list as separate values, so the operating system executes the named binary with the arguments passed as inert data, and no shell ever parses a combined string. The `; rm -rf /` is then just a strange filename that does not exist, exactly as parameterized queries turn `' OR '1'='1` into a username nobody has.
+The reflex is to scrub metacharacters. This fails for the same reason it fails in [[sql-injection|SQL injection]]: you are trying to out-parse an interpreter with many escaping contexts, from the outside. The structural fix removes the interpreter from the path. Use the language's API that takes a program name and an argument list as separate values, so [[cs/systems/system-calls-and-the-kernel-boundary|the operating system executes the named binary]] with the arguments passed as inert data, and no shell ever parses a combined string. The `; rm -rf /` is then just a strange filename that does not exist, exactly as parameterized queries turn `' OR '1'='1` into a username nobody has.
 
 > [!warning] "Just quote the input" is not the same as removing the shell
 > Adding quotes around a shell argument still leaves a shell parsing the line, and quoting rules are subtle enough that bypasses exist. The reliable move is to not invoke a shell at all: pass an argument vector to the exec-family call so there is no command line to parse in the first place.

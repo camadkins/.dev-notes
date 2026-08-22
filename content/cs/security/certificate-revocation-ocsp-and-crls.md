@@ -23,11 +23,11 @@ A [[pki-and-x509-certificates|certificate]] carries an expiry date, and "when a 
 
 ## CRLs: a signed list, published on a schedule
 
-The original X.509 method is a bulletin board. Each CA "periodically issu[es] a signed data structure called a certificate revocation list (CRL). A CRL is a time-stamped list identifying revoked certificates that is signed by a CA or CRL issuer and made freely available in a public repository." To use a certificate safely, a verifier "acquires a suitably recent CRL and checks that the certificate serial number is not on that CRL."
+[[cs/standards/what-a-standard-actually-is|The original X.509 method]] is a bulletin board. Each CA "periodically issu[es] a signed data structure called a certificate revocation list (CRL). A CRL is a time-stamped list identifying revoked certificates that is signed by a CA or CRL issuer and made freely available in a public repository." To use a certificate safely, a verifier "acquires a suitably recent CRL and checks that the certificate serial number is not on that CRL."
 
 The elegant part is that a CRL is signed, so it "may be distributed by exactly the same means as certificates themselves, namely, via untrusted servers and untrusted communications." You do not need a trusted channel to fetch it; the [[digital-signatures|signature]] proves it is genuine.
 
-The unavoidable weakness is timing. "One limitation of the CRL revocation method ... is that the time granularity of revocation is limited to the CRL issue period." If a CA issues CRLs daily and a key is compromised an hour after publication, that revocation "will not be reliably notified to certificate-using systems until all currently issued CRLs are scheduled to be updated," which "may be up to one hour, one day, or one week depending on the frequency that CRLs are issued." During that gap the compromised certificate still checks out against every cached CRL.
+The unavoidable weakness is timing. "One limitation of the CRL revocation method ... is that the time granularity of revocation is limited to the CRL issue period." If a CA issues CRLs daily and a key is compromised an hour after publication, that revocation "will not be reliably notified to certificate-using systems until all currently issued CRLs are scheduled to be updated," which "may be up to one hour, one day, or one week depending on the frequency that CRLs are issued." During that gap the compromised certificate still checks out against every [[cs/systems/dns-the-domain-name-system|cached CRL]].
 
 ## OCSP: ask about one certificate, right now
 

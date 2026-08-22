@@ -22,7 +22,7 @@ A block cipher is a strange primitive. On its own it does exactly one thing: it 
 
 ## What AES is
 
-AES "is based on a design principle known as a substitution-permutation network," which repeatedly substitutes and shuffles bytes across a set number of rounds. It is a symmetric-key algorithm, so the same key encrypts and decrypts, which puts it on the fast side of the [[symmetric-vs-asymmetric-cryptography|symmetric/asymmetric divide]]. NIST selected three members of the Rijndael family, "each with a block size of 128 bits, but three different key lengths: 128, 192 and 256 bits," and announced it "as the US FIPS PUB 197 (FIPS 197) standard on November 26, 2001." It superseded [[des-standardization-and-symmetric-crypto|DES]].
+AES "is based on a design principle known as a substitution-permutation network," which repeatedly substitutes and shuffles bytes across a set number of rounds. It is a symmetric-key algorithm, so the same key encrypts and decrypts, which puts it on the fast side of the [[symmetric-vs-asymmetric-cryptography|symmetric/asymmetric divide]]. NIST selected three members of the Rijndael family, "each with a block size of 128 bits, but three different key lengths: 128, 192 and 256 bits," and announced it "as the US [[cs/standards/what-a-standard-actually-is|FIPS PUB 197]] (FIPS 197) standard on November 26, 2001." It superseded [[des-standardization-and-symmetric-crypto|DES]].
 
 ## The block problem
 

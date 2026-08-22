@@ -15,7 +15,7 @@ aliases:
   - Read/Write Quorum
 ---
 
-Replication is keeping more than one copy of the same data so the system survives a lost machine, serves reads from nearby, and spreads load. The copies are the easy part. The hard part is that the moment two clients can write, the copies can disagree, and you need a rule that decides whose write wins and which reads are allowed to see it. Quorums are the arithmetic that makes that rule provable rather than hopeful.
+Replication is keeping more than one copy of the same data so the system survives a lost machine, serves reads from nearby, and [[cs/networking/load-balancing-l4-and-l7|spreads load]]. The copies are the easy part. The hard part is that the moment two clients can write, the copies can disagree, and you need a rule that decides whose write wins and which reads are allowed to see it. Quorums are the arithmetic that makes that rule provable rather than hopeful.
 
 > [!note] The idea
 > Every replication scheme is a position on one axis: how many replicas may accept a write. Primary-backup allows exactly one and gets simplicity at the cost of a bottleneck; multi-primary allows several and gets throughput at the cost of conflicts. Quorum voting turns the choice into inequalities: require read and write sets large enough that they always overlap (R + W > N), and a read is guaranteed to touch at least one copy of the latest write, no leader required.
@@ -34,7 +34,7 @@ The database world names three concrete topologies:
 
 ## Why multi-primary is dangerous
 
-The appeal of letting every replica write is obvious: no bottleneck, local writes everywhere. Jim Gray's widely cited paper "The Dangers of Replication and a Solution" is the skeptic's case. He argued that unless the data splits naturally into disjoint sub-databases, concurrency-control conflicts degrade performance badly, and the group of replicas slows as a function of `n`, with the common approaches degrading on the order of `O(n^3)`. His fix is to partition the data on a natural key, which only works when such a key exists.
+The appeal of letting every replica write is obvious: no bottleneck, local writes everywhere. Jim Gray's widely cited paper "The Dangers of Replication and a Solution" is the skeptic's case. He argued that unless the data splits naturally into disjoint sub-databases, concurrency-control conflicts degrade performance badly, and the group of replicas slows as a function of `n`, with the common approaches degrading [[cs/dsa/asymptotic-notation|on the order of]] `O(n^3)`. His fix is to partition the data on a natural key, which only works when such a key exists.
 
 Synchronous (eager) replication prevents conflicts by detecting them before the commit is confirmed and aborting one transaction. Asynchronous (lazy) replication lets both commit and resolves the conflict later during re-synchronization, using techniques such as last-write-wins, application logic, or merging. The sync-versus-async choice reappears at the storage layer: synchronous replication guarantees zero data loss because a write is not complete until both local and remote storage acknowledge it, but performance falls off with distance since minimum latency is set by the speed of light. Asynchronous replication calls a write complete as soon as local storage acknowledges, so a local failure can lose the most recent data.
 
@@ -42,7 +42,7 @@ Synchronous (eager) replication prevents conflicts by detecting them before the 
 
 Quorum voting, due to Gifford in 1979, gives each copy of a data item a vote. A read must collect a **read quorum** `Vr`; a write must collect a **write quorum** `Vw`. With `V` total votes, two rules make it correct:
 
-- `Vr + Vw > V`, so the read and write quorums must overlap, and a read set always contains at least one copy holding the newest version.
+- `Vr + Vw > V`, so [[cs/math/pigeonhole-principle|the read and write quorums must overlap]], and a read set always contains at least one copy holding the newest version.
 - `Vw > V/2`, so two writes cannot both gather a quorum at once, and no two writers commit to the same item concurrently.
 
 Together these preserve one-copy serializability: the replicated item behaves like a single copy. In the common phrasing with `N` replicas, this is `R + W > N` for read-your-writes freshness and `W > N/2` to serialize writes. Set `W = N` and reads can be served from any single replica but writes need every node up; set `W` to a bare majority and you tolerate failures on both sides. The same voting idea also drives quorum-based **commit**: a distributed transaction commits only if a majority of sites vote to, with commit and abort quorums `Vc` and `Va` obeying `Va + Vc > V` so a transaction can never both commit and abort.

@@ -43,7 +43,7 @@ Use OPT the way it is meant to be used: as a yardstick, not a candidate.
 
 ## FIFO
 
-"The simplest page-replacement algorithm is a FIFO algorithm," and it "is a low-overhead algorithm that requires little bookkeeping on the part of the operating system. The idea is obvious from the name: the operating system keeps track of all the pages in memory in a queue, with the most recent arrival at the back, and the oldest arrival in front. When a page needs to be replaced, the page at the front of the queue (the oldest page) is selected."
+"The simplest page-replacement algorithm is a FIFO algorithm," and it "is a low-overhead algorithm that requires little bookkeeping on the part of the operating system. The idea is obvious from the name: the operating system keeps track of all the pages in memory in a [[cs/dsa/queue|queue]], with the most recent arrival at the back, and the oldest arrival in front. When a page needs to be replaced, the page at the front of the queue (the oldest page) is selected."
 
 The verdict is blunt. "While FIFO is cheap and intuitive, it performs poorly in practical application. Thus, it is rarely used in its unmodified form." Its failure mode is obvious in retrospect: age since arrival has no relationship to probability of future use. A page loaded at boot and read on every single instruction is exactly as old as one loaded at boot and never touched again.
 
@@ -55,9 +55,9 @@ Second-chance is FIFO plus one bit of evidence. It "works by looking at the fron
 
 Two boundary behaviors define its range. "If all the pages have their referenced bit set, on the second encounter of the first page in the list, that page will be swapped out, as it now has its referenced bit cleared." And "if all the pages have their reference bit cleared, then second chance algorithm degenerates into pure FIFO." Perfect information and zero information both collapse it to the thing it was trying to improve on.
 
-Clock is the same policy with the data structure fixed. It "is a more efficient version of FIFO than Second-chance because pages don't have to be constantly pushed to the back of the list, but it performs the same general function as Second-Chance. The clock algorithm keeps a circular list of pages in memory, with the 'hand' (iterator) pointing to the last examined page frame in the list. When a page fault occurs and no empty frames exist, then the R (referenced) bit is inspected at the hand's location. If R is 0, the new page is put in place of the page the 'hand' points to, and the hand is advanced one position. Otherwise, the R bit is cleared, then the clock hand is incremented and the process is repeated until a page is replaced."
+Clock is the same policy with the data structure fixed. It "is a more efficient version of FIFO than Second-chance because pages don't have to be constantly pushed to the back of the list, but it performs the same general function as Second-Chance. The clock algorithm keeps a [[cs/dsa/circular-linked-list|circular list]] of pages in memory, with the 'hand' (iterator) pointing to the last examined page frame in the list. When a page fault occurs and no empty frames exist, then the R (referenced) bit is inspected at the hand's location. If R is 0, the new page is put in place of the page the 'hand' points to, and the hand is advanced one position. Otherwise, the R bit is cleared, then the clock hand is incremented and the process is repeated until a page is replaced."
 
-Nothing moves. Only a pointer advances. This algorithm "was first described in 1969 by Fernando J. Corbató," and the reason it survives is right there in the description: one bit inspection and one hand increment per candidate, no list surgery at all.
+Nothing moves. Only a pointer advances. This algorithm "was first described in 1969 by [[cs/military-computing/multics-and-time-sharing-foundations|Fernando J. Corbató]]," and the reason it survives is right there in the description: one bit inspection and one hand increment per candidate, no list surgery at all.
 
 ## LRU
 
