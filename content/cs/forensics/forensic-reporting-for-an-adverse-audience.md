@@ -13,7 +13,7 @@ aliases:
   - Examiner Notes
 ---
 
-Most technical writing assumes a cooperative reader. A design document persuades colleagues, a postmortem informs a team that wants the system fixed, a paper addresses reviewers who share the author's vocabulary. A forensic report assumes the opposite: at least one reader is looking for the sentence that overstates the evidence, and that reader will have access to the same artifacts.
+Most technical writing assumes a cooperative reader. A design document persuades colleagues, [[cs/software-engineering/incident-postmortems-and-blameless-culture|a postmortem]] informs a team that wants the system fixed, a paper addresses reviewers who share the author's vocabulary. A forensic report assumes the opposite: at least one reader is looking for the sentence that overstates the evidence, and that reader will have access to the same artifacts.
 
 That single assumption produces every structural convention in this kind of document.
 
@@ -44,7 +44,7 @@ NIST puts the intellectual honesty requirement first among the factors affecting
 
 That is a stronger instruction than it looks. It is not a request to hedge. It is a request to enumerate the alternatives that the artifacts permit and then to say what would distinguish them and whether the available evidence does. An account that survives being tested against its rivals is worth more than one that was never compared to anything, and stating the residual uncertainty explicitly is closer in spirit to reporting [[cs/statistics/confidence-intervals|an interval]] than to reporting a point.
 
-The same publication frames the whole analysis phase the same way: "the foundation of forensics is using a methodical approach to reach appropriate conclusions based on the available data or determine that no conclusion can yet be drawn." The second half of that sentence is a legitimate output. No conclusion yet is a finding, and reports that cannot produce it are reports that will eventually produce a wrong one.
+The same publication frames the whole analysis phase the same way: "the foundation of forensics is using a methodical approach to reach appropriate conclusions based on the available data or determine that no conclusion can yet be drawn." The second half of that sentence is a legitimate output. [[cs/statistics/hypothesis-testing|No conclusion yet]] is a finding, and reports that cannot produce it are reports that will eventually produce a wrong one.
 
 ## Writing for the reader you actually have
 

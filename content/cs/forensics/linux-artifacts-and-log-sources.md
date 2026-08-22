@@ -26,11 +26,11 @@ Two properties matter forensically. The first is metadata. "The daemon will impl
 
 The second is where it lives. "The journal service stores log data either persistently below /var/log/journal or in a volatile way below /run/log/journal/," and the volatile case is lost at reboot. Whether a given machine keeps its journal across a reboot depends on whether the persistent directory exists, so an investigator who reboots a host before imaging it can destroy the entire log with a routine act. That is [[cs/forensics/the-order-of-volatility|the volatility ordering]] appearing in a place people do not expect: on a default-configured system, the log is volatile state.
 
-The journal can also be configured to forward to a classic syslog daemon, which is how a systemd host ends up with both a binary journal and plain text files under `/var/log`. When they disagree, they disagree for a reason, usually filtering or a forwarding gap, and the disagreement is worth reporting rather than smoothing.
+The journal can also be configured to [[cs/security/siem-and-security-logging|forward to a classic syslog daemon]], which is how a systemd host ends up with both a binary journal and plain text files under `/var/log`. When they disagree, they disagree for a reason, usually filtering or a forwarding gap, and the disagreement is worth reporting rather than smoothing.
 
 ## Login accounting
 
-Underneath the journal sits a much older mechanism. The utmp family records sessions in fixed-size binary records, and the manual is explicit about scope: "The utmp file allows one to discover information about who is currently using the system," while "the wtmp file records all logins and logouts."
+Underneath the journal sits a much older mechanism. The utmp family records sessions in [[cs/dsa/arrays|fixed-size binary records]], and the manual is explicit about scope: "The utmp file allows one to discover information about who is currently using the system," while "the wtmp file records all logins and logouts."
 
 The manual is equally explicit about the limits, in a way that reads like a forensic warning written thirty years early. On coverage: "There may be more users currently using the system, because not all programs use utmp logging." On existence: "None of these programs creates the file, so if it is removed, record-keeping is turned off."
 
@@ -47,7 +47,7 @@ Selective suppression is a documented feature rather than an attack. With the ri
 
 ## The audit subsystem
 
-The kernel audit subsystem is the only Linux source designed for the adversarial case: rules are configured in advance, records are generated in the kernel, and the journal ingests them as a distinct source. Where it has been enabled with useful rules, it answers questions that no other source can, particularly execution and file access. Where it has not, and by default the rule set is thin, it answers nothing. As with [[cs/forensics/windows-event-logs-and-user-activity|Windows audit policy]], the configuration of the logging system becomes a fact that belongs in the report, because it is what distinguishes an absence of evidence from evidence of absence.
+The kernel audit subsystem is the only Linux source designed for the adversarial case: rules are configured in advance, [[cs/systems/system-calls-and-the-kernel-boundary|records are generated in the kernel]], and the journal ingests them as a distinct source. Where it has been enabled with useful rules, it answers questions that no other source can, particularly execution and file access. Where it has not, and by default the rule set is thin, it answers nothing. As with [[cs/forensics/windows-event-logs-and-user-activity|Windows audit policy]], the configuration of the logging system becomes a fact that belongs in the report, because it is what distinguishes an absence of evidence from evidence of absence.
 
 ## Reading the set together
 

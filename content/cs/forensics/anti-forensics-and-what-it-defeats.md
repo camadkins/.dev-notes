@@ -20,7 +20,7 @@ Anti-forensics is usually described as a list of tools: timestamp editors, wiper
 
 ## Timestomping edits one of two clocks
 
-The canonical example is timestamp manipulation. ATT&CK describes it as a technique in which "adversaries may modify file time attributes to hide new files or changes to existing files," typically "to mimic files that are in the same folder and blend malicious files with legitimate files."
+The canonical example is timestamp manipulation. [[cs/security/the-cyber-kill-chain-and-mitre-attack|ATT&CK]] describes it as a technique in which "adversaries may modify file time attributes to hide new files or changes to existing files," typically "to mimic files that are in the same folder and blend malicious files with legitimate files."
 
 The reason it usually fails is a structural detail of the filesystem. "In Windows systems, both the $STANDARD_INFORMATION ( $SI ) and $FILE_NAME ( $FN ) attributes record times in a Master File Table (MFT) file." Those are two sets of times for the same file, maintained separately. ATT&CK is explicit about which one tooling touches: the $SI times are "displayed to the end user, including in the File System view, while $FN is dealt with by the kernel," and "modifying the $SI attribute is the most common method of timestomping because it can be modified at the user level using API calls." The other set is harder: "$FN timestomping, however, typically requires interacting with the system kernel or moving or renaming a file."
 
@@ -34,7 +34,7 @@ Log clearing is the bluntest technique and the most self-defeating. ATT&CK notes
 
 Two documented details undercut it. First, clearing is itself an audited event: Microsoft documents an event that "generates every time Windows Security audit log was cleared" and records the "SID of account that cleared the system security audit log," so the log ends up holding a record of its own destruction with an actor attached. Second, ATT&CK notes for the disable-then-reboot variant that "events may still be generated and logged in the .evtx file between the time the command is run and the reboot," so even the aggressive version leaves a window of recorded activity.
 
-What clearing does accomplish is real: the contents are gone from that host, and whatever they said cannot be recovered from the live log. Whether that matters depends on whether copies existed elsewhere. A forwarded log is outside the attacker's reach, and an examiner who finds a cleared local log with an intact remote copy has both the original content and a documented act of destruction.
+What clearing does accomplish is real: the contents are gone from that host, and whatever they said cannot be recovered from the live log. Whether that matters depends on whether copies existed elsewhere. [[cs/security/siem-and-security-logging|A forwarded log]] is outside the attacker's reach, and an examiner who finds a cleared local log with an intact remote copy has both the original content and a documented act of destruction.
 
 ## Deletion and the medium
 

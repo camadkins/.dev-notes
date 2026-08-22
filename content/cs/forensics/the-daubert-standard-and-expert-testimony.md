@@ -27,7 +27,7 @@ Federal Rule of Evidence 702 governs testimony by expert witnesses. Its current 
 
 The four are worth reading as written, because each one is a separate place an analysis can fail. First, that "the expert's scientific, technical, or other specialized knowledge will help the trier of fact to understand the evidence or to determine a fact in issue." Second, that "the testimony is based on sufficient facts or data." Third, that "the testimony is the product of reliable principles and methods." And fourth, that "the expert's opinion reflects a reliable application of the principles and methods to the facts of the case."
 
-The third and fourth conditions are distinct, and the distinction matters to an examiner. A reliable method applied carelessly to this case fails the fourth even if it satisfies the third. Validated tooling does not save a sloppy examination, which is the same separation that runs between [[cs/forensics/tool-validation-and-nist-cftt|tool validation]] and [[cs/forensics/forensic-soundness-and-repeatability|soundness of the process that used the tool]].
+The third and fourth conditions are distinct, and the distinction matters to an examiner. A reliable method applied carelessly to this case fails the fourth even if it satisfies the third. [[cs/standards/ieee-1012-verification-and-validation|Validated tooling]] does not save a sloppy examination, which is the same separation that runs between [[cs/forensics/tool-validation-and-nist-cftt|tool validation]] and [[cs/forensics/forensic-soundness-and-repeatability|soundness of the process that used the tool]].
 
 ## What Daubert decided
 
@@ -47,7 +47,7 @@ Each is developed in the body of the opinion. On testing: "ordinarily, a key que
 
 On peer review, the Court was careful to keep it from becoming a new gate: "publication (which is but one element of peer review) is not a sine qua non of admissibility."
 
-On error, the language is precise and worth quoting exactly, because it asks for something most tools do not publish: "in the case of a particular scientific technique, the court ordinarily should consider the known or potential rate of error," alongside "the existence and maintenance of standards controlling the technique's operation." Those two clauses are the legal reason a program that publishes tested specifications and enumerated anomalies exists at all, and the reason an examiner benefits from being able to state a technique's failure modes in the vocabulary of [[cs/statistics/hypothesis-testing|error rates]] rather than as an assurance of correctness.
+On error, the language is precise and worth quoting exactly, because it asks for something most tools do not publish: "in the case of a particular scientific technique, the court ordinarily should consider the known or potential rate of error," alongside "the existence and maintenance of standards controlling the technique's operation." Those two clauses are the legal reason a program that publishes [[cs/standards/conformance-testing-and-plugfests|tested specifications and enumerated anomalies]] exists at all, and the reason an examiner benefits from being able to state a technique's failure modes in the vocabulary of [[cs/statistics/hypothesis-testing|error rates]] rather than as an assurance of correctness.
 
 And the summary sentence that constrains all of it: "the inquiry is a flexible one, and its focus must be solely on principles and methodology, not on the conclusions that they generate."
 

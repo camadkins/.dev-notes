@@ -39,6 +39,7 @@ The top-level map for the CS notes. Each area below has its own index that lays 
 - [[cs/networking/index|Networking]] - how packets, protocols, and routing carry data between machines.
 - [[cs/cisco/index|Cisco]] - the vendor layer: IOS, switching, routing, and security appliances in practice.
 - [[cs/law/index|Law]] - what the law permits, forbids, and compels when systems are attacked, defended, searched, or exported.
+- [[cs/forensics/index|Forensics]] - turning what happened on a machine into evidence a third party will believe.
 
 ### Resources
 

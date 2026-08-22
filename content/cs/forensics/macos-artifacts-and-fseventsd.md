@@ -26,11 +26,11 @@ That third component is the forensic artifact. It is not a subscription feed tha
 
 The coarseness is stated plainly. "The important point to take away is that the granularity of notifications is at a directory level. It tells you only that something in the directory has changed, but does not tell you what changed."
 
-That sentence should be quoted verbatim in any report built on this artifact. An event names a path and a type of change. It does not name a file within a directory, it does not record file contents, and it does not distinguish one write from a hundred.
+That sentence should be quoted verbatim in any report built on this artifact. An event names a path and a type of change. It does not name [[cs/systems/file-systems|a file within a directory]], it does not record file contents, and it does not distinguish one write from a hundred.
 
 ## The gaps are documented
 
-The API guide goes further and names the conditions under which the record is incomplete by design. "If an event in a directory occurs at about the same time as one or more events in a subdirectory of that directory, the events may be coalesced into a single event," and the client is told to rescan because the additional changes are not necessarily in an immediate child of the listed path. Separately, a communication failure between the kernel and the user-space daemon produces a dropped-event flag, which is the system telling a client that it missed changes it will never be able to enumerate.
+The API guide goes further and names the conditions under which the record is incomplete by design. "If an event in a directory occurs at about the same time as one or more events in a subdirectory of that directory, the events may be coalesced into a single event," and the client is told to rescan because the additional changes are not necessarily in an immediate child of the listed path. Separately, [[cs/systems/inter-process-communication|a communication failure between the kernel and the user-space daemon]] produces a dropped-event flag, which is the system telling a client that it missed changes it will never be able to enumerate.
 
 Those two behaviors set the outer bound on any argument built from event records. Missing events are expected. Merged events are expected. So the artifact supports statements of the form "this path saw activity in this window" and does not support statements of the form "these were the only changes" or "no change occurred here."
 

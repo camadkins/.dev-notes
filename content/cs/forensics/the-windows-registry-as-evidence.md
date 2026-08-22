@@ -13,7 +13,7 @@ aliases:
   - Hive Analysis
 ---
 
-Windows keeps most of what it knows about itself in one hierarchical database. Which programs start at logon, which devices have been attached, which network the machine last joined, which user account maps to which profile directory, which application was configured when. None of that was designed as an audit trail. It exists so the operating system can find its own settings quickly. The forensic value is a side effect of a configuration store that happens to be written by nearly every component in the system.
+Windows keeps most of what it knows about itself in [[cs/dsa/trees|one hierarchical database]]. Which programs start at logon, which devices have been attached, which network the machine last joined, which user account maps to which profile directory, which application was configured when. None of that was designed as an audit trail. It exists so the operating system can find its own settings quickly. The forensic value is a side effect of a configuration store that happens to be written by nearly every component in the system.
 
 > [!note] The idea
 > The registry is a write-ordered record of state, not an event log, and it carries exactly one native time signal: a per-key last-write timestamp. That timestamp dates **the key, not the value**, and one modification to any value under a key restamps the whole key. Everything an examiner wants to say about *when* a registry-based event occurred rests on that single coarse field, or on correlating the key against artifacts that do carry per-event times.
@@ -48,7 +48,7 @@ First, a last-write time is an upper bound on the age of the value you care abou
 
 Second, ordinary system activity restamps keys. Windows writes to its own configuration constantly, so a key's time may record an operating system housekeeping write rather than any human action.
 
-Third, the field is writable in the sense that matters: anything that modifies a value moves it forward, and hive files can be edited offline. A last-write time is not a tamper-evident record, which is why registry-derived times belong in [[cs/forensics/timestamps-macb-and-timeline-analysis|a timeline]] alongside independently sourced times rather than as the sole anchor for a sequence of events.
+Third, the field is writable in the sense that matters: anything that modifies a value moves it forward, and hive files can be edited offline. A last-write time is not [[cs/security/cryptographic-hash-functions|a tamper-evident record]], which is why registry-derived times belong in [[cs/forensics/timestamps-macb-and-timeline-analysis|a timeline]] alongside independently sourced times rather than as the sole anchor for a sequence of events.
 
 > [!warning] Scope
 > This note is about what the artifact supports, not about how to parse it. The hive file format, the on-disk cell structure, and the recovery of deleted keys from hive slack are separate problems with their own tooling, and none of them changes the fact that the only time the platform documents for a key is the key-level last write.
