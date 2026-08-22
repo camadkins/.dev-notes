@@ -34,6 +34,7 @@ The section tag is **mechanically the note's folder**, via this map. This is the
 | `content/cs/systems` | `systems` |
 | `content/cs/languages` | `languages` |
 | `content/cs/standards` | `standards` |
+| `content/cs/law` | `law` |
 | `content/cs/machine-learning` | `machine-learning` |
 | `content/cs/deep-learning` | `deep-learning` |
 | `content/cs/statistics` | `statistics` |
