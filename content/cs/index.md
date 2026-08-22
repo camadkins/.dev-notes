@@ -30,7 +30,8 @@ The top-level map for the CS notes. Each area below has its own index that lays 
 
 - [[cs/systems/index|Systems]] - operating systems, networks, and how machines actually run programs.
 - [[cs/software-engineering/index|Software Engineering]] - building and maintaining software that lasts.
-- [[cs/languages/index|Languages]] - a comparative layer on the concerns every real language must answer, across Rust, C++, Python, and Ansible.
+- [[cs/languages/index|Languages]] - one question, generics, answered five structurally different ways across nine languages, plus the concerns every real language must answer.
+- [[cs/standards/index|Standards]] - the documents that govern the technologies above: the 802 family, IEEE 754, POSIX, and the process standards engineering runs on.
 
 ### Security and networking
 

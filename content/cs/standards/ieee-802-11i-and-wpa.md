@@ -6,7 +6,6 @@ comments: true
 tags:
   - cs
   - standards
-  - security
 date: 2026-07-30
 updated:
 aliases:

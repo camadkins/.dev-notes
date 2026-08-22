@@ -6,7 +6,6 @@ comments: true
 tags:
   - cs
   - standards
-  - networking
 date: 2026-06-27
 updated:
 aliases:
