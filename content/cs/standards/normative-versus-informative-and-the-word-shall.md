@@ -52,7 +52,7 @@ The same distinction runs through programming-language specifications, where it 
 
 Three habits pay for themselves immediately.
 
-Search the document for its own definitions clause first. Standards define their requirement vocabulary near the front, and a minority of them deviate from the convention. "Some documents deviate from this convention and use the words shall, will, and should to denote the strength of the requirement," so the meaning is whatever this document says it is.
+Search the document for its own definitions clause first. Standards define their requirement vocabulary near the front, much as [[cs/pl/language-overview-syntax-semantics|a language specification separates its syntax from the meaning it assigns]], and a minority of them deviate from the convention. "Some documents deviate from this convention and use the words shall, will, and should to denote the strength of the requirement," so the meaning is whatever this document says it is.
 
 Count the shalls in the clause you care about. A clause with one shall and four shoulds is describing a design the group liked but could not compel, which usually means someone in the ballot group would have voted against compelling it. The distribution of requirement levels is a map of where the [[cs/standards/how-ieee-makes-a-standard|working group's consensus actually ran out]].
 

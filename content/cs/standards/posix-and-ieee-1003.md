@@ -25,7 +25,7 @@ The family is formally designated as IEEE 1003, and the same material is publish
 
 That group is the Austin Common Standards Revision Group, described on its own site as a joint technical working group established to develop and maintain the core open systems interfaces that are the POSIX 1003.1 standards, ISO/IEC 9945, and the core of the Single UNIX Specification. Its stated approach to specification development is "write once, adopt everywhere," with deliverables carrying the IEEE POSIX designation, The Open Group technical standard designation, and the ISO/IEC designation simultaneously. The specification is joint copyright IEEE and The Open Group, and participants are required to disclose any patent issues related to contributions, which is the same intellectual-property discipline that governs [[cs/standards/standards-patents-and-frand|patents in standards]] generally.
 
-The group is free and open to participate in, and it deliberately balances commercial companies, figures from the open source community, liaisons from other standards groups, educational and government users, and user groups. The consequence is visible in the text: POSIX documents behavior that several independent implementations already had, which is a different exercise from designing an interface from scratch.
+The group is free and open to participate in, and it deliberately balances commercial companies, figures from the open source community, liaisons from other standards groups, educational and government users, and user groups. The consequence is visible in the text: POSIX documents behavior that several independent [[cs/history/unix-and-open-source|Unix implementations]] already had, which is a different exercise from designing an interface from scratch.
 
 ## What it standardizes, and what it refuses to
 
@@ -53,7 +53,7 @@ Real revision resumed afterward. IEEE Std 1003.1-2024 was published by IEEE in J
 ## Related Notes
 
 - [[cs/systems/system-calls-and-the-kernel-boundary|System Calls and the Kernel Boundary]] - the mechanism POSIX deliberately does not specify
-- [[cs/history/unix-and-open-source|Unix and Open Source]] - the implementations that existed before the interface was written down
+- [[cs/systems/kernel-architectures-monolithic-and-microkernel|Kernel Architectures]] - what sits behind the interface, and what the standard refuses to say about it
 - [[cs/languages/common/portability-and-cross-compilation|Portability and Cross-Compilation]] - what actually breaks when the target only partially conforms
 - [[cs/standards/how-ieee-makes-a-standard|How IEEE Makes a Standard]] - why a joint working group can publish one text under three designations
 - [[cs/standards/what-a-standard-actually-is|What a Standard Actually Is]] - why an interface standard and an implementation are different objects
