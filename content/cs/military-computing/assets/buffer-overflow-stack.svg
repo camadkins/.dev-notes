@@ -8,9 +8,11 @@
     .lab { fill: #d29922; font-size: 12px; }
     .cap { fill: #8b949e; font-size: 12px; text-anchor: middle; }
   </style>
-  <rect class="hit" x="150" y="34"  width="210" height="44" rx="4"/><text class="t" x="255" y="61">return address (overwritten)</text>
-  <rect class="box" x="150" y="82"  width="210" height="40" rx="4"/><text class="t" x="255" y="107">saved frame pointer</text>
-  <rect class="box" x="150" y="126" width="210" height="86" rx="4"/><text class="t" x="255" y="173">buffer (fixed size)</text>
+  <!-- Frames widened to 240: the 219px "return address (overwritten)" label
+       overhung a 210px box on both sides. -->
+  <rect class="hit" x="140" y="34"  width="240" height="44" rx="4"/><text class="t" x="260" y="61">return address (overwritten)</text>
+  <rect class="box" x="140" y="82"  width="240" height="40" rx="4"/><text class="t" x="260" y="107">saved frame pointer</text>
+  <rect class="box" x="140" y="126" width="240" height="86" rx="4"/><text class="t" x="260" y="173">buffer (fixed size)</text>
   <line class="a" x1="120" y1="205" x2="120" y2="52"/>
   <polygon points="120,44 115,56 125,56" fill="#d29922"/>
   <text class="lab" x="40" y="135">input</text><text class="lab" x="40" y="151">runs</text><text class="lab" x="40" y="167">past</text>

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 355" role="img" aria-label="Bell curve showing the 68-95-99.7 rule with shaded sigma regions">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 368" role="img" aria-label="Bell curve showing the 68-95-99.7 rule with shaded sigma regions">
   <style>
     text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
     .node { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; }
@@ -68,17 +68,21 @@
   <text class="tick-label" x="442.5" y="298">μ+2σ</text>
   <line class="axis" x1="506.2" y1="280" x2="506.2" y2="285"/>
   <text class="tick-label" x="506.2" y="298">μ+3σ</text>
-  <line class="bracket" x1="251.2" y1="285" x2="251.2" y2="310"/>
-  <line class="bracket" x1="378.8" y1="285" x2="378.8" y2="310"/>
-  <line class="bracket" x1="251.2" y1="310" x2="378.8" y2="310"/>
-  <text class="pct-label" x="315.0" y="306">68.3%</text>
-  <line class="bracket" x1="187.5" y1="285" x2="187.5" y2="326"/>
-  <line class="bracket" x1="442.5" y1="285" x2="442.5" y2="326"/>
-  <line class="bracket" x1="187.5" y1="326" x2="442.5" y2="326"/>
-  <text class="pct-label-outer" x="315.0" y="322">95.4%</text>
-  <line class="bracket" x1="123.8" y1="285" x2="123.8" y2="340"/>
-  <line class="bracket" x1="506.2" y1="285" x2="506.2" y2="340"/>
-  <line class="bracket" x1="123.8" y1="340" x2="506.2" y2="340"/>
-  <text class="pct-label-outer" x="315.0" y="336">99.7%</text>
+  <!-- Coverage brackets start below the tick-label row (which ends ~y=300) and each
+       gets its own 18px band. Previously the first bracket's label shared a band with
+       the axis labels, so "68.3%" landed on top of the mu tick, and every bracket
+       upright ran straight through the tick label sitting at the same x. -->
+  <line class="bracket" x1="251.2" y1="304" x2="251.2" y2="320"/>
+  <line class="bracket" x1="378.8" y1="304" x2="378.8" y2="320"/>
+  <line class="bracket" x1="251.2" y1="320" x2="378.8" y2="320"/>
+  <text class="pct-label" x="315.0" y="316">68.3%</text>
+  <line class="bracket" x1="187.5" y1="304" x2="187.5" y2="338"/>
+  <line class="bracket" x1="442.5" y1="304" x2="442.5" y2="338"/>
+  <line class="bracket" x1="187.5" y1="338" x2="442.5" y2="338"/>
+  <text class="pct-label-outer" x="315.0" y="334">95.4%</text>
+  <line class="bracket" x1="123.8" y1="304" x2="123.8" y2="356"/>
+  <line class="bracket" x1="506.2" y1="304" x2="506.2" y2="356"/>
+  <line class="bracket" x1="123.8" y1="356" x2="506.2" y2="356"/>
+  <text class="pct-label-outer" x="315.0" y="352">99.7%</text>
   <text class="desc" x="52" y="40" text-anchor="end">f(x)</text>
 </svg>

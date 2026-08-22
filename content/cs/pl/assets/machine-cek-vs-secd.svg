@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" fill="none">
   <style>
     text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
     .machine-box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; }
@@ -45,8 +45,8 @@
   <text class="title" x="20" y="28">CEK vs SECD &#8212; component and data-flow comparison</text>
 
   <!-- ===== CEK SIDE (LEFT) ===== -->
-  <rect class="machine-box" x="20" y="44" width="320" height="310"/>
-  <text class="machine-title" x="130" y="66">CEK Machine</text>
+  <rect class="machine-box" x="20" y="44" width="360" height="310"/>
+  <text class="machine-title" x="163" y="66">CEK Machine</text>
 
   <!-- C box -->
   <rect class="comp-box" x="40" y="80" width="120" height="50"/>
@@ -64,16 +64,17 @@
   <text class="comp-desc" x="52" y="258">explicit frames</text>
   <text class="diff-text" x="52" y="274">&#9733; explicit K</text>
 
-  <!-- CEK data flow arrows -->
+  <!-- CEK data flow arrows (inner gutter) -->
   <path class="flow-arrow" d="M 160,105 L 200,105 L 200,145 L 160,155" marker-end="url(#triBlue)"/>
   <text class="desc" x="205" y="130">eval in E</text>
 
   <path class="flow-arrow" d="M 160,175 L 210,175 L 210,225 L 160,230" marker-end="url(#triBlue)"/>
   <text class="desc" x="215" y="205">resume via K</text>
 
-  <path class="highlight-arrow" d="M 100,220 L 100,200 Q 100,195 105,195 L 280,195 L 280,115 L 160,115" marker-end="url(#triGreen)" stroke-dasharray="5 3"/>
-  <text class="diff-text" x="220" y="145">K drives</text>
-  <text class="diff-text" x="220" y="157">next step</text>
+  <!-- Difference arrow rides its own outer gutter so its caption never shares a band -->
+  <path class="highlight-arrow" d="M 100,220 L 100,216 Q 100,212 104,212 L 300,212 L 300,115 L 160,115" marker-end="url(#triGreen)" stroke-dasharray="5 3"/>
+  <text class="diff-text" x="308" y="145">K drives</text>
+  <text class="diff-text" x="308" y="157">next step</text>
 
   <!-- CEK description -->
   <text class="desc" x="40" y="310">Continuation is a first-class</text>
@@ -81,50 +82,51 @@
   <text class="desc" x="40" y="336">reasoning and tail-call proofs.</text>
 
   <!-- VS divider -->
-  <text class="vs-text" x="350" y="200">vs</text>
+  <text class="vs-text" x="390" y="200">vs</text>
 
   <!-- ===== SECD SIDE (RIGHT) ===== -->
-  <rect class="machine-box" x="380" y="44" width="320" height="310"/>
-  <text class="machine-title" x="490" y="66">SECD Machine</text>
+  <rect class="machine-box" x="420" y="44" width="360" height="310"/>
+  <text class="machine-title" x="563" y="66">SECD Machine</text>
 
   <!-- S box -->
-  <rect class="comp-box" x="400" y="80" width="120" height="44"/>
-  <text class="comp-label" x="435" y="100">Stack</text>
-  <text class="comp-desc" x="410" y="116">operands</text>
+  <rect class="comp-box" x="440" y="80" width="120" height="44"/>
+  <text class="comp-label" x="475" y="100">Stack</text>
+  <text class="comp-desc" x="450" y="116">operands</text>
 
   <!-- E box -->
-  <rect class="comp-box" x="400" y="136" width="120" height="44"/>
-  <text class="comp-label" x="412" y="156">Environment</text>
-  <text class="comp-desc" x="410" y="172">var &#8614; value</text>
+  <rect class="comp-box" x="440" y="136" width="120" height="44"/>
+  <text class="comp-label" x="452" y="156">Environment</text>
+  <text class="comp-desc" x="450" y="172">var &#8614; value</text>
 
   <!-- C box -->
-  <rect class="comp-box" x="400" y="192" width="120" height="44"/>
-  <text class="comp-label" x="425" y="212">Control</text>
-  <text class="comp-desc" x="410" y="228">instructions</text>
+  <rect class="comp-box" x="440" y="192" width="120" height="44"/>
+  <text class="comp-label" x="465" y="212">Control</text>
+  <text class="comp-desc" x="450" y="228">instructions</text>
 
   <!-- D box (highlighted) -->
-  <rect class="highlight-box" x="400" y="248" width="120" height="60"/>
-  <text class="comp-label" x="435" y="268">Dump</text>
-  <text class="comp-desc" x="410" y="284">saved states</text>
-  <text class="diff-text" x="410" y="300">&#9733; implicit D</text>
+  <rect class="highlight-box" x="440" y="248" width="120" height="60"/>
+  <text class="comp-label" x="475" y="268">Dump</text>
+  <text class="comp-desc" x="450" y="284">saved states</text>
+  <text class="diff-text" x="450" y="300">&#9733; implicit D</text>
 
-  <!-- SECD data flow arrows -->
-  <path class="flow-arrow" d="M 520,102 L 560,102 L 560,142 L 520,148" marker-end="url(#triBlue)"/>
-  <text class="desc" x="565" y="128">push/pop</text>
+  <!-- SECD data flow arrows (inner gutter) -->
+  <path class="flow-arrow" d="M 560,102 L 600,102 L 600,142 L 560,148" marker-end="url(#triBlue)"/>
+  <text class="desc" x="605" y="128">push/pop</text>
 
-  <path class="flow-arrow" d="M 520,158 L 570,158 L 570,200 L 520,204" marker-end="url(#triBlue)"/>
-  <text class="desc" x="575" y="182">fetch next</text>
+  <path class="flow-arrow" d="M 560,158 L 610,158 L 610,200 L 560,204" marker-end="url(#triBlue)"/>
+  <text class="desc" x="615" y="182">fetch next</text>
 
-  <path class="highlight-arrow" d="M 460,248 L 460,236 Q 460,232 465,232 L 640,232 L 640,102 L 520,102" marker-end="url(#triGreen)" stroke-dasharray="5 3"/>
-  <text class="diff-text" x="578" y="150">D saves/</text>
-  <text class="diff-text" x="578" y="162">restores</text>
-  <text class="diff-text" x="578" y="174">full state</text>
+  <!-- Difference arrow rides its own outer gutter so its caption never shares a band -->
+  <path class="highlight-arrow" d="M 500,248 L 500,244 Q 500,240 504,240 L 710,240 L 710,102 L 560,102" marker-end="url(#triGreen)" stroke-dasharray="5 3"/>
+  <text class="diff-text" x="718" y="145">D saves/</text>
+  <text class="diff-text" x="718" y="157">restores</text>
+  <text class="diff-text" x="718" y="169">full state</text>
 
   <!-- SECD description -->
-  <text class="desc" x="400" y="330">Dump acts as an implicit call</text>
-  <text class="desc" x="400" y="343">stack &#8212; save on call, restore on return.</text>
+  <text class="desc" x="440" y="330">Dump acts as an implicit call</text>
+  <text class="desc" x="440" y="343">stack &#8212; save on call, restore on return.</text>
 
   <!-- Key difference callout -->
-  <rect class="machine-box" x="20" y="370" width="680" height="38" stroke-dasharray="6 3"/>
+  <rect class="machine-box" x="20" y="370" width="760" height="38" stroke-dasharray="6 3"/>
   <text class="desc" x="30" y="392">Key difference: CEK continuations are explicit (K = inspectable data);  SECD keeps them implicit (D = opaque saved state).</text>
 </svg>

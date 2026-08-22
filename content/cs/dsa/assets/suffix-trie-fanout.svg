@@ -210,8 +210,10 @@
 
   <!-- Highlight the "ana" subtree duplication -->
   <!-- a-branch "ana" subtree: nodes at (630,276), children (570,344) and (690,344) -->
-  <rect x="550" y="260" width="160" height="100" rx="8" class="highlight"/>
-  <text x="630" y="252" class="anno">"ana" subtree</text>
+  <rect x="548" y="262" width="164" height="104" rx="8" class="highlight"/>
+  <!-- Caption sits in its own band under the box: above it, the b/a edge into the
+       subtree root runs through x=630 and collided with the edge label "a". -->
+  <text x="630" y="386" class="anno">"ana" subtree</text>
 
   <!-- b-branch also contains a-n-a at depths 4-5-6: (260,344)-(260,412)-(260,480) internal path -->
   <!-- The b-chain contains ...b-a-n-a-n-a-$ which includes "ana" as a substring path -->
