@@ -20,7 +20,7 @@ A **map** (a.k.a. **dictionary**, **associative array**) stores **(key → value
 - `put(k, v)`, `get(k)`, `contains(k)`, `remove(k)`, and iteration over keys/entries.
 
 
-A **hash table** implements maps by applying a **hash function** `h(k)` to locate a bucket or slot. With a good hash and a controlled **load factor** `α = n / m` (items per table slot), hash tables deliver **expected** `O(1)` time for search, insert, and delete.
+A **hash table** implements maps by applying a **[[cs/security/cryptographic-hash-functions|hash function]]** `h(k)` to locate a bucket or slot. With a good hash and a controlled **load factor** `α = n / m` (items per table slot), hash tables deliver **expected** `O(1)` time for search, insert, and delete.
 
 Two classic collision strategies:
 
@@ -31,7 +31,7 @@ Two classic collision strategies:
 
 ## Motivation
 
-Maps are everywhere: symbol tables in compilers, routing tables, caches, JSON/object property stores, and set membership (a map with dummy value `true`). Hashing gives **amortized constant-time** performance with simple memory layouts and is the default general-purpose dictionary in most languages.
+Maps are everywhere: symbol tables in compilers, [[cs/networking/routing-and-longest-prefix-match|routing tables]], caches, JSON/object property stores, and set membership (a map with dummy value `true`). Hashing gives **amortized constant-time** performance with simple memory layouts and is the default general-purpose dictionary in most languages.
 
 ## Definition and Formalism
 
@@ -236,7 +236,7 @@ function RESIZE_CHAIN(T):
 
 - **Iteration order:** Chaining yields **bucket order** (stable within buckets if vectors). Open addressing yields **array order**, not insertion order.
 
-- **Thread safety:** Writes need synchronization or striped locks; lock-free schemes exist but are complex.
+- **[[cs/systems/concurrency-primitives|Thread safety]]:** Writes need synchronization or striped locks; lock-free schemes exist but are complex.
 
 
 ## Common Pitfalls or Edge Cases

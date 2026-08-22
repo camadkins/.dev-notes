@@ -95,7 +95,7 @@ class FlyingFish extends Animal, Swimmer, Flyer
 
 - **Nominal:** based on declared inheritance (`class Circle extends Shape`).
     
-- **Structural:** based on member compatibility (as in Go or TypeScript).
+- **[[cs/languages/common/structural-versus-nominal-typing|Structural]]:** based on member compatibility (as in Go or TypeScript).
     
 
 ### Subtype Polymorphism
@@ -107,7 +107,7 @@ Shape s = new Circle(5);
 System.out.println(s.area());
 ```
 
-The method invoked depends on the **runtime type**, not the static type. That’s **dynamic dispatch**.
+The method invoked depends on the **runtime type**, not the static type. That’s **[[cs/languages/common/dispatch-vtables-fat-pointers-and-dictionaries|dynamic dispatch]]**.
 
 ---
 
@@ -135,7 +135,7 @@ s->area(); // Circle::area() called dynamically
 
 Implementation detail:
 
-- Each class stores a **vtable** (virtual method table).
+- Each class stores a **[[cs/languages/Cpp/virtual-dispatch-vtables-and-object-layout|vtable]]** (virtual method table).
     
 - Objects carry a hidden pointer to their class’s vtable.
     

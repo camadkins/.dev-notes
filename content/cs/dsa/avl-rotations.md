@@ -15,7 +15,7 @@ aliases:
 ---
 
 ## Overview
-**AVL trees** maintain balance by ensuring that for any node, the **height difference** between its left and right subtrees is at most one.  
+**AVL trees** maintain balance by ensuring that for any node, the **[[cs/math/logarithms-and-exponentials|height difference]]** between its left and right subtrees is at most one.  
 When this condition is violated, **rotations** restore balance while keeping the **binary search tree (BST)** property intact.
 
 > [!note]
@@ -56,7 +56,7 @@ After rotation:
 
 - Node `x` becomes new root of subtree.
     
-- The order property is preserved: all keys in `T2` remain between `x` and `y`.
+- The [[cs/math/relations-and-equivalence|order property]] is preserved: all keys in `T2` remain between `x` and `y`.
     
 ### Left Rotation (RR Case)
 

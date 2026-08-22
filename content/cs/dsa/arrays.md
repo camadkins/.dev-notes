@@ -12,7 +12,7 @@ aliases: []
 ---
 
 ## Definition
-An **array** is a contiguous block of memory holding a fixed number of elements of the same type.  
+An **array** is a [[cs/systems/virtual-memory|contiguous block of memory]] holding a fixed number of elements of the same type.  
 Its power lies in **direct indexing** - given a base address `B` and element size `s`, the address of element `A[i]` is:
 
 ```
@@ -35,7 +35,7 @@ Let `A[0 … n−1]` be an array of `n` elements, each occupying `s` bytes.
 - Indices are 0-based.
 - Elements are stored consecutively without gaps (**contiguity**).
 - The array size `n` is immutable for static arrays (**fixed capacity**).
-- Access outside `[0, n−1]` causes undefined behavior or bounds errors.
+- Access outside `[0, n−1]` causes [[cs/languages/common/undefined-behavior-as-a-contract|undefined behavior]] or bounds errors.
 - Constant-time indexing follows a stride/base model.
 
 > [!note] Index-to-address mapping
@@ -146,7 +146,7 @@ function delete(A, n, i):
 
 ### Space & Cache Behavior
 
-- **Contiguous layout:** high spatial locality (CPU prefetch friendly).
+- **Contiguous layout:** high [[cs/systems/memory-hierarchy-and-caching|spatial locality]] (CPU prefetch friendly).
     
 - **Fixed capacity:** no resizing; use dynamic array for expansion.
     

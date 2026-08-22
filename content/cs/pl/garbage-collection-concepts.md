@@ -54,7 +54,7 @@ Each object stores a counter of how many references point to it.
 - Adds runtime overhead on every assignment.  
 - Requires atomic operations in multithreaded settings.
 
-Python’s CPython runtime uses reference counting with a backup cyclic GC to handle these cases.
+Python’s CPython runtime uses [[cs/languages/Python/cpython-object-model-and-reference-counting|reference counting with a backup cyclic GC]] to handle these cases.
 
 ---
 
@@ -86,7 +86,7 @@ Traditional GCs stop the world during collection, causing noticeable pauses.
 
 Common designs include:
 - **Stop-the-world mark-sweep:** simple, but long pauses.  
-- **Concurrent mark-sweep (CMS):** Java’s old low-pause collector.  
+- **[[cs/languages/Java/hotspot-garbage-collectors|Concurrent mark-sweep (CMS)]]:** Java’s old low-pause collector.  
 - **G1, ZGC, Shenandoah:** modern concurrent and region-based designs that minimize latency.
 
 > [!note]
@@ -149,7 +149,7 @@ The ideal configuration depends on workload: short-lived object churn favors sma
 ## Beyond Safety: GC and Language Design
 Garbage collection influences language semantics:
 - Pure functional languages depend on GC for immutability efficiency.  
-- Systems languages (Rust, C++) trade GC for manual or ownership-based safety.  
+- Systems languages (Rust, C++) trade GC for manual or [[cs/languages/common/memory-ownership-refcounting-gc|ownership-based safety]].  
 - Hybrid systems (Go, Swift) integrate GC with compiler checks to control latency.
 
 The choice isn’t just about automation; it defines how developers think about **lifetime** and **ownership**.

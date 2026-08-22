@@ -128,7 +128,7 @@ Array `A = [9, 4, 7, 2, 7, 5]`.
     // finish tail
     ```
 
-- **SIMD (vectorized) search.** For primitive types, load 16-32 bytes at a time and compare in parallel; then find the first matching lane. Library functions (e.g., memchr) do this.
+- **SIMD (vectorized) search.** For primitive types, load 16-32 bytes at a time and compare in parallel; then find the first matching lane. [[cs/languages/Cpp/stl-algorithms|Library functions (e.g., memchr)]] do this.
 
 - **Two-ended scan.** Check `A[l]` and `A[r]` in one loop to halve iterations on average when `x` is uniformly distributed:
 
@@ -177,7 +177,7 @@ Array `A = [9, 4, 7, 2, 7, 5]`.
 
 - **When to prefer binary search.** If the data is **sorted** and random access is cheap, prefer [[binary-search|Binary Search]] for `O(log n)` time. Linear search can still win on **very small** arrays due to branch/predictor and cache effects.
 
-- **Cache behavior.** Arrays provide sequential access that is cache-friendly; linked lists incur pointer chasing and poor locality.
+- **Cache behavior.** Arrays provide sequential access that is [[cs/systems/memory-hierarchy-and-caching|cache-friendly]]; linked lists incur pointer chasing and poor locality.
 
 - **Return conventions.** Standardize on `-1` for "not found" (arrays) or `(NIL, -1)` for lists. Exposing both index and pointer simplifies later updates.
 

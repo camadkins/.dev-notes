@@ -180,9 +180,9 @@ Let `n` be the number of elements at the moment of the operation.
 
 - **Stability of references:** These implementations **do not** provide stable references to elements (queue nodes may move/rotate). If stability is required, use [[stack-using-linked-list|Stack Using Linked List]].
 
-- **Cache behavior:** Circular-buffer queues are generally more cache-friendly than linked queues due to contiguous memory.
+- **Cache behavior:** Circular-buffer queues are generally more [[cs/systems/memory-hierarchy-and-caching|cache-friendly]] than linked queues due to contiguous memory.
 
-- **Concurrency:** None of these are thread-safe without synchronization. Wrap with a mutex or use lock-free queues carefully (ABA hazards).
+- **Concurrency:** None of these are thread-safe without synchronization. Wrap with a [[cs/systems/concurrency-primitives|mutex]] or use lock-free queues carefully (ABA hazards).
 
 
 > [!warning]

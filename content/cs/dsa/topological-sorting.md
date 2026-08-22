@@ -142,15 +142,15 @@ Both algorithms detect cycles within the same budget.
 
 ## Applications
 
-- **Build systems & package managers:** Compile/link order; install dependencies before dependents.
+- **[[cs/languages/common/build-systems-and-dependency-management|Build systems]] & package managers:** Compile/link order; install dependencies before dependents.
 
 - **Course scheduling:** Respect prerequisites so courses appear in a feasible term order.
 
 - **Task scheduling in DAGs:** Workflow engines, data pipelines (MapReduce DAG planners, Airflow, Dask).
 
-- **Linkers & initialization order:** Determine safe init/finalization sequences with dependencies.
+- **[[cs/languages/Cpp/translation-units-linkage-and-the-build-model|Linkers]] & initialization order:** Determine safe init/finalization sequences with dependencies.
 
-- **Deadlock detection & reasoning:** Detect cycles in resource graphs; if a topo order exists, the system is acyclic.
+- **[[cs/systems/deadlock|Deadlock detection]] & reasoning:** Detect cycles in resource graphs; if a topo order exists, the system is acyclic.
 
 - **Graph algorithms as subroutines:** Many DP-on-DAG problems (longest path in DAG, counting paths, reachability) iterate vertices in **topological order**.
 

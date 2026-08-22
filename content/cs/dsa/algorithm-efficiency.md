@@ -13,7 +13,7 @@ aliases: []
 
 ## Definition
 **Algorithm efficiency** connects the mathematical world of asymptotic analysis with the real-world performance observed on actual hardware.  
-While asymptotic notation (O, Θ, Ω) describes *growth rates*, true efficiency depends on **constants, data access patterns, cache locality, and implementation choices**.
+While asymptotic notation (O, Θ, Ω) describes *growth rates*, true efficiency depends on **constants, data access patterns, [[cs/systems/memory-hierarchy-and-caching|cache locality]], and implementation choices**.
 
 > [!note]
 > Two Θ(n log n) algorithms may perform drastically differently in practice - asymptotic bounds only tell part of the story.
@@ -99,7 +99,7 @@ Examples:
 
 - **[[quick-sort|QuickSort]]**: worst-case O(n²), average O(n log n), but input ordering heavily impacts runtime.
     
-- **Hashing**: expected O(1), but collisions can make it O(n).
+- **Hashing**: [[cs/statistics/expected-value|expected O(1)]], but collisions can make it O(n).
     
 
 > ![Five growth curves plotted against input size, constant through quadratic](assets/efficiency-perf-vs-input.svg)

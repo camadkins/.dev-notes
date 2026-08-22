@@ -14,11 +14,11 @@ aliases: []
 
 ## Overview
 
-**Dynamic memory allocation** gives programs **heap** storage at runtime when sizes or lifetimes aren't known at compile time. Unlike the **stack**, which grows/shrinks automatically with function calls, the **heap** requires explicit **request** and **release** (e.g., `malloc/free`, `new/delete`, or GC). Done well, you get flexible structures like [[dynamic-arrays|Dynamic Arrays]] and graphs. Done poorly, you get **leaks**, **fragmentation**, **dangling pointers**, and elusive heisenbugs.
+**Dynamic memory allocation** gives programs **heap** storage at runtime when sizes or lifetimes aren't known at compile time. Unlike the **stack**, which grows/shrinks automatically with function calls, the **heap** requires explicit **request** and **release** (e.g., `malloc/free`, `new/delete`, or GC). Done well, you get flexible structures like [[dynamic-arrays|Dynamic Arrays]] and graphs. Done poorly, you get **leaks**, **fragmentation**, **[[cs/security/use-after-free-and-heap-exploitation|dangling pointers]]**, and elusive heisenbugs.
 
 ## Underlying Process
 
-At a high level, a **memory allocator** manages a region of virtual memory for the process:
+At a high level, a **memory allocator** manages a region of [[cs/systems/virtual-memory|virtual memory]] for the process:
 
 1. **Request:** Program asks for `N` bytes.
 
@@ -95,7 +95,7 @@ function consume():
 
 - **Aliasing:** If multiple references exist, define a policy (single writer / many readers; reference counting) to avoid freeing while in use.
 
-- **Bounds:** Always respect the requested length; buffer overflows corrupt allocator metadata and neighboring objects.
+- **Bounds:** Always respect the requested length; [[cs/security/buffer-overflows|buffer overflows]] corrupt allocator metadata and neighboring objects.
 
 - **Thread safety:** Many allocators are thread-safe but may contend; per-thread caches/arenas help. Your own metadata (reference counts, freelists) must be synchronized.
 

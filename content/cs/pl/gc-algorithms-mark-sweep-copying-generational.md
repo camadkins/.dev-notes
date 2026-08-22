@@ -127,10 +127,10 @@ Proper GC tuning balances:
 ---
 
 ## In Practice
-- **JVM (HotSpot):** generational, multi-threaded collectors (G1, ZGC, Shenandoah).  
+- **[[cs/languages/Java/hotspot-garbage-collectors|JVM (HotSpot)]]:** generational, multi-threaded collectors (G1, ZGC, Shenandoah).  
 - **.NET CLR:** generational mark–compact with concurrent phases.  
-- **Go:** concurrent mark–sweep with small heap fragments, tuned for low pause times.  
-- **Rust:** none; relies on ownership for deterministic lifetime management.
+- **Go:** concurrent mark–sweep with [[cs/languages/Go/the-go-garbage-collector|small heap fragments]], tuned for low pause times.  
+- **Rust:** none; [[cs/languages/Rust/ownership-and-moves|relies on ownership for deterministic lifetime management]].
 
 > [!tip]
 > Even in non-GC languages, these principles influence *memory-safe ownership systems*, reasoning about reachability and lifetime statically rather than dynamically.

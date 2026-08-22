@@ -12,7 +12,7 @@ aliases: []
 
 ## Overview
 Subtyping adds **hierarchy** to type systems, enabling reuse and polymorphism.  
-When combined with generics or functions, however, it introduces **variance problems**, subtle but essential for type safety.
+When combined with generics or functions, however, it introduces **[[cs/languages/common/variance-use-site-versus-declaration-site|variance problems]]**, subtle but essential for type safety.
 
 > [!note]
 > Subtyping extends type systems *horizontally* (via relationships between types), while parametric polymorphism extends them *vertically* (via generic abstraction).
@@ -117,7 +117,7 @@ When a type constructor `F` (like `List` or `Box`) wraps a type `T`, the questio
 
 ## Example: Why Arrays Are Invariant
 
-Java allows **covariant arrays**, but it’s unsound:
+Java allows **[[cs/languages/Java/covariant-arrays-vs-invariant-generics|covariant arrays]]**, but it’s unsound:
 
 ```java
 Animal[] animals = new Dog[1];
@@ -145,7 +145,7 @@ Covariance, invariance, and contravariance form a conceptual ladder of generalit
 
 ## Bounded Type Parameters
 
-To control variance and maintain soundness, languages introduce **type bounds**:
+To control variance and maintain soundness, languages introduce **[[cs/languages/Java/bounded-type-parameters|type bounds]]**:
 
 ### Upper Bounds
 

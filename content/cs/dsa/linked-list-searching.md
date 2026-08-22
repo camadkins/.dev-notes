@@ -106,7 +106,7 @@ function UNLINK_DLL(x):
 
 - **No indexing**: access by position `k` requires `Θ(k)` traversal.
 
-- **Stable references**: nodes keep addresses as long as they remain linked; good for external handles/iterators.
+- **[[cs/languages/Cpp/iterators-and-ranges|Stable references]]**: nodes keep addresses as long as they remain linked; good for external handles/iterators.
 
 - **Cache behavior**: pointer-chasing is cache-unfriendly compared to arrays' contiguous storage.
 
@@ -234,7 +234,7 @@ Using **sentinel nodes** (head for SLL, head+tail for DLL) simplifies:
 
 ### Performance notes
 
-- **Time**: sequential search is `Θ(n)`. Move-to-front can yield good amortized behavior under locality.
+- **Time**: sequential search is `Θ(n)`. Move-to-front can yield good amortized behavior [[cs/systems/memory-hierarchy-and-caching|under locality]].
 
 - **Space**: SLL stores one pointer per node; DLL stores two (higher overhead but `O(1)` unlink by handle).
 

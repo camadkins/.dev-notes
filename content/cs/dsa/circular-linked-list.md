@@ -242,10 +242,10 @@ Track a size counter to enable bounded traversals (exactly `n` steps) and to pre
 When deleting during iteration, store `next = cur.next` before unlinking `cur`. In DCLL, you can relink via `cur.prev.next = cur.next` and `cur.next.prev = cur.prev` in O(1).
 
 **Concurrency considerations.**
-Circular lists are pointer-rich structures; lock-free variants require careful use of atomic primitives (e.g., CAS on adjacency pairs) and hazard pointers or epoch reclamation to manage memory safely.
+Circular lists are pointer-rich structures; lock-free variants require careful use of [[cs/systems/concurrency-primitives|atomic primitives]] (e.g., CAS on adjacency pairs) and hazard pointers or epoch reclamation to manage memory safely.
 
 **Interfacing with queues.**
-Circular lists can back a **cyclic scheduler** or a **round-robin queue** by maintaining a cursor; each dequeue reassigns the cursor to `cursor.next`. For strict queue semantics (head/tail enqueues and dequeues) with array-level locality, see [[circular-queue|Circular Queue]].
+Circular lists can back a **cyclic scheduler** or a **[[cs/systems/process-scheduling-algorithms|round-robin queue]]** by maintaining a cursor; each dequeue reassigns the cursor to `cursor.next`. For strict queue semantics (head/tail enqueues and dequeues) with array-level locality, see [[circular-queue|Circular Queue]].
 
 ## Practical Use Cases
 

@@ -141,7 +141,7 @@ function IN_DEGREE(u):
 
 ## Broader Implications
 
-Graphs underpin compilers (control-flow, call graphs), OS schedulers (resource graphs), networking (routing), databases (query plans), ML (message passing on GNNs), and more. Once you encode a problem as a graph, you unlock a standard vocabulary (paths, cuts, flows, matchings) and a library of proven algorithms.
+Graphs underpin compilers ([[cs/pl/intermediate-representations-and-ssa|control-flow]], call graphs), OS schedulers (resource graphs), networking (routing), databases (query plans), ML ([[cs/deep-learning/graph-neural-networks|message passing on GNNs]]), and more. Once you encode a problem as a graph, you unlock a standard vocabulary (paths, cuts, flows, [[cs/math/graph-theory|matchings]]) and a library of proven algorithms.
 
 ## Summary
 

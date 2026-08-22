@@ -24,7 +24,7 @@ Efficient computation hinges on **Euclid's algorithm** for `gcd`, plus an **over
 
 GCD and LCM are building blocks for:
 
-- **Number theory & cryptography:** modular inverses, RSA keygen use `gcd`; modular arithmetic with common moduli uses `lcm`.
+- **Number theory & cryptography:** modular inverses, [[cs/military-computing/rsa-and-computational-hardness|RSA keygen]] use `gcd`; [[cs/math/number-theory-and-modular-arithmetic|modular arithmetic]] with common moduli uses `lcm`.
 
 - **Scheduling & periodicity:** find when events coincide (LCM of periods).
 

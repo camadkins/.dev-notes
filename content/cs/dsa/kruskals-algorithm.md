@@ -15,7 +15,7 @@ aliases: []
 
 ## Overview
 
-**Kruskal's algorithm** builds a **minimum spanning tree** (MST) of a weighted, undirected graph by processing edges in **increasing weight** and adding an edge **iff** it connects two **different components**. The test "are the endpoints already connected?" is answered fast using a **Disjoint Set Union (DSU)**, also called **Union-Find**. With sorting cost `O(m log m)` (`m = |E|`) and near-constant amortized DSU operations, Kruskal is a simple, scalable baseline for MST on sparse and medium-dense graphs.
+**Kruskal's algorithm** builds a **minimum spanning tree** (MST) of a [[cs/math/graph-theory|weighted, undirected graph]] by processing edges in **increasing weight** and adding an edge **iff** it connects two **different components**. The test "are the endpoints already connected?" is answered fast using a **Disjoint Set Union (DSU)**, also called **Union-Find**. With sorting cost `O(m log m)` (`m = |E|`) and near-constant amortized DSU operations, Kruskal is a simple, scalable baseline for MST on sparse and medium-dense graphs.
 
 ## Core Idea
 
@@ -138,7 +138,7 @@ Let `n = |V|`, `m = |E|`.
 
 - **Boruvka + Kruskal hybrids.** Run a few rounds of **Boruvka's algorithm** to shrink components quickly (linear work), then finish with Kruskal on the reduced graph.
 
-- **Parallel Kruskal.** Sort in parallel; apply unions on independent edge batches with conflict resolution (e.g., filter-then-union, or use concurrent DSU with careful partitioning).
+- **Parallel Kruskal.** Sort in parallel; apply unions on independent edge batches with conflict resolution (e.g., filter-then-union, or use [[cs/systems/concurrency-primitives|concurrent DSU]] with careful partitioning).
 
 ## Applications
 
@@ -174,7 +174,7 @@ Let `n = |V|`, `m = |E|`.
 
 ## Implementation Notes or Trade-offs
 
-- **Data layout.** Store edges as structs `(u, v, w)` in a flat array; this is cache-friendly for sort + linear scan.
+- **Data layout.** Store edges as structs `(u, v, w)` in a flat array; this is [[cs/systems/memory-hierarchy-and-caching|cache-friendly]] for sort + linear scan.
 
 - **Indexing.** Use 0-based vertex IDs; ensure DSU arrays are sized `n`.
 

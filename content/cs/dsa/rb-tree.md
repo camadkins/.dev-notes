@@ -409,7 +409,7 @@ Let `n` be the number of nodes.
 
 ### Comparators
 
-- Require a **strict weak ordering** comparator (transitive, antisymmetric). Comparator bugs can violate BST invariants and break balancing logic.
+- Require a **[[cs/math/relations-and-equivalence|strict weak ordering]]** comparator (transitive, antisymmetric). Comparator bugs can violate BST invariants and break balancing logic.
     
 
 ### Deletion corner cases
@@ -443,7 +443,7 @@ Let `n` be the number of nodes.
 
 ## Practical Use Cases
 
-- **Ordered maps/sets** in language libraries: C++ `std::map`/`std::set`, many JVM collections, OS schedulers.
+- **Ordered maps/sets** in [[cs/languages/Cpp/stl-containers|language libraries]]: C++ `std::map`/`std::set`, many JVM collections, [[cs/systems/process-scheduling-algorithms|OS schedulers]].
     
 - **Event queues and interval indexes** needing ordered traversal plus fast updates.
     

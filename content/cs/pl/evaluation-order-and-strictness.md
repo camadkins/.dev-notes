@@ -87,7 +87,7 @@ Not all constructs are uniformly strict. Some are strict only in certain positio
 |`or(a, b)`|`b`|
 |`pair(a, b)`|none (usually strict in both)|
 
-This selective evaluation is what makes Boolean logic efficient: you don’t compute the second operand unless necessary.
+This selective evaluation is what makes [[cs/math/propositional-logic|Boolean logic]] efficient: you don’t compute the second operand unless necessary.
 
 > [!note]  
 > In lazy languages, _all_ expressions behave this way by default.  
@@ -163,7 +163,7 @@ This sharing is what makes laziness _practical_: predictable performance and no 
 ## Performance and Reasoning
 
 Strict evaluation is easy to reason about because order is fixed.  
-Lazy evaluation can feel unpredictable (expressions might not execute at all), but it enables powerful patterns like infinite data structures.
+Lazy evaluation can feel unpredictable (expressions might not execute at all), but it enables powerful patterns like [[cs/languages/Python/generators-and-iterators|infinite data structures]].
 
 |Property|Strict Evaluation|Non-Strict Evaluation|
 |---|---|---|

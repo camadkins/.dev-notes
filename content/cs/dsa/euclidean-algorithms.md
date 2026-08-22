@@ -101,7 +101,7 @@ Check: `17·26 = 442 ≡ 1 (mod 43)`.
 
 - **Binary GCD (Stein's algorithm):** Avoids division using shifts and subtraction; efficient when shifts are cheaper than divides.
 
-- **Tail-recursive style:** The basic GCD can be written tail-recursively and optimized by compilers to iterative code.
+- **Tail-recursive style:** The basic GCD can be written [[cs/languages/Racket/proper-tail-calls-and-the-loop-question|tail-recursively]] and optimized by compilers to iterative code.
 
 - **Batch inverses:** To compute many inverses modulo the same `m`, use a **prefix–suffix product** trick (one inverse plus linear-time sweeps) to avoid `O(n)` separate extended runs.
 
@@ -116,7 +116,7 @@ Check: `17·26 = 442 ≡ 1 (mod 43)`.
 
 - **LCM and fraction reduction:** `lcm(a,b) = |ab| / gcd(a,b)`; reduce ratios to lowest terms.
 
-- **Coprimality tests:** Quick check: `gcd(a,b) == 1` → numbers are coprime.
+- **Coprimality tests:** Quick check: `gcd(a,b) == 1` → numbers are [[cs/math/number-theory-and-modular-arithmetic|coprime]].
 
 
 ## Common Pitfalls or Edge Cases

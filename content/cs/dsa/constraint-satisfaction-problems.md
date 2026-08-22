@@ -13,7 +13,7 @@ aliases: []
 
 ## Overview
 
-A **Constraint Satisfaction Problem (CSP)** encodes a decision problem as a set of **variables** with **domains** and a set of **constraints** restricting which combinations of values are allowed. A **solution** is a total assignment of all variables that satisfies all constraints. CSPs unify problems like map coloring, scheduling, timetabling, Sudoku, and n-queens under a common modeling and algorithmic toolkit.
+A **Constraint Satisfaction Problem (CSP)** encodes a decision problem as a set of **variables** with **domains** and a set of **constraints** restricting which combinations of values are allowed. A **solution** is a total assignment of all variables that satisfies all constraints. CSPs unify problems like [[cs/math/graph-theory|map coloring]], scheduling, timetabling, Sudoku, and n-queens under a common modeling and algorithmic toolkit.
 
 CSP algorithms exploit **structure** - constraint graphs, variable/constraint orderings, and local consistency - to prune search and reduce combinatorial explosion. When exact search is expensive, **local search** (e.g., min-conflicts) often finds high-quality solutions quickly.
 
@@ -133,7 +133,7 @@ function REVISE(Xi, Xj):
 
 ### Global Constraints & Stronger Propagation
 
-- **All-different:** Use matching-based propagation (Hall intervals) to remove domain values implied by pigeonhole constraints.
+- **All-different:** Use matching-based propagation (Hall intervals) to remove domain values implied by [[cs/math/pigeonhole-principle|pigeonhole]] constraints.
 
 - **Cumulative (scheduling):** Propagate resource usage over time windows to prune impossible start times.
 
@@ -176,7 +176,7 @@ Works spectacularly on **n-queens** and many scheduling/timetabling instances.
 
 ## Broader Implications
 
-CSP techniques appear in **SAT/SMT** (via encodings or direct propagators), **AI planning** (action as variables, preconditions/effects as constraints), **type inference** (constraints over types), and **configuration systems** (feature models). The same ideas - propagation, heuristic search, decomposition - recur across discrete optimization.
+CSP techniques appear in **[[cs/math/propositional-logic|SAT/SMT]]** (via encodings or direct propagators), **AI planning** (action as variables, preconditions/effects as constraints), **[[cs/pl/hindleymilner-type-inference|type inference]]** (constraints over types), and **configuration systems** (feature models). The same ideas - propagation, heuristic search, decomposition - recur across discrete optimization.
 
 ## Summary
 

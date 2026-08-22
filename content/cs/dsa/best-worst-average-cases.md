@@ -52,8 +52,8 @@ Asymptotic notation applies to each:
 
 ## Model & Assumptions
 A statement like "average $O(f(n))$" is **meaningless** without:
-- A **distribution** over inputs (e.g., uniform over all permutations, random hash function, i.i.d. keys).
-- A **cost model** (e.g., RAM with unit-cost arithmetic, how comparisons and cache misses are counted).
+- A **distribution** over inputs (e.g., uniform over all [[cs/math/combinatorics|permutations]], random hash function, i.i.d. keys).
+- A **cost model** (e.g., RAM with unit-cost arithmetic, how comparisons and [[cs/systems/memory-hierarchy-and-caching|cache misses]] are counted).
 - Clear **preconditions** (e.g., "array is randomly shuffled", or "hash function is universal/independent").
 
 Common modeling patterns:

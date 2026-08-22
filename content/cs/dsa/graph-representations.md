@@ -103,7 +103,7 @@ Adj[4]: {}
 
 ### Cache/Memory Considerations
 
-- **AL:** `array<vector<int>>` (or similar) yields contiguous blocks per vertex; iteration is cache-friendly. Hash-based neighbor sets speed edge checks but hurt iteration latency.
+- **AL:** `array<vector<int>>` (or similar) yields contiguous blocks per vertex; iteration is [[cs/systems/memory-hierarchy-and-caching|cache-friendly]]. Hash-based neighbor sets speed edge checks but hurt iteration latency.
 
 - **AM:** Dense `n x n` blocks traverse well in row-major order; for large `n`, tile/block loops to keep working sets in cache.
 
@@ -141,7 +141,7 @@ Representation choices ripple into:
 
 - **Engineering constraints** (RAM usage for large `n`; locality; ease of dynamic updates).
 
-- **Parallelization:** AM supports SIMD/bitset tricks and straightforward blocking; AL provides natural task parallelism over vertices/edges but requires careful scheduling to avoid contention.
+- **Parallelization:** AM supports SIMD/bitset tricks and straightforward blocking; AL provides natural task parallelism over vertices/edges but requires careful scheduling to avoid [[cs/systems/concurrency-primitives|contention]].
 
 
 ## Summary

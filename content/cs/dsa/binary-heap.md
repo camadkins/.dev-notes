@@ -138,7 +138,7 @@ For 1-based indexing, use `parent(i)=i//2`, `left(i)=2*i`, `right(i)=2*i+1`.
 > **1-based:** parent(i) = i//2, left(i) = 2i, right(i) = 2i+1
 
 
-**Comparator strategy.** Implement min-heap or max-heap by parameterizing the comparison; ensure the comparator is **consistent with equality** to avoid violating transitivity at ties.
+**Comparator strategy.** Implement min-heap or max-heap by [[cs/languages/common/constraining-a-type-parameter|parameterizing the comparison]]; ensure the comparator is **[[cs/languages/Java/the-equals-and-hashcode-contract|consistent with equality]]** to avoid violating transitivity at ties.
 
 ---
 

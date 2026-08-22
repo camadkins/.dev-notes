@@ -15,7 +15,7 @@ aliases:
 
 ## Definition
 
-**Branch and Bound (B&B)** is a **general algorithm design paradigm** for solving **combinatorial optimization** problems.
+**Branch and Bound (B&B)** is a **general algorithm design paradigm** for solving **[[cs/math/combinatorics|combinatorial optimization]]** problems.
 It systematically explores the solution space as a **search tree**, but uses **bounds** to prune subproblems that cannot lead to a better solution.
 
 > [!note]
@@ -175,7 +175,7 @@ function knapsackB&B(i, currW, currV):
 
 - **Traveling Salesman Problem (TSP)** - prune routes exceeding best path length.
 
-- **Integer Linear Programming (ILP)** - relaxation provides bounding.
+- **[[cs/math/linear-programming-and-duality|Integer Linear Programming (ILP)]]** - relaxation provides bounding.
 
 - **Scheduling and Resource Allocation** - enforce constraints while minimizing total cost.
 

@@ -23,7 +23,7 @@ This jump is a form of **non-local control**: skipping normal return paths and t
 ---
 
 ## The Semantics of Raising and Handling
-When an exception is raised, the program begins **stack unwinding**: discarding active frames until a matching handler is found.
+When an exception is raised, the program begins **[[cs/languages/Cpp/exceptions-and-stack-unwinding|stack unwinding]]**: discarding active frames until a matching handler is found.
 
 Formally, we can model this using **big-step semantics**:
 ```
@@ -116,7 +116,7 @@ This insight connects exception semantics to [[abstract-machines-cek-secd|abstra
 Handlers have **dynamic extent**: they exist only while their associated block is active.  
 Once control leaves the block (normally or via another exception), the handler is gone.
 
-This is why re-entering an old handler or jumping into a closed scope causes undefined behavior in low-level languages.  
+This is why re-entering an old handler or jumping into a closed scope causes [[cs/languages/common/undefined-behavior-as-a-contract|undefined behavior]] in low-level languages.  
 Languages like JavaScript or Python disallow it by design; Scheme permits it only through delimited continuations.
 
 ---
@@ -133,7 +133,7 @@ In practice, this means:
 3. **No-throw guarantee:** an operation can’t raise exceptions at all.
     
 
-C++ enforces this explicitly through RAII (Resource Acquisition Is Initialization): destructors automatically run during stack unwinding.
+C++ enforces this explicitly through [[cs/languages/Cpp/raii-and-object-lifetime|RAII (Resource Acquisition Is Initialization)]]: destructors automatically run during stack unwinding.
 
 > [!tip]  
 > In functional languages, purity often replaces exception safety: immutable data ensures that partially completed computations can’t corrupt shared state.
@@ -184,7 +184,7 @@ Most modern languages unify exception handling with structured cleanup and type 
     
 - **OCaml / Haskell:** prefer algebraic error types but still support runtime exceptions.
     
-- **Rust:** avoids exceptions entirely; it encodes error propagation via `Result<T, E>` and pattern matching.
+- **Rust:** avoids exceptions entirely; it encodes [[cs/languages/Rust/error-handling-result-and-question-mark|error propagation]] via `Result<T, E>` and pattern matching.
     
 
 Understanding exceptions through **non-local control** clarifies why they interact cleanly with continuations, CPS, and semantics: they’re all different views of the same idea, **control as a first-class value**.

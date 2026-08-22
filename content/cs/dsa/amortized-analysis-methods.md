@@ -36,7 +36,7 @@ $$
 ---
 
 ## Why it matters
-Asymptotic *worst-case per operation* can be misleading. Structures like dynamic arrays, hash tables, and disjoint sets have occasional spikes (resizes, rehashes, compressions), yet deliver **fast average performance across sequences**. Amortized analysis certifies this behavior and guides API guarantees.
+Asymptotic *worst-case per operation* can be misleading. Structures like dynamic arrays, hash tables, and disjoint sets have occasional spikes ([[cs/languages/Rust/slices-vec-and-capacity|resizes]], rehashes, compressions), yet deliver **fast average performance across sequences**. Amortized analysis certifies this behavior and guides API guarantees.
 
 > [!tip] Why developers care
 > Amortization explains why structures like dynamic arrays and hash tables perform well **in practice** even though some individual operations are expensive.
@@ -47,7 +47,7 @@ Asymptotic *worst-case per operation* can be misleading. Structures like dynamic
 Amortized bounds are established **for sequences** of operations under a fixed cost model and stable policies.
 
 - **Operation sequences.** Consider a sequence \( \sigma = (op_1,\dots, op_m) \) acting on a shared structure.
-- **Cost models.** RAM model with unit-cost pointer/word ops unless otherwise stated.
+- **Cost models.** RAM model with [[cs/systems/memory-hierarchy-and-caching|unit-cost]] pointer/word ops unless otherwise stated.
 - **Policies must be fixed.** E.g., dynamic arrays use a **doubling** growth factor; union–find uses **path compression + union by rank/size**.
 
 > [!note] Sequence semantics

@@ -176,7 +176,7 @@ Algorithms such as **galloping rotation merges** and **block merges** achieve `O
 
 Sort datasets larger than RAM:
 
-1. **Run generation:** read chunks fitting RAM, sort each chunk (e.g., via in-RAM merge sort or quicksort), and write **runs** to disk.
+1. **Run generation:** read chunks fitting RAM, sort each chunk (e.g., via in-RAM merge sort or quicksort), and write **runs** to [[cs/history/magnetic-disk-storage|disk]].
 
 2. **k-way merge:** merge `k` runs at a time using a **min-heap** of the current heads.
 
@@ -220,7 +220,7 @@ Sort datasets larger than RAM:
 
 ## Implementation Notes or Trade-offs
 
-- **Cache behavior:** Merge sort's sequential scans are cache-friendly. Bottom-up variants can outperform top-down due to fewer calls and better prefetching.
+- **Cache behavior:** Merge sort's sequential scans are [[cs/systems/memory-hierarchy-and-caching|cache-friendly]]. Bottom-up variants can outperform top-down due to fewer calls and better prefetching.
 
 - **Memory footprint:** If memory is tight, consider **in-place** algorithms (e.g., heapsort) at the cost of **stability** and often larger constants.
 

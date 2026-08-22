@@ -226,9 +226,9 @@ FIFO implies **arrival order** preserved. If you must iterate, be aware that con
 
 ## Practical Use Cases
 
-- **Producer–consumer pipelines**: log ingestion, networking, video frames; backpressure via bounded capacity.
+- **[[cs/systems/inter-process-communication|Producer–consumer pipelines]]**: log ingestion, networking, video frames; backpressure via bounded capacity.
 
-- **Task scheduling**: breadth-first worklists, cooperative schedulers.
+- **[[cs/systems/process-scheduling-algorithms|Task scheduling]]**: breadth-first worklists, cooperative schedulers.
 
 - **Graph traversals**: [[breadth-first-search-algorithms|Breadth-First Search Algorithms]] maintain a queue of vertices by discovery order.
 

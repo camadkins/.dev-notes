@@ -15,7 +15,7 @@ aliases: []
 
 ## Overview
 
-A **linked list** is a dynamic sequence built from **nodes**. Each node stores a **value** and a pointer to the **next** node (singly linked list, SLL). The list container maintains a pointer to the **head** (first node), and optionally a **tail** (last node) and a **size** counter. The shape naturally supports **O(1)** insertion and deletion **once the predecessor is known**, and **O(n)** traversal. Unlike arrays, linked lists avoid contiguous memory and shifting costs, but pay overhead in **pointers, cache misses, and indirection**.
+A **linked list** is a dynamic sequence built from **nodes**. Each node stores a **value** and a pointer to the **next** node (singly linked list, SLL). The list container maintains a pointer to the **head** (first node), and optionally a **tail** (last node) and a **size** counter. The shape naturally supports **O(1)** insertion and deletion **once the predecessor is known**, and **O(n)** traversal. Unlike arrays, linked lists avoid contiguous memory and shifting costs, but pay overhead in **pointers, [[cs/systems/memory-hierarchy-and-caching|cache misses]], and indirection**.
 
 ## Structure Definition
 
@@ -256,7 +256,7 @@ function HAS_CYCLE(L):
 
 - **Queues / Producer–Consumer:** SLL with `head`/`tail` supports `enqueue`/`dequeue` in `O(1)` (see [[queue|Queue]]).
 
-- **Adjacency lists:** Graph representations often store neighbors in linked nodes when memory fragmentation is acceptable.
+- **Adjacency lists:** Graph representations often store neighbors in linked nodes when [[cs/systems/memory-allocators-and-fragmentation|memory fragmentation]] is acceptable.
 
 - **Hash table buckets:** Separate chaining uses SLL per bucket (see [[hash-tables|Hash Tables]]).
 

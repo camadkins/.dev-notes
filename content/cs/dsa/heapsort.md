@@ -123,7 +123,7 @@ Array is sorted, and the tail grew monotonically: `[...,10,12]`, then `[...,8,10
 - **Embedded/real-time** contexts that require no extra buffers and predictable bounds.
 
 
-For general-purpose, cache-rich environments, high-quality quicksorts (introsort) and mergesort variants often outperform heapsort on typical data due to **branch prediction** and **sequential access** advantages.
+For general-purpose, cache-rich environments, high-quality quicksorts ([[cs/languages/Cpp/stl-algorithms|introsort]]) and mergesort variants often outperform heapsort on typical data due to **branch prediction** and **[[cs/systems/memory-hierarchy-and-caching|sequential access]]** advantages.
 
 ## Common Pitfalls or Edge Cases
 

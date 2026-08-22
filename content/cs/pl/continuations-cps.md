@@ -131,7 +131,7 @@ When `k` is called, execution jumps back to the `call/cc` site with the provided
 > 3. **Stack reasoning** becomes harder; continuations flatten the call hierarchy.
 >     
 
-Languages that expose full continuations (Scheme, Racket) restrict them with discipline, while others (ML, Haskell) use delimited variants like `shift/reset`.
+Languages that expose [[cs/languages/Racket/continuations-and-call-cc|full continuations]] (Scheme, Racket) restrict them with discipline, while others (ML, Haskell) use [[cs/languages/Racket/delimited-continuations-and-prompts|delimited variants]] like `shift/reset`.
 
 ---
 
@@ -145,7 +145,7 @@ Continuations underpin modern control operators:
     
 - **Coroutines** suspend and resume by saving their continuation state.
     
-- **Generators** (Python, C#) rely on continuation reification to yield results sequentially.
+- **Generators** (Python, C#) rely on continuation reification to [[cs/languages/CSharp/iterators-and-yield-return|yield results sequentially]].
     
 
 Understanding CPS reveals how all these features share one idea:  

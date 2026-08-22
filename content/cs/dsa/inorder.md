@@ -15,7 +15,7 @@ aliases: []
 
 **Inorder traversal** visits a binary tree's nodes in **Left -> Root -> Right** order. On a **binary search tree (BST)**, this yields the keys in **nondecreasing (sorted) order**, which makes inorder the default for enumerating BST contents, verifying ordering invariants, and exporting keys. There are three standard implementations:
 
-- **Recursive** (short, idiomatic; uses call stack).
+- **Recursive** (short, idiomatic; uses [[cs/systems/processes-and-threads|call stack]]).
 
 - **Iterative with an explicit stack** (control over space and stack use).
 
@@ -187,7 +187,7 @@ Consider the BST built from keys `4,2,6,1,3,5,7`.
 
 ## Implementation Notes or Trade-offs
 
-- **Comparator consistency.** For BSTs, maintain a strict weak ordering; inconsistencies can break "sorted by inorder" guarantees.
+- **Comparator consistency.** For BSTs, maintain a [[cs/languages/Cpp/stl-containers|strict weak ordering]]; inconsistencies can break "sorted by inorder" guarantees.
 
 - **Visit action.** Keep `VISIT` small (e.g., append to buffer) to avoid skewing performance measurements; batch I/O where possible.
 

@@ -123,14 +123,14 @@ function DELETE(root, key):
     
 - **Small-label inline:** store very short labels inline within the edge to remove an indirection.
     
-- **Persistent version:** for immutable snapshots, share unchanged subtrees and allocate new nodes on updates.
+- **Persistent version:** for [[cs/languages/Racket/immutable-data-and-persistent-structures|immutable snapshots]], share unchanged subtrees and allocate new nodes on updates.
     
 
 ## Applications
 
 - Autocomplete and prefix search
     
-- Longest-prefix match (routing-like lookups)
+- [[cs/networking/routing-and-longest-prefix-match|Longest-prefix match]] (routing-like lookups)
     
 - Symbol tables / compiler tooling
     
@@ -147,7 +147,7 @@ function DELETE(root, key):
 
 ## Implementation Notes or Trade-offs
 
-- **Ownership & lifetime:** Prefer arenas to avoid fragmentation and to enable bulk teardown; document slice lifetimes if labels reference packed storage.
+- **Ownership & lifetime:** Prefer arenas to avoid [[cs/systems/memory-allocators-and-fragmentation|fragmentation]] and to enable bulk teardown; document slice lifetimes if labels reference packed storage.
     
 - **Determinism:** For reproducible builds, define a stable child ordering and avoid RNG-dependent tie-breakers.
     

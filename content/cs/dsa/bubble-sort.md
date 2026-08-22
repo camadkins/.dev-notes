@@ -12,7 +12,7 @@ aliases: []
 ---
 
 ## Overview
-**Bubble Sort** is a simple **comparison-based sorting algorithm** that repeatedly **swaps adjacent elements** if they are out of order.
+**Bubble Sort** is a simple **[[cs/languages/Cpp/stl-algorithms|comparison-based sorting algorithm]]** that repeatedly **swaps adjacent elements** if they are out of order.
 After each full pass, the **largest unsorted element "bubbles up"** to its correct position at the end of the array.
 
 > [!note]
@@ -78,7 +78,7 @@ Input: `[5, 2, 9, 1, 5, 6]`
 |**Worst**|Reverse order|≈ n²/2|≈ n²/2|**O(n²)**|
 
 **Space:** `O(1)` (in-place)
-**Stability:** Yes (equal elements maintain order)
+**Stability:** Yes ([[cs/math/relations-and-equivalence|equal elements maintain order]])
 
 > [!tip]
 > Bubble Sort's only redeeming property is **stability** and **simplicity** - ideal for visual or educational contexts but poor for large datasets.

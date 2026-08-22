@@ -41,7 +41,7 @@ Asymptotic notation:
 ### Cost models
 - **RAM model:** Each primitive operation (arithmetic, assignment, comparison, array index) costs `$Θ(1)$`. Memory is word-addressable. Good for most DS&A.
 - **Bit model:** Cost reflects operand bit-length. Needed for **big integers**, cryptography, and exact arithmetic.
-- **I/O or cache model:** Dominates when memory hierarchy costs overshadow CPU (e.g., external sort). Count **block transfers** rather than primitive ops.
+- **I/O or cache model:** Dominates when [[cs/systems/memory-hierarchy-and-caching|memory hierarchy]] costs overshadow CPU (e.g., external sort). Count **block transfers** rather than primitive ops.
 
 [!example]
 **Example (RAM vs bit model):** Adding two `b`-bit integers is `$Θ(1)$` in RAM, but `$Θ(b)$` in the bit model. An algorithm "linear-time" in RAM could be superlinear when numbers grow with `n`.
@@ -143,7 +143,7 @@ For `$T(n) = aT(n/b) + f(n)$` with `a ≥ 1`, `b > 1`:
 
 - Use **RAM** for typical in-memory DS&A.
 
-- Switch to **I/O model** for external memory workflows (mergesort on disk, graph analytics on massive data).
+- Switch to **I/O model** for external memory workflows (mergesort [[cs/history/magnetic-disk-storage|on disk]], graph analytics on massive data).
 
 - Use **bit complexity** when numbers grow with `n` (big-integer algorithms, exact polynomial arithmetic).
 

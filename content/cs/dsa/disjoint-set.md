@@ -100,7 +100,7 @@ Start with elements `{0,1,2,3,4,5}` as singletons.
     
 - **ID mapping:** If elements aren’t dense integers, map them to `0..n-1` with a dictionary; store original IDs separately.
     
-- **Threading:** Naïve Union–Find isn’t thread-safe; for parallel Kruskal use coarse-grained locks per root or batched unions (specialized algorithms exist).
+- **Threading:** Naïve Union–Find isn’t [[cs/systems/concurrency-primitives|thread-safe]]; for parallel Kruskal use coarse-grained locks per root or batched unions (specialized algorithms exist).
     
 
 ## Practical Use Cases
@@ -111,7 +111,7 @@ Start with elements `{0,1,2,3,4,5}` as singletons.
     
 - **Clustering & segmentation:** Merge by similarity thresholds (e.g., image components).
     
-- **Equivalence closure:** Merge constraints expressing “must be equal.”
+- **[[cs/math/relations-and-equivalence|Equivalence closure]]:** Merge constraints expressing “must be equal.”
     
 
 ## Limitations / Pitfalls

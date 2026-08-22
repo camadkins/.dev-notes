@@ -24,7 +24,7 @@ A **linked-list queue** implements FIFO with **nodes** connected via `next` poin
 - **Stable references** to enqueued elements (until removed).
 
 
-Trade-offs include **extra memory per node**, potential **allocator fragmentation**, and poorer **cache locality** than array-based rings (see [[queue-using-array|Queue Using Array]]).
+Trade-offs include **extra memory per node**, potential **[[cs/systems/memory-allocators-and-fragmentation|allocator fragmentation]]**, and poorer **cache locality** than array-based rings (see [[queue-using-array|Queue Using Array]]).
 
 > [!note]
 > Representation used below is **singly linked** with a `tail` pointer for `O(1)` appends. A **dummy (sentinel) head** is optional; it simplifies edge cases at the cost of one extra node.
@@ -194,7 +194,7 @@ Iteration from `head` to `tail` preserves **arrival order**. Avoid exposing raw 
 
 - **Unbounded buffering** where input rates may spike unpredictably.
 
-- **Task schedulers** that attach metadata to tasks stored in nodes (links, timestamps).
+- **[[cs/systems/process-scheduling-algorithms|Task schedulers]]** that attach metadata to tasks stored in nodes (links, timestamps).
 
 - **BFS on massive graphs** that exceed contiguous memory benefits (though [[queue-using-array|Queue Using Array]] is usually faster).
 

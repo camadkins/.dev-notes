@@ -39,7 +39,7 @@ For `b>0`, `b!=1`, define:
 
 - `log_b(x) = y <=> b^y = x`, for `x>0`.
 
-- **Change of base:** `log_b(x) = log_k(x) / log_k(b)` for any `k>0, k!=1`.
+- **[[cs/math/logarithms-and-exponentials|Change of base]]:** `log_b(x) = log_k(x) / log_k(b)` for any `k>0, k!=1`.
     Commonly, `log2(x) = ln(x)/ln(2)` and `log10(x) = ln(x)/ln(10)`.
 
 
@@ -189,7 +189,7 @@ Because `log` transforms multiplication into addition, it underpins:
 
 - **Complexity transforms:** analyzing multiplicative shrinkage as additive depth (`#levels = log_b n`).
 
-- **Information theory:** `log2` measures information in **bits**; entropy sums `p_i log p_i`.
+- **[[cs/military-computing/shannon-and-information-theory|Information theory]]:** `log2` measures information in **bits**; entropy sums `p_i log p_i`.
 
 - **Scale compression:** Logging axes turns exponential curves into lines - useful for profiling with exponentially growing inputs.
 

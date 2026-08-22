@@ -14,7 +14,7 @@ aliases: []
 
 ## Overview
 
-A **linked-list stack** implements **LIFO** using nodes linked by pointers, with the **head** representing the top. Core operations - `push(x)` and `pop()` - operate on the head and run in **O(1)** worst-case time. Compared to array-backed stacks, a linked stack provides **pointer-stable elements** (nodes do not move in memory) and avoids bulk resizes, at the cost of **per-node allocation overhead** and reduced cache locality.
+A **linked-list stack** implements **LIFO** using nodes linked by pointers, with the **head** representing the top. Core operations - `push(x)` and `pop()` - operate on the head and run in **O(1)** worst-case time. Compared to array-backed stacks, a linked stack provides **pointer-stable elements** (nodes do not move in memory) and avoids bulk resizes, at the cost of **per-node allocation overhead** and reduced [[cs/systems/memory-hierarchy-and-caching|cache locality]].
 
 > [!note]
 > Representation matters for performance but not for the LIFO **semantics**. A linked stack is ideal when you want `O(1)` operations with **no resizing** and you may need to hold **stable references** to nodes.
@@ -176,7 +176,7 @@ When does a linked stack outperform arrays?
 
 - A simple linked stack isn't thread-safe. Options:
 
-    - **Coarse-grained mutex** around all methods.
+    - **[[cs/systems/concurrency-primitives|Coarse-grained mutex]]** around all methods.
 
     - **Lock-free Treiber stack** (CAS on `head`), but beware **ABA**; mitigate with hazard pointers, epoch reclamation, or tagged pointers. Garbage-collected languages reduce reclamation pain but still need safe publication.
 

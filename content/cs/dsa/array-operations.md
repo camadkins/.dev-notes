@@ -24,7 +24,7 @@ Arrays provide **O(1) indexed access** via fixed-stride addressing, making them 
 ---
 
 ## Motivation
-Real programs rarely perform a single primitive; they **compose** these operations. Understanding **how costs add up** (e.g., scan + mid-insert = Θ(n)) and which **loop shapes** suit memory is crucial for clear, correct, and cache-friendly code.
+Real programs rarely perform a single primitive; they **compose** these operations. Understanding **how costs add up** (e.g., scan + mid-insert = Θ(n)) and which **loop shapes** suit memory is crucial for clear, correct, and [[cs/systems/memory-hierarchy-and-caching|cache-friendly]] code.
 
 > [!tip] Pick the right structure
 > If your workload is *insert/delete-heavy in the middle*, prefer a **deque**, **gap buffer**, or **linked structure**; keep arrays when **indexed access and dense iteration** dominate.
@@ -261,7 +261,7 @@ Prefer **append + reverse** or pick a more suitable structure (e.g., deque).
 
 ### Bulk operations
 
-Use **bulk copy** where available (e.g., `memmove` or `std::copy_backward`) to shift segments efficiently and clearly.
+Use **[[cs/languages/Cpp/stl-algorithms|bulk copy]]** where available (e.g., `memmove` or `std::copy_backward`) to shift segments efficiently and clearly.
 
 > [!tip] Copy direction matters
 > 

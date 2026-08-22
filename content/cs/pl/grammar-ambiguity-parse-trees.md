@@ -11,7 +11,7 @@ aliases: []
 ---
 
 ## Why Ambiguity Matters
-An ambiguous grammar allows multiple valid parse trees for the same input string, meaning the language can’t assign a single, deterministic meaning.  
+An ambiguous grammar allows multiple valid [[cs/dsa/trees|parse trees]] for the same input string, meaning the language can’t assign a single, deterministic meaning.  
 In compilers, ambiguity is fatal: the parser cannot decide which structure to build, and downstream stages (like semantic analysis or code generation) may interpret the same program differently.
 
 > [!note]
@@ -78,7 +78,7 @@ The recursion direction determines grouping order:
 | Prefix | `+ a * b c` | Unambiguous |
 | Postfix | `a b c * +` | Unambiguous and easier for machines |
 
-Prefix and postfix forms avoid ambiguity by encoding precedence directly in syntax.
+[[cs/languages/Racket/s-expressions-and-evaluation|Prefix and postfix forms]] avoid ambiguity by encoding precedence directly in syntax.
 
 ---
 

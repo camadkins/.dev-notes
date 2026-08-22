@@ -34,7 +34,7 @@ Let `dist[i][j]` be the best-known distance from `i` to `j`. The DP invariant af
 
 Initialization allows **no** intermediates (just direct edges). Each iteration `k` asks: is it shorter to go `i → k → j` than the current `i → j`? If yes, update.
 
-This yields correctness by induction on `k`. Negative cycles are visible because allowing all vertices as intermediates lets a cycle "shrink" the cost of returning to its own start: `dist[v][v] < 0`.
+This yields correctness [[cs/math/mathematical-induction|by induction]] on `k`. Negative cycles are visible because allowing all vertices as intermediates lets a cycle "shrink" the cost of returning to its own start: `dist[v][v] < 0`.
 
 ## Algorithm Steps / Pseudocode
 
@@ -149,7 +149,7 @@ Let `n = |V|`.
 
 - **Bitset reachability:** When weights are unit (or you need just reachability), Warshall's algorithm with boolean matrices computes the **transitive closure** in `O(n^3)` bit operations; with bit-packing (word-level parallelism), it's fast in practice.
 
-- **Blocking / cache-friendly loops:** Reorder the triple loop to improve cache reuse (`for k { for i { for j { ... }}}` is standard). For large `n`, **block** `i, j` loops (tiling) to keep working submatrices in cache.
+- **Blocking / [[cs/systems/memory-hierarchy-and-caching|cache-friendly loops]]:** Reorder the triple loop to improve cache reuse (`for k { for i { for j { ... }}}` is standard). For large `n`, **block** `i, j` loops (tiling) to keep working submatrices in cache.
 
 - **Early exits:** If an application only needs some rows/columns (e.g., from a small subset of sources), prefer running Dijkstra/Bellman–Ford from those sources instead of full Floyd–Warshall.
 
@@ -158,7 +158,7 @@ Let `n = |V|`.
 
 ## Applications
 
-- **Routing and policy analysis:** All-pairs latency/cost maps in networks, road graphs (when small enough), or inter-module call graphs.
+- **[[cs/systems/bgp-and-internet-routing-as-control|Routing and policy analysis]]:** All-pairs latency/cost maps in networks, road graphs (when small enough), or inter-module call graphs.
 
 - **Prerequisite/ordering graphs:** Detect **inconsistencies** (negative cycles) when modeling constraints as weights.
 

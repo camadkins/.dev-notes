@@ -26,8 +26,8 @@ Two common child representations:
 
 1) **Fixed array** of size `|Σ|` (alphabet):
    - `children[σ]` pointers indexed by character code.
-   - Fast and cache-friendly on small alphabets (e.g., lowercase English, DNA).
-   - Wastes memory when branching is sparse or `|Σ|` is large (Unicode).
+   - Fast and [[cs/systems/memory-hierarchy-and-caching|cache-friendly]] on small alphabets (e.g., lowercase English, DNA).
+   - Wastes memory when branching is sparse or `|Σ|` is large ([[cs/languages/common/text-encoding-and-unicode|Unicode]]).
 
 2) **Dictionary/map** (hash map or ordered map):
    - Stores only **present** children.
@@ -204,7 +204,7 @@ Normalize input at insert/search time:
     
 - **Dictionary maps (string keys)**: exact membership and value retrieval with predictable `Θ(k)` latency, independent of `n`.
     
-- **Security/log analysis**: blocklists/allowlists where early prefix mismatch yields immediate rejection.
+- **Security/log analysis**: [[cs/security/ids-and-ips|blocklists/allowlists]] where early prefix mismatch yields immediate rejection.
     
 
 ![Trie node structure: fixed array vs hash-map child representations, with terminal markers on completed words](assets/trie-node-and-branching.svg)

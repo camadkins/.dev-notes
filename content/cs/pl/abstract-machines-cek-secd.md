@@ -117,7 +117,7 @@ CEK often bridges *theory* ([[lambda-calculus-syntax-substitution|λ-calculus]])
 - **Frames/closures** store environments.  
 - The **interpreter loop** corresponds to the machine’s transition function.
 
-Examples: Python’s evaluation loop resembles SECD; OCaml’s bytecode interpreter is CEK-like; JS engines use CEK-like continuations to optimize tail calls.
+Examples: Python’s [[cs/languages/Python/the-bytecode-and-the-eval-loop|evaluation loop]] resembles SECD; OCaml’s bytecode interpreter is CEK-like; JS engines use CEK-like continuations to [[cs/languages/Racket/proper-tail-calls-and-the-loop-question|optimize tail calls]].
 
 ---
 

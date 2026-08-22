@@ -13,7 +13,7 @@ aliases: []
 
 ## Overview
 
-A **hash table** stores **key → value** pairs and supports **expected O(1)** `search`, `insert`, and `delete`. It computes an array index from the key using a **hash function** `h(k)`, then resolves **collisions** (two keys mapping to the same index) using either **separate chaining** (lists per bucket) or **open addressing** (probing within the array). Periodic **resizing** keeps the **load factor** small so constant-time performance holds.
+A **hash table** stores **key → value** pairs and supports **expected O(1)** `search`, `insert`, and `delete`. It computes an array index from the key using a **[[cs/security/cryptographic-hash-functions|hash function]]** `h(k)`, then resolves **collisions** (two keys mapping to the same index) using either **separate chaining** (lists per bucket) or **open addressing** (probing within the array). Periodic **resizing** keeps the **load factor** small so constant-time performance holds.
 
 ## Structure Definition
 
@@ -123,7 +123,7 @@ Assume a good hash function and simple uniform hashing.
 
 - **Expected time:** `search`, `insert`, `delete` are **O(1)** expected for both chaining and open addressing when the load factor `α` is bounded (e.g., `α ≤ 1` for open addressing; `α` modest for chaining).
 
-- **Worst case:** **O(n)** if all keys land in one bucket or if probing scans the entire table (adversarial inputs or poor `h`).
+- **Worst case:** **O(n)** if all keys land in one bucket or if probing scans the entire table ([[cs/security/denial-of-service-and-ddos|adversarial inputs]] or poor `h`).
 
 - **Space:** `Θ(m + n)` for chaining (extra node overhead), `Θ(m)` for open addressing (no pointers but must keep `α < 1`).
 
@@ -154,7 +154,7 @@ Assume a good hash function and simple uniform hashing.
 
 ## Applications
 
-- **Dictionaries/maps/sets** in language runtimes (Python dicts, Java HashMap, C++ unordered_map).
+- **Dictionaries/maps/sets** in language runtimes (Python dicts, [[cs/languages/Java/the-equals-and-hashcode-contract|Java HashMap]], C++ unordered_map).
 
 - **Memoization** tables in algorithms (e.g., [[dynamic-programming|Dynamic Programming]] caches).
 

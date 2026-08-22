@@ -277,7 +277,7 @@ Always test with small sample strings and expand derivations manually when unsur
 - **C, Java, and Pascal** grammars were historically written in BNF.  
 - **Modern languages (Go, Swift, Rust)** use EBNF or PEG-like syntax for readability.  
 - **ECMAScript (JavaScript)** uses its own formal EBNF variant in the official specification.  
-- **SQL, XML, and JSON** are defined via context-free grammars but often documented using EBNF for clarity.
+- **[[cs/history/relational-model-and-sql|SQL]], XML, and [[cs/languages/common/serialization-and-wire-formats|JSON]]** are defined via context-free grammars but often documented using EBNF for clarity.
 
 BNF remains the universal “lingua franca” of language definition, but EBNF dominates modern documentation.
 

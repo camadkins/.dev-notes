@@ -12,9 +12,9 @@ aliases: []
 ---
 
 ## Overview
-A **dynamic array** is a contiguous sequence container that supports **random access in O(1)** and **amortized O(1) append (push-back)** by allocating extra capacity ahead of use and **growing geometrically** when full. Unlike fixed-size [[arrays|Arrays]], dynamic arrays automatically **reallocate** and **copy** elements to a larger buffer when the logical size reaches capacity. This design underpins `std::vector` (C++), `ArrayList` (Java), Python lists, and many runtime arrays in managed languages.
+A **dynamic array** is a contiguous sequence container that supports **random access in O(1)** and **amortized O(1) append (push-back)** by allocating extra capacity ahead of use and **[[cs/languages/Rust/slices-vec-and-capacity|growing geometrically]]** when full. Unlike fixed-size [[arrays|Arrays]], dynamic arrays automatically **reallocate** and **copy** elements to a larger buffer when the logical size reaches capacity. This design underpins `std::vector` (C++), `ArrayList` (Java), Python lists, and many runtime arrays in managed languages.
 
-Dynamic arrays provide excellent **cache locality** for iteration and numeric kernels but have non-trivial **resize costs**, **iterator invalidation** on growth, and potentially large **peak memory** due to over-allocation.
+Dynamic arrays provide excellent **[[cs/systems/memory-hierarchy-and-caching|cache locality]]** for iteration and numeric kernels but have non-trivial **resize costs**, **[[cs/languages/Cpp/iterators-and-ranges|iterator invalidation]]** on growth, and potentially large **peak memory** due to over-allocation.
 
 ## Structure Definition
 A dynamic array maintains:

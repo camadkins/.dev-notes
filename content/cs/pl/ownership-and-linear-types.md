@@ -76,7 +76,7 @@ Affine typing is what makes the **typestate pattern** work: functions consume an
 
 ## Rust: ownership as the concrete case
 
-Rust is the mainstream language that made this discipline load-bearing. All programs must manage memory; some languages use garbage collection, others require explicit allocate and free. Rust takes a third approach, managing memory through a system of ownership with rules the compiler checks, where violating any rule means the program does not compile, and none of the ownership features slow the program down at runtime.
+Rust is the mainstream language that made this discipline load-bearing. All programs must manage memory; some languages use garbage collection, others require explicit allocate and free. Rust takes a third approach, managing memory through [[cs/languages/Rust/ownership-and-moves|a system of ownership]] with rules the compiler checks, where violating any rule means the program does not compile, and none of the ownership features slow the program down at runtime.
 
 The rules are short:
 
@@ -84,9 +84,9 @@ The rules are short:
 - There can only be one owner at a time.
 - When the owner goes out of scope, the value will be dropped.
 
-The problem being solved is the pairing problem. Without a GC it is the programmer's job to identify when memory is no longer used and free it, and doing that correctly has historically been difficult: forget and you waste memory, do it too early and you have an invalid variable, do it twice and that is a bug too. Exactly one allocate must be paired with exactly one free. Rust returns memory automatically when the owning variable goes out of scope, calling a function named `drop` at the closing curly bracket. The pattern is the one C++ calls Resource Acquisition Is Initialization.
+The problem being solved is the pairing problem. Without a GC it is the programmer's job to identify when memory is no longer used and free it, and doing that correctly has historically been difficult: forget and you waste memory, do it too early and you have an invalid variable, do it twice and that is a bug too. Exactly one allocate must be paired with exactly one free. Rust returns memory automatically when the owning variable goes out of scope, calling a function named `drop` at the closing curly bracket. The pattern is the one C++ calls [[cs/languages/Cpp/raii-and-object-lifetime|Resource Acquisition Is Initialization]].
 
-Affinity shows up in assignment. Copying a `String`'s pointer, length, and capacity without copying the heap data would leave two owners, and when both go out of scope both would free the same memory, a **double free** error that can lead to memory corruption and security vulnerabilities. Rust's answer is to invalidate the first variable, so instead of a shallow copy the operation is called a **move**. With only the new binding valid, exactly one `drop` runs.
+Affinity shows up in assignment. Copying a `String`'s pointer, length, and capacity without copying the heap data would leave two owners, and when both go out of scope both would free the same memory, a **[[cs/security/use-after-free-and-heap-exploitation|double free]]** error that can lead to memory corruption and security vulnerabilities. Rust's answer is to invalidate the first variable, so instead of a shallow copy the operation is called a **move**. With only the new binding valid, exactly one `drop` runs.
 
 ## Borrowing: the escape hatch that keeps the guarantee
 

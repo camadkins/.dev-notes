@@ -39,7 +39,7 @@ Here, numeric literals (`n`), addition, and multiplication are valid.
 However, this grammar is ambiguous; it doesn’t encode precedence or associativity.
 
 ### Abstract Syntax
-Parsers convert **concrete syntax** into **abstract syntax trees (ASTs)** that remove surface details (like parentheses or commas).
+Parsers convert **concrete syntax** into **[[cs/languages/TypeScript/the-compiler-api-and-emit|abstract syntax trees (ASTs)]]** that remove surface details (like parentheses or commas).
 
 Example:
 ```
@@ -92,7 +92,7 @@ Defines **how programs execute**: the actual meaning during evaluation.
 Approaches:
 - **Operational semantics:** defines computation as state transitions (`⟨e, σ⟩ → ⟨e', σ'⟩`).
 - **Denotational semantics:** maps programs to mathematical functions or domains.
-- **Axiomatic semantics:** defines properties of programs using logical assertions.
+- **Axiomatic semantics:** defines properties of programs using [[cs/math/predicate-logic-and-quantifiers|logical assertions]].
 
 > [!tip]
 > Static semantics = “can it run?”  

@@ -135,7 +135,7 @@ Each iteration clears the **lowest 1-bit** - making it run in O(k), where k = nu
 
 ## Bit Packing & Fields
 
-Packing multiple small values into one integer saves space and improves cache performance.
+Packing multiple small values into one integer saves space and improves [[cs/systems/memory-hierarchy-and-caching|cache performance]].
 
 ```c
 int packed = (r << 16) | (g << 8) | b;  // Combine RGB components
@@ -149,11 +149,11 @@ int g = (packed >> 8) & 0xFF;
 int b = packed & 0xFF;
 ```
 
-Used heavily in **graphics**, **network protocols**, and **compression**.
+Used heavily in **graphics**, **[[cs/systems/network-protocols|network protocols]]**, and **compression**.
 
 ## Shifts - Signed vs Logical
 
-- **Left shift (`<<`)** → multiplies by powers of two (if no overflow).
+- **Left shift (`<<`)** → multiplies by powers of two (if no [[cs/security/integer-overflow-vulnerabilities|overflow]]).
 - **Right shift (`>>`)** → divides by powers of two (depends on sign).
 
 |Type|Behavior|Example|
@@ -194,7 +194,7 @@ for (int sub = mask; sub; sub = (sub - 1) & mask) {
 - **Graph problems** - represent adjacency and visited sets
 - **Set operations** - union/intersection via OR/AND
 - **Flag management** - configuration bits, permissions
-- **Cryptographic primitives** - fast XOR-based transformations
+- **[[cs/security/aes-and-block-ciphers|Cryptographic primitives]]** - fast XOR-based transformations
 - **Compression and encoding** - compact data representations
 - **Graphics and color channels** - RGB packing, alpha blending
 - **Error detection** - checksums, parity bits

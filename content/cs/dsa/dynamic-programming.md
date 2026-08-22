@@ -167,7 +167,7 @@ return DP[target]
 
 - For performance-critical inner loops, ensure data is **contiguous**; avoid hash lookups if dense arrays are feasible.
 
-- For very large tables, prefer **iterative** forms to avoid recursion depth, and be mindful of cache line reuse (traverse in memory order).
+- For very large tables, prefer **iterative** forms to avoid recursion depth, and be mindful of [[cs/systems/memory-hierarchy-and-caching|cache line reuse]] (traverse in memory order).
 
 
 > [!tip]
@@ -197,7 +197,7 @@ DP unifies a wide range of techniques:
 
 - **Compilers** use DP for **optimal code generation** in DAGs and register allocation heuristics.
 
-- **Operations research** applies DP in **inventory control** and **Markov decision processes** (DP on value functions with Bellman equations).
+- **Operations research** applies DP in **inventory control** and **[[cs/deep-learning/reinforcement-learning|Markov decision processes]]** (DP on value functions with Bellman equations).
 
 
 Connections to other paradigms:

@@ -105,7 +105,7 @@ function SOLVE(A, l, r):               // solves on half-open interval [l, r)
 
 - **Depth:** With equal-sized splits, depth is `O(log_b n)`, useful for reasoning about parallel span.
 
-- **Cache behavior:** Smaller subproblems reuse cache lines, often outperforming naive `O(n²)` scans even when both are asymptotically inferior/superior on paper.
+- **Cache behavior:** Smaller subproblems reuse [[cs/systems/memory-hierarchy-and-caching|cache lines]], often outperforming naive `O(n²)` scans even when both are asymptotically inferior/superior on paper.
 
 - **Tailoring base cases:** Replacing recursion at small sizes with a fast **base algorithm** (e.g., [[insertion-sort|Insertion Sort]] inside merge sort) improves constants without changing big-O.
 
@@ -190,7 +190,7 @@ D&C underlies:
 
 - **Geometry:** kd-trees, closest pair, range searching.
 
-- **Linear algebra:** Strassen/Winograd, block matrix ops.
+- **[[cs/math/matrices-and-linear-transformations|Linear algebra]]:** Strassen/Winograd, block matrix ops.
 
 - **Signal processing:** FFT as a radix-2 (or mixed-radix) divide and conquer over DFTs.
 

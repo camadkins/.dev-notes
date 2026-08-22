@@ -185,7 +185,7 @@ Start with an empty max-heap. Insert the sequence `8, 3, 10, 1, 6, 14, 4, 7, 13`
 
 - **Handles for decrease-key.** If external code needs `decreaseKey` by handle, store an index back-pointer inside the payload or keep a parallel map `handle -> index`, updating it after swaps.
 
-- **Bounds & off-by-one.** Always guard child indices (`L < n`, `R < n`). The last internal node is `floor(n/2)-1`, not `floor(n/2)`.
+- **[[cs/security/buffer-overflows|Bounds & off-by-one]].** Always guard child indices (`L < n`, `R < n`). The last internal node is `floor(n/2)-1`, not `floor(n/2)`.
 
 - **Bulk construction.** Prefer [[heapify|Heapify]] to build from an existing array in O(n) rather than `n` inserts (O(n log n)).
 
@@ -209,7 +209,7 @@ Start with an empty max-heap. Insert the sequence `8, 3, 10, 1, 6, 14, 4, 7, 13`
 
 ## Applications
 
-- **Priority queues:** task dispatchers, schedulers, event loops.
+- **Priority queues:** task dispatchers, [[cs/systems/process-scheduling-algorithms|schedulers]], event loops.
 
 - **Graph algorithms:** pick the next smallest tentative distance in [[dijkstras-algorithm|Dijkstra's Algorithm]].
 

@@ -164,7 +164,7 @@ class Point { int x, y; }
 class Pixel extends Point { String color; }
 ```
 
-Nominal typing enforces hierarchy; structural typing favors flexibility.
+Nominal typing enforces hierarchy; [[cs/languages/common/structural-versus-nominal-typing|structural typing]] favors flexibility.
 
 ---
 
@@ -202,7 +202,7 @@ Under the **Curry–Howard correspondence**:
 |Type `T`|Proposition|
 |`Γ ⊢ e : T`|“`e` is a proof of `T`”|
 
-Thus, type checking is _proof verification_, and type inference is _proof search_.
+Thus, type checking is _proof verification_, and type inference is _[[cs/math/proof-techniques|proof search]]_.
 
 > [!tip]  
 > Every type rule corresponds to an inference rule in logic.  

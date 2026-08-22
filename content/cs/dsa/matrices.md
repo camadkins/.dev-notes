@@ -29,7 +29,7 @@ Matrices appear across DS&A and systems:
 
 - **Geometry/graphics:** transforms (rotation/scale) use small fixed-size matrices.
 
-- **Linear algebra in ML:** heavy reliance on mat–vec and mat–mat kernels; cache-friendly layouts and sparsity are decisive.
+- **[[cs/math/matrices-and-linear-transformations|Linear algebra in ML]]:** heavy reliance on mat–vec and mat–mat kernels; cache-friendly layouts and sparsity are decisive.
 
 
 Understanding shapes and traversals prevents **shape mismatch**, **cache-thrashing loops**, and **silent bugs** in transposes or in-place updates.
@@ -173,7 +173,7 @@ function MATMUL(C, A, B):              // A m×k, B k×n, C m×n
                 C[i][j] += a * B[t][j]
 ```
 
-- The loop order `i–t–j` (a.k.a. **ijk** with hoisted `a`) improves reuse of `A[i][t]` and gives row-major friendly access to `B[t][j]` if `B` is laid out row-major; otherwise block both `A` and `B` by tiles to keep cache lines hot.
+- The loop order `i–t–j` (a.k.a. **ijk** with hoisted `a`) improves reuse of `A[i][t]` and gives row-major friendly access to `B[t][j]` if `B` is laid out row-major; otherwise block both `A` and `B` by tiles to keep [[cs/systems/memory-hierarchy-and-caching|cache lines hot]].
 
 
 > [!tip]
@@ -250,7 +250,7 @@ function SPMV_CSR(y, A_csr, x):       // y = A*x
 
 - **Graphs:** Adjacency matrices enable **O(1)** edge queries but cost `Θ(n^2)` space; choose representation based on density and operation profile (see [[graph-representations|Graph Representations]]).
 
-- **Numerics & stability:** Accumulation order matters for floating-point; pairwise (tree) summation reduces roundoff error versus naive left-to-right.
+- **Numerics & stability:** Accumulation order matters for [[cs/standards/ieee-754-floating-point|floating-point]]; pairwise (tree) summation reduces roundoff error versus naive left-to-right.
 
 - **Parallelism:** Mat–mat (GEMM) is highly parallelizable via tiling; mat–vec less so but benefits from threading over rows/blocks and careful NUMA placement.
 

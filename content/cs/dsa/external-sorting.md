@@ -34,13 +34,13 @@ This is the standard approach in databases, storage engines, and big data system
 
 In many real systems, the **bottleneck is I/O**, not CPU:
 
-- Reading/writing from **disk or SSD** is orders of magnitude slower than RAM.
+- Reading/writing from **[[cs/history/magnetic-disk-storage|disk or SSD]]** is orders of magnitude slower than RAM.
     
 - Large logs, transaction histories, and fact tables can be **gigabytes to terabytes**.
     
 - Sorting is a core building block for:
     
-    - ORDER BY / GROUP BY in SQL
+    - ORDER BY / GROUP BY in [[cs/history/relational-model-and-sql|SQL]]
         
     - Merge-joins
         
@@ -279,7 +279,7 @@ Suppose:
         
     - Deduplication and grouping operations.
         
-- **File systems and storage engines**
+- **[[cs/systems/file-systems|File systems]] and storage engines**
     
     - Background compaction and SSTable merges (e.g., LSM-tree systems).
         

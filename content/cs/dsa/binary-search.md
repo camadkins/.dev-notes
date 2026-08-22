@@ -105,7 +105,7 @@ function lowerBound(A, target):
 
 - Returns insertion point if `target` not found.
 
-- Used in sorted containers like `std::lower_bound()` (C++ STL).
+- Used in sorted containers like `std::lower_bound()` ([[cs/languages/Cpp/stl-algorithms|C++ STL]]).
 
 
 ### 2. Upper Bound
@@ -157,7 +157,7 @@ Two common pitfalls in binary search implementations:
 
 ### 1. Overflow in Midpoint
 
-Avoid `(lo + hi) // 2` - it can overflow when `lo` and `hi` are large.
+Avoid `(lo + hi) // 2` - it can [[cs/security/integer-overflow-vulnerabilities|overflow]] when `lo` and `hi` are large.
 Instead use:
 
 ```

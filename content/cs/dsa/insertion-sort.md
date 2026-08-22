@@ -124,7 +124,7 @@ Consider `A = [7, 3, 5, 2, 3]`.
 
 - **Galloping/guarded inner loop.** Unroll small runs of `A[j] > key` to reduce branch overhead on predictable patterns.
 
-- **Block shifting / memmove.** After finding `lo` with binary search, shift `A[lo..i-1]` using a single `memmove` when elements are trivially copyable.
+- **Block shifting / memmove.** After finding `lo` with binary search, shift `A[lo..i-1]` using a single `memmove` when elements are [[cs/languages/Cpp/type-traits-and-tag-dispatch|trivially copyable]].
 
 - **Small-subarray cutoff.** In hybrid sorts (e.g., introsort, timsort), switch to insertion sort when subarray size `≤ 16–32`, exploiting cache and low constant factors.
 
@@ -161,9 +161,9 @@ Consider `A = [7, 3, 5, 2, 3]`.
 
 ## Implementation Notes or Trade-offs
 
-- **Comparator discipline.** Comparators must provide a **strict weak ordering**. Inconsistent comparators (or NaNs in floating-point) can cause non-termination or misordered results.
+- **Comparator discipline.** Comparators must provide a **strict weak ordering**. Inconsistent comparators (or [[cs/standards/ieee-754-floating-point|NaNs in floating-point]]) can cause non-termination or misordered results.
 
-- **Data layout.** Arrays are cache-friendly; linked lists avoid shifting but lose locality and incur allocation overhead - arrays win on modern CPUs.
+- **Data layout.** Arrays are [[cs/systems/memory-hierarchy-and-caching|cache-friendly]]; linked lists avoid shifting but lose locality and incur allocation overhead - arrays win on modern CPUs.
 
 - **Sentinel practicality.** The sentinel trick is fastest when moving trivially copyable scalars; for general types, first pass to find min, then swap once is usually worthwhile.
 

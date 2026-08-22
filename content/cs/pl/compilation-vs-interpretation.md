@@ -73,8 +73,8 @@ Most real languages mix both models.
 > Compilation and interpretation are *ends of a spectrum*. Modern runtimes move fluidly between them for the best of both worlds.
 
 ### Examples
-- **Java / Kotlin** – compile to bytecode, interpreted by the JVM, then optimized via JIT.  
-- **Python** – compiles to `.pyc` bytecode files, interpreted by a virtual machine.  
+- **Java / Kotlin** – compile to bytecode, interpreted by the JVM, then optimized via [[cs/languages/CSharp/the-il-and-the-jit|JIT]].  
+- **Python** – compiles to `.pyc` bytecode files, [[cs/languages/Python/the-bytecode-and-the-eval-loop|interpreted by a virtual machine]].  
 - **JavaScript (V8)** – parses and interprets quickly, then compiles “hot” functions at runtime.  
 - **C#** – compiled to IL (Intermediate Language), executed on the .NET CLR.
 

@@ -131,7 +131,7 @@ Initial: `cap=4`, `n=0`, `A=[_,_,_,_]`
 
 ## Complexity and Performance
 
-- **Array-backed**: `PUSH` and `POP` are **amortized** `O(1)` with geometric resizing; worst-case `O(n)` only when resizing. Excellent cache locality.
+- **Array-backed**: `PUSH` and `POP` are **amortized** `O(1)` with geometric resizing; worst-case `O(n)` only when resizing. Excellent [[cs/systems/memory-hierarchy-and-caching|cache locality]].
 
 - **List-backed**: `PUSH` and `POP` are **worst-case `O(1)`** with predictable cost; extra per-node allocation and pointer chasing hurts locality.
 
@@ -174,7 +174,7 @@ Stacks usually **do not** guarantee stable iteration order beyond LIFO semantics
 
 ### Thread Safety
 
-- A single global lock around `PUSH/POP` serializes access.
+- A single [[cs/systems/concurrency-primitives|global lock]] around `PUSH/POP` serializes access.
 
 - For high throughput, use **work-stealing deques** (not a simple stack) or **per-thread** stacks with periodic merging.
 
@@ -228,7 +228,7 @@ Stacks usually **do not** guarantee stable iteration order beyond LIFO semantics
 
 ## Summary
 
-Stacks give **LIFO** access with minimal API: `PUSH`, `POP`, and `PEEK`. Array-backed stacks offer **amortized constant-time** operations and good locality; list-backed stacks give **strict constant-time** operations with higher overhead. Clean implementations hinge on three rules: guard **underflow**, maintain the **top invariant** (`top=n-1`), and manage **resizing** predictably. With those in place, stacks are a robust building block for parsers, traversal algorithms, backtracking, and runtime call modeling.
+Stacks give **LIFO** access with minimal API: `PUSH`, `POP`, and `PEEK`. Array-backed stacks offer **amortized constant-time** operations and good locality; list-backed stacks give **strict constant-time** operations with higher overhead. Clean implementations hinge on three rules: guard **underflow**, maintain the **top invariant** (`top=n-1`), and manage **resizing** predictably. With those in place, stacks are a robust building block for [[cs/pl/grammar-ambiguity-parse-trees|parsers]], traversal algorithms, backtracking, and runtime call modeling.
 
 ## Related Notes
 

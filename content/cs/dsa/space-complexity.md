@@ -83,7 +83,7 @@ An algorithm is **in-place** when `S(n) = O(1)` words beyond the input/output. S
 
 ### Memory hierarchy & locality
 Space affects **cache behavior**:
-- Smaller working sets stay in **L1/L2**, reducing cache misses.
+- Smaller working sets stay in **L1/L2**, reducing [[cs/systems/memory-hierarchy-and-caching|cache misses]].
 - Streaming algorithms with contiguous scans outperform pointer-chasing structures of the same asymptotic space.
 - Blocking/tiling trades modest extra buffers for locality wins.
 
@@ -112,13 +112,13 @@ Space affects **cache behavior**:
 
 ### External memory and streaming
 When `n` exceeds RAM, minimize random access and pass count:
-- **External merge sort**: sort chunks in memory, spill, then multiway-merge; uses buffers sized to RAM and sequential disk I/O.
+- **External merge sort**: sort chunks in memory, spill, then multiway-merge; uses buffers sized to RAM and [[cs/history/magnetic-disk-storage|sequential disk I/O]].
 - **Single-pass streaming**: maintain only `o(n)` state (reservoir sampling, quantile sketches, online statistics).
 - **Chunked DP**: compute tiles and discard intermediates; recompute on demand if necessary.
 
 ### Language/runtime considerations
 - **Garbage-collected** languages free memory **eventually**; peak usage depends on GC cycles and retention. Reuse buffers and null references when safe.
-- **Allocator overhead**: many small objects (linked structures) incur per-object headers and fragmentation; a flat array often reduces peak space and improves locality.
+- **Allocator overhead**: many small objects (linked structures) incur per-object headers and [[cs/systems/memory-allocators-and-fragmentation|fragmentation]]; a flat array often reduces peak space and improves locality.
 - **Immutability/persistence** (functional data structures) increases sharing but may create **versioned** nodes; asymptotic space can remain `Θ(n)` while constants differ.
 
 ## Common Misunderstandings

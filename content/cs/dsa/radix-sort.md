@@ -143,7 +143,7 @@ Comparisons with comparison-based sorts:
 
 - **Power-of-two bases (`b=2^k`)**: digit extraction is fast via masking and shifting; `k=8` (bytes) is a sweet spot on modern CPUs (cache-friendly, `C` fits L1/L2).
 
-- **Larger `k`** reduces the number of passes `d` but inflates `C` and can hurt cache locality; prefer `k` so that `b*sizeof(count)` fits comfortably in cache (e.g., `b=256` or `b=4096`).
+- **Larger `k`** reduces the number of passes `d` but inflates `C` and can hurt [[cs/systems/memory-hierarchy-and-caching|cache locality]]; prefer `k` so that `b*sizeof(count)` fits comfortably in cache (e.g., `b=256` or `b=4096`).
 
 ### Stability and stable subroutine
 
@@ -182,7 +182,7 @@ Comparisons with comparison-based sorts:
 
 - **Systems pipelines**: log/session sorting by fixed-width fields.
 
-- **String processing**: lexicographic order for fixed-length codes, or MSD for variable-length ASCII/UTF-8 (byte-wise with sentinel).
+- **String processing**: lexicographic order for fixed-length codes, or MSD for variable-length [[cs/languages/common/text-encoding-and-unicode|ASCII/UTF-8]] (byte-wise with sentinel).
 
 - **Graphics/GPU**: key-value sorts (e.g., Morton codes) using byte-wise radix with parallel prefix-sum.
 
@@ -215,7 +215,7 @@ Radix complements and often feeds:
 
 - **Buffers**: Reuse one output buffer `B` across passes to avoid repeated allocations. Swap roles `A ↔ B` each pass.
 
-- **Counting array layout**: Keep `C` aligned and in a separate cache line from hot data to avoid false sharing when parallelized.
+- **Counting array layout**: Keep `C` aligned and in a separate cache line from hot data to avoid [[cs/systems/cache-coherence|false sharing]] when parallelized.
 
 - **Digit extraction**: For integers, `DIGIT(x,i,2^k) = (x >> (k·i)) & ((1<<k)−1)`. For bytes, read directly. For endianness concerns, define digits consistently (LSD = least significant byte first).
 

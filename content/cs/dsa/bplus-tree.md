@@ -16,7 +16,7 @@ aliases:
 
 ## Definition
 
-A **B+ Tree** is a **self-balancing multi-level search tree** commonly used in **databases**, **filesystems**, and **storage engines**.  
+A **B+ Tree** is a **self-balancing multi-level search tree** commonly used in **databases**, **[[cs/systems/file-systems|filesystems]]**, and **storage engines**.  
 It extends the **B-tree** by ensuring that **all actual data (records)** reside in the **leaf nodes**, while **internal nodes** store only keys for navigation.
 
 > [!note]  
@@ -116,7 +116,7 @@ Range queries (e.g., `find all keys in [k1, k2]`) are where B+ Trees excel:
 
 ![A range query descending to 6 then scanning the leaf chain to 20](assets/bplus-tree-range-query.svg)
 
-This design supports efficient **ordered scans** - a major reason B+ Trees dominate database indexing.
+This design supports efficient **ordered scans** - a major reason B+ Trees dominate [[cs/history/relational-model-and-sql|database indexing]].
 
 ---
 
@@ -149,7 +149,7 @@ This design supports efficient **ordered scans** - a major reason B+ Trees domin
 
 ### Practical Notes
 
-- Disk blocks (usually 4 KB) dictate node size.
+- [[cs/history/magnetic-disk-storage|Disk blocks]] (usually 4 KB) dictate node size.
     
 - Leaves contain **record pointers**; internal nodes only **key pointers**.
     

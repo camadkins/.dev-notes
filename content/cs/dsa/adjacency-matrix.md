@@ -163,7 +163,7 @@ function neighbors(A, u):
 
 ## Pitfalls
 
-- **Space blow-up** on large **sparse** graphs; Θ(n²) can exceed memory/caches quickly.
+- **Space blow-up** on large **sparse** graphs; Θ(n²) can exceed memory/[[cs/systems/memory-hierarchy-and-caching|caches]] quickly.
     
 - **Symmetry drift** in undirected graphs if only one side is updated.
     
@@ -182,7 +182,7 @@ Choose an adjacency matrix when:
     
 - You need frequent **O(1) membership** checks.
     
-- Algorithms benefit from random access and dense math (e.g., [[floyd-warshall|Floyd–Warshall]] or algebraic methods).
+- Algorithms benefit from random access and dense math (e.g., [[floyd-warshall|Floyd–Warshall]] or [[cs/math/matrices-and-linear-transformations|algebraic methods]]).
     
 - The graph is relatively **static** (few vertex insertions), or you can **pre-allocate** to the maximum size.
     

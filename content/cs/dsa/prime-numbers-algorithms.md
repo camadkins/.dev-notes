@@ -19,7 +19,7 @@ Prime-number work splits into two families:
 
 1. **Generate many primes up to N** - use **sieves** (Eratosthenes, segmented variants) with near-linear time and tightly bounded memory.
 
-2. **Test a single large n** - use **primality tests** (deterministic for small ranges; **probabilistic** like **Miller-Rabin** for cryptographic sizes).
+2. **Test a single large n** - use **primality tests** (deterministic for small ranges; **probabilistic** like **Miller-Rabin** for [[cs/military-computing/rsa-and-computational-hardness|cryptographic sizes]]).
 
 This note presents clear, implementable versions of **trial division**, **wheel tricks**, **Sieve of Eratosthenes** (plain and segmented), and **Miller-Rabin**, with complexity, pitfalls, and practical defaults.
 
@@ -107,7 +107,7 @@ function SIEVE_ERATOSTHENES(N):
 
 - **Wheel sieve:** store residues of a larger wheel (e.g., mod 30) for further savings.
 
-- **Cache-friendly crossing:** block the inner loop to work on cache-sized chunks.
+- **[[cs/systems/memory-hierarchy-and-caching|Cache-friendly crossing]]:** block the inner loop to work on cache-sized chunks.
 
 ### Segmented Sieve (large N with limited RAM)
 
@@ -233,7 +233,7 @@ For `n−1 = d·2^s`, example `n=561` (Carmichael):
 
 - **Number-theory algorithms**: dynamic programming over primes, totients, Mobius, etc., using sieved lists.
 
-- **Combinatorics and hashing**: choose moduli that are prime to enable multiplicative inverses and fields in hash functions or NTTs.
+- **Combinatorics and hashing**: choose moduli that are prime to enable [[cs/math/number-theory-and-modular-arithmetic|multiplicative inverses]] and fields in hash functions or NTTs.
 
 - **Primality proofs**: for special forms (Mersenne/Fermat), dedicated tests exist (Lucas-Lehmer, Pepin).
 

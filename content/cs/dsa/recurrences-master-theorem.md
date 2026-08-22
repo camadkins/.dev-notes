@@ -106,11 +106,11 @@ This ensures `f(n)` doesn't oscillate wildly and truly dominates the recursion t
 
 ### Logs and polylog factors
 
-If `f(n)` equals `n^p` times **polylogarithms**, you're in **Case 2**. Extra `log^k n` becomes `log^{k+1} n` in `T(n)`. Non-integer `k` and iterated logs can appear; treat them as slowly varying factors attached to `n^p`.
+If `f(n)` equals `n^p` times **[[cs/math/logarithms-and-exponentials|polylogarithms]]**, you're in **Case 2**. Extra `log^k n` becomes `log^{k+1} n` in `T(n)`. Non-integer `k` and iterated logs can appear; treat them as slowly varying factors attached to `n^p`.
 
 ### Floors, ceilings, and powers of `b`
 
-Analyses often assume `n` is a power of `b` to remove rounding. You can repair this at the end using monotonicity or a constant-factor slack in substitution proofs.
+Analyses often assume `n` is a power of `b` to remove rounding. You can repair this at the end using monotonicity or a constant-factor slack in [[cs/math/mathematical-induction|substitution proofs]].
 
 > [!note]
 > For `T(n)=aT(⌊n/b⌋)+f(n)`, replacing `⌊n/b⌋` by `n/b` affects only constants. The asymptotic case classification remains valid.

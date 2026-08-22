@@ -22,8 +22,8 @@ To reason about this, programming languages extend their semantics with **locati
 
 ## Core Concepts
 ### Values, Locations, and the Store
-- **Values**: immutable entities (integers, booleans, closures).
-- **Locations (ℓ)**: addresses in memory where values reside.
+- **Values**: [[cs/languages/Racket/immutable-data-and-persistent-structures|immutable entities]] (integers, booleans, closures).
+- **Locations (ℓ)**: [[cs/systems/virtual-memory|addresses in memory]] where values reside.
 - **Store (σ)**: mapping of locations to values:  
 ```
 
@@ -46,7 +46,7 @@ Mutable state allows:
 - Sequencing of dependent computations
 
 But it also introduces:
-- **Aliasing:** multiple references to the same location.
+- **[[cs/languages/Rust/borrowing-and-lifetimes|Aliasing]]:** multiple references to the same location.
 - **Order dependence:** evaluation results depend on timing.
 
 ---

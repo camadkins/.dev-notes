@@ -132,9 +132,9 @@ Final **max-heap**: `[12,10,8,5,1,4,3]`. The tree's parent is always ≥ childre
 
 - **Stability:** Binary heaps are **not stable**; relative order among equal keys is not preserved. If stability is required, carry a `(key, tiebreak)` pair.
 
-- **Comparable keys:** Define a **total order** (`<`/`>`) or a comparator. Inconsistent comparators violate heap invariants.
+- **Comparable keys:** Define a **[[cs/math/relations-and-equivalence|total order]]** (`<`/`>`) or a comparator. Inconsistent comparators violate heap invariants.
 
-- **Cache behavior:** Arrays give good locality; the pull-up variant reduces swaps (writes) which can be beneficial for large data.
+- **[[cs/systems/memory-hierarchy-and-caching|Cache behavior]]:** Arrays give good locality; the pull-up variant reduces swaps (writes) which can be beneficial for large data.
 
 - **Partial heapify:** For **top-k** with small `k`, heapify a `k`-element heap and scan the rest with conditional inserts; overall `O(n log k)`.
 

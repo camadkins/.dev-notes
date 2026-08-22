@@ -12,10 +12,10 @@ aliases: []
 
 ## Overview
 The **Hindley–Milner type system (HM)** is the foundation of type inference in functional languages such as ML, OCaml, and Haskell (in their pure fragments).  
-Its power lies in automatically assigning the *most general* (or **principal**) types to expressions *without explicit annotations*.
+Its power lies in automatically assigning the *most general* (or **principal**) types to expressions *[[cs/languages/Go/type-inference-in-go|without explicit annotations]]*.
 
 HM achieves this by combining:
-1. **Polymorphism** (via universal quantification).  
+1. **Polymorphism** (via [[cs/math/predicate-logic-and-quantifiers|universal quantification]]).  
 2. **Constraint-based reasoning** (through unification).  
 3. **Let-generalization** (creating reusable polymorphic definitions).
 

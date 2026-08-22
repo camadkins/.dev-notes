@@ -94,7 +94,7 @@ Let `n = |V|` and `m = |E|`.
 
 - **Edge-order control:** Reordering `Adj[u]` changes DFS trees and edge classes but not correctness; choose orders to expose desirable structures (e.g., lexical order for deterministic trees).
     
-- **Iterative DFS:** Avoids recursion limits; necessary for very deep graphs or constrained environments.
+- **Iterative DFS:** Avoids [[cs/languages/Racket/proper-tail-calls-and-the-loop-question|recursion limits]]; necessary for very deep graphs or constrained environments.
     
 - **Kosaraju/Tarjan scaffolding:** Run DFS to compute **finishing-time order** or **low-link** values for SCCs or articulation points/bridges in linear time.
     
@@ -103,7 +103,7 @@ Let `n = |V|` and `m = |E|`.
 
 ## Applications
 
-- **Cycle detection:** Back edges in directed graphs imply cycles immediately.
+- **[[cs/systems/deadlock|Cycle detection]]:** Back edges in directed graphs imply cycles immediately.
     
 - **Topological order:** Reverse of vertex **finish** order yields a topological order in DAGs.
     

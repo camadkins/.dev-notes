@@ -88,9 +88,9 @@ This simplification allows algorithm analysis independent of constant factors.
 > [!tip] Be explicit about the model
 > The RAM model treats integer ops as O(1). If you analyze large integers, hashing, or I/O, note which costs scale with input magnitude.
 
-- **RAM model; cost measures:** We typically count primitive operations under a **unit-cost** assumption.  
+- **RAM model; cost measures:** We typically count primitive operations under a **[[cs/systems/memory-hierarchy-and-caching|unit-cost]]** assumption.  
 - **Ignoring constants/lower-order terms:** Asymptotics emphasize dominant terms, but constants can dominate at practical `n`.  
-- **Distributional caveats:** Worst-/average-case statements require clear **input assumptions** (random vs adversarial; independence).
+- **Distributional caveats:** Worst-/average-case statements require clear **input assumptions** (random vs adversarial; [[cs/math/discrete-probability|independence]]).
 
 ---
 
