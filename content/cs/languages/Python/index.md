@@ -11,7 +11,7 @@ updated:
 aliases: []
 ---
 
-Python trades raw control for speed of expression. Objects are heap-allocated and managed by reference counting backed by a cycle collector, values carry their types at runtime, and the reference interpreter runs Python bytecode behind a global lock. Its performance-critical parts, and its bridges to the rest of the system, are written in C through a stable C API, which makes Python as much a glue language over compiled code as a language in its own right. The scientific-Python and machine-learning stack, from NumPy to PyTorch, is the canonical example: a thin Python surface over compiled C, C++, and CUDA, which is much of why Python became the lingua franca of [[cs/machine-learning/index|machine learning]].
+Python trades raw control for speed of expression. Objects are [[cs/systems/memory-allocators-and-fragmentation|heap-allocated]] and managed by reference counting backed by a cycle collector, [[cs/pl/type-systems-goals-guarantees|values carry their types at runtime]], and the reference interpreter runs Python bytecode behind a global lock. Its performance-critical parts, and its bridges to the rest of the system, are written in C through a stable C API, which makes Python as much a glue language over compiled code as a language in its own right. The scientific-Python and machine-learning stack, from NumPy to PyTorch, is the canonical example: a thin Python surface over compiled C, C++, and CUDA, which is much of why Python became the lingua franca of [[cs/machine-learning/index|machine learning]].
 
 Python-specific study collects here.
 
