@@ -12,7 +12,7 @@ aliases: []
 
 ## Overview
 A **B-tree** is a **self-balancing multiway search tree** that generalizes binary search trees to support **multiple keys per node**.  
-It minimizes disk I/O by storing large blocks of sorted keys together—ideal for databases and filesystems where nodes map directly to disk pages.
+It minimizes [[cs/history/magnetic-disk-storage|disk I/O]] by storing large blocks of sorted keys together—ideal for databases and [[cs/systems/file-systems|filesystems]] where nodes map directly to disk pages.
 
 > [!note]
 > B-trees are optimized for external memory: instead of minimizing CPU comparisons, they minimize the number of disk reads required to locate data.
@@ -25,7 +25,7 @@ Standard binary search trees degrade to height `O(n)` in the worst case, while A
 A B-tree solves this by:
 - Storing many keys per node (reducing height).
 - Ensuring **logarithmic depth** even for large datasets.
-- Aligning node size with **disk block or cache line size** to maximize locality.
+- Aligning node size with **disk block or [[cs/systems/memory-hierarchy-and-caching|cache line size]]** to maximize locality.
 
 ---
 

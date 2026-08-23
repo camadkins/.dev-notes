@@ -13,7 +13,7 @@ aliases: []
 ---
 
 ## Overview
-A **string** is a sequence of characters stored in memory. Behind this simple idea lie crucial engineering details: **encoding** (ASCII/UTF-8/UTF-16/UTF-32), **storage layout** (null-terminated vs **length-prefixed**), **mutability**, and **iteration semantics** (bytes vs code points vs grapheme clusters). Many correctness and security bugs come from assuming "1 char = 1 byte" or slicing without regard to encoding boundaries. This note builds a practical mental model for strings, with implementation patterns and pitfalls to avoid.
+A **string** is a sequence of characters stored in memory. Behind this simple idea lie crucial engineering details: **encoding** (ASCII/[[cs/languages/common/text-encoding-and-unicode|UTF-8]]/UTF-16/UTF-32), **storage layout** (null-terminated vs **length-prefixed**), **mutability**, and **iteration semantics** (bytes vs code points vs grapheme clusters). Many correctness and security bugs come from assuming "1 char = 1 byte" or slicing without regard to encoding boundaries. This note builds a practical mental model for strings, with implementation patterns and pitfalls to avoid.
 
 > [!note]
 > "Character" is ambiguous. Distinguish among:
@@ -25,7 +25,7 @@ A **string** is a sequence of characters stored in memory. Behind this simple id
 Strings sit at the boundary of systems: **I/O**, storage, parsing, rendering, networking, and security. Choosing the right **encoding** and **layout** affects:
 - **Correctness** (no broken multi-byte sequences, valid slicing)
 - **Performance** (scan costs, cache behavior, memory footprint)
-- **Interoperability** (APIs, wire formats)
+- **Interoperability** (APIs, [[cs/languages/common/serialization-and-wire-formats|wire formats]])
 - **Security** (bounds checks, injection issues, normalization and spoofing)
 
 ## Definition and Formalism
@@ -46,7 +46,7 @@ Two canonical **storage layouts**:
 ## Storage Models
 ### 1) Null-terminated buffers
 - **Pros**: Interop with legacy C APIs; simple representation.
-- **Cons**: `strlen` is O(n); cannot embed NUL (`\0`) in payload; slicing often creates **aliasing** to interior pointers; many functions assume ASCII; easy to overrun.
+- **Cons**: `strlen` is O(n); cannot embed NUL (`\0`) in payload; slicing often creates **aliasing** to interior pointers; many functions assume ASCII; [[cs/security/buffer-overflows|easy to overrun]].
 
 ### 2) Length-prefixed buffers
 - Layout may include **length** and **capacity** (for dynamic growth). Common in higher-level languages; allows embedded NULs; cheap length.

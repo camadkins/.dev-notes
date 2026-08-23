@@ -15,7 +15,7 @@ aliases: []
 
 Before electronic computers existed, mathematicians needed a precise answer to the question *"What does it mean for a function to be computable?"* Alan Turing's 1936 paper answered this by describing an imaginary machine - a tape, a head, and a finite set of rules - that captures everything a mechanical process can do. The surprising result is not what this machine *can* compute, but what it provably *cannot*.
 
-Think of a Turing machine as the simplest possible computer: it reads a symbol, decides what to write and which direction to move, and transitions to a new state. Despite this simplicity, no real computer can solve a problem that a Turing machine cannot. That equivalence is the heart of computability theory.
+Think of a Turing machine as [[cs/pl/abstract-machines-cek-secd|the simplest possible computer]]: it reads a symbol, decides what to write and which direction to move, and transitions to a new state. Despite this simplicity, no real computer can solve a problem that a Turing machine cannot. That equivalence is the heart of computability theory.
 
 ---
 
@@ -36,7 +36,7 @@ Computation proceeds step-by-step: read the current symbol, consult the transiti
 
 ### The Halting Problem
 
-Turing proved that no algorithm can determine, for every possible program-input pair, whether the program will eventually halt or loop forever. The proof is a diagonal argument:
+Turing proved that no algorithm can determine, for every possible program-input pair, whether the program will eventually halt or loop forever. The proof is [[cs/math/proof-techniques|a diagonal argument]]:
 
 1. Assume a decider `H(P, I)` exists that returns "halts" or "loops" for any program `P` on input `I`.
 2. Construct a program `D` that, given program `P`, runs `H(P, P)` and does the opposite - loops if `H` says "halts," halts if `H` says "loops."
@@ -50,11 +50,11 @@ Independently, Alonzo Church developed the [[lambda-calculus-syntax-substitution
 
 > *Any function that can be computed by an effective procedure can be computed by a Turing machine.*
 
-This is a thesis (not a theorem) because "effective procedure" is an informal notion. Every subsequent model of computation - register machines, cellular automata, quantum computers (for decision problems) - has turned out to be equivalent in computational power, reinforcing the thesis.
+This is a thesis (not a theorem) because "effective procedure" is an informal notion. Every subsequent model of computation - register machines, cellular automata, [[cs/security/post-quantum-cryptography|quantum computers]] (for decision problems) - has turned out to be equivalent in computational power, reinforcing the thesis.
 
 ### Decidability and Complexity
 
-Computability theory draws a hard line between **decidable** problems (a Turing machine always halts with the correct answer) and **undecidable** ones (no such machine exists). Within decidable problems, **complexity theory** further classifies by resource usage (time, space), giving rise to classes like P, NP, and PSPACE.
+Computability theory draws a hard line between **decidable** problems (a Turing machine always halts with the correct answer) and **undecidable** ones (no such machine exists). Within decidable problems, **[[cs/dsa/time-complexity-analysis|complexity theory]]** further classifies by resource usage (time, space), giving rise to classes like P, NP, and PSPACE.
 
 > [!note]
 > Turing machines are the standard reference model for both computability and complexity. When we say a problem is "in P," we mean a deterministic Turing machine can solve it in polynomial time.

@@ -11,15 +11,15 @@ aliases: []
 
 ## Navigation
 
-**Sidebar explorer** - the left panel shows the full folder tree. Folders map to knowledge domains (e.g., `cs/dsa/` for data structures and algorithms).
+**Sidebar explorer** - the left panel shows the full folder tree. Folders map to knowledge domains (e.g., `cs/dsa/` [[cs/dsa/index|for data structures and algorithms]]).
 
 **Breadcrumbs** - the path at the top of each page shows where you are in the hierarchy.
 
 **Search** - full-text search is available from the top-left. It searches titles, content, and tags.
 
-**Graph view** - the interactive graph on each page shows how it links to other notes. The global graph (click the expand icon) shows the entire site.
+**Graph view** - [[cs/math/graph-theory|the interactive graph on each page shows how it links to other notes]]. The global graph (click the expand icon) shows the entire site.
 
-**Backlinks** - at the bottom-right of each page, you'll see which other notes link to the current one.
+**Backlinks** - at the bottom-right of each page, [[cs/history/pagerank-and-web-search|you'll see which other notes link to the current one]].
 
 ## Reading tips
 

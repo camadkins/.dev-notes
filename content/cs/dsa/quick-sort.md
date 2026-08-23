@@ -22,7 +22,7 @@ Quick sort is a **divide-and-conquer** sorting algorithm that repeatedly **parti
 
 - **Cache efficiency** - linear scans over contiguous memory.
 
-However, it can degrade to **O(n^2)** when pivots are poor (e.g., already-sorted input with naive pivot choice) or when duplicates are handled naively. Practical implementations deploy **randomization**, **median-of-three**, **3-way partitioning**, and **introspective fallbacks** to avoid pathologies.
+However, it can degrade to **O(n^2)** when pivots are poor (e.g., already-sorted input with naive pivot choice) or when duplicates are handled naively. Practical implementations deploy **randomization**, **median-of-three**, **3-way partitioning**, and **[[cs/languages/Cpp/stl-algorithms|introspective fallbacks]]** to avoid pathologies.
 
 > [!note]
 > Notation: arrays are 0-indexed; subarray `A[l..r]` is inclusive. We write `(l, r)` for indices and use `swap(A[i], A[j])` for element swaps.
@@ -182,7 +182,7 @@ When duplicates are common, a standard 2-way partition **re-sorts equal regions*
 
 ### Small-subarray cutoff
 
-Switch to **Insertion Sort** when the subarray length ≤ a small **k** (often 8-32). Improves branch prediction and cache locality.
+Switch to **Insertion Sort** when the subarray length ≤ a small **k** (often 8-32). Improves branch prediction and [[cs/systems/memory-hierarchy-and-caching|cache locality]].
 
 ### Tail recursion elimination
 

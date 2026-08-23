@@ -20,19 +20,19 @@ Claiming a system is secure is easy. Saying how secure, and backing it up, is th
 
 ## Who and when
 
-The Orange Book was issued in 1983 by the National Computer Security Center, a division of [[cryptography-codebreaking-and-the-nsa|the NSA]], and updated in 1985. It set the basic requirements for assessing how effective a computer system's security controls were.
+The Orange Book was issued in 1983 by the National Computer Security Center, a division of [[cryptography-codebreaking-and-the-nsa|the NSA]], and updated in 1985. It set the basic requirements for assessing how effective a computer system's [[cs/law/the-nist-risk-management-framework|security controls]] were.
 
 ## The ladder
 
-It defined four divisions, from D at the bottom to A at the top, and broke the upper divisions into classes: C1, C2, B1, B2, B3, and A1. Division D meant minimal protection. The C classes added discretionary controls and accountability. The B classes required mandatory access control, built on the [[bell-lapadula-and-mandatory-access-control|Bell-LaPadula model]], along with a clear security policy model. Each step up demanded more rigor in how the system was designed and argued, beyond simply adding features.
+It defined four divisions, from D at the bottom to A at the top, and broke the upper divisions into classes: C1, C2, B1, B2, B3, and A1. Division D meant minimal protection. The C classes added [[cs/security/access-control-models-rbac-abac|discretionary controls]] and accountability. The B classes required mandatory access control, built on the [[bell-lapadula-and-mandatory-access-control|Bell-LaPadula model]], along with a clear security policy model. Each step up demanded more rigor in how the system was designed and argued, beyond simply adding features.
 
 ## The top rung
 
-The highest class, A1, was distinguished by formal design and verification techniques, including a formal top-level specification of the system. At that level a vendor could not merely test the system and report no problems found. The design had to be argued mathematically. This was the government insisting that, for the most sensitive systems, security be demonstrated rather than assumed.
+The highest class, A1, was distinguished by [[cs/standards/ieee-1012-verification-and-validation|formal design and verification techniques]], including a formal top-level specification of the system. At that level a vendor could not merely test the system and report no problems found. The design had to be argued mathematically. This was the government insisting that, for the most sensitive systems, security be demonstrated rather than assumed.
 
 ## Legacy
 
-The Orange Book is the ancestor of the evaluation schemes that followed it, including the international Common Criteria still used today. The specific classes are history now, but the idea it introduced, that security can be graded, evaluated, and certified against a published standard, became permanent.
+The Orange Book is the ancestor of the evaluation schemes that followed it, including the international Common Criteria still used today. The specific classes are history now, but the idea it introduced, that security can be graded, evaluated, and certified against [[cs/standards/what-a-standard-actually-is|a published standard]], became permanent.
 
 ## Related Notes
 

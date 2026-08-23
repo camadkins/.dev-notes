@@ -132,7 +132,7 @@ Let `n` be the number of operations and `N` the final number of elements.
 
 - **Space usage:** `Θ(cap)` with `N ≤ cap < 2N` under doubling (no shrinking). With optional halving, `N ≤ cap ≤ 4N` at steady state; tighter if you shrink more aggressively.
 
-- **Locality:** contiguous memory yields **cache-friendly** access and predictable prefetching; often faster than a linked stack even with the same asymptotic bounds.
+- **Locality:** contiguous memory yields **[[cs/systems/memory-hierarchy-and-caching|cache-friendly]]** access and predictable prefetching; often faster than a linked stack even with the same asymptotic bounds.
 
 
 ### Amortized analysis (brief)
@@ -179,9 +179,9 @@ Define clear behavior for:
 
 ### Memory & concurrency
 
-- **Allocator:** frequent resizes allocate large blocks; using growth-friendly allocators reduces fragmentation.
+- **Allocator:** frequent resizes allocate large blocks; using growth-friendly allocators reduces [[cs/systems/memory-allocators-and-fragmentation|fragmentation]].
 
-- **Concurrency:** a plain array stack is **not** thread-safe. For multi-producer/consumer use cases, guard with a mutex or adopt specialized concurrent stacks. Lock-free designs on arrays exist but are nontrivial (ABA issues, hazard pointers).
+- **Concurrency:** a plain array stack is **not** thread-safe. For multi-producer/consumer use cases, guard with a [[cs/systems/concurrency-primitives|mutex]] or adopt specialized concurrent stacks. Lock-free designs on arrays exist but are nontrivial (ABA issues, hazard pointers).
 
 
 ### Diagnostics

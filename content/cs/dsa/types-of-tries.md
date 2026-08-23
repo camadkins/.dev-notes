@@ -23,7 +23,7 @@ This note contrasts the three, clarifying when each is appropriate and what inva
 
 ## Motivation
 - **Standard tries** shine when keys are short, the alphabet is small, and prefix queries dominate (e.g., command dispatch, small dictionaries).
-- **Compressed tries** mitigate memory blow-ups for long keys with common prefixes (e.g., URLs, filesystem-like paths, language tokens).
+- **Compressed tries** mitigate memory blow-ups for long keys with common prefixes (e.g., URLs, [[cs/systems/file-systems|filesystem-like paths]], language tokens).
 - **Suffix tries** enable fast **substring** and **pattern** queries over a single text, useful for pedagogy or tiny inputs, but are usually replaced in practice by **suffix trees**/arrays due to space.
 
 ## Definition and Formalism
@@ -109,7 +109,7 @@ Consider keys `{to, tea, ted, ten, in, inn}` over lowercase ASCII.
 
 ## Broader Implications
 - **Data-engineering fit:** Domain-specific **normalization** (case-folding, tokenization to bytes) shrinks effective `|Σ|`, improving both memory and speed for all trie variants.
-- **Persistence and versioning:** Path-copying tries (standard or compressed) enable **immutable** versions with structural sharing—useful for configuration maps and IDE index snapshots.
+- **Persistence and versioning:** Path-copying tries (standard or compressed) enable **[[cs/languages/Racket/immutable-data-and-persistent-structures|immutable]]** versions with structural sharing—useful for configuration maps and IDE index snapshots.
 - **Ranking and top-k:** Augment nodes with `subtreeWeight` or frequency counters to support ranked autocomplete; costs apply equally to standard and compressed structures.
 
 ## Summary

@@ -12,7 +12,7 @@ aliases: []
 
 ## Overview
 Lambda calculus defines *what* it means to compute, but **evaluation strategy** defines *how* that computation proceeds.  
-Even in a purely functional setting, the choice of which subexpression to reduce first (the **redex selection strategy**) can drastically affect termination, efficiency, and observable outcomes.
+Even in a purely functional setting, the choice of which subexpression to reduce first (the **redex selection strategy**) can drastically affect [[cs/history/turing-and-computability|termination]], efficiency, and observable outcomes.
 
 Languages like **Scheme**, **Haskell**, and **OCaml** differ primarily in their evaluation order and reduction model.  
 Understanding these strategies bridges theoretical lambda calculus and practical implementation.
@@ -144,7 +144,7 @@ When an argument is first used, it is evaluated and then *memoized* for subseque
 - **CBN:** recomputes `3 + 4` twice.
 - **CBNeed:** evaluates once and reuses the result.
 
-Languages like **Haskell** implement call-by-need through **graph reduction**, where expressions are stored as *thunks*: suspended computations updated with their results upon first evaluation.
+Languages like **Haskell** implement call-by-need through **graph reduction**, where expressions are stored as *[[cs/languages/Rust/iterators-and-adapters|thunks]]*: suspended computations updated with their results upon first evaluation.
 
 > [!note]
 > Call-by-need = laziness with caching.  

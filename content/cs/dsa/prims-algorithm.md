@@ -14,7 +14,7 @@ aliases: []
 
 ## Overview
 
-**Prim's algorithm** constructs a **minimum spanning tree (MST)** of a connected, undirected, weighted graph by growing a single tree from an arbitrary **seed vertex**. At each step it adds the **lightest edge** crossing the cut between the current tree and the remaining vertices. A **priority queue (PQ)** maintains, for every vertex not yet in the tree, the cheapest known connection to the tree.
+**Prim's algorithm** constructs a **minimum spanning tree (MST)** of a [[cs/math/graph-theory|connected, undirected, weighted graph]] by growing a single tree from an arbitrary **seed vertex**. At each step it adds the **lightest edge** crossing the cut between the current tree and the remaining vertices. A **priority queue (PQ)** maintains, for every vertex not yet in the tree, the cheapest known connection to the tree.
 
 Key traits:
 
@@ -169,7 +169,7 @@ Prim's classical form is hard to parallelize due to the single global frontier, 
 
 ## Applications
 
-- **Network design**: laying cable/pipe with minimum total cost.
+- **[[cs/systems/physical-layer-of-the-internet|Network design]]**: laying cable/pipe with minimum total cost.
 
 - **Image/vision**: building region adjacency MSTs for segmentation.
 

@@ -15,7 +15,7 @@ aliases:
   - Federated Identity
 ---
 
-An enterprise runs a payroll app, a benefits portal, an expense tool, and a wiki, each from a different vendor. Nobody wants four passwords, and IT does not want four copies of the employee directory drifting out of sync. The fix is to let one system do the authenticating and let the others believe it. SAML is the standard that makes "believe it" precise enough to be safe.
+An enterprise runs a payroll app, a benefits portal, an expense tool, and a wiki, each from a different vendor. Nobody wants four passwords, and IT does not want four copies of the employee directory [[cs/systems/consistency-models|drifting out of sync]]. The fix is to let one system do the authenticating and let the others believe it. [[cs/standards/what-a-standard-actually-is|SAML is the standard]] that makes "believe it" precise enough to be safe.
 
 > [!note] The idea
 > SAML "defines an XML-based framework for describing and exchanging security information between on-line business partners." That information travels as a signed assertion: a portable statement about a user that "applications working across security domain boundaries can trust." One party proves who the user is and writes the assertion; many other parties read it and grant access. Single sign-on falls out of that arrangement rather than being bolted on.
@@ -30,7 +30,7 @@ That is the whole indirection. The identity provider holds the credentials and a
 
 An assertion is not a blob of trust. SAML "defines three kinds of statements that can be carried within an assertion." Authentication statements "are created by the party that successfully authenticated a user" and record how and when that happened. Attribute statements "contain specific identifying attributes about the subject," for example that a user has a particular department or clearance. Authorization decision statements "define something that the subject is entitled to do." Most SSO traffic rides on authentication and attribute statements; the SP reads the attributes to decide what the user may see.
 
-The assertion is signed XML, so the SP can verify it with the IdP's key rather than calling back. That offline check is the same [[digital-signatures|digital-signature]] property that lets a [[json-web-tokens-jwt|JWT]] or a [[kerberos-authentication|Kerberos]] ticket be trusted without a round trip to the issuer. SAML simply chose XML and enterprise deployment where the web later chose JSON.
+The assertion is [[cs/languages/common/serialization-and-wire-formats|signed XML]], so the SP can verify it with the IdP's key rather than calling back. That offline check is the same [[digital-signatures|digital-signature]] property that lets a [[json-web-tokens-jwt|JWT]] or a [[kerberos-authentication|Kerberos]] ticket be trusted without a round trip to the issuer. SAML simply chose XML and enterprise deployment where the web later chose JSON.
 
 ## Federation is a prior agreement
 

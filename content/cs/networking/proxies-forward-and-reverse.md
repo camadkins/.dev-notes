@@ -22,7 +22,7 @@ A proxy is a middleman for requests: instead of a client connecting straight to 
 
 ## The forward proxy hides the client
 
-A forward proxy is the kind most people mean when they say "proxy." It sits between a user's machine and the wider Internet and retrieves data from a wide range of sources, in most cases anywhere on the Internet, on the client's behalf. Because the destination server sees the connection coming from the proxy rather than the user, the forward proxy can conceal the originating client. An anonymous proxy, for instance, reveals that it is a proxy but does not disclose the client's originating IP address.
+A forward proxy is the kind most people mean when they say "proxy." It sits between a user's machine and the wider Internet and retrieves data from a wide range of sources, in most cases anywhere on the Internet, on the client's behalf. Because the destination server sees the connection coming from the proxy rather than the user, the forward proxy can conceal the originating client. [[cs/systems/onion-routing-and-anonymity-networks|An anonymous proxy]], for instance, reveals that it is a proxy but does not disclose the client's originating IP address.
 
 This is the proxy a corporate network puts in front of its employees, or a user routes through for privacy: the server on the far side learns about the proxy, not about you. Some forward proxies append headers such as `X-Forwarded-For` to pass along the client information that would otherwise be lost, but those headers are deployment-dependent and should not be trusted blindly, since they can be absent, modified, or stacked by multiple proxies along the way.
 
@@ -30,7 +30,7 @@ This is the proxy a corporate network puts in front of its employees, or a user 
 
 A reverse proxy points the other way. It appears to clients to be an ordinary web server, but it merely forwards each request to one or more real servers behind it and returns their responses as if they came from the proxy itself, leaving the client with no knowledge of the origin server. It is installed in the vicinity of the web servers it fronts and serves a restricted set of sites, whereas a forward proxy serves clients reaching out to the whole Internet.
 
-The payoff is that the real web servers can hide behind a firewall on an internal network, and only the reverse proxy is directly exposed to the Internet. That single exposed choke point is also what makes it hard to locate origin servers, and application-firewall features on the proxy can absorb attacks like [[load-balancing-l4-and-l7|DDoS floods]] before they reach the backends.
+The payoff is that the real web servers can hide behind [[cs/security/firewalls|a firewall]] on an internal network, and only the reverse proxy is directly exposed to the Internet. That single exposed choke point is also what makes it hard to locate origin servers, and application-firewall features on the proxy can absorb attacks like [[load-balancing-l4-and-l7|DDoS floods]] before they reach the backends.
 
 ## The roles that pile onto a reverse proxy
 

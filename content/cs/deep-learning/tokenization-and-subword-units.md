@@ -15,7 +15,7 @@ aliases:
   - subword units
 ---
 
-A neural network consumes numbers. Text is a string. Something has to sit between them, chopping the string into units and mapping each unit to an index in a fixed vocabulary, and the design of that chopping step quietly constrains everything the model can do. The tokenizer decides what the model is even able to see.
+A neural network consumes numbers. Text is [[cs/dsa/strings|a string]]. Something has to sit between them, chopping the string into units and mapping each unit to an index in a fixed vocabulary, and the design of that chopping step quietly constrains everything the model can do. The tokenizer decides what the model is even able to see.
 
 > [!note] The idea
 > Tokenization is a compression problem wearing a machine-learning costume. Split on words and the vocabulary explodes while anything unseen becomes an opaque unknown token; split on characters and nothing is ever unknown but the sequences get long and each unit carries almost no meaning. Subword tokenizers resolve the tension by making unit size frequency-dependent: common words stay whole, rare words fall apart into pieces the model has seen before. The vocabulary size stops being a property of the language and becomes a knob you turn.
@@ -34,7 +34,7 @@ Sennrich, Haddow, and Birch made the argument in the machine-translation setting
 
 ## BPE: a 1994 compression algorithm, repurposed
 
-Byte-pair encoding was first described in 1994 by Philip Gage as a way to encode strings of text into smaller strings using a translation table. The original algorithm replaces the highest-frequency pair of bytes with a byte not present in the data and records the substitution, repeating until nothing repeats.
+Byte-pair encoding was first described in 1994 by Philip Gage as a way to encode strings of text into smaller strings using a translation table. The original algorithm replaces the [[cs/dsa/huffman-coding|highest-frequency pair]] of bytes with a byte not present in the data and records the substitution, repeating until nothing repeats.
 
 > [!example] The original compression run
 > Encoding `aaabdaaabac`: the pair `aa` occurs most often, so replace it with an unused byte `Z`, giving `ZabdZabac` with `Z=aa`. Then `ab` becomes `Y`: `ZYdZYac`, `Y=ab`, `Z=aa`. Continue recursively and `ZY` becomes `X`, giving `XdXac`. Decompression is the same replacements in reverse order.
@@ -45,7 +45,7 @@ The vocabulary target is where the tradeoff gets dialed in. Hugging Face's docum
 
 ## Killing the unknown token entirely
 
-Even a character-level base vocabulary has a hole in it. Include all Unicode characters and the base vocabulary becomes enormous; include only the characters seen in training and some symbol, somewhere, in some script, is unencodable and gets replaced by `<unk>`.
+Even a character-level base vocabulary has a hole in it. Include all [[cs/languages/common/text-encoding-and-unicode|Unicode characters]] and the base vocabulary becomes enormous; include only the characters seen in training and some symbol, somewhere, in some script, is unencodable and gets replaced by `<unk>`.
 
 Byte-level BPE closes the hole by construction. Convert the text to UTF-8 first and treat it as a stream of bytes, which gives a base vocabulary of 256 byte values and guarantees that any UTF-8 text can be encoded without an unknown token. GPT-2 uses byte-level BPE with a vocabulary size of 50,257: 256 byte tokens, 50,000 merges, and one special end-of-text token. The approach also appears in BERT-family models like RoBERTa, BART, and DeBERTa.
 

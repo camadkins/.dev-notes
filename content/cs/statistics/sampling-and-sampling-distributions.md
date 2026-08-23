@@ -33,7 +33,7 @@ Take a normal population $\mathcal{N}(\mu, \sigma^2)$ and repeatedly compute the
 
 Sampling distributions can be close to normal even when the population is not, which is the content of the [[central-limit-theorem|central limit theorem]]. When $\sigma$ is unknown, $T = (\bar{X} - \mu)\sqrt{n}/S$ follows a [[t-distribution-and-t-tests|Student's $t$ distribution]] with $\nu = n - 1$ degrees of freedom, and $T$ is a pivotal quantity whose distribution does not depend on $\sigma$.
 
-The normal-mean case is about as simple as populations and statistics get. For other combinations the formulas are more complicated and often have no closed form at all. Then you approximate the sampling distribution by Monte Carlo simulation, [[bootstrap-and-resampling|bootstrap]] methods, or asymptotic distribution theory.
+The normal-mean case is about as simple as populations and statistics get. For other combinations the formulas are more complicated and often have no closed form at all. Then you approximate the sampling distribution by [[cs/military-computing/monte-carlo-method-and-the-bomb|Monte Carlo simulation]], [[bootstrap-and-resampling|bootstrap]] methods, or asymptotic distribution theory.
 
 ## Standard error
 
@@ -64,7 +64,7 @@ The contrast is nonprobability sampling, where some elements have no chance of s
 
 In a simple random sample (SRS) of a given size, all subsets of the sampling frame have equal probability of selection, so each element does too, and so does any given pair, triple, and so on. The frame is not subdivided. This minimizes bias and simplifies analysis; in particular the variance among results within the sample is a good indicator of population variance, which makes accuracy easy to estimate.
 
-SRS is vulnerable to sampling error precisely because it uses no information about the population. A simple random sample of ten people from a country produces five men and five women *on average*, but any given draw is likely to overrepresent one sex. It also cannot deliver subsamples, so a question like "is cognitive ability an equally good predictor of job performance across racial groups" is not answerable from an SRS.
+SRS is vulnerable to sampling error precisely because it uses no information about the population. A simple random sample of ten people from a country produces five men and five women *on average*, but any given draw is likely to overrepresent one sex. It also cannot deliver subsamples, so a question like "is cognitive ability an equally good predictor of job performance [[cs/ethics/social-categories-and-machine-learning|across racial groups]]" is not answerable from an SRS.
 
 ### Stratified sampling
 

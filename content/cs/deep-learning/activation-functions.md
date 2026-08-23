@@ -15,7 +15,7 @@ aliases:
   - nonlinearity
 ---
 
-Every unit in a network computes a weighted sum and then does one more thing: it passes that sum through an activation function. This small step is what earns a deep network its name. Without it, stacking layers is pointless, because a pile of linear maps is still just one linear map, and a hundred layers would collapse into the power of a single line. The activation function is the nonlinearity that lets each layer bend the space a little, so that many layers together can bend it into whatever shape the data demands.
+Every unit in a network computes a weighted sum and then does one more thing: it passes that sum through an activation function. This small step is what earns a deep network its name. Without it, stacking layers is pointless, because [[cs/math/matrices-and-linear-transformations|a pile of linear maps is still just one linear map]], and a hundred layers would collapse into the power of a single line. The activation function is the nonlinearity that lets each layer bend the space a little, so that many layers together can bend it into whatever shape the data demands.
 
 > [!note] The idea
 > An activation function $f$ is the nonlinear map applied to a unit's weighted sum: the unit outputs $f(\mathbf{w}^\top \mathbf{x} + b)$. Nonlinearity is the whole point. It is what stops a deep network from collapsing into a single linear model and gives the stack its representational power. The practical question is which nonlinearity, and the answer has shifted from the saturating sigmoid and tanh toward the ReLU family, mainly to keep gradients alive in deep networks.
@@ -26,7 +26,7 @@ Compose two linear functions and you get another linear function. Multiply matri
 
 ## Sigmoid
 
-The logistic sigmoid is the historical default:
+[[cs/machine-learning/logistic-regression|The logistic sigmoid]] is the historical default:
 
 $$\sigma(x) = \frac{1}{1 + e^{-x}}$$
 
@@ -56,7 +56,7 @@ The variants patch the dying problem by giving the negative side a nonzero respo
 
 ## Output Units Are a Separate Choice
 
-Hidden-layer activations and output-layer activations answer different questions. Hidden units are about learning features, where ReLU shines. Output units are about matching the shape of the target: a linear output for regression, a single sigmoid for a binary probability, and a softmax for a distribution over $k$ classes, $\text{softmax}(z)_i = e^{z_i} / \sum_j e^{z_j}$, which is a smooth differentiable stand-in for picking the argmax. The output activation is chosen to fit the [[loss-functions|loss]], often so that minimizing the loss corresponds to [[maximum-likelihood-estimation]]. These three output choices are exactly [[regression|linear, logistic, and softmax regression]]; a neural-net classifier's output layer is softmax regression by another name.
+Hidden-layer activations and output-layer activations answer different questions. Hidden units are about learning features, where ReLU shines. Output units are about matching the shape of the target: a linear output for regression, a single sigmoid for a binary probability, and a softmax for a distribution over $k$ classes, $\text{softmax}(z)_i = e^{z_i} / \sum_j e^{z_j}$, which is a smooth differentiable stand-in for picking the argmax. The output activation is chosen to fit the [[cs/machine-learning/loss-functions|loss]], often so that minimizing the loss corresponds to [[maximum-likelihood-estimation]]. These three output choices are exactly [[cs/machine-learning/regression|linear, logistic, and softmax regression]]; a neural-net classifier's output layer is softmax regression by another name.
 
 > [!example]
 > Push the same two inputs through each function to see saturation in action. At a small input $x = 0.5$: $\sigma(0.5) \approx 0.62$, $\tanh(0.5) \approx 0.46$, $\text{ReLU}(0.5) = 0.5$. At a large input $x = 6$: $\sigma(6) \approx 0.9975$, $\tanh(6) \approx 0.99999$, $\text{ReLU}(6) = 6$.

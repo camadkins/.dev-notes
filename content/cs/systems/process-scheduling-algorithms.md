@@ -15,7 +15,7 @@ aliases:
 
 ## Picking the Next Runner
 
-At any instant a machine has more processes ready to run than it has cores. The scheduler is the OS module that answers one repeated question: of everything in the ready queue, which process gets the CPU next, and for how long? The answer is invisible when it works and painfully obvious when it fails, a laggy terminal, a batch job that never finishes, a real-time task that misses its deadline.
+At any instant a machine has more processes ready to run than it has cores. The scheduler is the OS module that answers one repeated question: of everything in the ready queue, which process gets the CPU next, and for how long? The answer is invisible when it works and painfully obvious when it fails, a laggy terminal, a batch job that never finishes, [[cs/military-computing/sage-and-real-time-systems|a real-time task that misses its deadline]].
 
 The [[processes-and-threads|processes and threads]] note surveys the OS execution units and touches scheduling in passing. This note goes into the policies themselves and the single tension they all negotiate.
 
@@ -28,9 +28,9 @@ Wikipedia's scheduling overview lists the standard aims: maximizing throughput, 
 
 ## The classic policies
 
-**First come, first served (FCFS).** The ready queue is a plain FIFO: run each process to completion in arrival order. It is "the simplest scheduling algorithm," and its weakness is the convoy effect, a single long job at the head makes every short job behind it wait. Great for fairness of arrival, terrible for average wait time.
+**First come, first served (FCFS).** The ready queue is a [[cs/dsa/queue|plain FIFO]]: run each process to completion in arrival order. It is "the simplest scheduling algorithm," and its weakness is the convoy effect, a single long job at the head makes every short job behind it wait. Great for fairness of arrival, terrible for average wait time.
 
-**Shortest job first (SJF).** Run the waiting process with the smallest execution time. It "minimizes the average amount of time each process has to wait until its execution is complete," which is provably optimal for average wait among non-preemptive policies. Two costs come with that optimality: it "has the potential for process starvation" for long jobs when short ones keep arriving, and "the total execution time of a job must be known before execution," which in general you cannot know. Real systems estimate the next burst from past behavior.
+**Shortest job first (SJF).** Run the waiting process with the smallest execution time. It "minimizes the average amount of time each process has to wait until its execution is complete," which is [[cs/dsa/greedy-algorithms|provably optimal]] for average wait among non-preemptive policies. Two costs come with that optimality: it "has the potential for process starvation" for long jobs when short ones keep arriving, and "the total execution time of a job must be known before execution," which in general you cannot know. Real systems estimate the next burst from past behavior.
 
 **Round robin (RR).** Assign "a fixed time unit per process" (the quantum) and cycle. A process that does not finish inside its quantum is preempted and sent to the back. Round robin is the fairness workhorse: no job starves, response time is bounded. The cost is overhead, a short quantum means frequent [[context-switching|context switches]], and each switch is wasted CPU time.
 

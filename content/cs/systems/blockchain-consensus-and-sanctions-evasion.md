@@ -35,13 +35,13 @@ The ledger lives on a peer-to-peer network where nodes collectively follow the c
 
 Put those properties together and you have value that moves between people without passing through any institution a government can lean on. For someone living under capital controls, who is legally barred from moving savings out of a collapsing currency, a ledger that no central bank operates is an exit. For a sanctioned entity cut off from the banking system, the same ledger is a payment rail that does not ask permission. The technology does not distinguish the dissident moving money past a censoring regime from the sanctioned actor moving money past an embargo. The neutrality is structural, the same neutrality that makes [[onion-routing-and-anonymity-networks|onion routing]] shield both a journalist and a criminal.
 
-This is why blockchains sit squarely inside debates over [[cyber-sovereignty|cyber sovereignty]]. A state's monetary power rests partly on its control of the rails that money runs on. A settlement system that runs on volunteer machines spread across many jurisdictions weakens that control by design. States respond not by breaking the math, which they cannot, but by pressuring the on-ramps and off-ramps, the exchanges where digital tokens become spendable national currency.
+This is why blockchains sit squarely inside debates over [[cs/geopolitics/cyber-sovereignty|cyber sovereignty]]. A state's monetary power rests partly on its control of the rails that money runs on. A settlement system that runs on volunteer machines spread across many jurisdictions weakens that control by design. States respond not by breaking the math, which they cannot, but by pressuring the on-ramps and off-ramps, the exchanges where digital tokens become spendable national currency.
 
 ## Pseudonymity is not anonymity
 
 The escape from control comes with a feature that cuts the other way. Because the ledger is public and permanent, every transaction is visible to everyone, forever. Addresses are not names, so the system is pseudonymous, but pseudonymity is fragile. Blockchain analysis studies the full, open record of payments, clustering addresses that move together and following the flow of funds across the chain. The moment a pseudonymous address touches an identified one, an exchange that collected a real name, a public donation address, a leaked wallet, the link can propagate outward through the graph and de-anonymize a swath of activity at once.
 
-So a blockchain offers a strange bargain. It gives you money no authority can freeze, and in exchange it writes every payment you ever make into a permanent public record that a determined analyst can read backward. A traditional bank knows everything about your transactions but shows the world nothing; a public chain shows the world everything but starts out knowing nothing about you. Which of those is more private depends entirely on who is doing the looking, the central tension running through [[surveillance-and-privacy|surveillance and privacy]] in this domain.
+So a blockchain offers a strange bargain. It gives you money no authority can freeze, and in exchange it writes every payment you ever make into a permanent public record that a determined analyst can read backward. A traditional bank knows everything about your transactions but shows the world nothing; a public chain shows the world everything but starts out knowing nothing about you. Which of those is more private depends entirely on who is doing the looking, the central tension running through [[cs/geopolitics/surveillance-and-privacy|surveillance and privacy]] in this domain.
 
 > [!example] Why a buried transaction is hard to reverse
 > 1. You pay someone, and your transaction is bundled into a new block.
@@ -53,9 +53,9 @@ So a blockchain offers a strange bargain. It gives you money no authority can fr
 ## Related Notes
 
 - [[distributed-consensus|Distributed Consensus]], the agreement problem blockchains solve in an open, untrusted network rather than a controlled datacenter
-- [[cyber-sovereignty|Cyber Sovereignty]], the contest between state control of money's rails and a settlement layer no state operates
+- [[cs/geopolitics/cyber-sovereignty|Cyber Sovereignty]], the contest between state control of money's rails and a settlement layer no state operates
 - [[onion-routing-and-anonymity-networks|Onion Routing]], the same dual-use neutrality that shields both the dissident and the criminal
-- [[surveillance-and-privacy|Surveillance & Privacy]], pseudonymity versus chain analysis and the public permanent record
+- [[cs/geopolitics/surveillance-and-privacy|Surveillance & Privacy]], pseudonymity versus chain analysis and the public permanent record
 
 ## Sources
 

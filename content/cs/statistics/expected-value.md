@@ -89,9 +89,9 @@ This directly informs maintenance scheduling and spare-parts inventory.
 ## Why It Matters in CS
 
 - **Average-case algorithm analysis.** The expected number of comparisons in randomized Quicksort is $E[C] = 2n \ln n \approx 1.39\, n \log_2 n$, derived using linearity of expectation over indicator random variables. See [[best-worst-average-cases|Best, Worst, and Average Cases]].
-- **Performance modeling.** Expected response time, expected throughput, and expected queue length (via Little's Law: $E[L] = \lambda\, E[W]$) are the bread and butter of systems performance engineering.
-- **Network analysis.** Expected packet delay, expected number of retransmissions, and expected path latency guide protocol design and capacity planning.
-- **Machine learning.** Loss functions are expectations: $E[\ell(h(X), Y)]$. Training minimizes empirical expected loss; generalization theory bounds the true expected loss.
+- **Performance modeling.** [[cs/systems/process-scheduling-algorithms|Expected response time]], expected throughput, and expected queue length (via Little's Law: $E[L] = \lambda\, E[W]$) are the bread and butter of systems performance engineering.
+- **Network analysis.** [[cs/networking/qos-and-traffic-shaping|Expected packet delay]], expected number of retransmissions, and expected path latency guide protocol design and capacity planning.
+- **Machine learning.** [[cs/machine-learning/loss-functions|Loss functions]] are expectations: $E[\ell(h(X), Y)]$. Training minimizes empirical expected loss; generalization theory bounds the true expected loss.
 
 ## Related Notes
 

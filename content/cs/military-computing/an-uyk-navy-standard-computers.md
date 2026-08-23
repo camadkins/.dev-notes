@@ -13,7 +13,7 @@ aliases:
   - AN/UYK-20
 ---
 
-By 1970 the Navy faced, at sea, a smaller version of the sprawl problem that [[ada-and-language-standardization|Ada]] would later fight for the whole Defense Department. Too many different computers were finding their way onto ships, each with its own software, its own spare parts, and its own people to maintain it. The AN/UYK family was the answer: a small set of standard, ruggedized computers meant to run the fleet's systems.
+By 1970 the Navy faced, at sea, a smaller version of the sprawl problem that [[ada-and-language-standardization|Ada]] would later fight for the whole Defense Department. Too many different computers were finding their way onto ships, each with its own software, its own spare parts, and its own people to maintain it. The AN/UYK family was the answer: [[cs/standards/standards-in-procurement-and-defense-acquisition|a small set of standard, ruggedized computers]] meant to run the fleet's systems.
 
 > [!note] The idea
 > Standardize the hardware. Field one rugged computer architecture across the fleet, so software, training, and spare parts can be shared instead of reinvented for every new system.
@@ -24,11 +24,11 @@ The AN/UYK-7, introduced in 1970, was the standard 32-bit computer of the Navy f
 
 ## A smaller sibling
 
-Not every system needed that much machine. The AN/UYK-20 was a 16-bit computer for projects that did not need the full power of the UYK-7. Between the two, one family covered the fleet's range of needs, from a destroyer's full combat system down to a single subsystem.
+Not every system needed that much machine. The AN/UYK-20 was a 16-bit computer for projects that did not need the full power of the UYK-7. Between the two, [[cs/history/ibm-system-360|one family covered the fleet's range of needs]], from a destroyer's full combat system down to a single subsystem.
 
 ## Why standardization mattered
 
-A shipboard computer has a hard life. It must survive shock, vibration, and salt air, and run reliably for years far from any depot, which makes it expensive to design and prove out. Developing a few standard models and reusing them across many systems is how the Navy made shipboard computing both affordable and maintainable. The lesson is the same one Ada drew on land: when the cost of variety is high, a deliberate standard pays for itself.
+A shipboard computer has a hard life. It must survive shock, vibration, and salt air, and run reliably for years far from any depot, which makes it expensive to design and prove out. Developing a few standard models and reusing them across many systems is how the Navy made shipboard computing both affordable and maintainable. The lesson is the same one Ada drew on land: [[cs/standards/what-a-standard-actually-is|when the cost of variety is high, a deliberate standard pays for itself]].
 
 ## Related Notes
 

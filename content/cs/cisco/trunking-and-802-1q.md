@@ -24,7 +24,7 @@ The configuration is three or four lines. The reason people get hurt is that two
 
 ## What the tag actually is
 
-The 802.1Q tag is 4 bytes inserted into the Ethernet frame, and the resulting Ethernet frame can be as large as 1522 bytes. Four fields live in it:
+[[cs/standards/ieee-802-1q-vlan-tagging|The 802.1Q tag is 4 bytes]] inserted into the Ethernet frame, and the resulting Ethernet frame can be as large as 1522 bytes. Four fields live in it:
 
 | Field | Width | What it holds |
 |---|---|---|

@@ -23,7 +23,7 @@ Two people who have never met, shouting across a room where everyone can hear, e
 
 ## The mechanism
 
-Both sides agree publicly on a modulus p and base g. Alice picks a secret a and sends g^a mod p; Bob picks a secret b and sends g^b mod p. Each raises the other's value to their own secret, and both arrive at g^ab mod p. An eavesdropper sees g, p, g^a, and g^b, and to recover the secret must invert the exponent. "Such a function that is easy to compute but hard to invert is called a one-way function," and here "such a problem is called the discrete logarithm problem." For a prime of a few thousand bits, no known classical algorithm cracks it in feasible time.
+Both sides agree publicly on a modulus p and base g. Alice picks a secret a and sends g^a mod p; Bob picks a secret b and sends g^b mod p. Each raises the other's value to their own secret, and both arrive at g^ab mod p. An eavesdropper sees g, p, g^a, and g^b, and to recover the secret must invert the exponent. "Such a function that is easy to compute but hard to invert is called a [[cs/military-computing/rsa-and-computational-hardness|one-way function]]," and here "such a problem is called the [[cs/math/number-theory-and-modular-arithmetic|discrete logarithm]] problem." For a prime of a few thousand bits, no known classical algorithm cracks it in feasible time.
 
 ## What it does not do
 
@@ -31,7 +31,7 @@ Nothing in the exchange tells Alice she is talking to Bob. The math treats both 
 
 ## Ephemeral is the whole point
 
-The forward-secrecy payoff comes from throwing keys away. Forward secrecy "gives assurances that session keys will not be compromised even if long-term secrets used in the session key exchange are compromised." A server's long-term private key can leak years later, and if each session used a fresh, discarded Diffie-Hellman secret, the recorded ciphertext stays dark. Forward secrecy and authenticity come from different halves of the design, which is why modern TLS pairs an ephemeral Diffie-Hellman (for secrecy) with a signature (for identity).
+The forward-secrecy payoff comes from throwing keys away. Forward secrecy "gives assurances that session keys will not be compromised even if long-term secrets used in the session key exchange are compromised." A server's long-term private key can leak years later, and if each session used a fresh, discarded Diffie-Hellman secret, the recorded ciphertext stays dark. Forward secrecy and authenticity come from different halves of the design, which is why [[cs/systems/tls-and-the-https-handshake|modern TLS]] pairs an ephemeral Diffie-Hellman (for secrecy) with a signature (for identity).
 
 > [!warning] Two properties, two mechanisms
 > "Diffie-Hellman gives forward secrecy" is only true for the ephemeral variant. Static Diffie-Hellman reuses the same secret and gives none. And neither variant authenticates the peer. If a system claims forward secrecy, look for the ephemeral exchange; if it claims to know who you are talking to, look for the signature over it.

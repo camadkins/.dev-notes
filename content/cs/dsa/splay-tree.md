@@ -179,7 +179,7 @@ Consider starting with a skewed BST on keys `[1,2,3,4,5,6,7]` (ascending inserts
         
     - `JOIN(L, R)` requires `max(L) < min(R)`: splay `max(L)` to make it root with empty right child, then attach `R` as `root.right`.
         
-- **Memory locality:** Like other pointer-rich trees, splay trees can suffer cache misses. Top-down variants can have better locality due to fewer parent-pointer dereferences.
+- **Memory locality:** Like other pointer-rich trees, splay trees can suffer [[cs/systems/memory-hierarchy-and-caching|cache misses]]. Top-down variants can have better locality due to fewer parent-pointer dereferences.
     
 - **No balance metadata:** Simpler node structure than [[cs/dsa/avl-tree|AVL Tree]] or [[cs/dsa/rb-tree|Red–Black Tree]], at the cost of **per-operation variance**.
     
@@ -190,7 +190,7 @@ Consider starting with a skewed BST on keys `[1,2,3,4,5,6,7]` (ascending inserts
 
 - **Caches and dictionaries** with **skewed access distributions** (Zipf-like), where recency dominates.
     
-- **Move-to-root heuristics** for symbol tables and compiler passes where the working set shifts as you traverse code.
+- **Move-to-root heuristics** for symbol tables and [[cs/pl/compilation-vs-interpretation|compiler passes]] where the working set shifts as you traverse code.
     
 - **Join/Split-based sets and maps**, where splitting around a pivot and joining later is common (e.g., range updates).
     

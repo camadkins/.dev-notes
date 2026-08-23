@@ -15,7 +15,7 @@ aliases: []
 
 ## Overview
 
-An **array-backed queue** implements FIFO with a **circular buffer** (ring) to reuse storage as elements are enqueued/dequeued. Two indices - **head** (front) and **tail** (next insert position) - advance **modulo capacity**, yielding `O(1)` operations and excellent cache locality. The core design choice is how to **distinguish empty from full** when `head == tail`.
+An **array-backed queue** implements FIFO with a **circular buffer** (ring) to reuse storage as elements are enqueued/dequeued. Two indices - **head** (front) and **tail** (next insert position) - advance **modulo capacity**, yielding `O(1)` operations and excellent [[cs/systems/memory-hierarchy-and-caching|cache locality]]. The core design choice is how to **distinguish empty from full** when `head == tail`.
 
 > [!note]
 > Use a **size counter** `n`, a **reserved slot** (capacity effectively `cap−1`), or a **tag bit** to disambiguate empty/full states. Pick one policy and stick to it across the codebase.
@@ -140,7 +140,7 @@ Pick one of:
 
 - **Reserved slot** - `cap−1` usable slots, no `n`; full when `(tail+1) % cap == head`.
 
-- **Tag/epoch bit** - advance a bit on wrap to distinguish `head==tail` states (useful for lock-free rings).
+- **Tag/epoch bit** - advance a bit on wrap to distinguish `head==tail` states (useful for [[cs/systems/concurrency-primitives|lock-free rings]]).
 
 
 ### Fixed vs Resizing
@@ -173,7 +173,7 @@ Iterate **logically** from `i=0..n-1` using `A[(head+i) % cap]`. Exposing raw po
 
 ### Concurrency (brief)
 
-- **SPSC (single-producer/single-consumer)**: can be **lock-free** using atomic head/tail indices and careful memory ordering. Reserve a slot or use a tag bit to avoid ambiguity.
+- **SPSC (single-producer/single-consumer)**: can be **lock-free** using atomic head/tail indices and careful [[cs/languages/Cpp/the-cpp-memory-model-and-atomics|memory ordering]]. Reserve a slot or use a tag bit to avoid ambiguity.
 
 - **MPMC**: requires locks or specialized algorithms; ring buffers exist but are complex - consider concurrent queues designed for MPMC.
 

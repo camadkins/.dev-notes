@@ -14,7 +14,7 @@ aliases: []
 ---
 
 ## Why
-Racket separates **surface syntax** (macros, convenient forms) from a **core language** with well-defined semantics.  
+Racket separates **surface syntax** ([[cs/pl/macros-and-metaprogramming|macros]], convenient forms) from a **core language** with [[cs/pl/operational-semantics-big-step-small-step|well-defined semantics]].  
 Programs are **expanded** (desugared) before evaluation.
 
 ## Core vs Surface

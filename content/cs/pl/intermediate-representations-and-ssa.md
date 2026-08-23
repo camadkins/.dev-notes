@@ -32,7 +32,7 @@ Using an IR is what lets compiler systems like GCC and LLVM serve many different
 
 An intermediate language is the language of an [[cs/pl/abstract-machines-cek-secd|abstract machine]] designed to aid program analysis, and its design typically differs from a real machine language in three ways: each instruction represents exactly one fundamental operation, so composite addressing modes like shift-add are absent; control flow information may not be in the instruction set; and the number of registers available may be large, even limitless. A popular format is three-address code.
 
-Not every intermediate language is purpose-built. C's nature as an abstraction of assembly and its ubiquity as the de facto system language made it a popular target for Eiffel, Sather, Esterel, some Lisp dialects, Nim, Cython, Vala, and others. Java bytecode and the Common Intermediate Language are intermediate languages too, the latter designed to be shared by all .NET compilers before static or dynamic compilation to machine code.
+Not every intermediate language is purpose-built. C's nature as an abstraction of assembly and its ubiquity as the de facto system language made it a popular target for Eiffel, Sather, Esterel, some Lisp dialects, Nim, Cython, Vala, and others. [[cs/languages/Java/the-class-file-and-classloading|Java bytecode]] and the [[cs/languages/CSharp/the-il-and-the-jit|Common Intermediate Language]] are intermediate languages too, the latter designed to be shared by all .NET compilers before static or dynamic compilation to machine code.
 
 ## The single-assignment rule
 
@@ -81,7 +81,7 @@ SSA was developed in the 1980s by several researchers at IBM. A 1986 paper by Cy
 
 LLVM is a Static Single Assignment based representation providing type safety, low-level operations, flexibility, and the capability of representing all high-level languages cleanly, and it is the common code representation used throughout all phases of the LLVM compilation strategy. The same representation exists in three equivalent forms: an in-memory compiler IR, an on-disk bitcode representation suitable for fast loading by a JIT, and a human-readable assembly language.
 
-The design goal is stated plainly in the reference: LLVM aims to be a universal IR by being low-level enough that high-level ideas map cleanly onto it, while remaining typed so it can itself be the target of optimizations. The example given is pointer analysis proving that a C automatic variable is never accessed outside its function, allowing promotion from a memory location to a simple SSA value.
+The design goal is stated plainly in the reference: LLVM aims to be a universal IR by being low-level enough that high-level ideas map cleanly onto it, while remaining typed so it can itself be the target of optimizations. The example given is [[cs/languages/Go/escape-analysis-and-stack-allocation|pointer analysis]] proving that a C automatic variable is never accessed outside its function, allowing promotion from a memory location to a simple SSA value.
 
 An LLVM function definition contains a list of basic blocks forming the control flow graph, each block a list of instructions ending in a terminator such as a branch or return. The Φ node appears as a real instruction:
 

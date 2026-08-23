@@ -46,7 +46,7 @@ or in NIST's notation, $\bar{Y} \pm t_{1-\alpha/2,\,N-1} \cdot s/\sqrt{N}$. Two 
 
 ## What the level does not mean
 
-Published studies show that even professional scientists often misinterpret confidence intervals. A 95% confidence level does *not* mean:
+Published studies show that even [[cs/forensics/the-daubert-standard-and-expert-testimony|professional scientists]] often misinterpret confidence intervals. A 95% confidence level does *not* mean:
 
 - for a given realized interval, that there is a 95% probability the parameter lies inside it;
 - that 95% of the sample data lie within the interval;
@@ -76,7 +76,7 @@ A **credible interval** is the [[bayesian-inference|Bayesian]] object that genui
 
 ## History
 
-Methods for binomial-proportion intervals appeared from the 1920s, in work by Wilson (1927) and Clopper and Pearson (1934). The general ideas developed in the early 1930s, and the first thorough and general account came from Jerzy Neyman in 1937, in "Outline of a Theory of Statistical Estimation Based on the Classical Theory of Probability". Neyman later recounted that the work originated around 1930 from a question by his student Waclaw Pytkowski, who was studying farm economics and wanted to characterize the precision of an estimated regression coefficient non-dogmatically.
+Methods for binomial-proportion intervals appeared from the 1920s, in work by Wilson (1927) and Clopper and Pearson (1934). The general ideas developed in the early 1930s, and the first thorough and general account came from Jerzy Neyman in 1937, in "Outline of a Theory of Statistical Estimation Based on the Classical Theory of Probability". Neyman later recounted that the work originated around 1930 from a question by his student Waclaw Pytkowski, who was studying farm economics and wanted to characterize the precision of an estimated [[cs/machine-learning/regression|regression coefficient]] non-dogmatically.
 
 Adoption in medicine lagged the theory badly. Confidence intervals were promoted in medical journals in the 1970s, became widely used only in the 1980s, and by 1988 journals were requiring them.
 

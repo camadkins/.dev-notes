@@ -28,7 +28,7 @@ Together, these mechanisms enable:
 
 ## Modules
 A **module** is a named collection of related definitions: values, types, functions, and submodules.  
-It is both a **namespace** and a **compilation unit**.
+It is both a **[[cs/languages/common/module-systems-and-namespacing|namespace]]** and a **[[cs/languages/Cpp/translation-units-linkage-and-the-build-model|compilation unit]]**.
 
 ### Example (OCaml-style)
 ```ocaml

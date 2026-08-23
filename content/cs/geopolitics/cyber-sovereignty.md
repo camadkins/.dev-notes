@@ -13,11 +13,11 @@ aliases: []
 
 ## Intuition
 
-The [[history-of-the-internet|internet]] was designed as a decentralized, borderless network. But states are territorial by nature. Cyber sovereignty is the assertion that a government has the right - and increasingly the technical means - to control the flow of data within and across its borders.
+The [[cs/history/history-of-the-internet|internet]] was designed as a decentralized, borderless network. But states are territorial by nature. Cyber sovereignty is the assertion that a government has the right - and increasingly the technical means - to control the flow of data within and across its borders.
 
 The result is a growing tension between the original architecture of the internet and the political reality of a world organized into sovereign states, each with different values around speech, privacy, security, and economic protectionism.
 
-The tension is not abstract. It is implemented in [[imp-the-first-router|routing tables]], DNS configurations, deep packet inspection hardware, and data localization laws. The internet's physical layer has always been territorial - cables cross borders, servers sit in jurisdictions, ISPs hold licenses. Cyber sovereignty is the project of making the logical layer match the physical one.
+The tension is not abstract. It is implemented in [[cs/military-computing/imp-the-first-router|routing tables]], DNS configurations, deep packet inspection hardware, and data localization laws. The internet's physical layer has always been territorial - cables cross borders, servers sit in jurisdictions, ISPs hold licenses. Cyber sovereignty is the project of making the logical layer match the physical one.
 
 ## Core Idea
 
@@ -27,10 +27,10 @@ Most states sit somewhere between the American model (relatively open, private-s
 
 **China's Great Firewall (GFW).** The most technically sophisticated national censorship system, the GFW operates at multiple layers:
 
-- **[[dns-the-domain-name-system|DNS poisoning]]** - returning incorrect IP addresses for blocked domains.
-- **IP blacklisting** - dropping [[paul-baran-and-packet-switching|packets]] destined for known foreign service IPs.
+- **[[cs/systems/dns-the-domain-name-system|DNS poisoning]]** - returning incorrect IP addresses for blocked domains.
+- **IP blacklisting** - dropping [[cs/military-computing/paul-baran-and-packet-switching|packets]] destined for known foreign service IPs.
 - **Deep packet inspection (DPI)** - analyzing packet contents and headers to detect and block VPN protocols, Tor traffic, and specific keywords.
-- **[[tls-and-the-https-handshake|SNI filtering]]** - inspecting the Server Name Indication field in TLS handshakes to block access to specific hostnames even over HTTPS.
+- **[[cs/systems/tls-and-the-https-handshake|SNI filtering]]** - inspecting the Server Name Indication field in TLS handshakes to block access to specific hostnames even over HTTPS.
 - **Active probing** - the GFW probes suspected circumvention servers, sending protocol-specific handshakes to confirm and then block them.
 
 The GFW is paired with a domestic ecosystem of substitutes - WeChat for messaging, Baidu for search, Alibaba for commerce, Douyin for short video - that reduce demand for access to blocked foreign services. This combination of technical restriction and market substitution is more effective than either alone. Users do not merely lack access to Google; they have a functional alternative in Baidu that is optimized for Chinese-language content and integrated with domestic payment and identity systems.
@@ -56,7 +56,7 @@ Whether this fragmentation is reversible or structural is an open question. The 
 
 - Domain fronting - making censored traffic look like traffic to an allowed service.
 - Pluggable transports (obfs4, Snowflake) - disguising Tor traffic as ordinary web browsing.
-- [[dns-the-domain-name-system|Encrypted DNS]] (DoH, DoT) - preventing DNS-level blocking.
+- [[cs/systems/dns-the-domain-name-system|Encrypted DNS]] (DoH, DoT) - preventing DNS-level blocking.
 - Decentralized protocols and mesh networks - reducing single points of control.
 
 States respond with active probing, traffic analysis, machine-learning-based protocol classification, and legal penalties for circumvention. This is a continuous arms race with no stable equilibrium. Each side's advances drive the other's innovation.
@@ -84,12 +84,12 @@ The episode demonstrated that states which invest in centralized internet archit
 - [[surveillance-and-privacy|Surveillance & Privacy]] - data localization enables state surveillance; censorship infrastructure doubles as monitoring infrastructure
 - [[semiconductor-supply-chains|Semiconductor Supply Chains]] - domestic chip production is part of broader technological sovereignty ambitions
 - [[ai-governance|AI Governance]] - AI regulation is the newest front in the contest over how states govern digital technology
-- [[history-of-the-internet|History of the Internet]] - the decentralized, borderless architecture sovereignty pushes against
-- [[paul-baran-and-packet-switching|Paul Baran and Packet Switching]] - why the network was designed to route around damage (and around blocks)
-- [[imp-the-first-router|The IMP, the First Router]] - the routing layer national filters operate on
-- [[cryptography-codebreaking-and-the-nsa|Cryptography, Codebreaking, and the NSA]] - the encryption that drives the censorship-circumvention arms race
-- [[dns-the-domain-name-system|DNS - The Domain Name System]] - the resolution layer poisoning, blocking, and encrypted DNS all operate on
-- [[tls-and-the-https-handshake|TLS and the HTTPS Handshake]] - why SNI filtering works and what ECH does about it
+- [[cs/history/history-of-the-internet|History of the Internet]] - the decentralized, borderless architecture sovereignty pushes against
+- [[cs/military-computing/paul-baran-and-packet-switching|Paul Baran and Packet Switching]] - why the network was designed to route around damage (and around blocks)
+- [[cs/military-computing/imp-the-first-router|The IMP, the First Router]] - the routing layer national filters operate on
+- [[cs/military-computing/cryptography-codebreaking-and-the-nsa|Cryptography, Codebreaking, and the NSA]] - the encryption that drives the censorship-circumvention arms race
+- [[cs/systems/dns-the-domain-name-system|DNS - The Domain Name System]] - the resolution layer poisoning, blocking, and encrypted DNS all operate on
+- [[cs/systems/tls-and-the-https-handshake|TLS and the HTTPS Handshake]] - why SNI filtering works and what ECH does about it
 
 ## Sources
 

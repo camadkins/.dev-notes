@@ -12,7 +12,7 @@ aliases: []
 ---
 
 ## Definition
-An **AVL tree** (Adelson-Velsky and Landis, 1962) is a **self-balancing binary search tree (BST)** that enforces a local height-balance constraint at every node. The **balance factor** (left-subtree height minus right-subtree height) is kept within `{-1, 0, +1}` so the overall tree height remains logarithmic in the number of nodes.
+An **AVL tree** (Adelson-Velsky and Landis, 1962) is a **self-balancing binary search tree (BST)** that enforces a local height-balance constraint at every node. The **balance factor** (left-subtree height minus right-subtree height) is kept within `{-1, 0, +1}` so the overall tree height remains [[cs/math/logarithms-and-exponentials|logarithmic]] in the number of nodes.
 
 > [!note]
 > This guarantees the height `h` of an AVL tree with `n` nodes is **O(log n)**, ensuring logarithmic search, insertion, and deletion times.
@@ -28,7 +28,7 @@ Whenever an insertion or deletion violates this rule, **rotations** restore bala
 ## Invariants
 1. **BST property:** keys in the left subtree are `< node.key` and in the right subtree are `> node.key`.
 2. **Balance constraint:** for every node, `|height(left) - height(right)| ≤ 1`.
-3. **Height invariant:** after each update, all subtrees satisfy the balance constraint.
+3. **[[cs/math/mathematical-induction|Height invariant]]:** after each update, all subtrees satisfy the balance constraint.
 
 Because of these rules, the height `h` satisfies:
 ```

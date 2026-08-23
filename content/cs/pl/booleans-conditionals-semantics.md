@@ -41,7 +41,7 @@ This distinction matters for evaluation: in permissive systems (like JavaScript)
 ---
 
 ## Evaluation Rules
-Boolean operations (`and`, `or`, `not`) follow **short-circuit semantics**: the minimal evaluation needed to determine a result.
+[[cs/math/boolean-algebra|Boolean operations]] (`and`, `or`, `not`) follow **short-circuit semantics**: the minimal evaluation needed to determine a result.
 
 Formal rules (small-step form):
 ```
@@ -173,7 +173,7 @@ This explicit environment + continuation form is crucial for modeling control co
 
 ## Practical Implications
 
-- **Optimization:** compilers simplify constant Boolean expressions (e.g., `if true then e1 else e2 → e1`).
+- **Optimization:** compilers simplify [[cs/languages/Cpp/constexpr-and-compile-time-computation|constant Boolean expressions]] (e.g., `if true then e1 else e2 → e1`).
     
 - **Analysis:** static analyzers reason over possible truth values for safety checks.
     

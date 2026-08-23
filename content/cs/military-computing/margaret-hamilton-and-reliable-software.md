@@ -23,11 +23,11 @@ Hamilton directed the Software Engineering Division at the MIT Instrumentation L
 
 ## Naming the field
 
-She began using the term software engineering, she later explained, to distinguish the work from hardware and other kinds of engineering, and to insist that it be treated as part of the larger systems-engineering process rather than as an afterthought. At the time, the claim that software warranted an engineering discipline of its own was not widely accepted.
+She began using the term software engineering, she later explained, to distinguish the work from hardware and other kinds of engineering, and to insist that it be treated as [[cs/standards/ieee-12207-software-life-cycle|part of the larger systems-engineering process]] rather than as an afterthought. At the time, the claim that software warranted an engineering discipline of its own was not widely accepted.
 
 ## Designing for failure
 
-Her software was built around error detection and recovery rather than the hope that nothing would go wrong. That design was tested in public during the Apollo 11 landing. The guidance computer became overloaded and raised the 1201 and 1202 alarms. The display-interrupt design Hamilton's team had built was able to push the critical information to the astronauts in place of their normal displays, so the people and the machine both kept working through the overload and the landing continued.
+Her software was built around [[cs/pl/exceptions-handlers-and-non-local-control|error detection and recovery]] rather than the hope that nothing would go wrong. That design was tested in public during the Apollo 11 landing. The guidance computer became overloaded and raised the 1201 and 1202 alarms. [[cs/systems/interrupts-and-traps|The display-interrupt design]] Hamilton's team had built was able to push the critical information to the astronauts in place of their normal displays, so the people and the machine both kept working through the overload and the landing continued.
 
 ## The principle
 

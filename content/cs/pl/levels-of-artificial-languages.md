@@ -165,7 +165,7 @@ Between high-level and machine code lie **IRs**: language-neutral forms used by 
 
 - **LLVM IR:** typed, SSA-based representation for modern compilers.
     
-- **JVM bytecode:** portable intermediate for Java and Kotlin.
+- **[[cs/languages/Java/the-class-file-and-classloading|JVM bytecode]]:** portable intermediate for Java and Kotlin.
     
 - **WebAssembly (WASM):** safe, portable binary for browsers and beyond.
     
@@ -252,7 +252,7 @@ At the top of the hierarchy lie languages **for defining other languages**: gram
     
 - **LLVM IR / CIL:** serve as portable execution targets.
     
-- **Metaprogramming languages:** Lisp macros, Template Haskell, Rust procedural macros.
+- **Metaprogramming languages:** Lisp macros, Template Haskell, [[cs/languages/Rust/macros-declarative-and-procedural|Rust procedural macros]].
     
 
 > [!note]  
@@ -293,7 +293,7 @@ Contemporary toolchains blend levels:
     
 - **Rust:** compiled to LLVM IR, then optimized to native binaries.
     
-- **TypeScript:** compiled to JavaScript (another high-level language).
+- **[[cs/languages/TypeScript/the-compiler-api-and-emit|TypeScript]]:** compiled to JavaScript (another high-level language).
     
 
 > [!tip]  

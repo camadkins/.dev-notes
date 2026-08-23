@@ -168,7 +168,7 @@ Let `L` be key length, `σ = |Σ|` the alphabet size, and `n` the number of keys
     
     - Pros: truly constant-time child access; sequential memory.
         
-    - Cons: wastes space for sparse nodes; large σ (Unicode) makes it impractical.
+    - Cons: wastes space for sparse nodes; large σ ([[cs/languages/common/text-encoding-and-unicode|Unicode]]) makes it impractical.
         
 - **Sparse dictionary (hash map)**
     
@@ -215,7 +215,7 @@ Let `L` be key length, `σ = |Σ|` the alphabet size, and `n` the number of keys
 
 - **Persistent tries** (copy-on-write path to leaf) enable snapshots and versioning with structural sharing.
     
-- **Lock-free** variants exist using immutable nodes; writers publish new roots, readers see consistent versions.
+- **Lock-free** variants exist using [[cs/languages/Racket/immutable-data-and-persistent-structures|immutable nodes]]; writers publish new roots, readers see consistent versions.
     
 
 > [!note]  
@@ -229,7 +229,7 @@ Let `L` be key length, `σ = |Σ|` the alphabet size, and `n` the number of keys
     
 - **Routing & token dispatch:** longest-prefix match on tokens (domain names, URL segments, command parsers).
     
-- **Keyword filters:** store blocked terms; early exit on mismatch; linear scan through text with trie-guided branching (Aho–Corasick builds on this idea).
+- **[[cs/security/ids-and-ips|Keyword filters]]:** store blocked terms; early exit on mismatch; linear scan through text with trie-guided branching (Aho–Corasick builds on this idea).
     
 - **Config/key maps where order matters:** lexicographic enumeration and range-by-prefix queries integrate naturally.
     

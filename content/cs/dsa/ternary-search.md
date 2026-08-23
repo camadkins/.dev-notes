@@ -12,7 +12,7 @@ aliases: []
 ---
 
 ## Overview
-**Ternary search** is a 1-D optimization technique for **unimodal** functions - those that **strictly increase then strictly decrease** (for maxima) or the reverse for minima - on a **closed interval**. Each iteration evaluates at **two interior points** and discards the third of the interval that cannot contain the optimum, shrinking the window deterministically. It is derivative-free, simple, and numerically robust when the objective is smooth and unimodal.
+**Ternary search** is a [[cs/math/convexity-and-optimization-basics|1-D optimization technique]] for **unimodal** functions - those that **strictly increase then strictly decrease** (for maxima) or the reverse for minima - on a **closed interval**. Each iteration evaluates at **two interior points** and discards the third of the interval that cannot contain the optimum, shrinking the window deterministically. It is [[cs/math/derivatives-and-gradients|derivative-free]], simple, and numerically robust when the objective is smooth and unimodal.
 
 There are two closely related settings:
 
@@ -162,7 +162,7 @@ function PEAK_UNIMODAL(A):         // A increases then decreases (strict)
 
 ## Summary
 
-Ternary search is a clean **divide-and-conquer** routine for **unimodal** objectives. In the **continuous** case, it shrinks the interval by a factor of `2/3` per iteration using two interior probes; in the **discrete** case, a binary-style mid/neighbor comparison isolates the peak in `O(log n)`. Its effectiveness depends on unimodality, careful termination, and, for numeric work, tolerance to floating-point ties and noise. For evaluation-heavy objectives, prefer **golden-section** or hybrid methods that reuse function values.
+Ternary search is a clean **divide-and-conquer** routine for **unimodal** objectives. In the **continuous** case, it shrinks the interval by a factor of `2/3` per iteration using two interior probes; in the **discrete** case, a binary-style mid/neighbor comparison isolates the peak in `O(log n)`. Its effectiveness depends on unimodality, careful termination, and, for numeric work, tolerance to [[cs/standards/ieee-754-floating-point|floating-point]] ties and noise. For evaluation-heavy objectives, prefer **golden-section** or hybrid methods that reuse function values.
 
 ## Related Notes
 

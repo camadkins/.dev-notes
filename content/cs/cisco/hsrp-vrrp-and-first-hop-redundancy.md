@@ -34,7 +34,7 @@ VRRP does not invent an address. RFC 5798 defines the format directly.
 
 The first three octets are derived from IANA's Organizational Unique Identifier, the next two octets indicate the address block assigned to VRRP for that protocol, and `{VRID}` is the VRRP Virtual Router Identifier. That layout is why the RFC notes this mapping provides for up to 255 VRRP routers on a network per family. The VRID is more than a group label. It is a byte of the MAC address.
 
-There is a subtlety in how the master uses it. VRRP packets are transmitted with the virtual router MAC address as the source MAC address to ensure that learning bridges correctly determine the LAN segment the virtual router is attached to. The switch's CAM table has to learn the virtual MAC on the right port, and the only way it can is if the advertisements themselves are sourced from it.
+There is a subtlety in how the master uses it. VRRP packets are transmitted with the virtual router MAC address as the source MAC address to ensure that [[cs/standards/ieee-802-1d-and-spanning-tree|learning bridges]] correctly determine the LAN segment the virtual router is attached to. The switch's CAM table has to learn the virtual MAC on the right port, and the only way it can is if the advertisements themselves are sourced from it.
 
 HSRP does the same thing with its own vendor range. In Cisco's `show standby` output the line reads `Virtual mac address is 0000.0c07.ac01` for standby group 1, and the group number lands in the last byte the same way the VRID does.
 
@@ -48,7 +48,7 @@ R1(config-if)# standby 1 priority 105
 R1(config-if)# standby 1 preempt
 ```
 
-The first assigns a standby group and standby IP address, which is what the hosts get as their default gateway. The second assigns a priority, and Cisco notes the default is 100. The third is the one that decides whether your design works.
+The first assigns a standby group and standby IP address, which is what the hosts get as their [[cs/networking/dhcp-and-address-assignment|default gateway]]. The second assigns a priority, and Cisco notes the default is 100. The third is the one that decides whether your design works.
 
 > [!warning] Without `standby preempt`, priority does nothing after the first election
 > Cisco's annotation on the command is unusually direct: if you do not use the `standby preempt` command in the configuration for a router, that router does not become the active router, even if the priority is higher than all other routers.
@@ -57,7 +57,7 @@ The first assigns a standby group and standby IP address, which is what the host
 >
 > Cisco says the same thing from the other direction in its worked failover: if `standby preempt` is not configured on R2, R2 would not have sent a Coup message to R1, which causes R2 to become active, and instead R1 would have remained the active router.
 
-The election itself is priority first, address second: priority is determined first by the configured priority value, then by the IP address, and in each case a higher value is of greater priority. The transitions are message-driven, not timer-driven. When a higher priority router preempts a lower priority router, the router sends a Coup message, and when a lower priority active router receives a Coup message or a hello message from an active, higher priority router, the router changes to the Speak state and sends a resign message.
+[[cs/systems/distributed-consensus|The election itself]] is priority first, address second: priority is determined first by the configured priority value, then by the IP address, and in each case a higher value is of greater priority. The transitions are message-driven, not timer-driven. When a higher priority router preempts a lower priority router, the router sends a Coup message, and when a lower priority active router receives a Coup message or a hello message from an active, higher priority router, the router changes to the Speak state and sends a resign message.
 
 Both routers do not need the virtual address configured. In Cisco's example R2 carries a bare `standby 1 ip` with no address, which is a valid configuration: when R1 and R2 exchange HSRP hellos, R2 learns the standby IP address from R1. Configuring the same address explicitly on both is also valid, and is what most people should do, because it makes the intent readable in the config.
 
@@ -113,7 +113,7 @@ One tuning note from the RFC that people usually learn the hard way: when there 
 
 ## What this actually buys, and what it does not
 
-RFC 5798 is precise about the benefit, and it is worth quoting when someone proposes running a routing protocol on servers instead. For IPv4, the advantage gained from using VRRP is a higher-availability default path without requiring configuration of dynamic routing or router discovery protocols on every end-host. For IPv6 the pitch is different, a quicker switchover to Backup routers than can be obtained with standard IPv6 Neighbor Discovery mechanisms, because IPv6 Router Advertisements are multicast periodically at a rate that hosts learn about default routers in a few minutes, and they are not sent frequently enough to rely on the absence of the Router Advertisement to detect router failures.
+RFC 5798 is precise about the benefit, and it is worth quoting when someone proposes running a routing protocol on servers instead. For IPv4, the advantage gained from using VRRP is a higher-availability default path without requiring configuration of dynamic routing or router discovery protocols on every end-host. For IPv6 the pitch is different, a quicker switchover to Backup routers than can be obtained with standard [[cs/networking/ipv6-essentials|IPv6 Neighbor Discovery mechanisms]], because IPv6 Router Advertisements are multicast periodically at a rate that hosts learn about default routers in a few minutes, and they are not sent frequently enough to rely on the absence of the Router Advertisement to detect router failures.
 
 What it does not buy is protection against anything past the first hop. Everything beyond the gateway is still the routing protocol's problem, which is why tracking exists at all: it is the seam where a first-hop redundancy protocol borrows a failure signal from the layer above it.
 

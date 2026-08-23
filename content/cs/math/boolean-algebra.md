@@ -51,7 +51,7 @@ Minimizing an expression means applying these identities until no shorter equiva
 
 ## The Bridge to Digital Logic
 
-Boolean algebra "is used in digital electronics, and is provided for in all modern programming languages." That is not a coincidence of notation. [[shannon-boolean-algebra-switching|Claude Shannon showed in 1937]] that the algebra of switches is exactly [[boole-and-boolean-algebra|Boole's algebra of logic]]: a series connection is AND, a parallel connection is OR, and a normally-closed relay is NOT. Every logic gate is one Boolean operator in silicon, and a minimized Boolean expression is a minimized gate netlist.
+Boolean algebra "is used in digital electronics, and is provided for in all modern programming languages." That is not a coincidence of notation. [[cs/history/shannon-boolean-algebra-switching|Claude Shannon showed in 1937]] that the algebra of switches is exactly [[cs/history/boole-and-boolean-algebra|Boole's algebra of logic]]: a series connection is AND, a parallel connection is OR, and a normally-closed relay is NOT. Every logic gate is one Boolean operator in silicon, and a minimized Boolean expression is a minimized gate netlist.
 
 > [!example]
 > **Simplify $F = (x \land y) \lor (x \land \lnot y)$.**
@@ -63,8 +63,8 @@ Boolean algebra "is used in digital electronics, and is provided for in all mode
 
 - [[propositional-logic|Propositional Logic]] - the same two-valued algebra presented as connectives and truth tables
 - [[set-theory-basics|Set Theory Basics]] - union, intersection, and complement obey these identities one for one
-- [[boole-and-boolean-algebra|George Boole and the Algebra of Logic]] - the historical origin of the two-valued system
-- [[shannon-boolean-algebra-switching|Shannon's Switching Thesis]] - the proof that this algebra is the mathematics of circuits
+- [[cs/history/boole-and-boolean-algebra|George Boole and the Algebra of Logic]] - the historical origin of the two-valued system
+- [[cs/history/shannon-boolean-algebra-switching|Shannon's Switching Thesis]] - the proof that this algebra is the mathematics of circuits
 
 ## Sources
 

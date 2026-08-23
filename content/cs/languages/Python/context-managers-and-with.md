@@ -58,7 +58,7 @@ Multiple items nest rather than parallelise. `with A() as a, B() as b:` is seman
 
 PEP 343's stated purpose is to make it possible to factor out standard uses of `try`/`finally`. But the interesting content in the PEP is Guido's argument about *why the with-statement design won* over the alternative in PEP 340, which would have made the block a potential looping construct.
 
-The deciding influence was Raymond Chen's argument that hiding flow control in macros makes code inscrutable. Guido concluded that PEP 340 templates could hide all sorts of control flow, giving its own auto-retry example, which catches exceptions and repeats the block up to three times, as the case that convinced him. The with-statement, by contrast, does not hide control flow: a `finally` suite temporarily suspends control flow, but in the end control resumes as if the suite were not there at all.
+The deciding influence was Raymond Chen's argument that hiding flow control in [[cs/pl/macros-and-metaprogramming|macros]] makes code inscrutable. Guido concluded that PEP 340 templates could hide all sorts of control flow, giving its own auto-retry example, which catches exceptions and repeats the block up to three times, as the case that convinced him. The with-statement, by contrast, does not hide control flow: a `finally` suite temporarily suspends control flow, but in the end control resumes as if the suite were not there at all.
 
 His example makes the guarantee concrete. In
 

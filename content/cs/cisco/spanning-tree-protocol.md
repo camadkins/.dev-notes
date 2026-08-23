@@ -15,7 +15,7 @@ aliases:
   - spanning-tree vlan root primary
 ---
 
-An IP packet caught in a routing loop dies when its TTL hits zero. An Ethernet frame has no TTL. That single missing field is why a layer-2 loop is a different category of problem from a layer-3 one, and why an entire protocol exists to prevent physical redundancy from turning into an outage.
+An IP packet caught in a routing loop dies when its TTL hits zero. [[cs/standards/ieee-802-3-ethernet|An Ethernet frame]] has no TTL. That single missing field is why a layer-2 loop is a different category of problem from a layer-3 one, and why an entire protocol exists to prevent physical redundancy from turning into an outage.
 
 Cisco's statement of the requirement is short: for a Layer 2 Ethernet network to function properly, only one active path can exist between any two stations, and multiple active paths among end stations cause loops in the network. The consequences it names are the two failure modes you will actually observe. End stations might receive duplicate messages, and switches might also learn end-station MAC addresses on multiple Layer 2 interfaces. Cisco's summary: these conditions result in an unstable network.
 
@@ -24,7 +24,7 @@ Cisco's statement of the requirement is short: for a Layer 2 Ethernet network to
 
 ## Why the failure is so violent
 
-The MAC address table is what makes the loop compound. A switch learns source addresses from frames it receives, so a looping frame teaches every switch on the path that the same host lives out multiple ports, and each switch keeps relearning. Meanwhile broadcast and unknown-unicast frames are flooded, which is why a loop saturates links rather than merely degrading them. Cisco's troubleshooting document does not hedge: bridging loops have extremely severe consequences on a bridge network, and administrators generally do not have time to look for the cause of the loop and prefer to restore connectivity as soon as possible.
+The MAC address table is what makes the loop compound. A switch learns source addresses from frames it receives, so a looping frame teaches every switch on the path that the same host lives out multiple ports, and each switch keeps relearning. Meanwhile [[cs/networking/multicast-broadcast-anycast|broadcast and unknown-unicast frames are flooded]], which is why a loop saturates links rather than merely degrading them. Cisco's troubleshooting document does not hedge: bridging loops have extremely severe consequences on a bridge network, and administrators generally do not have time to look for the cause of the loop and prefer to restore connectivity as soon as possible.
 
 The recommended emergency action is blunt and worth having pre-decided, because you will not be able to reason during it. Cisco's advice is to manually disable every port that provides redundancy in the network, beginning in the area affected most, or if possible to initially disable ports that can be blocking, checking connectivity after each one. Two operational realities are folded into that. First, during a bridging loop you probably cannot make a remote connection, so console access is the assumption. Second, you seldom maintain connectivity to a syslog server when a loop occurs, so the logs you want are the ones already off the box.
 
@@ -36,7 +36,7 @@ Every switch starts by assuming it is the root. When the switches in a network a
 
 The comparison rule is simple, and its default is the problem. For each VLAN, the switch with the highest switch priority (the lowest numerical priority value) is elected as the root switch. If all switches are configured with the default priority (32768), the switch with the lowest MAC address in the VLAN becomes the root switch.
 
-Read that again with an inventory in mind. MAC addresses are assigned roughly in manufacturing order, so "lowest MAC address" tends to mean "oldest switch." Left alone, a network elects its most ancient, slowest, most peripheral box as the logical center of the topology. Cisco says the correct answer directly: the root switch for each spanning-tree instance should be a backbone or distribution switch, and you should not configure an access switch as the spanning-tree primary root.
+Read that again with an inventory in mind. [[cs/networking/arp-and-mac-addressing|MAC addresses are assigned roughly in manufacturing order]], so "lowest MAC address" tends to mean "oldest switch." Left alone, a network elects its most ancient, slowest, most peripheral box as the logical center of the topology. Cisco says the correct answer directly: the root switch for each spanning-tree instance should be a backbone or distribution switch, and you should not configure an access switch as the spanning-tree primary root.
 
 Fix it explicitly rather than by tuning priority values by hand:
 
@@ -53,7 +53,7 @@ Once a root exists, each remaining switch picks a root port, the port providing 
 
 ## Port states, and the 30 seconds they cost
 
-Classic 802.1D defines five interface states:
+[[cs/standards/ieee-802-1d-and-spanning-tree|Classic 802.1D]] defines five interface states:
 
 | State | What the interface is doing |
 |---|---|

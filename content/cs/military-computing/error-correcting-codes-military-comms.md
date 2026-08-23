@@ -21,7 +21,7 @@ Every real communication channel corrupts some of what crosses it. A bit flips o
 
 ## Hamming codes
 
-Richard Hamming, working at Bell Labs, published in 1950 a family of linear error-correcting codes that still bear his name. A Hamming code adds parity bits in a structured pattern, positioned so that different corrupted bits produce different patterns of failed parity checks. From which checks fail, the receiver can detect one-bit and two-bit errors and pinpoint and correct a single-bit error, all without asking for the data again.
+Richard Hamming, working at Bell Labs, published in 1950 a family of linear error-correcting codes that still bear his name. A Hamming code adds [[cs/systems/raid-and-storage-redundancy|parity bits]] in a structured pattern, positioned so that different corrupted bits produce different patterns of failed parity checks. From which checks fail, the receiver can detect one-bit and two-bit errors and pinpoint and correct a single-bit error, all without asking for the data again.
 
 ## Reed-Solomon codes
 
@@ -33,7 +33,7 @@ The marquee application is distance. Reed-Solomon coding encoded the digital pic
 
 ## The lesson
 
-Reliable communication over an unreliable channel is the practical fulfillment of [[shannon-and-information-theory|Shannon's]] proof that such communication is possible at all. Error-correcting codes are how that promise is kept, in every hard drive, every wireless link, and every spacecraft sending data home.
+Reliable communication over an unreliable channel is the practical fulfillment of [[shannon-and-information-theory|Shannon's]] proof that such communication is possible at all. Error-correcting codes are how that promise is kept, in [[cs/history/magnetic-disk-storage|every hard drive]], [[cs/networking/wifi-and-802-11|every wireless link]], and every spacecraft sending data home.
 
 ## Related Notes
 

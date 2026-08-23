@@ -20,7 +20,7 @@ By the late 1960s, hardware was racing ahead of the software meant to run on it.
 
 ## The software crisis
 
-The problem got a name at that meeting. The term software crisis was coined by attendees at the first NATO Software Engineering Conference, held at Garmisch, Germany, in 1968. It captured a specific difficulty: writing useful, efficient, reliable programs in the time available, as the power of computers and the complexity of the problems they were aimed at both rose. The symptoms were concrete, including projects running over budget and over schedule and software that was low in quality and did not meet its requirements.
+The problem got a name at that meeting. The term software crisis was coined by attendees at the first NATO Software Engineering Conference, held at Garmisch, Germany, in 1968. It captured a specific difficulty: writing useful, efficient, reliable programs in the time available, as the power of computers and the complexity of the problems they were aimed at both rose. The symptoms were concrete, including projects running over budget and over schedule and software that was low in quality and [[cs/standards/ieee-29148-requirements-engineering|did not meet its requirements]].
 
 ## Naming the cure
 
@@ -28,7 +28,7 @@ The conferences, Garmisch in 1968 and Rome in 1969, did more than diagnose. They
 
 ## Why it mattered
 
-This is the hinge where programming began to be treated as engineering. Once the field accepted that software needed disciplined process rather than talent alone, the practices that followed, including structured testing, deliberate architecture, and documented design patterns, all became things one could study and demand. The rest of this cluster's software notes sit downstream of that shift.
+This is the hinge where programming began to be treated as engineering. Once the field accepted that software needed disciplined process rather than talent alone, the practices that followed, including structured testing, [[cs/software-engineering/software-architecture|deliberate architecture]], and [[cs/software-engineering/design-patterns|documented design patterns]], all became things one could study and demand. The rest of this cluster's software notes sit downstream of that shift.
 
 ## Related Notes
 

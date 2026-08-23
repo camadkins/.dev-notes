@@ -38,7 +38,7 @@ The canonical escape use is a loop exit:
     #t))
 ```
 
-which evaluates to `-3`. R5RS is candid that if all real uses were this simple there would be no need for a procedure with the power of `call-with-current-continuation`, and the rationale says the same thing from the other side: a common use is structured non-local exit from loops or procedure bodies, but the operator is extremely useful for implementing a wide variety of advanced control structures.
+which evaluates to `-3`. R5RS is candid that if all real uses were this simple there would be no need for a procedure with the power of `call-with-current-continuation`, and the rationale says the same thing from the other side: a common use is structured [[cs/pl/exceptions-handlers-and-non-local-control|non-local exit]] from loops or procedure bodies, but the operator is extremely useful for implementing a wide variety of advanced control structures.
 
 The history in the same rationale is worth carrying. Most programming languages incorporate one or more special-purpose escape constructs named `exit`, `return`, or `goto`. In 1965 Peter Landin invented a general purpose escape operator called the J-operator; John Reynolds described a simpler but equally powerful construct in 1972; the `catch` special form in the 1975 report on Scheme is exactly the same as Reynolds's construct. Several Scheme implementors then noticed that the full power of `catch` could be provided by a procedure rather than a special syntactic construct, and the name `call-with-current-continuation` was coined in 1982. The abbreviation `call/cc` exists because opinions differ on the merits of such a long name.
 
@@ -58,7 +58,7 @@ The Guide's demonstration replaces a leaf with a capture:
 
 The continuation in `saved-k` encapsulates the program context `(+ 1 (+ 1 (+ 1 ?)))`, and is encapsulated so that it behaves like `(lambda (v) (+ 1 (+ 1 (+ 1 v))))`. So `(saved-k 0)` is `3`, `(saved-k 10)` is `13`, and `(saved-k (saved-k 0))` is `6`.
 
-What is captured is determined dynamically, not syntactically. Calling `save-comp!` from the base case of a recursive `sum` makes `saved-k` become `(lambda (x) (+ 5 (+ 4 (+ 3 (+ 2 (+ 1 x))))))`, so `(saved-k 0)` is `15` and `(saved-k 10)` is `25`. The captured value reflects the call stack that existed at capture time, not the text around the capture.
+What is captured is determined dynamically, not syntactically. Calling `save-comp!` from the base case of a recursive `sum` makes `saved-k` become `(lambda (x) (+ 5 (+ 4 (+ 3 (+ 2 (+ 1 x))))))`, so `(saved-k 0)` is `15` and `(saved-k 10)` is `25`. The captured value reflects the [[cs/dsa/stack|call stack]] that existed at capture time, not the text around the capture.
 
 The Reference states the delimiting rule exactly: `call/cc` captures the current continuation up to the nearest prompt tagged by `prompt-tag`, and if no such prompt exists the `exn:fail:contract:continuation` exception is raised. The truncated continuation includes only continuation marks and `dynamic-wind` frames installed since the prompt. `call/cc` is an alias for `call-with-current-continuation`, and the default tag is `(default-continuation-prompt-tag)`, for which each thread's continuation starts with a prompt using the default handler. That last fact is why the classical behavior looks primitive: the prompt is always there, so you never have to install one.
 
@@ -81,7 +81,7 @@ Arguments supplied to an applied continuation become the result values for the r
 
 ## Escape continuations are a different, cheaper thing
 
-Racket has a separate operator for the exit-a-loop case. `call-with-escape-continuation`, aliased `call/ec`, is like `call/cc` except that `proc` is not called in tail position and the continuation procedure supplied to `proc` can only be called during the dynamic extent of the `call/ec` call. That single restriction is the difference between an escape and a re-entry: a `call/cc` continuation can be stashed and resumed after its original context has already returned, and a `call/ec` continuation cannot.
+Racket has a separate operator for the exit-a-loop case. `call-with-escape-continuation`, aliased `call/ec`, is like `call/cc` except that `proc` is not called in [[cs/languages/Racket/proper-tail-calls-and-the-loop-question|tail position]] and the continuation procedure supplied to `proc` can only be called during the dynamic extent of the `call/ec` call. That single restriction is the difference between an escape and a re-entry: a `call/cc` continuation can be stashed and resumed after its original context has already returned, and a `call/ec` continuation cannot.
 
 The Reference is unusually blunt about why the operator exists. A continuation obtained from `call-with-escape-continuation` is actually a kind of prompt, and escape continuations are provided mainly for backwards compatibility, since they pre-date general prompts in Racket. In the BC implementation, `call/ec` is implemented more efficiently than `call/cc`, so it can sometimes be substituted to improve performance in those older variants.
 

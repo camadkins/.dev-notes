@@ -14,7 +14,7 @@ aliases:
   - AIMD
 ---
 
-A TCP sender cannot see the network. It has no meter for how much bandwidth sits between it and the receiver, no readout of the queues filling up in routers along the way. All it gets back are acknowledgments. From that thin signal it has to guess how fast to send: too slow and it wastes capacity, too fast and it drowns a router's queue and triggers the very loss it was trying to avoid. Congestion control is the set of algorithms that turn returning ACKs into a running estimate of how hard the sender can push.
+A TCP sender cannot see the network. It has no meter for how much bandwidth sits between it and the receiver, no readout of the [[cs/dsa/queue|queues]] filling up in routers along the way. All it gets back are acknowledgments. From that thin signal it has to guess how fast to send: too slow and it wastes capacity, too fast and it drowns a router's queue and triggers the very loss it was trying to avoid. Congestion control is the set of algorithms that turn returning ACKs into a running estimate of how hard the sender can push.
 
 > [!note] The idea
 > TCP keeps a congestion window that limits how much unacknowledged data it will put on the wire, grows that window while ACKs keep coming, and shrinks it hard the moment loss appears. Loss is read as the network's only honest signal that it is full, so the classic response is additive increase, multiplicative decrease: creep up, then halve on trouble.
@@ -29,7 +29,7 @@ A second variable, the slow start threshold (ssthresh), decides which growth mod
 
 ## Slow start: probing an unknown network
 
-Beginning transmission into a network with unknown conditions requires TCP to slowly probe the network to determine the available capacity, so as to avoid congesting it with an inappropriately large burst of data. Despite the name, slow start ramps up quickly. During slow start, a TCP increments cwnd by at most one sender maximum segment size for each ACK received that cumulatively acknowledges new data. Because every acknowledged segment adds another segment's worth of window, the window roughly doubles each round trip. That is exponential growth used deliberately: start cautious, find the ceiling fast.
+Beginning transmission into a network with unknown conditions requires TCP to slowly probe the network to determine the available capacity, so as to avoid congesting it with an inappropriately large burst of data. Despite the name, slow start ramps up quickly. During slow start, a TCP increments cwnd by at most one sender maximum segment size for each ACK received that cumulatively acknowledges new data. Because every acknowledged segment adds another segment's worth of window, the window roughly doubles each round trip. That is [[cs/math/logarithms-and-exponentials|exponential growth]] used deliberately: start cautious, find the ceiling fast.
 
 ## Congestion avoidance: creeping toward the limit
 

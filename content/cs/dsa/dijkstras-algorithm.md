@@ -114,14 +114,14 @@ Let `n = |V|`, `m = |E|`.
     
 - **Bidirectional Dijkstra:** Run forward from `s` and backward from `t`; meet in the middle to reduce explored region (requires consistent potentials for directed graphs).
     
-- **Heuristic potentials:** With feasible potentials `h` (no negative reduced weights), Dijkstra on **reduced costs** supports A*-like search (still needs non-negative reduced edges).
+- **Heuristic potentials:** With feasible potentials `h` (no negative reduced weights), Dijkstra on **[[cs/math/linear-programming-and-duality|reduced costs]]** supports A*-like search (still needs non-negative reduced edges).
     
 
 ## Applications
 
 - **Routing / navigation** on road networks (non-negative travel times).
     
-- **Network planning**: least-cost trees when costs are additive and non-negative.
+- **[[cs/networking/ospf-and-link-state-routing|Network planning]]**: least-cost trees when costs are additive and non-negative.
     
 - **Scheduling / project planning** where tasks have non-negative durations and dependencies.
     

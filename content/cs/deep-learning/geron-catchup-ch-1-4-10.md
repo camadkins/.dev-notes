@@ -21,9 +21,9 @@ Each deep-dive links back to the note where you already worked the details out, 
 > [!abstract] The one loop (read this even if you read nothing else)
 > Every model in these three chapters is the **same four-step loop**:
 > 1. **Model** — a function with tunable parameters that turns inputs into a prediction.
-> 2. **Cost** — one number saying how wrong the predictions are ([[loss-functions|loss function]]).
+> 2. **Cost** — one number saying how wrong the predictions are ([[cs/machine-learning/loss-functions|loss function]]).
 > 3. **Gradient** — the slope of that cost with respect to every parameter.
-> 4. **Update** — nudge the parameters against the gradient ([[gradient-descent|gradient descent]]), repeat.
+> 4. **Update** — nudge the parameters against the gradient ([[cs/machine-learning/gradient-descent|gradient descent]]), repeat.
 >
 > **Chapter 1** names the tension this loop must survive: fit the training data *without* memorizing it. **Chapter 4** runs the loop on the simplest models, where you can see every term of the math. **Chapter 10** stacks that exact loop into layers and calls it a neural network; backpropagation is just this loop's gradient step, computed with the chain rule to reach the buried weights.
 >
@@ -58,28 +58,28 @@ Chapter 1 is not math; it is the map and the vocabulary. Its real job is to plan
 
 ### What machine learning is
 
-A program that improves at a task by learning patterns from data, instead of being told the rules explicitly. The classic contrast is the spam filter: the rule-based version is a giant hand-written list of "if contains 'free money' then spam"; the ML version is *shown* labeled emails and figures out the signal itself. You reach for ML when the rules are too many, too fuzzy, or keep changing — see [[ai-vs-ml-vs-dl|AI vs ML vs DL]] for where deep learning sits inside this.
+A program that improves at a task by learning patterns from data, instead of being told the rules explicitly. The classic contrast is the spam filter: the rule-based version is a giant hand-written list of "if contains 'free money' then spam"; the ML version is *shown* labeled emails and figures out the signal itself. You reach for ML when the rules are too many, too fuzzy, or keep changing — see [[cs/machine-learning/ai-vs-ml-vs-dl|AI vs ML vs DL]] for where deep learning sits inside this.
 
 ### The kinds of learning
 
-- **[[supervised-learning|Supervised]]** — training data comes with the answers (labels). Two flavors: **regression** (predict a number, e.g. house price) and **classification** (predict a category, e.g. spam/ham). *Chapters 4 and 10 are almost entirely supervised.*
-- **[[unsupervised-learning|Unsupervised]]** — no labels; find structure yourself (clustering, dimensionality reduction).
+- **[[cs/machine-learning/supervised-learning|Supervised]]** — training data comes with the answers (labels). Two flavors: **regression** (predict a number, e.g. house price) and **classification** (predict a category, e.g. spam/ham). *Chapters 4 and 10 are almost entirely supervised.*
+- **[[cs/machine-learning/unsupervised-learning|Unsupervised]]** — no labels; find structure yourself (clustering, dimensionality reduction).
 - **Self-supervised / semi-supervised / reinforcement** — Géron lists these; you only need to recognize the words for now.
 - **Instance-based vs model-based** — memorize examples and compare (k-NN) versus fit parameters to a model and throw the data away. *Everything in Ch 4 and Ch 10 is model-based* — that's why "training" means "finding good parameters."
 
 ### The one problem that never goes away: generalization
 
-A model that does well on data it has never seen has **generalized**; a model that only does well on the data it trained on has **memorized**. See [[generalization-vs-memorization|generalization vs memorization]].
+A model that does well on data it has never seen has **generalized**; a model that only does well on the data it trained on has **memorized**. See [[cs/machine-learning/generalization-vs-memorization|generalization vs memorization]].
 
 > [!warning] The two failure modes
 > - **Overfitting** — the model is too flexible; it fits the noise in the training set. Great training score, poor test score. (Think: memorizing the answer key instead of learning the subject.)
 > - **Underfitting** — the model is too simple to capture the real pattern. Poor everywhere.
 >
-> This is the [[bias-variance-tradeoff|bias–variance tradeoff]], and it is the *reason* Chapter 4's regularization and Chapter 10's dropout/early-stopping exist. Keep this pair in your head; every technique later is a lever on it.
+> This is the [[cs/machine-learning/bias-variance-tradeoff|bias–variance tradeoff]], and it is the *reason* Chapter 4's regularization and Chapter 10's dropout/early-stopping exist. Keep this pair in your head; every technique later is a lever on it.
 
 ### How you even measure generalization
 
-You cannot judge generalization on data the model trained on, so you hold data back. See [[train-validation-test|train / validation / test]].
+You cannot judge generalization on data the model trained on, so you hold data back. See [[cs/machine-learning/train-validation-test|train / validation / test]].
 
 - **Training set** — the model learns from it.
 - **Validation set** — you tune knobs (hyperparameters, model choice) against it.
@@ -110,7 +110,7 @@ The $\theta$'s are the parameters. "Training" = finding the $\theta$'s that make
 
 $$\text{MSE}(\boldsymbol{\theta}) = \frac{1}{m} \sum_{i=1}^{m} \left( \mathbf{x}^{(i)\top} \boldsymbol{\theta} - y^{(i)} \right)^2$$
 
-Squared, so over- and under-shooting both count as positive error and big misses hurt more. This is step 2. See [[loss-functions|loss functions]] for why squared error specifically. **Training = find the $\boldsymbol{\theta}$ that minimizes this.** There are two ways to do it, and the whole chapter hinges on the contrast.
+Squared, so over- and under-shooting both count as positive error and big misses hurt more. This is step 2. See [[cs/machine-learning/loss-functions|loss functions]] for why squared error specifically. **Training = find the $\boldsymbol{\theta}$ that minimizes this.** There are two ways to do it, and the whole chapter hinges on the contrast.
 
 ### 3a. Minimize directly: the Normal Equation (closed form)
 
@@ -127,7 +127,7 @@ Instead of solving for the minimum, walk downhill on the cost surface. This is s
 
 $$\boldsymbol{\theta} \leftarrow \boldsymbol{\theta} - \eta \, \nabla_{\boldsymbol{\theta}} \, \text{MSE}(\boldsymbol{\theta})$$
 
-The gradient $\nabla$ points uphill (steepest increase), so you step *against* it. $\eta$ is the **learning rate** — the step size. You already have the full treatment in [[gradient-descent|gradient descent]]; the essentials Chapter 4 stresses:
+The gradient $\nabla$ points uphill (steepest increase), so you step *against* it. $\eta$ is the **learning rate** — the step size. You already have the full treatment in [[cs/machine-learning/gradient-descent|gradient descent]]; the essentials Chapter 4 stresses:
 
 - **Learning rate is a gamble.** Too small → training crawls. Too large → you overshoot the valley and can diverge.
 - **The MSE surface for linear regression is a convex bowl**, so gradient descent is guaranteed to reach the global minimum. Neural-net surfaces are *not* convex, but the same procedure still finds good-enough parameters in practice.
@@ -157,7 +157,7 @@ But now the danger is live: a high-degree polynomial can wiggle through every tr
 > - **Both errors high and close together** → *underfitting*. More data won't help; you need a more powerful model or more features.
 > - **Training error low, validation error much higher, big gap** → *overfitting*. More data or more regularization will help.
 >
-> This is the [[bias-variance-tradeoff|bias–variance tradeoff]] made visual. High bias = underfit; high variance = overfit. Every knob in the rest of the chapter moves you along this axis.
+> This is the [[cs/machine-learning/bias-variance-tradeoff|bias–variance tradeoff]] made visual. High bias = underfit; high variance = overfit. Every knob in the rest of the chapter moves you along this axis.
 
 ### 6. Regularization — the anti-overfitting levers
 
@@ -200,7 +200,7 @@ An MLP has an input layer, one or more **hidden layers**, and an output layer. H
 > [!warning] Why the nonlinearity is the entire point
 > Stack two *linear* layers and the result is still just linear — $W_2(W_1\mathbf{x}) = (W_2 W_1)\mathbf{x}$, one matrix. You gained nothing. The **[[activation-functions|activation function]]** (ReLU, sigmoid, tanh…) inserted between layers is the nonlinearity that lets depth actually build richer functions. Without it, a 100-layer network is exactly as powerful as linear regression. **ReLU** — $\max(0, z)$ — is the modern default because it's cheap and trains well.
 
-This is also the answer to "what does a hidden layer *do*?" — it learns [[features-and-representations|features]] automatically, instead of you hand-engineering polynomial terms like you did in Chapter 4.
+This is also the answer to "what does a hidden layer *do*?" — it learns [[cs/machine-learning/features-and-representations|features]] automatically, instead of you hand-engineering polynomial terms like you did in Chapter 4.
 
 ### 3. Backpropagation = the gradient step of the loop (chain rule edition)
 
@@ -249,7 +249,7 @@ Notice how much of this is Chapters 1 and 4 by another name: `softmax` and `cros
 
 - **Number of hidden layers / neurons** — more capacity = more power = more overfitting risk.
 - **Learning rate** — still the single most important hyperparameter, exactly as in Chapter 4.
-- **Optimizer** — SGD, momentum, Adam. Same downhill loop, smarter steps (see [[gradient-descent|the momentum/Adam family]]).
+- **Optimizer** — SGD, momentum, Adam. Same downhill loop, smarter steps (see [[cs/machine-learning/gradient-descent|the momentum/Adam family]]).
 - **Regularization** — early stopping (a Keras callback — the *same* early stopping from Ch 4), plus dropout and L2 weight decay (see [[regularization-in-deep-learning|regularization in DL]]).
 - **Epochs / batch size** — how many passes over the data and how big each mini-batch is (Chapter 4's mini-batch knob).
 
@@ -290,7 +290,7 @@ Cover the guide and answer these out loud. If any is fuzzy, that's exactly the s
 10. Name three things a neural network borrows *unchanged* from Chapter 4.
 
 > [!tip] How to actually catch up
-> Don't reread linearly. Work Chapter 4 by hand until the loop is reflex — do the gradient-descent worked example in [[gradient-descent|your gradient descent note]], then this guide's self-test #1–5. Only then open Chapter 10; it will read as review with two new words (backprop, activation). The through-line is the whole shortcut.
+> Don't reread linearly. Work Chapter 4 by hand until the loop is reflex — do the gradient-descent worked example in [[cs/machine-learning/gradient-descent|your gradient descent note]], then this guide's self-test #1–5. Only then open Chapter 10; it will read as review with two new words (backprop, activation). The through-line is the whole shortcut.
 
 ---
 
@@ -298,6 +298,6 @@ Cover the guide and answer these out loud. If any is fuzzy, that's exactly the s
 
 - Foundations you already have: [[gradient-descent]] · [[loss-functions]] · [[bias-variance-tradeoff]] · [[train-validation-test]] · [[supervised-learning]] · [[generalization-vs-memorization]]
 - The Chapter 10 deep dives: [[artificial-neural-networks]] · [[backpropagation]] · [[activation-functions]] · [[regularization-in-deep-learning]] · [[features-and-representations]]
-- Where it all sits: [[ai-vs-ml-vs-dl|AI vs ML vs DL]] · [[deep-learning|Deep Learning index]]
+- Where it all sits: [[cs/machine-learning/ai-vs-ml-vs-dl|AI vs ML vs DL]] · [[cs/deep-learning/index|Deep Learning index]]
 
 *Source: Aurélien Géron, Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow, 3rd ed. — Chapters 1, 4, 10. This guide is a connective map; the derivations and standard facts are the book's, restated for the through-line.*

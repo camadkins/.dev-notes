@@ -194,7 +194,7 @@ In practice, languages adopt hybrid designs:
 
 - **Scala / OCaml:** functional + OO
     
-- **Rust:** imperative + functional + ownership model
+- **Rust:** imperative + functional + [[cs/languages/Rust/ownership-and-moves|ownership model]]
     
 - **Prolog + CLP:** logic + constraint solving
     

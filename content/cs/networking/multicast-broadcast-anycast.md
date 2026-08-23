@@ -38,7 +38,7 @@ Membership is dynamic, and the protocol that manages it is the **Internet Group 
 
 Anycast is the one that looks like magic until you see the mechanism. It delivers a message to any one out of a group of nodes, typically the one nearest the sender, using a one-to-one-of-many association: many potential receivers are all identified by the same destination address, and the routing algorithm selects the single nearest one by some distance or cost measure. In practice a single IP address is shared by servers in multiple locations, and routers direct packets to the location nearest the sender using their normal decision-making, typically the lowest number of [[routing-and-longest-prefix-match|BGP]] hops.
 
-The sender does nothing special; it sends to one address, and the network's ordinary routing quietly delivers to whichever instance is closest. That property makes anycast the backbone of two systems in this garden. The [[dns-the-domain-name-system|DNS]] root and major name servers use it so a query is answered by a nearby box rather than one distant machine, and many initial anycast deployments were exactly DNS servers over UDP. The same trick steers each user of a [[content-delivery-networks-and-the-centralization-of-control|CDN]] to the nearest edge PoP. Anycast pairs naturally with connectionless protocols; a stateless [[tcp-vs-udp|UDP]] query to whichever instance answers is safe, whereas long-lived stateful connections need care in case routing shifts a flow to a different instance mid-session.
+The sender does nothing special; it sends to one address, and the network's ordinary routing quietly delivers to whichever instance is closest. That property makes anycast the backbone of two systems in this garden. The [[cs/systems/dns-the-domain-name-system|DNS]] root and major name servers use it so a query is answered by a nearby box rather than one distant machine, and many initial anycast deployments were exactly DNS servers over UDP. The same trick steers each user of a [[cs/systems/content-delivery-networks-and-the-centralization-of-control|CDN]] to the nearest edge PoP. Anycast pairs naturally with connectionless protocols; a stateless [[tcp-vs-udp|UDP]] query to whichever instance answers is safe, whereas long-lived stateful connections need care in case routing shifts a flow to a different instance mid-session.
 
 ![The four IP delivery modes: unicast reaches one node, broadcast reaches every node in the subnet, multicast reaches only subscribed group members, and anycast reaches the single nearest of several nodes sharing one address](assets/delivery-modes.svg)
 
@@ -53,8 +53,8 @@ The sender does nothing special; it sends to one address, and the network's ordi
 - [[ip-addressing-and-subnetting|IP Addressing and Subnetting]] - the address ranges reserved for broadcast and multicast
 - [[arp-and-mac-addressing|ARP and MAC Addressing]] - a canonical broadcast protocol, and Ethernet's own multicast bit
 - [[vlans-and-802-1q-trunking|VLANs and 802.1Q Trunking]] - the broadcast domain that bounds a broadcast
-- [[dns-the-domain-name-system|DNS]] - the system anycast makes resilient and fast
-- [[content-delivery-networks-and-the-centralization-of-control|Content Delivery Networks]] - anycast steering users to the nearest edge
+- [[cs/systems/dns-the-domain-name-system|DNS]] - the system anycast makes resilient and fast
+- [[cs/systems/content-delivery-networks-and-the-centralization-of-control|Content Delivery Networks]] - anycast steering users to the nearest edge
 - [[routing-and-longest-prefix-match|Routing and Longest Prefix Match]] - the BGP hop-count decision anycast rides on
 
 ## Sources

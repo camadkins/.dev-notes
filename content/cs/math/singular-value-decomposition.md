@@ -42,7 +42,7 @@ This is the connection to [[eigenvalues-and-eigenvectors|eigenvalues]], and also
 
 The approximation problem is stated plainly: "low-rank approximation refers to the process of approximating a given matrix by a matrix of lower rank. More precisely, it is a minimization problem, in which the cost function measures the fit between a given matrix (the data) and an approximating matrix (the optimization variable), subject to a constraint that the approximating matrix has reduced rank."
 
-The reason this matters beyond storage is modeling: "the rank constraint is related to a constraint on the complexity of a model that fits the data." Rank is a complexity budget.
+The reason this matters beyond storage is modeling: "the rank constraint is related to a constraint on the complexity of a model that fits the data." Rank is a [[cs/machine-learning/bias-variance-tradeoff|complexity budget]].
 
 The solution is the SVD, applied by amputation. "In the case that the approximation is based on minimizing the Frobenius norm of the difference between $\mathbf{M}$ and $\tilde{\mathbf{M}}$ under the constraint that $\operatorname{rank}(\tilde{\mathbf{M}}) = t$, it turns out that the solution is given by the SVD of $\mathbf{M}$," with the truncated $\mathbf{\Sigma}$ being "the same matrix as $\mathbf{\Sigma}$ except that it contains only the $t$ largest singular values (the other singular values are replaced by zero)." Equivalently you keep the first $t$ terms of
 
@@ -59,7 +59,7 @@ The result "is referred to as the matrix approximation lemma or Eckart-Young-Mir
 
 "Mathematical applications of the SVD include computing the pseudoinverse, matrix approximation, and determining the rank, range, and null space of a matrix. The SVD is also extremely useful in many areas of science, engineering, and statistics, such as signal processing, least squares fitting of data, and process control."
 
-The rank, range, and null space entries are worth pausing on, because in floating point those are otherwise ill-posed questions. Counting nonzero singular values gives a numerically meaningful rank in a way that row-reduction does not, since you can threshold small singular values instead of testing exact zeros.
+The rank, range, and null space entries are worth pausing on, because in [[cs/standards/ieee-754-floating-point|floating point]] those are otherwise ill-posed questions. Counting nonzero singular values gives a numerically meaningful rank in a way that row-reduction does not, since you can threshold small singular values instead of testing exact zeros.
 
 The list of relatives explains why the same idea keeps reappearing under different names. Low-rank approximation "is closely related to numerous other techniques, including principal component analysis, factor analysis, total least squares, latent semantic analysis, orthogonal regression, and dynamic mode decomposition." Latent semantic analysis in information retrieval and [[pca-and-dimensionality-reduction|principal component analysis]] in machine learning are, structurally, this one factorization applied to different matrices.
 

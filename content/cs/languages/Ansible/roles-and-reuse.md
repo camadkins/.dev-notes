@@ -70,13 +70,13 @@ With the `roles:` option in play, Ansible executes each play in this order:
 6. Any `post_tasks` defined in the play.
 7. Any handlers triggered by `post_tasks`.
 
-That ordering is the reason `pre_tasks` exists at all. It is the only place guaranteed to run before every role, which is where you pull a device out of a load balancer or open a maintenance window. The docs flag the matching hazard directly: if using tags with tasks in a role, tag your `pre_tasks`, `post_tasks`, and role dependencies too and pass those along, especially if the pre/post tasks and role dependencies are used for monitoring outage window control or load balancing. A tag filter that skips your drain step but keeps your config-push step is a live-traffic outage.
+That ordering is the reason `pre_tasks` exists at all. It is the only place guaranteed to run before every role, which is where you pull a device out of a [[cs/networking/load-balancing-l4-and-l7|load balancer]] or open a maintenance window. The docs flag the matching hazard directly: if using tags with tasks in a role, tag your `pre_tasks`, `post_tasks`, and role dependencies too and pass those along, especially if the pre/post tasks and role dependencies are used for monitoring outage window control or load balancing. A tag filter that skips your drain step but keeps your config-push step is a live-traffic outage.
 
 ## Dependencies and duplicate runs
 
 Role dependencies let you automatically pull in other roles when using a role, and they are stored in `meta/main.yml`. The docs are careful about what they are: role dependencies are prerequisites, not true dependencies, and the roles do not have a parent/child relationship. Ansible loads all listed roles, runs the ones listed under `dependencies` first, then runs the role that lists them, with the play object as the parent of all roles including those called by a dependencies list.
 
-Resolution is recursive with the `roles` keyword. If `foo` lists `bar` as a dependency and `bar` lists `baz`, Ansible executes `baz`, then `bar`, then `foo`. Depth-first post-order, the same walk a build system uses on its [[cs/languages/common/build-systems-and-dependency-management|dependency graph]].
+Resolution is recursive with the `roles` keyword. If `foo` lists `bar` as a dependency and `bar` lists `baz`, Ansible executes `baz`, then `bar`, then `foo`. [[cs/dsa/topological-sorting|Depth-first post-order]], the same walk a build system uses on its [[cs/languages/common/build-systems-and-dependency-management|dependency graph]].
 
 Deduplication applies to dependencies exactly as it does to direct listings: if two roles both list a third as a dependency, Ansible runs that dependency once, unless you pass different parameters, tags, or `when` clause, or use `allow_duplicates: true` in the role you want to run multiple times. Two escape hatches exist for deliberate repetition:
 

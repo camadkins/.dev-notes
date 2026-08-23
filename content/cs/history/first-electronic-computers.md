@@ -21,7 +21,7 @@ The 1940s produced the first computers built from electronics rather than gears 
 
 ## Electronic, but not yet stored-program
 
-Colossus, built by British codebreakers at Bletchley Park between 1943 and 1945, is regarded as the world's first programmable electronic digital computer. It was built to break the German Lorenz cipher, not Enigma, which was the job of the earlier electromechanical Bombe. Across the Atlantic, [[ballistics-tables-and-eniac|ENIAC]] (1945) was general-purpose but was programmed by plugboard wiring and switches. Both machines were electronic, and neither yet held its program in memory.
+Colossus, [[cs/military-computing/cryptography-codebreaking-and-the-nsa|built by British codebreakers at Bletchley Park]] between 1943 and 1945, is regarded as the world's first programmable electronic digital computer. It was built to break the German Lorenz cipher, not [[cs/military-computing/sigaba-cipher-machine|Enigma]], which was the job of the earlier electromechanical Bombe. Across the Atlantic, [[ballistics-tables-and-eniac|ENIAC]] (1945) was general-purpose but was programmed by plugboard wiring and switches. Both machines were electronic, and neither yet held its program in memory.
 
 ## The stored-program leap
 

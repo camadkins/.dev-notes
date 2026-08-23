@@ -23,7 +23,7 @@ aliases:
 
 Roughly 99% of intercontinental data traffic crosses the ocean floor through submarine fiber-optic cables, not satellites. These are the load-bearing wires of the global internet, and they carry not only web traffic but military transmissions and financial settlements. A modern cable is a slim armored bundle of optical fibers with repeaters spaced along its length to keep the light strong over thousands of kilometers.
 
-What matters structurally is where the cable touches land. Each end terminates at a cable landing station, a building near the coast that houses the submarine line terminal equipment converting the optical signal into the terrestrial network. Landing stations are scarce and known. A country may have only one or two, which makes them both a single point of failure and a single point of control: damage the station and the cable behind it goes dark, and whoever holds the station holds the traffic. This is one half of why the [[history-of-the-internet|history of the internet]] is also a history of physical geography, the descendant of the same telegraph cables laid across the Atlantic in the nineteenth century.
+What matters structurally is where the cable touches land. Each end terminates at a cable landing station, a building near the coast that houses the submarine line terminal equipment converting the optical signal into the terrestrial network. Landing stations are scarce and known. A country may have only one or two, which makes them both a single point of failure and a single point of control: damage the station and the cable behind it goes dark, and whoever holds the station holds the traffic. This is one half of why the [[cs/history/history-of-the-internet|history of the internet]] is also a history of physical geography, the descendant of the same telegraph cables laid across the Atlantic in the nineteenth century.
 
 ## Where networks meet: IXPs and peering
 
@@ -35,13 +35,13 @@ The economics are the point. Without an IXP, two networks in the same city might
 
 The same pattern, logical control mapped onto distributed physical hardware, governs how names become addresses. Every recursive [[dns-the-domain-name-system|DNS]] resolution can begin at the root of the name hierarchy, and the root is served by thirteen logical root servers, named `a` through `m`. That number is not arbitrary: it was fixed by the practical size of an early DNS response that had to fit in a single unfragmented UDP packet.
 
-Thirteen logical servers would be a dangerous concentration if it meant thirteen machines. It does not. Through a routing technique called anycast, each logical root server is announced from many physical instances scattered across the world (well over a thousand in total), and the network simply delivers your query to the nearest one. You ask `k.root-servers.net` and get an answer from a box that might be at an exchange point down the road, without ever learning which one. Anycast turns a tiny, centralized-looking namespace into a geographically resilient one, and it is also a quiet instrument of cyber-sovereignty: a country that hosts root server instances inside its own borders keeps name resolution working even if its external links are degraded, which is why root-instance distribution is a live concern in [[cyber-sovereignty|cyber sovereignty]].
+Thirteen logical servers would be a dangerous concentration if it meant thirteen machines. It does not. Through a routing technique called anycast, each logical root server is announced from many physical instances scattered across the world (well over a thousand in total), and the network simply delivers your query to the nearest one. You ask `k.root-servers.net` and get an answer from a box that might be at an exchange point down the road, without ever learning which one. Anycast turns a tiny, centralized-looking namespace into a geographically resilient one, and it is also a quiet instrument of cyber-sovereignty: a country that hosts root server instances inside its own borders keeps name resolution working even if its external links are degraded, which is why root-instance distribution is a live concern in [[cs/geopolitics/cyber-sovereignty|cyber sovereignty]].
 
 ## Chokepoints, surveillance, and sabotage
 
 Concentration buys efficiency and pays for it in exposure. The same scarcity that makes landing stations and IXPs economically sensible makes them targets. Because nearly all transoceanic traffic funnels through a small number of cables and stations, the physical layer is the natural place to either listen or break.
 
-Surveillance lives here. Upstream collection taps the cable or its terminal equipment directly, copying traffic in bulk before it ever reaches an application, which is why so much of the [[surveillance-and-privacy|surveillance and privacy]] debate is really about who controls the wire. Submarine cables can be tapped by specialized submarines and unmanned underwater vehicles, and intelligence services have historically targeted landing stations and the network management systems behind them. Sabotage lives here too: an anchor dragged across a cable, or a strike on a landing station, can sever a region's connectivity, and the open ocean is hard to police. End-to-end encryption blunts the listening (you cannot read what you cannot decrypt), but it does nothing against the cutting. The substrate remains finite, mappable, and reachable, which is the whole reason the cloud has a body worth defending.
+Surveillance lives here. Upstream collection taps the cable or its terminal equipment directly, copying traffic in bulk before it ever reaches an application, which is why so much of the [[cs/geopolitics/surveillance-and-privacy|surveillance and privacy]] debate is really about who controls the wire. Submarine cables can be tapped by specialized submarines and unmanned underwater vehicles, and intelligence services have historically targeted landing stations and the network management systems behind them. Sabotage lives here too: an anchor dragged across a cable, or a strike on a landing station, can sever a region's connectivity, and the open ocean is hard to police. End-to-end encryption blunts the listening (you cannot read what you cannot decrypt), but it does nothing against the cutting. The substrate remains finite, mappable, and reachable, which is the whole reason the cloud has a body worth defending.
 
 > [!example] A packet crossing an ocean
 > 1. Your browser resolves a hostname; the lookup may walk up to a [[dns-the-domain-name-system|root server]] instance reached by anycast, likely a box at a nearby exchange point.
@@ -53,12 +53,12 @@ Surveillance lives here. Upstream collection taps the cable or its terminal equi
 
 ## Related Notes
 
-- [[history-of-the-internet|History of the Internet]] - how today's cable map descends from nineteenth-century telegraph lines across the same oceans
+- [[cs/history/history-of-the-internet|History of the Internet]] - how today's cable map descends from nineteenth-century telegraph lines across the same oceans
 - [[network-protocols|Network Protocols]] - the logical routing layer whose choices are constrained by where networks physically peer
 - [[dns-the-domain-name-system|DNS]] - the name system that bootstraps from the thirteen root servers described here
-- [[cyber-sovereignty|Cyber Sovereignty]] - why states care about hosting root-server instances and controlling landing stations
-- [[surveillance-and-privacy|Surveillance & Privacy]] - upstream cable tapping as the physical-layer face of mass surveillance
-- [[sosus-undersea-signal-processing|SOSUS]] - the precedent for treating the seabed as an instrumented, listenable space
+- [[cs/geopolitics/cyber-sovereignty|Cyber Sovereignty]] - why states care about hosting root-server instances and controlling landing stations
+- [[cs/geopolitics/surveillance-and-privacy|Surveillance & Privacy]] - upstream cable tapping as the physical-layer face of mass surveillance
+- [[cs/military-computing/sosus-undersea-signal-processing|SOSUS]] - the precedent for treating the seabed as an instrumented, listenable space
 
 ## Sources
 

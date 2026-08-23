@@ -182,7 +182,7 @@ When we include mutable state (σ):
 ---
 
 ## Multi-Step Evaluation
-We define the **reflexive transitive closure** of →:
+We define the **[[cs/math/relations-and-equivalence|reflexive transitive closure]]** of →:
 ```
 
 t →* t'
@@ -247,7 +247,7 @@ E-Mul
 ## Extensions and Practical Relevance
 Operational semantics underlies:
 - **Interpreter design** (one inference rule = one case in eval function).
-- **Proof of compiler correctness.**
+- **Proof of [[cs/math/proof-techniques|compiler correctness]].**
 - **Program equivalence reasoning.**
 - **Formal verification tools** (Coq, Isabelle, K).
 

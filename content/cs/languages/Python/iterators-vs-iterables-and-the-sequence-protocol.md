@@ -24,9 +24,9 @@ The [[cs/languages/Python/generators-and-iterators|generators note]] covers what
 
 One method needs to be defined for container objects to provide iterable support. `container.__iter__()` returns an iterator object, and the object is required to support the iterator protocol. That is the whole obligation.
 
-The documentation adds a design note worth carrying: if a container supports different types of iteration, additional methods can be provided to specifically request iterators for those iteration types, with the given example being a tree structure which supports both breadth-first and depth-first traversal. `__iter__` gives you the default traversal; named methods give you the alternatives. At the C level this method corresponds to the `tp_iter` slot of the type structure.
+The documentation adds a design note worth carrying: if a container supports different types of iteration, additional methods can be provided to specifically request iterators for those iteration types, with the given example being a tree structure which supports both [[cs/dsa/graph-traversals-bfs-dfs|breadth-first and depth-first traversal]]. `__iter__` gives you the default traversal; named methods give you the alternatives. At the C level this method corresponds to the `tp_iter` slot of the type structure.
 
-For a container that is a mapping, the datamodel is specific about what should come out. `__iter__()` should return a new iterator object that can iterate over all the objects in the container, and for mappings, it should iterate over the keys of the container.
+For a container that is a [[cs/dsa/maps-and-hashtable|mapping]], the datamodel is specific about what should come out. `__iter__()` should return a new iterator object that can iterate over all the objects in the container, and for mappings, it should iterate over the keys of the container.
 
 ## Two methods to be an iterator
 
@@ -46,7 +46,7 @@ Generators are the shortcut. Python's generators provide a convenient way to imp
 
 `iter()`'s documented contract names both routes explicitly. Without a second argument, the single argument must be a collection object which supports the iterable protocol (the `__iter__()` method), or it must support the sequence protocol (the `__getitem__()` method with integer arguments starting at 0). If it does not support either of those protocols, `TypeError` is raised.
 
-So a class with nothing but `__getitem__` is iterable. The mechanism that terminates such a loop is an exception rather than a sentinel: the sequence iteration protocol, used for example in `for` loops, expects that an `IndexError` will be raised for illegal indexes to allow proper detection of the end of a sequence. A `__getitem__` that returns something for every integer forever produces an infinite loop; one that raises `KeyError` instead of `IndexError` produces an error rather than a clean stop.
+So a class with nothing but `__getitem__` is iterable. The mechanism that terminates such a loop is [[cs/pl/exceptions-handlers-and-non-local-control|an exception rather than a sentinel]]: the sequence iteration protocol, used for example in `for` loops, expects that an `IndexError` will be raised for illegal indexes to allow proper detection of the end of a sequence. A `__getitem__` that returns something for every integer forever produces an infinite loop; one that raises `KeyError` instead of `IndexError` produces an error rather than a clean stop.
 
 The datamodel calls this route by its age when describing membership testing. For objects that do not define `__contains__()`, the membership test first tries iteration via `__iter__()`, then the old sequence iteration protocol via `__getitem__()`. That ordering, `__contains__` then `__iter__` then `__getitem__`, is the actual resolution order for `in`, and it is the clearest place the three-way structure of Python's iteration support is visible in one sentence.
 

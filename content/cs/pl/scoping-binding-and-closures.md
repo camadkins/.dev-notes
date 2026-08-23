@@ -109,7 +109,7 @@ let x = 5 in
 
 ## Closures: Capturing the Environment
 
-A **closure** is a pair ⟨function, environment⟩: it remembers the bindings present when it was created.
+A **[[cs/languages/Rust/closures-fn-fnmut-fnonce|closure]]** is a pair ⟨function, environment⟩: it remembers the bindings present when it was created.
 
 Example:
 
@@ -142,7 +142,7 @@ At creation time:
 
 Closures can either:
 
-- **Capture values** (immutable model, e.g., purely functional languages), or
+- **[[cs/languages/Cpp/lambdas-and-captures|Capture values]]** (immutable model, e.g., purely functional languages), or
     
 - **Capture locations** (mutable model, e.g., ML, JavaScript).
     

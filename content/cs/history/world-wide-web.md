@@ -20,7 +20,7 @@ The internet moves packets between machines. The World Wide Web is something bui
 
 ## Invented at CERN
 
-Berners-Lee, an English computer scientist working at CERN, submitted his proposal in May 1989 and had a working system by the end of 1990. He defined the first version of the HTTP protocol, the basic URL syntax, and made HTML the primary document format. Those three pieces are still the foundation of every web page.
+Berners-Lee, an English computer scientist working at CERN, submitted his proposal in May 1989 and had a working system by the end of 1990. He defined [[cs/networking/http-evolution-1-1-to-3|the first version of the HTTP protocol]], [[cs/systems/dns-the-domain-name-system|the basic URL syntax]], and made HTML the primary document format. Those three pieces are still the foundation of every web page.
 
 ## The Web is not the internet
 

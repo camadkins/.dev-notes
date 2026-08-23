@@ -26,9 +26,9 @@ cppreference's statement is short: if a class requires a user-defined destructor
 
 The argument for it is about what the compiler will do in your absence. Because C++ copies and copy-assigns objects of user-defined types in various situations, such as passing and returning by value and manipulating a container, these special member functions will be called if accessible, and if they are not user-defined they are implicitly defined by the compiler.
 
-The specific case where the implicit versions are wrong: cppreference says they should not be used if the class manages a resource whose handle is an object of non-class type, such as a raw pointer or a POSIX file descriptor, whose destructor does nothing and whose copy constructor and assignment operator perform a shallow copy, meaning they copy the value of the handle without duplicating the underlying resource.
+The specific case where the implicit versions are wrong: cppreference says they should not be used if the class manages a resource whose handle is an object of non-class type, such as a raw pointer or a [[cs/systems/system-calls-and-the-kernel-boundary|POSIX file descriptor]], whose destructor does nothing and whose copy constructor and assignment operator perform a shallow copy, meaning they copy the value of the handle without duplicating the underlying resource.
 
-That is the whole bug in one sentence. Two objects holding the same `char*`, each with a destructor that runs `delete[]`, is a double free. Needing a destructor is the signal that the handle is not self-managing, and a non-self-managing handle needs the copy operations written too.
+That is the whole bug in one sentence. Two objects holding the same `char*`, each with a destructor that runs `delete[]`, is a [[cs/security/use-after-free-and-heap-exploitation|double free]]. Needing a destructor is the signal that the handle is not self-managing, and a non-self-managing handle needs the copy operations written too.
 
 cppreference's `rule_of_three` class is the minimal demonstration: a private `char* cstring`, a constructor that does `cstring = new char[std::strlen(s) + 1];` then `std::strcpy(cstring, s);`, a destructor doing `delete[] cstring;`, a copy constructor delegating to the string constructor with `other.cstring`, and a copy assignment implemented through copy-and-swap. The example's `main` builds `o1{"abc"}`, copy-constructs `o2{o1}`, builds `o3("def")`, then copy-assigns `o3 = o2`, printing `abc abc def abc`.
 
@@ -48,7 +48,7 @@ The `rule_of_five` class shows what the two extra members look like when written
 
 ## Rule of zero
 
-The target is to write none of them. cppreference states the rule as a division of labor: classes that have custom destructors, copy/move constructors, or copy/move assignment operators should deal exclusively with ownership, which follows from the Single Responsibility Principle, and other classes should not have custom destructors, copy/move constructors, or copy/move assignment operators.
+The target is to write none of them. cppreference states the rule as a division of labor: classes that have custom destructors, copy/move constructors, or copy/move assignment operators should deal exclusively with ownership, which follows from the [[cs/software-engineering/solid-principles|Single Responsibility Principle]], and other classes should not have custom destructors, copy/move constructors, or copy/move assignment operators.
 
 The example is the shortest class on the page. `rule_of_zero` holds a `std::string cppstring;` and a constructor taking a `const std::string&`. No destructor, no copy operations, no move operations, and every one of them is correct, because the member already has correct ones and the compiler-generated versions do the right thing member by member.
 

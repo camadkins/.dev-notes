@@ -16,7 +16,7 @@ aliases:
 
 ## Accumulation, Not Area
 
-Area is the picture, accumulation is the idea. An integral "is the continuous analog of a sum, and is used to calculate areas, volumes, and their generalizations." Anywhere a quantity builds up continuously rather than in discrete ticks, an integral is the running total: total distance from a velocity curve, total energy from a power curve, total probability mass from a density. Integration "is one of the two fundamental operations of calculus, along with differentiation," and the two turn out to be the same operation read backwards.
+Area is the picture, accumulation is the idea. An integral "is the continuous analog of a sum, and is used to calculate areas, volumes, and their generalizations." Anywhere a quantity builds up continuously rather than in discrete ticks, an integral is the running total: total distance from a velocity curve, total energy from a power curve, [[cs/statistics/probability-distributions|total probability mass]] from a density. Integration "is one of the two fundamental operations of calculus, along with differentiation," and the two turn out to be the same operation read backwards.
 
 The concrete version is the definite integral, which "computes the signed area of the region in the plane that is bounded by the graph of a given function between two points in the real line." Signed matters: "areas above the horizontal axis of the plane are positive while areas below are negative," so a velocity that goes negative subtracts from the accumulated displacement rather than adding to it.
 
@@ -55,7 +55,7 @@ The proviso in that sentence, "provided an antiderivative can be found," is wher
 
 **Numerical integration** gives up on the antiderivative and approximates the sum directly. "The rectangle method relies on dividing the region under the function into a series of rectangles corresponding to function values and multiplies by the step width to find the sum. A better approach, the trapezoidal rule, replaces the rectangles used in a Riemann sum with trapezoids." Push the idea further and you get Simpson's rule, which "approximates the integrand by a piecewise quadratic function." These are not ad hoc tricks but one family: "Riemann sums, the trapezoidal rule, and Simpson's rule are examples of a family of quadrature rules called the Newton-Cotes formulas."
 
-Dimension breaks the whole family. "The computation of higher-dimensional integrals (for example, volume calculations) makes important use of such alternatives as Monte Carlo integration," which is why high-dimensional expectations in graphics, physics simulation, and machine learning get sampled rather than gridded.
+Dimension breaks the whole family. "The computation of higher-dimensional integrals (for example, volume calculations) makes important use of such alternatives as Monte Carlo integration," which is why [[cs/statistics/expected-value|high-dimensional expectations]] in graphics, physics simulation, and machine learning [[cs/military-computing/monte-carlo-method-and-the-bomb|get sampled]] rather than gridded.
 
 > [!example]
 > Take $f(x) = x^2$ on $[0, 3]$. An antiderivative is $F(x) = x^3/3$, so the second part of the theorem gives $\int_0^3 x^2 dx = F(3) - F(0) = 9 - 0 = 9$. Exact, two evaluations, no loop.

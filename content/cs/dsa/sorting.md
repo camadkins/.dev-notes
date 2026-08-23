@@ -14,7 +14,7 @@ aliases: []
 
 ## Overview
 
-Sorting organizes elements into a **total order** according to a comparator or natural key. Two major families dominate: **comparison-based** algorithms (operate via `<`/`>` decisions; lower bound `Ω(n log n)` in the worst case) and **counting-based** algorithms (exploit **key structure** such as bounded integer ranges or fixed-width digits to achieve near-linear time). Choosing the right algorithm depends on **data size**, **key properties**, **stability** needs, and **memory budget**.
+Sorting organizes elements into a **[[cs/math/relations-and-equivalence|total order]]** according to a comparator or natural key. Two major families dominate: **comparison-based** algorithms (operate via `<`/`>` decisions; lower bound `Ω(n log n)` in the worst case) and **counting-based** algorithms (exploit **key structure** such as bounded integer ranges or fixed-width digits to achieve near-linear time). Choosing the right algorithm depends on **data size**, **key properties**, **stability** needs, and **memory budget**.
 
 > [!note]
 > **Stability** preserves the relative order of equal keys. It matters when elements are **records** with secondary fields (e.g., sort by `lastName`, then a stable sort by `firstName` preserves last-name groups).
@@ -138,9 +138,9 @@ Stability affects:
 
 ### External and parallel sorting
 
-- **External merge sort**: when data doesn't fit in RAM, sort chunks in memory, spill to disk, then multiway-merge.
+- **External merge sort**: when data doesn't fit in RAM, sort chunks in memory, [[cs/history/magnetic-disk-storage|spill to disk]], then multiway-merge.
 
-- **Parallel sorting**: parallel quicksort/merge; radix adapts well with parallel prefix sums. Consider **work vs span** and cache locality.
+- **Parallel sorting**: parallel quicksort/merge; radix adapts well with parallel prefix sums. Consider **work vs span** and [[cs/systems/memory-hierarchy-and-caching|cache locality]].
 
 ### Partial sorts and top-k
 

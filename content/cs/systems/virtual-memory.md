@@ -13,7 +13,7 @@ aliases: []
 
 ## The Big Idea
 
-Every process thinks it owns a huge, private, contiguous chunk of memory starting at address zero. None of that is true. Physical RAM is shared, fragmented, and often smaller than what all running programs collectively need. Virtual memory is the OS + hardware conspiracy that maintains this illusion, and once you understand it, a lot of other systems concepts (process isolation, `fork`, `mmap`, why your program got OOM-killed) suddenly click.
+Every process thinks it owns a huge, private, contiguous chunk of memory starting at address zero. None of that is true. Physical RAM is shared, fragmented, and often smaller than what all running programs collectively need. Virtual memory is the OS + hardware conspiracy that maintains this illusion, and once you understand it, a lot of other systems concepts ([[cs/security/sandboxing-and-isolation|process isolation]], `fork`, `mmap`, why your program got OOM-killed) suddenly click.
 
 > [!note]
 > Virtual memory does three things at once: **translation** (virtual addresses to physical), **isolation** (processes can't touch each other's memory), and **overcommit** (you can allocate more memory than physically exists, and the OS pages things in and out as needed).
@@ -33,7 +33,7 @@ Virtual address:  [ VPN (high bits) | Offset (low 12 bits) ]
 Physical address: [ PFN           | Offset (same 12 bits) ]
 ```
 
-The offset stays the same on both sides. Only the page/frame number gets translated. This is clean and simple, but a flat page table for 48-bit addresses would be enormous, which is why real systems use multi-level page tables.
+The offset stays the same on both sides. Only the page/frame number gets translated. This is clean and simple, but a flat page table for 48-bit addresses would be enormous, which is why real systems use [[cs/dsa/tries|multi-level page tables]].
 
 ---
 
@@ -89,7 +89,7 @@ After `fork`, parent and child share the same physical pages, all marked read-on
 
 ## Huge Pages
 
-Standard 4 KB pages with a 1 GB working set require 262,144 TLB entries. **Huge pages** (2 MB or 1 GB on x86-64) reduce TLB pressure by covering more memory per entry, at the cost of higher internal fragmentation. Linux exposes them via `mmap` with `MAP_HUGETLB` or transparently via THP (Transparent Huge Pages).
+Standard 4 KB pages with a 1 GB working set require 262,144 TLB entries. **Huge pages** (2 MB or 1 GB on x86-64) reduce TLB pressure by covering more memory per entry, at the cost of higher [[cs/dsa/memory-allocation|internal fragmentation]]. Linux exposes them via `mmap` with `MAP_HUGETLB` or transparently via THP (Transparent Huge Pages).
 
 > [!tip]
 > Databases and JVMs often benefit significantly from huge pages because they have large, long-lived working sets. If you see TLB miss rates dominating your performance profile, huge pages are worth trying.

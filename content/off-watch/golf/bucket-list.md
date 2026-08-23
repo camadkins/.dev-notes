@@ -18,7 +18,7 @@ aliases:
 
 The plan is simple. Play one course worth remembering in every state, then start on the rest of the world. This page is two things at once: the wishlist of where I still want to play, and the index of the rounds I have already written up.
 
-Here is how it works. A course sits here as plain text while it is only a wish, so there is nothing to click. The day I play it, that line becomes a link to its review and the round earns a full write-up from the [[off-watch/golf/courses/_template|course template]]. The page fills in as I go, and a clickable name means I have been there. USA first. The world comes after the map starts filling in.
+Here is how it works. [[meta/note-types|A course sits here as plain text while it is only a wish]], so there is nothing to click. The day I play it, that line becomes a link to its review and [[meta/writing-standard|the round earns a full write-up]] from the [[off-watch/golf/courses/_template|course template]]. The page fills in as I go, and a clickable name means I have been there. USA first. The world comes after the map starts filling in.
 
 ### How to read this
 

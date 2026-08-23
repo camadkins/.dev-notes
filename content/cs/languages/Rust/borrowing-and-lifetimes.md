@@ -33,7 +33,7 @@ The asymmetry has a plain justification. Multiple readers are fine because no on
 
 ## What the rule buys, part one: data races
 
-The compile-time payoff is stated directly. The restriction preventing multiple mutable references to the same data at the same time allows mutation in a very controlled fashion, and the benefit is that Rust can prevent data races at compile time.
+The compile-time payoff is stated directly. The restriction preventing multiple mutable references to the same data at the same time allows mutation in a very controlled fashion, and the benefit is that Rust can prevent [[cs/security/race-conditions-and-toctou|data races]] at compile time.
 
 The Book gives the standard three-part definition of a data race: two or more pointers access the same data at the same time, at least one of the pointers is being used to write, and there is no mechanism synchronizing access. Data races cause undefined behavior and are hard to diagnose at runtime, and Rust's response is to refuse to compile code containing them. Notice that the aliasing rule negates the first two conditions simultaneously, which is why one rule covers the whole class. The practical consequences across languages are compared in [[cs/languages/common/concurrency-in-practice|Concurrency in Practice]].
 
@@ -47,13 +47,13 @@ The Nomicon lists what alias analysis unlocks in general: keeping values in regi
 
 ## Borrows end at last use, not at the closing brace
 
-An early frustration with the rules dissolves once you know the scope rule. A reference's scope starts where it is introduced and continues through the last time that reference is used. So two shared borrows printed and then never touched again do not conflict with a `&mut` created on the following line: the scopes do not overlap, and the compiler can tell that a reference is no longer being used at a point before the end of the lexical scope.
+An early frustration with the rules dissolves once you know the scope rule. A reference's scope starts where it is introduced and continues through the last time that reference is used. So two shared borrows printed and then never touched again do not conflict with a `&mut` created on the following line: the scopes do not overlap, and the compiler can tell that a reference is no longer being used at a point before the end of the [[cs/pl/scoping-binding-and-closures|lexical scope]].
 
 This is why refactoring a borrow error is often just moving the last use of a reference earlier, rather than introducing a new block.
 
 ## Lifetimes exist to kill dangling references
 
-The compiler guarantees references will never be dangling: if you have a reference to some data, the compiler ensures the data will not go out of scope before the reference to it does. The component that does this is the borrow checker, which compares scopes to determine whether all borrows are valid.
+The compiler guarantees references will never be dangling: if you have a reference to some data, the compiler ensures the data will not go out of scope before the reference to it does. The component that does this is [[cs/languages/Rust/the-borrow-checker-nll-and-polonius|the borrow checker]], which compares scopes to determine whether all borrows are valid.
 
 Inside a single function the checker can see both scopes and decide directly. Across a function boundary it cannot, and that is where annotations become necessary. Return a reference to a local and you get `error[E0106]: missing lifetime specifier`, with the diagnostic naming the real problem: this function's return type contains a borrowed value, but there is no value for it to be borrowed from.
 

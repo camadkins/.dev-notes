@@ -22,9 +22,9 @@ aliases:
 
 ## The strong end
 
-**Strict consistency** is the strongest and the least achievable. A write by any processor must be seen instantaneously by every other, as if a global clock stamped each operation and the next operation could not begin until the write landed in all caches. It is the programmer's naive mental model and physically impossible across a real network, since instantaneous means faster than the speed of light.
+**Strict consistency** is the strongest and the least achievable. A write by any processor must be seen instantaneously by every other, as if [[cs/military-computing/gps-and-distributed-time|a global clock]] stamped each operation and the next operation could not begin until the write landed in all caches. It is the programmer's naive mental model and physically impossible across a real network, since instantaneous means faster than the speed of light.
 
-**Sequential consistency**, proposed by Lamport in 1979, weakens that. A write need not be seen instantaneously, but all processors must see writes in the *same* single order, and each processor's own operations appear in that order in the sequence its program specified. Lamport's own phrasing: the result of any execution is the same as if the operations of all processes were executed in some sequential order, with each process's operations in program order.
+**[[cs/languages/Cpp/the-cpp-memory-model-and-atomics|Sequential consistency]]**, proposed by Lamport in 1979, weakens that. A write need not be seen instantaneously, but all processors must see writes in the *same* single order, and each processor's own operations appear in that order in the sequence its program specified. Lamport's own phrasing: the result of any execution is the same as if the operations of all processes were executed in some sequential order, with each process's operations in program order.
 
 **Linearizability**, also called atomic consistency, is sequential consistency plus a real-time constraint. Give every operation a begin time and an end time; an execution is linearizable if each operation appears to take effect at a single instant between its begin and end, and the resulting order still satisfies sequential consistency. This is the model the CAP "C" refers to, and the one a single-leader [[distributed-consensus|consensus]] system provides.
 

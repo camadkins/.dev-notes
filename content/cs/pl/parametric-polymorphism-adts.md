@@ -23,7 +23,7 @@ Together, they allow a language to encode rich relationships between data and op
 ---
 
 ## Parametric Polymorphism
-Parametric polymorphism means that **functions and types can be written generically**, operating uniformly across all type instances.
+Parametric polymorphism means that **functions and types can be [[cs/languages/common/generics-monomorphization-vs-erasure|written generically]]**, operating uniformly across all type instances.
 
 ### Example
 In ML or Haskell notation:
@@ -201,7 +201,7 @@ val x = Some 42
 val y = None
 ```
 
-Without unsafe reflection, code cannot observe hidden representation details.
+Without [[cs/languages/common/runtime-type-information|unsafe reflection]], code cannot observe hidden representation details.
 
 ### Benefits
 
@@ -244,7 +244,7 @@ Recursive ADTs encode **inductive structures** like lists and trees:
 datatype 'a list = Nil | Cons of 'a * 'a list
 ```
 
-Their structure matches **inductive reasoning**: recursion in code corresponds to induction in proofs.
+Their structure matches **inductive reasoning**: recursion in code corresponds to [[cs/math/mathematical-induction|induction in proofs]].
 
 ---
 

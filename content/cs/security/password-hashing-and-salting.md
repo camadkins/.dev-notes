@@ -31,11 +31,11 @@ Slowness is the other axis. "Fast hashing algorithms such as SHA-256 are not sui
 
 ## Cost you can turn up over time
 
-The clever part of the design is that the cost is a parameter, not a constant. Bcrypt was built around exactly this: its authors "present two algorithms with adaptable cost" and argue that "failing a major breakthrough in complexity theory, these algorithms should allow password-based systems to adapt to hardware improvements and remain secure well into the future." Set a work factor today, raise it as hardware gets faster, and the defense keeps pace without changing the algorithm.
+The clever part of the design is that the cost is a parameter, not a constant. Bcrypt was built around exactly this: its authors "present two algorithms with adaptable cost" and argue that "failing a major breakthrough in [[cs/dsa/time-complexity-analysis|complexity theory]], these algorithms should allow password-based systems to adapt to [[cs/history/moores-law|hardware improvements]] and remain secure well into the future." Set a work factor today, raise it as hardware gets faster, and the defense keeps pace without changing the algorithm.
 
 ## Memory-hardness, aimed at the GPU
 
-The modern refinement targets the specific hardware attackers use. GPUs and ASICs parallelize a cheap hash cheaply; they choke on functions that demand a lot of memory. Argon2, the Password Hashing Competition winner, is described in RFC 9106 as "a memory-hard function" that "aims at the highest memory-filling rate and effective use of multiple computing units, while still providing defense against trade-off attacks." Forcing each guess to fill real memory removes the attacker's parallelism advantage, which pure CPU-cost functions do not fully do.
+The modern refinement targets the specific hardware attackers use. GPUs and ASICs parallelize a cheap hash cheaply; they choke on functions that demand a lot of memory. Argon2, the Password Hashing Competition winner, is described in [[cs/standards/what-a-standard-actually-is|RFC 9106]] as "a memory-hard function" that "aims at the highest memory-filling rate and effective use of multiple computing units, while still providing defense against trade-off attacks." Forcing each guess to fill real memory removes the attacker's parallelism advantage, which pure CPU-cost functions do not fully do.
 
 > [!tip] What good storage looks like today
 > OWASP's current guidance is concrete: "use Argon2id with a minimum configuration of 19 MiB of memory, an iteration count of 2, and 1 degree of parallelism," or scrypt or bcrypt if Argon2 is unavailable. The named function matters less than the two invariants: a unique salt per password, and a tunable, memory-hard cost.

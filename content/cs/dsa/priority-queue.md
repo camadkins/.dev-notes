@@ -204,7 +204,7 @@ PQ retrieval is typically **not stable**. To get stability:
 
 ### Memory Layout & Cache
 
-- Use a **contiguous vector/array** for heaps to maximize cache locality.
+- Use a **contiguous vector/array** for heaps to maximize [[cs/systems/memory-hierarchy-and-caching|cache locality]].
 
 - Favor **0-based indexing** (matches typical language arrays and simple arithmetic).
 
@@ -232,14 +232,14 @@ PQ retrieval is typically **not stable**. To get stability:
 
 ### Concurrency
 
-- Simple locks around heap ops serialize access; for high throughput, consider **work-stealing** or **sharded PQs** with occasional global combine steps.
+- [[cs/systems/concurrency-primitives|Simple locks]] around heap ops serialize access; for high throughput, consider **work-stealing** or **sharded PQs** with occasional global combine steps.
 
 
 ## Practical Use Cases
 
 - **Graph algorithms**: [[dijkstras-algorithm|Dijkstra's Algorithm]] (needs `DECREASE_KEY` or lazy), [[prims-algorithm|Prim's Algorithm]] (keys = cheapest frontier edges), A* (priority = `g+h`).
 
-- **Scheduling**: CPU run queues, event-driven simulators, job schedulers (priority/time).
+- **[[cs/systems/process-scheduling-algorithms|Scheduling]]**: CPU run queues, event-driven simulators, job schedulers (priority/time).
 
 - **Streaming/selection**: maintain top-k (max-heap of size k), order statistics approximations.
 

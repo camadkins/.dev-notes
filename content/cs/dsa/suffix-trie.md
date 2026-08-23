@@ -146,7 +146,7 @@ Let `n = |S|` and `m = |P|`.
 
 ## Implementation Details or Trade-offs
 
-- **Alphabet & encoding:** Choose UTF-8/16-aware iteration if `S` is Unicode. It’s usually best to index by **code points** (or even grapheme clusters for UI), not raw bytes. See [[strings|Strings]].
+- **Alphabet & encoding:** Choose [[cs/languages/common/text-encoding-and-unicode|UTF-8/16-aware]] iteration if `S` is Unicode. It’s usually best to index by **code points** (or even grapheme clusters for UI), not raw bytes. See [[strings|Strings]].
     
 - **End marker:** Ensure `$` (or chosen sentinel) is **not** in the alphabet; otherwise, escape or reserve a unique code point.
     
@@ -199,7 +199,7 @@ Let `n = |S|` and `m = |P|`.
 
 ## Summary
 
-A suffix trie indexes **all suffixes** of `S`, making **substring queries** conceptually trivial: match the pattern as a path from the root. Its simplicity brings clear query-time benefits (`Θ(m)`), but the **space cost is quadratic** in the worst case, and constant factors are high. As a result, suffix tries are best seen as a **teaching** or **small-scale** structure that motivates efficient suffix **trees** (path-compressed) and suffix **arrays** (compact, cache-friendly). When you need scalability, compress; when you need clarity, the suffix trie is a good starting point.
+A suffix trie indexes **all suffixes** of `S`, making **substring queries** conceptually trivial: match the pattern as a path from the root. Its simplicity brings clear query-time benefits (`Θ(m)`), but the **space cost is quadratic** in the worst case, and constant factors are high. As a result, suffix tries are best seen as a **teaching** or **small-scale** structure that motivates efficient suffix **trees** (path-compressed) and suffix **arrays** (compact, [[cs/systems/memory-hierarchy-and-caching|cache-friendly]]). When you need scalability, compress; when you need clarity, the suffix trie is a good starting point.
 
 ## Related Notes
 

@@ -69,7 +69,7 @@ Hygienic macros are macros whose expansion is guaranteed not to cause the accide
 
 The capture problem is not limited to local variables. It extends to any identifier a macro's expansion mentions, including standard library functions the invocation site may have redefined.
 
-Scheme's answer is `syntax-rules`, a pattern-based system in which the syntactic environments of the macro definition and the macro use are kept distinct, so neither the definer nor the user has to think about inadvertent capture. Hygienic macros have been standardized for Scheme in R5RS, R6RS, and R7RS. Several competing implementations coexist: `syntax-rules`, `syntax-case`, explicit renaming, and syntactic closures, with the first two standardized.
+Scheme's answer is `syntax-rules`, a [[cs/languages/Racket/hygienic-macros-and-syntax-rules|pattern-based system]] in which the syntactic environments of the macro definition and the macro use are kept distinct, so neither the definer nor the user has to think about inadvertent capture. Hygienic macros have been standardized for Scheme in R5RS, R6RS, and R7RS. Several competing implementations coexist: `syntax-rules`, `syntax-case`, explicit renaming, and syntactic closures, with the first two standardized.
 
 ## Rust: matchers and transcribers
 
@@ -77,7 +77,7 @@ Rust's `macro_rules!` is a declarative syntax extension in the same family. Each
 
 Matching is strict about ambiguity. No lookahead is performed, so if the compiler cannot determine how to parse an invocation one token at a time, that is an error rather than a guess.
 
-Hygiene in Rust is partial by design. Macros by example have **mixed-site hygiene**: loop labels, block labels, and local variables are looked up at the macro *definition* site, while other symbols are looked up at the *invocation* site. That split is deliberate. Full definition-site lookup would make it impossible to write a macro that calls a function the caller provides, and full invocation-site lookup reintroduces the `INCI` bug. A consequence of the local-variable rule is that labels and locals introduced by one expansion are not shared with another, so a macro cannot define `x` in one invocation and refer to it in the next.
+Hygiene in Rust is partial by design. [[cs/languages/Rust/macros-declarative-and-procedural|Macros by example]] have **mixed-site hygiene**: loop labels, block labels, and local variables are looked up at the macro *definition* site, while other symbols are looked up at the *invocation* site. That split is deliberate. Full definition-site lookup would make it impossible to write a macro that calls a function the caller provides, and full invocation-site lookup reintroduces the `INCI` bug. A consequence of the local-variable rule is that labels and locals introduced by one expansion are not shared with another, so a macro cannot define `x` in one invocation and refer to it in the next.
 
 The remaining gap is paths. A macro exported from one crate and invoked in another may reference items that are not in scope at the call site, which is why `$crate` exists: it resolves to the crate defining the macro and can head a path to items the invoker never imported.
 
@@ -88,7 +88,7 @@ The remaining gap is paths. A macro exported from one crate and invoked in anoth
 
 Each is something a function cannot do. Controlling evaluation order lets a programmer build control structures indistinguishable from built-in ones; in a Lisp dialect with `cond` but no `if`, `if` is definable as a macro. Data sub-languages let constructs such as state machines compile straight into code. New binding constructs are the deepest case, and the canonical example is `let`, which is a macro transforming into the application of a function to a set of arguments.
 
-Racket pushes this furthest by combining hygiene with a tower of evaluators, so that the syntactic expansion time of one macro system is the ordinary runtime of another block of code, and modules can export macros to other modules with hygiene keeping the syntactic layers distinct.
+Racket pushes this furthest by combining hygiene with a [[cs/languages/Racket/compile-time-computation-and-begin-for-syntax|tower of evaluators]], so that the syntactic expansion time of one macro system is the ordinary runtime of another block of code, and modules can export macros to other modules with hygiene keeping the syntactic layers distinct.
 
 > [!warning]
 > Macros move work from runtime to [[cs/pl/compilation-vs-interpretation|compile time]], which means bugs move there too. Errors surface in generated code the programmer never wrote, expansion order interacts with module and import systems in ways that must be defined rather than assumed, and a procedural macro system with side effects makes compilation itself stateful. The interaction of macros with modules and components has been a productive research area precisely because it is not free.

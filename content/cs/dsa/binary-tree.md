@@ -14,7 +14,7 @@ aliases: []
 ## Definition
 
 A **Binary Tree** is a **hierarchical data structure** where each node has at most two children: **left** and **right**.
-It serves as the foundation for many advanced structures like **Binary Search Trees**, **Heaps**, and **Expression Trees**.
+It serves as the foundation for many advanced structures like **Binary Search Trees**, **Heaps**, and **[[cs/pl/grammar-ambiguity-parse-trees|Expression Trees]]**.
 
 > [!note]
 > Binary trees are used when hierarchical relationships or ordered branching is required - e.g., parsing, searching, and structural recursion.
@@ -56,7 +56,7 @@ It serves as the foundation for many advanced structures like **Binary Search Tr
 
 ### Pointer-Based (Linked)
 
-- Each node stores references to its children.
+- Each node stores [[cs/languages/Rust/smart-pointers-box-rc-refcell|references to its children]].
 
 - Flexible for sparse or irregular trees.
 

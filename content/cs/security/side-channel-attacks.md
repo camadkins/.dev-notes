@@ -17,7 +17,7 @@ aliases:
   - Meltdown
 ---
 
-Most attacks on a cipher go through the front door: they attack the math, searching the keyspace or the algorithm's structure. A side-channel attack ignores the math entirely and listens to the machine. How long did that operation take? How much power did it draw? What did the cache look like afterward? The algorithm can be provably sound and the implementation still betray the key, because the key influenced something the algorithm's specification never mentioned: the physical behavior of the hardware running it.
+Most attacks on a cipher go through the front door: they attack the math, searching the keyspace or the algorithm's structure. A side-channel attack ignores the math entirely and listens to the machine. How long did that operation take? How much power did it draw? What did [[cs/systems/memory-hierarchy-and-caching|the cache]] look like afterward? The algorithm can be provably sound and the implementation still betray the key, because the key influenced something the algorithm's specification never mentioned: the physical behavior of the hardware running it.
 
 > [!note] The idea
 > A side-channel attack recovers a secret from the implementation's observable behavior rather than from a flaw in the algorithm. The leak lives in the gap between the abstract computation and its physical execution: timing, power, emissions, cache state. Spectre and Meltdown pushed this to its sharpest form by turning the CPU's own speculative-execution optimizations into the channel, showing that even correct code leaks through microarchitectural state.
@@ -26,7 +26,7 @@ Most attacks on a cipher go through the front door: they attack the math, search
 
 Wikipedia draws the line precisely: a side-channel attack "uses information inadvertently leaked by a system, such as timing, power consumption, or electromagnetic or acoustic emissions, to gain unauthorized access to sensitive information." These attacks "differ from those targeting flaws in the design of cryptographic protocols or algorithms." That distinction is the whole subject. A cryptanalyst studies the cipher; a side-channel attacker studies the thing computing the cipher, and treats every measurable difference in its behavior as a leak of the data it was computing on.
 
-The canonical example is timing. If a comparison or a modular exponentiation takes slightly longer for some key bits than others, then "simply by observing variations in how long it takes to perform cryptographic operations, it might be possible to determine the entire secret key." Nothing about the cipher is broken. The secret is reconstructed from a stopwatch.
+The canonical example is timing. If a comparison or a [[cs/math/number-theory-and-modular-arithmetic|modular exponentiation]] takes slightly longer for some key bits than others, then "simply by observing variations in how long it takes to perform cryptographic operations, it might be possible to determine the entire secret key." Nothing about the cipher is broken. The secret is reconstructed from a stopwatch.
 
 ## The defense is to make behavior independent of the secret
 
@@ -34,7 +34,7 @@ Because the leak is a correlation between the secret and some observable, the fi
 
 ## Spectre and Meltdown: the CPU as the channel
 
-The 2018 disclosures generalized side channels from cryptographic implementations to the processor itself. Meltdown "breaks the most fundamental isolation between user applications and the operating system," and "allows a program to access the memory, and thus also the secrets, of other programs and the operating system." Spectre "breaks the isolation between different applications," and "allows an attacker to trick error-free programs, which follow best practices, into leaking their secrets." The phrase error-free is the point that made these landmark: the victim program has no bug. It is correct by every conventional standard.
+The 2018 disclosures generalized side channels from cryptographic implementations to the processor itself. Meltdown "breaks the most fundamental [[cs/systems/system-calls-and-the-kernel-boundary|isolation between user applications and the operating system]]," and "allows a program to access the memory, and thus also the secrets, of other programs and the operating system." Spectre "breaks the isolation between different applications," and "allows an attacker to trick error-free programs, which follow best practices, into leaking their secrets." The phrase error-free is the point that made these landmark: the victim program has no bug. It is correct by every conventional standard.
 
 The channel is speculative and out-of-order execution, features CPUs use to run fast by doing work before knowing whether it is needed. That transient work can touch memory it should not, and although the results are discarded architecturally, they leave a footprint in cache state that a timing side channel can read back. The secret is never officially computed; it is speculatively touched, discarded, and then recovered from the microarchitectural residue. That is why these are side-channel attacks and not ordinary memory bugs, and why mitigating them meant slowing the very optimizations that make modern processors fast.
 

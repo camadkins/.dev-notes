@@ -15,7 +15,7 @@ aliases:
   - Namespaces and cgroups
 ---
 
-Running many isolated workloads on one physical machine has two fundamentally different answers, and the difference comes down to what you duplicate. A virtual machine duplicates the whole computer, hardware and operating system and all, so each guest believes it owns a machine. A container duplicates almost nothing: it shares one kernel and just walls off what each workload can see. Both give you isolation on shared hardware, and the choice between them is the choice between a heavier boundary and a lighter one.
+Running [[cs/history/cloud-computing-and-virtualization|many isolated workloads on one physical machine]] has two fundamentally different answers, and the difference comes down to what you duplicate. A virtual machine duplicates the whole computer, hardware and operating system and all, so each guest believes it owns a machine. A container duplicates almost nothing: it shares one kernel and just walls off what each workload can see. Both give you isolation on shared hardware, and the choice between them is the choice between a heavier boundary and a lighter one.
 
 > [!note] The idea
 > The VM-versus-container split is a split over where the isolation boundary sits. A hypervisor draws the line at the hardware interface, so each guest brings its own kernel and the boundary is strong but expensive. A container draws the line inside a single shared kernel, using kernel features to give each workload its own private view of the system, so the boundary is cheap but only as strong as the kernel that enforces it. Everything else, boot time, image size, density, blast radius, follows from where that one line is drawn.
@@ -43,7 +43,7 @@ Containers take the opposite approach. OS-level virtualization "is an operating 
 
 On Linux this rests on two kernel features. Containers "are all based on the virtualization, isolation, and resource management mechanisms provided by the Linux kernel, notably Linux namespaces and cgroups."
 
-- **Namespaces** provide the isolation: what a container can *see*. "Programs running inside a container can only see the container's contents and devices assigned to the container." Wikipedia frames this as "an advanced implementation of the standard chroot mechanism, which changes the apparent root folder for the current running process." Namespaces extend that idea from the filesystem to process IDs, network interfaces, mounts, and users, each container getting its own.
+- **Namespaces** provide the isolation: what a container can *see*. "Programs running inside a container can only see the container's contents and devices assigned to the container." Wikipedia frames this as "an advanced implementation of the standard [[cs/security/sandboxing-and-isolation|chroot]] mechanism, which changes the apparent root folder for the current running process." Namespaces extend that idea from the filesystem to process IDs, network interfaces, mounts, and users, each container getting its own.
 - **cgroups** provide the resource management: what a container can *use*. Beyond isolation, "the kernel often provides resource-management features to limit the impact of one container's activities on other containers." cgroups cap a container's CPU, memory, and I/O so one container cannot starve the others.
 
 Seeing (namespaces) and using (cgroups) are the two axes of containment, and together they reconstruct most of what a VM's boundary provides, without a second kernel.
@@ -58,7 +58,7 @@ Seeing (namespaces) and using (cgroups) are the two axes of containment, and tog
 | Startup / footprint | Heavy (boot an OS) | Light (start a process) |
 | Enforced by | Hypervisor (type 1 or 2) | Namespaces + cgroups |
 
-The rule that falls out: reach for a VM when you need a different OS, a hard security boundary, or a kernel of your own, and reach for a container when you want many instances of the same OS to start fast and pack densely. A shared kernel is a container's great efficiency and its one real weakness, since a kernel exploit crosses the boundary that a hypervisor's separate kernels would have held. The two are also composable in practice: containers are frequently run *inside* VMs, putting a hypervisor boundary around a pack of shared-kernel workloads to get both properties at once.
+The rule that falls out: reach for a VM when you need a different OS, a hard security boundary, or a kernel of your own, and reach for a container when you want many instances of the same OS to start fast and pack densely. A shared kernel is a container's great efficiency and its one real weakness, since a [[cs/security/privilege-separation-and-least-privilege|kernel exploit]] crosses the boundary that a hypervisor's separate kernels would have held. The two are also composable in practice: containers are frequently run *inside* VMs, putting a hypervisor boundary around a pack of shared-kernel workloads to get both properties at once.
 
 ## Related Notes
 

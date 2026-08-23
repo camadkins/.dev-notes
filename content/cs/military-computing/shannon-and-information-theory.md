@@ -13,7 +13,7 @@ aliases:
   - Shannon entropy
 ---
 
-Before 1948, information was a loose idea. You could have more or less of it, but no one could say how much. Claude Shannon, working at Bell Labs in the years around the Second World War, turned information into a quantity you could measure in numbers, and the paper that did it founded an entire field.
+Before 1948, information was a loose idea. You could have more or less of it, but no one could say how much. [[cs/history/shannon-boolean-algebra-switching|Claude Shannon]], working at Bell Labs in the years around the Second World War, turned information into a quantity you could measure in numbers, and the paper that did it founded an entire field.
 
 > [!note] The idea
 > Information is the reduction of uncertainty, and it can be measured. The unit is the bit.
@@ -24,7 +24,7 @@ Shannon's paper, "A Mathematical Theory of Communication," appeared in the Bell 
 
 ## The bit
 
-Shannon introduced the bit as the unit of information, the amount carried by a single yes-or-no answer when both answers are equally likely. Measuring information in bits is so ordinary now that it is easy to forget someone had to define it.
+Shannon introduced [[cs/history/leibniz-and-binary|the bit as the unit of information]], the amount carried by a single yes-or-no answer when both answers are equally likely. Measuring information in bits is so ordinary now that it is easy to forget someone had to define it.
 
 ## Channel capacity
 

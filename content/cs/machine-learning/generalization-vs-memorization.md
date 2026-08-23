@@ -20,13 +20,13 @@ The whole point of machine learning is to do well on data you have not seen yet.
 
 ## Why memorization is not learning
 
-Scott's course makes the point with a toddler and a cat. A toddler who has seen a fire truck and a toy truck should call a never-seen garbage truck a truck. A cat that recognizes its owner should still recognize them in a photo it has never encountered. In both cases the test is transfer to new instances, not recall of old ones. A lookup table that returns the stored label for a training input and shrugs at everything else has memorized without learning.
+Scott's course makes the point with a toddler and a cat. A toddler who has seen a fire truck and a toy truck should call a never-seen garbage truck a truck. A cat that recognizes its owner should still recognize them in a photo it has never encountered. In both cases the test is transfer to new instances, not recall of old ones. [[cs/dsa/hash-tables|A lookup table]] that returns the stored label for a training input and shrugs at everything else has memorized without learning.
 
 For a computer this matters more, not less, because memorizing is so easy. A model with enough capacity can drive its training error to zero by fitting every point, including the noise, which is the failure mode called overfitting.
 
 ## The generalization gap
 
-Formally, training error is measured on the data the model fit, and generalization error is the expected error on new samples drawn from the same distribution. The gap between them is the generalization gap. A useful model keeps both low; a memorizing model has near-zero training error and a large gap.
+Formally, training error is measured on the data the model fit, and generalization error is the [[cs/statistics/expected-value|expected error]] on new samples drawn from the same distribution. The gap between them is the generalization gap. A useful model keeps both low; a memorizing model has near-zero training error and a large gap.
 
 > [!warning] You cannot see generalization error directly
 > True generalization error is over the whole data distribution, which you never fully observe. You estimate it with a held-out [[train-validation-test|test set]] the model never trained on. The moment the test set leaks into training, the estimate is worthless, because you are back to measuring memorization.

@@ -14,7 +14,7 @@ aliases:
   - default_factory
 ---
 
-The `dataclasses` module exists because a specific class shape kept being reinvented. PEP 557's rationale lists the prior art: `collections.namedtuple` in the standard library, `typing.NamedTuple` in the standard library, the popular `attrs` project, George Sakkis' `recordType` recipe, and many online recipes, packages, and questions. David Beazley used a form of data classes as the motivating example in a PyCon 2013 metaclass talk. All of them solve the same problem, classes which exist primarily to store values which are accessible by attribute lookup, and all of them solve it with different machinery.
+The `dataclasses` module exists because a specific class shape kept being reinvented. PEP 557's rationale lists the prior art: `collections.namedtuple` in the standard library, `typing.NamedTuple` in the standard library, the popular `attrs` project, George Sakkis' `recordType` recipe, and many online recipes, packages, and questions. David Beazley used a form of data classes as the motivating example in a PyCon 2013 [[cs/languages/Python/metaclasses-and-class-creation|metaclass]] talk. All of them solve the same problem, classes which exist primarily to store values which are accessible by attribute lookup, and all of them solve it with different machinery.
 
 PEP 557's own one-line summary is that although they use a very different mechanism, Data Classes can be thought of as "mutable namedtuples with defaults."
 
@@ -57,7 +57,7 @@ The rules, in full. If `eq` and `frozen` are both true, `@dataclass` generates a
 
 ## field() is where per-field control lives
 
-Most fields need nothing beyond an annotation and maybe a plain default, and `TypeError` will be raised if a field without a default value follows a field with a default value, whether that happens in one class or through inheritance. When you need more, you replace the default value with a call to `field()`:
+Most fields need nothing beyond an annotation and maybe a plain default, and `TypeError` will be raised if a field without a default value follows a field with a default value, whether that happens in one class or through [[cs/pl/objects-classes-and-dispatch|inheritance]]. When you need more, you replace the default value with a call to `field()`:
 
 `dataclasses.field(*, default=MISSING, default_factory=MISSING, init=True, repr=True, hash=None, compare=True, metadata=None, kw_only=MISSING, doc=None)`.
 
@@ -81,7 +81,7 @@ class D:
     x: list = []   # This code raises ValueError
 ```
 
-the generated code would be similar to a class with `x = []` at class scope and `def __init__(self, x=x)`, so `assert D().x is D().x` holds. Two instances that do not specify a value for `x` would share the same copy.
+the generated code would be similar to a class with `x = []` at class scope and `def __init__(self, x=x)`, so `assert D().x is D().x` holds. Two instances that do not specify a value for `x` would [[cs/pl/mutable-state-references-effects|share the same copy]].
 
 There is no general way for Data Classes to detect this condition. So the module takes a heuristic: the `@dataclass` decorator will raise a `ValueError` if it detects an unhashable default parameter, on the assumption that if a value is unhashable, it is mutable. The docs call this what it is, a partial solution, but one that does protect against many common errors. Since Python 3.11 the check is exactly that, unhashable objects are not allowed as default values, replacing the earlier approach of looking for and disallowing objects of type `list`, `dict`, or `set`.
 

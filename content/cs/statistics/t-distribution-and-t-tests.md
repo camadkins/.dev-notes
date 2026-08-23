@@ -71,7 +71,7 @@ $$t = \frac{\bar{X}_D - \mu_0}{s_D/\sqrt{n}},$$
 
 where $\bar{X}_D$ and $s_D$ are the mean and standard deviation of the pairwise differences, $\mu_0$ is zero when testing whether the average difference is nonzero, and $n$ is the number of *pairs*.
 
-Pairing is a form of blocking. It has greater power than the unpaired test when the paired units are similar with respect to noise factors independent of group membership. Measuring blood pressure in the same patients before and after a medication makes each patient their own control, eliminating the random inter-patient variation and raising power. The costs are two: every subject must be examined twice, and because half the sample now depends on the other half, the paired test has only $n/2 - 1$ degrees of freedom where $n$ is the total number of observations. Pairs become the test units, so the sample has to be doubled to reach the same degrees of freedom an unpaired design would have had.
+Pairing is a form of blocking. It has greater power than the unpaired test when the paired units are similar with respect to noise factors independent of group membership. Measuring blood pressure in the same patients before and after a medication makes [[cs/software-engineering/feature-flags-and-trunk-based-development|each patient their own control]], eliminating the random inter-patient variation and raising power. The costs are two: every subject must be examined twice, and because half the sample now depends on the other half, the paired test has only $n/2 - 1$ degrees of freedom where $n$ is the total number of observations. Pairs become the test units, so the sample has to be doubled to reach the same degrees of freedom an unpaired design would have had.
 
 > [!warning]
 > Independence versus pairing is a design fact, not a data fact, and it is generally not testable from the data. If the data are known to be dependent by design, a dependent test must be used. With *partially* paired data, the independent test may give invalid results because the statistic might not follow a $t$ distribution, while the dependent test is sub-optimal because it throws the unpaired observations away.
@@ -82,7 +82,7 @@ The simplest form of the test assumes three things: $\bar{X} \sim \mathcal{N}(\m
 
 Robustness is better than the assumption list suggests. Most two-sample $t$-tests are robust to all but large deviations. Student's original test is highly robust to unequal variances when the two sample sizes are equal, while Welch's test is insensitive to variance equality regardless of whether sample sizes are similar. The CLT usually rescues the normality requirement for moderately large samples, but the sample size needed for convergence depends on the skewness of the original data, and can run from 30 to 100 or higher.
 
-For large $n$, Slutsky's theorem shows the sample-variance distribution barely matters: $\sqrt{n}(\bar{X} - \mu) \xrightarrow{d} N(0, \sigma^2)$ by the CLT, $s^2 \xrightarrow{p} \sigma^2$ by the [[law-of-large-numbers|law of large numbers]], and the ratio converges in distribution to $N(0,1)$.
+For large $n$, Slutsky's theorem shows the sample-variance distribution barely matters: $\sqrt{n}(\bar{X} - \mu) \xrightarrow{d} N(0, \sigma^2)$ by the CLT, $s^2 \xrightarrow{p} \sigma^2$ by the [[law-of-large-numbers|law of large numbers]], and the ratio [[cs/math/limits-and-continuity|converges in distribution]] to $N(0,1)$.
 
 ## The brewery
 

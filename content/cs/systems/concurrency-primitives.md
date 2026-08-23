@@ -14,9 +14,9 @@ aliases:
   - Mutex Semaphore Condition Variable Spinlock
 ---
 
-Two threads sharing memory is the source of the worst class of bugs in systems code: [[race-conditions-and-toctou|races]] that appear once a week under load and never in a debugger. Synchronization primitives are the small, sharp tools that make shared state safe. There are only a handful of them, and the mistake beginners make is treating them as interchangeable. They are not. Each answers a different question.
+Two threads sharing memory is the source of the worst class of bugs in systems code: [[cs/security/race-conditions-and-toctou|races]] that appear once a week under load and never in a debugger. Synchronization primitives are the small, sharp tools that make shared state safe. There are only a handful of them, and the mistake beginners make is treating them as interchangeable. They are not. Each answers a different question.
 
-The [[concurrency-models-threads-locks-and-actors|concurrency models]] note covers the high-level taxonomy (shared memory versus message passing), and [[concurrency-in-practice|concurrency in practice]] covers what real languages do with it. This note is the layer below both: the individual primitives themselves.
+The [[cs/pl/concurrency-models-threads-locks-and-actors|concurrency models]] note covers the high-level taxonomy (shared memory versus message passing), and [[cs/languages/common/concurrency-in-practice|concurrency in practice]] covers what real languages do with it. This note is the layer below both: the individual primitives themselves.
 
 > [!note] The idea
 > Mutual exclusion and waiting-for-a-condition are two different problems, and the primitives split along that line. A mutex answers "only one thread inside here at a time." A condition variable answers "sleep until someone tells me the state changed." A semaphore counts a resource. A spinlock is a mutex that burns CPU instead of sleeping, a bet that the wait will be so short that going to sleep would cost more than spinning. Pick the wrong one and you get either a correctness bug or a performance cliff.
@@ -59,9 +59,9 @@ The rule of thumb falls out of the table: use a mutex for exclusion, a semaphore
 
 ## Related Notes
 
-- [[concurrency-models-threads-locks-and-actors|Concurrency Models: Threads, Locks, and Actors]] - the higher-level taxonomy these primitives implement
-- [[concurrency-in-practice|Concurrency in Practice]] - how Python, Rust, and C++ expose and constrain these tools
-- [[race-conditions-and-toctou|Race Conditions and TOCTOU]] - the bug class these primitives exist to prevent
+- [[cs/pl/concurrency-models-threads-locks-and-actors|Concurrency Models: Threads, Locks, and Actors]] - the higher-level taxonomy these primitives implement
+- [[cs/languages/common/concurrency-in-practice|Concurrency in Practice]] - how Python, Rust, and C++ expose and constrain these tools
+- [[cs/security/race-conditions-and-toctou|Race Conditions and TOCTOU]] - the bug class these primitives exist to prevent
 - [[context-switching|Context Switching]] - the sleep-versus-spin cost that decides between a mutex and a spinlock
 
 ## Sources

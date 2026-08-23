@@ -22,9 +22,9 @@ Ask what a cryptographic hash "is secure against" and the honest answer is: agai
 
 ## Three resistances, not one
 
-The Handbook of Applied Cryptography lists them precisely. Preimage resistance means "for essentially all pre-specified outputs, it is computationally infeasible to find any input which hashes to that output," the one-way property: given a digest, you cannot recover an input. Second-preimage resistance means "given x, to find a 2nd-preimage x0 6= x such that h(x) = h(x0)," you cannot find a different message matching a specific one. Collision resistance means "it is computationally infeasible to find any two distinct inputs x, x0 which hash to the same output," with the crucial difference that "here there is free choice of both inputs."
+The Handbook of Applied Cryptography lists them precisely. Preimage resistance means "for essentially all pre-specified outputs, it is [[cs/military-computing/rsa-and-computational-hardness|computationally infeasible]] to find any input which hashes to that output," the one-way property: given a digest, you cannot recover an input. Second-preimage resistance means "given x, to find a 2nd-preimage x0 6= x such that h(x) = h(x0)," you cannot find a different message matching a specific one. Collision resistance means "it is computationally infeasible to find any two distinct inputs x, x0 which hash to the same output," with the crucial difference that "here there is free choice of both inputs."
 
-That last freedom is why collision resistance is the hardest to hold. The attacker picks both messages, so the birthday bound halves the effective security in bits. A 160-bit hash offers roughly 80 bits of collision resistance, not 160.
+That last freedom is why collision resistance is the hardest to hold. The attacker picks both messages, so [[cs/math/discrete-probability|the birthday bound]] halves the effective security in bits. A 160-bit hash offers roughly 80 bits of collision resistance, not 160.
 
 ## Why the hierarchy matters
 
@@ -32,7 +32,7 @@ The three are not interchangeable, and matching the property to the job is the w
 
 ## The fall of SHA-1
 
-This is where the theory meets a real headstone. "In February 2017, CWI Amsterdam and Google announced they had performed a collision attack against SHA-1, publishing two dissimilar PDF files which produced the same SHA-1 hash." That was the SHAttered result, roughly 2 to the 63.1 evaluations, about 100,000 times faster than a brute-force collision search. NIST had already seen it coming: it "formally deprecated use of SHA-1 in 2011 and disallowed its use for digital signatures in 2013," and the standing guidance is to "remove SHA-1 from products as soon as possible and instead use SHA-2 or SHA-3."
+This is where the theory meets a real headstone. "In February 2017, CWI Amsterdam and Google announced they had performed a collision attack against SHA-1, publishing two dissimilar PDF files which produced the same SHA-1 hash." That was the SHAttered result, roughly 2 to the 63.1 evaluations, about 100,000 times faster than a brute-force collision search. [[cs/standards/what-a-standard-actually-is|NIST]] had already seen it coming: it "formally deprecated use of SHA-1 in 2011 and disallowed its use for digital signatures in 2013," and the standing guidance is to "remove SHA-1 from products as soon as possible and instead use SHA-2 or SHA-3."
 
 > [!tip] Broken for one job, safe for another
 > The same 2017 result that killed SHA-1 for certificates did not kill it everywhere: "However, SHA-1 is still secure for HMAC." HMAC's security rests on a keyed property, not on collision resistance, so a public collision attack does not touch it. "SHA-1 is broken" is only true once you name the property, which is the entire lesson of this note.

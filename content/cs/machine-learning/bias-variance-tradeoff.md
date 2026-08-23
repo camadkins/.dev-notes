@@ -21,7 +21,7 @@ A model can be wrong in two opposite ways. It can be too rigid to capture the re
 
 ## The Decomposition
 
-Imagine retraining the same algorithm on many different training sets drawn from the same source, then asking how it does on average at a fixed test point. Bias measures how far the average prediction sits from the truth: a high-bias model is wrong in the same direction every time, because its assumptions cannot express the target. Variance (the same quantity from [[variance-and-covariance]], applied to the predictions themselves) measures how much those predictions scatter across retrainings: a high-variance model gives you a substantially different function every time the data changes. The noise term is the floor, the error you would keep even with the ideal model, because the labels themselves are noisy (in [[regression-fundamentals]] this is the error term the model never claims to explain).
+Imagine [[cs/statistics/sampling-and-sampling-distributions|retraining the same algorithm on many different training sets drawn from the same source]], then asking how it does on average at a fixed test point. Bias measures how far the average prediction sits from the truth: a high-bias model is wrong in the same direction every time, because its assumptions cannot express the target. Variance (the same quantity from [[variance-and-covariance]], applied to the predictions themselves) measures how much those predictions scatter across retrainings: a high-variance model gives you a substantially different function every time the data changes. The noise term is the floor, the error you would keep even with the ideal model, because the labels themselves are noisy (in [[regression-fundamentals]] this is the error term the model never claims to explain).
 
 ## Underfitting and Overfitting
 
@@ -36,8 +36,8 @@ The course puts the overfitting mechanism well: when the set of candidate functi
 As model complexity grows, bias falls and variance rises, so total expected error traces a U shape. The goal is the basin of that U, not the far right of the training-error curve, and that changes how you act:
 
 - **Judge models on held-out data.** Training [[loss-functions|loss]] alone rewards variance. The [[train-validation-test]] split exists to expose it.
-- **More data helps.** Variance shrinks as training sets grow, because idiosyncrasies average out; with enough data you can afford a more complex model.
-- **Constrain the model when data is scarce.** Regularization, early stopping, and smaller architectures all trade a little bias for a large cut in variance. That trade is often favorable.
+- **More data helps.** [[cs/statistics/law-of-large-numbers|Variance shrinks as training sets grow, because idiosyncrasies average out]]; with enough data you can afford a more complex model.
+- **Constrain the model when data is scarce.** [[cs/deep-learning/regularization-in-deep-learning|Regularization, early stopping, and smaller architectures]] all trade a little bias for a large cut in variance. That trade is often favorable.
 
 One honest caveat: the clean U shape is the classical picture, and it is a property of squared-error analysis and model families you can order by complexity. It remains the right first mental model, and it is the one this course (and most of practice) reasons with.
 

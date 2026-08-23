@@ -35,15 +35,15 @@ This one-to-one pairing is why the list feels complete rather than ad hoc. You a
 The method is mechanical on purpose, which is why Microsoft could ship it in a tool "designed with non-security experts in mind." You draw a data-flow diagram of the system: processes, data stores, data flows, external entities, and the trust boundaries between them. Then you walk each element and each flow and ask the six questions. Can this be spoofed? Tampered with? Repudiated? Can it disclose? Be denied? Be used to elevate? Every "yes" without a matching defense is a finding. Because the walk is exhaustive over the diagram and the six categories, two different reviewers tend to converge on the same list, which is exactly what an ad hoc brainstorm cannot promise.
 
 > [!example] One element, six questions
-> Take a login endpoint. Spoofing: can an attacker submit someone else's credentials? Answer with authentication. Tampering: can the request be altered in transit? Answer with [[tls-and-the-https-handshake|TLS]] integrity. Repudiation: can a user deny a login later? Answer with audit logging. Information disclosure: does a failed login leak whether the username exists? Answer with uniform error messages. Denial of service: can login attempts exhaust the server? Answer with rate limiting. Elevation of privilege: can a normal login yield admin rights? Answer with [[bell-lapadula-and-mandatory-access-control|access control]] the code cannot relax. Six prompts, six concrete defenses, from one box on a diagram.
+> Take a login endpoint. Spoofing: can an attacker submit someone else's credentials? Answer with authentication. Tampering: can the request be altered in transit? Answer with [[cs/systems/tls-and-the-https-handshake|TLS]] integrity. Repudiation: can a user deny a login later? Answer with audit logging. Information disclosure: does a failed login leak whether the username exists? Answer with uniform error messages. Denial of service: can login attempts exhaust the server? Answer with rate limiting. Elevation of privilege: can a normal login yield admin rights? Answer with [[cs/military-computing/bell-lapadula-and-mandatory-access-control|access control]] the code cannot relax. Six prompts, six concrete defenses, from one box on a diagram.
 
 > [!warning] STRIDE finds categories, not exploits
 > The framework tells you a component could suffer, say, elevation of privilege. It does not tell you the specific bug or how likely it is. STRIDE is for coverage at design time, finding the class of risk before code ships; ranking and exploiting are separate steps. Its value is that nothing in a scoped diagram gets silently skipped, not that it writes the attack for you.
 
 ## Related Notes
 
-- [[bell-lapadula-and-mandatory-access-control|Bell-LaPadula and Mandatory Access Control]], the formal answer to the elevation and disclosure threats
-- [[tls-and-the-https-handshake|TLS and the HTTPS Handshake]], a mitigation for tampering and disclosure on the wire
+- [[cs/military-computing/bell-lapadula-and-mandatory-access-control|Bell-LaPadula and Mandatory Access Control]], the formal answer to the elevation and disclosure threats
+- [[cs/systems/tls-and-the-https-handshake|TLS and the HTTPS Handshake]], a mitigation for tampering and disclosure on the wire
 - [[sandboxing-and-isolation|Sandboxing and Isolation]], a containment answer to elevation of privilege
 - [[secure-boot-and-the-chain-of-trust|Secure Boot and the Chain of Trust]], integrity and authenticity pushed down to the firmware
 

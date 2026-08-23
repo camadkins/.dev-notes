@@ -13,7 +13,7 @@ aliases: []
 
 ## Intuition
 
-Given a scatter plot of two variables, simple linear regression draws the **single best straight line** through the points. "Best" means the line that minimizes the total squared vertical distance from each point to the line. One predictor, one response, one line. It's the most elementary form of regression and the natural starting point before moving to the multiple-predictor case in [[regression-fundamentals|Regression Fundamentals]].
+Given a scatter plot of two variables, simple linear regression draws the **single best straight line** through the points. "Best" means the line that [[cs/machine-learning/loss-functions|minimizes the total squared vertical distance]] from each point to the line. One predictor, one response, one line. It's the most elementary form of regression and the natural starting point before moving to the multiple-predictor case in [[regression-fundamentals|Regression Fundamentals]].
 
 ## Definition
 
@@ -72,9 +72,9 @@ The predicted chemistry grade is 78. The same technique applies to predicting fi
 
 ## Why It Matters in CS
 
-Simple linear regression is the "can a straight line explain this?" test. In ML, it's the first model you fit before reaching for anything fancier, because if a line already gets you 90% of the way there, a neural net is probably overkill. It sets both a performance floor and an interpretability ceiling.
+Simple linear regression is the "can a straight line explain this?" test. In ML, it's the first model you fit before reaching for anything fancier, because if a line already gets you 90% of the way there, [[cs/deep-learning/artificial-neural-networks|a neural net]] is probably overkill. It sets both a performance floor and an interpretability ceiling.
 
-One underrated use: **empirical complexity analysis**. Plot execution time $T$ against input size $n$ and fit $T = b_0 + b_1 n$. If the fit is tight, your algorithm is linear. Fit $\ln T = b_0 + b_1 \ln n$ instead and $b_1$ estimates the polynomial exponent. This is often faster than deriving the complexity analytically, especially for messy real-world code.
+One underrated use: **[[cs/dsa/algorithm-efficiency|empirical complexity analysis]]**. Plot execution time $T$ against input size $n$ and fit $T = b_0 + b_1 n$. If the fit is tight, your algorithm is linear. Fit $\ln T = b_0 + b_1 \ln n$ instead and $b_1$ estimates the polynomial exponent. This is often faster than deriving the complexity analytically, especially for messy real-world code.
 
 > [!tip]
 > When doing exploratory data analysis, fitting a simple regression for each feature individually is a quick way to see which predictors have any marginal relationship with the response. It's not a substitute for multiple regression (confounding is real), but it's a useful first pass.

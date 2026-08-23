@@ -174,7 +174,7 @@ Evaluating under `ρ2`, the variable `x` still resolves through `ρ1`: lexical s
 ### Lexical vs Dynamic Scope
 - **Lexical (static)**: variable binding determined by the *program’s structure*.  
   Most modern languages (Python, C, Haskell) use lexical scope.
-- **Dynamic**: variable binding determined by the *call stack at runtime* (old Lisp, shell scripts).
+- **Dynamic**: variable binding determined by the *[[cs/languages/Racket/parameters-and-dynamic-binding|call stack at runtime]]* (old Lisp, shell scripts).
 
 > [!warning]
 > Dynamic scope makes reasoning difficult: a variable’s value may depend on the call history rather than the code’s textual layout.
@@ -182,7 +182,7 @@ Evaluating under `ρ2`, the variable `x` still resolves through `ρ1`: lexical s
 ---
 
 ## Closures: Functions with Environments
-A **closure** pairs a function with the environment that existed when it was defined.
+A **[[cs/languages/Rust/closures-fn-fnmut-fnonce|closure]]** pairs a function with the environment that existed when it was defined.
 
 ### Example
 ```
@@ -349,7 +349,7 @@ To support this:
 During execution, each function call creates a new **environment frame**, often represented as an **activation record** on the stack.  
 When a call returns, the frame is popped, restoring the previous ρ.
 
-Languages with first-class functions store environments on the heap (to allow returning closures), while stack-based languages reclaim them after return.
+Languages with first-class functions [[cs/languages/Go/escape-analysis-and-stack-allocation|store environments on the heap]] (to allow returning closures), while stack-based languages reclaim them after return.
 
 ![Nested environment frames: global, function, and block with parent links](assets/env-binding-chain.svg)
 

@@ -25,7 +25,7 @@ Babbage's Analytical Engine was a proposed general-purpose mechanical computer, 
 
 ## Note G
 
-In 1843 Lovelace published Note G, an algorithm to compute Bernoulli numbers on the Analytical Engine. It is generally considered the first algorithm written specifically for a computer, which is why Lovelace is remembered as the first computer programmer. Note G has the shape of real code: it loops, it reuses intermediate results, it operates on indexed variables.
+In 1843 Lovelace published Note G, [[cs/dsa/recurrence-relations|an algorithm to compute Bernoulli numbers]] on the Analytical Engine. It is generally considered the first algorithm written specifically for a computer, which is why Lovelace is remembered as the first computer programmer. Note G has the shape of real code: it loops, [[cs/dsa/dynamic-programming|it reuses intermediate results]], it operates on [[cs/dsa/arrays|indexed variables]].
 
 ## Why it matters
 

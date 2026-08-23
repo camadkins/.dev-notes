@@ -21,15 +21,15 @@ The computer that reshaped daily life is the one in your pocket, and it runs on 
 
 ## ARM
 
-ARM is a family of RISC, reduced instruction set computer, processor architectures, known for low power consumption and low heat. The efficiency was decisive in mobile: by 2005, about 98 percent of mobile phones sold used at least one ARM processor. And unlike most chipmakers, ARM Holdings licenses its instruction set and designs to other companies rather than only manufacturing chips itself, which spread the architecture everywhere.
+ARM is a family of RISC, reduced instruction set computer, processor architectures, known for low power consumption and low heat. The efficiency was decisive in mobile: by 2005, about 98 percent of mobile phones sold used at least one ARM processor. And unlike most chipmakers, ARM Holdings [[cs/geopolitics/semiconductor-supply-chains|licenses its instruction set and designs to other companies]] rather than only manufacturing chips itself, which spread the architecture everywhere.
 
 ## The system-on-chip
 
-A smartphone integrates the CPU, graphics, and much else onto a single energy-efficient die, a system-on-chip, designed around battery life as the dominant constraint. The [[ibm-system-360|stable instruction set]] idea is what lets a huge body of software run across generations of these chips without rewriting.
+A smartphone integrates the CPU, graphics, and much else onto a single energy-efficient die, a system-on-chip, designed around battery life as the dominant constraint. The [[ibm-system-360|stable instruction set]] idea is what lets a huge body of software [[cs/languages/common/portability-and-cross-compilation|run across generations of these chips without rewriting]].
 
 ## Why it matters
 
-ARM's efficiency-first approach is the mirror image of the desktop's speed-first approach, and it is what made mobile computing possible. As energy has become the universal constraint, that same approach has reached upward into laptops and data-center servers, so the philosophy born in the phone now shapes computing at every scale.
+ARM's efficiency-first approach is the mirror image of the desktop's speed-first approach, and it is what made mobile computing possible. [[cs/geopolitics/compute-as-a-governable-resource|As energy has become the universal constraint]], that same approach has reached upward into laptops and data-center servers, so the philosophy born in the phone now shapes computing at every scale.
 
 ## Related Notes
 

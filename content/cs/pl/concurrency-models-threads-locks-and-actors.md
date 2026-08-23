@@ -17,7 +17,7 @@ From web servers to simulations, systems need to handle many tasks at once: read
 Concurrency models describe *how those tasks cooperate safely* while sharing time, memory, or messages.
 
 Languages choose concurrency models to balance **speed, safety, and simplicity**.  
-Understanding them clarifies why Go uses goroutines, why Java still uses threads, and why Erlang can run telecom systems for decades without restarting.
+Understanding them clarifies why Go uses [[cs/languages/Go/goroutines-and-the-scheduler|goroutines]], why Java still uses threads, and why Erlang can run telecom systems for decades without restarting.
 
 ---
 
@@ -27,7 +27,7 @@ Multiple threads execute simultaneously within one process, sharing the same add
 
 ### Key Idea
 Each thread runs independently but can read and modify shared data.  
-To prevent interference, languages provide **synchronization primitives** such as locks, mutexes, and condition variables.
+To prevent interference, languages provide **[[cs/systems/concurrency-primitives|synchronization primitives]]** such as locks, mutexes, and condition variables.
 
 > [!example]
 > **Shared Counter**
@@ -67,7 +67,7 @@ More sophisticated abstractions evolved to manage concurrency without explicit l
 - **Barriers and latches:** ensure groups of threads reach a point before proceeding.  
 - **Atomic operations:** hardware-level primitives for lock-free algorithms.
 
-Languages like Rust address safety through *ownership and borrowing*, which statically prevent certain races while still compiling to efficient machine code.
+Languages like Rust address safety through *[[cs/languages/Rust/send-sync-and-fearless-concurrency|ownership and borrowing]]*, which statically prevent certain races while still compiling to efficient machine code.
 
 ---
 
@@ -122,7 +122,7 @@ This Erlang actor handles additions safely because only it can modify its intern
 
 ## Communicating Sequential Processes (CSP)
 
-A third model, **CSP**, connects independent processes through explicit channels.  
+A third model, **CSP**, connects independent processes through explicit [[cs/languages/Go/channels-and-select|channels]].  
 Instead of shared memory or mailboxes, processes use synchronous or buffered sends and receives.
 
 Go’s goroutines and channels, as well as Rust’s `crossbeam`, are modern CSP descendants.

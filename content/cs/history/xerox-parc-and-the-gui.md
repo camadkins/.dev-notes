@@ -21,7 +21,7 @@ aliases:
 
 ## The Alto
 
-Developed at Xerox PARC and first introduced on 1 March 1973, the Alto pioneered the graphical user interface, the computer mouse, and a bit-mapped display, and it was designed around a GUI using the desktop metaphor. For the first time, a screen showed a workspace you could point at and manipulate directly.
+Developed at Xerox PARC and first introduced on 1 March 1973, the Alto pioneered the graphical user interface, [[cs/systems/io-devices-and-drivers|the computer mouse]], and [[cs/dsa/multidimensional-arrays|a bit-mapped display]], and it was designed around a GUI using [[cs/systems/file-systems|the desktop metaphor]]. For the first time, a screen showed a workspace you could point at and manipulate directly.
 
 ![The WIMP interface: windows, icons, menus, and a pointer on a bitmapped display.](assets/wimp-desktop.svg)
 

@@ -23,7 +23,7 @@ A [[diffie-hellman-and-key-exchange|Diffie-Hellman exchange]] hands you a shared
 
 ## Extract, because the input is not uniform
 
-The subtle part is why extraction exists at all. "In many applications, the input keying material is not necessarily distributed uniformly, and the attacker may have some partial knowledge about it (for example, a Diffie-Hellman value computed by a key exchange protocol)." A DH shared secret lives in a structured group, not in the flat space of all bit strings, so its bits are correlated in ways a key must not be. The extract stage runs it through [[message-authentication-codes-hmac|HMAC]] to "concentrate the possibly dispersed entropy of the input keying material into a short, but cryptographically strong, pseudorandom key." Only after that is the material safe to treat as a key.
+The subtle part is why extraction exists at all. "In many applications, the input keying material is not necessarily [[cs/statistics/probability-distributions|distributed uniformly]], and the attacker may have some partial knowledge about it (for example, a Diffie-Hellman value computed by a key exchange protocol)." A DH shared secret lives in a structured group, not in the flat space of all bit strings, so its bits are correlated in ways a key must not be. The extract stage runs it through [[message-authentication-codes-hmac|HMAC]] to "concentrate the possibly dispersed [[cs/military-computing/shannon-and-information-theory|entropy]] of the input keying material into a short, but cryptographically strong, pseudorandom key." Only after that is the material safe to treat as a key.
 
 ## Expand, with context binding
 

@@ -23,7 +23,7 @@ Understanding distributions matters because almost every statistical method (est
 
 A **probability mass function** (PMF) assigns a probability to each value in a countable set: $P(X = x)$.
 
-**Bernoulli** - a single trial with success probability $p$:
+**[[cs/math/discrete-probability|Bernoulli]]** - a single trial with success probability $p$:
 
 $$P(X = x) = p^x (1-p)^{1-x}, \quad x \in \{0, 1\}$$
 
@@ -84,7 +84,7 @@ The time *between* consecutive requests follows an Exponential distribution with
 
 $$P(T > 0.5) = e^{-5 \cdot 0.5} = e^{-2.5} \approx 0.082$$
 
-So there is roughly an 8% chance of waiting more than half a second between requests - useful for timeout tuning and capacity planning.
+So there is roughly an 8% chance of waiting more than half a second between requests - useful for [[cs/networking/tcp-congestion-control|timeout tuning]] and capacity planning.
 
 ## Related Notes
 

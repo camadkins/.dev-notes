@@ -19,7 +19,7 @@ As military systems moved onto computers at the end of the 1950s, they needed so
 
 ## Built at System Development Corporation
 
-Starting in 1959, a team at System Development Corporation headed by Jules Schwartz created JOVIAL, a high-order language based on ALGOL 58. A high-order language let programmers write command-and-control logic in structured statements rather than in machine code, which mattered enormously for systems too large and too long-lived to maintain by hand.
+Starting in 1959, a team at System Development Corporation headed by Jules Schwartz created JOVIAL, a high-order language [[cs/pl/history-genealogy-of-languages|based on ALGOL 58]]. A high-order language let programmers write command-and-control logic in [[cs/history/fortran-and-high-level-languages|structured statements rather than in machine code]], which mattered enormously for systems too large and too long-lived to maintain by hand.
 
 ## Made for military systems
 
@@ -27,7 +27,7 @@ Through the 1960s and 1970s JOVIAL was a major systems-programming language for 
 
 ## The lesson
 
-When a domain's needs do not fit the general languages of the day, the domain grows its own. Here the needs were real-time response and the reliability demanded of weapons systems, and the answer was a language tuned for systems programming in that world. The pattern, a specialized domain producing a specialized language, repeats across computing history, and JOVIAL is one of its early military instances.
+When a domain's needs do not fit the general languages of the day, the domain grows its own. Here the needs were real-time response and [[cs/standards/ieee-1012-verification-and-validation|the reliability demanded of weapons systems]], and the answer was a language tuned for systems programming in that world. The pattern, a specialized domain producing a specialized language, repeats across computing history, and JOVIAL is one of its early military instances.
 
 ## Related Notes
 

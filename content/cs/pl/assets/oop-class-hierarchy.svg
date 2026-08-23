@@ -44,12 +44,14 @@
   <text x="108" y="104" class="member">area(): double</text>
 
   <!-- Circle class (middle) -->
-  <rect class="class-box" x="95" y="170" width="150" height="70"/>
-  <rect class="class-header" x="95" y="170" width="150" height="26" rx="6"/>
+  <!-- Widened to 190 to match ColoredCircle: the override member line is 156px wide
+       and ran past a 150px box. -->
+  <rect class="class-box" x="75" y="170" width="190" height="70"/>
+  <rect class="class-header" x="75" y="170" width="190" height="26" rx="6"/>
   <text x="170" y="183" class="class-name">Circle</text>
-  <line class="sep-line" x1="95" y1="194" x2="245" y2="194"/>
-  <text x="108" y="212" class="member">r: double</text>
-  <text x="108" y="228" class="member-override">area(): double  &#x25C0; override</text>
+  <line class="sep-line" x1="75" y1="194" x2="265" y2="194"/>
+  <text x="88" y="212" class="member">r: double</text>
+  <text x="88" y="228" class="member-override">area(): double  &#x25C0; override</text>
 
   <!-- ColoredCircle class (bottom) -->
   <rect class="class-box" x="75" y="296" width="190" height="84"/>

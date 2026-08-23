@@ -24,11 +24,11 @@ To save weight and space, the AGC was among the first computers built on silicon
 
 ## Priority scheduling
 
-What made the AGC trustworthy was how it handled time and overload. It ran a small real-time operating system built around an executive and a priority-driven scheduler. Tasks ran in order of importance, and when more work arrived than the computer could finish, it did not seize up. It shed the least important tasks and kept the critical ones running on time.
+What made the AGC trustworthy was how it handled time and overload. It ran a small [[cs/history/operating-system-concept-batch-to-interactive|real-time operating system]] built around an executive and [[cs/systems/process-scheduling-algorithms|a priority-driven scheduler]]. Tasks ran in order of importance, and when more work arrived than the computer could finish, it did not seize up. It shed the least important tasks and kept the critical ones running on time.
 
 ## The 1202 alarms
 
-That design was tested in the most public way possible. During the Apollo 11 landing, the AGC was pushed past its capacity and began raising 1201 and 1202 program alarms. Because of its priority scheduling, it automatically dropped the low-priority work, kept the guidance and control tasks running, and the landing went on. A lesser design would have hung at exactly the wrong moment.
+That design was tested in the most public way possible. During the Apollo 11 landing, the AGC was pushed past its capacity and began raising [[cs/systems/interrupts-and-traps|1201 and 1202 program alarms]]. Because of its priority scheduling, it automatically dropped the low-priority work, kept the guidance and control tasks running, and the landing went on. A lesser design would have hung at exactly the wrong moment.
 
 ## The pattern it set
 

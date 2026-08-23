@@ -25,7 +25,7 @@ The failure is concrete: "if two clients have a cached copy of a particular memo
 
 ## The problem, precisely
 
-"In computer architecture, cache coherence is the uniformity of shared resource data that is stored in multiple local caches." The guarantee is simple to state: "in a cache coherent system, if multiple clients have a cached copy of the same region of a shared memory resource, all copies are the same." Coherence "defines the behavior of reads and writes to a single address location," which is exactly the scope, one address at a time, not the broader question of ordering across different addresses (that is memory consistency, a separate topic).
+"In computer architecture, cache coherence is the uniformity of shared resource data that is stored in multiple local caches." The guarantee is simple to state: "in a cache coherent system, if multiple clients have a cached copy of the same region of a shared memory resource, all copies are the same." Coherence "defines the behavior of reads and writes to a single address location," which is exactly the scope, one address at a time, not the broader question of ordering across different addresses (that is [[cs/languages/Cpp/the-cpp-memory-model-and-atomics|memory consistency]], a separate topic).
 
 The mechanism most systems use is snooping: each cache watches the shared bus for transactions touching lines it holds. Two families of protocol act on what they see. "The write-invalidate protocols and write-update protocols make use of this mechanism." The names describe the two possible responses to another core's write, the same fork the intro named: invalidate the other copies, or update them.
 
@@ -54,7 +54,7 @@ The states encode exactly the two facts coherence needs per line: is my copy cle
 
 Coherence works on whole cache lines, not individual variables, and that granularity has a sharp edge. False sharing is "a performance-degrading usage pattern that can arise in systems with distributed, coherent caches at the size of the smallest resource block managed by the caching mechanism." It happens when "a system participant attempts to periodically access data that is not being altered by another party, but that data shares a cache block with data that is being altered." The protocol then "may force the first participant to reload the whole cache block despite a lack of logical necessity."
 
-The trap: two cores update two entirely separate variables, no logical sharing at all, but the variables happen to sit in the same 64-byte line. Every write by one core invalidates the line in the other, so both cores keep missing and re-fetching a line they are not truly sharing. The program is correct but crawls, and nothing in the source hints at why. The fix is layout, padding the two variables onto separate cache lines so the coherence protocol stops treating them as one unit.
+The trap: two cores update two entirely separate variables, no logical sharing at all, but the variables happen to sit in the same 64-byte line. Every write by one core invalidates the line in the other, so both cores keep missing and re-fetching a line they are not truly sharing. The program is correct but crawls, and nothing in the source hints at why. The fix is layout, [[cs/dsa/memory-allocation|padding]] the two variables onto separate cache lines so the coherence protocol stops treating them as one unit.
 
 ## Related Notes
 

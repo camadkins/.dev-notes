@@ -343,9 +343,11 @@
   <!-- ============================================================ -->
   <!-- FINAL DISTANCES                                               -->
   <!-- ============================================================ -->
-  <line x1="20" y1="845" x2="760" y2="845" class="sep" />
+  <!-- Dropped 21px: the final panel's curved-edge weight sits at y=855, which put it
+       inside the summary box. -->
+  <line x1="20" y1="866" x2="760" y2="866" class="sep" />
 
-  <rect x="30" y="855" width="720" height="50" class="callout-box" rx="4" />
-  <text x="390" y="874" class="anno-mid">Final shortest distances and parents</text>
-  <text x="50" y="894" class="dist-text">s:0  b:2 (pi=s)  a:3 (pi=b)  c:6 (pi=a)  d:8 (pi=c)  e:9 (pi=d)</text>
+  <rect x="30" y="876" width="720" height="50" class="callout-box" rx="4" />
+  <text x="390" y="895" class="anno-mid">Final shortest distances and parents</text>
+  <text x="50" y="915" class="dist-text">s:0  b:2 (pi=s)  a:3 (pi=b)  c:6 (pi=a)  d:8 (pi=c)  e:9 (pi=d)</text>
 </svg>

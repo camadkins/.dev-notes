@@ -14,7 +14,7 @@ aliases:
   - MAJOR.MINOR.PATCH
 ---
 
-A version number is usually treated as a label. SemVer treats it as a contract. The specification opens on the failure mode it exists to prevent, "a dreaded place called dependency hell," and names the two ways you get there. Pin your dependencies too tightly and you hit **version lock**, "the inability to upgrade a package without having to release new versions of every dependent package." Pin them too loosely and you hit **version promiscuity**, "assuming compatibility with more future versions than is reasonable." Both come from the same root cause: the version string carried no information a tool could act on.
+A version number is usually treated as a label. SemVer treats it as a contract. The specification opens on the failure mode it exists to prevent, "[[cs/languages/common/build-systems-and-dependency-management|a dreaded place called dependency hell]]," and names the two ways you get there. Pin your dependencies too tightly and you hit **version lock**, "the inability to upgrade a package without having to release new versions of every dependent package." Pin them too loosely and you hit **version promiscuity**, "assuming compatibility with more future versions than is reasonable." Both come from the same root cause: the version string carried no information a tool could act on.
 
 > [!note] The idea
 > SemVer's leverage is not the three-number format, which predates it by decades. It is the rule that **the version number is derived from what changed in a declared public API**, so a resolver can decide an upgrade's safety without reading the diff. "For this system to work, you first need to declare a public API." Without that declaration there is nothing for MAJOR, MINOR, and PATCH to be *about*, and the numbers revert to marketing.
@@ -29,7 +29,7 @@ Two mechanical rules keep the numbers honest. Each element "MUST increase numeri
 
 ## Immutability, and version zero
 
-One rule underwrites everything else: "Once a versioned package has been released, the contents of that version MUST NOT be modified. Any modifications MUST be released as a new version." A version identifier that can be re-pointed at different bytes is not an identifier. Every lockfile, every reproducible build, every cached artifact depends on this holding.
+One rule underwrites everything else: "Once a versioned package has been released, the contents of that version MUST NOT be modified. Any modifications MUST be released as a new version." A version identifier that can be re-pointed at different bytes is not an identifier. [[cs/languages/common/software-supply-chain-and-provenance|Every lockfile, every reproducible build, every cached artifact depends on this holding.]]
 
 `0.y.z` is the deliberate escape hatch. "Major version zero (0.y.z) is for initial development. Anything MAY change at any time. The public API SHOULD NOT be considered stable." So a project genuinely churning its interface is not required to burn major versions, it is required to stay in the zero series. The spec's own FAQ closes the loop from the other side: "If your software is being used in production, it should probably already be 1.0.0."
 
@@ -44,7 +44,7 @@ A pre-release is a hyphen plus dot-separated identifiers: `1.0.0-alpha.1`, `1.0.
 
 Build metadata is a plus sign plus identifiers: `1.0.0+20130313144700`, `1.0.0-beta+exp.sha.5114f85`. The defining rule is that it "MUST be ignored when determining version precedence. Thus two versions that differ only in the build metadata, have the same precedence." That makes it the right place to stamp a commit hash or build number, and the wrong place to encode anything a consumer must distinguish, since by the spec no tool is allowed to tell those two builds apart by ordering.
 
-Precedence itself is defined field by field, left to right. Major, minor, and patch compare numerically. Within pre-release identifiers, all-digit identifiers compare numerically, identifiers with letters or hyphens "are compared lexically in ASCII sort order," numeric identifiers rank below non-numeric ones, and a longer set of fields outranks a shorter one when everything before it is equal.
+Precedence itself is defined field by field, left to right. Major, minor, and patch compare numerically. Within pre-release identifiers, all-digit identifiers compare numerically, identifiers with letters or hyphens "[[cs/languages/common/text-encoding-and-unicode|are compared lexically in ASCII sort order]]," numeric identifiers rank below non-numeric ones, and a longer set of fields outranks a shorter one when everything before it is equal.
 
 > [!example] The spec's own ordering chain
 > `1.0.0-alpha < 1.0.0-alpha.1 < 1.0.0-alpha.beta < 1.0.0-beta < 1.0.0-beta.2 < 1.0.0-beta.11 < 1.0.0-rc.1 < 1.0.0`

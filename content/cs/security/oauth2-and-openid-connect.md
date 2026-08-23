@@ -16,7 +16,7 @@ aliases:
   - OIDC
 ---
 
-Before OAuth, letting a printing service reach your photos meant handing it your password. RFC 6749 lays out exactly what breaks when you do that: the third party has to store your password "typically a password in clear-text," it gains "overly broad access" with no way to limit scope or duration, and you cannot revoke one app "without revoking access to all third parties." Worse, "compromise of any third-party application results in compromise of the end-user's password." Every one of those failures traces to a single root cause: the app was using *your* credential instead of one issued *to it*.
+Before OAuth, letting a printing service reach your photos meant handing it your password. [[cs/standards/what-a-standard-actually-is|RFC 6749]] lays out exactly what breaks when you do that: the third party has to store your password "typically a password in clear-text," it gains "overly broad access" with no way to limit scope or duration, and you cannot revoke one app "without revoking access to all third parties." Worse, "compromise of any third-party application results in compromise of the end-user's password." Every one of those failures traces to a single root cause: the app was using *your* credential instead of one issued *to it*.
 
 > [!note] The idea
 > OAuth 2.0 fixes credential sharing by inserting an authorization layer that issues the client its own scoped, expiring credential, the access token, so the app never sees your password. OpenID Connect then adds a second token, the ID token, that carries proof of *who you are*. That split is the whole distinction: OAuth is about authorization (what an app may do), OpenID Connect is about authentication (who the user is).
@@ -30,7 +30,7 @@ The four roles are worth naming because their separation is the design:
 - **Resource owner**: you, who can grant access to your data.
 - **Client**: the app requesting access.
 - **Authorization server**: the trusted party that authenticates you and mints tokens.
-- **Resource server**: the API that holds your data and honors valid tokens.
+- **Resource server**: [[cs/software-engineering/api-design|the API that holds your data]] and honors valid tokens.
 
 The printing example in the RFC is precise: an end-user "can grant a printing service (client) access to her protected photos stored at a photo-sharing service (resource server), without sharing her username and password." She authenticates with the authorization server, "which issues the printing service delegation-specific credentials (access token)." The token is scoped and time-boxed, so a compromised printing service leaks a narrow, revocable grant, not the master key.
 

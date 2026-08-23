@@ -24,7 +24,7 @@ Every ASA ships with a policy you did not write. `policy-map global_policy` is i
 
 Access rules decide whether a packet lives. MPF decides what happens to the survivors: "The point of service policies is to apply advanced services to the traffic you are allowing. Any traffic permitted by access rules can have service policies applied, and thus receive special processing, such as being redirected to a service module or having application inspection applied."
 
-The features that live here, per the documented table, are application inspection, NetFlow Secure Event Logging filtering, QoS input and output policing, the QoS standard priority queue, TCP and UDP connection limits and timeouts, TCP sequence number randomization, TCP normalization, TCP state bypass, and user statistics for the Identity Firewall. Some apply to through traffic only. QoS policing and the priority queue, TCP normalization, and TCP state bypass are all listed as through-traffic-only, not available for management traffic.
+The features that live here, per the documented table, are application inspection, NetFlow Secure Event Logging filtering, [[cs/networking/qos-and-traffic-shaping|QoS input and output policing]], the QoS standard priority queue, TCP and UDP connection limits and timeouts, [[cs/security/cryptographically-secure-randomness|TCP sequence number randomization]], TCP normalization, TCP state bypass, and user statistics for the Identity Firewall. Some apply to through traffic only. QoS policing and the priority queue, TCP normalization, and TCP state bypass are all listed as through-traffic-only, not available for management traffic.
 
 ## The three nouns
 

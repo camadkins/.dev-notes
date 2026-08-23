@@ -26,7 +26,7 @@ aliases: []
 
 - **Early filtering/pruning:** decide at a node whether to descend further (e.g., cut subtrees by value range).
 
-- **UI and filesystems:** natural for "expand node, then children" presentations.
+- **UI and [[cs/systems/file-systems|filesystems]]:** natural for "expand node, then children" presentations.
 
 
 ## Definition and Formalism
@@ -85,7 +85,7 @@ function PREORDER_RECURSIVE(root):
     PREORDER_RECURSIVE(root.right)
 ```
 
-- Simple and clear; may overflow call stack on deep/skewed trees.
+- Simple and clear; may [[cs/systems/processes-and-threads|overflow call stack]] on deep/skewed trees.
 
 
 ### Iterative - Single Stack (robust, common)

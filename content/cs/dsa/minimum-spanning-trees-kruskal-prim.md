@@ -15,7 +15,7 @@ aliases: []
 
 ## Overview
 
-A **minimum spanning tree (MST)** of a connected, undirected, weighted graph connects all vertices with the **minimum total edge weight** and **no cycles**. Two algorithms dominate practice:
+A **minimum spanning tree (MST)** of a [[cs/math/graph-theory|connected, undirected, weighted graph]] connects all vertices with the **minimum total edge weight** and **no cycles**. Two algorithms dominate practice:
 
 - **Kruskal's algorithm**: sort edges by weight and add an edge if it links **different components**, using a **Disjoint Set Union (DSU)** to test connectivity quickly.
 
@@ -31,7 +31,7 @@ These properties justify each algorithm's local choice and are the basis for cor
 
 ## Motivation
 
-MSTs model "connect everything as cheaply as possible" problems: laying fiber networks, road/pipe planning, clustering via graph distances, and deduplication of redundant links. Choosing **Kruskal vs Prim** depends on the **graph representation**, **density**, and **weight distribution**:
+MSTs model "connect everything as cheaply as possible" problems: [[cs/systems/physical-layer-of-the-internet|laying fiber networks]], road/pipe planning, clustering via graph distances, and deduplication of redundant links. Choosing **Kruskal vs Prim** depends on the **graph representation**, **density**, and **weight distribution**:
 
 - Edge list + sparse graph → **Kruskal** is natural after sorting.
 

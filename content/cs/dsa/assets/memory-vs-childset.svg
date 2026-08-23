@@ -107,22 +107,26 @@
   <rect class="slot-empty" x="262" y="128" width="18" height="22" rx="2"/>
   <text class="slot-text-dim" x="271" y="139">z</text>
 
-  <!-- Highlight: 3 of 26 populated -->
-  <text class="anno" x="147" y="176">3 of 26 slots used</text>
+  <!-- Downward pointers from populated slots.
+       a and b sit in row 1 directly above row-2 cells, so each steps sideways in the
+       inter-row gap and drops through a 2px gutter between row-2 cells. The three
+       children are spaced 40px apart so the r=12 circles (and their "..." labels)
+       never share ground - at 16px apart they merged into one blob. -->
+  <path class="edge" fill="none" d="M31,122 L31,124 L41,124 L41,158"/>
+  <circle class="slot" cx="41" cy="170" r="12"/>
+  <text class="slot-text" x="41" y="170">...</text>
 
-  <!-- Downward pointers from populated slots -->
-  <!-- Three child node circles below -->
-  <circle class="slot" cx="35" cy="210" r="12"/>
-  <text class="slot-text" x="35" y="210">...</text>
-  <line class="edge" x1="31" y1="122" x2="35" y2="198"/>
+  <path class="edge" fill="none" d="M51,122 L51,124 L81,124 L81,158"/>
+  <circle class="slot" cx="81" cy="170" r="12"/>
+  <text class="slot-text" x="81" y="170">...</text>
 
-  <circle class="slot" cx="51" cy="210" r="12"/>
-  <text class="slot-text" x="51" y="210">...</text>
-  <line class="edge" x1="51" y1="122" x2="51" y2="198"/>
+  <path class="edge" fill="none" d="M111,150 L111,152 L121,152 L121,158"/>
+  <circle class="slot" cx="121" cy="170" r="12"/>
+  <text class="slot-text" x="121" y="170">...</text>
 
-  <circle class="slot" cx="111" cy="210" r="12"/>
-  <text class="slot-text" x="111" y="210">...</text>
-  <line class="edge" x1="111" y1="150" x2="111" y2="198"/>
+  <!-- Panel summary sits below the child row, clear of every leader line.
+       At y=176 it was centred at x=147 and the r pointer ran straight through it. -->
+  <text class="anno" x="147" y="224">3 of 26 slots used</text>
 
   <!-- Performance annotations -->
   <text class="anno" x="147" y="252">O(1) access</text>

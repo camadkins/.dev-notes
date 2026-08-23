@@ -25,7 +25,7 @@ In the early days a job ran from start to finish while everyone else waited. Let
 
 ## Time-sharing
 
-The answer was to give each user a small slice of processing time, switching among them so rapidly that many people interact with one computer at once, each with the illusion of having it to themselves.
+The answer was to give each user [[cs/systems/process-scheduling-algorithms|a small slice of processing time]], [[cs/systems/context-switching|switching among them so rapidly]] that many people interact with one computer at once, [[cs/systems/virtualization-vms-and-containers|each with the illusion of having it to themselves]].
 
 ![Time-sharing: one CPU switches among users in fast slices, so each feels alone on the machine.](assets/time-slices.svg)
 

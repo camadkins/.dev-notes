@@ -16,7 +16,7 @@ Every compiler, interpreter, or parser generator starts here, determining what *
 
 But a functional grammar is not necessarily a good one.  
 Ambiguities, left recursion, and unclear naming can make grammars hard to parse, reason about, or extend.  
-Refactoring addresses these problems while preserving language meaning.
+[[cs/software-engineering/refactoring|Refactoring]] addresses these problems while preserving language meaning.
 
 > [!note]
 > A *good grammar* is both formal and human-readable: it describes both the machine’s structure of code and the designer’s intent.
@@ -164,7 +164,7 @@ If many ε rules appear across unrelated constructs, they may mask structural is
 4. **Factor and name.**  
    Add helper nonterminals for readability or precedence.
 5. **Validate unambiguity.**  
-   Trace multiple parses manually or via parser generators.
+   Trace multiple parses manually or via [[cs/languages/Racket/syntax-parse-and-specification-driven-macros|parser generators]].
 6. **Iterate.**  
    Grammar design is an evolutionary process.
 

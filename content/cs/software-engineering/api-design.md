@@ -23,7 +23,7 @@ The paradigm - REST, GraphQL, RPC - matters less than the discipline of thinking
 
 ### REST (Representational State Transfer)
 
-Resources are identified by URLs. Operations map to HTTP methods. State is transferred as representations (typically JSON).
+Resources are identified by URLs. [[cs/networking/http-evolution-1-1-to-3|Operations map to HTTP methods]]. State is transferred as representations (typically JSON).
 
 | Method | Semantics | Idempotent? |
 |--------|-----------|-------------|
@@ -59,7 +59,7 @@ query {
 
 ### RPC (Remote Procedure Call)
 
-Expose server functions directly. The client calls a named procedure with arguments and receives a result. gRPC (Protocol Buffers over HTTP/2) is the dominant modern implementation.
+Expose server functions directly. The client calls a named procedure with arguments and receives a result. gRPC ([[cs/languages/common/serialization-and-wire-formats|Protocol Buffers over HTTP/2]]) is the dominant modern implementation.
 
 - **Strengths:** efficient binary serialization; strong typing via schema; streaming support; code generation.
 - **Trade-offs:** less discoverable than REST; tighter coupling between client and server versions.
@@ -75,7 +75,7 @@ Regardless of paradigm, well-designed APIs share common traits:
 5. **Versioning strategy** - URL path (`/v2/users`), header (`Accept: application/vnd.api+json;v=2`), or schema evolution (Protocol Buffers' field numbering).
 
 > [!note]
-> The strongest API contracts are enforced by type systems. A `.proto` file or GraphQL schema catches breaking changes at compile time - far cheaper than discovering them in production. See [[type-systems-goals-guarantees|Type Systems - Goals & Guarantees]] for why static contracts matter.
+> The strongest API contracts are enforced by type systems. A `.proto` file or GraphQL schema catches breaking changes at compile time - far cheaper than discovering them in production. See [[cs/pl/type-systems-goals-guarantees|Type Systems - Goals & Guarantees]] for why static contracts matter.
 
 ---
 
@@ -116,7 +116,7 @@ REST returns a fixed shape. GraphQL returns exactly what was asked. gRPC returns
 
 ## Related Notes
 
-- [[type-systems-goals-guarantees|Type Systems - Goals & Guarantees]] - type-level contracts as the foundation of API safety
+- [[cs/pl/type-systems-goals-guarantees|Type Systems - Goals & Guarantees]] - type-level contracts as the foundation of API safety
 - [[design-patterns|Design Patterns]] - Facade, Adapter, and Proxy patterns shape API boundaries
 - [[software-architecture|Software Architecture]] - APIs are the seams between architectural components
 - [[testing-strategies|Testing Strategies]] - contract tests validate API promises between services

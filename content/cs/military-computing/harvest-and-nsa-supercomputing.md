@@ -13,7 +13,7 @@ aliases:
   - Harvest
 ---
 
-A general-purpose computer can do anything, which is exactly why it is rarely the fastest way to do any one thing. When the [[cryptography-codebreaking-and-the-nsa|National Security Agency]] needed to attack codes on an industrial scale, IBM did not hand it a faster general computer. It built a machine specialized for the work, and that machine, Harvest, is one of the earliest examples of a habit that now dominates computing: bolting purpose-built hardware onto a general processor to speed up a specific job.
+[[cs/history/von-neumann-architecture|A general-purpose computer]] can do anything, which is exactly why it is rarely the fastest way to do any one thing. When the [[cryptography-codebreaking-and-the-nsa|National Security Agency]] needed to attack codes on an industrial scale, IBM did not hand it a faster general computer. It built a machine specialized for the work, and that machine, Harvest, is one of the earliest examples of a habit that now dominates computing: bolting purpose-built hardware onto a general processor to speed up a specific job.
 
 > [!note] The idea
 > Special-purpose hardware acceleration: when a workload matters enough, build hardware shaped like the workload rather than making a general computer grind through it instruction by instruction.
@@ -28,7 +28,7 @@ The stream coprocessor was built for exactly one shape of work: pouring enormous
 
 ## In service, and the pattern it set
 
-Harvest was delivered in 1962 and ran at the NSA until 1976, fourteen years of service on a machine built for a single agency and a single kind of problem. The idea outlived the hardware completely. A modern graphics processor accelerating matrix math, or a dedicated chip accelerating neural networks, is the same move Harvest made: when a workload matters enough, build hardware shaped like the workload.
+Harvest was delivered in 1962 and ran at the NSA until 1976, fourteen years of service on a machine built for a single agency and a single kind of problem. The idea outlived the hardware completely. A modern graphics processor accelerating [[cs/math/matrices-and-linear-transformations|matrix math]], or [[cs/deep-learning/artificial-neural-networks|a dedicated chip accelerating neural networks]], is the same move Harvest made: when a workload matters enough, build hardware shaped like the workload.
 
 ## Related Notes
 

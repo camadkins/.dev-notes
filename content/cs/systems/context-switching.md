@@ -15,7 +15,7 @@ aliases:
 
 Every time the OS takes the CPU away from one process and hands it to another, it has to perform an act of near-perfect memory: freeze everything the outgoing process was in the middle of, tuck it away, and later restore it so exactly that the process never notices it was paused. That act is the context switch, and it is what makes one CPU look like many.
 
-A context switch is "the process of storing the state of a process or thread, so that it can be restored and resume execution at a later point, and then restoring a different, previously saved, state." Do that fast enough, thousands of times a second, and hundreds of processes appear to run at once on a handful of cores.
+A context switch is "the process of storing the state of a process or thread, so that it can be restored and resume execution at a later point, and then restoring a different, previously saved, state." Do that fast enough, thousands of times a second, and [[cs/military-computing/multics-and-time-sharing-foundations|hundreds of processes appear to run at once]] on a handful of cores.
 
 > [!note] The idea
 > The visible work of a context switch, copying registers in and out, is cheap and bounded. The expensive part is invisible and happens *after* the switch: the incoming process inherits a CPU cache and TLB full of the previous process's data, so it runs slow until it rebuilds its own working set. The switch costs microseconds; the pollution it leaves behind can cost far more.
@@ -37,7 +37,7 @@ The larger cost does not show up in the switch routine at all. Two hardware cach
 - **The CPU cache.** The outgoing process left the cache full of its own data. The incoming process's data is not there, so its first accesses miss and pull from main memory until the cache warms up.
 - **The TLB.** On a full process switch the [[virtual-memory|TLB]] "must be flushed. This negatively affects performance because every memory reference to the TLB will be a miss because it is empty after most context switches." Every early memory access now pays a full page-table walk.
 
-This is why thread switches within one process are cheaper than switching between separate processes. Threads "share the same virtual memory maps, so a TLB flush is not necessary." Same reason green-thread and user-level switches are lighter still: they save and restore minimal state and never touch the page tables.
+This is why thread switches within one process are cheaper than switching between separate processes. Threads "share the same virtual memory maps, so a TLB flush is not necessary." Same reason [[cs/languages/Go/goroutines-and-the-scheduler|green-thread]] and user-level switches are lighter still: they save and restore minimal state and never touch the page tables.
 
 > [!warning]
 > "Context switches are expensive" is true but the phrasing hides the cause. The register save/restore is trivial. What hurts is that the new process starts with a cold cache and (across processes) an empty TLB, so it runs at reduced speed until its working set is re-cached. If you shrink the scheduling quantum to force more switches, you pay this rebuild cost more often, which is the real ceiling on how finely you can time-slice.

@@ -118,7 +118,7 @@ The total coded length is `L = ∑ f(s) · len(code(s))`, which is **minimal** a
 
 - **Embedded dictionaries:** Compact symbol tables when a static distribution is known.
 
-- **Coding theory basics:** A practical construction approaching the entropy bound for prefix codes.
+- **Coding theory basics:** A practical construction approaching the [[cs/military-computing/shannon-and-information-theory|entropy bound]] for prefix codes.
 
 
 ## Common Pitfalls or Edge Cases
@@ -143,7 +143,7 @@ The total coded length is `L = ∑ f(s) · len(code(s))`, which is **minimal** a
 
 - **Speed vs memory:** Canonical codes enable **table-based decoding** (e.g., 8–12 bit lookups) that reduces branching; fall back to tree walking for rare long codes.
 
-- **Numerics:** Frequencies may be counts (integers) or probabilities. For probabilities, scale to integers to avoid floating-point drift; relative order is what matters.
+- **Numerics:** Frequencies may be counts (integers) or probabilities. For probabilities, scale to integers to avoid [[cs/standards/ieee-754-floating-point|floating-point drift]]; relative order is what matters.
 
 
 ## Summary

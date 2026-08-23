@@ -46,7 +46,7 @@ Key innovations:
 
 ### LISP and the Rise of Symbolic Computation (1958)
 John McCarthy’s **LISP** introduced a new paradigm: programs as lists, and code as data.  
-It was the first **functional language**, grounded in **[[cs/pl/lambda-calculus-syntax-substitution|lambda calculus]]**, emphasizing recursion and symbolic processing.
+It was the first **[[cs/history/lisp-and-functional-programming|functional language]]**, grounded in **[[cs/pl/lambda-calculus-syntax-substitution|lambda calculus]]**, emphasizing recursion and symbolic processing.
 
 Distinctive traits:
 - Parenthesized prefix syntax (`(f x y)`).
@@ -101,10 +101,10 @@ Design philosophy:
 
 ### Descendants and Influence
 C’s syntax and model became the DNA for an entire family:
-- **C++ (1983):** added classes, templates, and RAII for resource safety.  
+- **C++ (1983):** added classes, [[cs/languages/Cpp/templates-and-generic-programming|templates]], and RAII for resource safety.  
 - **Objective-C (1984):** blended C with Smalltalk’s messaging model.  
 - **C# (2000):** brought C syntax to managed runtime environments (the .NET CLR).  
-- **Rust (2015):** reimagined systems programming with ownership and borrow checking to eliminate memory errors.
+- **Rust (2015):** reimagined systems programming with [[cs/languages/Rust/ownership-and-moves|ownership and borrow checking]] to eliminate memory errors.
 
 The “C lineage” defines a spectrum from **manual control (C)** to **safe abstraction (Rust)**.
 
@@ -188,7 +188,7 @@ A purely functional language built to unify research efforts:
 - Type classes for overloading.
 - Monads for controlled side effects.
 
-Haskell became a testbed for type system research and influenced modern languages like Rust, Scala, and even TypeScript’s structural typing.
+Haskell became a testbed for type system research and influenced modern languages like Rust, Scala, and even TypeScript’s [[cs/languages/common/structural-versus-nominal-typing|structural typing]].
 
 > [!note]
 > Functional programming, once niche, now powers concurrency, parallelism, and correctness in modern design.

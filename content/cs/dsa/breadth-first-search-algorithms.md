@@ -84,7 +84,7 @@ function BFS(Adj, s):
     
 - The first time `v` is discovered, it must be via an edge `(u, v)` from some `u` already at minimum distance; thus `dist[v] = dist[u] + 1` is minimal.
     
-- By induction on distance layers, no smaller distance can exist.
+- [[cs/math/mathematical-induction|By induction]] on distance layers, no smaller distance can exist.
     
 
 ---
@@ -242,7 +242,7 @@ Shortest path `A → F` reconstructed by chasing parents: `F ← E ← C ← A` 
     
 - **Level decomposition** (topological layers in DAG-like BFS on unweighted edges).
     
-- **Bipartite testing** (2-coloring via levels: even/odd parity).
+- **[[cs/math/graph-theory|Bipartite testing]]** (2-coloring via levels: even/odd parity).
     
 - **Finding connected components** (with multiple BFS runs or union-find).
     
@@ -260,7 +260,7 @@ Shortest path `A → F` reconstructed by chasing parents: `F ← E ← C ← A` 
     
 - **Memory footprint:** store `parent` as `int16`/`int32` when vertex IDs fit; distances can use `int32` or `int64`.
     
-- **Edge iteration:** favor **contiguous** adjacency vectors for cache locality.
+- **Edge iteration:** favor **contiguous** adjacency vectors for [[cs/systems/memory-hierarchy-and-caching|cache locality]].
     
 
 ---

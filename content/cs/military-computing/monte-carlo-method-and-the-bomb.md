@@ -24,7 +24,7 @@ In 1946, nuclear weapons physicists at Los Alamos were investigating neutron dif
 
 ## Ulam's idea
 
-Stanislaw Ulam, working on the weapons project, saw a way around the equations. Instead of solving them, you could simulate many individual neutron histories at random, letting each one scatter and split according to the known probabilities, and then average over a great many of them to get the answer. He described the idea to John von Neumann, and the two began to plan actual calculations.
+Stanislaw Ulam, working on the weapons project, saw a way around the equations. Instead of solving them, you could simulate many individual neutron histories at random, letting each one scatter and split [[cs/statistics/probability-distributions|according to the known probabilities]], and then [[cs/statistics/law-of-large-numbers|average over a great many of them]] to get the answer. He described the idea to John von Neumann, and the two began to plan actual calculations.
 
 ## On ENIAC
 
@@ -34,7 +34,7 @@ Von Neumann, Nicholas Metropolis, and others programmed [[ballistics-tables-and-
 
 ## Why it matters
 
-Monte Carlo is now used wherever randomness can stand in for an intractable integral or simulation, across physics, finance, computer graphics, and machine learning. It is one of the foundational randomized algorithms in all of computing, and it came directly out of weapons work.
+Monte Carlo is now used wherever randomness can stand in for [[cs/math/integrals-and-the-fundamental-theorem|an intractable integral]] or simulation, across physics, finance, computer graphics, and machine learning. It is one of the foundational randomized algorithms in all of computing, and it came directly out of weapons work.
 
 ## Related Notes
 

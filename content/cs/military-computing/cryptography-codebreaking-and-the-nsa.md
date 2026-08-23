@@ -13,7 +13,7 @@ aliases:
   - cryptanalysis
 ---
 
-Secrecy is a computational arms race. Protecting your own communications and breaking your enemy's are two sides of the same problem, and both, pushed hard enough, demand computation. The United States did both throughout the twentieth century, and in 1952 it created an agency for it that became one of the hungriest consumers of computing power on Earth.
+Secrecy is a computational arms race. [[cs/security/comsec-principles|Protecting your own communications]] and breaking your enemy's are two sides of the same problem, and both, pushed hard enough, demand computation. The United States did both throughout the twentieth century, and in 1952 it created an agency for it that became one of the hungriest consumers of computing power on Earth.
 
 > [!note] The idea
 > Codemaking and codebreaking turned cryptography into an early and enormous driver of computing. The harder the codes, the more computation it took to make and break them.
@@ -28,7 +28,7 @@ The [[venona-and-one-time-pad-reuse|VENONA]] project showed the other side: even
 
 ## The NSA
 
-The National Security Agency was formed on 4 November 1952. It is responsible for signals intelligence, the global collection and processing of communications, and for protecting United States communications and information systems. Concentrating the nation's codemaking and codebreaking in one agency also concentrated its appetite for computing.
+The National Security Agency was formed on 4 November 1952. It is responsible for [[cs/law/title-10-and-title-50-authorities|signals intelligence]], [[cs/geopolitics/surveillance-and-privacy|the global collection and processing of communications]], and for protecting United States communications and information systems. Concentrating the nation's codemaking and codebreaking in one agency also concentrated its appetite for computing.
 
 ## The compute arms race
 

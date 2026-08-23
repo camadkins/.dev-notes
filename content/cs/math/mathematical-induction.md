@@ -59,7 +59,7 @@ This generalizes induction to recursively defined structures: trees, lists, form
 1. **Base case**: Prove $P$ for each base constructor (e.g., empty list, leaf node).
 2. **Inductive step**: For each recursive constructor, assume $P$ holds for all sub-structures and prove $P$ for the constructed whole.
 
-This directly mirrors how recursive functions process algebraic data types. If you've written a recursive function over a tree, you've already done structural induction informally. The proof has exactly the same shape as the code.
+This directly mirrors how recursive functions process [[cs/pl/parametric-polymorphism-adts|algebraic data types]]. If you've written a recursive function over a tree, you've already done structural induction informally. The proof has exactly the same shape as the code.
 
 > [!example]
 > **Binary tree leaf bound.** Prove: for any binary tree $T$, the number of leaves $\ell(T) \leq \frac{n(T) + 1}{2}$, where $n(T)$ is the node count.
@@ -80,7 +80,7 @@ This directly mirrors how recursive functions process algebraic data types. If y
 
 **Loop invariants.** Induction on iteration count proves that a loop maintains a property. The base case is the state before the first iteration; the step shows that if the invariant holds at iteration $k$, it holds at $k+1$. This is how you prove that a while loop in an algorithm actually computes what you claim it does.
 
-**Algorithm correctness.** For divide-and-conquer or recursive algorithms, strong induction on input size shows that if the algorithm is correct on all inputs smaller than $n$, it is correct on input $n$.
+**Algorithm correctness.** For [[cs/dsa/divide-and-conquer|divide-and-conquer]] or recursive algorithms, strong induction on input size shows that if the algorithm is correct on all inputs smaller than $n$, it is correct on input $n$.
 
 **Recurrence verification.** You have a recurrence $T(n) = aT(n/b) + f(n)$ and a claimed closed form. Substitute and induct to verify it. This is the "guess and check" approach that complements the [[recurrence-relations|master theorem]].
 

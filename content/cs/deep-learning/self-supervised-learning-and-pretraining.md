@@ -25,7 +25,7 @@ Labels are the expensive part of [[supervised-learning|supervised learning]]. Te
 
 The paradigm has a fixed structure. First the model solves an auxiliary or pretext task using pseudo-labels, labels generated automatically from the data rather than annotated by a person, which initializes the model parameters. Then the actual task is performed with supervised or unsupervised learning on top of those parameters. Tasks are designed so that solving them requires capturing essential features or relationships in the data, typically by augmenting or transforming the input to create pairs of related samples, one serving as input and the other as the supervisory signal.
 
-That second phase is [[transfer-learning|transfer learning]] by another name, and it is where the economics change. Pretraining is done once, expensively, on a giant unlabeled corpus. Fine-tuning is done many times, cheaply, on whatever small labeled dataset a particular problem happens to have.
+That second phase is [[transfer-learning|transfer learning]] by another name, and it is where the economics change. Pretraining is done once, expensively, on [[cs/law/gdpr-as-it-reaches-us-engineers|a giant unlabeled corpus]]. Fine-tuning is done many times, cheaply, on whatever small labeled dataset a particular problem happens to have.
 
 ## Masked language modeling
 
@@ -47,13 +47,13 @@ The historical contrast is with context-free embeddings. Word2vec or GloVe gener
 
 Text has an obvious pretext task because deleting a word leaves an unambiguous target. Images do not. The dominant answer there is contrastive: instead of predicting content, predict which things go together.
 
-Contrastive self-supervised learning uses both positive and negative examples, with a loss that minimizes the distance between positive sample pairs while maximizing the distance between negative pairs. The positives come from augmentation. Two random crops, color jitters, or flips of the same image are declared a positive pair, and everything else in the batch is a negative.
+Contrastive self-supervised learning uses both positive and negative examples, with a loss that minimizes [[cs/math/vectors-and-dot-products|the distance between positive sample pairs]] while maximizing the distance between negative pairs. The positives come from augmentation. Two random crops, color jitters, or flips of the same image are declared a positive pair, and everything else in the batch is a negative.
 
 SimCLR (Chen, Kornblith, Norouzi, and Hinton, 2020) stripped this down to essentials, removing the specialized architectures and memory banks earlier methods needed, then studied which parts actually mattered. Three findings came out of it. The composition of data augmentations plays a critical role in defining effective predictive tasks, since the augmentations are the pretext task. Introducing a learnable nonlinear transformation between the representation and the contrastive loss substantially improves representation quality, which means the layer you keep should not be the layer the loss is applied to. And contrastive learning benefits from larger batch sizes and more training steps compared to supervised learning, a direct consequence of negatives being drawn from the batch.
 
 The numbers make the label-efficiency case concretely. A linear classifier trained on SimCLR's self-supervised representations reached 76.5% top-1 accuracy on ImageNet, a 7% relative improvement over the previous state of the art, matching the performance of a supervised ResNet-50. Fine-tuned on only 1% of the labels, it reached 85.8% top-5 accuracy, outperforming AlexNet with 100 times fewer labels.
 
-Not every method needs negatives. Non-contrastive self-supervised learning uses only positive examples and, counterintuitively, converges on a useful local minimum rather than collapsing to the trivial zero-loss solution of calling everything positive. Making that work requires an extra predictor on the online side that does not backpropagate on the target side, which is an odd-looking constraint until you see it as the thing preventing collapse.
+Not every method needs negatives. Non-contrastive self-supervised learning uses only positive examples and, counterintuitively, converges on [[cs/math/convexity-and-optimization-basics|a useful local minimum]] rather than collapsing to the trivial zero-loss solution of calling everything positive. Making that work requires an extra predictor on the online side that does not backpropagate on the target side, which is an odd-looking constraint until you see it as the thing preventing collapse.
 
 ## Where reconstruction fits
 

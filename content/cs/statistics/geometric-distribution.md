@@ -73,9 +73,9 @@ So after 14 attempts, you have at least a 50% cumulative chance of having connec
 ## Why It Matters in CS
 
 - **Las Vegas algorithms**: algorithms that always produce the correct answer but have random running time. The expected execution count follows a geometric model when each attempt succeeds with fixed probability.
-- **Hash table collision resolution**: under uniform hashing, the expected number of probes to find an empty slot in an open-addressing scheme is geometrically distributed.
-- **Retry protocols**: Ethernet's exponential backoff and TCP reconnection strategies are analyzed using geometric waiting times as a baseline.
-- **Random search**: brute-force key search in cryptography, where each guess succeeds with probability $1/N$, requires $N$ expected attempts.
+- **[[cs/dsa/hash-tables|Hash table collision resolution]]**: under uniform hashing, the expected number of probes to find an empty slot in an open-addressing scheme is geometrically distributed.
+- **Retry protocols**: [[cs/military-computing/alohanet-random-access|Ethernet's exponential backoff]] and TCP reconnection strategies are analyzed using geometric waiting times as a baseline.
+- **Random search**: [[cs/security/aes-and-block-ciphers|brute-force key search in cryptography]], where each guess succeeds with probability $1/N$, requires $N$ expected attempts.
 - **Coupon collector variant**: the geometric distribution appears as a building block in the coupon collector problem, where the wait for each new distinct item is geometric with a shrinking success probability.
 
 ## Related Notes

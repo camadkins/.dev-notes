@@ -15,14 +15,14 @@ aliases:
   - Domain Name System Security Extensions
 ---
 
-The original [[dns-the-domain-name-system|Domain Name System]] had no way to tell a real answer from a forged one. A resolver asked "what is the address for example.com" and believed whatever came back, which is why cache poisoning worked: inject a plausible reply faster than the real server, and the resolver caches your lie. DNSSEC fixes this without encrypting anything. It signs the data itself, so a forged answer fails verification even if it arrives first.
+The original [[cs/systems/dns-the-domain-name-system|Domain Name System]] had no way to tell a real answer from a forged one. A resolver asked "what is the address for example.com" and believed whatever came back, which is why cache poisoning worked: inject a plausible reply faster than the real server, and the resolver caches your lie. DNSSEC fixes this without encrypting anything. It signs the data itself, so a forged answer fails verification even if it arrives first.
 
 > [!note] The idea
 > DNSSEC "add[s] data origin authentication and data integrity to the Domain Name System." It does not protect the channel; it protects the *records*. Each DNS record set is signed, and a resolver rebuilds trust by "forming an authentication chain from a newly learned public key back to a previously known authentication public key," bottoming out at a configured trust anchor, in practice the root key. A poisoned answer has no valid signature in that chain, so it is rejected.
 
 ## Object security, not channel security
 
-The design choice that makes DNSSEC work at internet scale is that it secures the *object*, not the *conversation*. "The key that signs a zone's data is associated with the zone itself and not with the zone's authoritative name servers." A signature travels with the record set through any cache, over any transport, and still verifies. That is what lets DNSSEC ride the existing untrusted, cache-everywhere DNS infrastructure without replacing it, exactly the property that separates it from a [[tls-and-the-https-handshake|TLS]]-style secured channel.
+The design choice that makes DNSSEC work at internet scale is that it secures the *object*, not the *conversation*. "The key that signs a zone's data is associated with the zone itself and not with the zone's authoritative name servers." A signature travels with the record set through any cache, over any transport, and still verifies. That is what lets DNSSEC ride the existing untrusted, cache-everywhere DNS infrastructure without replacing it, exactly the property that separates it from a [[cs/systems/tls-and-the-https-handshake|TLS]]-style secured channel.
 
 Concretely, DNSSEC adds four record types. The RRSIG carries the digital signature over a record set. The DNSKEY holds a zone's public key. The DS (Delegation Signer) sits in the parent zone and commits to the child's key. The NSEC record handles the awkward case below.
 
@@ -41,7 +41,7 @@ Signing existing records is the easy half. The hard half is proving a *negative*
 
 ## Related Notes
 
-- [[dns-the-domain-name-system|DNS: The Domain Name System]] - the naming system whose original trust gap DNSSEC closes
+- [[cs/systems/dns-the-domain-name-system|DNS: The Domain Name System]] - the naming system whose original trust gap DNSSEC closes
 - [[digital-signatures|Digital Signatures]] - the RRSIG mechanism that makes a record set verifiable
 - [[pki-and-x509-certificates|PKI and X.509 Certificates]] - the same delegated-chain trust model, applied to certificates
 - [[cryptographic-hash-functions|Cryptographic Hash Functions]] - the digests underlying DS records and signatures

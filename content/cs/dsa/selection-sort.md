@@ -28,7 +28,7 @@ Maintain a growing **sorted prefix**. For each position `i` from left to right:
 2. **Swap** that minimum into position `i`.
     After `n-1` passes, the array is sorted.
 
-This "find-min-then-place" structure makes the algorithm conceptually clean and **stable in the count of writes** (few swaps), but **unstable** in the sense of relative order for equal keys (standard implementation).
+This "find-min-then-place" structure makes the algorithm conceptually clean and **[[cs/languages/Cpp/stl-algorithms|stable]] in the count of writes** (few swaps), but **unstable** in the sense of relative order for equal keys (standard implementation).
 
 ## Algorithm Steps / Pseudocode
 
@@ -162,7 +162,7 @@ Selection sort complements:
 
 - **Data types:** For **expensive comparisons** (e.g., strings), the `Θ(n^2)` factor hurts more - consider using a key-extraction or memoized comparator.
 
-- **I/O-bound variants:** When sorting **on disk**, selection's predictable access pattern (mostly sequential scans plus rare swaps) can be useful in carefully batched designs, though external merge is generally preferred.
+- **I/O-bound variants:** When sorting **[[cs/history/magnetic-disk-storage|on disk]]**, selection's predictable access pattern (mostly sequential scans plus rare swaps) can be useful in carefully batched designs, though external merge is generally preferred.
 
 - **Partial selection:** If only the **k smallest** elements are needed (unordered), use a **selection algorithm** (e.g., quickselect) or a **min-heap** of size `k` rather than sorting the entire array.
 

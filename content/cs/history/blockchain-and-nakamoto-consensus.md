@@ -21,11 +21,11 @@ Getting computers that do not trust each other to agree on a single shared recor
 
 ## The whitepaper
 
-On 31 October 2008, a paper titled "Bitcoin: A Peer-to-Peer Electronic Cash System," authored under the name Satoshi Nakamoto, was posted to a cryptography mailing list. It described the first decentralized cryptocurrency, a money system with no bank or government at its center.
+On 31 October 2008, a paper titled "Bitcoin: A Peer-to-Peer Electronic Cash System," authored under the name Satoshi Nakamoto, was posted to a cryptography mailing list. It described the first decentralized cryptocurrency, a money system with [[cs/systems/blockchain-consensus-and-sanctions-evasion|no bank or government at its center]].
 
 ## How agreement works
 
-Bitcoin runs as a peer-to-peer network in which each node keeps its own copy of a public ledger, the blockchain. Consensus on the contents of that ledger is reached through proof of work, a computationally intensive process called mining. Because rewriting history would require out-computing the rest of the network combined, the record is hard to forge without controlling most of the world's mining power.
+Bitcoin runs as a peer-to-peer network in which [[cs/systems/replication-and-quorums|each node keeps its own copy of a public ledger]], the blockchain. Consensus on the contents of that ledger is reached through [[cs/security/cryptographic-hash-functions|proof of work]], a computationally intensive process called mining. Because rewriting history would require out-computing the rest of the network combined, the record is hard to forge without controlling most of the world's mining power.
 
 ## Why it matters
 

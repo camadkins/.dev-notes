@@ -21,7 +21,7 @@ def foo(self):
 foo = classmethod(foo)
 ```
 
-PEP 318's complaint about that pattern is specific, and it is not about aesthetics. For large functions it separates a key component of the function's behavior from the definition of the rest of the function's external interface, and it names the function three times for what is conceptually a single declaration. The `@` syntax moves the transformation next to the declaration it modifies. Nothing else changed.
+PEP 318's complaint about that pattern is specific, and it is not about aesthetics. For large functions it separates a key component of the function's behavior from the definition of the rest of the function's external interface, and it names the function three times for what is conceptually a single declaration. The `@` syntax moves [[cs/pl/macros-and-metaprogramming|the transformation]] next to the declaration it modifies. Nothing else changed.
 
 > [!note] The idea
 > A decorator is not a language feature that wraps functions. It is a rebinding rule: the decorator expression is evaluated at definition time, called with the function object as its only argument, and whatever it returns is bound to the function's name instead of the function. Wrapping is merely the most common thing to return. The consequence people underuse is that a decorator is free to return anything at all, a different function, a class instance, a registry entry, or the original object unchanged after a side effect.
@@ -32,9 +32,9 @@ The language reference states the rule directly. A function definition may be wr
 
 Three separate facts sit in that sentence, and each one bites somewhere.
 
-**Definition time, not call time.** The decorator runs once, when the `def` executes. A decorator that opens a file or registers into a global does so at import, which is why a badly written decorator turns an import into a side effect.
+**Definition time, not call time.** The decorator runs once, when the `def` executes. A decorator that opens a file or registers into a global does so [[cs/languages/Python/the-import-system|at import]], which is why a badly written decorator turns an import into a side effect.
 
-**The enclosing scope.** The expression after `@` is resolved where the definition lives, not inside the function.
+**[[cs/pl/scoping-binding-and-closures|The enclosing scope]].** The expression after `@` is resolved where the definition lives, not inside the function.
 
 **Any callable.** `@` does not require a function. A class with `__call__`, a `partial`, or an instance method all qualify, because the check is the general [[cs/languages/Python/the-data-model-and-dunder-methods|callable protocol]] rather than a function type test.
 
@@ -48,7 +48,7 @@ def func(): pass
 
 is roughly equivalent to `func = f1(arg)(f2(func))`, except that the original function is never temporarily bound to the name `func`. PEP 318's rationale for bottom-to-top application is that it matches the usual order of function application: in mathematics, composing `g` after `f` means `g(f(x))`, so `@g` above `@f` means the outer `g` applies last.
 
-Classes work the same way. `@f1(arg)` over `@f2` over `class Foo` is roughly `Foo = f1(arg)(f2(Foo))`, with the same evaluation rules and the result bound to the class name. PEP 318 itself only added function and method decorators in Python 2.4; class decorators arrived through PEP 3129, and the PEP notes candidly that almost anything class decorators do could be done with metaclasses, but metaclasses are sufficiently obscure that an easier way to make simple class modifications was worth having.
+Classes work the same way. `@f1(arg)` over `@f2` over `class Foo` is roughly `Foo = f1(arg)(f2(Foo))`, with the same evaluation rules and the result bound to the class name. PEP 318 itself only added function and method decorators in Python 2.4; class decorators arrived through PEP 3129, and the PEP notes candidly that almost anything class decorators do could be done with [[cs/languages/Python/metaclasses-and-class-creation|metaclasses]], but metaclasses are sufficiently obscure that an easier way to make simple class modifications was worth having.
 
 One grammar note: since Python 3.9, functions and classes may be decorated with any valid assignment expression, where previously the grammar was much more restrictive. PEP 318 records the original restriction and Guido's reason for it, a gut feeling that arbitrary expressions after `@` were a bad idea.
 

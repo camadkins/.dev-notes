@@ -20,11 +20,11 @@ By 1971 you could put many components on a chip. Intel's question was whether yo
 
 ## The 4004
 
-Released on 15 November 1971, the Intel 4004 was the first commercial microprocessor, a complete CPU on one chip with about 2,300 transistors. It came together from Ted Hoff's proposal for a simpler architecture, the design work of Stanley Mazor and Masatoshi Shima, and Federico Faggin's silicon-gate implementation that fit it all onto a single die.
+Released on 15 November 1971, the Intel 4004 was the first commercial microprocessor, a complete CPU on one chip with about 2,300 transistors. It came together from Ted Hoff's proposal for a simpler architecture, the design work of Stanley Mazor and Masatoshi Shima, and Federico Faggin's [[cs/geopolitics/semiconductor-supply-chains|silicon-gate implementation]] that fit it all onto a single die.
 
 ## Why it changed everything
 
-A CPU on a chip is cheap, small, and easy to embed. The same kind of part that ran a calculator could run a cash register, a car's engine controller, or a personal computer. Computing escaped the machine room and spread into ordinary objects, which is the world we live in now.
+A CPU on a chip is cheap, small, and easy to embed. The same kind of part that ran a calculator could run a cash register, [[cs/military-computing/apollo-guidance-computer-and-embedded-systems|a car's engine controller]], or a personal computer. Computing escaped the machine room and spread into ordinary objects, which is the world we live in now.
 
 ## The lineage
 

@@ -13,14 +13,14 @@ aliases:
   - Data Encryption Standard
 ---
 
-By the early 1970s, banks, agencies, and companies all needed to encrypt data, and they needed to do it the same way so their systems could talk. That called for a single standard cipher that anyone could use and everyone could trust. The Data Encryption Standard became that cipher, and the argument over it is the first time the public had to ask whether it could trust cryptography that the government helped design.
+By the early 1970s, banks, agencies, and companies all needed to encrypt data, and they needed to do it the same way [[cs/standards/conformance-testing-and-plugfests|so their systems could talk]]. That called for a single standard cipher that anyone could use and everyone could trust. The Data Encryption Standard became that cipher, and the argument over it is the first time the public had to ask whether it could trust cryptography that the government helped design.
 
 > [!note] The idea
 > A block cipher scrambles a fixed-size block of data under a key. Its strength depends heavily on how long that key is, and DES shipped with a 56-bit key.
 
 ## From Lucifer to DES
 
-DES grew out of Lucifer, a cipher developed at IBM based on a design by Horst Feistel. After review it was published as an official Federal Information Processing Standard for the United States in 1977, which made it the default way to encrypt unclassified government and commercial data for a generation.
+DES grew out of Lucifer, a cipher developed at IBM based on a design by Horst Feistel. After review it was published as an official [[cs/standards/what-a-standard-actually-is|Federal Information Processing Standard]] for the United States in 1977, which made it the default way to encrypt unclassified government and commercial data for a generation.
 
 ## The NSA's hand
 
@@ -31,7 +31,7 @@ The [[cryptography-codebreaking-and-the-nsa|National Security Agency]] was invol
 
 ## The lasting question
 
-DES forced a question into the open that has never fully closed: can you trust a cipher that a national intelligence agency helped shape, when part of its reasoning stays secret? Every later debate over government influence on cryptographic standards is a continuation of the one that started here.
+DES forced a question into the open that has never fully closed: can you trust a cipher that a national intelligence agency helped shape, when part of its reasoning stays secret? [[cs/law/encryption-export-history-and-the-crypto-wars|Every later debate over government influence on cryptographic standards]] is a continuation of the one that started here.
 
 ## Related Notes
 

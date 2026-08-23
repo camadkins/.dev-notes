@@ -26,7 +26,7 @@ all keys in left(x) < key(x) < all keys in right(x)
 ---
 
 ## Node Structure
-Each node stores a key (and optionally a value) and pointers to its children.
+Each node stores a key (and optionally a value) and [[cs/languages/Rust/smart-pointers-box-rc-refcell|pointers to its children]].
 
 ```text
 struct Node {
@@ -219,7 +219,7 @@ Inorder traversal yields `[10, 25, 37, 50, 60, 75, 90]`.
 
 ## Summary
 
-- BST maintains **ordered keys** with hierarchical structure.
+- BST maintains **[[cs/math/relations-and-equivalence|ordered keys]]** with hierarchical structure.
     
 - Search, insert, delete average **O(log n)** when balanced.
     

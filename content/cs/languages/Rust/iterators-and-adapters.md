@@ -13,7 +13,7 @@ aliases:
   - Iterator Adapters
 ---
 
-`v1.iter().map(|x| x + 1)` looks like it increments every element of a vector. It does nothing at all. The compiler even says so, warning that iterators are lazy and do nothing unless consumed. Understanding why that expression is inert, and what turns it live, is most of what there is to know about iteration in Rust.
+`v1.iter().map(|x| x + 1)` looks like it increments every element of a vector. It does nothing at all. The compiler even says so, warning that iterators are [[cs/pl/evaluation-order-and-strictness|lazy]] and do nothing unless consumed. Understanding why that expression is inert, and what turns it live, is most of what there is to know about iteration in Rust.
 
 > [!note] The idea
 > The `Iterator` trait requires implementors to define exactly one method, `next`, which returns one item wrapped in `Some` and `None` when iteration is over. Everything else in the iteration vocabulary is a default method built on top of `next`, which is why a chain of adapters builds a tower of structs that has not moved a single element yet. The non-obvious payoff is that the tower costs nothing: a benchmark in the Book put an explicit `for` loop at 19,620,300 ns/iter against 19,234,900 ns/iter for the iterator version, because the abstraction compiles down to roughly the code you would have written by hand.
@@ -29,7 +29,7 @@ trait Iterator {
 }
 ```
 
-`type Item` is an associated type, and it is the type the iterator returns. `next` returns `Some(Item)` as long as there are elements, then `None` once they are exhausted. The full definition includes many other methods, but they are default methods built on top of `next`, so an implementor gets them for free. That is the whole contract. Write `next` for a struct holding your iteration state and every adapter in the standard library becomes available to it.
+`type Item` is [[cs/languages/Rust/associated-types-vs-type-parameters|an associated type]], and it is the type the iterator returns. `next` returns `Some(Item)` as long as there are elements, then `None` once they are exhausted. The full definition includes many other methods, but they are default methods built on top of `next`, so an implementor gets them for free. That is the whole contract. Write `next` for a struct holding your iteration state and every adapter in the standard library becomes available to it.
 
 Calling `next` mutates. It changes internal state the iterator uses to track where it is in the sequence, which is why an iterator you call `next` on directly must be `mut`. A `for` loop does not require that because the loop takes ownership of the iterator and makes it mutable behind the scenes.
 
@@ -60,7 +60,7 @@ Laziness is what makes chaining safe. `take(5)` on an infinite range is a normal
 
 The Book benchmarks its two `search` implementations by loading the whole of *The Adventures of Sherlock Holmes* into a `String` and looking for the word "the". The `for` loop version measured 19,620,300 ns/iter (+/- 915,700); the iterator version measured 19,234,900 ns/iter (+/- 657,200). Similar, within the noise, and the authors are explicit that the point is a general sense of the comparison rather than a proof of equivalence.
 
-The claim the benchmark supports is the one worth carrying: iterators, although a high-level abstraction, get compiled down to roughly the same code as if you had written the lower-level code yourself. That is what "zero-cost abstraction" means here, that using the abstraction imposes no additional runtime overhead. The Book ties the phrase to Bjarne Stroustrup's formulation of the zero-overhead principle from his 2012 ETAPS keynote: what you do not use, you do not pay for, and what you do use, you could not hand code any better. Loop unrolling and elimination of bounds checking on array access still apply to the compiled chain.
+The claim the benchmark supports is the one worth carrying: iterators, although a high-level abstraction, get compiled down to roughly the same code as if you had written the lower-level code yourself. That is what "zero-cost abstraction" means here, that using the abstraction imposes no additional runtime overhead. The Book ties the phrase to Bjarne Stroustrup's formulation of the zero-overhead principle from his 2012 ETAPS keynote: what you do not use, you do not pay for, and what you do use, you could not hand code any better. Loop unrolling and elimination of [[cs/security/buffer-overflows|bounds checking on array access]] still apply to the compiled chain.
 
 Mechanically this is plausible for the same reason [[cs/languages/Rust/traits-and-generic-bounds|monomorphization]] makes generics free. Each adapter is a concrete struct with a concrete `next`, the closures are concrete types, and the whole chain inlines into one loop body with nothing left to dispatch on.
 

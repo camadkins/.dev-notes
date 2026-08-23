@@ -45,7 +45,7 @@ A host can be in more than one group, and the docs suggest organizing along thre
 Groups nest. Parent groups are also known as nested groups or groups of groups, built with the `:children` suffix in INI or a `children:` entry in YAML. Four properties govern them:
 
 - Any host that is a member of a child group is automatically a member of the parent group.
-- A group can have multiple parents and children, but not circular relationships.
+- A group can have multiple parents and children, but not [[cs/dsa/topological-sorting|circular relationships]].
 - A host can be in multiple groups, but Ansible processes only one instance of the host at runtime, merging the data from multiple groups.
 - Hosts and groups are always global. Defining a host or group more than once either adds new information to it or overwrites conflicting information with the latest definition.
 
@@ -71,7 +71,7 @@ Either a comma or a colon separates a list of hosts, with the comma preferred wh
 
 Combined, `webservers:dbservers:&staging:!phoenix` targets all machines in webservers and dbservers that are also in staging, except any in phoenix. Wildcards work against FQDNs or IP addresses as long as the hosts are named in your inventory by FQDN or IP address, and can mix with groups (`one*.com:dbservers`). A pattern starting with `~` is a regular expression.
 
-The part that separates people who use patterns from people who trust them is the evaluation order. Processing happens in this order: first `:` and `,`, then `&`, then `!`. Positioning only accounts for processing order inside each operation, so `a:b:&c:!d:!e`, `&c:a:!d:b:!e`, and `!d:a:!e:&c:b` all resolve identically to: host in (a or b) AND host in c AND host not in (d, e). Union first, then narrow, then subtract. Writing the exclusion first does not make it happen first.
+The part that separates people who use patterns from people who trust them is the [[cs/pl/grammar-ambiguity-parse-trees|evaluation order]]. Processing happens in this order: first `:` and `,`, then `&`, then `!`. Positioning only accounts for processing order inside each operation, so `a:b:&c:!d:!e`, `&c:a:!d:b:!e`, and `!d:a:!e:&c:b` all resolve identically to: host in (a or b) AND host in c AND host not in (d, e). Union first, then narrow, then subtract. Writing the exclusion first does not make it happen first.
 
 > [!warning] The pattern is not a filter on reality
 > Two failure modes both surface as the same warning, `Could not match supplied host pattern, ignoring:`. One is that the host genuinely is not in inventory. The other is that it is in inventory under a different identifier, because you used the IP where the inventory declared an alias. Neither is a connectivity problem, and no packet was sent. Check inventory before you check the device.

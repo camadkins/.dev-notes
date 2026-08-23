@@ -34,7 +34,7 @@ Shared memory is the fast lane. "Multiple processes are given access to the same
 
 ### Message queues
 
-A message queue sits between pipes and sockets. It is "a data stream similar to a socket, but which usually preserves message boundaries." That boundary preservation is the key difference from a pipe: a pipe is a flat byte stream where a 100-byte write and two 50-byte writes are indistinguishable to the reader, whereas a queue delivers discrete messages. Queues are "typically implemented by the operating system," and let "multiple processes read and write to the message queue without being connected to each other," decoupling sender and receiver in time.
+A message queue sits between pipes and sockets. It is "a data stream similar to a socket, but which usually preserves [[cs/languages/common/serialization-and-wire-formats|message boundaries]]." That boundary preservation is the key difference from a pipe: a pipe is a flat byte stream where a 100-byte write and two 50-byte writes are indistinguishable to the reader, whereas a queue delivers discrete messages. Queues are "typically implemented by the operating system," and let "multiple processes read and write to the message queue without being connected to each other," decoupling sender and receiver in time.
 
 ### Signals
 
@@ -42,7 +42,7 @@ A signal is the odd one out: it carries almost no data. It is "a system message 
 
 ### Sockets
 
-Sockets are the IPC mechanism that also reaches across machines. Socket data is "sent over a network interface, either to a different process on the same computer or to another computer on the network." That reach is the whole appeal: the same API that talks to a process on `localhost` talks to a process across the planet. A Unix domain socket stays local and skips the network stack; a TCP socket goes out over the wire. The cost is generality overhead, but sockets are the only entry on this menu whose scope is not limited to one host.
+[[cs/networking/ports-and-sockets|Sockets]] are the IPC mechanism that also reaches across machines. Socket data is "sent over a network interface, either to a different process on the same computer or to another computer on the network." That reach is the whole appeal: the same API that talks to a process on `localhost` talks to a process across the planet. A Unix domain socket stays local and skips the network stack; a TCP socket goes out over the wire. The cost is generality overhead, but sockets are the only entry on this menu whose scope is not limited to one host.
 
 ## Choosing
 

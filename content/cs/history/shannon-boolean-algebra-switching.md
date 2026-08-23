@@ -20,13 +20,13 @@ In 1937 a graduate student at MIT wrote what has often been called the most impo
 
 ## The thesis
 
-Shannon's 1937 MIT master's thesis proved that Boolean algebra could be used to design and simplify the arrangements of relays that made up the automatic telephone switching exchanges of the day. Logic, which Boole had treated as pure mathematics, turned out to describe physical switching networks precisely.
+Shannon's 1937 MIT master's thesis proved that [[cs/math/boolean-algebra|Boolean algebra]] could be used to design and simplify the arrangements of relays that made up the [[cs/military-computing/paul-baran-and-packet-switching|automatic telephone switching exchanges]] of the day. Logic, which Boole had treated as pure mathematics, turned out to describe physical switching networks precisely.
 
 ![Two switches in series form an AND; two in parallel form an OR. A path conducts only when the logic is true.](assets/switches-and-gates.svg)
 
 ## From art to science
 
-Before Shannon, designing a switching circuit was trial and error. After him, it was algebra: write the desired behavior as a Boolean expression, simplify the expression using Boole's laws, and build the simplified circuit, now provably correct and often much smaller. His thesis laid the foundations for all digital circuit design, which is to say for the logic inside every computer.
+Before Shannon, designing a switching circuit was trial and error. After him, it was algebra: write the desired behavior as a Boolean expression, [[cs/math/propositional-logic|simplify the expression using Boole's laws]], and build the simplified circuit, now provably correct and often much smaller. His thesis laid the foundations for all digital circuit design, which is to say for the logic inside every computer.
 
 ## Two Shannons
 

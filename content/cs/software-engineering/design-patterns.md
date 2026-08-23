@@ -13,9 +13,9 @@ aliases: []
 
 ## Intuition
 
-Every experienced developer notices the same problems appearing across unrelated projects - how to create objects without hardcoding classes, how to compose structures flexibly, how to let objects communicate without tight coupling. Design patterns name these recurring situations and provide tested blueprints for resolving them. They are not libraries or frameworks; they are **shared vocabulary** for design decisions.
+Every experienced developer notices the same problems appearing across unrelated projects - how to create objects without hardcoding classes, how to compose structures flexibly, how to let objects communicate without tight coupling. Design patterns name these recurring situations and provide tested blueprints for resolving them. They are not libraries or frameworks; they are [[cs/standards/iso-iec-ieee-42010-architecture-description|**shared vocabulary** for design decisions]].
 
-The Gang of Four (Gamma, Helm, Johnson, Vlissides) catalogued 23 patterns in 1994, grouped by purpose. The catalog remains influential because the problems it addresses - decoupling creation from use, composing behavior at runtime, managing complex interactions - persist regardless of language or era.
+The Gang of Four (Gamma, Helm, Johnson, Vlissides) catalogued 23 patterns in 1994, grouped by purpose. The catalog remains influential because the problems it addresses - decoupling creation from use, [[cs/languages/common/dispatch-vtables-fat-pointers-and-dictionaries|composing behavior at runtime]], managing complex interactions - persist regardless of language or era.
 
 ---
 
@@ -108,6 +108,6 @@ The station knows nothing about display internals - it only calls `update`. New 
 
 ## Related Notes
 
-- [[objects-classes-and-dispatch|Objects, Classes & Dispatch]] - the OOP substrate patterns build on
+- [[cs/pl/objects-classes-and-dispatch|Objects, Classes & Dispatch]] - the OOP substrate patterns build on
 - [[software-architecture|Software Architecture]] - patterns at the system level rather than class level
 - [[api-design|API Design]] - where pattern choices surface as public contracts

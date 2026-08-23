@@ -70,9 +70,9 @@ Notice that increasing the sample to $n = 64$ would tighten the standard error t
 
 ## Why It Matters in CS
 
-- **Monte Carlo simulation:** averaging many random simulation runs yields normally distributed estimates, enabling confidence intervals on the result.
-- **Algorithm analysis:** when benchmarking runtime over many random inputs, the mean runtime is approximately normal, justifying Gaussian-based statistical tests for performance comparisons.
-- **Large-scale data:** in big-data pipelines, aggregate statistics (means, counts per partition) behave normally, which simplifies anomaly detection and threshold setting.
+- **[[cs/military-computing/monte-carlo-method-and-the-bomb|Monte Carlo simulation]]:** averaging many random simulation runs yields normally distributed estimates, enabling confidence intervals on the result.
+- **Algorithm analysis:** when [[cs/dsa/algorithm-efficiency|benchmarking runtime]] over many random inputs, the mean runtime is approximately normal, justifying Gaussian-based statistical tests for performance comparisons.
+- **Large-scale data:** in big-data pipelines, aggregate statistics (means, counts per partition) behave normally, which simplifies [[cs/security/ids-and-ips|anomaly detection]] and threshold setting.
 - **A/B testing:** conversion rate differences across thousands of users are approximately normal, which is why z-tests power most A/B testing frameworks.
 
 ## Related Notes

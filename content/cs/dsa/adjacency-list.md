@@ -77,7 +77,7 @@ Typical surface API (names vary by codebase):
 
 ## Implementations
 Common per-vertex bucket choices (pick to match workload):
-- `vector<vector<int>>` - contiguous buckets; fast iteration and good cache locality; membership is linear unless kept sorted.
+- `vector<vector<int>>` - contiguous buckets; fast iteration and good [[cs/systems/memory-hierarchy-and-caching|cache locality]]; membership is linear unless kept sorted.
 - `vector<list<int>>` - easy deletions; weaker locality; iterators stable.
 - `unordered_map<int, vector<int>>` (or `unordered_map<Vertex, Container>`) - supports sparse vertex ids; flexible for dynamic graphs.
 - Alternatives: `vector<unordered_set<int>>` (expected `O(1)` membership), `vector<set<int>>` (ordered iteration; `O(log deg)` ops).
@@ -138,7 +138,7 @@ Adj[4] = []
 - **Duplicate edges** in *simple* graphs inflate degrees and double-count relaxations - deduplicate on insert or via a cleanup pass.
 - **Undirected symmetry** must be maintained on insert/delete, or degrees and traversals become inconsistent.
 - **Self-loops & parallel edges**: decide policy up front; loops affect degree counts and some heuristics.
-- **Iterator invalidation**: removing from a vector while iterating can invalidate indices/iterators; prefer two-phase delete or stable containers.
+- **[[cs/languages/Cpp/iterators-and-ranges|Iterator invalidation]]**: removing from a vector while iterating can invalidate indices/iterators; prefer two-phase delete or stable containers.
 - **Mixed vertex id spaces**: if vertex ids are sparse/non-contiguous, prefer maps over raw arrays to avoid large unused buckets.
 
 > [!warning] Concurrency

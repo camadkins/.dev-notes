@@ -13,7 +13,7 @@ aliases: []
 
 ## Overview
 
-A **d-ary heap** is a generalization of the binary heap where each node has up to **d children**. Like a binary heap, it stores elements in a compact **array** and maintains the **heap property** (min-heap or max-heap). Increasing `d` makes the heap **shallower** (fewer levels) but increases the **fan-out comparisons** during downward adjustments. This trade-off can improve throughput for workloads with many **decrease-key** operations or when cache behavior benefits from fewer pointer-chasing levels.
+A **d-ary heap** is a generalization of the binary heap where each node has up to **d children**. Like a binary heap, it stores elements in a compact **array** and maintains the **heap property** (min-heap or max-heap). Increasing `d` makes the heap **shallower** (fewer levels) but increases the **fan-out comparisons** during downward adjustments. This trade-off can improve throughput for workloads with many **decrease-key** operations or when [[cs/systems/memory-hierarchy-and-caching|cache behavior]] benefits from fewer pointer-chasing levels.
 
 Compared with [[binary-heap|Binary Heap]], a d-ary heap offers:
 
@@ -181,7 +181,7 @@ Let `n` be the number of elements.
 
 ## Practical Use Cases
 
-- **Priority queues** in large-fan-out search and scheduling.
+- **Priority queues** in large-fan-out search and [[cs/systems/process-scheduling-algorithms|scheduling]].
 
 - **Shortest paths (Dijkstra's)** where many decrease-keys occur per extract-min.
 

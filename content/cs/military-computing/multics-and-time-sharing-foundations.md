@@ -19,21 +19,21 @@ Before Multics, a computer mostly did one job at a time, and a user waited for a
 
 ## Time-sharing as a utility
 
-The central goal was time-sharing: many users on one machine, each getting slices of its attention quickly enough that each feels served. Treating computing as a utility, something you tap rather than own outright, was a genuinely new way to think about a computer.
+The central goal was [[cs/history/operating-system-concept-batch-to-interactive|time-sharing]]: many users on one machine, each getting slices of its attention quickly enough that each feels served. Treating computing as a utility, something you tap rather than own outright, was a genuinely new way to think about a computer.
 
 ## A single-level store
 
-Multics blurred a line that older systems kept sharp, the line between files on disk and memory in a running program. Data lived in units called segments, and a program could address the contents of a file as if they were simply part of its own memory. This single-level store made the file system and memory two views of one thing.
+Multics blurred a line that older systems kept sharp, the line between files on disk and memory in a running program. Data lived in units called segments, and [[cs/systems/virtual-memory|a program could address the contents of a file as if they were simply part of its own memory]]. This single-level store made the file system and memory two views of one thing.
 
 ## Protection rings
 
-With many users sharing one machine, the system needed to keep them from harming each other and the system itself. Multics used hardware-supported protection rings, concentric levels of privilege with the most trusted code in the inner ring and less trusted code further out. Code in an outer ring cannot freely reach into an inner one, which bounds the damage any one program can do.
+With many users sharing one machine, the system needed to keep them from harming each other and the system itself. Multics used hardware-supported protection rings, [[cs/security/privilege-separation-and-least-privilege|concentric levels of privilege]] with the most trusted code in the inner ring and less trusted code further out. Code in an outer ring cannot freely reach into an inner one, which bounds the damage any one program can do.
 
 ![Multics protection rings: the most trusted code runs in the innermost ring, and outer rings hold progressively less privilege.](assets/multics-protection-rings.svg)
 
 ## The Unix connection
 
-Multics grew large and complex. Some of the Bell Labs researchers who had worked on it went on to build Unix, carrying forward the ideas they valued in a far smaller form. Ken Thompson kept what he liked best, including the hierarchical file system and the shell. Unix is not a rejection of Multics so much as a leaner descendant of it.
+Multics grew large and complex. Some of the Bell Labs researchers who had worked on it went on to build Unix, carrying forward the ideas they valued in a far smaller form. Ken Thompson kept what he liked best, including [[cs/systems/file-systems|the hierarchical file system]] and the shell. Unix is not a rejection of Multics so much as a leaner descendant of it.
 
 ## Related Notes
 

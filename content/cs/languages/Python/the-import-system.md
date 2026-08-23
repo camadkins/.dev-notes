@@ -14,7 +14,7 @@ aliases:
   - Relative Imports
 ---
 
-The `import` statement combines two operations; it searches for the named module, then it binds the results of that search to a name in the local scope. Those two halves are separable in the machinery. The search operation is defined as a call to the `__import__()` function, and the return value of `__import__()` is used to perform the name binding operation. A direct call to `__import__()` performs only the module search and, if found, the module creation operation, and only the `import` statement performs a name binding operation.
+The `import` statement combines two operations; it searches for the named module, then it binds the results of that search to a [[cs/pl/scoping-binding-and-closures|name in the local scope]]. Those two halves are separable in the machinery. The search operation is defined as a call to the `__import__()` function, and the return value of `__import__()` is used to perform the name binding operation. A direct call to `__import__()` performs only the module search and, if found, the module creation operation, and only the `import` statement performs a name binding operation.
 
 That separation is why `import` behaves less like a directive and more like a function call whose result gets assigned. It is also why side effects happen even when nothing is bound: certain side-effects may occur from a direct `__import__()` call, such as the importing of parent packages and the updating of various caches including `sys.modules`.
 
@@ -25,7 +25,7 @@ That separation is why `import` behaves less like a directive and more like a fu
 
 Python has only one type of module object, and all modules are of this type, regardless of whether the module is implemented in Python, C, or something else. Packages are an organizing layer on top: all packages are modules, but not all modules are packages. The membership test is mechanical. Specifically, any module that contains a `__path__` attribute is considered a package.
 
-Subpackage names are separated from their parent package name by a dot, akin to Python's standard attribute access syntax, giving names like `email.mime.text`. The reference offers the file system analogy (packages as directories, modules as files) while warning not to take it too literally, since packages and modules need not originate from the file system.
+Subpackage names are separated from their parent package name by a dot, akin to Python's standard attribute access syntax, giving names like `email.mime.text`. The reference offers the [[cs/systems/file-systems|file system]] analogy (packages as directories, modules as files) while warning not to take it too literally, since packages and modules need not originate from the file system.
 
 There are two kinds. A regular package is typically implemented as a directory containing an `__init__.py` file, and when a regular package is imported, this `__init__.py` file is implicitly executed and the objects it defines are bound to names in the package's namespace. Importing `parent.one` will implicitly execute `parent/__init__.py` and then `parent/one/__init__.py`.
 
@@ -49,7 +49,7 @@ The third default finder is the path based finder, which searches an import path
 
 The relationship between `sys.path` and a package's `__path__` is a substitution rule. When the `path` argument to `find_spec()` is given, it will be a list of string paths to traverse, typically a package's `__path__` attribute for an import within that package, and if the `path` argument is `None`, this indicates a top level import and `sys.path` is used. A package's `__path__` is the `sys.path` for names inside it.
 
-Searching for the right path entry finder for a path entry can be expensive, with `stat()` call overheads, so the path based finder maintains a cache mapping path entries to path entry finders in `sys.path_importer_cache`. Despite the name, that cache stores finder objects rather than being limited to importer objects. User code is free to remove entries, forcing the search again. This is the same namespacing-and-resolution problem covered generally in [[cs/languages/common/module-systems-and-namespacing|module systems and namespacing]], with Python's answer being a mutable runtime list rather than a compile-time resolution.
+Searching for the right path entry finder for a path entry can be expensive, with `stat()` call overheads, so the path based finder maintains a cache mapping path entries to path entry finders in `sys.path_importer_cache`. Despite the name, that cache stores finder objects rather than being limited to importer objects. User code is free to remove entries, forcing the search again. This is the same namespacing-and-resolution problem covered generally in [[cs/languages/common/module-systems-and-namespacing|module systems and namespacing]], with Python's answer being a mutable runtime list rather than a [[cs/pl/modules-signatures-and-separate-compilation|compile-time resolution]].
 
 ## What happens on first import
 

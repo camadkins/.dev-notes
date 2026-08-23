@@ -22,17 +22,17 @@ Both TCP and UDP sit at the transport layer, both ride on IP, and both use port 
 
 TCP is one of the main protocols of the internet suite, providing reliable, ordered, and error-checked delivery of a stream of octets between applications communicating over an IP network. To deliver on that, it first opens a connection with the [[tcp-three-way-handshake|three-way handshake]], numbers every byte, acknowledges what arrives, retransmits what does not, and reassembles segments into the exact order the sender wrote them. The application reads a clean, gap-free byte stream and never sees the losses and reorderings that happened underneath.
 
-That contract is what the World Wide Web, email, remote administration, and file transfer are built on. When correctness of the whole payload matters more than the latency of any one piece, TCP is the default.
+That contract is what [[cs/history/world-wide-web|the World Wide Web]], email, remote administration, and file transfer are built on. When correctness of the whole payload matters more than the latency of any one piece, TCP is the default.
 
 ## What UDP promises
 
 UDP promises almost nothing, deliberately. It was defined to give application programs a way to send messages with a minimum of protocol mechanism. Its own specification is blunt about the trade: the protocol is transaction oriented, and delivery and duplicate protection are not guaranteed. There is no connection, no sequence numbering carried for you, no retransmission. A datagram is sent and may arrive, may not, or may arrive after a later one.
 
-That sounds like a defect until you notice what it removes: no handshake round trip before the first byte, no head-of-line stalls, no connection state to hold. For real-time voice, video, gaming, and DNS lookups, a datagram that arrives late is worse than one that never arrives, so UDP's refusal to wait and retransmit is the feature. The specification itself points the other way for anyone who needs order and reliability: applications requiring ordered reliable delivery of streams of data should use TCP.
+That sounds like a defect until you notice what it removes: no handshake round trip before the first byte, no head-of-line stalls, no connection state to hold. For real-time voice, video, gaming, and [[cs/systems/dns-the-domain-name-system|DNS lookups]], a datagram that arrives late is worse than one that never arrives, so UDP's refusal to wait and retransmit is the feature. The specification itself points the other way for anyone who needs order and reliability: applications requiring ordered reliable delivery of streams of data should use TCP.
 
 ## The cost of ordering: head-of-line blocking
 
-TCP's in-order delivery has a specific failure mode. Head-of-line blocking is a performance-limiting phenomenon that occurs when a queue of packets is held up by the first packet in the queue. Because TCP must hand bytes to the application in order, a single lost segment forces every segment that arrived after it to sit in a buffer, delivered by the network but withheld from the application, until the missing one is retransmitted and fills the gap.
+TCP's in-order delivery has a specific failure mode. Head-of-line blocking is a performance-limiting phenomenon that occurs when [[cs/dsa/queue|a queue of packets]] is held up by the first packet in the queue. Because TCP must hand bytes to the application in order, a single lost segment forces every segment that arrived after it to sit in a buffer, delivered by the network but withheld from the application, until the missing one is retransmitted and fills the gap.
 
 For one bulk transfer that is fine. For many independent things multiplexed over one connection, it means one lost packet stalls all of them. This is exactly the pressure that pushed [[http-evolution-1-1-to-3|HTTP/3]] off TCP and onto QUIC over UDP, where independent streams do not block each other.
 

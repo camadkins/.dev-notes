@@ -24,13 +24,13 @@ Every piece of Python syntax that looks like a built-in feature is a method call
 
 The reference starts from the primitive: objects are Python's abstraction for data, and all data in a Python program is represented by objects or by relations between objects, including code itself. Every object has an identity, a type, and a value. The identity never changes once the object is created, `is` compares identities, and `id()` returns an integer representing it. (In CPython specifically, `id(x)` is the memory address where `x` is stored.)
 
-The type is what carries the model. An object's type determines the operations that the object supports, and the reference's own example of such an operation is "does it have a length?" Type is unchangeable, like identity. Only the *value* may be mutable, and mutability is itself a property of the type: numbers, strings, and tuples are immutable, while dictionaries and lists are mutable.
+The type is what carries the model. An object's type determines the operations that the object supports, and the reference's own example of such an operation is "does it have a length?" Type is unchangeable, like identity. Only the *value* may be mutable, and [[cs/pl/mutable-state-references-effects|mutability]] is itself a property of the type: numbers, strings, and tuples are immutable, while dictionaries and lists are mutable.
 
 There is a subtlety the reference is careful about. An immutable container holding a reference to a mutable object can have its observable contents change when that inner object changes; the container is still immutable, because the collection of objects it contains cannot be changed. Immutability is a claim about the references, not about everything reachable through them. That distinction is the reason a tuple containing a list is unhashable in practice.
 
 ## Special methods are the operator table
 
-A class can implement operations invoked by special syntax by defining methods with special names, and the reference names this plainly as Python's approach to operator overloading. The worked example is the desugaring: if a class defines `__getitem__` and `x` is an instance, then `x[i]` is roughly equivalent to `type(x).__getitem__(x, i)`.
+A class can implement operations invoked by special syntax by defining methods with special names, and the reference names this plainly as Python's approach to [[cs/pl/objects-classes-and-dispatch|operator overloading]]. The worked example is the desugaring: if a class defines `__getitem__` and `x` is an instance, then `x[i]` is roughly equivalent to `type(x).__getitem__(x, i)`.
 
 Note *where* the lookup happens in that expansion. It goes through `type(x)`, not through `x`. Except where mentioned, attempting an operation with no appropriate method defined raises an exception, typically `AttributeError` or `TypeError`.
 

@@ -21,7 +21,7 @@ A lawful intercept capability is also a backdoor. A metadata retention mandate i
 
 ## Core Idea
 
-**Signals intelligence alliances.** The Five Eyes alliance (US, UK, Canada, Australia, New Zealand) is the most extensive signals intelligence partnership in history. Originating in World War II [[cryptography-codebreaking-and-the-nsa|cryptanalysis]] cooperation (the BRUSA Agreement, 1943), it evolved into a system for sharing intercepted communications, technical standards, and collection infrastructure.
+**Signals intelligence alliances.** The Five Eyes alliance (US, UK, Canada, Australia, New Zealand) is the most extensive signals intelligence partnership in history. Originating in World War II [[cs/military-computing/cryptography-codebreaking-and-the-nsa|cryptanalysis]] cooperation (the BRUSA Agreement, 1943), it evolved into a system for sharing intercepted communications, technical standards, and collection infrastructure.
 
 The NSA (US), GCHQ (UK), CSE (Canada), ASD (Australia), and GCSB (New Zealand) operate under bilateral and multilateral agreements that allow each member to collect intelligence on the others' behalf - enabling legal circumvention of domestic surveillance restrictions. A country that cannot legally surveil its own citizens can ask a partner to do so and share the results.
 
@@ -34,7 +34,7 @@ Extended partnerships (Nine Eyes, Fourteen Eyes) include additional European all
 - **MUSCULAR** - joint NSA-GCHQ program intercepting unencrypted traffic between Google and Yahoo data centers over private fiber links.
 - **XKeyscore** - a search and analysis system allowing analysts to query vast databases of intercepted communications, metadata, and browsing history with minimal oversight.
 
-The disclosures triggered a global backlash. Tech companies accelerated adoption of [[rsa-and-computational-hardness|end-to-end encryption]] and encryption of internal data-center links. Transatlantic data-transfer agreements were reshaped: Safe Harbor was invalidated (2015), replaced by Privacy Shield, which was itself invalidated in *Schrems II* (2020), and replaced by the current EU-US Data Privacy Framework (2023).
+The disclosures triggered a global backlash. Tech companies accelerated adoption of [[cs/military-computing/rsa-and-computational-hardness|end-to-end encryption]] and encryption of internal data-center links. Transatlantic data-transfer agreements were reshaped: Safe Harbor was invalidated (2015), replaced by Privacy Shield, which was itself invalidated in *Schrems II* (2020), and replaced by the current EU-US Data Privacy Framework (2023).
 
 **Section 702 and FISA.** Section 702 of the Foreign Intelligence Surveillance Act authorizes warrantless surveillance of non-US persons located outside the United States. Collection occurs through PRISM (compelled provider cooperation) and upstream (infrastructure tapping).
 
@@ -84,9 +84,9 @@ The cycle of agreement, invalidation, and renegotiation illustrates the structur
 - [[cyber-sovereignty|Cyber Sovereignty]] - censorship infrastructure and surveillance infrastructure are often the same systems deployed for different purposes
 - [[ai-governance|AI Governance]] - AI-powered surveillance tools (facial recognition, predictive policing) are a primary driver of AI regulation
 - [[semiconductor-supply-chains|Semiconductor Supply Chains]] - hardware supply-chain integrity is a surveillance and countersurveillance concern
-- [[cryptography-codebreaking-and-the-nsa|Cryptography, Codebreaking, and the NSA]] - the signals-intelligence lineage the Five Eyes grew out of
-- [[rsa-and-computational-hardness|RSA and Computational Hardness]] - why a backdoor that only good actors can use cannot exist
-- [[history-of-the-internet|History of the Internet]] - the backbone and undersea cables upstream collection taps
+- [[cs/military-computing/cryptography-codebreaking-and-the-nsa|Cryptography, Codebreaking, and the NSA]] - the signals-intelligence lineage the Five Eyes grew out of
+- [[cs/military-computing/rsa-and-computational-hardness|RSA and Computational Hardness]] - why a backdoor that only good actors can use cannot exist
+- [[cs/history/history-of-the-internet|History of the Internet]] - the backbone and undersea cables upstream collection taps
 
 ## Sources
 

@@ -38,7 +38,7 @@ The last narrowing attacks the all-or-nothing nature of root. Since Linux 2.2 th
 
 ## Why the three compose
 
-Each mechanism closes a different escape route, so an attacker has to defeat all three at once. Namespaces make most of the system invisible, capabilities make the visible-but-privileged parts unreachable, and seccomp cuts off the syscalls that would be needed to attack the kernel itself and break out. This is the same containment logic that [[bell-lapadula-and-mandatory-access-control|mandatory access control]] applies to classified data and that [[multics-and-time-sharing-foundations|Multics protection rings]] pioneered in hardware: the policy is the system's to enforce, not the confined code's to relax.
+Each mechanism closes a different escape route, so an attacker has to defeat all three at once. Namespaces make most of the system invisible, capabilities make the visible-but-privileged parts unreachable, and seccomp cuts off the syscalls that would be needed to attack the kernel itself and break out. This is the same containment logic that [[cs/military-computing/bell-lapadula-and-mandatory-access-control|mandatory access control]] applies to classified data and that [[cs/military-computing/multics-and-time-sharing-foundations|Multics protection rings]] pioneered in hardware: the policy is the system's to enforce, not the confined code's to relax.
 
 > [!example] What a container really is
 > A Linux container is not a virtual machine. It is an ordinary process wearing all three narrowings at once: its own namespaces so it sees a private filesystem, network, and process tree; a seccomp filter blocking the syscalls a breakout would need; and a trimmed capability set so even root inside the container cannot reconfigure the host. Strip those away and the "container" is just a process sharing your kernel.
@@ -48,10 +48,10 @@ Each mechanism closes a different escape route, so an attacker has to defeat all
 
 ## Related Notes
 
-- [[virtual-memory|Virtual Memory]], the hardware isolation every sandbox is built on top of
-- [[processes-and-threads|Processes and Threads]], the subjects being confined
-- [[bell-lapadula-and-mandatory-access-control|Bell-LaPadula and Mandatory Access Control]], policy the system enforces rather than the user
-- [[multics-and-time-sharing-foundations|Multics and Time-Sharing Foundations]], where protection rings began
+- [[cs/systems/virtual-memory|Virtual Memory]], the hardware isolation every sandbox is built on top of
+- [[cs/systems/processes-and-threads|Processes and Threads]], the subjects being confined
+- [[cs/military-computing/bell-lapadula-and-mandatory-access-control|Bell-LaPadula and Mandatory Access Control]], policy the system enforces rather than the user
+- [[cs/military-computing/multics-and-time-sharing-foundations|Multics and Time-Sharing Foundations]], where protection rings began
 - [[stride-threat-modeling|STRIDE Threat Modeling]], for naming the elevation-of-privilege threat a sandbox contains
 
 ## Sources

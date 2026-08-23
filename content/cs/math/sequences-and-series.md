@@ -58,7 +58,7 @@ The canonical instance is the one Zeno tripped over. The series $\tfrac{1}{2} + 
 
 **Partial sums are a data structure.** The operation that turns a sequence into its running totals has a name on both sides of the aisle: "partial summation of a sequence is an example of a linear sequence transformation, and it is also known as the prefix sum in computer science." The inverse is equally familiar: "the inverse transformation for recovering a sequence from its partial sums is the finite difference, another linear sequence transformation."
 
-**Recursion trees are sums.** The master theorem "for divide-and-conquer recurrences provides an asymptotic analysis for many recurrence relations that occur in the analysis of divide-and-conquer algorithms," and its underlying picture is exactly a series: "the total amount of work done by the entire algorithm is the sum of the work performed by all the nodes in the tree." Grouping those nodes by depth turns a recursion into a sum over levels, and for the common cases that sum is geometric. See [[recurrences-master-theorem|Recurrences and the Master Theorem]] and [[recurrence-relations|Recurrence Relations]] for the algorithmic side.
+**Recursion trees are sums.** The master theorem "for divide-and-conquer recurrences provides an asymptotic analysis for many recurrence relations that occur in the analysis of divide-and-conquer algorithms," and its underlying picture is exactly a series: "the total amount of work done by the entire algorithm is the sum of the work performed by all the nodes in the tree." Grouping those nodes by depth turns a recursion into a sum over levels, and for the common cases that sum is geometric. See [[cs/dsa/recurrences-master-theorem|Recurrences and the Master Theorem]] and [[cs/dsa/recurrence-relations|Recurrence Relations]] for the algorithmic side.
 
 **Closed forms replace loops.** The finite geometric formula above is derived by a two-line trick: multiply the partial sum by $r$, subtract, and everything telescopes. That pattern, replacing a summation with an expression evaluated once, is the same move the [[integrals-and-the-fundamental-theorem|fundamental theorem of calculus]] makes in the continuous setting.
 
@@ -69,9 +69,9 @@ The canonical instance is the one Zeno tripped over. The series $\tfrac{1}{2} + 
 
 - [[limits-and-continuity|Limits and Continuity]] - convergence of a series is the limit of its sequence of partial sums
 - [[integrals-and-the-fundamental-theorem|Integrals and the Fundamental Theorem]] - the continuous analog of summing a series
-- [[recurrences-master-theorem|Recurrences and the Master Theorem]] - the recursion tree whose level sums are usually geometric
+- [[cs/dsa/recurrences-master-theorem|Recurrences and the Master Theorem]] - the recursion tree whose level sums are usually geometric
 - [[mathematical-induction|Mathematical Induction]] - the standard tool for proving a closed form for a finite sum
-- [[amortized-analysis-methods|Amortized Analysis Methods]] - accounting arguments that lean on bounded total work
+- [[cs/dsa/amortized-analysis-methods|Amortized Analysis Methods]] - accounting arguments that lean on bounded total work
 
 ## Sources
 

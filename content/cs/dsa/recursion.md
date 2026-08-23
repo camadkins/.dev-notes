@@ -13,7 +13,7 @@ aliases: []
 ---
 
 ## Overview
-**Recursion** is a problem-solving technique where a function or definition refers to **smaller instances of the same problem** until reaching **base cases** that are solved directly. It is fundamental in algorithms (tree traversals, divide-and-conquer, backtracking) and in mathematical definitions (factorial, Fibonacci, structural induction). Correct recursive programs require:
+**Recursion** is a problem-solving technique where a function or definition refers to **smaller instances of the same problem** until reaching **base cases** that are solved directly. It is fundamental in algorithms (tree traversals, divide-and-conquer, backtracking) and in mathematical definitions (factorial, Fibonacci, [[cs/math/mathematical-induction|structural induction]]). Correct recursive programs require:
 
 - A **decomposition** rule that reduces size or complexity.
 - **Base cases** that terminate recursion.

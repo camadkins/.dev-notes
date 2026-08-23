@@ -15,7 +15,7 @@ aliases:
   - Free-Threaded Python
 ---
 
-The complaint is familiar: Python threads do not use your cores. The reason usually given, that CPython has a big lock, is true but shallow, because it does not explain why twenty-five years of smart people failed to remove it. The lock is not the hard part. The *guarantees the lock accidentally provides to every C extension ever written* are the hard part.
+The complaint is familiar: [[cs/systems/processes-and-threads|Python threads]] do not use your cores. The reason usually given, that CPython has a big lock, is true but shallow, because it does not explain why twenty-five years of smart people failed to remove it. The lock is not the hard part. The *guarantees the lock accidentally provides to every C extension ever written* are the hard part.
 
 The cross-language placement of this problem, where Python, Rust, and C++ each put the burden of preventing data races, is in [[cs/languages/common/concurrency-in-practice|concurrency in practice]]. This note goes deeper on the CPython side.
 
@@ -24,7 +24,7 @@ The cross-language placement of this problem, where Python, Rust, and C++ each p
 
 ## What the lock actually locks
 
-The Python wiki states the scope precisely. In CPython, the GIL is a mutex that protects access to Python objects, preventing multiple threads from executing Python bytecodes at once. It prevents race conditions and ensures thread safety, and it is necessary mainly because CPython's memory management is not thread-safe.
+The Python wiki states the scope precisely. In CPython, the GIL is a [[cs/systems/concurrency-primitives|mutex]] that protects access to Python objects, preventing multiple threads from executing Python bytecodes at once. It prevents race conditions and ensures thread safety, and it is necessary mainly because CPython's memory management is not thread-safe.
 
 That last clause is the whole causal chain. Every Python object carries a reference count, and almost any reference to an object is a modification of at least that count. Two threads incrementing the same count without synchronization corrupt it, and a corrupted count means either a leak or a premature free. Making the counts atomic would fix correctness and destroy the property that made refcounting attractive: the wiki notes the existing reference count mechanism is very fast in the non-concurrent case, and that many concurrent garbage collection algorithms assume modifications are rare, which is exactly wrong for refcounting.
 

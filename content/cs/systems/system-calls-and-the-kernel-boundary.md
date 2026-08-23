@@ -27,7 +27,7 @@ That restriction is not bureaucracy, it is the entire security model. If any pro
 
 Modern operating systems use [[virtual-memory|virtual memory]] to split memory into two regions. "Kernel space is strictly reserved for running a privileged operating system kernel, kernel extensions, and most device drivers. In contrast, user space is the memory area where application software, daemons, and some drivers execute, typically with one address space per process." Each user process runs in its own space and, "unless explicitly allowed, cannot access the memory of other processes. This is the basis for memory protection."
 
-The hardware backs this with privilege levels. Most processors implement a rings model: "hierarchical levels or layers of privilege," "arranged in a hierarchy from most privileged (most trusted, usually numbered zero) to least privileged." Ring 0 is the kernel and "interacts most directly with the physical hardware." Application code runs in an outer, untrusted ring where privileged instructions are simply not allowed to execute.
+The hardware backs this with privilege levels. Most processors implement a [[cs/military-computing/multics-and-time-sharing-foundations|rings model]]: "hierarchical levels or layers of privilege," "arranged in a hierarchy from most privileged (most trusted, usually numbered zero) to least privileged." Ring 0 is the kernel and "interacts most directly with the physical hardware." Application code runs in an outer, untrusted ring where privileged instructions are simply not allowed to execute.
 
 ## The trap across the boundary
 
@@ -37,7 +37,7 @@ The sequence is fixed and one-way in the sense that user code never chooses the 
 
 ## The interface programs actually see
 
-Almost no one writes the raw trap instruction by hand. Systems "provide a library or API that sits between normal programs and the operating system." On Unix-like systems that layer is the C library: "On Unix-like systems, that API is usually part of an implementation of the C library (libc), such as glibc, that provides wrapper functions for the system calls, often named the same as the system calls they invoke." So a C program calls `read()`, a normal-looking function, and inside that wrapper is the register setup and the trap. On Windows NT the equivalent layer lives in ntdll.dll's Native API.
+Almost no one writes the raw trap instruction by hand. Systems "provide a library or API that sits between normal programs and the operating system." On Unix-like systems that layer is [[cs/languages/common/c-abi-and-ffi|the C library]]: "On Unix-like systems, that API is usually part of an implementation of the C library (libc), such as glibc, that provides wrapper functions for the system calls, often named the same as the system calls they invoke." So a C program calls `read()`, a normal-looking function, and inside that wrapper is the register setup and the trap. On Windows NT the equivalent layer lives in ntdll.dll's Native API.
 
 > [!warning]
 > The wrapper looks like an ordinary function call, and the "call" into libc is exactly that. But the real transition, the moment control actually enters the kernel, is the trap inside the wrapper, and it is "more implementation-dependent and platform-dependent" than a normal subroutine call. Conflating the C function `read()` with the kernel `read` syscall hides where the privilege boundary actually gets crossed. The function is user code; the trap is the crossing.

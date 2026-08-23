@@ -20,7 +20,7 @@ Artificial intelligence had promised and underdelivered for decades. In 2012 a s
 
 ## AlexNet
 
-Developed in 2012 by Alex Krizhevsky with Ilya Sutskever and Geoffrey Hinton at the University of Toronto, AlexNet was a deep convolutional neural network that won the ImageNet competition with a top-5 error rate of 15.3 percent, more than ten percentage points better than the runner-up. It was trained for about a week on two Nvidia GPUs.
+Developed in 2012 by Alex Krizhevsky with Ilya Sutskever and Geoffrey Hinton at the University of Toronto, AlexNet was a deep [[cs/deep-learning/convolutional-neural-networks|convolutional neural network]] that won the ImageNet competition with [[cs/machine-learning/evaluation-metrics|a top-5 error rate of 15.3 percent]], more than ten percentage points better than the runner-up. It was trained for about a week on two Nvidia GPUs.
 
 ![A deep neural network: an input layer, several hidden layers, and an output, with every unit connected to the next layer.](assets/neural-net-layers.svg)
 

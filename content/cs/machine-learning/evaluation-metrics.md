@@ -27,11 +27,11 @@ For a binary problem, cross true class against predicted class (Wikipedia also c
 | **Actually +** | true positive ($tp$) | false negative ($fn$) |
 | **Actually −** | false positive ($fp$) | true negative ($tn$) |
 
-This generalizes to any number of classes, where it shows at a glance which classes get confused with which. The two error types are rarely equal in cost: a false negative in cancer screening and a false positive in spam filtering are different kinds of expensive, and the matrix is what lets you see them separately. In probability terms these cells are counts of joint events, and the row-versus-column rates you derive from them are conditional probabilities (the same bookkeeping as [[bayes-rule]]).
+This generalizes to any number of classes, where it shows at a glance which classes get confused with which. The two error types are rarely equal in cost: a false negative in cancer screening and a false positive in [[cs/security/phishing-and-social-engineering|spam filtering]] are different kinds of expensive, and the matrix is what lets you see them separately. In probability terms these cells are counts of joint events, and the row-versus-column rates you derive from them are conditional probabilities (the same bookkeeping as [[bayes-rule]]).
 
 ## Accuracy, and Its Trap
 
-Accuracy is $(tp + tn) / N$, the fraction right, equivalently one minus the average 0-1 loss from [[loss-functions]]. It fails silently under class imbalance. The course example: a test set of 1000 examples with 20 positives and 980 negatives. A classifier that gets 2 of 20 positives and 965 of 980 negatives scores $(2 + 965)/1000 = 96.7\%$. Impressive, except the do-nothing classifier that always predicts negative scores $980/1000 = 98.0\%$ while catching zero positives. Whether you would rather have a 94.9% accurate model that catches 19 of 20 positives (at the cost of fifty false alarms) depends entirely on what positives cost you, and accuracy alone cannot express that.
+Accuracy is $(tp + tn) / N$, the fraction right, equivalently one minus the average 0-1 loss from [[loss-functions]]. It fails silently under class imbalance. The course example: a test set of 1000 examples with 20 positives and 980 negatives. A classifier that gets 2 of 20 positives and 965 of 980 negatives scores $(2 + 965)/1000 = 96.7\%$. Impressive, except the do-nothing classifier that always predicts negative scores $980/1000 = 98.0\%$ while catching zero positives. Whether you would rather have a 94.9% accurate model that catches 19 of 20 positives (at the cost of fifty [[cs/security/ids-and-ips|false alarms]]) depends entirely on what positives cost you, and accuracy alone cannot express that.
 
 ## Precision, Recall, and F1
 
@@ -41,7 +41,7 @@ The **F1 score** combines them as their harmonic mean, $F_1 = 2 \cdot \frac{\tex
 
 ## ROC Curves and AUC
 
-Most classifiers output a score or probability, and the hard labels come from thresholding it. Slide the threshold and you get a whole family of classifiers, from "always negative" to "always positive." The **ROC curve** (receiver operating characteristic) plots the true positive rate against the false positive rate at each threshold setting, tracing the tradeoff. A perfect ranker hugs the top-left corner; a coin flip walks the diagonal.
+Most classifiers output a score or probability, and the hard labels come from thresholding it. Slide the threshold and you get a whole family of classifiers, from "always negative" to "always positive." The **ROC curve** ([[cs/military-computing/sosus-undersea-signal-processing|receiver operating characteristic]]) plots the true positive rate against the false positive rate at each threshold setting, tracing the tradeoff. A perfect ranker hugs the top-left corner; a coin flip walks the diagonal.
 
 The **area under the curve (AUC)** compresses the curve into one threshold-free number with a clean interpretation: the AUC equals the probability that the classifier ranks a randomly chosen positive instance higher than a randomly chosen negative one. So 1.0 is a perfect ranking, 0.5 is chance. Because it evaluates the ranking rather than one operating point, AUC compares models before you have committed to a threshold. One caveat carried over from the precision-recall discussion: with a huge negative class, ROC curves can look comfortingly good while precision is terrible, so precision-recall curves are often the more honest picture for heavily imbalanced problems.
 

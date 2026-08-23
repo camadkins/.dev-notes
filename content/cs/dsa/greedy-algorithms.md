@@ -13,7 +13,7 @@ aliases: []
 
 ## Overview
 
-**Greedy algorithms** build solutions step by step, each time selecting the **locally best** option by a simple rule (e.g., smallest weight, earliest finish, highest ratio) and **never revisiting** that choice. Greedy methods can be extremely fast and simple, but they are correct only when a problem's structure guarantees that **local optimality composes into global optimality**. Typical justification tools include the **exchange argument**, **cut/greedy-choice properties**, and (for abstract families) **matroid theory**.
+**Greedy algorithms** build solutions step by step, each time selecting the **locally best** option by a simple rule (e.g., smallest weight, earliest finish, highest ratio) and **never revisiting** that choice. Greedy methods can be extremely fast and simple, but they are correct only when a problem's structure guarantees that **local optimality composes into global optimality**. Typical justification tools include the **[[cs/math/proof-techniques|exchange argument]]**, **cut/greedy-choice properties**, and (for abstract families) **matroid theory**.
 
 ## Motivation
 
@@ -26,7 +26,7 @@ Greedy algorithms often beat dynamic programming and backtracking in **simplicit
 - a **structure** that ensures **exchanges** can fix any deviation from greedy without harming optimality.
 
 
-They are the right fit for many scheduling, spanning tree, data compression, and selection problems. When greedy fails, it often fails **spectacularly** - so proofs and counterexamples matter.
+They are the right fit for many [[cs/systems/process-scheduling-algorithms|scheduling]], spanning tree, data compression, and selection problems. When greedy fails, it often fails **spectacularly** - so proofs and counterexamples matter.
 
 ## Definition and Formalism
 

@@ -14,7 +14,7 @@ aliases: []
 ## Overview
 
 **Bucket Sort** is a **distribution-based sorting algorithm** that maps elements into **ordered buckets**, sorts each bucket locally, and **concatenates** buckets to produce a globally sorted array.
-When the mapping spreads items evenly (e.g., approximately uniform data or quantile-calibrated cut points) and the number of buckets matches the input scale, the algorithm achieves **expected $O(n)$** time.
+When the mapping spreads items evenly (e.g., approximately [[cs/statistics/probability-distributions|uniform data]] or quantile-calibrated cut points) and the number of buckets matches the input scale, the algorithm achieves **expected $O(n)$** time.
 
 > [!note]
 > The comparison lower bound $Ω(n\log n)$ does **not** apply here because order arises from **value-to-range mapping**, not pairwise comparisons alone.
@@ -159,7 +159,7 @@ Concatenation in bucket order yields the globally sorted array.
 
 - With **balanced buckets** and **$m = Θ(n)$**, runtime is **expected $O(n)$**.
 
-- Robust performance requires **quantile-aware bucket boundaries**, **cache-friendly layout**, and a **sensible in-bucket sorter**.
+- Robust performance requires **quantile-aware bucket boundaries**, **[[cs/systems/memory-hierarchy-and-caching|cache-friendly layout]]**, and a **sensible in-bucket sorter**.
 
 ---
 

@@ -14,7 +14,7 @@ aliases:
   - ASA ACL order
 ---
 
-An ACL on an ASA looks like an ACL on a router, and that resemblance causes most of the trouble. The list syntax is familiar, the first-match-wins evaluation is familiar, and then two ASA-specific behaviors, an implicit permit you did not write and address matching that ignores your NAT, produce results the router mental model cannot explain.
+An ACL on an ASA looks like an ACL on a router, and that resemblance causes most of the trouble. The list syntax is familiar, the [[cs/security/firewalls|first-match-wins evaluation]] is familiar, and then two ASA-specific behaviors, an implicit permit you did not write and address matching that ignores your NAT, produce results the router mental model cannot explain.
 
 > [!note] The idea
 > An ASA access rule does not decide traffic on its own. It sits inside a fixed pipeline: the interface security-level check runs first, then the interface rule, then the BVI rule, then the global rule, then the implicit deny. Rules earlier in that pipeline can permit or block traffic without any rule ever matching, which is why "my ACL says permit" and "the packet passed" are independent facts on this platform.
@@ -26,7 +26,7 @@ Cisco enumerates several rule types that "work together to implement your access
 - **Extended access rules assigned to interfaces.** "You can apply separate rule sets (ACLs) in the inbound and outbound directions. An extended access rule permits or denies traffic based on the source and destination traffic criteria."
 - **Extended access rules assigned globally.** "You can create a single global rule set, which serves as your default access control. The global rules are applied after interface rules."
 - **Management access rules**, which "cover traffic directed at an interface, which would typically be management traffic. In the CLI, these are 'control plane' access groups."
-- **EtherType rules** for Layer 2, available on bridge group member interfaces only, controlling "network access for non-IP traffic."
+- **[[cs/standards/ieee-802-3-ethernet|EtherType rules]]** for Layer 2, available on bridge group member interfaces only, controlling "network access for non-IP traffic."
 
 ## Inbound and outbound mean something specific here
 

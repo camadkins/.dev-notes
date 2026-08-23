@@ -60,7 +60,7 @@ $$\text{Var}(X) = E[(X - \mu)^2] = E[X^2] - (E[X])^2$$
 
 ## Example
 
-**Modelling packet loss.** A network link drops each packet independently with probability $p = 0.02$. Define $X$ = number of dropped packets in a batch of $n = 100$.
+**Modelling [[cs/networking/tcp-congestion-control|packet loss]].** A network link drops each packet independently with probability $p = 0.02$. Define $X$ = number of dropped packets in a batch of $n = 100$.
 
 Each packet is a Bernoulli trial, so $X \sim \text{Binomial}(100, 0.02)$:
 
@@ -72,10 +72,10 @@ The random variable $X$ lets us move from "packets might get dropped" to precise
 
 ## Why It Matters in CS
 
-- **Formalizing randomness.** Randomized algorithms (quicksort pivot selection, hash functions, skip lists) are analyzed by defining random variables over their internal coin flips.
+- **Formalizing randomness.** Randomized algorithms ([[cs/dsa/quick-sort|quicksort pivot selection]], hash functions, skip lists) are analyzed by defining random variables over their internal coin flips.
 - **Algorithm analysis.** The running time of a randomized algorithm is a random variable. Its expected value gives the average-case complexity; its variance tells you how reliable that average is.
-- **Probabilistic data structures.** Bloom filters, count-min sketches, and HyperLogLog all define random variables whose distributions determine error guarantees.
-- **Machine learning.** Features are random variables. Labels are random variables. The entire supervised learning framework is built on the joint distribution $P(X, Y)$.
+- **Probabilistic data structures.** [[cs/dsa/hash-tables|Bloom filters]], count-min sketches, and HyperLogLog all define random variables whose distributions determine error guarantees.
+- **Machine learning.** [[cs/machine-learning/features-and-representations|Features]] are random variables. Labels are random variables. The entire supervised learning framework is built on the joint distribution $P(X, Y)$.
 
 ## Related Notes
 

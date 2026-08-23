@@ -20,11 +20,11 @@ Once the [[world-wide-web|Web]] existed, the program you viewed it with became s
 
 ## The first browser war
 
-Between 1995 and 2001, Netscape Navigator and Microsoft's Internet Explorer competed hard for the same users. New features were added constantly, including Netscape's JavaScript, which Microsoft reimplemented as JScript, and the first commercial support for Cascading Style Sheets. Each release tried to outdo the other.
+Between 1995 and 2001, Netscape Navigator and Microsoft's Internet Explorer competed hard for the same users. New features were added constantly, including [[cs/pl/compilation-vs-interpretation|Netscape's JavaScript]], which Microsoft reimplemented as JScript, and [[cs/standards/when-the-standard-loses-to-the-implementation|the first commercial support for Cascading Style Sheets]]. Each release tried to outdo the other.
 
 ## From viewer to platform
 
-That competition pushed browsers to render richer pages and run more code, and a document viewer became an execution environment. Today a vast amount of software, from email to spreadsheets to design tools, runs inside the browser rather than as a native application. That is why the browser is now one of the most important pieces of software in the world.
+That competition pushed browsers to render richer pages and run more code, and [[cs/security/sandboxing-and-isolation|a document viewer became an execution environment]]. Today a vast amount of software, from email to spreadsheets to design tools, runs inside the browser rather than as a native application. That is why the browser is now one of the most important pieces of software in the world.
 
 ## Why it matters
 

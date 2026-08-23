@@ -12,7 +12,7 @@ aliases: []
 ---
 
 ## Overview
-A **stack** is a container that enforces **Last-In, First-Out (LIFO)** access: the most recently pushed element is the first to be popped. Stacks power recursion (call stacks), parsing, expression evaluation, backtracking, and graph traversals. A minimal interface exposes `push(x)`, `pop()`, and `peek()` (or `top()`), plus convenience methods `isEmpty()`, `size()`, and sometimes `clear()`.
+A **stack** is a container that enforces **Last-In, First-Out (LIFO)** access: the most recently pushed element is the first to be popped. Stacks power recursion ([[cs/systems/processes-and-threads|call stacks]]), parsing, expression evaluation, backtracking, and graph traversals. A minimal interface exposes `push(x)`, `pop()`, and `peek()` (or `top()`), plus convenience methods `isEmpty()`, `size()`, and sometimes `clear()`.
 
 > [!note]
 > LIFO is about **access policy**, not representation. Stacks can be implemented with **contiguous arrays** (top index) or **linked nodes** (head pointer). Both achieve `O(1)` amortized or worst-case time for core operations under typical designs.
@@ -156,7 +156,7 @@ Cache and locality:
 
 ### Thread safety
 
-- A simple stack is **not** thread-safe by default. For concurrent use, wrap with a mutex or use a specialized **lock-free** stack (e.g., Treiber stack with ABA handling via hazard pointers or tagged pointers). Note: lock-free stacks can suffer **contention** on the top pointer under high concurrency.
+- A simple stack is **not** thread-safe by default. For concurrent use, wrap with a mutex or use a specialized **[[cs/systems/concurrency-primitives|lock-free]]** stack (e.g., Treiber stack with ABA handling via hazard pointers or tagged pointers). Note: lock-free stacks can suffer **contention** on the top pointer under high concurrency.
 
 
 ### Memory model

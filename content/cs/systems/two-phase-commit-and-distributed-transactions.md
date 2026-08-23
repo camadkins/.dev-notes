@@ -22,7 +22,7 @@ A single-machine transaction is atomic because one storage engine decides commit
 
 ## The two phases
 
-One node is the coordinator; the rest are participants (also called cohorts). The protocol assumes stable storage with a write-ahead log at every node, that no node crashes forever, that the log survives crashes, and that any two nodes can eventually communicate.
+One node is the coordinator; the rest are participants (also called cohorts). The protocol assumes stable storage with a [[cs/forensics/deleted-files-journaling-and-what-survives|write-ahead log]] at every node, that no node crashes forever, that the log survives crashes, and that any two nodes can eventually communicate.
 
 **Phase 1, commit-request (voting).** The coordinator sends a *query to commit* to every participant and waits for all replies. Each participant executes the transaction up to the commit point, writes undo and redo log entries, and votes: *yes* if its local work succeeded, *no* if it hit a problem that makes committing impossible.
 
@@ -52,7 +52,7 @@ Worse is the ambiguous case where **both** the coordinator and one participant f
 
 ## Three-phase commit and sagas
 
-**Three-phase commit (3PC)** attacks exactly the blocking case by inserting a *prepared-to-commit* state between the vote and the commit. The coordinator does not send the final *doCommit* until every participant has acknowledged that it is prepared. If the coordinator dies before any preCommit goes out, a recovery coordinator finding no participant prepared can safely abort; finding some in the commit phase, it can safely drive the commit forward. The removed ambiguity is what eliminates indefinite blocking. The cost is real: 3PC assumes bounded network delay and bounded response times, so on ordinary networks with unbounded delay and process pauses it cannot guarantee atomicity, and it needs at least three round trips per transaction.
+**Three-phase commit (3PC)** attacks exactly the blocking case by inserting a *prepared-to-commit* state between the vote and the commit. The coordinator does not send the final *doCommit* until every participant has acknowledged that it is prepared. If the coordinator dies before any preCommit goes out, a recovery coordinator finding no participant prepared can safely abort; finding some in the commit phase, it can safely drive the commit forward. The removed ambiguity is what eliminates indefinite blocking. The cost is real: 3PC assumes bounded network delay and bounded response times, so on ordinary networks with unbounded delay and process pauses it cannot guarantee atomicity, and it needs at least [[cs/networking/tcp-three-way-handshake|three round trips]] per transaction.
 
 **Sagas** (the long-running transaction, or saga interaction pattern) abandon the goal entirely for transactions that would hold locks too long. Instead of one atomic commit, a saga chains smaller local ACID transactions and, on failure, runs **compensating** actions that undo the earlier steps by business logic rather than by rollback. The canonical example: the compensation for making a hotel reservation is canceling that reservation. A coordinator still mediates completion or compensation, but no global lock is ever held across the whole operation.
 

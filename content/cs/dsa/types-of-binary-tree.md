@@ -17,7 +17,7 @@ Binary trees come in many flavors—**full (proper)**, **complete**, **perfect**
 > A **binary tree** restricts each node to at most two children: `left` and `right`. See [[cs/dsa/binary-tree|Binary Tree]] for fundamentals and [[cs/dsa/tree-traversal|Tree Traversal — Overview]] for visiting orders.
 
 ## Motivation
-- **Performance guarantees:** Balanced forms bound height to `Θ(log n)`, yielding logarithmic search/update in BST-like structures.
+- **Performance guarantees:** Balanced forms bound height to `Θ(log n)`, yielding [[cs/math/logarithms-and-exponentials|logarithmic]] search/update in BST-like structures.
 - **Memory/layout:** Complete trees admit **array layouts** with simple index formulas (heaps).
 - **Reasoning & proofs:** Clear terminology avoids mixing incompatible properties (e.g., “full” vs “complete”).
 
@@ -74,7 +74,7 @@ Each panel shows a minimal witness tree with its Full / Complete / Perfect class
 > When proving logarithmic time for heap or BST variants, reduce to a **height bound** using the tree’s structural/ balance invariant, then show the algorithm’s path length is `O(h)`.
 
 ## Implementation or Practical Context
-- **Heaps (priority queues):** Require **complete** binary shape; do not need “full” or “perfect.” Array representation minimizes pointers and improves cache locality. See [[cs/dsa/heaps|Heaps — Overview]] and [[cs/dsa/heapify|Heapify]].
+- **Heaps (priority queues):** Require **complete** binary shape; do not need “full” or “perfect.” Array representation minimizes pointers and improves [[cs/systems/memory-hierarchy-and-caching|cache locality]]. See [[cs/dsa/heaps|Heaps — Overview]] and [[cs/dsa/heapify|Heapify]].
 - **Balanced BSTs (maps/sets):** Need **height-bounded** trees. Choices:
   - **AVL**: tighter height ⇒ faster lookups; more rotations on updates.
   - **Red–black**: looser bound but fewer rotations; common in libraries.

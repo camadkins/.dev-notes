@@ -13,7 +13,7 @@ aliases: []
 ---
 
 ## Overview
-A **tree** is an acyclic, connected structure of nodes joined by edges. Trees model hierarchical relations: file systems, syntax trees, organization charts, dependency graphs, scene graphs, and indexes. Choosing the right **variant** (rooted or unrooted, ordered or unordered, binary or k-ary) and **representation** (pointer-based, arrays, LCRS) affects clarity, memory footprint, and algorithmic complexity.
+A **tree** is an acyclic, connected structure of nodes joined by edges. Trees model hierarchical relations: [[cs/systems/file-systems|file systems]], [[cs/pl/grammar-ambiguity-parse-trees|syntax trees]], organization charts, dependency graphs, scene graphs, and indexes. Choosing the right **variant** (rooted or unrooted, ordered or unordered, binary or k-ary) and **representation** (pointer-based, arrays, LCRS) affects clarity, memory footprint, and algorithmic complexity.
 
 > [!note]
 > In an undirected setting, a “tree” is a connected, acyclic graph. In a rooted setting, a “tree” is a hierarchy with a designated **root** that induces parent–child relations and node **depths**.
@@ -181,7 +181,7 @@ parent[0..n-1], where parent[root] = -1
     
 - **Immutability**: Functional trees favor persistent structures (path-copying) enabling cheap snapshots and rollback at the cost of extra memory.
     
-- **Concurrency**: Lock-free traversal is easiest on **immutable** trees. For mutable trees, use reader–writer locks or RCU-style epochs.
+- **Concurrency**: Lock-free traversal is easiest on **[[cs/languages/Racket/immutable-data-and-persistent-structures|immutable]]** trees. For mutable trees, use reader–writer locks or RCU-style epochs.
     
 - **Validation**: Invariants like “no cycles,” “single parent,” and “connectedness” can be checked by counting edges (`n−1`) and running a DFS/Union–Find pass.
     

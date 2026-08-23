@@ -25,11 +25,11 @@ Moore, a co-founder of Intel, projected in 1965 that the number of components on
 
 ## Why it mattered
 
-Doubling density every two years meant exponential growth in computing power, a driving force behind decades of technological and economic change. Software could be written on the assumption that next year's hardware would be faster, a free lunch that lasted until the underlying physics began to slow.
+Doubling density every two years meant [[cs/math/logarithms-and-exponentials|exponential growth in computing power]], a driving force behind decades of technological and economic change. Software could be written on the assumption that next year's hardware would be faster, a free lunch that lasted until the underlying physics began to slow.
 
 ## Connected
 
-Moore's law is the macro-scale consequence of shrinking [[the-mosfet|MOSFETs]] and packing more of them onto each [[the-integrated-circuit|integrated circuit]]. When straightforward shrinking began to falter, the industry turned to multicore processors and specialized chips to keep the gains coming, which is why [[semiconductor-supply-chains|who can fabricate the smallest transistors]] became a matter of national strategy.
+Moore's law is the macro-scale consequence of shrinking [[the-mosfet|MOSFETs]] and packing more of them onto each [[the-integrated-circuit|integrated circuit]]. When straightforward shrinking began to falter, the industry turned to [[cs/systems/numa-and-multiprocessor-memory|multicore processors]] and specialized chips to keep the gains coming, which is why [[semiconductor-supply-chains|who can fabricate the smallest transistors]] became a matter of national strategy.
 
 ## Related Notes
 

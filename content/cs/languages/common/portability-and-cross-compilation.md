@@ -14,7 +14,7 @@ aliases:
   - Cross-Compilation
 ---
 
-`x86_64-unknown-linux-gnu`. Four fields separated by hyphens, and every one of them is a promise about the machine that will eventually run your code: what instructions it decodes, who made it, what operating system mediates its syscalls, and which C library and calling convention the binary expects to find. Change any field and you are compiling a different program, even though the source did not move.
+`x86_64-unknown-linux-gnu`. Four fields separated by hyphens, and every one of them is a promise about the machine that will eventually run your code: what instructions it decodes, who made it, what operating system [[cs/systems/system-calls-and-the-kernel-boundary|mediates its syscalls]], and which C library and calling convention the binary expects to find. Change any field and you are compiling a different program, even though the source did not move.
 
 > [!note] The idea
 > Cross-compiling is mostly not about the compiler. Modern compilers are cross-compilers already; Clang is natively a cross-compiler and rustc is a cross-compiler by default, so retargeting the code generator is a flag. The hard part is everything the compiler does not ship: the target's headers, its libraries, its linker, and the CPU and ABI details the triple leaves at defaults. Portability is therefore a supply problem plus an assumption problem, and the target triple is the name you give to a bundle of assumptions so that the toolchain, the standard library, and the linker can agree on which machine you meant.
@@ -33,7 +33,7 @@ Once the target is fixed, the hardware within that target still has to be chosen
 
 The documented example is worth keeping: targeting `arm-none-eabi` gives you a default CPU of arm7tdmi using soft float, which is extremely slow on modern cores, whereas `armv7a-none-eabi` gives Cortex-A8 with NEON while still defaulting to soft float. Nothing failed. The binary just runs at a fraction of the speed the chip is capable of, because the triple did not say enough.
 
-Rust exposes the same axis through `-C target-feature`, which adds or removes CPU-specific instruction set extensions such as AVX, BMI, or AES on top of the x86 and ARMv8 baselines, and the rustc book flags that this is generally considered unsafe. It is the same tension in both toolchains: the baseline runs everywhere, the extensions run fast, and only the person deploying the binary knows which machines it will actually meet.
+Rust exposes the same axis through `-C target-feature`, which adds or removes CPU-specific instruction set extensions such as AVX, BMI, or [[cs/security/aes-and-block-ciphers|AES]] on top of the x86 and ARMv8 baselines, and the rustc book flags that this is generally considered unsafe. It is the same tension in both toolchains: the baseline runs everywhere, the extensions run fast, and only the person deploying the binary knows which machines it will actually meet.
 
 ## The compiler is not the missing piece
 

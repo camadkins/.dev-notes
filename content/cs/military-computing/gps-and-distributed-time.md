@@ -13,7 +13,7 @@ aliases:
   - Global Positioning System
 ---
 
-GPS quietly turns one question into another. It answers "where am I" by answering "what time is it, exactly, according to several clocks in space." Built by the Defense Department for navigation, it is one of the most successful distributed systems ever fielded, and it runs on precise, synchronized time.
+GPS quietly turns one question into another. It answers "where am I" by answering "what time is it, exactly, according to several clocks in space." Built by the Defense Department for navigation, it is one of the most successful distributed systems ever fielded, and it runs on [[cs/standards/ieee-1588-precision-time-protocol|precise, synchronized time]].
 
 > [!note] The idea
 > Position computed from time. If you know exactly when a signal left a satellite whose position you know, the travel time tells you how far away that satellite is. Combine several and you have pinned your location.
@@ -26,7 +26,7 @@ A GPS receiver calculates its own four-dimensional position in spacetime from th
 
 ## Why four satellites
 
-There are four unknowns to solve: three coordinates of position, and the deviation of the receiver's own cheap clock from true satellite time. Four unknowns need four measurements, so at least four satellites must be in view. The fourth is what lets an inexpensive receiver clock be solved for rather than trusted, which is the clever heart of the design.
+There are four unknowns to solve: three coordinates of position, and the deviation of the receiver's own cheap clock from true satellite time. [[cs/math/linear-algebra-fundamentals|Four unknowns need four measurements]], so at least four satellites must be in view. The fourth is what lets an inexpensive receiver clock be solved for rather than trusted, which is the clever heart of the design.
 
 ## Atomic clocks
 
@@ -38,7 +38,7 @@ Time on a GPS satellite does not tick at the same rate as time on the ground. Sp
 
 ## A distributed system
 
-Seen as computer science, GPS is synchronized clocks across many nodes, continuous error correction, and a receiver fusing partial, noisy signals into one estimate. It shares that shape with [[ntp-distributed-clock-synchronization|NTP]] on the ground and with the [[sins-polaris-inertial-navigation|inertial navigation]] that fills in when no satellite is visible.
+Seen as computer science, GPS is [[cs/systems/logical-clocks-lamport-and-vector|synchronized clocks across many nodes]], continuous error correction, and a receiver [[cs/statistics/maximum-likelihood-estimation|fusing partial, noisy signals into one estimate]]. It shares that shape with [[ntp-distributed-clock-synchronization|NTP]] on the ground and with the [[sins-polaris-inertial-navigation|inertial navigation]] that fills in when no satellite is visible.
 
 ## Related Notes
 

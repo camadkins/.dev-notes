@@ -22,7 +22,7 @@ Type your password once in the morning and, for the rest of the day, file shares
 
 ## The trusted third party
 
-RFC 4120 states it plainly: Kerberos "performs authentication under these conditions as a trusted third-party authentication service by using conventional (shared secret key) cryptography." Conventional here means symmetric: the same key encrypts and decrypts, in contrast to the asymmetric math behind [[rsa-and-computational-hardness|public-key systems]]. The trusted third party is the Key Distribution Center (KDC), "a network service that supplies tickets and temporary session keys," and it "services both initial ticket and ticket-granting ticket requests."
+RFC 4120 states it plainly: Kerberos "performs authentication under these conditions as a trusted third-party authentication service by using conventional (shared secret key) cryptography." Conventional here means symmetric: the same key encrypts and decrypts, in contrast to the asymmetric math behind [[cs/military-computing/rsa-and-computational-hardness|public-key systems]]. The trusted third party is the Key Distribution Center (KDC), "a network service that supplies tickets and temporary session keys," and it "services both initial ticket and ticket-granting ticket requests."
 
 That two-phase split is the whole reason Kerberos scales to single sign-on. The KDC is really two logical services:
 
@@ -33,7 +33,7 @@ That two-phase split is the whole reason Kerberos scales to single sign-on. The 
 
 When you log in, your client turns your password into a symmetric key. Per the spec, "when the user's key is generated from a password or pass phrase, the string-to-key function for the particular encryption key type is used." The AS never receives that key or the password. Instead it looks up your key from its own database, and "the reply is sent encrypted in the client's secret key." Your client then "decrypts the encrypted part of the response using its secret key and verifies that the nonce in the encrypted part matches the nonce it supplied in its request."
 
-So the proof of identity is an act of successful decryption, done locally. An eavesdropper on the wire sees only ciphertext it cannot open. This is the same logic that makes a [[perfect-secrecy-and-the-one-time-pad|shared secret]] powerful, applied to authentication rather than confidentiality.
+So the proof of identity is an act of successful decryption, done locally. An eavesdropper on the wire sees only ciphertext it cannot open. This is the same logic that makes a [[cs/military-computing/perfect-secrecy-and-the-one-time-pad|shared secret]] powerful, applied to authentication rather than confidentiality.
 
 ## Tickets and the ticket you carry
 
@@ -43,7 +43,7 @@ A ticket bundles your identity with a session key, sealed so only the target ser
 
 Tickets are deliberately short-lived. "The expiration time of the ticket will be set to the earlier of the requested endtime and a time determined by local policy." Alongside the ticket the client sends an authenticator: "this information (called the authenticator) is encrypted in the session key and includes a timestamp." That timestamp is the anti-replay guard, because "the timestamp proves that the message was recently generated and is not a replay."
 
-The cost is that Kerberos assumes reasonably synchronized clocks. A machine whose clock has drifted too far from the KDC will have its authenticators rejected, which is why time synchronization (see [[ntp-distributed-clock-synchronization|NTP]]) is a quiet prerequisite for a working Kerberos realm.
+The cost is that Kerberos assumes reasonably synchronized clocks. A machine whose clock has drifted too far from the KDC will have its authenticators rejected, which is why time synchronization (see [[cs/military-computing/ntp-distributed-clock-synchronization|NTP]]) is a quiet prerequisite for a working Kerberos realm.
 
 > [!example] One login, three services
 > 1. Login: client derives your key from the password, gets a TGT from the AS, and immediately forgets the password.
@@ -55,9 +55,9 @@ The cost is that Kerberos assumes reasonably synchronized clocks. A machine whos
 
 - [[multi-factor-authentication|Multi-Factor Authentication]] - what backs the single password that bootstraps the whole Kerberos day
 - [[oauth2-and-openid-connect|OAuth 2.0 and OpenID Connect]] - the web's token-based analogue to Kerberos tickets
-- [[rsa-and-computational-hardness|RSA and Computational Hardness]] - the public-key alternative to Kerberos's shared-secret model
-- [[ntp-distributed-clock-synchronization|NTP and Distributed Clocks]] - the clock synchronization Kerberos timestamps depend on
-- [[perfect-secrecy-and-the-one-time-pad|Perfect Secrecy and the One-Time Pad]] - proving identity by decryption rests on symmetric secrets
+- [[cs/military-computing/rsa-and-computational-hardness|RSA and Computational Hardness]] - the public-key alternative to Kerberos's shared-secret model
+- [[cs/military-computing/ntp-distributed-clock-synchronization|NTP and Distributed Clocks]] - the clock synchronization Kerberos timestamps depend on
+- [[cs/military-computing/perfect-secrecy-and-the-one-time-pad|Perfect Secrecy and the One-Time Pad]] - proving identity by decryption rests on symmetric secrets
 
 ## Sources
 

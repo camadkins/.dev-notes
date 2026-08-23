@@ -14,9 +14,9 @@ aliases:
   - Result and Option in Rust
 ---
 
-Rust has no exceptions. A function that can fail says so in its return type, and a caller that ignores the failure does not compile. The comparative case for that design, against exceptions and against error codes, is in [[cs/languages/common/errors-as-values-vs-control-flow|Errors as Values vs Control Flow]]. What follows is the Rust machinery: the two enums, the operator that makes them bearable, and the criteria the Book gives for choosing panic over propagation.
+Rust has no [[cs/pl/exceptions-handlers-and-non-local-control|exceptions]]. A function that can fail says so in its return type, and a caller that ignores the failure does not compile. The comparative case for that design, against exceptions and against error codes, is in [[cs/languages/common/errors-as-values-vs-control-flow|Errors as Values vs Control Flow]]. What follows is the Rust machinery: the two enums, the operator that makes them bearable, and the criteria the Book gives for choosing panic over propagation.
 
-`Result<T, E>` is an ordinary enum with two variants. `T` is the type returned on success inside `Ok`, and `E` is the type returned on failure inside `Err`. Both `Result` and `Option` and their variants are in the prelude, so you write `Ok` and `Err` rather than `Result::Ok`.
+`Result<T, E>` is [[cs/pl/records-variants-and-pattern-matching|an ordinary enum with two variants]]. `T` is the type returned on success inside `Ok`, and `E` is the type returned on failure inside `Err`. Both `Result` and `Option` and their variants are in the prelude, so you write `Ok` and `Err` rather than `Result::Ok`.
 
 > [!note] The idea
 > `?` looks like syntax for "unwrap or bail", and that is most of what it does. The part people miss is the type conversion: every error passed through `?` goes through `From::from`, converting the callee's error type into the current function's declared error type. That single hook is what lets a function whose parts fail in a dozen unrelated ways still return one error type, and it is why adding a new failure mode to a function body often requires no changes at the call sites. The operator is a coercion point, not only a control-flow shortcut.
@@ -51,7 +51,7 @@ The rule that catches people: you can use `?` on a `Result` in a function return
 
 ## `main` can return a `Result`
 
-`main` may return `Result<(), E>`. Writing `fn main() -> Result<(), Box<dyn Error>>` and ending with `Ok(())` makes `?` usable at the top level. `Box<dyn Error>` is a trait object meaning roughly "any kind of error", and it is allowed here because it lets any `Err` value be returned early, so the signature stays correct as more failure modes are added to the body.
+`main` may return `Result<(), E>`. Writing `fn main() -> Result<(), Box<dyn Error>>` and ending with `Ok(())` makes `?` usable at the top level. `Box<dyn Error>` is [[cs/languages/Rust/trait-objects-vtables-and-fat-pointers|a trait object]] meaning roughly "any kind of error", and it is allowed here because it lets any `Err` value be returned early, so the signature stays correct as more failure modes are added to the body.
 
 The exit-code behavior is specified. An executable whose `main` returns `Ok(())` exits with 0; one returning `Err` exits with a nonzero value. The Book gives the reason directly: C executables return 0 on success and some other integer on error, and Rust returns integers from executables to be compatible with that convention. More generally, `main` may return any type implementing `std::process::Termination`, whose `report` function returns an `ExitCode`.
 

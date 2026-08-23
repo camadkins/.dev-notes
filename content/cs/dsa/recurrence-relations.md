@@ -84,7 +84,7 @@ A recurrence for a sequence `{T(n)}` is an equation of the form
     Repeatedly expand the recurrence to visualize the work per level and sum a series. Great for intuition and quick upper/lower bounds.
 
 2. **Substitution (a.k.a. induction) method**
-    Guess a bound `T(n) ≤ c · h(n)` and **prove** it by induction, choosing constants that make the inequality hold. Use for tight proofs, especially with awkward `f(n)` or floors/ceilings.
+    Guess a bound `T(n) ≤ c · h(n)` and **prove** it [[cs/math/mathematical-induction|by induction]], choosing constants that make the inequality hold. Use for tight proofs, especially with awkward `f(n)` or floors/ceilings.
 
 3. **Master / Akra–Bazzi theorems**
     Provide ready-made asymptotic bounds for `T(n) = ∑ a_i T(n/b_i) + g(n)` under regularity conditions.
@@ -110,7 +110,7 @@ Let `p` satisfy `a · (1/b)^p = 1`, i.e., `p = log_b a`. Compare `f(n)` with `n^
 
 - **Subcritical** `f(n) = O(n^{p−ε})`: total dominated by leaves → `T(n) = Θ(n^p)`.
 
-- **Critical** `f(n) = Θ(n^p log^k n)`: extra logarithmic factor → `T(n) = Θ(n^p log^{k+1} n)`.
+- **Critical** `f(n) = Θ(n^p log^k n)`: extra [[cs/math/logarithms-and-exponentials|logarithmic factor]] → `T(n) = Θ(n^p log^{k+1} n)`.
 
 - **Supercritical** `f(n) = Ω(n^{p+ε})` and regular: combine dominates → `T(n) = Θ(f(n))`.
 

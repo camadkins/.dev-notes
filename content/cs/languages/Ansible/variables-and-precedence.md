@@ -15,7 +15,7 @@ aliases:
 
 You can define variables in inventory, in playbooks, in reusable files, in roles, and at the command line. Ansible loads every possible variable it finds, then chooses the variable to apply based on variable precedence rules. Read that sentence twice, because it is doing more work than it looks like it is.
 
-Nothing is shadowed and nothing is skipped. There is no scope chain being walked, no innermost binding winning by virtue of being innermost. Every definition of `ntp_server` in your entire project is loaded into a pile, and then a fixed ranking decides which one survives.
+Nothing is shadowed and nothing is skipped. There is no scope chain being walked, no innermost binding winning by virtue of being innermost. Every definition of `ntp_server` in your entire project is loaded into a pile, and then [[cs/cisco/static-routing-and-administrative-distance|a fixed ranking]] decides which one survives.
 
 > [!note] The idea
 > Ansible resolves a variable by source rank, not by lexical nesting or evaluation time. The winner is a function of *which file the definition lives in*, which is the opposite of how [[cs/pl/scoping-binding-and-closures|lexical scoping]] works in a normal language, where the enclosing structure of the code decides. The practical consequence is that "why is this value wrong" is never a control-flow question. You do not trace execution. You enumerate the places the name is defined and read off the highest-ranked one. That makes the bug findable by grep, which is a real property, and it is also why moving a file between `group_vars/` directories can silently change behavior with no diff in any playbook.
@@ -53,7 +53,7 @@ Four things in that list reward a second look.
 
 **Playbook-adjacent group vars outrank inventory-adjacent ones.** Rows 4 through 7 alternate: inventory `group_vars/all`, then playbook `group_vars/all`, then inventory `group_vars/*`, then playbook `group_vars/*`. Two `group_vars/` directories exist in a normal project, one beside the inventory and one beside the playbook, and the playbook's copy wins at each tier. Anyone who has moved a file "to tidy up" and changed behavior has met this row.
 
-**All host-level sources outrank all group-level sources.** Rows 3 through 7 are group scope, rows 8 through 10 are host scope, and the boundary is clean. Specific beats general, which is the property that makes the group hierarchy usable at all.
+**All host-level sources outrank all group-level sources.** Rows 3 through 7 are group scope, rows 8 through 10 are host scope, and the boundary is clean. [[cs/networking/routing-and-longest-prefix-match|Specific beats general]], which is the property that makes the group hierarchy usable at all.
 
 **Facts sit in the middle.** Host facts and cached `set_facts` land at row 11, above every inventory source and below everything written inside a play. Discovered reality overrides your inventory's guess, and your play's explicit statement overrides discovered reality. See [[cs/languages/Ansible/jinja2-templating-and-facts|Jinja2 templating and facts]] for what facts are.
 

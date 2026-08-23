@@ -15,14 +15,14 @@ aliases:
   - Happens-Before
 ---
 
-You cannot trust the wall clocks. Two machines' quartz oscillators drift, NTP corrects them in jumps, and the moment you try to order two events by comparing timestamps across nodes you are building on sand. Leslie Lamport's insight in 1978 was that most of the time you do not need real time at all. You need to know which events *could have caused* which others, and that is a purely combinatorial fact about who sent messages to whom.
+You cannot trust the [[cs/military-computing/gps-and-distributed-time|wall clocks]]. Two machines' quartz oscillators drift, [[cs/military-computing/ntp-distributed-clock-synchronization|NTP]] corrects them in jumps, and the moment you try to order two events by comparing timestamps across nodes you are building on sand. Leslie Lamport's insight in 1978 was that most of the time you do not need real time at all. You need to know which events *could have caused* which others, and that is a purely combinatorial fact about who sent messages to whom.
 
 > [!note] The idea
 > A logical clock orders events by potential causality rather than by real time. The happens-before relation captures exactly the causal chains a message-passing system can observe; a scalar Lamport clock encodes it one direction (cause implies smaller timestamp), and a vector clock encodes it both directions, so you can tell causally-ordered events apart from genuinely concurrent ones.
 
 ## Happens-before
 
-The happens-before relation, written `a -> b`, is the least strict partial order such that: if `a` and `b` are on the same process and `a` occurred first, then `a -> b`; and if `a` is the sending of a message and `b` is its reception, then `a -> b`. Chain these with transitivity and you have the full relation. Two events in different processes that never exchange a message, directly or through intermediaries, are **concurrent**: neither `a -> b` nor `b -> a` holds, and nothing can be said about their order.
+The happens-before relation, written `a -> b`, is the least strict [[cs/math/relations-and-equivalence|partial order]] such that: if `a` and `b` are on the same process and `a` occurred first, then `a -> b`; and if `a` is the sending of a message and `b` is its reception, then `a -> b`. Chain these with transitivity and you have the full relation. Two events in different processes that never exchange a message, directly or through intermediaries, are **concurrent**: neither `a -> b` nor `b -> a` holds, and nothing can be said about their order.
 
 As a strict partial order it is transitive, irreflexive (no event happens before itself), and asymmetric. The crucial limitation: a process has no knowledge of this relation on its own. It only learns causal order by carrying a logical clock along with its messages.
 

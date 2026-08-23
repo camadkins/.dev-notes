@@ -54,7 +54,7 @@
   <!-- Type Checker with checkmark -->
   <rect class="box" x="230" y="65" width="140" height="34"/>
   <text class="box-text" x="290" y="82">Type Checker</text>
-  <text class="check" x="365" y="86">&#x2713;</text>
+  <text class="check" x="352" y="86">&#x2713;</text>
 
   <!-- Compile-time highlight around Type Checker -->
   <rect class="highlight" x="224" y="55" width="148" height="54"/>

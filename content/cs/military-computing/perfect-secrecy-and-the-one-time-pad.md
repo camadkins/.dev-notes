@@ -24,13 +24,13 @@ Shannon defined perfect secrecy precisely: the ciphertext gives an attacker no a
 
 ## The four conditions
 
-The guarantee holds only when four conditions are all met. The key must be at least as long as the plaintext, it must be truly random, it must never be reused in whole or in part, and it must be kept completely secret.
+The guarantee holds only when four conditions are all met. The key must be at least as long as the plaintext, it must be [[cs/security/cryptographically-secure-randomness|truly random]], it must never be reused in whole or in part, and it must be kept completely secret.
 
 ![A one-time pad combines each bit of the message with a fresh random key bit; the same key turns the ciphertext back into the message.](assets/one-time-pad-xor.svg)
 
 ## What it costs
 
-Here is the catch Shannon proved. Perfect secrecy requires a key at least as long as the message. To send a megabyte secretly you must already share a megabyte of secret key. Distributing that much key, securely, for everything you might ever want to say, is so impractical that the world mostly settles for ciphers that are merely too expensive to break rather than impossible. The one-time pad marks the boundary of what secrecy can be, and the price of reaching it.
+Here is the catch Shannon proved. Perfect secrecy requires a key at least as long as the message. To send a megabyte secretly you must already share a megabyte of secret key. [[cs/security/diffie-hellman-and-key-exchange|Distributing that much key, securely]], for everything you might ever want to say, is so impractical that the world mostly settles for [[cs/security/aes-and-block-ciphers|ciphers that are merely too expensive to break]] rather than impossible. The one-time pad marks the boundary of what secrecy can be, and the price of reaching it.
 
 > [!warning] Reuse destroys it
 > If the same key encrypts two messages, an attacker who has both ciphertexts can compute their bitwise combination, which equals the combination of the two plaintexts, with the key cancelled out. That single mistake leaks both messages, and it is exactly the mistake that brought down the cipher in the [[venona-and-one-time-pad-reuse|VENONA]] story.

@@ -141,7 +141,7 @@ Prefer `Θ(n + m)` over collapsing to `Θ(n^2)` when `m` (edges) governs cost, a
 
 ## Implementation or Practical Context
 
-- **Cache effects:** Arrays vs pointers can change constants by 10× without changing Big-O.
+- **[[cs/systems/memory-hierarchy-and-caching|Cache effects]]:** Arrays vs pointers can change constants by 10× without changing Big-O.
 
 - **Branching:** Data-dependent branches degrade predictability; branchless patterns may shrink constants.
 
@@ -266,7 +266,7 @@ Nodes visited: `1 + b + b^2 + … + b^d = Θ(b^d)` (geometric). See [[backtracki
 
 ## Broader Implications
 
-- **Algorithm selection by regime:** Use insertion sort for tiny `n`, switch to `O(n log n)` sort as `n` grows. Hybrids like **introsort** pick the best behavior across regimes (see [[quick-sort|Quick Sort]] and [[heapsort|Heapsort]]).
+- **Algorithm selection by regime:** Use insertion sort for tiny `n`, switch to `O(n log n)` sort as `n` grows. Hybrids like **[[cs/languages/Cpp/stl-algorithms|introsort]]** pick the best behavior across regimes (see [[quick-sort|Quick Sort]] and [[heapsort|Heapsort]]).
 
 - **From asymptotics to engineering:** Once the class is acceptable, focus on **layout, caches, branches, and parallelization** to shrink constants.
 

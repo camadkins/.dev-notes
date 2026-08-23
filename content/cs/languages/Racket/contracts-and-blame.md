@@ -14,7 +14,7 @@ aliases:
   - Blame Assignment
 ---
 
-An assertion says a value is wrong. A contract says *who* is wrong. That difference is the entire design, and it is why Racket's contract system is organized around module boundaries rather than around function bodies.
+An assertion says a value is wrong. A contract says *who* is wrong. That difference is the entire design, and it is why Racket's contract system is organized around [[cs/pl/modules-signatures-and-separate-compilation|module boundaries]] rather than around function bodies.
 
 The Guide's framing is the business one. Like a contract between two business partners, a software contract is an agreement between two parties, and the agreement specifies obligations and guarantees for each product, or value, that is handed from one party to the other. A contract therefore establishes a boundary between the two parties, and whenever a value crosses that boundary the contract monitoring system performs contract checks, making sure the partners abide by the established contract.
 
@@ -33,13 +33,13 @@ Racket encourages contracts mainly at module boundaries, and programmers attach 
 
 That export specification promises to all clients of the module that the value of `amount` will always be a positive number, and the contract system monitors the obligation carefully: every time a client refers to `amount`, the monitor checks that the value is indeed a positive number. The contracts library is built into the `racket` language; from `racket/base` you `(require racket/contract)` first.
 
-Binding `amount` to a non-positive number means that when the module is required the monitoring system signals a violation and blames the module for breaking its promises. Binding it to a symbol instead exposes a subtlety worth internalizing: the monitoring system will apply `positive?` to a symbol, and `positive?` reports an error, because its domain is only numbers. The fix is to make the contract total over all Racket values by combining checks, `(and/c number? positive?)`. A predicate used as a contract must be prepared for any value, not merely the values you expected.
+Binding `amount` to a non-positive number means that when the module is required the monitoring system signals a violation and blames the module for breaking its promises. Binding it to a symbol instead exposes a subtlety worth internalizing: the monitoring system will apply `positive?` to a symbol, and `positive?` reports an error, because its domain is only numbers. The fix is to make the contract total over all Racket values by combining checks, `(and/c number? positive?)`. A [[cs/math/predicate-logic-and-quantifiers|predicate]] used as a contract must be prepared for any value, not merely the values you expected.
 
 Contracts do not have to sit on module boundaries. `define/contract` establishes a contract boundary between a definition and its surrounding context, so the two parties become the definition and the module containing it. The Guide flags the cost directly: forms that create these nested contract boundaries can be subtle to use, because they may have unexpected performance implications or blame a party that may seem unintuitive.
 
 ## The arrow splits a function into two channels
 
-A mathematical function has a domain and a range, and a contract can ensure that a function receives only values in its domain and produces only values in its range. `->` creates such a contract, with the forms after the arrow specifying contracts for the domains and finally a contract for the range.
+A mathematical function has [[cs/math/functions-injective-surjective-bijective|a domain and a range]], and a contract can ensure that a function receives only values in its domain and produces only values in its range. `->` creates such a contract, with the forms after the arrow specifying contracts for the domains and finally a contract for the range.
 
 ```racket
 #lang racket

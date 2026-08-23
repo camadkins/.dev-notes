@@ -20,15 +20,15 @@ Before anyone built a computer, mathematicians worked out what computation could
 
 ## Hilbert's dream
 
-In 1928 David Hilbert, with Wilhelm Ackermann, posed the Entscheidungsproblem, the decision problem. It asks for an algorithm that takes any statement in a formal logical system and answers, correctly, whether it is universally valid. Hilbert believed mathematics could be made complete and mechanically decidable, and he wanted the procedure that would do it.
+In 1928 David Hilbert, with Wilhelm Ackermann, posed the Entscheidungsproblem, the decision problem. It asks for an algorithm that takes [[cs/math/predicate-logic-and-quantifiers|any statement in a formal logical system]] and answers, correctly, whether it is universally valid. Hilbert believed mathematics could be made complete and mechanically decidable, and he wanted the procedure that would do it.
 
 ## Gödel's blow
 
-The dream was already cracking. The work of Church and Turing was heavily influenced by Kurt Gödel's earlier incompleteness theorem, which showed that any formal system powerful enough to express arithmetic contains true statements it cannot prove. A complete, self-contained mathematics was off the table before the decision problem was even resolved.
+The dream was already cracking. The work of Church and Turing was heavily influenced by Kurt Gödel's earlier incompleteness theorem, which showed that any formal system powerful enough to express arithmetic [[cs/math/proof-techniques|contains true statements it cannot prove]]. A complete, self-contained mathematics was off the table before the decision problem was even resolved.
 
 ## The answer is no
 
-In 1936 Alonzo Church and Alan Turing, working independently, proved that no general algorithm for the Entscheidungsproblem exists. Church built his proof on the lambda calculus; Turing built his on the abstract machines that now bear his name. To even state the result, each had to give a precise definition of "effective procedure," and their two definitions turned out to be equivalent, which is strong evidence they had captured the right notion.
+In 1936 Alonzo Church and Alan Turing, working independently, proved that no general algorithm for the Entscheidungsproblem exists. Church built his proof on the lambda calculus; Turing built his on [[cs/pl/abstract-machines-cek-secd|the abstract machines that now bear his name]]. To even state the result, each had to give a precise definition of "effective procedure," and their two definitions turned out to be equivalent, which is strong evidence they had captured the right notion.
 
 ## Why it matters
 

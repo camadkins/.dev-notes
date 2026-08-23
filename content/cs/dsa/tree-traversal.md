@@ -197,9 +197,9 @@ function LEVEL_ORDER_WITH_LEVELS(root):
     
 - **Structural checks:** BST validity (inorder should be non-decreasing), heap property, balance factors.
     
-- **Transformations:** map/filter on trees; cloning (**preorder** copies node then recurses); freeing memory (**postorder**) so children are released before parent.
+- **Transformations:** map/filter on trees; cloning (**preorder** copies node then recurses); [[cs/languages/Rust/drop-order-and-raii-in-rust|freeing memory]] (**postorder**) so children are released before parent.
     
-- **Serialization:**
+- **[[cs/languages/common/serialization-and-wire-formats|Serialization]]:**
     
     - **Preorder with null markers** yields a unique encoding for general binary trees.
         
@@ -218,7 +218,7 @@ For `n` nodes:
     
 - **Space (extra):**
     
-    - **Recursive DFS:** `Θ(h)` stack frames, where `h` is tree height (`Θ(log n)` on balanced trees, `Θ(n)` on skewed trees).
+    - **Recursive DFS:** `Θ(h)` [[cs/systems/processes-and-threads|stack frames]], where `h` is tree height (`Θ(log n)` on balanced trees, `Θ(n)` on skewed trees).
         
     - **Iterative DFS with stack:** `Θ(h)` worst-case.
         

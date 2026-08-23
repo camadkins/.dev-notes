@@ -13,7 +13,7 @@ aliases: []
 
 ## Intuition
 
-A modern processor contains billions of [[the-transistor|transistors]] etched at nanometer scale. Only a few companies on Earth can manufacture them, and only one company can build the machines those manufacturers depend on.
+A modern processor contains billions of [[cs/history/the-transistor|transistors]] etched at nanometer scale. Only a few companies on Earth can manufacture them, and only one company can build the machines those manufacturers depend on.
 
 That concentration turns chip fabrication into a strategic chokepoint as significant as any oil strait or shipping lane. When governments restrict access to this supply chain, they can cripple an adversary's ability to build advanced computing hardware - no shots fired, no sanctions on oil, just a denial of access to photolithography.
 
@@ -23,11 +23,11 @@ The semiconductor supply chain is the physical foundation of the digital world. 
 
 The semiconductor supply chain is a funnel with extreme narrowing at critical stages.
 
-**Design.** A handful of firms design leading-edge chips - Apple, Nvidia, AMD, Qualcomm - almost all using architectures licensed from [[smartphone-computing-and-arm|Arm]] (UK/SoftBank) and design tools (EDA) from Synopsys and Cadence, both American companies. China's domestic EDA ecosystem remains generations behind. EDA is a quiet but critical chokepoint: without these tools, even brilliant chip architects cannot tape out a design.
+**Design.** A handful of firms design leading-edge chips - Apple, Nvidia, AMD, Qualcomm - almost all using architectures licensed from [[cs/history/smartphone-computing-and-arm|Arm]] (UK/SoftBank) and design tools (EDA) from Synopsys and Cadence, both American companies. China's domestic EDA ecosystem remains generations behind. EDA is a quiet but critical chokepoint: without these tools, even brilliant chip architects cannot tape out a design.
 
 **Fabrication.** TSMC (Taiwan) manufactures roughly 90% of the world's most advanced chips (sub-7nm). Samsung (South Korea) holds most of the remainder. Intel is attempting to re-enter leading-edge foundry work through its IDM 2.0 strategy and the CHIPS and Science Act (2022), which allocated $52.7 billion in subsidies and incentives to domestic US fabrication.
 
-The CHIPS Act represents a bipartisan recognition that the US - which invented the transistor, the [[the-integrated-circuit|integrated circuit]], and the foundry model - had offshored fabrication to an extent that constituted a national security risk.
+The CHIPS Act represents a bipartisan recognition that the US - which invented the transistor, the [[cs/history/the-integrated-circuit|integrated circuit]], and the foundry model - had offshored fabrication to an extent that constituted a national security risk.
 
 **Lithography.** ASML (Netherlands) is the sole manufacturer of extreme ultraviolet (EUV) lithography systems, required for sub-7nm production. Each machine costs over $150 million, weighs 180 tons, and depends on components from Zeiss (Germany) and Cymer (US/ASML subsidiary).
 
@@ -54,7 +54,7 @@ SMIC has achieved 7nm-class production using older DUV multi-patterning - techni
 
 If TSMC's Taiwan fabs were disrupted - by conflict, blockade, earthquake, or coercion - the world would lose the majority of its advanced chip production capacity. There is no short-term substitute. Building a leading-edge fab takes 3-5 years and costs $20-30 billion.
 
-**Downstream consequences.** Chip restrictions cascade through the technology stack. Without access to advanced AI accelerators, Chinese firms face constraints on [[deep-learning-revolution|training frontier models]]. Without advanced chips, Huawei cannot compete in premium smartphones. Without EUV lithography, Chinese fabs cannot close the manufacturing gap.
+**Downstream consequences.** Chip restrictions cascade through the technology stack. Without access to advanced AI accelerators, Chinese firms face constraints on [[cs/history/deep-learning-revolution|training frontier models]]. Without advanced chips, Huawei cannot compete in premium smartphones. Without EUV lithography, Chinese fabs cannot close the manufacturing gap.
 
 The semiconductor supply chain functions as a technology multiplier - control over it grants leverage across every downstream industry that depends on computation, which in the 2020s is nearly all of them.
 
@@ -79,11 +79,11 @@ The episode demonstrated a structural truth: in the semiconductor supply chain, 
 - [[cyber-sovereignty|Cyber Sovereignty]] - export controls are one instrument of the broader digital sovereignty toolkit
 - [[ai-governance|AI Governance]] - compute access is a prerequisite for training frontier AI models, linking chip policy to AI policy
 - [[surveillance-and-privacy|Surveillance & Privacy]] - hardware backdoors and supply-chain integrity are surveillance concerns
-- [[the-transistor|The Transistor]] - the switch every advanced chip is built from
-- [[the-integrated-circuit|The Integrated Circuit]] - the monolithic chip the foundry model manufactures
-- [[smartphone-computing-and-arm|Smartphone Computing and ARM]] - the architecture most leading-edge designs license
-- [[moores-law|Moore's Law]] - the scaling cadence the node race chases
-- [[deep-learning-revolution|The Deep Learning Revolution]] - the AI accelerators export controls target
+- [[cs/history/the-transistor|The Transistor]] - the switch every advanced chip is built from
+- [[cs/history/the-integrated-circuit|The Integrated Circuit]] - the monolithic chip the foundry model manufactures
+- [[cs/history/smartphone-computing-and-arm|Smartphone Computing and ARM]] - the architecture most leading-edge designs license
+- [[cs/history/moores-law|Moore's Law]] - the scaling cadence the node race chases
+- [[cs/history/deep-learning-revolution|The Deep Learning Revolution]] - the AI accelerators export controls target
 
 ## Sources
 

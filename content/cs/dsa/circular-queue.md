@@ -13,9 +13,9 @@ aliases: []
 
 ## Overview
 
-A **circular queue** (ring buffer) is a bounded **FIFO** implemented on a fixed-size array where the **head** and **tail** indices advance **modulo** the capacity. This yields **O(1)** enqueue and dequeue with predictable memory usage and steady cache locality - ideal for embedded systems, device drivers, real-time pipelines, and producer–consumer handoffs.
+A **circular queue** (ring buffer) is a bounded **FIFO** implemented on a fixed-size array where the **head** and **tail** indices advance **modulo** the capacity. This yields **O(1)** enqueue and dequeue with predictable memory usage and steady cache locality - ideal for embedded systems, [[cs/systems/io-devices-and-drivers|device drivers]], real-time pipelines, and producer–consumer handoffs.
 
-Unlike dynamically growing queues, a circular queue **never reallocates**; instead, it enforces a policy when full: **reject**, **block**, or **overwrite** the oldest element. Correctness hinges on unambiguous full/empty detection, careful boundary handling, and, in concurrent settings, **memory ordering** and **single-producer/single-consumer** discipline.
+Unlike dynamically growing queues, a circular queue **never reallocates**; instead, it enforces a policy when full: **reject**, **block**, or **overwrite** the oldest element. Correctness hinges on unambiguous full/empty detection, careful boundary handling, and, in concurrent settings, **[[cs/languages/Cpp/the-cpp-memory-model-and-atomics|memory ordering]]** and **single-producer/single-consumer** discipline.
 
 ## Structure Definition
 
@@ -166,7 +166,7 @@ For **overwrite** mode, if full before ENQ `X`, advancing `head` first discards 
 
     - Insert **store-release** on producer's `tail` update and **load-acquire** on consumer's `tail` read (and vice versa for `head`) to prevent reordering on weakly ordered CPUs.
 
-- **ISR-safe example:** Producer runs in an **interrupt service routine**; consumer in the main loop. Ensure head/tail are `volatile` (or atomic) and that critical sections are minimal to meet ISR timing.
+- **ISR-safe example:** Producer runs in an **[[cs/systems/interrupts-and-traps|interrupt service routine]]**; consumer in the main loop. Ensure head/tail are `volatile` (or atomic) and that critical sections are minimal to meet ISR timing.
 
 
 ### Multi-Producer / Multi-Consumer

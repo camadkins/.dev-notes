@@ -20,7 +20,7 @@ aliases: []
 
 ## Motivation
 
-- **Deletion / free**: free children first, then the parent, to avoid dangling pointers.
+- **Deletion / free**: free children first, then the parent, to avoid [[cs/security/use-after-free-and-heap-exploitation|dangling pointers]].
 
 - **Evaluation**: expression trees compute operands (subtrees) before combining at the operator (root).
 
@@ -63,7 +63,7 @@ Postorder yields `D, E, B, F, C, A`.
 
 - **Bottom-up guarantee**: visiting a node implies all descendants were already visited.
 
-- **Stack discipline**: recursive postorder corresponds to **call stack** frames following the tree shape.
+- **Stack discipline**: recursive postorder corresponds to **[[cs/systems/processes-and-threads|call stack]]** frames following the tree shape.
 
 - **Dualities**:
 

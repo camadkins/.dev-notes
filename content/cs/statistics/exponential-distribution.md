@@ -73,10 +73,10 @@ The median is always less than the mean for an exponential distribution, reflect
 
 ## Why It Matters in CS
 
-- **Reliability engineering**: Mean Time Between Failures (MTBF) for hardware components is modelled exponentially, enabling maintenance scheduling and redundancy planning.
-- **Operating systems**: process service times in scheduling analysis often assume exponential distributions, yielding tractable queueing models (M/M/1).
-- **Web server performance**: response-time modelling uses exponential assumptions for service duration, driving capacity planning and load balancer configuration.
-- **Simulation**: generating exponential random variates via the inverse-transform method ($X = -\beta \ln U$, where $U \sim \text{Uniform}(0,1)$) is a building block of discrete-event simulation.
+- **Reliability engineering**: Mean Time Between Failures (MTBF) for hardware components is modelled exponentially, enabling maintenance scheduling and [[cs/systems/raid-and-storage-redundancy|redundancy planning]].
+- **Operating systems**: process service times in [[cs/systems/process-scheduling-algorithms|scheduling analysis]] often assume exponential distributions, yielding tractable queueing models (M/M/1).
+- **Web server performance**: response-time modelling uses exponential assumptions for service duration, driving capacity planning and [[cs/networking/load-balancing-l4-and-l7|load balancer configuration]].
+- **Simulation**: generating exponential random variates via the inverse-transform method ($X = -\beta \ln U$, where $U \sim \text{Uniform}(0,1)$) is a building block of [[cs/military-computing/monte-carlo-method-and-the-bomb|discrete-event simulation]].
 
 ## Related Notes
 

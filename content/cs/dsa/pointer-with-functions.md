@@ -14,7 +14,7 @@ aliases: []
 
 ## Overview
 
-Passing a **pointer** (an address) to a function lets the callee **access the caller's storage**. This enables in-place updates, out-parameters, and zero-copy APIs - but introduces hazards: **null/dangling pointers, aliasing, lifetime,** and **bounds** issues. This note gives a practical guide to pointer-parameter design: when to use pointers, how to express **read-only vs read–write** intent (**const-correctness**), and how to avoid common bugs.
+Passing a **pointer** (an address) to a function lets the callee **access the caller's storage**. This enables in-place updates, out-parameters, and zero-copy APIs - but introduces hazards: **null/[[cs/security/use-after-free-and-heap-exploitation|dangling pointers]], aliasing, lifetime,** and **bounds** issues. This note gives a practical guide to pointer-parameter design: when to use pointers, how to express **read-only vs read–write** intent (**[[cs/languages/Cpp/const-correctness|const-correctness]]**), and how to avoid common bugs.
 
 > [!note]
 > Think of a pointer parameter as a **capability**: "here is _where_ you may read/write." Good APIs make that capability **explicit** (read-only vs mutable, length, ownership).
@@ -173,7 +173,7 @@ Document **who allocates** and **who frees**:
 
 - _Callee allocates, caller frees_ (return pointer or `T** out`).
 
-- _Shared ownership_ requires reference counts or conventions - avoid in low-level C unless necessary.
+- _Shared ownership_ requires [[cs/languages/common/memory-ownership-refcounting-gc|reference counts]] or conventions - avoid in low-level C unless necessary.
 
 
 > [!warning]

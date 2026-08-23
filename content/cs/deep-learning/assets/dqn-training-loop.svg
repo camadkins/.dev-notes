@@ -19,19 +19,21 @@
   <text class="t" x="130" y="98" text-anchor="middle">Atari emulator</text>
   <text class="sub" x="130" y="118" text-anchor="middle">screen pixels + score</text>
 
-  <rect class="box" x="330" y="70" width="180" height="64" rx="8"/>
-  <text class="t" x="420" y="98" text-anchor="middle">conv net Q&#952;</text>
-  <text class="sub" x="420" y="118" text-anchor="middle">input 84&#215;84&#215;4</text>
+  <rect class="box" x="310" y="70" width="180" height="64" rx="8"/>
+  <text class="t" x="400" y="98" text-anchor="middle">conv net Q&#952;</text>
+  <text class="sub" x="400" y="118" text-anchor="middle">input 84&#215;84&#215;4</text>
 
   <rect class="box" x="630" y="70" width="200" height="64" rx="8"/>
   <text class="t" x="730" y="98" text-anchor="middle">&#949;-greedy choice</text>
   <text class="sub" x="730" y="118" text-anchor="middle">argmax&#8336; Q(s,a) or random</text>
 
-  <path class="edge" d="M 220 102 H 322" marker-end="url(#arrow)"/>
-  <text class="lbl" x="271" y="92" text-anchor="middle">state s</text>
+  <path class="edge" d="M 220 102 H 302" marker-end="url(#arrow)"/>
+  <text class="lbl" x="265" y="92" text-anchor="middle">state s</text>
 
-  <path class="edge" d="M 510 102 H 622" marker-end="url(#arrow)"/>
-  <text class="lbl" x="566" y="92" text-anchor="middle">Q(s,a) per action</text>
+  <!-- conv-net box sits 20px left of centre so the 122px wide edge label gets a
+       140px gap; at 120px it bled over the box border. -->
+  <path class="edge" d="M 490 102 H 622" marker-end="url(#arrow)"/>
+  <text class="lbl" x="560" y="92" text-anchor="middle">Q(s,a) per action</text>
 
   <!-- action loops back over the top -->
   <path class="edge" d="M 730 70 V 30 H 130 V 62" marker-end="url(#arrow)"/>
@@ -52,8 +54,8 @@
   <path class="edge" d="M 330 302 H 492" marker-end="url(#arrow)"/>
   <text class="lbl" x="411" y="292" text-anchor="middle">random minibatch</text>
 
-  <path class="edge" d="M 615 270 V 200 H 420 V 142" marker-end="url(#arrow)"/>
-  <text class="lbl" x="527" y="192" text-anchor="middle">update &#952;</text>
+  <path class="edge" d="M 615 270 V 200 H 400 V 142" marker-end="url(#arrow)"/>
+  <text class="lbl" x="517" y="192" text-anchor="middle">update &#952;</text>
 
   <text class="anno" x="615" y="368" text-anchor="middle">target y = r + &#947; max&#8336;&#8242; Q&#952;&#8315;(s&#8242;, a&#8242;)</text>
   <text class="anno" x="615" y="388" text-anchor="middle">&#952;&#8315; is a frozen copy of &#952;, refreshed every C steps</text>

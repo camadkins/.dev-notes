@@ -13,7 +13,7 @@ aliases:
   - NTP
 ---
 
-Two computers that disagree about the time cannot agree about order. They cannot decide which transaction came first, when a certificate expired, or how to merge two logs. Keeping clocks aligned sounds easy until you notice that the only way to tell a remote machine the time is to send it a message, and the message takes a while to arrive, and that delay is never the same twice. The Network Time Protocol, designed by David L. Mills at the University of Delaware and documented in RFC 958 in 1985, solves this well enough that it has kept the internet's clocks in step ever since.
+Two computers that disagree about the time [[cs/systems/logical-clocks-lamport-and-vector|cannot agree about order]]. They cannot decide [[cs/systems/two-phase-commit-and-distributed-transactions|which transaction came first]], [[cs/security/pki-and-x509-certificates|when a certificate expired]], or how to merge two logs. Keeping clocks aligned sounds easy until you notice that the only way to tell a remote machine the time is to send it a message, and the message takes a while to arrive, and that delay is never the same twice. [[cs/standards/ieee-1588-precision-time-protocol|The Network Time Protocol]], designed by David L. Mills at the University of Delaware and documented in RFC 958 in 1985, solves this well enough that it has kept the internet's clocks in step ever since.
 
 > [!note] The idea
 > Spread authoritative time outward through a hierarchy of servers, and cancel the network's unknown delay with four timestamps from a single exchange.

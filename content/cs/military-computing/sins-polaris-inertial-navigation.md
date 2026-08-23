@@ -20,17 +20,17 @@ A submarine hiding underwater cannot look at the stars, take a [[gps-and-distrib
 
 ## Sensing motion
 
-An inertial navigation system uses accelerometers and gyroscopes, together with a computer, to continuously calculate position, orientation, and velocity without the need for external references. The accelerometers feel how the vehicle speeds up and slows; the gyroscopes feel how it turns. From those two senses, and a known starting point, the system tracks where it is.
+An inertial navigation system uses [[cs/systems/io-devices-and-drivers|accelerometers and gyroscopes]], together with a computer, to continuously calculate position, orientation, and velocity without the need for external references. The accelerometers feel how the vehicle speeds up and slows; the gyroscopes feel how it turns. From those two senses, and a known starting point, the system tracks where it is.
 
 ## Integrating up to position
 
 ![Integrating acceleration once gives velocity, and again gives position; small sensor errors integrate into growing drift.](assets/inertial-integration.svg)
 
-The mathematics is integration. Acceleration integrated over time gives velocity. Velocity integrated over time gives position. The computer carries that forward moment by moment, turning a stream of motion measurements into a running estimate of location.
+The mathematics is [[cs/math/integrals-and-the-fundamental-theorem|integration]]. Acceleration integrated over time gives velocity. Velocity integrated over time gives position. The computer carries that forward moment by moment, turning a stream of motion measurements into a running estimate of location.
 
 ## The catch: drift
 
-The method has a built-in weakness. Small errors in measuring acceleration and angular velocity are integrated into progressively larger errors in velocity, which compound into still larger errors in position. This is integration drift, and even excellent systems accumulate tens of meters of error within minutes. That is why inertial navigation is periodically reset against an outside fix when one is available.
+The method has a built-in weakness. Small errors in measuring acceleration and angular velocity are integrated into progressively larger errors in velocity, which compound into still larger errors in position. This is integration drift, and even excellent systems accumulate tens of meters of error within minutes. That is why inertial navigation is [[cs/statistics/bayesian-inference|periodically reset against an outside fix]] when one is available.
 
 ## Why the submarine needs it
 

@@ -13,7 +13,7 @@ aliases: []
 ---
 
 ## Overview
-A **function** (procedure) packages a computation behind a **name**, a **parameter list**, and a **result**. Functions enable **abstraction**, **reuse**, and **reasoning**: callers rely on an interface (inputs/outputs, pre/postconditions) while implementations hide details. Key axes include **parameter passing** (by value/reference), **purity** (side effects vs none), **call-stack behavior**, and **tail calls**. Clear contracts keep codebases correct and testable. :contentReference[oaicite:0]{index=0}
+A **function** (procedure) packages a computation behind a **name**, a **parameter list**, and a **result**. Functions enable **abstraction**, **reuse**, and **reasoning**: callers rely on an interface (inputs/outputs, pre/postconditions) while implementations hide details. Key axes include **parameter passing** (by value/reference), **[[cs/pl/mutable-state-references-effects|purity]]** (side effects vs none), **call-stack behavior**, and **tail calls**. Clear contracts keep codebases correct and testable. :contentReference[oaicite:0]{index=0}
 
 ## Motivation
 Functions give names to patterns and **separate the what from the how**:
@@ -88,7 +88,7 @@ Each `call` typically:
 
 1. Saves the **return address**.
 
-2. Creates a **stack frame** (activation record) with parameters, locals, and saved registers.
+2. Creates a **[[cs/systems/processes-and-threads|stack frame]]** (activation record) with parameters, locals, and saved registers.
 
 3. Transfers control to the callee.
 
@@ -97,7 +97,7 @@ On `return`, the frame is popped, revealing the caller's frame. Deep recursion c
 
 ### 3) Tail Calls and Tail Recursion
 
-A **tail call** is a call that occurs as the **final action** of a function. With **tail-call optimization (TCO)**, the runtime/compiler reuses the current frame instead of pushing a new one, keeping **O(1)** stack space.
+A **tail call** is a call that occurs as the **final action** of a function. With **[[cs/languages/Racket/proper-tail-calls-and-the-loop-question|tail-call optimization (TCO)]]**, the runtime/compiler reuses the current frame instead of pushing a new one, keeping **O(1)** stack space.
 
 ```pseudo
 // regular factorial (not tail-recursive)

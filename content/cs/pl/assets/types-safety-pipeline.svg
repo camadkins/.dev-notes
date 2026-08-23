@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 240" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 250" fill="none">
   <style>
     text { font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace; }
     .box { fill: rgba(30,40,55,0.95); stroke: #58a6ff; stroke-width: 1.5; rx: 6; }
@@ -46,35 +46,39 @@
   <text class="box-text" x="255" y="105">Type Checker</text>
 
   <!-- Arrow Type Checker -> Evaluator (Preservation arrow) -->
-  <line class="arrow-pres" x1="320" y1="105" x2="388" y2="105" marker-end="url(#ah-gold)"/>
+  <line class="arrow-pres" x1="320" y1="105" x2="428" y2="105" marker-end="url(#ah-gold)"/>
 
-  <!-- Preservation label on arrow -->
-  <text class="pres-label" x="328" y="96">Preservation</text>
-  <text class="desc" x="354" y="70">types maintained</text>
-  <text class="desc" x="354" y="82">across steps</text>
+  <!-- Preservation caption stack, centred in a 102px gap. At the old 62px gap the
+       label sat mostly on the Type Checker box and its caption grazed the
+       Progress highlight. -->
+  <text class="pres-label" x="371" y="96">Preservation</text>
+  <text class="desc" x="371" y="70">types maintained</text>
+  <text class="desc" x="371" y="82">across steps</text>
 
   <!-- Evaluator -->
-  <rect class="box" x="390" y="85" width="120" height="40"/>
-  <text class="box-text" x="450" y="105">Evaluator</text>
+  <rect class="box" x="430" y="85" width="120" height="40"/>
+  <text class="box-text" x="490" y="105">Evaluator</text>
 
   <!-- Progress highlight around Evaluator -->
-  <rect class="progress-box" x="382" y="72" width="136" height="66"/>
-  <text class="progress-label" x="450" y="155">Progress</text>
-  <text class="desc" x="450" y="168">well-typed terms</text>
-  <text class="desc" x="450" y="178">can always step</text>
+  <rect class="progress-box" x="422" y="72" width="136" height="66"/>
+  <!-- Progress caption drops below the feedback loop, whose deepest point is y=174;
+       at y=155-178 the dashed curve ran straight through both caption lines. -->
+  <text class="progress-label" x="490" y="190">Progress</text>
+  <text class="desc" x="490" y="203">well-typed terms</text>
+  <text class="desc" x="490" y="213">can always step</text>
 
   <!-- Arrow Evaluator -> Result (also Preservation) -->
-  <line class="arrow-pres" x1="510" y1="105" x2="558" y2="105" marker-end="url(#ah-gold)"/>
+  <line class="arrow-pres" x1="550" y1="105" x2="598" y2="105" marker-end="url(#ah-gold)"/>
 
   <!-- Result -->
-  <rect class="box" x="560" y="85" width="90" height="40"/>
-  <text class="box-text" x="605" y="105">Result</text>
+  <rect class="box" x="600" y="85" width="90" height="40"/>
+  <text class="box-text" x="645" y="105">Result</text>
 
   <!-- Preservation feedback loop (curved arrow underneath) -->
-  <path class="feedback" d="M 510,125 C 510,190 320,190 320,125" marker-end="url(#ah-gold)"/>
-  <text class="label-sm" x="415" y="205">Preservation: e:T and e->e' implies e':T</text>
+  <path class="feedback" d="M 550,125 C 550,190 320,190 320,125" marker-end="url(#ah-gold)"/>
+  <text class="label-sm" x="435" y="234">Preservation: e:T and e->e' implies e':T</text>
 
   <!-- Top annotation: Soundness = Progress + Preservation -->
-  <text class="label" x="340" y="38">Soundness = Progress + Preservation</text>
-  <text class="desc" x="340" y="52">"well-typed programs do not go wrong"</text>
+  <text class="label" x="360" y="38">Soundness = Progress + Preservation</text>
+  <text class="desc" x="360" y="52">"well-typed programs do not go wrong"</text>
 </svg>

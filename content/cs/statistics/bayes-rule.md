@@ -26,7 +26,7 @@ Given a partition $\{B_1, B_2, \ldots, B_k\}$ of the sample space and an observe
 
 $$P(B_r \mid A) = \frac{P(B_r)\, P(A \mid B_r)}{\sum_{i=1}^{k} P(B_i)\, P(A \mid B_i)}$$
 
-The denominator is the **law of total probability** - it ensures the posterior sums to 1 across all $B_i$.
+The denominator is the **[[cs/math/discrete-probability|law of total probability]]** - it ensures the posterior sums to 1 across all $B_i$.
 
 > [!tip]
 > The denominator is often the hardest part to compute. In practice, you can evaluate the numerator for each $B_i$ and then normalize. This is exactly what many inference algorithms do.
@@ -87,7 +87,7 @@ Machine $M_3$ is the most likely source despite producing only 25% of bolts, bec
 
 ## Why It Matters in CS
 
-The most famous application is the **Naive Bayes classifier**, which is really just this formula applied at scale. You compute $P(\text{class} \mid \text{words})$ by assuming each word contributes independently to the evidence. The "naive" part is that independence assumption, which is almost never true and yet the classifier works shockingly well for spam filtering and text categorization. Paul Graham's 2002 essay on Bayesian spam filtering basically killed first-generation spam by computing $P(\text{spam} \mid \text{word appears})$ per word and combining evidence across the message.
+The most famous application is the **[[cs/machine-learning/supervised-learning|Naive Bayes classifier]]**, which is really just this formula applied at scale. You compute $P(\text{class} \mid \text{words})$ by assuming each word contributes independently to the evidence. The "naive" part is that independence assumption, which is almost never true and yet the classifier works shockingly well for [[cs/security/phishing-and-social-engineering|spam filtering]] and text categorization. Paul Graham's 2002 essay on Bayesian spam filtering basically killed first-generation spam by computing $P(\text{spam} \mid \text{word appears})$ per word and combining evidence across the message.
 
 > [!tip]
 > Bayes' rule is also the reason base rates matter so much in security. An intrusion detection system with a 99% true positive rate still generates mostly false alarms if only 0.1% of traffic is actually malicious. The prior dominates when the event is rare, and forgetting this is one of the classic mistakes in anomaly detection.

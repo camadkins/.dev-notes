@@ -78,8 +78,8 @@ Using total probability: $P(A) = 0.85 \times 0.965 + 0.15 \times 0.30 = 0.865$. 
 
 ## Why It Matters in CS
 
-- **Natural language processing.** Language models estimate $P(w_n \mid w_1, \ldots, w_{n-1})$ - the probability of the next word conditioned on all preceding words. Every autocompletion and translation system is built on conditional probability.
-- **Markov chains.** A Markov process defines transition probabilities $P(X_{t+1} \mid X_t)$, assuming conditional independence from earlier states. This powers PageRank, MCMC sampling, and reinforcement learning.
+- **Natural language processing.** [[cs/deep-learning/attention-and-transformers|Language models]] estimate $P(w_n \mid w_1, \ldots, w_{n-1})$ - the probability of the next word conditioned on all preceding words. Every autocompletion and translation system is built on conditional probability.
+- **Markov chains.** A Markov process defines transition probabilities $P(X_{t+1} \mid X_t)$, assuming conditional independence from earlier states. This powers [[cs/history/pagerank-and-web-search|PageRank]], MCMC sampling, and [[cs/deep-learning/reinforcement-learning|reinforcement learning]].
 - **Bayesian networks.** Each node stores a conditional probability table $P(X \mid \text{parents}(X))$. The full joint distribution factors into a product of conditionals, making inference tractable.
 - **Conditional independence.** Two features $X$ and $Y$ may be dependent overall but independent given a third variable $Z$. Recognizing this structure ($P(X,Y \mid Z) = P(X \mid Z)\,P(Y \mid Z)$) reduces model complexity dramatically.
 

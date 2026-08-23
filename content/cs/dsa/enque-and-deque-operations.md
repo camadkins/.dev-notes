@@ -64,7 +64,7 @@ Two mainstream representations deliver O(1) enqueue/dequeue:
 
 - **Space:** Ring pre-allocates `N` (or grows in chunks); linked uses O(n) nodes with pointer overhead.
 
-- **Locality:** Rings are cache-friendly; linked queues incur pointer chasing.
+- **Locality:** Rings are [[cs/systems/memory-hierarchy-and-caching|cache-friendly]]; linked queues incur pointer chasing.
 
 - **Capacity policy:** Fixed-capacity queues must decide what to do on overflow (reject, block, or overwrite). Dynamic rings can `realloc` and **linearize** contents into a larger buffer.
 
@@ -158,7 +158,7 @@ function DEQUEUE():
 
 **Threaded variants.**
 
-- **Blocking:** Guard with a mutex + condition variables `not_full` and `not_empty`.
+- **Blocking:** Guard with a [[cs/systems/concurrency-primitives|mutex]] + condition variables `not_full` and `not_empty`.
 
 - **SPSC lock-free ring:** Producer updates `tail` after writing; consumer reads `head` first, then updates it after reading. Use **acquire/release** memory order to prevent reordering.
 

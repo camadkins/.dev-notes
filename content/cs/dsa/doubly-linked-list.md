@@ -13,7 +13,7 @@ aliases: []
 
 ## Overview
 
-A **doubly linked list** stores elements in nodes that each carry two pointers: `prev` to the predecessor and `next` to the successor. This design enables **O(1)** insertion and deletion given a **node reference**, and supports **bidirectional iteration** without random access. The cost is higher memory per node and more delicate pointer maintenance compared to a singly linked list. Doubly linked lists are common in **LRU caches**, **deques**, and anywhere that needs constant-time splicing given a handle to a node, contrasting with array-based structures that favor indexed access and cache locality.
+A **doubly linked list** stores elements in nodes that each carry two pointers: `prev` to the predecessor and `next` to the successor. This design enables **O(1)** insertion and deletion given a **node reference**, and supports **bidirectional iteration** without random access. The cost is higher memory per node and more delicate pointer maintenance compared to a singly linked list. Doubly linked lists are common in **[[cs/systems/page-replacement-algorithms|LRU caches]]**, **deques**, and anywhere that needs constant-time splicing given a handle to a node, contrasting with array-based structures that favor indexed access and [[cs/systems/memory-hierarchy-and-caching|cache locality]].
 
 ## Structure Definition
 
@@ -239,7 +239,7 @@ Deletions reverse this: **detach neighbors first**, then free the node.
 
 **Memory management.**
 
-- Pair operations with allocators that minimize fragmentation; consider pooling nodes for high churn.
+- Pair operations with allocators that minimize [[cs/systems/memory-allocators-and-fragmentation|fragmentation]]; consider pooling nodes for high churn.
 
 - Guard against double frees by clearing `prev`/`next` (debug modes) after detach.
 

@@ -14,8 +14,8 @@ aliases: []
 Lambda calculus models computation using only **functions**: no built-in data, no primitives.  
 Yet from pure λ-abstraction, we can encode all familiar constructs: Booleans, pairs, and even numbers.
 
-These encodings, called **Church encodings**, show that functions alone are sufficient to represent any computable data structure or operation.  
-They provide the theoretical foundation for functional languages, typed lambda calculi, and type systems like those behind ML and Haskell.
+These encodings, called **[[cs/history/hilbert-godel-church-computability|Church encodings]]**, show that functions alone are sufficient to represent any computable data structure or operation.  
+They provide the theoretical foundation for [[cs/history/lisp-and-functional-programming|functional languages]], typed lambda calculi, and type systems like those behind ML and Haskell.
 
 > [!note]
 > Every construct here is a *function of functions*, meaning its meaning arises only through how it is applied.

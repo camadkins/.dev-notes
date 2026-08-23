@@ -218,7 +218,7 @@ Start with `L = []` (empty: `head=tail=NIL`).
 
 - Excellent for **queues** (with `head`/`tail`), **stacks** (use head as top), and workloads heavy on **prepend/append** with minimal random access.
 
-- Poor for **random indexing** (no `A[i]`), and cache locality is worse than contiguous arrays.
+- Poor for **random indexing** (no `A[i]`), and [[cs/systems/memory-hierarchy-and-caching|cache locality]] is worse than contiguous arrays.
 
 
 ## Implementation Notes or Trade-offs
@@ -241,9 +241,9 @@ Start with `L = []` (empty: `head=tail=NIL`).
 
     - After appending, set `tail=new`.
 
-- **Iterator pattern.** Abstract traversal behind an iterator to centralize null checks and make early exits/read-modify-delete loops safer.
+- **[[cs/software-engineering/design-patterns|Iterator pattern]].** Abstract traversal behind an iterator to centralize null checks and make early exits/read-modify-delete loops safer.
 
-- **Thread safety.** Updates are not atomic; guard with locks or use single-producer/single-consumer discipline if needed.
+- **[[cs/systems/concurrency-primitives|Thread safety]].** Updates are not atomic; guard with locks or use single-producer/single-consumer discipline if needed.
 
 
 ## Common Pitfalls or Edge Cases

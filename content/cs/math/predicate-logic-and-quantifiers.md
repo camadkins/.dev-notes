@@ -17,7 +17,7 @@ aliases:
 
 ## Where Propositions Run Out
 
-[[propositional-logic|Propositional logic]] cannot say "every integer has a successor" or "some key hashes to slot 3." It only knows whole propositions, true or false, with no way to reach inside them and talk about the objects. Predicate logic adds that reach. It introduces predicates over a domain and quantifiers that range across it, which is exactly the expressiveness a formal specification needs.
+[[propositional-logic|Propositional logic]] cannot say "every integer has a successor" or "some key hashes to slot 3." It only knows whole propositions, true or false, with no way to reach inside them and talk about the objects. Predicate logic adds that reach. It introduces predicates over a domain and quantifiers that range across it, which is exactly the expressiveness a [[cs/standards/ieee-29148-requirements-engineering|formal specification]] needs.
 
 A predicate is a symbol that "represents a property or a relation." Applied to arguments it becomes a proposition: `Prime(7)` is true, `Prime(8)` is false. Written with a free variable, `Prime(x)` is an open formula with no truth value until you either substitute a specific value or bind the variable with a quantifier.
 
@@ -37,7 +37,7 @@ Every quantified statement is relative to a **domain of discourse**. "$\forall x
 
 Pushing a negation through a quantifier flips it. Formally, $\neg(\forall x\, P(x)) \equiv \exists x\, \neg P(x)$: the negation of "everything satisfies $P$" is "something fails $P$." Symmetrically, $\neg(\exists x\, P(x)) \equiv \forall x\, \neg P(x)$.
 
-This is the daily-use rule. To refute "all swans are white" you exhibit one non-white swan, which is the existential negation made concrete, and the same move as [[proof-techniques|disproof by counterexample]]. In testing, the negation of a "for all inputs" postcondition is a single failing input, which is what a bug report is.
+This is the daily-use rule. To refute "all swans are white" you exhibit one non-white swan, which is the existential negation made concrete, and the same move as [[proof-techniques|disproof by counterexample]]. In testing, the negation of a "for all inputs" postcondition is [[cs/security/fuzzing|a single failing input]], which is what a bug report is.
 
 ## Nested Quantifiers and Order
 

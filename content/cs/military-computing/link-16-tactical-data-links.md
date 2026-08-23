@@ -14,7 +14,7 @@ aliases:
   - MIDS
 ---
 
-A formation of aircraft, ships, and ground stations needs to share one picture of the battlespace, each contributing its own radar and sensor tracks, all over the same radio band, in the presence of an enemy trying to jam them. ALOHA's answer, let everyone transmit and recover from collisions, is wrong here, because collisions under jamming are exactly what the adversary wants. Link 16, the tactical data link used across NATO, takes the opposite approach. It schedules.
+A formation of aircraft, ships, and ground stations needs to [[cs/networking/multicast-broadcast-anycast|share one picture of the battlespace]], each contributing its own radar and sensor tracks, all over the same radio band, in the presence of [[cs/security/denial-of-service-and-ddos|an enemy trying to jam them]]. ALOHA's answer, let everyone transmit and recover from collisions, is wrong here, because collisions under jamming are exactly what the adversary wants. Link 16, the tactical data link used across NATO, takes the opposite approach. It schedules.
 
 > [!note] The idea
 > Divide time into slots and give each participant its own, so many platforms share one jam-resistant channel without ever colliding. The scheduled opposite of ALOHA.
@@ -25,11 +25,11 @@ Link 16 is built on time-division multiple access, or TDMA. Time is cut into sma
 
 ![Time-division multiple access: each terminal transmits only in its assigned slots, so transmissions never collide.](assets/link-16-tdma-slots.svg)
 
-The tradeoff is the mirror image of ALOHA's. A scheduled channel never wastes capacity on collisions and gives predictable timing, which matters for a weapons system. It pays for that with rigidity, since a slot reserved for a terminal that has nothing to say sits idle.
+The tradeoff is the mirror image of ALOHA's. A scheduled channel never wastes capacity on collisions and [[cs/networking/qos-and-traffic-shaping|gives predictable timing]], which matters for a weapons system. It pays for that with rigidity, since a slot reserved for a terminal that has nothing to say sits idle.
 
 ## Jamming and frequency hopping
 
-Sharing time is only useful if the signal survives contact with an enemy. Link 16 uses frequency-hopping spread spectrum, meaning the transmission jumps rapidly across many frequencies in a pattern known to the friendly terminals. An adversary who does not know the pattern cannot easily jam the whole band or follow a single conversation, which is what makes the link jam-resistant.
+Sharing time is only useful if the signal survives contact with an enemy. Link 16 uses [[cs/security/comsec-principles|frequency-hopping spread spectrum]], meaning the transmission jumps rapidly across many frequencies in a pattern known to the friendly terminals. An adversary who does not know the pattern cannot easily jam the whole band or follow a single conversation, which is what makes the link jam-resistant.
 
 ## How it is fielded
 

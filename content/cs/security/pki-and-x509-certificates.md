@@ -16,18 +16,18 @@ aliases:
   - chain of trust
 ---
 
-A [[digital-signatures|digital signature]] can prove a message came from whoever holds a particular private key. It cannot tell you whose key that is. Public-key infrastructure is the machinery built to answer that second question at internet scale, and its answer is quietly recursive: trust a key because a key you already trust vouched for it.
+A [[digital-signatures|digital signature]] can prove a message came from whoever holds a particular private key. It cannot tell you whose key that is. Public-key infrastructure is the machinery built to answer that second question at internet scale, and its answer is [[cs/dsa/recursion|quietly recursive]]: trust a key because a key you already trust vouched for it.
 
 > [!note] The idea
 > PKI binds identities to public keys using certificates, which are "data structures that bind public key values to subjects," where "the binding is asserted by having a trusted CA digitally sign each certificate." Verifying a stranger's key means building a certification path from it up to a certificate authority you already trust. The math of signatures is the easy part; the hard part is the trust topology wrapped around it, and that is where PKI both scales and breaks.
 
 ## The problem PKI solves
 
-The plain statement of need, from RFC 5280: "Users of a public key require confidence that the associated private key is owned by the correct remote subject (person or system) with which an encryption or digital signature mechanism will be used." Diffie-Hellman and RSA give you keys; they do not tell you the key labeled "your bank" belongs to your bank. A certificate is a signed assertion that closes that gap, and because its "signature and timeliness can be independently checked," it can be handed around over untrusted networks without losing its meaning.
+The plain statement of need, from [[cs/standards/what-a-standard-actually-is|RFC 5280]]: "Users of a public key require confidence that the associated private key is owned by the correct remote subject (person or system) with which an encryption or digital signature mechanism will be used." Diffie-Hellman and RSA give you keys; they do not tell you the key labeled "your bank" belongs to your bank. A certificate is a signed assertion that closes that gap, and because its "signature and timeliness can be independently checked," it can be handed around over untrusted networks without losing its meaning.
 
 ## Chains, not certificates
 
-Trust does not live in a single certificate. You believe a certificate only if you already trust the key that signed it, and if you do not, you need a certificate for that key too. "In general, a chain of multiple certificates may be needed, comprising a certificate of the public key owner (the end entity) signed by one CA, and zero or more additional certificates of CAs signed by other CAs. Such chains, called certification paths, are required because a public key user is only initialized with a limited number of assured CA public keys." The chain has to terminate somewhere it is trusted by fiat: a root. Browsers ship with those roots preinstalled, "pre-installed intermediate certificates issued and signed by a certificate authority, by public keys certified by so-called root certificates."
+Trust does not live in a single certificate. You believe a certificate only if you already trust the key that signed it, and if you do not, you need a certificate for that key too. "In general, a chain of multiple certificates may be needed, comprising a certificate of the public key owner (the end entity) signed by one CA, and zero or more additional certificates of CAs signed by other CAs. Such chains, called [[cs/math/graph-theory|certification paths]], are required because a public key user is only initialized with a limited number of assured CA public keys." The chain has to terminate somewhere it is trusted by fiat: a root. Browsers ship with those roots preinstalled, "pre-installed intermediate certificates issued and signed by a certificate authority, by public keys certified by so-called root certificates."
 
 ## Where the scaling turns into fragility
 

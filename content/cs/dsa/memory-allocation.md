@@ -14,7 +14,7 @@ aliases: []
 
 ## Overview
 
-Memory allocation is the machinery that turns **abstract data structures** into **live objects** in RAM. It spans from OS primitives (pages, virtual memory) through **user-space allocators** (e.g., `malloc`/`free`, custom pools) to language runtimes (GC, arenas). Getting allocation right affects **performance** (latency, throughput, cache behavior), **correctness** (no leaks, no use-after-free), and **security** (no buffer overflows or double frees). This note unifies the conceptual layers, common allocator designs, fragmentation trade-offs, and practical patterns that make real programs fast and safe.
+Memory allocation is the machinery that turns **abstract data structures** into **live objects** in RAM. It spans from OS primitives (pages, [[cs/systems/virtual-memory|virtual memory]]) through **user-space allocators** (e.g., `malloc`/`free`, custom pools) to language runtimes (GC, arenas). Getting allocation right affects **performance** (latency, throughput, cache behavior), **correctness** (no leaks, no use-after-free), and **security** (no [[cs/security/buffer-overflows|buffer overflows]] or double frees). This note unifies the conceptual layers, common allocator designs, fragmentation trade-offs, and practical patterns that make real programs fast and safe.
 
 > [!note]
 > Treat "allocation" as an **API + policy** problem: the interface (`alloc(n)`, `free(p)`) is small; the **policy** (where, how big, how to split/merge, how to cache) determines performance and safety.
@@ -72,7 +72,7 @@ Imagine a server that frequently creates small request objects (24–128 bytes) 
 
 - **Locality begets speed**: allocators that keep related objects near each other boost cache hit rate; see [[dynamic-arrays|Dynamic Arrays]] and [[hash-tables|Hash Tables]] for layout impacts.
 
-- **Concurrency**: per-thread arenas reduce **contention** and **false sharing**.
+- **Concurrency**: per-thread arenas reduce **contention** and **[[cs/systems/cache-coherence|false sharing]]**.
 
 - **Amortization**: pooling turns many small allocs into a few big ones, smoothing costs.
 
@@ -208,7 +208,7 @@ function arena_destroy(A): return all memory to OS
 
 - **Buffer overflow / out-of-bounds**: writes past block end corrupt metadata.
 
-- **Use-after-free**: dangling pointer dereference.
+- **[[cs/security/use-after-free-and-heap-exploitation|Use-after-free]]**: dangling pointer dereference.
 
 - **Double free**: freeing same pointer twice corrupts free lists.
 

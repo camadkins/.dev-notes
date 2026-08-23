@@ -14,18 +14,18 @@ aliases:
   - US Cyber Command
 ---
 
-Land, sea, air, and space are the traditional domains of military operations. Modern doctrine added one more. The United States now treats cyberspace as a domain of operations in its own right, often called the fifth domain, and the discipline underneath it is, squarely, computer science.
+Land, sea, air, and space are the traditional domains of military operations. Modern doctrine added one more. The United States now treats [[cs/geopolitics/cyber-sovereignty|cyberspace as a domain of operations in its own right]], often called the fifth domain, and the discipline underneath it is, squarely, computer science.
 
 > [!note] The idea
 > Conflict in cyberspace rests on ordinary computer science: vulnerabilities, exploitation, and defense. Treating it as a domain meant building doctrine and institutions around those technical realities.
 
 ## Cyberspace as a domain
 
-The shift was made explicit when the Department of Defense laid out a strategy whose first pillar, in the words of a deputy secretary of defense, was to treat cyber as a domain. That reframing put network attack and defense on the same doctrinal footing as operations on land, at sea, in the air, and in space.
+The shift was made explicit when the Department of Defense laid out a strategy whose first pillar, in the words of a deputy secretary of defense, was to treat cyber as a domain. That reframing put network attack and defense [[cs/law/cyber-operations-and-the-law-of-armed-conflict|on the same doctrinal footing as operations on land, at sea, in the air, and in space]].
 
 ## The institution
 
-Doctrine needs an organization to carry it. United States Cyber Command, one of the military's unified combatant commands, was established on 23 June 2009 and reached initial operational capability on 21 May 2010. Standing up a dedicated command is how the military signaled that cyberspace operations were a permanent mission, not a temporary specialty.
+Doctrine needs an organization to carry it. United States Cyber Command, one of the military's [[cs/law/title-10-and-title-50-authorities|unified combatant commands]], was established on 23 June 2009 and reached initial operational capability on 21 May 2010. Standing up a dedicated command is how the military signaled that cyberspace operations were a permanent mission, not a temporary specialty.
 
 ## The turning point
 
@@ -33,7 +33,7 @@ The clearest proof that this domain is real came from [[stuxnet-and-cyber-physic
 
 ## The computer science underneath
 
-Strip away the doctrine and what remains is familiar from the rest of this cluster: vulnerability classes like the buffer overflow that powered the [[morris-worm-and-buffer-overflows|Morris worm]], the exploitation chains of Stuxnet, and the defensive models like [[bell-lapadula-and-mandatory-access-control|Bell-LaPadula]] and the graded assurance of the [[tcsec-and-graded-assurance|Orange Book]]. The fifth domain is built on the security computer science that the earlier notes describe.
+Strip away the doctrine and what remains is familiar from the rest of this cluster: vulnerability classes like [[cs/security/buffer-overflows|the buffer overflow]] that powered the [[morris-worm-and-buffer-overflows|Morris worm]], the exploitation chains of Stuxnet, and the defensive models like [[bell-lapadula-and-mandatory-access-control|Bell-LaPadula]] and the graded assurance of the [[tcsec-and-graded-assurance|Orange Book]]. The fifth domain is built on the security computer science that the earlier notes describe.
 
 > [!warning] Scope
 > This note stays on published, historical, doctrinal material. No operational detail and nothing about current capabilities.

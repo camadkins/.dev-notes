@@ -27,7 +27,7 @@ Before von Neumann, "program" and "data" lived in different worlds. The stored-p
 
 - Instructions are encoded as numbers and stored in the same memory as the data they operate on.
 - A program counter (PC) tracks which instruction to execute next.
-- Programs can modify themselves (or other programs) because code is just data in memory.
+- Programs can modify themselves (or other programs) because [[cs/pl/macros-and-metaprogramming|code is just data in memory]].
 
 This unification is what makes general-purpose computing possible. A single machine can run any program without physical reconfiguration.
 
@@ -35,10 +35,10 @@ This unification is what makes general-purpose computing possible. A single mach
 
 The classic von Neumann machine has five subsystems:
 
-1. **Memory (Main Store)** - a linear array of addressable cells, each holding a fixed-width word. Stores both instructions and data.
+1. **Memory (Main Store)** - [[cs/dsa/arrays|a linear array of addressable cells]], each holding a fixed-width word. Stores both instructions and data.
 2. **Arithmetic-Logic Unit (ALU)** - performs arithmetic operations (add, subtract, multiply) and logical operations (AND, OR, NOT, comparisons).
 3. **Control Unit (CU)** - fetches instructions from memory, decodes them, and orchestrates the ALU, memory, and I/O accordingly.
-4. **Input** - devices that feed data into memory (keyboard, card reader, network interface).
+4. **Input** - [[cs/systems/io-devices-and-drivers|devices that feed data into memory]] (keyboard, card reader, network interface).
 5. **Output** - devices that present results (display, printer, network interface).
 
 The CPU encompasses the ALU and CU. Modern processors add registers, caches, pipelines, and multiple cores, but the conceptual model remains von Neumann's.
@@ -61,7 +61,7 @@ Because instructions and data share the same memory bus, the CPU must alternate 
 
 Modern mitigations include:
 
-- **Cache hierarchies** (L1, L2, L3) that keep frequently used data close to the CPU.
+- **[[cs/systems/memory-hierarchy-and-caching|Cache hierarchies]]** (L1, L2, L3) that keep frequently used data close to the CPU.
 - **Pipelining** - overlapping fetch, decode, and execute stages of successive instructions.
 - **Harvard-style separation** at the cache level (separate instruction and data caches) while maintaining a unified main memory.
 - **Prefetching and branch prediction** to reduce stalls.

@@ -14,14 +14,14 @@ aliases:
   - Attention Mechanism
 ---
 
-[[recurrent-neural-networks|Recurrent networks]] read a sequence one step at a time, threading everything through a single hidden state. That design has two problems: it cannot be parallelized (step $t$ needs step $t-1$), and distant words interact only weakly, through a long chain of state updates that tends to forget. The Transformer, introduced in 2017, threw out recurrence altogether and replaced it with attention, letting every position in a sequence look directly at every other position, all at once. It is the architecture behind essentially every large language model, and it is hackathon 6's destination after the LSTM.
+[[recurrent-neural-networks|Recurrent networks]] read a sequence one step at a time, threading everything through a single hidden state. That design has two problems: it [[cs/military-computing/illiac-iv-and-parallel-processing|cannot be parallelized]] (step $t$ needs step $t-1$), and distant words interact only weakly, through a long chain of state updates that tends to forget. The Transformer, introduced in 2017, threw out recurrence altogether and replaced it with attention, letting every position in a sequence look directly at every other position, all at once. It is the architecture behind essentially every [[cs/ethics/could-an-llm-be-conscious|large language model]], and it is hackathon 6's destination after the LSTM.
 
 > [!note] The idea
 > Attention lets each position in a sequence pull information directly from every other position, weighted by how relevant they are, in a single parallel operation. The Transformer is built almost entirely from stacked self-attention and feed-forward layers, with no recurrence and no convolution. Removing the sequential dependency is what made training parallelize across a whole sequence at once, and letting any word attend to any other is what fixed the long-range-dependency problem recurrence struggled with.
 
 ## Scaled dot-product attention
 
-The core operation takes three inputs, all vectors derived from the sequence: a query, a set of keys, and a set of values. Each query is compared against every key by a dot product to score relevance, the scores are softmax-normalized into weights, and the output is the weighted sum of the values. The paper writes it in one line:
+The core operation takes three inputs, all vectors derived from the sequence: a query, a set of keys, and a set of values. Each query is compared against every key by a [[cs/math/vectors-and-dot-products|dot product]] to score relevance, the scores are softmax-normalized into weights, and the output is the weighted sum of the values. The paper writes it in one line:
 
 $$\text{Attention}(Q, K, V) = \text{softmax}\!\left(\frac{QK^\top}{\sqrt{d_k}}\right)V$$
 
@@ -37,7 +37,7 @@ Rather than run attention once, the Transformer runs it several times in paralle
 
 ## The Transformer stack
 
-A full Transformer stacks $N = 6$ identical layers in an encoder and a decoder. Each layer pairs a multi-head self-attention sublayer with a position-wise feed-forward network (two linear transformations with a ReLU between). Because there is no recurrence or convolution, the model has no inherent sense of order, so positional encodings, fixed sine and cosine patterns, are added to the input [[embeddings|embeddings]] to inject each token's position. The result trains faster than recurrent models (everything parallelizes) and reached better translation quality with less training time.
+A full Transformer stacks $N = 6$ identical layers in an encoder and a decoder. Each layer pairs a multi-head self-attention sublayer with a position-wise feed-forward network (two [[cs/math/matrices-and-linear-transformations|linear transformations]] with a ReLU between). Because there is no recurrence or convolution, the model has no inherent sense of order, so positional encodings, fixed sine and cosine patterns, are added to the input [[embeddings|embeddings]] to inject each token's position. The result trains faster than recurrent models (everything parallelizes) and reached better translation quality with less training time.
 
 > [!tip] Attention is why pretraining took over language
 > The Transformer made large-scale pretraining practical, and BERT is the landmark case. Devlin and colleagues pretrained a deep bidirectional Transformer on unlabeled text with a masked-language-model objective (predict hidden words from both left and right context), then showed it could be fine-tuned with a single added output layer to reach state-of-the-art results on eleven NLP tasks. That is [[transfer-learning|transfer learning]] for language: learn general representations once on a huge corpus, adapt cheaply to each task. Every modern language model is this idea scaled up, which is why the architecture in this note is the one worth knowing best.

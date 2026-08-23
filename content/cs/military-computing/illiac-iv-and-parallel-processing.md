@@ -13,14 +13,14 @@ aliases:
   - SIMD
 ---
 
-There are two ways to make a computer faster. One is to build a quicker processor. The other is to use many processors that all perform the same operation on different data at the same time. ILLIAC IV, funded by ARPA, was the first serious attempt at the second, and it gave the field a model of parallelism that turned out to matter far more than the machine itself.
+There are two ways to make a computer faster. One is to build a quicker processor. The other is to [[cs/systems/numa-and-multiprocessor-memory|use many processors that all perform the same operation on different data at the same time]]. ILLIAC IV, funded by ARPA, was the first serious attempt at the second, and it gave the field a model of parallelism that turned out to matter far more than the machine itself.
 
 > [!note] The idea
 > SIMD parallelism: a single control unit broadcasts one instruction to many processing elements at once, each applying it to its own slice of data.
 
 ## One instruction, many data
 
-The design put a single control unit in charge of a large array of processing elements. The control unit read one instruction stream and broadcast each instruction to every processing element at once. Each element then carried out that same instruction on its own slice of data.
+The design put a single control unit in charge of a large array of processing elements. The control unit [[cs/history/von-neumann-architecture|read one instruction stream]] and broadcast each instruction to every processing element at once. Each element then carried out that same instruction on its own slice of data.
 
 ![A SIMD array: one control unit broadcasts a single instruction to many processing elements, each working on its own data.](assets/illiac-iv-simd.svg)
 
@@ -28,7 +28,7 @@ This arrangement is called SIMD, for single instruction, multiple data. It is a 
 
 ## Built smaller than planned
 
-ILLIAC IV was designed for 256 processing elements across four quadrants, but budget cuts limited construction to a single quadrant of 64. Even so, it was the first massively parallel computer, and it proved the architecture was real rather than theoretical. In November 1975 it was connected to the [[arpanet-survivable-communications|ARPANET]] at NASA Ames, making it an early supercomputer that researchers could reach over a network.
+ILLIAC IV was designed for 256 processing elements across four quadrants, but budget cuts limited construction to a single quadrant of 64. Even so, it was the first massively parallel computer, and it proved the architecture was real rather than theoretical. In November 1975 it was connected to the [[arpanet-survivable-communications|ARPANET]] at NASA Ames, making it [[cs/history/cloud-computing-and-virtualization|an early supercomputer that researchers could reach over a network]].
 
 ## Legacy
 

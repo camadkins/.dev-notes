@@ -23,7 +23,7 @@ A **heap** is a tree-based structure that keeps the **highest-priority** (max-he
 2. **Shape property:** The tree is **complete** - all levels filled except possibly the last, which is filled left to right.
 
 
-These properties enable an efficient **array representation** with simple index arithmetic, constant extra space, and `O(log n)` updates. Heaps back priority queues, **schedulers**, **Dijkstra's algorithm** on dense-enough graphs, **median-of-stream** (with two heaps), and **top-k** selection. See also [[binary-heap|Binary Heap]] and the linear-time builder [[heapify|Heapify]].
+These properties enable an efficient **array representation** with simple index arithmetic, constant extra space, and `O(log n)` updates. Heaps back priority queues, **[[cs/systems/process-scheduling-algorithms|schedulers]]**, **Dijkstra's algorithm** on dense-enough graphs, **median-of-stream** (with two heaps), and **top-k** selection. See also [[binary-heap|Binary Heap]] and the linear-time builder [[heapify|Heapify]].
 
 ## Motivation
 
@@ -171,7 +171,7 @@ function SIFT_UP(A, i):
 
 ## Broader Implications
 
-The heap abstraction generalizes to **k-ary heaps** (fewer levels, more branching), **d-heaps** in external-memory settings, and specialized variants like **pairing heaps**, **Fibonacci heaps**, **binomial heaps**, and **radix heaps** (for integer keys). Most production systems prefer the **binary heap** for its small constants, simplicity, and excellent CPU cache behavior.
+The heap abstraction generalizes to **k-ary heaps** (fewer levels, more branching), **d-heaps** in external-memory settings, and specialized variants like **pairing heaps**, **Fibonacci heaps**, **binomial heaps**, and **radix heaps** (for integer keys). Most production systems prefer the **binary heap** for its small constants, simplicity, and excellent [[cs/systems/memory-hierarchy-and-caching|CPU cache behavior]].
 
 ## Summary
 

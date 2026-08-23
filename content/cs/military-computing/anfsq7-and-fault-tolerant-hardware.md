@@ -13,7 +13,7 @@ aliases:
   - SAGE computer
 ---
 
-A machine built from tens of thousands of vacuum tubes has a tube failing somewhere all the time. For most computers that is an annoyance. For the computer at the center of a Cold War air-defense system, one that is supposed to be watching the skies without interruption, a failure in the wrong moment is the whole problem. The AN/FSQ-7, built by IBM for the [[sage-and-real-time-systems|SAGE]] network, answered that problem in the bluntest way available: it kept a second copy of itself ready to take over.
+A machine built from [[cs/history/the-transistor|tens of thousands of vacuum tubes]] has a tube failing somewhere all the time. For most computers that is an annoyance. For the computer at the center of a Cold War air-defense system, one that is supposed to be watching the skies without interruption, a failure in the wrong moment is the whole problem. The AN/FSQ-7, built by IBM for the [[sage-and-real-time-systems|SAGE]] network, answered that problem in the bluntest way available: it kept a second copy of itself ready to take over.
 
 > [!note] The idea
 > Fault tolerance through redundancy: run a second copy of the machine so that the failure of the first, which at this scale is guaranteed, does not take the system down.
@@ -32,7 +32,7 @@ At any moment one machine ran the air-defense site while the other waited. If th
 
 ## Why it matters
 
-This is fault tolerance through redundancy, and it is one of the oldest ideas in keeping systems alive. The duplex AN/FSQ-7 is the direct ancestor of the failover pair, the hot standby database, and the replicated server cluster. The hardware changed completely. The idea, run a second copy so the loss of the first is survivable, did not.
+This is fault tolerance through redundancy, and it is one of the oldest ideas in keeping systems alive. The duplex AN/FSQ-7 is the direct ancestor of [[cs/cisco/asa-failover|the failover pair]], the hot standby database, and [[cs/systems/replication-and-quorums|the replicated server cluster]]. The hardware changed completely. The idea, run a second copy so the loss of the first is survivable, did not.
 
 ## Related Notes
 

@@ -22,11 +22,11 @@ An IP address is the label the internet layer uses to route a packet toward a de
 
 IPv4 uses a 32-bit address space, which gives 4,294,967,296 (2^32) unique addresses. Humans read those 32 bits as four octets in decimal, separated by periods, for example `192.168.10.4`. Each octet is 8 bits, so its decimal value runs 0 to 255.
 
-Those 32 bits carry a hidden seam. The address divides into two fields: the network number, also called the routing prefix, and the rest field, also called the host identifier. Everything on the same subnet shares the same network number and differs only in the host part.
+Those 32 bits carry a hidden seam. The address divides into two fields: the network number, also called the [[cs/systems/bgp-and-internet-routing-as-control|routing prefix]], and the rest field, also called the host identifier. Everything on the same subnet shares the same network number and differs only in the host part.
 
 ## Subnet masks and the network/host split
 
-A subnet is a logical subdivision of an IP network, and dividing a network into two or more networks is called subnetting. The tool that marks the split is the subnet mask: a 32-bit pattern of leading ones followed by zeros. A bitwise AND of the mask against any address in the network yields that network's routing prefix. The ones cover the network bits, the zeros cover the host bits.
+A subnet is a logical subdivision of an IP network, and dividing a network into two or more networks is called subnetting. The tool that marks the split is the subnet mask: a 32-bit pattern of leading ones followed by zeros. A [[cs/dsa/bitwise-operations|bitwise AND]] of the mask against any address in the network yields that network's routing prefix. The ones cover the network bits, the zeros cover the host bits.
 
 ![The address 192.168.10.0/24 split into 24 network bits across the first three octets and 8 host bits in the last octet.](assets/subnet-network-host-bits.svg)
 

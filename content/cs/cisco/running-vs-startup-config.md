@@ -24,7 +24,7 @@ The single most common way to lose an afternoon on Cisco gear is to fix somethin
 
 Cisco's own statement of the split is precise: "Startup configuration files are used during system startup to configure the software. Running configuration files contain the current configuration of the software. The two configuration files can be different." The storage locations follow: "The running configuration is saved in DRAM; the startup configuration is stored in the NVRAM section of flash memory."
 
-DRAM loses its contents when the box loses power. That is the whole mechanism behind the vanished change.
+[[cs/systems/memory-hierarchy-and-caching|DRAM loses its contents when the box loses power]]. That is the whole mechanism behind the vanished change.
 
 Cisco frames divergence between the two as a feature rather than an accident, and this is the habit worth building. If you want a change to be temporary, change the running configuration and simply do not save it. A maintenance window with a risky ACL change becomes much less frightening when the rollback plan is "power cycle it." The documentation names this use case directly: "you might want to change the configuration for a short time period rather than permanently. In this case, you would change the running configuration but not save the configuration."
 
@@ -54,7 +54,7 @@ The modern alternative avoids the reload. `configure replace` "replaces the runn
 
 That last bullet is the operational gotcha: feeding a snippet to `configure replace` is not a partial update, it is an instruction to delete everything the snippet does not mention.
 
-`configure replace` also gives you rollback. Save the running configuration to a file before you start changing things, and that file becomes your undo, with no fixed limit on how many rollbacks you keep.
+`configure replace` also gives you rollback. Save the running configuration to a file before you start changing things, and [[cs/software-engineering/version-control-fundamentals|that file becomes your undo]], with no fixed limit on how many rollbacks you keep.
 
 > [!example] Two ways to undo an afternoon
 > ```

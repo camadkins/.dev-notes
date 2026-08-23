@@ -21,7 +21,7 @@ On 9 December 1968, Douglas Engelbart sat on a San Francisco stage and showed an
 
 ## The demo
 
-Engelbart presented a system called NLS, the oN-Line System, at a 1968 computer conference. The live demonstration introduced, for the first time and together, windows, hypertext, graphics, efficient navigation and command input, video conferencing, the computer mouse, word processing, dynamic file linking, revision control, and a real-time collaborative editor. It is remembered as "The Mother of All Demos" because so much arrived at once.
+Engelbart presented a system called NLS, the oN-Line System, at a 1968 computer conference. The live demonstration introduced, for the first time and together, windows, hypertext, graphics, efficient navigation and command input, video conferencing, [[cs/systems/io-devices-and-drivers|the computer mouse]], word processing, dynamic file linking, [[cs/software-engineering/version-control-fundamentals|revision control]], and [[cs/systems/consistency-models|a real-time collaborative editor]]. It is remembered as "The Mother of All Demos" because so much arrived at once.
 
 ## Augmenting intellect
 

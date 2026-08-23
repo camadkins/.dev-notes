@@ -28,7 +28,7 @@ RADIUS answers a different question. In RFC 2865's own framing, RADIUS servers "
 
 ## Transport
 
-TACACS+ uses TCP. RFC 8907 states plainly that "TACACS+ uses TCP for its transport. TCP Server port 49 is allocated by IANA for TACACS+ traffic." The design intent is stated in the introduction: the protocol "uses TCP to ensure reliable delivery."
+[[cs/networking/tcp-vs-udp|TACACS+ uses TCP]]. RFC 8907 states plainly that "TACACS+ uses TCP for its transport. TCP Server port 49 is allocated by IANA for TACACS+ traffic." The design intent is stated in the introduction: the protocol "uses TCP to ensure reliable delivery."
 
 RADIUS uses UDP, and RFC 2865 devotes a whole section (2.4, "Why UDP?") to defending the choice. The practical trap is the port number. Early deployment used 1645, "which conflicts with the 'datametrics' service," and the officially assigned port is 1812. Two port numbers in circulation for one protocol is worth remembering when a client and server will not talk, because a client addressing one port while the server listens on the other exchanges no packets at all.
 

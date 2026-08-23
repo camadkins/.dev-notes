@@ -83,7 +83,7 @@ Since C++23 there is a way out of writing the pair twice. A non-static non-virtu
 
 ## mutable, and why constness is not transitive
 
-`mutable` permits modification of the class member declared `mutable` even if the containing object is declared const. It is used to specify that the member does not affect the externally visible state of the class, as often used for mutexes, memo caches, lazy evaluation, and access instrumentation.
+`mutable` permits modification of the class member declared `mutable` even if the containing object is declared const. It is used to specify that the member does not affect the externally visible state of the class, as often used for [[cs/systems/concurrency-primitives|mutexes]], memo caches, lazy evaluation, and access instrumentation.
 
 The mutex case is idiomatic enough to have a name. cppreference's `ThreadsafeCounter` writes `mutable std::mutex m;` with the comment: the "M&M rule": mutable and mutex go together. A `get() const` that takes a `std::lock_guard` on that mutex is modifying the mutex while promising not to modify the object, which is coherent exactly because locking is not part of the observable state. The library-wide reading of const as "safe to call concurrently" in [[cs/languages/Cpp/stl-containers|STL Containers]] rests on this.
 
@@ -95,7 +95,7 @@ The compiler enforces a shallow rule. The meaningful rule, that a const call doe
 
 ## The defaults worth adopting
 
-The Core Guidelines open their constants section with three reasons that are worth reading as one argument: you cannot have a race condition on a constant, it is easier to reason about a program when many of the objects cannot change their values, and interfaces that promise no change of objects passed as arguments greatly increase readability.
+The Core Guidelines open their constants section with three reasons that are worth reading as one argument: you cannot have a [[cs/security/race-conditions-and-toctou|race condition]] on a constant, it is easier to reason about a program when many of the objects cannot change their values, and interfaces that promise no change of objects passed as arguments greatly increase readability.
 
 **Con.1: By default, make objects immutable.** Immutable objects are easier to reason about, so make objects non-const only when there is a need to change their value, which prevents accidental or hard-to-notice change of value. Two exceptions are named: a local variable returned by value that is cheaper to move than copy should not be declared const, because it can force an unnecessary copy (see [[cs/languages/Cpp/move-semantics-and-rvalue-references|move semantics]]); and the rule is not enforced for function parameters passed by value, since `void g(const int i)` is pedantic and a parameter is a local variable whose changes are local.
 

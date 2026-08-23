@@ -21,7 +21,7 @@ Rust's ownership model, covered in [[cs/languages/Rust/ownership-and-moves|owner
 
 ## `Box<T>`: a pointer with a known size
 
-`Box<T>` puts data on the heap and has no performance overhead beyond that. It has few extra capabilities, and the Book lists exactly three situations where you reach for it: when a type's size cannot be known at compile time but you need it in a context requiring an exact size; when you have a large amount of data and want to transfer ownership without copying it; and when you care only that a value implements a particular trait rather than being a specific type. The third case is the trait object from [[cs/languages/Rust/traits-and-generic-bounds|traits and generic bounds]].
+`Box<T>` puts data on [[cs/dsa/dynamic-memory-allocation|the heap]] and has no performance overhead beyond that. It has few extra capabilities, and the Book lists exactly three situations where you reach for it: when a type's size cannot be known at compile time but you need it in a context requiring an exact size; when you have a large amount of data and want to transfer ownership without copying it; and when you care only that a value implements a particular trait rather than being a specific type. The third case is the trait object from [[cs/languages/Rust/traits-and-generic-bounds|traits and generic bounds]].
 
 The size case is the sharpest. A recursive type can hold another value of the same type as part of itself, and Rust needs to know at compile time how much space a type takes. Define a cons list as `enum List { Cons(i32, List), Nil }` and the compiler reports `error[E0072]: recursive type 'List' has infinite size`, annotating the variant as recursive without indirection.
 
@@ -45,7 +45,7 @@ Two limits define the type. `Rc<T>` is only for single-threaded scenarios. And i
 
 Interior mutability is a design pattern that allows mutating data even when there are immutable references to it, which the borrowing rules normally disallow. The pattern uses `unsafe` code inside a data structure to bend the usual rules, with the unsafe code wrapped in a safe API so the outer type stays immutable. The `unsafe` contract this rests on is the subject of [[cs/languages/common/undefined-behavior-as-a-contract|Undefined Behavior as a Contract]]. Types built this way are usable only when the borrowing rules can be guaranteed to hold at run time even though the compiler cannot prove it.
 
-The justification is a statement about static analysis in general. Static analysis is inherently conservative, some properties of code are impossible to detect by analyzing it (the Book names the halting problem), and so if the compiler cannot be sure the code complies with the ownership rules it may reject a correct program. The asymmetry is deliberate: accepting an incorrect program would destroy the guarantees, whereas rejecting a correct one merely inconveniences the programmer. `RefCell<T>` is for when you are sure your code follows the borrowing rules and the compiler cannot see it.
+The justification is a statement about static analysis in general. Static analysis is inherently conservative, some properties of code are impossible to detect by analyzing it (the Book names [[cs/history/turing-and-computability|the halting problem]]), and so if the compiler cannot be sure the code complies with the ownership rules it may reject a correct program. The asymmetry is deliberate: accepting an incorrect program would destroy the guarantees, whereas rejecting a correct one merely inconveniences the programmer. `RefCell<T>` is for when you are sure your code follows the borrowing rules and the compiler cannot see it.
 
 The Book's own recap is the cleanest summary of the three types.
 
@@ -65,7 +65,7 @@ Violating that gives a panic rather than a compile error, and the message is `al
 
 A common way to use `RefCell<T>` is in combination with `Rc<T>`. The layering is the point: `Rc` supplies multiple owners but only immutable access, `RefCell` supplies mutability but only single ownership, and nesting one in the other yields multiple owners of mutable data.
 
-![Rc of RefCell of T as nested layers: the outer Rc tracks a strong count and permits many read-only owners checked at compile time, the inner RefCell tracks borrows at run time and hands out Ref or RefMut, and the innermost layer is the mutable value](assets/rc-refcell-layers.svg)
+![Three nested layers wrapping a mutable value, Rc outside and RefCell inside](assets/rc-refcell-layers.svg)
 
 > [!example] Mutating a shared cons list
 > With `List` defined as `Cons(Rc<RefCell<i32>>, Rc<List>)`, three lists can share one value. Calling `borrow_mut` on the shared `value` dereferences the `Rc` to the inner `RefCell` automatically, returns a `RefMut<T>`, and lets you add to the inner number through the dereference operator. Printing afterward shows the shared element as 15 in all three lists while their private elements stay 3 and 4. The `List` values are outwardly immutable; the mutation happens through the `RefCell` methods.

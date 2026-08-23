@@ -28,7 +28,7 @@ Small errors in integer math cause **off-by-one bugs**, **wrong loop bounds**, a
 
 - Implement **division/modulo** correctly, especially with negatives.
 
-- Avoid **undefined behavior** or wrong results due to overflow.
+- Avoid **[[cs/languages/common/undefined-behavior-as-a-contract|undefined behavior]]** or wrong results due to overflow.
 
 
 ## Definition and Formalism
@@ -79,7 +79,7 @@ For integer `n >= 1`:
     `Sum i^2 = n(n+1)(2n+1)/6 = Theta(n^3)`
     `Sum i^3 = (n(n+1)/2)^2 = Theta(n^4)` (sum of cubes is square of triangular number)
 
-- **Geometric series** (ratio `r != 1`)
+- **[[cs/math/sequences-and-series|Geometric series]]** (ratio `r != 1`)
     `Sum_{i=0}^{k} r^i = (r^{k+1} - 1)/(r - 1)`
     Special cases:
     `Sum_{i=0}^{k} 2^i = 2^{k+1} - 1`
@@ -170,7 +170,7 @@ There are two common conventions for `x div d` and `x mod d` (with `d>0`):
 
 ### Overflow, Underflow, and Safe Arithmetic
 
-- **Fixed-width integers** (e.g., 32-bit signed) have finite ranges `[-2^{31}, 2^{31}-1]`.
+- **[[cs/languages/common/numeric-types-and-overflow-semantics|Fixed-width integers]]** (e.g., 32-bit signed) have finite ranges `[-2^{31}, 2^{31}-1]`.
 
     - In **C/C++**, **signed overflow is undefined behavior** (UB). Unsigned overflow **wraps modulo `2^w`**.
 
@@ -233,7 +233,7 @@ These basics underlie larger results:
 
 - **Hash analysis** often needs **expectation** and **indicator variables** atop congruences and series.
 
-- **Number-theoretic** constructions (e.g., universal hashing, modular inverses) require modular arithmetic discipline.
+- **Number-theoretic** constructions (e.g., universal hashing, modular inverses) require [[cs/math/number-theory-and-modular-arithmetic|modular arithmetic]] discipline.
 
 
 > [!tip]

@@ -26,9 +26,9 @@ Created by `fork` (POSIX) or `CreateProcess` (Windows). Each process gets:
 - Its own file descriptor table
 - Its own security context
 
-The key property is **isolation**. A crash in one process cannot corrupt another. If you've ever wondered why Chrome runs each tab as a separate process, this is why: a misbehaving website can crash its process without taking down the whole browser.
+The key property is **isolation**. A crash in one process cannot corrupt another. If you've ever wondered why [[cs/security/sandboxing-and-isolation|Chrome runs each tab as a separate process]], this is why: a misbehaving website can crash its process without taking down the whole browser.
 
-Inter-process communication (IPC) is explicit and controlled: pipes, shared memory, sockets, message queues. The cost of this isolation is that sharing data between processes requires going through the kernel.
+Inter-process communication (IPC) is explicit and controlled: pipes, shared memory, [[cs/networking/ports-and-sockets|sockets]], message queues. The cost of this isolation is that sharing data between processes requires going through the kernel.
 
 ---
 
@@ -39,7 +39,7 @@ Created within a process (`pthread_create`, `std::thread`). Threads share heap m
 > [!warning]
 > Shared mutable state is where most concurrency bugs live. Two threads reading and writing the same variable without synchronization leads to data races, which can produce arbitrarily wrong results. This is not a theoretical concern; it's one of the most common sources of hard-to-reproduce bugs in systems code.
 
-Synchronization primitives (mutexes, condition variables, atomics, message passing) exist to manage shared state, but they come with their own pitfalls: deadlocks, priority inversion, lock contention.
+Synchronization primitives (mutexes, condition variables, [[cs/languages/Cpp/the-cpp-memory-model-and-atomics|atomics]], message passing) exist to manage shared state, but they come with their own pitfalls: deadlocks, priority inversion, lock contention.
 
 ### User-Level vs Kernel-Level Threads
 
@@ -48,7 +48,7 @@ Synchronization primitives (mutexes, condition variables, atomics, message passi
 | Kernel threads | OS scheduler | Can run on different cores, syscalls don't block siblings | Heavier to create/switch |
 | User-level threads (green threads, goroutines) | Runtime in user space | Cheap to create, fast context switch | Blocking syscall can stall the runtime |
 
-Go's goroutines and Erlang's processes use M:N threading: many user-level threads multiplexed onto a smaller number of kernel threads. This gives you the cheap creation of user threads with the parallelism of kernel threads.
+[[cs/languages/Go/goroutines-and-the-scheduler|Go's goroutines]] and Erlang's processes use M:N threading: many user-level threads multiplexed onto a smaller number of kernel threads. This gives you the cheap creation of user threads with the parallelism of kernel threads.
 
 ---
 

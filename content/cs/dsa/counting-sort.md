@@ -93,7 +93,7 @@ Consider records with keys `A = [2, 5, 3, 0, 2, 3, 0, 3]`, with `U = 5`.
 
 - **Byte/word specialization:** For small fixed-width keys (e.g., 8-bit), unroll loops and use vectorized prefix sums.
 
-- **Parallel prefix:** Parallel counting by thread-local histograms + reduction; then parallel prefix-scan and scatter.
+- **Parallel prefix:** Parallel counting by [[cs/systems/concurrency-primitives|thread-local histograms]] + reduction; then parallel prefix-scan and scatter.
 
 
 ## Applications
@@ -122,7 +122,7 @@ Consider records with keys `A = [2, 5, 3, 0, 2, 3, 0, 3]`, with `U = 5`.
 
 - **Prefix-sum semantics:** Using **1-past-last** indices simplifies placement; alternative "first index" conventions work if consistent.
 
-- **Cache behavior:** Keep `C` small (fit in cache) by choosing an appropriate key encoding or chunking.
+- **[[cs/systems/memory-hierarchy-and-caching|Cache behavior]]:** Keep `C` small (fit in cache) by choosing an appropriate key encoding or chunking.
 
 - **Memory bounds:** For bounded embedded systems, verify `U+1` counts fit in memory; otherwise chunk keys and merge.
 

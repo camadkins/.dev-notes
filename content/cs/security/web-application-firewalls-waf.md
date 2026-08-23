@@ -23,9 +23,9 @@ A network [[firewalls|firewall]] makes clean decisions because it asks clean que
 
 ## Seeing what the network firewall cannot
 
-OWASP defines the tool by its layer: "a web application firewall (WAF) is an application firewall for HTTP applications," one that "applies a set of rules to an HTTP conversation." Because it parses the HTTP request, it can reach the content a packet filter never interprets. The rules "generally cover common attacks such as Cross-site Scripting (XSS) and SQL Injection", precisely the [[sql-injection|injection]] and [[cross-site-scripting-xss|scripting]] classes that ride inside a well-formed request to an allowed port. A firewall watching ports 80 and 443 sees a valid connection to a valid service; the attack is in the body it never opens.
+OWASP defines the tool by its layer: "a web application firewall (WAF) is an application firewall for HTTP applications," one that "applies a set of rules to [[cs/networking/http-evolution-1-1-to-3|an HTTP conversation]]." Because it parses the HTTP request, it can reach the content a packet filter never interprets. The rules "generally cover common attacks such as Cross-site Scripting (XSS) and SQL Injection", precisely the [[sql-injection|injection]] and [[cross-site-scripting-xss|scripting]] classes that ride inside a well-formed request to an allowed port. A firewall watching [[cs/networking/ports-and-sockets|ports 80 and 443]] sees a valid connection to a valid service; the attack is in the body it never opens.
 
-The orientation is also flipped from a proxy's. OWASP notes the difference in a line: "while proxies generally protect clients, WAFs protect servers." A WAF sits in front of the application, reading inbound requests on the server's behalf, which is exactly the vantage point from which application-layer attacks are visible.
+The orientation is also flipped from a proxy's. OWASP notes the difference in a line: "while [[cs/networking/proxies-forward-and-reverse|proxies generally protect clients]], WAFs protect servers." A WAF sits in front of the application, reading inbound requests on the server's behalf, which is exactly the vantage point from which application-layer attacks are visible.
 
 ## The tradeoff is the whole design
 

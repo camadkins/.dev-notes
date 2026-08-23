@@ -21,9 +21,9 @@ Picture the loss as a landscape: every point is a choice of model parameters, an
 
 ## The Update Rule
 
-The gradient $\nabla J(\mathbf{w})$ is the vector of partial derivatives $\left[\frac{\partial J}{\partial w_i}\right]_{i=1}^n$, one per parameter (vectors and their geometry live in [[linear-algebra-fundamentals]]). Each component answers one question: if I nudge this weight, how much does the loss change? Stepping against that vector reduces the loss, at least for a small enough step. The method is old, first suggested by Cauchy in 1847, and it earns its keep today because computing a gradient is cheap even when the parameter space has billions of dimensions, where solving for the minimum directly is hopeless.
+The gradient $\nabla J(\mathbf{w})$ is [[cs/math/derivatives-and-gradients|the vector of partial derivatives]] $\left[\frac{\partial J}{\partial w_i}\right]_{i=1}^n$, one per parameter (vectors and their geometry live in [[linear-algebra-fundamentals]]). Each component answers one question: if I nudge this weight, how much does the loss change? Stepping against that vector reduces the loss, at least for a small enough step. The method is old, first suggested by Cauchy in 1847, and it earns its keep today because computing a gradient is cheap even when the parameter space has billions of dimensions, where solving for the minimum directly is hopeless.
 
-For a convex bowl like the squared-error surface of linear regression, this walk converges to the global minimum. Neural network losses are not convex, but the same procedure still finds parameters that work remarkably well in practice.
+[[cs/math/convexity-and-optimization-basics|For a convex bowl like the squared-error surface of linear regression]], this walk converges to the global minimum. Neural network losses are not convex, but the same procedure still finds parameters that work remarkably well in practice.
 
 ![Gradient descent stepping down a convex loss curve, with big steps on the steep part and small steps near the flat minimum](assets/gradient-descent-loss-curve.svg)
 
@@ -44,7 +44,7 @@ Plain SGD struggles in ravines and on plateaus, so a family of variants modifies
 - **RMSProp** fixes AdaGrad's tendency to shrink the rate toward zero by exponentially decaying the old gradient history.
 - **Adam** (Kingma and Ba, 2014, arXiv:1412.6980) combines both ideas: first-order gradient optimization using adaptive estimates of the first and second moments of the gradient. Its hyperparameters have intuitive interpretations and typically need little tuning, which is a large part of why it became a default.
 
-All of them are still gradient descent at heart. They change how the step is shaped, not the core loop of compute gradient, step downhill, repeat. The deep-network treatment, with the full update equations and how to schedule the learning rate they share, is in [[faster-optimizers-and-learning-rate-scheduling|faster optimizers and learning rate scheduling]].
+All of them are still gradient descent at heart. They change how the step is shaped, not the core loop of compute gradient, step downhill, repeat. The deep-network treatment, with the full update equations and how to schedule the learning rate they share, is in [[cs/deep-learning/faster-optimizers-and-learning-rate-scheduling|faster optimizers and learning rate scheduling]].
 
 > [!example]
 > Minimize $J(w) = (w - 3)^2$ with $\eta = 0.25$, starting at $w = 0$. The gradient is $J'(w) = 2(w - 3)$.

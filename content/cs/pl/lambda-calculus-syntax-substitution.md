@@ -11,7 +11,7 @@ aliases: []
 ---
 
 ## Overview
-The untyped λ-calculus is a minimal calculus of functions. It has only three syntactic forms (**variables**, **abstractions**, and **applications**) yet it can express every computable function. Computation is modeled by **β-reduction**, which in turn depends on **substitution**. Getting substitution right (especially avoiding **variable capture**) is the essential technical detail that makes the calculus coherent.
+The untyped λ-calculus is a minimal calculus of functions. It has only three syntactic forms (**variables**, **abstractions**, and **applications**) yet it can express [[cs/history/hilbert-godel-church-computability|every computable function]]. Computation is modeled by **β-reduction**, which in turn depends on **substitution**. Getting substitution right (especially avoiding **[[cs/languages/Racket/hygienic-macros-and-syntax-rules|variable capture]]**) is the essential technical detail that makes the calculus coherent.
 
 > [!note]
 > The λ-calculus is a rewriting system. Its results and meta-theory (confluence, normalization properties for certain fragments, etc.) rely on a precise definition of substitution and α-equivalence.
@@ -167,7 +167,7 @@ A term is in **β-normal form** if it contains **no** β-redexes. Some terms hav
 ---
 
 ## Substitution Lemmas (Core Facts)
-Substitution is central to proofs about the λ-calculus. Two standard lemmas are used everywhere.
+[[cs/math/proof-techniques|Substitution is central to proofs]] about the λ-calculus. Two standard lemmas are used everywhere.
 
 ### 1) Free Variable Lemma
 If `z ∉ FV(N)`, then substitution does not introduce new free variables unrelated to `N`:

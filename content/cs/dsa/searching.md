@@ -26,7 +26,7 @@ aliases: []
 - **Special geometry** (unimodal/bitonic) -> tailored **ternary/bitonic searches**.
 
 
-This overview maps problems to strategies, shows archetypal pseudocode, explains how to adapt binary search for first/last occurrence and rotated arrays, and catalogs pitfalls (off-by-one, overflow, duplicate handling, comparator issues).
+This overview maps problems to strategies, shows archetypal pseudocode, explains how to adapt binary search for first/last occurrence and rotated arrays, and catalogs pitfalls (off-by-one, [[cs/security/integer-overflow-vulnerabilities|overflow]], duplicate handling, comparator issues).
 
 > [!note]
 > Terminology: Let `A[0..n-1]` be 0-indexed. Use half-open ranges `[lo, hi)` for clarity unless noted. Comparators must define a **strict weak ordering**.
@@ -229,7 +229,7 @@ Adopt a single, tested pattern in the codebase. Prefer **half-open `[lo, hi)`** 
 
 ### Cache behavior and branch prediction
 
-- Linear scans are streaming-friendly and can beat binary search on small arrays due to **branch misprediction** and cache line effects.
+- Linear scans are streaming-friendly and can beat binary search on small arrays due to **branch misprediction** and [[cs/systems/memory-hierarchy-and-caching|cache line effects]].
 
 - **Galloping (exponential) probes** are used in TimSort's merge to exploit runs.
 
@@ -240,7 +240,7 @@ Expose both:
 
 - **Index-based** searches (for arrays/vectors).
 
-- **Iterator-based** generic versions (C++ style) requiring random-access for logarithmic time.
+- **[[cs/languages/Cpp/iterators-and-ranges|Iterator-based]]** generic versions (C++ style) requiring random-access for logarithmic time.
 
 
 > [!tip]

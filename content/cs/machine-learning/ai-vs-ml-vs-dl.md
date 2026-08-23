@@ -26,7 +26,7 @@ Artificial intelligence is the broadest of the three and the oldest, dating to t
 
 ## Machine learning: a claim about method
 
-Machine learning is a subset of AI defined by *how the behavior was acquired*. Instead of a programmer specifying the rules, the system infers them from data. The standard definition is Tom Mitchell's from 1997: a program learns from experience E with respect to some task T and performance measure P if its performance at T, as measured by P, improves with E. The key word is *improves with experience*. A [[regression-fundamentals|linear regression]] fit to data is machine learning. So is a decision tree, a support vector machine, or a naive Bayes classifier built on [[bayes-rule|Bayes' rule]]. None of those involve neural networks. ML is the answer to "was it learned from data rather than hand-programmed?"
+Machine learning is a subset of AI defined by *how the behavior was acquired*. Instead of a programmer specifying the rules, the system infers them from data. The standard definition is Tom Mitchell's from 1997: a program learns from experience E with respect to some task T and performance measure P if its performance at T, as measured by P, improves with E. The key word is *improves with experience*. A [[cs/statistics/regression-fundamentals|linear regression]] fit to data is machine learning. So is a decision tree, a support vector machine, or a naive Bayes classifier built on [[cs/statistics/bayes-rule|Bayes' rule]]. None of those involve neural networks. ML is the answer to "was it learned from data rather than hand-programmed?"
 
 This is why the [[supervised-learning|supervised]], [[unsupervised-learning|unsupervised]], and reinforcement paradigms all live at the ML layer: they are three ways of learning from experience, independent of what model does the learning.
 
@@ -34,14 +34,14 @@ This is why the [[supervised-learning|supervised]], [[unsupervised-learning|unsu
 
 Deep learning is a subset of ML that uses neural networks with many layers, and its defining move is *representation learning*. A traditional ML pipeline depends on humans engineering good [[features-and-representations|features]] first, then handing those features to the learner. A deep network learns the features itself, building them up layer by layer from raw input, so that early layers capture edges and textures and later layers capture objects and concepts. Depth is the mechanism: each layer transforms the representation from the one below it. DL is the answer to "does it learn its own representation through depth, instead of relying on features we hand it?"
 
-The [[deep-learning-revolution|2012 AlexNet result]] is the moment this stopped being a promise. A deep [[convolutional-neural-networks|convolutional network]] learned better image features than decades of hand-engineering, and it did so because cheap parallel compute finally made the [[linear-algebra-fundamentals|matrix arithmetic]] affordable.
+The [[cs/history/deep-learning-revolution|2012 AlexNet result]] is the moment this stopped being a promise. A deep [[cs/deep-learning/convolutional-neural-networks|convolutional network]] learned better image features than decades of hand-engineering, and it did so because cheap parallel compute finally made the [[cs/math/linear-algebra-fundamentals|matrix arithmetic]] affordable.
 
 ## Why the distinction matters
 
 Because the three answer different questions, the boundaries are real, not marketing.
 
 - A rule-based chess engine is **AI but not ML**: intelligent behavior, no learning.
-- A [[simple-linear-regression|linear regression]] or decision tree is **ML but not DL**: learned from data, no learned representation.
+- A [[cs/statistics/simple-linear-regression|linear regression]] or decision tree is **ML but not DL**: learned from data, no learned representation.
 - A convolutional network is **DL**: learned from data *and* learned its own features.
 
 > [!warning] The common error
@@ -56,9 +56,9 @@ Because the three answer different questions, the boundaries are real, not marke
 - [[unsupervised-learning|Unsupervised Learning]], another ML paradigm
 - [[generalization-vs-memorization|Generalization vs Memorization]], what "learning" actually requires
 - [[features-and-representations|Features and Representations]], the thing deep learning learns for itself
-- [[artificial-neural-networks|Artificial Neural Networks]], the model class deep learning stacks into depth
-- [[deep-learning-revolution|The Deep Learning Revolution]], the history of how DL took over
-- [[ai-governance|AI Governance]], the questions this capability forced open
+- [[cs/deep-learning/artificial-neural-networks|Artificial Neural Networks]], the model class deep learning stacks into depth
+- [[cs/history/deep-learning-revolution|The Deep Learning Revolution]], the history of how DL took over
+- [[cs/geopolitics/ai-governance|AI Governance]], the questions this capability forced open
 
 ## Sources
 

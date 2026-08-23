@@ -44,7 +44,7 @@ The engineering is worth reading closely. Frames are converted to grayscale and 
 
 Straightforwardly combining Q-learning with a deep network tends to be unstable, and the two DQN fixes address the two problems named above.
 
-Experience replay attacks correlated data. Consecutive frames are nearly identical, and training on them in order violates the independence that gradient methods expect. So transitions $(s, a, r, s')$ go into a replay memory, and training minibatches are sampled from it uniformly at random, breaking the correlations and smoothing learning over many past behaviors.
+Experience replay attacks correlated data. Consecutive frames are nearly identical, and training on them in order violates the independence that gradient methods expect. So transitions $(s, a, r, s')$ go into [[cs/dsa/circular-queue|a replay memory]], and training minibatches are sampled from it uniformly at random, breaking the correlations and smoothing learning over many past behaviors.
 
 The target network attacks the moving-label problem. If the same weights $\theta$ produce both the prediction and the target $y$, every gradient step also drags the target, and the regression chases itself. DQN computes targets with a separate frozen copy $\theta^-$ that is refreshed from $\theta$ only every $C$ updates, so the labels hold still between refreshes.
 
@@ -58,9 +58,9 @@ Q-learning is value-based: it learns what actions are worth and derives the poli
 > [!example]
 > The intuition, stripped of notation: suppose taking action $a_t$ in state $s_t$ ends up winning 90 percent of the time. Then $\pi_\theta(a_t \mid s_t)$ should go up, and the gradient of $\log \pi_\theta$ scaled by the return moves it up. Actions followed by bad outcomes get pushed down the same way.
 
-Raw returns make a noisy training signal, so a baseline is subtracted from the return before scaling the gradient, which reduces variance without biasing the estimate. The natural baseline is an estimate of the state's value, and once you train a second network to provide it you have an actor-critic method: the actor is the policy network choosing actions, the critic is the value network judging them.
+Raw returns make a noisy training signal, so a baseline is subtracted from the return before scaling the gradient, which [[cs/statistics/variance-and-covariance|reduces variance]] without biasing the estimate. The natural baseline is an estimate of the state's value, and once you train a second network to provide it you have an actor-critic method: the actor is the policy network choosing actions, the critic is the value network judging them.
 
-The showcase for policy gradients is AlphaGo (Silver et al., 2016, *Nature*). Its policy network was first trained by supervised learning on human expert games, then improved by policy-gradient reinforcement learning through self-play, and finally combined with a value network inside Monte Carlo tree search. The full system achieved a 99.8 percent win rate against other Go programs and defeated the human European Go champion five games to zero, the first time a program beat a professional at full-size Go.
+The showcase for policy gradients is AlphaGo (Silver et al., 2016, *Nature*). Its policy network was first trained by supervised learning on human expert games, then improved by policy-gradient reinforcement learning through self-play, and finally combined with a value network inside [[cs/military-computing/monte-carlo-method-and-the-bomb|Monte Carlo tree search]]. The full system achieved a 99.8 percent win rate against other Go programs and defeated the human European Go champion five games to zero, the first time a program beat a professional at full-size Go.
 
 For the foundations these methods build on, start at [[reinforcement-learning]]; for where all of this sits in the larger picture, see [[ai-vs-ml-vs-dl]].
 

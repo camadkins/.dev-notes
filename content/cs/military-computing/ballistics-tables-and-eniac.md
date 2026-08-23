@@ -13,7 +13,7 @@ aliases:
   - ballistics tables
 ---
 
-Every artillery piece needs a firing table: for a given gun, shell, and charge, what elevation lands the round on target, under the conditions of the day. Each table demanded thousands of trajectory calculations, and in the Second World War they were worked out by hand. That backlog is what produced ENIAC, the first general-purpose programmable electronic computer.
+Every artillery piece needs a firing table: for a given gun, shell, and charge, what elevation lands the round on target, under the conditions of the day. Each table demanded [[cs/math/integrals-and-the-fundamental-theorem|thousands of trajectory calculations]], and in the Second World War they were worked out by hand. That backlog is what produced ENIAC, the first general-purpose programmable electronic computer.
 
 > [!note] The idea
 > Programmability. The leap from a machine or a person that computes one fixed thing to a general-purpose machine that can be set up to compute any problem.
@@ -24,7 +24,7 @@ A firing table is not one calculation but thousands, one trajectory after anothe
 
 ## ENIAC
 
-ENIAC was designed by John Mauchly and J. Presper Eckert to calculate artillery firing tables for the United States Army's Ballistic Research Laboratory. It was electronic, built from thousands of vacuum tubes, and far faster than anything before it. But programming languages did not yet exist, so a problem was set up in the machine by a combination of plugboard wiring and portable function tables, a physical configuration that could take days to arrange.
+ENIAC was designed by John Mauchly and J. Presper Eckert to calculate artillery firing tables for the United States Army's Ballistic Research Laboratory. It was electronic, [[cs/history/the-transistor|built from thousands of vacuum tubes]], and far faster than anything before it. But [[cs/history/fortran-and-high-level-languages|programming languages did not yet exist]], so a problem was set up in the machine by a combination of plugboard wiring and portable function tables, a physical configuration that could take days to arrange.
 
 ## What changed
 

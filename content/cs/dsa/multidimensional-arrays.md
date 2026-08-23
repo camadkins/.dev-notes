@@ -18,10 +18,10 @@ aliases: []
 
 - **Row-major** (C/C++ default): rows are contiguous.
 
-- **Column-major** (Fortran/MATLAB default): columns are contiguous.
+- **Column-major** ([[cs/history/fortran-and-high-level-languages|Fortran]]/MATLAB default): columns are contiguous.
 
 
-Performance hinges on **strides** and **access order**. Traversing along the **contiguous dimension** maximizes cache locality and memory bandwidth. This note gives exact offset formulas, common pitfalls, and practical traversal patterns for transposes, convolutions, and higher dimensions.
+Performance hinges on **strides** and **access order**. Traversing along the **contiguous dimension** maximizes [[cs/systems/memory-hierarchy-and-caching|cache locality]] and memory bandwidth. This note gives exact offset formulas, common pitfalls, and practical traversal patterns for transposes, convolutions, and higher dimensions.
 
 > [!note]
 > Treat layout as part of the **data structure contract**. Many bugs and slowdowns arise when code assumes the wrong layout or ignores strides.

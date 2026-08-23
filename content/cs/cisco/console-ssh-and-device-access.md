@@ -55,7 +55,7 @@ line aux 0
 
 The hardening guide's language is not hedged: "Use secure protocols whenever possible. A secure protocol choice includes the use of SSH, instead of Telnet, so authentication data and management information are encrypted." For the transport setting specifically, "To prevent information disclosure or unauthorized access to the data transmitted between the administrator and the device, use `transport input ssh` instead of clear-text protocols, such as Telnet and rlogin."
 
-The concrete exposure is worse than "someone reads your password." A Telnet management session carries the full interactive stream: the running configuration you paste, the SNMP community strings and shared secrets inside it, the ACL contents, and every command you run. Cisco makes the same point about the archive: "The configuration of a Cisco IOS device contains many sensitive details. Usernames, passwords, and the contents of access control lists are examples of this sensitive information." A cleartext management session is that archive streamed across the network in real time. See [[man-in-the-middle-attacks|man-in-the-middle attacks]] for what an on-path attacker does with it and [[secure-shell-ssh|SSH]] for what the replacement actually provides.
+The concrete exposure is worse than "someone reads your password." A Telnet management session carries the full interactive stream: the running configuration you paste, the SNMP community strings and shared secrets inside it, the ACL contents, and every command you run. Cisco makes the same point about the archive: "The configuration of a Cisco IOS device contains many sensitive details. Usernames, passwords, and the contents of access control lists are examples of this sensitive information." A cleartext management session is that archive streamed across the network in real time. See [[cs/security/man-in-the-middle-attacks|man-in-the-middle attacks]] for what an on-path attacker does with it and [[cs/security/secure-shell-ssh|SSH]] for what the replacement actually provides.
 
 Same logic applies to file transfer. Cisco's stated preference is "the use of the Secure Copy Protocol (SCP) in place of FTP or TFTP." Copying a config off a box over TFTP undoes everything the SSH session protected.
 
@@ -132,10 +132,10 @@ Cisco's overall position on authentication is unambiguous: "Authentication can b
 - [[ios-cli-modes|IOS CLI Modes]] - the `(config-line)` mode every command here is entered from
 - [[running-vs-startup-config|Running vs Startup Config]] - the configuration register mechanism behind console password recovery
 - [[tacacs-vs-radius|TACACS+ vs RADIUS]] - centralizing the authentication these lines defer to
-- [[secure-shell-ssh|Secure Shell (SSH)]] - what the protocol itself guarantees
-- [[man-in-the-middle-attacks|Man-in-the-Middle Attacks]] - the threat that makes Telnet unacceptable
-- [[comsec-principles|COMSEC Principles]] - key management discipline applied to the RSA pair you just generated
-- [[zero-trust-architecture|Zero Trust Architecture]] - the modern framing of "authenticate every session regardless of where it came from"
+- [[cs/security/secure-shell-ssh|Secure Shell (SSH)]] - what the protocol itself guarantees
+- [[cs/security/man-in-the-middle-attacks|Man-in-the-Middle Attacks]] - the threat that makes Telnet unacceptable
+- [[cs/security/comsec-principles|COMSEC Principles]] - key management discipline applied to the RSA pair you just generated
+- [[cs/security/zero-trust-architecture|Zero Trust Architecture]] - the modern framing of "authenticate every session regardless of where it came from"
 
 ## Sources
 

@@ -14,7 +14,7 @@ aliases:
   - SATNET
 ---
 
-By the mid 1970s the United States had built more than one packet network, and they had nothing in common. The [[arpanet-survivable-communications|ARPANET]] ran over leased telephone lines. PRNET carried packets by radio. SATNET crossed the Atlantic by satellite. Each had its own packet sizes, error rates, and speeds. The military wanted them to behave as a single network, so that a message could start on one and finish on another. The work of making that happen, led by Vint Cerf and Bob Kahn, produced the design the whole internet still runs on.
+By the mid 1970s the United States had built more than one packet network, and they had nothing in common. The [[arpanet-survivable-communications|ARPANET]] ran over leased telephone lines. PRNET carried packets by radio. SATNET crossed the Atlantic by satellite. Each had [[cs/networking/mtu-and-fragmentation|its own packet sizes]], error rates, and speeds. The military wanted them to behave as a single network, so that a message could start on one and finish on another. The work of making that happen, led by Vint Cerf and Bob Kahn, produced the design the whole internet still runs on.
 
 > [!note] The idea
 > Put a machine at each boundary, a gateway, that forwards packets between networks without caring how either works inside, and let reliability live at the endpoints rather than in the networks.
@@ -25,11 +25,11 @@ The first move was to stop trying to make the networks alike. Instead Cerf and K
 
 ## Reliability at the edges
 
-The second move was to decide where reliability lives. Cerf and Kahn's 1974 paper, "A Protocol for Packet Network Intercommunication," put it at the endpoints rather than inside the networks. The networks would do their best to deliver packets and would not promise much. The sending and receiving hosts would detect loss, reorder, and retransmit. This is the end-to-end principle, and it is why a packet network can be cheap and unreliable in the middle while the connection still feels solid. In 1978 the original protocol was split, with the Internet Protocol handling addressing and forwarding and the Transmission Control Protocol handling the reliable stream on top.
+The second move was to decide where reliability lives. Cerf and Kahn's 1974 paper, "A Protocol for Packet Network Intercommunication," put it at the endpoints rather than inside the networks. The networks [[cs/networking/tcp-vs-udp|would do their best to deliver packets]] and would not promise much. The sending and receiving hosts would detect loss, reorder, and retransmit. This is the end-to-end principle, and it is why a packet network can be cheap and unreliable in the middle while the connection still feels solid. In 1978 the original protocol was split, with [[cs/networking/ip-addressing-and-subnetting|the Internet Protocol handling addressing and forwarding]] and the Transmission Control Protocol handling the reliable stream on top.
 
 ## The 1977 demonstration
 
-The proof came on 22 November 1977. A packet left a Packet Radio Van run by SRI, crossed the radio network, passed through the ARPANET, went out over the Atlantic satellite network to a node in London, and came back, traveling across three different networks as if they were one. Internetworking was no longer a paper argument. The line from that test runs straight to every connection your devices make across cellular, fiber, and satellite links today.
+The proof came on 22 November 1977. A packet left a Packet Radio Van run by SRI, crossed the radio network, passed through the ARPANET, went out over the Atlantic satellite network to a node in London, and came back, traveling across three different networks as if they were one. Internetworking was no longer a paper argument. The line from that test runs straight to every connection your devices make [[cs/systems/physical-layer-of-the-internet|across cellular, fiber, and satellite links today]].
 
 ## Related Notes
 

@@ -62,7 +62,8 @@
 
   <!-- Region labels (right-aligned to stay in viewBox) -->
   <text x="495" y="283" class="region-label region-label-good" text-anchor="end">slower growth</text>
-  <text x="480" y="45" class="region-label region-label-bad" text-anchor="end">faster growth</text>
+  <!-- Left edge of the shaded region: at the right edge this label sat on the n^2 curve. -->
+  <text x="85" y="62" class="region-label region-label-bad" text-anchor="start">faster growth</text>
 
   <!-- Grid lines -->
   <line x1="70" y1="240" x2="500" y2="240" class="grid"/>

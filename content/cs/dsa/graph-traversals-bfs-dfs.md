@@ -17,7 +17,7 @@ aliases: []
 
 - **Breadth-First Search (BFS):** explores level by level using a **queue**; finds shortest paths in **unweighted** graphs.
 
-- **Depth-First Search (DFS):** explores as far as possible along a branch using a **stack/recursion**; yields **discovery/finish times**, **edge classification**, **topological order**, and **cycle cues**.
+- **Depth-First Search (DFS):** explores as far as possible along a branch using a **stack/recursion**; yields **discovery/finish times**, **edge classification**, **[[cs/languages/common/build-systems-and-dependency-management|topological order]]**, and **cycle cues**.
 
 
 This note presents clear invariants, concise pseudocode, and "what to look for" when debugging or using traversals to solve problems.
@@ -170,7 +170,7 @@ For **undirected** graphs, DFS edges are either **tree** or **back** (each undir
 
 - Run **BFS**; 2-color as you go (alternate colors by parity of `dist`).
 
-- If an edge ever connects vertices of the **same color**, the graph is **not bipartite** (odd cycle exists).
+- If an edge ever connects vertices of the **same color**, the graph is **[[cs/math/graph-theory|not bipartite]]** (odd cycle exists).
 
 
 ### Parent/visited invariants to debug

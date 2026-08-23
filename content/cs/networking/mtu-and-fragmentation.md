@@ -14,14 +14,14 @@ aliases:
   - IP fragmentation
 ---
 
-Every physical link has a ceiling on how big a chunk it will carry in one go. Ethernet will not move a frame larger than a fixed size; a slower serial link caps it lower. An IP packet, meanwhile, can be far larger than any single link along its path. When an oversized packet meets a link too narrow to carry it, something has to give: either the packet is cut into pieces that fit, or it is dropped and the sender is told to send smaller. Both answers exist, and which one the internet prefers has shifted decisively over the decades.
+Every physical link has a ceiling on how big a chunk it will carry in one go. [[cs/standards/ieee-802-3-ethernet|Ethernet]] will not move a frame larger than a fixed size; a slower serial link caps it lower. An IP packet, meanwhile, can be far larger than any single link along its path. When an oversized packet meets a link too narrow to carry it, something has to give: either the packet is cut into pieces that fit, or it is dropped and the sender is told to send smaller. Both answers exist, and which one the internet prefers has shifted decisively over the decades.
 
 > [!note] The idea
 > The maximum transmission unit is the largest packet a link will carry in one transaction. IP can fragment an oversized packet into pieces that fit and have the destination reassemble them, but fragmentation is fragile, so modern hosts instead discover the smallest MTU along the whole path in advance and never send anything bigger.
 
 ## MTU: the size ceiling of a link
 
-The maximum transmission unit (MTU) is the size of the largest protocol data unit that can be communicated in a single network-layer transaction. It is set by the underlying link. Ethernet is the canonical example: its maximum frame size is 1518 bytes, of which 18 bytes are header and frame-check overhead, leaving an MTU of 1500 bytes for the IP packet inside. That 1500 is the number most of the internet is quietly built around.
+The maximum transmission unit (MTU) is the size of the largest [[cs/systems/network-protocols|protocol data unit]] that can be communicated in a single network-layer transaction. It is set by the underlying link. Ethernet is the canonical example: its maximum frame size is 1518 bytes, of which 18 bytes are header and frame-check overhead, leaving an MTU of 1500 bytes for the IP packet inside. That 1500 is the number most of the internet is quietly built around.
 
 MTU is a genuine tradeoff, not a value to maximize blindly. A larger MTU brings greater efficiency, because each packet carries more user data while the fixed per-packet overhead stays constant, which lifts bulk throughput and means fewer packets to process for the same data. A smaller MTU can reduce network delay. The link, the medium, and sometimes a negotiation at connect time decide where the ceiling sits.
 

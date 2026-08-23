@@ -18,7 +18,7 @@ Computing a square root appears simple but hides details: **integer vs real** re
 
 - **Binary search (integer sqrt):** robust, easy to implement, `Θ(log U)` steps where `U` bounds the result.
 
-- **Newton's method / Heron's algorithm (real or integer):** fast (quadratic convergence) with careful termination and rounding rules.
+- **[[cs/math/derivatives-and-gradients|Newton's method]] / Heron's algorithm (real or integer):** fast (quadratic convergence) with careful termination and [[cs/standards/ieee-754-rounding-and-exceptions|rounding rules]].
 
 - **Bit-by-bit (restoring) method:** integer-only alternative with predictable control flow.
 

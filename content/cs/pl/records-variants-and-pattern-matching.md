@@ -13,7 +13,7 @@ aliases: []
 ## Overview
 Modern programming languages provide **structured data** through *records* and *variants*.  
 Records capture fixed labeled collections of values; variants encode distinct alternatives.  
-Together, they form the foundation for **algebraic data types (ADTs)** and safe **pattern matching**.
+Together, they form the foundation for **[[cs/languages/Rust/pattern-matching-and-enums|algebraic data types (ADTs)]]** and safe **pattern matching**.
 
 > [!note]
 > Records = product types (fields combined).  
@@ -47,7 +47,7 @@ Records make code more self-documenting and robust to field reordering.
 
 ## Variants: Sum Structures
 
-A **variant** (also called a _tagged union_) represents a value that can take one of several labeled forms.
+A **variant** (also called a _[[cs/languages/TypeScript/discriminated-unions-and-exhaustiveness|tagged union]]_) represents a value that can take one of several labeled forms.
 
 Example:
 

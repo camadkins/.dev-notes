@@ -13,7 +13,7 @@ aliases:
   - instruction set architecture
 ---
 
-Before 1964, buying a bigger computer usually meant rewriting your software for it. IBM's System/360 ended that, and in doing so it created one of the most important ideas in how processors are designed: the separation of architecture from implementation.
+Before 1964, buying a bigger computer usually meant [[cs/languages/common/portability-and-cross-compilation|rewriting your software for it]]. IBM's System/360 ended that, and in doing so it created one of the most important ideas in how processors are designed: the separation of architecture from implementation.
 
 > [!note] The idea
 > Define an instruction set architecture, the contract of what instructions exist and what they do, and hold it fixed across a whole family of machines. Software written to the contract runs on every model, cheap or expensive, slow or fast.
@@ -24,7 +24,7 @@ The System/360, announced on 7 April 1964, was a family of computers that shared
 
 ## Architecture versus implementation
 
-The design deliberately distinguished architecture, the instruction set the programmer sees, from implementation, how a given model actually realizes it, often using microcode. The same instruction could be wired cheaply in a small model and built for speed in a large one. The contract stayed fixed while the hardware underneath varied.
+The design deliberately distinguished architecture, [[cs/software-engineering/api-design|the instruction set the programmer sees, from implementation]], how a given model actually realizes it, [[cs/pl/compilation-vs-interpretation|often using microcode]]. The same instruction could be wired cheaply in a small model and built for speed in a large one. The contract stayed fixed while the hardware underneath varied.
 
 ## Why it endures
 

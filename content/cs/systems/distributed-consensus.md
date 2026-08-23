@@ -13,7 +13,7 @@ aliases: []
 
 ## The Problem
 
-When data lives on one machine, agreement is trivial. There's one copy, one truth. The moment you replicate data across machines (for availability, latency, or fault tolerance), you hit the fundamental question: how do N nodes agree on the same value when messages can be delayed, reordered, or lost, and nodes can crash at any time?
+When data lives on one machine, agreement is trivial. There's one copy, one truth. The moment you replicate data across machines (for availability, latency, or fault tolerance), you hit the fundamental question: how do N nodes agree on the same value when messages can be [[cs/networking/tcp-vs-udp|delayed, reordered, or lost]], and nodes can crash at any time?
 
 This is harder than it sounds. You can't just "pick a leader and have everyone listen" because the leader can crash. You can't just "take a vote" because votes can arrive out of order or not at all. The whole field of distributed consensus exists because reliable agreement in an unreliable network is genuinely difficult.
 
@@ -80,7 +80,7 @@ If `A` crashes, `B` and `C` detect missing heartbeats after an election timeout.
 
 Paxos and Raft handle **crash faults** where nodes simply stop responding. **Byzantine faults** are worse: nodes can lie, send conflicting messages, or act arbitrarily malicious.
 
-PBFT (Castro & Liskov, 1999) tolerates up to `f` Byzantine nodes out of `3f + 1` total, at higher message complexity (`O(n^2)` per decision). Blockchain consensus (Nakamoto, Tendermint) is a specialized form of BFT for open networks where you don't even know who the participants are.
+PBFT (Castro & Liskov, 1999) tolerates up to `f` Byzantine nodes out of `3f + 1` total, at higher [[cs/dsa/asymptotic-notation|message complexity]] (`O(n^2)` per decision). [[cs/history/blockchain-and-nakamoto-consensus|Blockchain consensus]] (Nakamoto, Tendermint) is a specialized form of BFT for open networks where you don't even know who the participants are.
 
 > [!note]
 > The `3f + 1` bound is fundamental. With Byzantine faults, you need enough honest nodes to outvote the liars even in the worst case. With crash faults (Raft/Paxos), `2f + 1` suffices because crashed nodes don't actively lie, they just go silent.

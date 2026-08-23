@@ -13,7 +13,7 @@ date: 2025-10-16
 
 ## Definition
 
-**Backtracking** is a general algorithmic technique for solving **constraint satisfaction** and **combinatorial enumeration** problems by **incrementally building a partial solution** and abandoning branches as soon as they can no longer lead to a valid (or improved) solution (**pruning**). It performs a **depth-first exploration** of a decision tree, undoing choices ("backtracking") when a dead end is reached.
+**Backtracking** is a general algorithmic technique for solving **constraint satisfaction** and **[[cs/math/combinatorics|combinatorial enumeration]]** problems by **incrementally building a partial solution** and abandoning branches as soon as they can no longer lead to a valid (or improved) solution (**pruning**). It performs a **depth-first exploration** of a decision tree, undoing choices ("backtracking") when a dead end is reached.
 
 > [!note] Core idea
 > Explore a **decision tree** with recursion; abandon partial assignments that cannot lead to a valid solution (**pruning**), and backtrack to try alternatives.
@@ -175,7 +175,7 @@ Engineering notes:
 
 - Validate base cases first to avoid unnecessary recursion.
 
-- Keep `state` mutations localized; prefer RAII/`defer`-style guards when available.
+- Keep `state` mutations localized; prefer [[cs/languages/Cpp/raii-and-object-lifetime|RAII]]/`defer`-style guards when available.
 
 - Benchmark with/without specific pruners to quantify benefit.
 

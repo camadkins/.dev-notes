@@ -36,7 +36,7 @@ then either:
 - `e'` is a **value** of type `T`, or  
 - `e'` can take another step.
 
-If neither holds (a “stuck” term), the type system is unsound.
+If neither holds (a “stuck” term), [[cs/languages/Java/covariant-arrays-vs-invariant-generics|the type system is unsound]].
 
 ---
 
@@ -162,7 +162,7 @@ e ::= n | true | false | e1 + e2 | if e1 then e2 else e3
 
 ```
 
-Both progress and preservation can be proved by structural induction:
+Both progress and preservation can be proved by [[cs/math/mathematical-induction|structural induction]]:
 - For progress, the key case is `if e1 then e2 else e3`.
 - For preservation, check that substitution and reduction maintain types for `+` and `if`.
 

@@ -13,14 +13,14 @@ aliases:
   - vector processing
 ---
 
-[[illiac-iv-and-parallel-processing|ILLIAC IV]] pursued speed by spreading data across many processing elements. The Cray-1 reached a similar destination, doing the same operation across a lot of data, by a different road. Instead of many processors, it used one very fast processor with instructions that act on a whole vector of numbers in a single step. That choice made vector processing a commercial success and shaped supercomputing for years.
+[[illiac-iv-and-parallel-processing|ILLIAC IV]] pursued speed by spreading data across many processing elements. The Cray-1 reached a similar destination, doing the same operation across a lot of data, by a different road. Instead of many processors, it used one very fast processor with instructions that act on [[cs/math/vectors-and-dot-products|a whole vector of numbers in a single step]]. That choice made vector processing a commercial success and shaped supercomputing for years.
 
 > [!note] The idea
 > Vector processing: a single instruction operates on a whole array of numbers at once, keeping the processor busy instead of stalling between one scalar step and the next.
 
 ## Vector registers
 
-The Cray-1 carried eight vector registers, each holding 64 values. An ordinary scalar instruction operates on one number at a time, and between operations the processor often waits on memory. A vector instruction instead applies one operation across all 64 values in a register, feeding them through the arithmetic units in a steady stream so the processor stays busy rather than stalling. For work that repeats the same calculation over long arrays, this is a large and direct gain.
+The Cray-1 carried [[cs/dsa/arrays|eight vector registers, each holding 64 values]]. An ordinary scalar instruction operates on one number at a time, and between operations [[cs/systems/memory-hierarchy-and-caching|the processor often waits on memory]]. A vector instruction instead applies one operation across all 64 values in a register, feeding them through the arithmetic units in a steady stream so the processor stays busy rather than stalling. For work that repeats the same calculation over long arrays, this is a large and direct gain.
 
 ## Why it won
 

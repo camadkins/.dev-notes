@@ -37,7 +37,7 @@ Real languages combine these with **pointer** semantics, **borrowing**, **move**
 
 - **API design**: clear contracts ("this function will not mutate your input") reduce bugs and enable optimizations (e.g., sharing).
 
-- **Safety**: references that outlive owners lead to **dangling pointers**, **use-after-free**, or **data races**.
+- **Safety**: references that outlive owners lead to **dangling pointers**, **[[cs/security/use-after-free-and-heap-exploitation|use-after-free]]**, or **data races**.
 
 
 ## Definition and Formalism
@@ -59,7 +59,7 @@ Related terms:
 
 - **Move** semantics: transfer ownership of a value to the callee without copying; the caller may be left unusable/empty.
 
-- **Borrow**: temporary, checked reference with aliasing rules (e.g., Rust's `&T` / `&mut T`).
+- **[[cs/languages/Rust/borrowing-and-lifetimes|Borrow]]**: temporary, checked reference with aliasing rules (e.g., Rust's `&T` / `&mut T`).
 
 
 ## Example or Trace
@@ -115,7 +115,7 @@ This is **call-by-sharing**: aliasing on the object, isolation on the variable b
 
 - **Deep vs shallow copies**: pass-by-value typically makes a **shallow** copy (copy top-level fields, but pointers still alias). "Deep copy" duplicates the entire reachable structure - expensive and uncommon by default.
 
-- **Escape analysis**: compilers may elide copies or heap allocations if references don't escape the function.
+- **[[cs/languages/Go/escape-analysis-and-stack-allocation|Escape analysis]]**: compilers may elide copies or heap allocations if references don't escape the function.
 
 - **Immutability**: passing an immutable value/reference eliminates side-effect concerns regardless of passing mode.
 

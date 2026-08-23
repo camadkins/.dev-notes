@@ -17,7 +17,7 @@ aliases:
 
 Returning a `std::vector` with a million elements by value used to mean copying a million elements, because the compiler had no way to tell "this vector is about to be destroyed anyway" from "this vector is still in use." C++11 gave the language a way to say it. The mechanism is not a new operation on objects; it is a new distinction between expressions, plus an overload that fires on one side of the distinction.
 
-[[cs/languages/Cpp/raii-and-object-lifetime|RAII]] is what creates the need. Once a resource is nailed to an object's lifetime, getting the resource out of a dying scope without copying it requires a way to transfer ownership rather than duplicate content.
+[[cs/languages/Cpp/raii-and-object-lifetime|RAII]] is what creates the need. Once a resource is nailed to an object's lifetime, getting the resource out of a dying scope without copying it requires a way to [[cs/pl/ownership-and-linear-types|transfer ownership]] rather than duplicate content.
 
 > [!note] The idea
 > Move semantics is a compile-time routing decision, not a runtime one. `std::move` moves nothing: cppreference states it is exactly equivalent to a `static_cast` to an rvalue reference type, and it exists only to change the value category of an expression so that a different overload is selected. The corollary that surprises people is that the overload picked is under no obligation to steal anything. cppreference says these overloads have the option, but are not required, to move any resources held by the argument. Whether a move is cheap is a property of the type's author, not of the `std::move` call.
@@ -54,7 +54,7 @@ The one exception cppreference names: when the function parameter is a forwardin
 
 cppreference's description is unambiguous. `std::move` is used to indicate that an object `t` may be moved from, allowing the efficient transfer of resources from `t` to another object. In particular, it produces an xvalue expression that identifies its argument, and it is exactly equivalent to a `static_cast` to an rvalue reference type. Its documented return value is `static_cast<typename std::remove_reference<T>::type&&>(t)`.
 
-Nothing there touches memory. The function's entire effect is on overload resolution: functions that accept rvalue reference parameters, including move constructors, move assignment operators, and ordinary members such as `std::vector::push_back`, are selected when called with rvalue arguments, whether prvalues such as a temporary or xvalues such as the one produced by `std::move`. cppreference's example of what such an overload may then do is exact: a move constructor of a linked list might copy the pointer to the head of the list and store `nullptr` in the argument instead of allocating and copying individual nodes.
+Nothing there touches memory. The function's entire effect is on overload resolution: functions that accept rvalue reference parameters, including move constructors, move assignment operators, and ordinary members such as `std::vector::push_back`, are selected when called with rvalue arguments, whether prvalues such as a temporary or xvalues such as the one produced by `std::move`. cppreference's example of what such an overload may then do is exact: a move constructor of a [[cs/dsa/linked-list|linked list]] might copy the pointer to the head of the list and store `nullptr` in the argument instead of allocating and copying individual nodes.
 
 Two words to hold on to. `push_back(std::move(str))` on a `std::string` does not guarantee `str` is emptied. It guarantees that the `push_back(T&&)` overload is chosen, and that overload is free to do whatever its author wrote.
 
@@ -66,7 +66,7 @@ It is typically called when an object is initialized, by direct or copy initiali
 
 The behavioral description is where the contract lives. Move constructors typically transfer the resources held by the argument, such as pointers to dynamically allocated objects, file descriptors, TCP sockets, and thread handles, rather than making copies of them, and leave the argument in some valid but otherwise indeterminate state. Then the sentence people forget: since the move constructor does not change the lifetime of the argument, the destructor will typically be called on the argument at a later point.
 
-That last clause is why a moved-from object cannot simply be garbage. It is still a live object with a scheduled destructor call, so whatever state the move leaves it in must be destructible without harm. Emptying a `std::string`'s pointer is fine; leaving the pointer intact in both objects would be a double free.
+That last clause is why a moved-from object cannot simply be garbage. It is still a live object with a scheduled destructor call, so whatever state the move leaves it in must be destructible without harm. Emptying a `std::string`'s pointer is fine; leaving the pointer intact in both objects would be a [[cs/security/use-after-free-and-heap-exploitation|double free]].
 
 cppreference adds the C++17 wrinkle for prvalue initializers: when the initializer is a prvalue, the move constructor call is never made (since C++17), because of copy elision. Returning a freshly built temporary does not move it; it constructs it in place.
 

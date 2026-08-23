@@ -21,7 +21,7 @@ Take a clean image and add a little noise. Add a little more. Keep going for a f
 
 ## The Forward Process: Scheduled Destruction
 
-The forward process is a fixed recipe, not something the model learns. Starting from a clean image $x_0$, each step produces a slightly noisier version by mixing in a bit of [[normal-distribution|Gaussian]] noise:
+The forward process is a fixed recipe, not something the model learns. Starting from a clean image $x_0$, each step produces a slightly noisier version by mixing in a bit of [[cs/statistics/normal-distribution|Gaussian]] noise:
 
 $$q(x_t \mid x_{t-1}) = \mathcal{N}\!\left(x_{t-1}\sqrt{1 - \beta_t},\; \beta_t I\right)$$
 
@@ -31,9 +31,9 @@ Here $\beta_t$ is a small variance that controls how much noise enters at step $
 
 ## The Reverse Process: Learned Denoising
 
-Undoing the noise is where the network comes in. The model learns the reverse transition $p_\theta(x_{t-1} \mid x_t)$: given a noisy image at step $t$, recover a cleaner image at step $t-1$. In practice the network is trained to predict the noise that was added at that step, which is a plain [[loss-functions|regression]] target trained with [[gradient-descent]]. The architecture that carries this is typically a U-Net, an encoder-decoder with skip connections (the same shape used in image segmentation), which takes a noisy image and the step index and outputs a noise estimate the same size as the image.
+Undoing the noise is where the network comes in. The model learns the reverse transition $p_\theta(x_{t-1} \mid x_t)$: given a noisy image at step $t$, recover a cleaner image at step $t-1$. In practice the network is trained to predict the noise that was added at that step, which is a plain [[cs/machine-learning/loss-functions|regression]] target trained with [[gradient-descent]]. The architecture that carries this is typically a U-Net, an encoder-decoder with skip connections (the same shape used in image segmentation), which takes a noisy image and the step index and outputs a noise estimate the same size as the image.
 
-The training loop is a direct consequence of the setup. Pick a training image, pick a random step $t$, run the forward process to noise it up to $x_t$ while keeping the noise you added, and ask the network to predict that noise from $x_t$. The [[loss-functions|loss]] is the error between the predicted noise and the actual noise. Because the forward process hands you a perfect target for free, the whole thing trains without labels, a form of [[unsupervised-learning]] on the data itself.
+The training loop is a direct consequence of the setup. Pick a training image, pick a random step $t$, run the forward process to noise it up to $x_t$ while keeping the noise you added, and ask the network to predict that noise from $x_t$. The [[cs/machine-learning/loss-functions|loss]] is the error between the predicted noise and the actual noise. Because the forward process hands you a perfect target for free, the whole thing trains without labels, a form of [[unsupervised-learning]] on the data itself.
 
 ## Generation: Walking the Chain Backward
 

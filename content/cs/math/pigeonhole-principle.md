@@ -30,9 +30,9 @@ Both are pure [[combinatorics|counting arguments]]: no construction, no algorith
 
 ## What It Forbids in CS
 
-**Hashing collisions are unavoidable.** A [[hash-tables|hash function]] maps a large key space into a small array of buckets. The key space is the domain, the buckets are the codomain, and the domain is bigger. No injective mapping exists, so once you hash more distinct keys than you have buckets, two keys must land together. Collision handling is not defensive engineering against a rare event; it is mandatory because the pigeonhole principle guarantees the event.
+**[[cs/security/cryptographic-hash-functions|Hashing collisions]] are unavoidable.** A [[hash-tables|hash function]] maps a large key space into a small array of buckets. The key space is the domain, the buckets are the codomain, and the domain is bigger. No injective mapping exists, so once you hash more distinct keys than you have buckets, two keys must land together. Collision handling is not defensive engineering against a rare event; it is mandatory because the pigeonhole principle guarantees the event.
 
-**Lossless compression cannot win on everything.** The principle proves "that any lossless compression algorithm, provided it makes some inputs smaller ... will also make some other inputs larger." The set of all $n$-bit inputs has $2^n$ members, and the shorter outputs number fewer than that, so the map from inputs to compressed outputs cannot be injective if every input shrinks. Some inputs must grow. A compressor works only by betting that real files cluster in the compressible region, never by beating the counting bound.
+**[[cs/dsa/huffman-coding|Lossless compression]] cannot win on everything.** The principle proves "that any lossless compression algorithm, provided it makes some inputs smaller ... will also make some other inputs larger." The set of all $n$-bit inputs has $2^n$ members, and the shorter outputs number fewer than that, so the map from inputs to compressed outputs cannot be injective if every input shrinks. Some inputs must grow. A compressor works only by betting that real files cluster in the compressible region, never by beating the counting bound.
 
 ## A Cleaner Trick
 

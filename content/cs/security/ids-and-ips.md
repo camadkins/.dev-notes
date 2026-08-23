@@ -23,7 +23,7 @@ A [[firewalls|firewall]] enforces a policy about what *may* connect. It does not
 
 ## Axis one: detection or prevention
 
-NIST SP 800-94 draws the line cleanly. "Intrusion detection is the process of monitoring the events occurring in a computer system or network and analyzing them for signs of possible incidents, which are violations or imminent threats of violation of computer security policies." Detection ends at the alert. It observes, judges, and tells a human.
+[[cs/standards/what-a-standard-actually-is|NIST SP 800-94]] draws the line cleanly. "Intrusion detection is the process of monitoring the events occurring in a computer system or network and analyzing them for signs of possible incidents, which are violations or imminent threats of violation of computer security policies." Detection ends at the alert. It observes, judges, and tells a human.
 
 Prevention adds one verb: "Intrusion prevention is the process of performing intrusion detection and attempting to stop detected possible incidents." An IPS sits inline, in the traffic path, so it can drop the malicious packet or reset the connection rather than merely logging it. That inline position is the whole difference and the whole risk. A detector that is wrong generates a noisy alert. A preventer that is wrong drops legitimate traffic and causes an outage. The choice between IDS and IPS is really a choice about how much you trust the system's judgment to act automatically.
 
@@ -37,7 +37,7 @@ Anomaly-based detection inverts the approach. It is "the process of comparing de
 
 ## Why false positives never go to zero
 
-The two failure modes have names. SP 800-94: "When an IDPS incorrectly identifies benign activity as being malicious, a false positive has occurred. When an IDPS fails to identify malicious activity, a false negative has occurred." And the two cannot be minimized together: "It is not possible to eliminate all false positives and negatives; in most cases, reducing the occurrences of one increases the occurrences of the other."
+The two failure modes have names. SP 800-94: "When an IDPS incorrectly identifies benign activity as being malicious, a [[cs/statistics/hypothesis-testing|false positive]] has occurred. When an IDPS fails to identify malicious activity, a false negative has occurred." And the two cannot be minimized together: "It is not possible to eliminate all false positives and negatives; in most cases, reducing the occurrences of one increases the occurrences of the other."
 
 That is the governing tension of the entire field. Tune the system to catch more attacks (fewer false negatives) and it grows twitchier, flagging more benign activity (more false positives). Tune it to stop crying wolf and it lets more real attacks slip by. There is no setting that is strict and permissive at once. This is why most deployments run multiple methodologies together, SP 800-94 notes that "most IDPS technologies use multiple detection methodologies," so that signatures handle the known cheaply and anomaly detection watches for the novel, and human analysts absorb the residual false-positive load.
 

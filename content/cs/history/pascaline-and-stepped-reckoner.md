@@ -13,7 +13,7 @@ aliases:
   - Stepped Reckoner
 ---
 
-In the seventeenth century, two philosophers built machines that did arithmetic. They proved something that seems obvious now and was radical then: calculation could be delegated to a deterministic mechanism that does not think, only turns.
+In the seventeenth century, two philosophers built machines that did arithmetic. They proved something that seems obvious now and was radical then: [[cs/pl/programming-paradigms-models-of-computation|calculation could be delegated to a deterministic mechanism]] that does not think, only turns.
 
 > [!note] The idea
 > Represent numbers as the positions of toothed wheels, and arithmetic becomes the turning of gears. The hard part is the carry, propagating a tens-overflow from one digit to the next, which is exactly the problem a digital adder must solve.
@@ -28,7 +28,7 @@ Gottfried Leibniz designed a more capable machine from 1672 and built versions i
 
 ## Why the carry matters
 
-The carry is the genuinely hard part of mechanized arithmetic. Adding two digits is easy; handling the overflow that ripples down a row of digits is where the engineering lives. That same carry propagation is the heart of the binary adder inside every modern processor. Pascal and Leibniz were solving, in brass, a problem digital hardware still solves today.
+The carry is the genuinely hard part of mechanized arithmetic. Adding two digits is easy; handling [[cs/languages/common/numeric-types-and-overflow-semantics|the overflow that ripples down a row of digits]] is where the engineering lives. That same carry propagation is the heart of [[cs/dsa/bitwise-operations|the binary adder inside every modern processor]]. Pascal and Leibniz were solving, in brass, a problem digital hardware still solves today.
 
 ## Related Notes
 

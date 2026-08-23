@@ -26,9 +26,9 @@ Verification with the public key answers three questions at once. Authenticity: 
 
 ## Why you sign the hash
 
-Signing the digest rather than the raw message is deliberate on three counts. For efficiency, the operation runs over a short fixed digest instead of a long document. For compatibility, some schemes operate only on numbers modulo a composite, so a hash converts arbitrary input "into the proper format." For integrity across a long message, "the receiver of the signed blocks is not able to recognize if all the blocks are present and in the appropriate order" without a hash binding the whole thing into one digest. Collapse the message to one [[cryptographic-hash-functions|hash]] first and all three fall out.
+Signing the digest rather than the raw message is deliberate on three counts. For efficiency, the operation runs over a short fixed digest instead of a long document. For compatibility, some schemes operate only on numbers [[cs/math/number-theory-and-modular-arithmetic|modulo a composite]], so a hash converts arbitrary input "into the proper format." For integrity across a long message, "the receiver of the signed blocks is not able to recognize if all the blocks are present and in the appropriate order" without a hash binding the whole thing into one digest. Collapse the message to one [[cryptographic-hash-functions|hash]] first and all three fall out.
 
-This is also where the security proof lives. Hash-then-sign, modeled with an idealized hash, "is existentially unforgeable, even against a chosen-plaintext attack." It also explains why a broken hash breaks the signature: find a collision and you can move a valid signature onto a second document.
+This is also where [[cs/math/proof-techniques|the security proof]] lives. Hash-then-sign, modeled with an idealized hash, "is existentially unforgeable, even against a chosen-plaintext attack." It also explains why a broken hash breaks the signature: find a collision and you can move a valid signature onto a second document.
 
 ## The guarantee has an expiry
 

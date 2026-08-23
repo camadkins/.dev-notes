@@ -11,7 +11,7 @@ date: 2026-07-25
 updated:
 ---
 
-An application that serves files usually thinks in terms of a folder. Downloads live in `/var/www/files`, and the user picks one by name. The mistake is assuming the name the user supplies stays inside that folder. It does not have to. A path is a small language, and `..` is a word in it that means "go up one level." String three or four of them together and the name walks straight out of the intended directory and into the rest of the file system.
+An application that serves files usually thinks in terms of a folder. Downloads live in `/var/www/files`, and the user picks one by name. The mistake is assuming the name the user supplies stays inside that folder. It does not have to. A path is [[cs/pl/language-overview-syntax-semantics|a small language]], and `..` is a word in it that means "go up one level." String three or four of them together and the name walks straight out of the intended directory and into the rest of the [[cs/systems/file-systems|file system]].
 
 > [!note] The idea
 > Path traversal is a naming failure, not an access-control failure. The application concatenates untrusted input into a file path, and the operating system resolves `../` sequences faithfully, so the constructed name can point anywhere the process can read. The permissions were never bypassed. The process simply asked for a file it should never have been allowed to name.
@@ -26,7 +26,7 @@ What makes this subtle is that every layer behaved correctly. The web server res
 
 ## Why input sanitizing is the wrong verb
 
-The instinct is to find `../` and strip it. OWASP gives a sharper instruction, and the wording is deliberate: "Validate the user's input by only accepting known good, do not sanitize the data." Sanitizing tries to remove the bad and keep what remains, which is a blocklist in disguise, and blocklists lose to encoding tricks: `..%2f`, `....//`, overlong UTF-8, and other variations that decode to `../` after your filter has already run. Accepting only known-good input inverts that. If the only valid values are a fixed set of filenames or an index into a list, there is nothing to traverse with, because the raw path never comes from the user at all.
+The instinct is to find `../` and strip it. OWASP gives a sharper instruction, and the wording is deliberate: "Validate the user's input by only accepting known good, do not sanitize the data." Sanitizing tries to remove the bad and keep what remains, which is a blocklist in disguise, and blocklists lose to encoding tricks: `..%2f`, `....//`, [[cs/languages/common/text-encoding-and-unicode|overlong UTF-8]], and other variations that decode to `../` after your filter has already run. Accepting only known-good input inverts that. If the only valid values are a fixed set of filenames or an index into a list, there is nothing to traverse with, because the raw path never comes from the user at all.
 
 Structurally, the robust defense resolves the requested path to its canonical absolute form and then checks that the result still lives under the intended base directory, rejecting it otherwise. Resolve first, constrain second. OWASP adds perimeter measures in the same spirit: "Use chrooted jails and code access policies to restrict where the files can be obtained or saved to," and keep sensitive configuration out of the web root entirely so a traversal has less to reach.
 
