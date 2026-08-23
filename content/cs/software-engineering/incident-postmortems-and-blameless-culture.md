@@ -15,7 +15,7 @@ aliases:
   - Learning from Failure
 ---
 
-A postmortem is "a written record of an incident, its impact, the actions taken to mitigate or resolve it, the root cause(s), and the follow-up actions to prevent the incident from recurring." The argument for writing one is stated as a recurrence argument rather than a documentation argument. Incidents are inevitable at scale, and "unless we have some formalized process of learning from these incidents in place, they may recur ad infinitum."
+A postmortem is "a written record of an incident, its impact, [[cs/security/incident-response-lifecycle|the actions taken to mitigate or resolve it]], the root cause(s), and the follow-up actions to prevent the incident from recurring." The argument for writing one is stated as a recurrence argument rather than a documentation argument. Incidents are inevitable at scale, and "unless we have some formalized process of learning from these incidents in place, they may recur ad infinitum."
 
 > [!note] The idea
 > Blamelessness is usually presented as kindness. Google's SRE book presents it as an epistemics constraint, and that framing is the useful one: "if a culture of finger pointing and shaming individuals or teams for doing the 'wrong' thing prevails, people will not bring issues to light for fear of punishment." The information you need to prevent recurrence is held almost exclusively by the people closest to the failure, which is to say the people most exposed to blame. Blame does not merely feel bad. It reliably deletes your best evidence, before you ever see it.
@@ -24,7 +24,7 @@ A postmortem is "a written record of an incident, its impact, the actions taken 
 
 ## Where the practice comes from, and what blameless actually requires
 
-"Blameless culture originated in the healthcare and avionics industries where mistakes can be fatal," domains that "nurture an environment where every 'mistake' is seen as an opportunity to strengthen the system." That lineage explains the strictness. When the downside is a body count, an investigative process that suppresses testimony is not an acceptable process.
+"Blameless culture [[cs/standards/ieee-1012-verification-and-validation|originated in the healthcare and avionics industries where mistakes can be fatal]]," domains that "nurture an environment where every 'mistake' is seen as an opportunity to strengthen the system." That lineage explains the strictness. When the downside is a body count, an investigative process that suppresses testimony is not an acceptable process.
 
 The requirement is precise. "For a postmortem to be truly blameless, it must focus on identifying the contributing causes of the incident without indicting any individual or team for bad or inappropriate behavior," and it "assumes that everyone involved in an incident had good intentions and did the right thing with the information they had."
 
@@ -45,7 +45,7 @@ The process "does present an inherent cost in terms of time or effort," so trigg
 
 - User-visible downtime or degradation beyond a certain threshold
 - Data loss of any kind
-- On-call engineer intervention, such as a release rollback or rerouting of traffic
+- On-call engineer intervention, [[cs/networking/load-balancing-l4-and-l7|such as a release rollback or rerouting of traffic]]
 - A resolution time above some threshold
 - A monitoring failure, "which usually implies manual incident discovery"
 

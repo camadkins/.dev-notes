@@ -23,7 +23,7 @@ His definition is narrow on purpose. Refactoring is "a disciplined technique for
 
 ## Small steps compose
 
-The mechanism is deliberately unglamorous. Refactoring's "heart is a series of small behavior preserving transformations. Each transformation (called a 'refactoring') does little, but a sequence of these transformations can produce a significant restructuring."
+The mechanism is deliberately unglamorous. Refactoring's "heart is [[cs/pl/operational-semantics-big-step-small-step|a series of small behavior preserving transformations]]. Each transformation (called a 'refactoring') does little, but a sequence of these transformations can produce a significant restructuring."
 
 Two properties follow, and they are the whole argument for working this way. First, "since each refactoring is small, it's less likely to go wrong." Second, "the system is kept fully working after each refactoring, reducing the chances that a system can get seriously broken during the restructuring." You are trading a single large risky jump for a long series of individually verifiable ones, and paying for it in ceremony.
 
@@ -31,7 +31,7 @@ This is also why the technique needs well-defined behavior to operate on. Fowler
 
 ## The catalog
 
-A refactoring is a *named* transformation, not an improvisation, and the naming is what makes the practice teachable. The online catalog backing the second edition of the book lists them individually, each with a sketch and the aliases from earlier editions: Extract Function (formerly Extract Method), Inline Function, Extract Variable (formerly Introduce Explaining Variable), Change Function Declaration (which absorbs Add Parameter, Remove Parameter, and Rename Function), Move Function, Encapsulate Variable, Replace Conditional with Polymorphism, Remove Dead Code, Pull Up Method, Push Down Field.
+A refactoring is a *named* transformation, not an improvisation, and the naming is what makes the practice teachable. The online catalog backing the second edition of the book lists them individually, each with a sketch and the aliases from earlier editions: Extract Function (formerly Extract Method), Inline Function, Extract Variable (formerly Introduce Explaining Variable), Change Function Declaration (which absorbs Add Parameter, Remove Parameter, and Rename Function), Move Function, Encapsulate Variable, [[cs/pl/objects-classes-and-dispatch|Replace Conditional with Polymorphism]], Remove Dead Code, Pull Up Method, Push Down Field.
 
 The catalog is grouped by keyword tags that read like a map of what goes wrong in codebases: `basic`, `encapsulation`, `moving-features`, `organizing-data`, `simplify-conditional-logic`, `refactoring-apis`, `dealing-with-inheritance`.
 
@@ -52,7 +52,7 @@ Behavior preservation is a claim, and a claim needs evidence. Two things supply 
 
 Automated refactoring tools, now built into most IDEs, perform many common transformations mechanically. Fowler calls these "a really valuable part of my toolkit allowing me to carry out refactoring faster," while being clear they are not the foundation: "such tools aren't essential." He works regularly in languages without tool support.
 
-What he falls back on in those languages is the actual foundation: "I rely on taking small steps, and using frequent testing to detect mistakes." That is the pairing that makes the whole practice work. Small steps bound how much can be wrong at once; a fast test suite tells you within seconds which step broke it. Neither is sufficient alone. Small steps without tests just means you find the breakage later with no idea which of forty steps caused it, and a good test suite without small steps still leaves you bisecting a large diff.
+What he falls back on in those languages is the actual foundation: "I rely on taking small steps, and using frequent testing to detect mistakes." That is the pairing that makes the whole practice work. Small steps bound how much can be wrong at once; a fast test suite tells you within seconds which step broke it. Neither is sufficient alone. Small steps without tests just means you find the breakage later with no idea which of forty steps caused it, and a good test suite without small steps still leaves you [[cs/dsa/binary-search|bisecting a large diff]].
 
 ## The economic case
 

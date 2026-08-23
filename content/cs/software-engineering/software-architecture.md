@@ -33,10 +33,10 @@ A single deployable unit containing all application logic. The codebase is unifi
 
 ### Microservices
 
-The system is decomposed into independently deployable services, each owning its own data and communicating over the network (HTTP, gRPC, messaging).
+The system is decomposed into independently deployable services, each owning its own data and [[cs/systems/inter-process-communication|communicating over the network]] (HTTP, gRPC, messaging).
 
 - **Strengths:** independent scaling and deployment; technology heterogeneity; fault isolation.
-- **Weaknesses:** distributed systems complexity (network failures, data consistency, observability); operational overhead; latency at every service boundary.
+- **Weaknesses:** distributed systems complexity ([[cs/systems/cap-theorem|network failures, data consistency]], observability); operational overhead; latency at every service boundary.
 
 ### Layered (N-Tier) Architecture
 
@@ -70,7 +70,7 @@ The key rule: **dependencies point inward**. The domain never imports infrastruc
 Components communicate through **events** rather than direct calls. A component publishes a fact ("OrderPlaced"), and interested consumers react independently.
 
 - **Event notification:** lightweight signals that something happened.
-- **Event sourcing:** persist every state change as an immutable event; reconstruct current state by replaying the log.
+- **Event sourcing:** persist every state change as an immutable event; [[cs/systems/distributed-consensus|reconstruct current state by replaying the log]].
 - **CQRS:** separate read models from write models, optimizing each independently.
 
 > [!warning]

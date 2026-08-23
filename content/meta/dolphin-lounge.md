@@ -14,7 +14,7 @@ aliases: []
 
 ## What a note here is
 
-One film or show per note: a short factual setup, my take, the lesson if there is one (written in the note, not the frontmatter), and links back into the rest of the garden wherever the film touches something I already have a note on. Sourcing is light, the take is the point, and notes start as seeds and sharpen on a rewatch.
+One film or show per note: a short factual setup, my take, the lesson if there is one (written in the note, not the frontmatter), and [[cs/math/graph-theory|links back into the rest of the garden wherever the film touches something I already have a note on]]. Sourcing is light, the take is the point, and notes start as seeds and sharpen on a rewatch.
 
 ## Frontmatter
 

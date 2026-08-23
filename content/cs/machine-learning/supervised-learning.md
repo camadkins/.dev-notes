@@ -22,11 +22,11 @@ Most of the machine learning that reaches production is supervised. You collect 
 
 You start with a training set of pairs, each an input described by [[features-and-representations|features]] and a known label. A supervised algorithm searches for a hypothesis, a function from inputs to outputs, that agrees with the training pairs and is expected to agree with future ones. In Tom Mitchell's framing the labeled set is the experience E, predicting the label is the task T, and prediction accuracy on unseen data is the performance measure P.
 
-Two shapes cover most problems. When the label is a category the task is classification (spam or not, which digit, which disease). When the label is a continuous number the task is regression, the subject of the garden's [[regression-fundamentals|regression fundamentals]] and [[simple-linear-regression|linear regression]] notes.
+Two shapes cover most problems. When the label is a category the task is classification (spam or not, which digit, which disease). When the label is a continuous number the task is regression, the subject of the garden's [[cs/statistics/regression-fundamentals|regression fundamentals]] and [[cs/statistics/simple-linear-regression|linear regression]] notes.
 
 ## How the fitting works
 
-The algorithm needs a way to score a candidate function against the data, which is the job of a [[loss-functions|loss function]], and a way to reduce that score, usually [[gradient-descent|gradient descent]]. Training is the loop: measure the loss on the training pairs, adjust the model to lower it, repeat. That is true whether the model is a linear regression or a deep [[convolutional-neural-networks|convolutional network]], which is why supervised learning sits at the machine learning layer of [[ai-vs-ml-vs-dl|the AI, ML, DL distinction]] rather than the deep learning layer.
+The algorithm needs a way to score a candidate function against the data, which is the job of a [[loss-functions|loss function]], and a way to reduce that score, usually [[gradient-descent|gradient descent]]. Training is the loop: measure the loss on the training pairs, adjust the model to lower it, repeat. That is true whether the model is a linear regression or a deep [[cs/deep-learning/convolutional-neural-networks|convolutional network]], which is why supervised learning sits at the machine learning layer of [[ai-vs-ml-vs-dl|the AI, ML, DL distinction]] rather than the deep learning layer.
 
 > [!warning] The label is the bottleneck
 > Supervised learning is only as good as its labels, and labels are expensive. Getting a radiologist to mark ten thousand scans, or paying annotators to tag images, is often the hardest and most costly part of a project. This is exactly the cost that [[unsupervised-learning|unsupervised learning]] tries to avoid.
@@ -45,7 +45,7 @@ Fitting the training pairs is easy. A model with enough capacity can memorize th
 - [[generalization-vs-memorization|Generalization vs Memorization]], the thing supervised learning is really after
 - [[features-and-representations|Features and Representations]], how inputs are described
 - [[loss-functions|Loss Functions]] and [[gradient-descent|Gradient Descent]], the fitting machinery
-- [[regression-fundamentals|Regression Fundamentals]], the continuous-label case
+- [[cs/statistics/regression-fundamentals|Regression Fundamentals]], the continuous-label case
 
 ## Sources
 

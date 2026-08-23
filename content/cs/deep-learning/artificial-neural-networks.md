@@ -14,14 +14,14 @@ aliases:
   - feedforward-network
 ---
 
-A neural network is built from one part repeated many times: a unit that multiplies each input by a weight, adds the results into a single number, and passes that number through a simple function. One such unit draws a straight line through the data and nothing more. The whole story of neural networks is what happens when you stack these units into layers, because the stack can represent shapes that no single unit ever could. That jump, from one line to arbitrary decision regions, is the foundation everything in [[ai-vs-ml-vs-dl|deep learning]] stands on.
+A neural network is built from one part repeated many times: a unit that multiplies each input by a weight, adds the results into a single number, and passes that number through a simple function. One such unit draws a straight line through the data and nothing more. The whole story of neural networks is what happens when you stack these units into layers, because the stack can represent shapes that no single unit ever could. That jump, from one line to arbitrary decision regions, is the foundation everything in [[cs/machine-learning/ai-vs-ml-vs-dl|deep learning]] stands on.
 
 > [!note] The idea
 > An artificial neural network is a layered composition of simple units. Each unit computes a weighted sum of its inputs, $\text{net} = \mathbf{w}^\top \mathbf{x} + b$, then applies a nonlinear [[activation-functions|activation]] $f(\text{net})$. A single unit is a linear classifier. Feeding the outputs of one layer into the next builds a function that can approximate essentially any input-output mapping, which is what makes networks worth the trouble.
 
 ## The Unit
 
-Start with the simplest version, the linear unit. It outputs $\hat{y} = \mathbf{w}^\top \mathbf{x} + b = w_1 x_1 + \dots + w_n x_n + b$, a plain weighted sum plus a bias. The weight vector $\mathbf{w}$ (a vector, in the sense of [[linear-algebra-fundamentals]]) is the parameter set, and every choice of $\mathbf{w}$ is a different hypothesis. A common trick fixes a dummy input $x_0 = 1$ so the bias $b$ becomes just another weight $w_0$, and the whole thing collapses to $\sum_{i=0}^{n} w_i x_i$.
+Start with the simplest version, the linear unit. It outputs $\hat{y} = \mathbf{w}^\top \mathbf{x} + b = w_1 x_1 + \dots + w_n x_n + b$, [[cs/math/vectors-and-dot-products|a plain weighted sum plus a bias]]. The weight vector $\mathbf{w}$ (a vector, in the sense of [[linear-algebra-fundamentals]]) is the parameter set, and every choice of $\mathbf{w}$ is a different hypothesis. A common trick fixes a dummy input $x_0 = 1$ so the bias $b$ becomes just another weight $w_0$, and the whole thing collapses to $\sum_{i=0}^{n} w_i x_i$.
 
 Add a threshold and you get the linear threshold unit, the classic perceptron: output $+1$ if $\mathbf{w}^\top \mathbf{x} + b > 0$ and $-1$ otherwise. Frank Rosenblatt introduced the perceptron in a 1958 paper and built the Mark I Perceptron, a physical machine designed for image recognition, first demonstrated publicly in 1960. The weighted sum defines a hyperplane, and the unit reports which side of it an input falls on.
 
@@ -29,7 +29,7 @@ Add a threshold and you get the linear threshold unit, the classic perceptron: o
 
 ## What One Unit Can and Cannot Do
 
-Because a threshold unit is a hyperplane, it can only separate classes that a hyperplane can separate. Those are the linearly separable problems. Logical AND is one of them: with $w_1 = 1$, $w_2 = 1$, and $b = -\tfrac{3}{2}$, the unit fires only when both inputs are 1, which is exactly AND. Plenty of useful functions have this form.
+Because a threshold unit is a hyperplane, it can only separate classes that a hyperplane can separate. Those are the linearly separable problems. [[cs/math/boolean-algebra|Logical AND]] is one of them: with $w_1 = 1$, $w_2 = 1$, and $b = -\tfrac{3}{2}$, the unit fires only when both inputs are 1, which is exactly AND. Plenty of useful functions have this form.
 
 XOR does not. No single straight line puts $(0,1)$ and $(1,0)$ on one side and $(0,0)$ and $(1,1)$ on the other. Marvin Minsky and Seymour Papert made this limitation precise in their 1969 book *Perceptrons*, and the result stalled neural network research for years. The lesson was not that the perceptron was useless, but that a single unit is fundamentally too weak, so you need networks of units.
 
@@ -47,7 +47,7 @@ This is a two-layer feedforward network, also called a multilayer perceptron. Si
 
 ## What Networks Can Represent
 
-The theoretical backing is the universal approximation theorem. George Cybenko proved in 1989 that a feedforward network with a single hidden layer of sigmoidal units can approximate any continuous function on a bounded domain to any desired accuracy. Kurt Hornik sharpened this in 1991, showing the power comes from the multilayer architecture itself rather than the specific activation function chosen.
+The theoretical backing is the universal approximation theorem. George Cybenko proved in 1989 that a feedforward network with a single hidden layer of sigmoidal units can approximate [[cs/math/limits-and-continuity|any continuous function on a bounded domain]] to any desired accuracy. Kurt Hornik sharpened this in 1991, showing the power comes from the multilayer architecture itself rather than the specific activation function chosen.
 
 Read that result carefully, because it is easy to oversell. It is an existence theorem. It promises that a network with the right weights exists, but says nothing about how to find those weights (that job belongs to [[backpropagation]] and [[gradient-descent]]), and it may demand an impractically large hidden layer. A network that can represent a function is not the same as one you can train to compute it, and a big enough network can also overfit, which is why regularization matters. Representational power is the license to try, not a guarantee of success.
 

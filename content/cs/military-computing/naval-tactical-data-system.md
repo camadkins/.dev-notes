@@ -32,7 +32,7 @@ NTDS did not keep that picture on one ship. Over radio data links, ships shared 
 
 ## Lineage
 
-NTDS is the maritime sibling of [[sage-and-real-time-systems|SAGE]] and the ancestor of the Aegis combat system. The standard Navy computers that ran its later versions are the subject of the [[an-uyk-navy-standard-computers|AN/UYK]] note.
+NTDS is the maritime sibling of SAGE and the ancestor of the Aegis combat system. The standard Navy computers that ran its later versions are the subject of the [[an-uyk-navy-standard-computers|AN/UYK]] note.
 
 ## Related Notes
 

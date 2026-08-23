@@ -58,7 +58,7 @@ Drive the entire application as a user would - browser automation, full API call
 
 ### Property-Based Tests
 
-Instead of specifying exact inputs and outputs, describe **invariants** that should hold for all valid inputs. The framework generates hundreds of random cases.
+Instead of specifying exact inputs and outputs, [[cs/math/predicate-logic-and-quantifiers|describe **invariants** that should hold for all valid inputs]]. [[cs/security/fuzzing|The framework generates hundreds of random cases.]]
 
 ```python
 from hypothesis import given, strategies as st
@@ -69,7 +69,7 @@ def test_roundtrip(c):
     assert abs(fahrenheit_to_celsius(f) - c) < 1e-9
 ```
 
-Property-based testing excels at finding edge cases (off-by-one, overflow, empty collections) that example-based tests miss.
+Property-based testing excels at finding edge cases ([[cs/security/integer-overflow-vulnerabilities|off-by-one, overflow, empty collections]]) that example-based tests miss.
 
 ### The Test Pyramid
 

@@ -23,7 +23,7 @@ The loss is defined per instance. For a training set $\mathcal{X}$, the total tr
 
 $$\text{error}_{\mathcal{X}}(h) = \sum_{x \in \mathcal{X}} J(y_x, \hat{y}_x)$$
 
-where $y_x$ is the true label and $\hat{y}_x$ is the model's prediction. But minimizing this number is a proxy for the real goal: minimizing the expected loss over the unknown distribution $\mathcal{D}$ the data comes from,
+where $y_x$ is the true label and $\hat{y}_x$ is the model's prediction. But minimizing this number is a proxy for the real goal: minimizing [[cs/statistics/expected-value|the expected loss over the unknown distribution]] $\mathcal{D}$ the data comes from,
 
 $$\text{error}_{\mathcal{D}}(h) = \mathbb{E}_{x \sim \mathcal{D}}\left[J(y_x, \hat{y}_x)\right]$$
 
@@ -33,13 +33,13 @@ Those two quantities can diverge badly. A flexible model can drive training loss
 
 **0-1 loss** is the bluntest instrument: $J(y, \hat{y}) = 1$ if $y \neq \hat{y}$, else $0$. Averaged over a test set it is just the error rate, the complement of accuracy in [[evaluation-metrics]]. It matches how classifiers are judged, but it is flat almost everywhere and jumps at decision boundaries, so it offers no gradient to follow. Training uses smoother stand-ins.
 
-**Square loss**, $J(y, \hat{y}) = (y - \hat{y})^2$, is the default for regression (see [[regression-fundamentals]] and [[simple-linear-regression]]). It penalizes big misses quadratically, and it has a clean probabilistic reading: minimizing square loss corresponds to [[maximum-likelihood-estimation]] when the labels are corrupted by [[normal-distribution|Gaussian]] noise.
+**Square loss**, $J(y, \hat{y}) = (y - \hat{y})^2$, is the default for regression (see [[regression-fundamentals]] and [[simple-linear-regression]]). It penalizes big misses quadratically, and it has a clean probabilistic reading: minimizing square loss corresponds to [[maximum-likelihood-estimation]] when the labels are corrupted by [[cs/statistics/normal-distribution|Gaussian]] noise.
 
 **Cross-entropy loss** is the workhorse for classification when the model outputs probabilities. For a binary label,
 
 $$J(y, \hat{y}) = -y \ln \hat{y} - (1 - y)\ln(1 - \hat{y})$$
 
-and for $k$ classes with a one-hot label vector it reduces to $-\ln \hat{y}_{i^*}$, the negative log probability the model assigned to the correct class $i^*$. The names "log loss," "logistic loss," and "cross-entropy loss" get used interchangeably, and minimizing it is again maximum likelihood in disguise: the model is punished exactly by how little probability it gave the truth.
+and for $k$ classes with a one-hot label vector it reduces to $-\ln \hat{y}_{i^*}$, [[cs/math/logarithms-and-exponentials|the negative log probability the model assigned to the correct class]] $i^*$. The names "log loss," "logistic loss," and "cross-entropy loss" get used interchangeably, and minimizing it is again maximum likelihood in disguise: the model is punished exactly by how little probability it gave the truth.
 
 **Hinge loss**, $J(y, \hat{y}) = \max(0, 1 - y\hat{y})$ for labels $y \in \{-1, +1\}$, is the maximum-margin loss behind support vector machines. It charges nothing once an example is classified correctly with margin at least 1, and grows linearly with how badly the margin is violated. Stanford's CS231n treats the hinge (SVM) loss and the softmax cross-entropy loss as the two standard choices for linear classifiers, and notes both can work well.
 

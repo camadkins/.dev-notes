@@ -24,11 +24,11 @@ The stakes are high because AI governance decisions made now - while the technol
 **The EU AI Act (2024).** The world's first comprehensive AI law classifies AI systems into risk tiers:
 
 - **Unacceptable risk** - banned outright. Includes social scoring by governments, real-time biometric identification in public spaces (with narrow law-enforcement exceptions), and manipulative AI targeting vulnerable groups.
-- **High risk** - subject to conformity assessments, transparency requirements, human oversight mandates, and registration in an EU database. Covers AI in hiring, credit scoring, law enforcement, critical infrastructure, and education.
+- **High risk** - [[cs/standards/conformance-testing-and-plugfests|subject to conformity assessments]], transparency requirements, human oversight mandates, and registration in an EU database. Covers AI in hiring, credit scoring, law enforcement, critical infrastructure, and education.
 - **Limited risk** - transparency obligations only. Users must be told they are interacting with an AI system (chatbots, deepfake generators).
 - **Minimal risk** - largely unregulated. Spam filters, video game AI, inventory optimization.
 
-General-purpose AI models (including [[deep-learning-revolution|large language models]]) face additional obligations: technical documentation, copyright compliance disclosures, and - for models deemed to pose "systemic risk" - adversarial testing, incident reporting, and cybersecurity requirements. The systemic-risk threshold is set at 10^25 FLOPs of training compute, a bright line that will require periodic revision as training efficiency improves.
+General-purpose AI models (including [[cs/history/deep-learning-revolution|large language models]]) face additional obligations: technical documentation, copyright compliance disclosures, and - for models deemed to pose "systemic risk" - adversarial testing, incident reporting, and cybersecurity requirements. The systemic-risk threshold is set at 10^25 FLOPs of training compute, a bright line that will require periodic revision as training efficiency improves.
 
 The Act's enforcement timeline stretches from 2024 to 2027, with different provisions taking effect at different dates. The full regulatory apparatus - notified bodies, conformity assessments, market surveillance - is still being built.
 
@@ -60,13 +60,13 @@ The EU AI Act treats open-source models more leniently below the systemic-risk t
 
 But binding international AI governance remains distant. The incentive structures resemble climate negotiations more than arms control: every state wants others to regulate while preserving its own competitive advantage. There is no equivalent of the IAEA for AI, and proposals for one face the fundamental difficulty that AI capabilities are diffuse, dual-use, and rapidly evolving.
 
-**Compute governance.** An emerging approach that regulates AI through its physical prerequisites rather than its software. Export controls on advanced chips (see [[semiconductor-supply-chains|Semiconductor Supply Chains]]), reporting requirements for large training runs, and proposals for international compute monitoring draw on non-proliferation precedents.
+**Compute governance.** An emerging approach that regulates AI through its physical prerequisites rather than its software. [[cs/law/the-export-administration-regulations|Export controls on advanced chips]] (see [[semiconductor-supply-chains|Semiconductor Supply Chains]]), reporting requirements for large training runs, and proposals for international compute monitoring draw on non-proliferation precedents.
 
 Compute is measurable, physical, and concentrated - making it more tractable to govern than code or data. But compute governance has limitations: training efficiency improves over time, reducing the compute needed for a given capability level. A bright-line compute threshold that captures frontier models today may miss them in three years.
 
 **The talent dimension.** AI governance extends beyond rules and hardware to the people who build the systems. Immigration policy, export controls on research collaboration, and university funding all shape the distribution of AI talent. The US benefits from attracting global AI researchers but risks losing them through restrictive immigration policy. China has invested heavily in domestic AI education while also recruiting overseas talent through programs like the Thousand Talents Plan. The concentration of AI expertise in a small number of countries and companies is itself a governance-relevant fact.
 
-**Liability and accountability.** An unresolved question across all jurisdictions: when an AI system causes harm, who is liable? The developer who trained the model, the deployer who integrated it, the user who prompted it, or the data subjects whose data trained it? The EU AI Act assigns primary responsibility to deployers of high-risk systems. US tort law has no clear framework for AI-caused harms. China holds providers liable for outputs. The absence of settled liability frameworks creates uncertainty that shapes both investment decisions and safety incentives.
+**Liability and accountability.** An unresolved question across all jurisdictions: [[cs/ethics/the-responsibility-gap|when an AI system causes harm, who is liable?]] The developer who trained the model, the deployer who integrated it, the user who prompted it, or the data subjects whose data trained it? The EU AI Act assigns primary responsibility to deployers of high-risk systems. US tort law has no clear framework for AI-caused harms. China holds providers liable for outputs. The absence of settled liability frameworks creates uncertainty that shapes both investment decisions and safety incentives.
 
 ## Example
 
@@ -81,8 +81,8 @@ The pattern echoes GDPR: the EU sets a standard, multinational companies adopt i
 - [[semiconductor-supply-chains|Semiconductor Supply Chains]] - compute access is a prerequisite for frontier AI, making chip policy and AI policy inseparable
 - [[cyber-sovereignty|Cyber Sovereignty]] - AI governance is the newest layer in the broader contest over digital sovereignty
 - [[surveillance-and-privacy|Surveillance & Privacy]] - AI-powered surveillance (facial recognition, predictive policing) is a primary driver of AI regulation
-- [[deep-learning-revolution|The Deep Learning Revolution]] - the frontier models and training-compute thresholds these regimes regulate
-- [[could-an-llm-be-conscious|Could an LLM Be Conscious?]] - the moral-status question these governance regimes quietly assume an answer to
+- [[cs/history/deep-learning-revolution|The Deep Learning Revolution]] - the frontier models and training-compute thresholds these regimes regulate
+- [[cs/ethics/could-an-llm-be-conscious|Could an LLM Be Conscious?]] - the moral-status question these governance regimes quietly assume an answer to
 
 ## Sources
 

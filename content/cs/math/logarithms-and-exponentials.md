@@ -62,7 +62,7 @@ The logarithm is the mirror image, and its slowness is the point. "Because the l
 
 Two canonical instances. For search: "to find a number in a sorted list, the binary search algorithm checks the middle entry and proceeds with the half before or after the middle entry if the number is still not found. This algorithm requires, on average, log2 (N) comparisons, where N is the list's length." For sorting: "the merge sort algorithm sorts an unsorted list by dividing the list into halves and sorting these first before merging the results. Merge sort algorithms typically require a time approximately proportional to N · log(N)."
 
-The [[logarithmic-functions|DSA-side treatment]] covers the identities and floor/ceiling handling that show up when you turn these into concrete instruction counts. See also [[asymptotic-notation|Asymptotic Notation]] for the machinery that lets the base be dropped.
+The [[cs/dsa/logarithmic-functions|DSA-side treatment]] covers the identities and floor/ceiling handling that show up when you turn these into concrete instruction counts. See also [[cs/dsa/asymptotic-notation|Asymptotic Notation]] for the machinery that lets the base be dropped.
 
 ## In Information Theory
 
@@ -85,12 +85,12 @@ The consequence is a hard bound rather than a heuristic. "The concept of informa
 
 ## Related Notes
 
-- [[logarithmic-functions|Logarithmic Functions]] - the algorithms-side treatment, with identities, bit lengths, and tree heights
-- [[asymptotic-notation|Asymptotic Notation]] - why the constant factor from a base change disappears
-- [[binary-search|Binary Search]] - the halving search whose comparison count is a base-2 logarithm
-- [[divide-and-conquer|Divide and Conquer]] - the self-similar decomposition that logarithms describe
-- [[shannon-and-information-theory|Shannon and Information Theory]] - entropy, source coding, and the bit as a unit
-- [[huffman-coding|Huffman Coding]] - one of the codes that approaches the entropy bound
+- [[cs/dsa/logarithmic-functions|Logarithmic Functions]] - the algorithms-side treatment, with identities, bit lengths, and tree heights
+- [[cs/dsa/asymptotic-notation|Asymptotic Notation]] - why the constant factor from a base change disappears
+- [[cs/dsa/binary-search|Binary Search]] - the halving search whose comparison count is a base-2 logarithm
+- [[cs/dsa/divide-and-conquer|Divide and Conquer]] - the self-similar decomposition that logarithms describe
+- [[cs/military-computing/shannon-and-information-theory|Shannon and Information Theory]] - entropy, source coding, and the bit as a unit
+- [[cs/dsa/huffman-coding|Huffman Coding]] - one of the codes that approaches the entropy bound
 - [[derivatives-and-gradients|Derivatives and Gradients]] - the derivative property that defines the exponential function
 
 ## Sources

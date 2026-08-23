@@ -13,7 +13,7 @@ aliases: []
 
 ## Intuition
 
-Version control solves a deceptively simple problem: **how do multiple people change the same codebase without destroying each other's work?** The naive answer - numbered copies in shared folders - collapses at any real scale. Git's answer is to model the entire history of a project as a **directed acyclic graph (DAG)** of immutable snapshots, where branching and merging are first-class operations rather than special cases.
+Version control solves a deceptively simple problem: **how do multiple people change the same codebase without destroying each other's work?** The naive answer - numbered copies in shared folders - collapses at any real scale. Git's answer is to model the entire history of a project as a [[cs/math/graph-theory|**directed acyclic graph (DAG)**]] of immutable snapshots, where branching and merging are first-class operations rather than special cases.
 
 Understanding Git means understanding the DAG. Every command - `commit`, `branch`, `merge`, `rebase`, `cherry-pick` - is an operation on this graph. Once the data model clicks, the commands stop feeling arbitrary.
 
@@ -23,7 +23,7 @@ Understanding Git means understanding the DAG. Every command - `commit`, `branch
 
 ### The Object Model
 
-Git stores four types of objects, all content-addressed by SHA-1 hash:
+Git stores four types of objects, all [[cs/security/cryptographic-hash-functions|content-addressed by SHA-1 hash]]:
 
 | Object | Contains |
 |--------|----------|
@@ -48,7 +48,7 @@ A ← B ← C ← D       (main)
 - **Branch point:** `C` is the common ancestor of `D` and `F`.
 - **Merge commit:** has two parents, joining divergent lines.
 
-Branches are just movable pointers to commits. Creating a branch is O(1) - it writes 41 bytes (a SHA reference). This cheapness is why Git encourages branching for everything.
+Branches are just movable pointers to commits. Creating a branch is [[cs/dsa/asymptotic-notation|O(1)]] - it writes 41 bytes (a SHA reference). This cheapness is why Git encourages branching for everything.
 
 ### Branching Strategies
 

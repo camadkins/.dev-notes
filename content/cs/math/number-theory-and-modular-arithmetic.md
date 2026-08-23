@@ -26,7 +26,7 @@ A 12-hour clock does not count past 12. Five hours after 9 o'clock is 2 o'clock,
 
 $a$ divides $b$ (written $a \mid b$) when $b$ is an exact integer multiple of $a$. The **greatest common divisor** $\gcd(a, b)$ is "the largest number that divides them both without a remainder." Two integers whose gcd is $1$ are **coprime**, and coprimality is the precondition for a number to have a multiplicative inverse modulo $m$.
 
-Euclid's algorithm computes the gcd without factoring either number, using one structural fact: "the greatest common divisor of two numbers does not change if the larger number is replaced by its difference with the smaller number." Replace subtraction with remainder and each step shrinks the pair fast, so $\gcd$ falls out in $O(\log)$ steps. The [[euclidean-algorithms|extended form]] additionally returns the Bézout coefficients $x, y$ with $ax + by = \gcd(a,b)$, which is how you actually compute a modular inverse.
+Euclid's algorithm computes the gcd without factoring either number, using one structural fact: "the greatest common divisor of two numbers does not change if the larger number is replaced by its difference with the smaller number." Replace subtraction with remainder and each step shrinks the pair fast, so $\gcd$ falls out in $O(\log)$ steps. The [[cs/dsa/euclidean-algorithms|extended form]] additionally returns the Bézout coefficients $x, y$ with $ax + by = \gcd(a,b)$, which is how you actually compute a modular inverse.
 
 ## Congruence
 
@@ -34,7 +34,7 @@ $a \equiv b \pmod{m}$ means $m$ divides $a - b$, that is, $a$ and $b$ leave the 
 
 ## Primes
 
-A **prime** is "a natural number greater than 1 that is not a product of two smaller natural numbers." Primes are the multiplicative atoms of the integers: the fundamental theorem of arithmetic says "every natural number greater than 1 is either a prime itself or can be factorized as a product of primes that is unique up to their order." Unique factorization is why "factor this number" is a well-posed and, for large semiprimes, brutally expensive question. Generating primes and testing primality are their own [[prime-numbers-algorithms|algorithmic topics]].
+A **prime** is "a natural number greater than 1 that is not a product of two smaller natural numbers." Primes are the multiplicative atoms of the integers: the fundamental theorem of arithmetic says "every natural number greater than 1 is either a prime itself or can be factorized as a product of primes that is unique up to their order." Unique factorization is why "factor this number" is a well-posed and, for large semiprimes, brutally expensive question. Generating primes and testing primality are their own [[cs/dsa/prime-numbers-algorithms|algorithmic topics]].
 
 ## Why Cryptography Sits On This
 
@@ -50,9 +50,9 @@ Modular arithmetic "directly underpins public key systems such as RSA and Diffie
 
 ## Related Notes
 
-- [[euclidean-algorithms|Euclidean Algorithms]] - the GCD algorithm and its extended, inverse-finding form
-- [[prime-numbers-algorithms|Prime Number Algorithms]] - primality testing and sieves
-- [[hcf-and-lcm-algorithms|HCF and LCM Algorithms]] - GCD and least common multiple in practice
+- [[cs/dsa/euclidean-algorithms|Euclidean Algorithms]] - the GCD algorithm and its extended, inverse-finding form
+- [[cs/dsa/prime-numbers-algorithms|Prime Number Algorithms]] - primality testing and sieves
+- [[cs/dsa/hcf-and-lcm-algorithms|HCF and LCM Algorithms]] - GCD and least common multiple in practice
 - [[relations-and-equivalence|Relations and Equivalence]] - congruence as an equivalence relation partitioning the integers
 - [[set-theory-basics|Set Theory Basics]] - residue classes are a partition of the integer set
 

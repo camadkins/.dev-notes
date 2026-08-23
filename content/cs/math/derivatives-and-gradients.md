@@ -45,17 +45,17 @@ If the gradient points toward the steepest *increase*, then its negative points 
 
 $$\mathbf{w} \leftarrow \mathbf{w} - \eta \, \nabla J(\mathbf{w})$$
 
-where $\eta$ is the learning rate controlling step size. That single line, repeated, is [[gradient-descent|gradient descent]], the optimizer under nearly all of machine learning and [[ai-vs-ml-vs-dl|deep learning]]. Each step reads the local slope and moves downhill; the process halts near a point where the gradient is the zero vector, "known as a stationary point." The reason the whole enterprise works is the reason stated in the payload: the gradient is local, cheap to compute by backpropagation, and yet its negation is always the locally best direction to reduce error.
+where $\eta$ is the learning rate controlling step size. That single line, repeated, is [[cs/machine-learning/gradient-descent|gradient descent]], the optimizer under nearly all of machine learning and [[cs/machine-learning/ai-vs-ml-vs-dl|deep learning]]. Each step reads the local slope and moves downhill; the process halts near a point where the gradient is the zero vector, "known as a stationary point." The reason the whole enterprise works is the reason stated in the payload: the gradient is local, cheap to compute by backpropagation, and yet its negation is always the locally best direction to reduce error.
 
 > [!warning]
 > A zero gradient marks a stationary point, not necessarily a minimum. It could be a maximum, a saddle, or a plateau. The derivative sees only the immediate neighborhood, so gradient descent can settle into a local minimum or crawl across a flat region while a lower valley sits elsewhere on the surface. This locality is the same strength (cheap, no global view needed) and weakness (no guarantee of the global optimum) at once.
 
 ## Related Notes
 
-- [[gradient-descent|Gradient Descent]] - the optimizer that steps opposite the gradient to minimize a loss
+- [[cs/machine-learning/gradient-descent|Gradient Descent]] - the optimizer that steps opposite the gradient to minimize a loss
 - [[limits-and-continuity|Limits and Continuity]] - the limit of a difference quotient is what defines the derivative
 - [[vectors-and-dot-products|Vectors and Dot Products]] - the directional derivative is the gradient dotted with a unit direction
-- [[loss-functions|Loss Functions]] - the surfaces whose gradients training actually descends
+- [[cs/machine-learning/loss-functions|Loss Functions]] - the surfaces whose gradients training actually descends
 
 ## Sources
 

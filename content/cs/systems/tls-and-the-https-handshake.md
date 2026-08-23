@@ -25,8 +25,8 @@ When you connect to an `https://` URL, before any page data moves, client and se
 
 1. **ClientHello.** The client opens with the TLS versions and cipher suites it supports, a random value, and a key share. It also names the host it wants in the Server Name Indication (SNI) field, because one IP may serve many sites.
 2. **Certificate.** The server replies with its X.509 certificate, which binds its hostname to a public key and is signed by a certificate authority. The client checks that signature chains up to a CA it already trusts. This is the authentication step: it is how you know you are talking to the real server and not an impostor in the middle.
-3. **Key agreement.** Both sides use [[rsa-and-computational-hardness|public-key cryptography]] to arrive at the same shared secret without transmitting it. In modern TLS this is an ephemeral Diffie-Hellman exchange, so the secret exists only for this session.
-4. **Switch to symmetric.** From the shared secret both sides derive [[des-standardization-and-symmetric-crypto|symmetric keys]] and encrypt the rest of the connection with a fast cipher like AES. The asymmetric work is done.
+3. **Key agreement.** Both sides use [[cs/military-computing/rsa-and-computational-hardness|public-key cryptography]] to arrive at the same shared secret without transmitting it. In modern TLS this is an ephemeral Diffie-Hellman exchange, so the secret exists only for this session.
+4. **Switch to symmetric.** From the shared secret both sides derive [[cs/military-computing/des-standardization-and-symmetric-crypto|symmetric keys]] and encrypt the rest of the connection with a fast cipher like AES. The asymmetric work is done.
 
 ![The TLS handshake: client and server exchange a hello and a certificate, agree an ephemeral key with public-key cryptography, then switch to fast symmetric encryption for the session.](assets/tls-handshake.svg)
 
@@ -48,9 +48,9 @@ Two properties make modern TLS strong, and one structural weakness keeps it inte
 
 ## The one field censors read
 
-The handshake hides its contents, but historically it leaked one thing in the clear: the SNI. The client announces the hostname it wants at the very start, in plaintext, so a passive observer or a national firewall can see which site you are visiting even though the page itself is encrypted. That is the mechanism behind [[cyber-sovereignty|SNI-based filtering]]: block the handshake the moment the forbidden name appears, without decrypting anything.
+The handshake hides its contents, but historically it leaked one thing in the clear: the SNI. The client announces the hostname it wants at the very start, in plaintext, so a passive observer or a national firewall can see which site you are visiting even though the page itself is encrypted. That is the mechanism behind [[cs/geopolitics/cyber-sovereignty|SNI-based filtering]]: block the handshake the moment the forbidden name appears, without decrypting anything.
 
-The fix is Encrypted Client Hello (ECH), which encrypts the whole ClientHello, hostname included. Browsers began enabling it by default in 2023. It closes the last obvious leak in an otherwise-private handshake, and it is one front in the ongoing contest between [[surveillance-and-privacy|surveillance and privacy]].
+The fix is Encrypted Client Hello (ECH), which encrypts the whole ClientHello, hostname included. Browsers began enabling it by default in 2023. It closes the last obvious leak in an otherwise-private handshake, and it is one front in the ongoing contest between [[cs/geopolitics/surveillance-and-privacy|surveillance and privacy]].
 
 > [!example] Clicking a padlock
 > 1. DNS resolves `example.com` to an IP (see [[dns-the-domain-name-system|DNS]]).
@@ -62,12 +62,12 @@ The fix is Encrypted Client Hello (ECH), which encrypts the whole ClientHello, h
 
 ## Related Notes
 
-- [[rsa-and-computational-hardness|RSA and Computational Hardness]] - the public-key idea the handshake leans on, and why a backdoor cannot be selective
-- [[des-standardization-and-symmetric-crypto|DES and Symmetric Crypto]] - the fast symmetric ciphers that carry the session once the key is agreed
+- [[cs/military-computing/rsa-and-computational-hardness|RSA and Computational Hardness]] - the public-key idea the handshake leans on, and why a backdoor cannot be selective
+- [[cs/military-computing/des-standardization-and-symmetric-crypto|DES and Symmetric Crypto]] - the fast symmetric ciphers that carry the session once the key is agreed
 - [[network-protocols|Network Protocols]] - where TLS sits between TCP and HTTP in the stack
 - [[dns-the-domain-name-system|DNS]] - the lookup that happens just before the handshake, and what DoH protects with TLS
-- [[cyber-sovereignty|Cyber Sovereignty]] - SNI filtering as a censorship technique, and ECH as the countermeasure
-- [[surveillance-and-privacy|Surveillance & Privacy]] - the encryption debate over whether lawful access can ever be built in safely
+- [[cs/geopolitics/cyber-sovereignty|Cyber Sovereignty]] - SNI filtering as a censorship technique, and ECH as the countermeasure
+- [[cs/geopolitics/surveillance-and-privacy|Surveillance & Privacy]] - the encryption debate over whether lawful access can ever be built in safely
 
 ## Sources
 

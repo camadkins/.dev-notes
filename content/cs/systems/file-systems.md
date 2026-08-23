@@ -25,7 +25,7 @@ The central metadata structure in Unix-style file systems (ext4, XFS, UFS). Each
 
 - File type (regular, directory, symlink, device)
 - Permissions and ownership (uid, gid, mode)
-- Timestamps (created, modified, accessed)
+- [[cs/forensics/timestamps-macb-and-timeline-analysis|Timestamps (created, modified, accessed)]]
 - Size
 - Pointers to data blocks (direct, single-indirect, double-indirect, triple-indirect)
 
@@ -62,7 +62,7 @@ Extents are worth understanding: instead of tracking every individual block, you
 
 This solves the classic crash-consistency problem. If the system loses power between updating data blocks and updating metadata, the file system ends up in an inconsistent state. Maybe the directory entry exists but points to garbage, or the blocks are allocated but the directory doesn't know about the file.
 
-**Journaling** writes a description of the intended changes to a log (the journal) *before* applying them:
+**Journaling** [[cs/forensics/deleted-files-journaling-and-what-survives|writes a description of the intended changes to a log]] (the journal) *before* applying them:
 
 1. **Journal write** - write the transaction (metadata changes, optionally data) to the journal.
 2. **Journal commit** - write a commit record marking the transaction complete.
@@ -81,7 +81,7 @@ On crash recovery, the file system replays committed transactions and discards i
 
 ## B-tree Indexes in File Systems
 
-Modern file systems use [[b-tree|B-Trees]] and [[bplus-tree|B+ Trees]] to index metadata. The properties that make B-trees good for databases (balanced, logarithmic lookup, high fanout) are exactly what you want for disk I/O: each node fits a disk block, so a lookup touches O(log_m n) blocks where m is the branching factor (often 100+).
+Modern file systems use [[cs/dsa/b-tree|B-Trees]] and [[cs/dsa/bplus-tree|B+ Trees]] to index metadata. The properties that make B-trees good for databases (balanced, logarithmic lookup, high fanout) are exactly what you want for disk I/O: each node fits a disk block, so a lookup touches O(log_m n) blocks where m is the branching factor (often 100+).
 
 Examples:
 - **Btrfs** uses copy-on-write B-trees for everything: file extents, directory entries, checksums.
@@ -108,8 +108,8 @@ Walking through the steps ties everything together:
 
 ## Related Notes
 
-- [[b-tree|B-Trees]] - the data structure behind most file-system indexes
-- [[bplus-tree|B+ Trees]] - the variant used in XFS, NTFS, and databases for range-friendly indexing
+- [[cs/dsa/b-tree|B-Trees]] - the data structure behind most file-system indexes
+- [[cs/dsa/bplus-tree|B+ Trees]] - the variant used in XFS, NTFS, and databases for range-friendly indexing
 - [[virtual-memory|Virtual Memory]] - memory-mapped files (`mmap`) bridge the file system and the VM subsystem
 - [[processes-and-threads|Processes & Threads]] - file descriptors are per-process resources managed by the OS
 

@@ -24,11 +24,11 @@ The definition is narrower than the folklore. Code review is "a software quality
 Defect discovery is "often the main goal," but reviews in industry are performed to reach a combination of goals, and the list is worth reading as a whole:
 
 - **Code quality**: internal maintainability through readability, uniformity, understandability.
-- **Defect detection**: correctness, plus performance problems, security vulnerabilities, and injected malware.
+- **Defect detection**: correctness, plus performance problems, security vulnerabilities, and [[cs/languages/common/software-supply-chain-and-provenance|injected malware]].
 - **Learning and knowledge transfer**: codebase knowledge, solution approaches, and quality expectations flowing in both directions, to the reviewers as well as the author.
 - **Mutual responsibility**: a sense of collective code ownership.
 - **Finding better solutions**: ideas beyond the specific code at hand.
-- **Compliance**: reviews are mandatory in some contexts, such as air traffic software and safety-critical software.
+- **Compliance**: reviews are mandatory in some contexts, such as [[cs/standards/ieee-1012-verification-and-validation|air traffic software and safety-critical software]].
 
 The knowledge-transfer goal explains something the bug-filter framing cannot: why reviewing code you did not write is valuable to *you*. A reviewer who learns the module's layout has cheaply reduced the project's bus factor.
 

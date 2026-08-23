@@ -9,7 +9,7 @@ date: 2026-03-12
 aliases: []
 ---
 
-Notes in this garden exist at one of three maturity levels.
+Notes in this garden exist at [[cs/military-computing/tcsec-and-graded-assurance|one of three maturity levels]].
 
 ## Polished notes
 
@@ -31,4 +31,4 @@ Working notes are published (`draft: false`) and visible on the site.
 
 Unpublished outlines or stubs. These have `draft: true` in their frontmatter and are **not visible** on the published site. They exist in the repo as scaffolding for future writing.
 
-Drafts become working notes when they have enough real content to be useful to a reader, and working notes become polished notes through review and revision.
+Drafts become working notes when they have enough real content to be useful to a reader, and [[cs/software-engineering/code-review|working notes become polished notes through review and revision]].

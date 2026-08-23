@@ -42,11 +42,11 @@ $$\sigma(t) = \frac{e^t}{e^t + 1} = \frac{1}{1 + e^{-t}}$$
 
 Put the linear predictor in for $t$ and you get the familiar prediction rule. scikit-learn writes its fitted binary model as $\hat{p}(X_i) = \operatorname{expit}(X_i w + w_0) = 1/(1 + \exp(-X_i w - w_0))$. Same function, different notation. Worth keeping straight: the sigmoid is not an arbitrary squashing choice bolted on for convenience, it is the exact inverse of the link function the model was defined with. scikit-learn frames the whole thing structurally as a generalized linear model "with a Binomial / Bernoulli conditional distribution and a Logit link." Choose a different link and you get a different model, the probit, which uses a normal CDF instead.
 
-This is also where the [[activation-functions|sigmoid activation]] used in neural networks comes from. It is met here first, in its original statistical home, doing a specific job rather than serving as a generic nonlinearity.
+This is also where the [[cs/deep-learning/activation-functions|sigmoid activation]] used in neural networks comes from. It is met here first, in its original statistical home, doing a specific job rather than serving as a generic nonlinearity.
 
 ## Fitting by maximum likelihood
 
-Least squares has no role here. The natural objective is the probability of having observed the labels you actually observed, and [[maximum-likelihood-estimation|maximum likelihood estimation]] maximizes exactly that. Wikipedia gives the likelihood as a product over the training set, one factor per example,
+Least squares has no role here. The natural objective is the probability of having observed the labels you actually observed, and [[cs/statistics/maximum-likelihood-estimation|maximum likelihood estimation]] maximizes exactly that. Wikipedia gives the likelihood as a product over the training set, one factor per example,
 
 $$L = \prod_{k: y_k = 1} p_k \prod_{k: y_k = 0} (1 - p_k)$$
 
@@ -71,10 +71,10 @@ The fitted model outputs a number in $(0,1)$. Turning that into a predicted labe
 ## Related Notes
 
 - [[regression|Regression: Linear, Logistic, and Softmax]] - the three-model progression this note zooms in on
-- [[maximum-likelihood-estimation|Maximum Likelihood Estimation]] - the estimation principle that produces the cross-entropy objective
+- [[cs/statistics/maximum-likelihood-estimation|Maximum Likelihood Estimation]] - the estimation principle that produces the cross-entropy objective
 - [[loss-functions|Loss Functions]] - cross-entropy as negative log-likelihood
 - [[gradient-descent|Gradient Descent]] - the iterative fit used because no closed form exists
-- [[activation-functions|Activation Functions]] - the sigmoid in its neural-network role
+- [[cs/deep-learning/activation-functions|Activation Functions]] - the sigmoid in its neural-network role
 - [[evaluation-metrics|Evaluation Metrics]] - what changes when you move the decision threshold
 - [[regularization-ridge-and-lasso|Regularization: Ridge and Lasso]] - the L1 and L2 penalties applied by default here
 - [[supervised-learning|Supervised Learning]] - the labeled setting this model lives in

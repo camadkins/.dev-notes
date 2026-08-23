@@ -19,9 +19,9 @@ aliases:
 
 The Nebraska Scramble is a four-person team golf format based on a traditional scramble, but with a rotating "harvest" mechanic.
 
-After a player's shot is selected, that player becomes unavailable until every member of the team has contributed a selected shot. This prevents one strong golfer from carrying the team and creates pressure situations where fewer players remain available.
+After a player's shot is selected, that player becomes unavailable [[cs/systems/process-scheduling-algorithms|until every member of the team has contributed a selected shot]]. This prevents one strong golfer from carrying the team and creates pressure situations where fewer players remain available.
 
-Each team also receives a limited number of **Second Wind Tokens**, which can temporarily return an unavailable player for one rescue shot.
+Each team also receives [[cs/dsa/amortized-analysis-methods|a limited number of **Second Wind Tokens**]], which can temporarily return an unavailable player for one rescue shot.
 
 ---
 

@@ -16,7 +16,7 @@ aliases:
   - cache hierarchy
 ---
 
-The [[content-delivery-networks-and-the-centralization-of-control|content delivery network]] note frames the CDN as a geographic and political object: cache servers spread worldwide, reached by anycast, and the concentration that makes them a chokepoint. This note goes inside one of those edge servers and asks the mechanical question the geography sits on top of. When a request lands at an edge PoP, what actually decides whether the byte is already there, how long it stays valid, and what happens when it is not. The whole performance win rests on the answer, because an edge server that has to ask the origin on every request has saved no one anything.
+The [[cs/systems/content-delivery-networks-and-the-centralization-of-control|content delivery network]] note frames the CDN as a geographic and political object: cache servers spread worldwide, reached by anycast, and the concentration that makes them a chokepoint. This note goes inside one of those edge servers and asks the mechanical question the geography sits on top of. When a request lands at an edge PoP, what actually decides whether the byte is already there, how long it stays valid, and what happens when it is not. The whole performance win rests on the answer, because an edge server that has to ask the origin on every request has saved no one anything.
 
 > [!note] The idea
 > A CDN edge server is an HTTP cache placed near users. Whether it can answer from its own store (a hit) or must fetch from the origin (a miss) is governed by cache freshness, and freshness is set by the origin itself through Cache-Control, chiefly a max-age lifetime. Every hit is a request the origin never sees, so the design goal is to keep as many requests as possible answerable at the edge for as long as the content stays valid.
@@ -37,10 +37,10 @@ Edge servers are the outer layer, but they are not the only layer. A large CDN a
 
 ## Origin offload: the number that matters
 
-The point of all of this is offload. Every request answered from an edge or shield cache is a request the origin never processes, so a site behind a CDN can serve a large share of its traffic without its own servers ever seeing it. That is the same effect the [[content-delivery-networks-and-the-centralization-of-control|systems view]] describes as the CDN doubling as denial-of-service protection: the distributed cache tier absorbs the volume, including a [[denial-of-service-and-ddos|flood]], before it reaches the origin. High cache-hit ratios are the metric CDN operators optimize, because the hit ratio is directly the fraction of load the origin is spared.
+The point of all of this is offload. Every request answered from an edge or shield cache is a request the origin never processes, so a site behind a CDN can serve a large share of its traffic without its own servers ever seeing it. That is the same effect the [[cs/systems/content-delivery-networks-and-the-centralization-of-control|systems view]] describes as the CDN doubling as denial-of-service protection: the distributed cache tier absorbs the volume, including a [[cs/security/denial-of-service-and-ddos|flood]], before it reaches the origin. High cache-hit ratios are the metric CDN operators optimize, because the hit ratio is directly the fraction of load the origin is spared.
 
 > [!example] Following one image through the tiers
-> 1. A user requests a product image. Anycast routing (see [[content-delivery-networks-and-the-centralization-of-control|CDN routing]]) sends it to the nearest edge PoP.
+> 1. A user requests a product image. Anycast routing (see [[cs/systems/content-delivery-networks-and-the-centralization-of-control|CDN routing]]) sends it to the nearest edge PoP.
 > 2. Edge cache miss. The edge asks the origin shield, not the origin directly.
 > 3. Shield miss. The shield fetches the image from the origin once and caches it, then returns it to the edge, which caches it and answers the user.
 > 4. The image carried `Cache-Control: max-age=86400`, so for the next day every nearby user is an edge hit and the origin is never contacted again.
@@ -51,11 +51,11 @@ The point of all of this is offload. Every request answered from an edge or shie
 
 ## Related Notes
 
-- [[content-delivery-networks-and-the-centralization-of-control|Content Delivery Networks]] - the anycast routing and centralization picture this note's caching sits inside
-- [[dns-the-domain-name-system|DNS]] - the lookup that points a client at the CDN before any cache is consulted
+- [[cs/systems/content-delivery-networks-and-the-centralization-of-control|Content Delivery Networks]] - the anycast routing and centralization picture this note's caching sits inside
+- [[cs/systems/dns-the-domain-name-system|DNS]] - the lookup that points a client at the CDN before any cache is consulted
 - [[http-evolution-1-1-to-3|HTTP Evolution, 1.1 to 3]] - the request protocol whose headers carry the cache directives
-- [[physical-layer-of-the-internet|The Physical Layer of the Internet]] - the finite distance edge caching exists to shorten
-- [[denial-of-service-and-ddos|Denial of Service and DDoS]] - the flood the cache tier absorbs before the origin
+- [[cs/systems/physical-layer-of-the-internet|The Physical Layer of the Internet]] - the finite distance edge caching exists to shorten
+- [[cs/security/denial-of-service-and-ddos|Denial of Service and DDoS]] - the flood the cache tier absorbs before the origin
 
 ## Sources
 

@@ -39,20 +39,20 @@ Tor, the best-known implementation of onion routing, nests its encryption over e
 
 ## The attack no low-latency network can dodge
 
-Onion routing is strong against an attacker with one vantage point and weak against an attacker with two. If an adversary can watch the traffic entering the network near you and the traffic leaving it near your destination, the timing and volume of the two flows match closely enough to correlate, and the anonymity collapses. Tor states plainly that, like all current low-latency anonymity networks, it cannot defend against an attacker monitoring both boundaries at once. This is the traffic-confirmation attack, and it is a structural limit, not a bug to be patched. Simpler still, timing analysis alone can erode anonymity even without full end-to-end control. This is the front line of [[surveillance-and-privacy|surveillance and privacy]] on anonymity networks.
+Onion routing is strong against an attacker with one vantage point and weak against an attacker with two. If an adversary can watch the traffic entering the network near you and the traffic leaving it near your destination, the timing and volume of the two flows match closely enough to correlate, and the anonymity collapses. Tor states plainly that, like all current low-latency anonymity networks, it cannot defend against an attacker monitoring both boundaries at once. This is the traffic-confirmation attack, and it is a structural limit, not a bug to be patched. Simpler still, timing analysis alone can erode anonymity even without full end-to-end control. This is the front line of [[cs/geopolitics/surveillance-and-privacy|surveillance and privacy]] on anonymity networks.
 
 The deeper reason this limit is so stubborn is a proven tradeoff. The anonymity trilemma states that a system cannot simultaneously deliver strong anonymity, low latency, and low bandwidth overhead: you can have any two, never all three. Tor chooses low latency and low overhead so it is usable for everyday browsing, and accepts that a global passive adversary can in principle break it. A network that instead chose strong anonymity against such an adversary would have to add heavy cover traffic or large delays, and would no longer feel like the live web.
 
 ## Circumvention and the censorship arms race
 
-The same design that hides destinations also helps people reach destinations a state has blocked. Because the addresses of public relays are listed so clients can find them, a censor can simply block that list. The countermeasure is the bridge relay: an entry point kept off the public list and handed out in limited ways, so a censor who does not know its address cannot block it. The censor responds by trying to recognize the shape of the traffic itself, and the network responds by disguising that shape, an arms race that ties anonymity networks directly to [[cyber-sovereignty|cyber sovereignty]] and national censorship. Onion routing began as a tool to protect spies; today its sharpest political use is letting ordinary people route around their own governments.
+The same design that hides destinations also helps people reach destinations a state has blocked. Because the addresses of public relays are listed so clients can find them, a censor can simply block that list. The countermeasure is the bridge relay: an entry point kept off the public list and handed out in limited ways, so a censor who does not know its address cannot block it. The censor responds by trying to recognize the shape of the traffic itself, and the network responds by disguising that shape, an arms race that ties anonymity networks directly to [[cs/geopolitics/cyber-sovereignty|cyber sovereignty]] and national censorship. Onion routing began as a tool to protect spies; today its sharpest political use is letting ordinary people route around their own governments.
 
 ## Related Notes
 
 - [[tls-and-the-https-handshake|TLS and the HTTPS Handshake]], the opposite trust problem: proving identity rather than hiding it
-- [[rsa-and-computational-hardness|RSA and Computational Hardness]], the public-key cryptography that makes per-relay layers possible
-- [[cyber-sovereignty|Cyber Sovereignty]], blocking relays and the censorship arms race bridges are built to lose slowly
-- [[surveillance-and-privacy|Surveillance & Privacy]], traffic analysis and the metadata that encryption alone does not hide
+- [[cs/military-computing/rsa-and-computational-hardness|RSA and Computational Hardness]], the public-key cryptography that makes per-relay layers possible
+- [[cs/geopolitics/cyber-sovereignty|Cyber Sovereignty]], blocking relays and the censorship arms race bridges are built to lose slowly
+- [[cs/geopolitics/surveillance-and-privacy|Surveillance & Privacy]], traffic analysis and the metadata that encryption alone does not hide
 - [[network-protocols|Network Protocols]], the ordinary routing this anonymity layer sits on top of
 
 ## Sources

@@ -16,7 +16,7 @@ aliases: []
 Graphs are one of those abstractions that punch way above their weight. Dots connected by lines. That's it. But the moment you realize that network routing, scheduling conflicts, map coloring, dependency resolution, social influence, and compiler analysis all reduce to "build a graph, then ask a structural question about it," the power becomes obvious. Graph theory formalizes these structures and gives you a toolkit of results about what's possible and what's provably hard.
 
 > [!note]
-> The DSA notes on [[graphs|Graphs]] and [[graph-representations|Graph Representations]] cover the implementation side (adjacency lists, BFS/DFS, shortest paths). This note is about the math: the theorems, the structural results, and the proof techniques that make those algorithms work.
+> The DSA notes on [[cs/dsa/graphs|Graphs]] and [[cs/dsa/graph-representations|Graph Representations]] cover the implementation side (adjacency lists, BFS/DFS, shortest paths). This note is about the math: the theorems, the structural results, and the proof techniques that make those algorithms work.
 
 ## Definitions
 
@@ -94,7 +94,7 @@ Given a directed graph with edge capacities, the **max-flow min-cut theorem** st
 
 ## Related Notes
 
-- [[graphs|Graphs]] - overview of graph structures in the DSA context
-- [[graph-representations|Graph Representations]] - adjacency list vs adjacency matrix
+- [[cs/dsa/graphs|Graphs]] - overview of graph structures in the DSA context
+- [[cs/dsa/graph-representations|Graph Representations]] - adjacency list vs adjacency matrix
 - [[combinatorics|Combinatorics]] - counting arguments used in graph proofs
 - [[mathematical-induction|Mathematical Induction]] - induction on vertices/edges is a core proof technique in graph theory
