@@ -17,7 +17,7 @@ aliases:
 
 A set is the most basic collection in mathematics: "a collection of different things," where "the things are called elements or members of the set." Two properties define it. Elements are distinct, so $\{1, 1, 2\}$ is just $\{1, 2\}$, and order does not matter, so $\{1, 2\} = \{2, 1\}$. Membership is the one primitive question, written $x \in A$.
 
-Sets are the substrate under nearly everything else in CS. A type is a set of values. A relation is a set of pairs. A hash set is this abstraction made concrete, and the [[maps-and-hashtable|map]] built on it inherits the no-duplicate-keys rule directly from the definition of a set.
+Sets are the substrate under nearly everything else in CS. A [[cs/pl/type-systems-goals-guarantees|type]] is a set of values. A relation is a set of pairs. A hash set is this abstraction made concrete, and the [[maps-and-hashtable|map]] built on it inherits the no-duplicate-keys rule directly from the definition of a set.
 
 > [!note]
 > The payload: the [[propositional-logic|boolean connectives]] and the set operations are the same algebra wearing two costumes. Intersection is AND, union is OR, complement is NOT. An element is in $A \cap B$ exactly when it is in $A$ AND in $B$. Learn the truth tables and you already know the set identities, De Morgan's laws included.
@@ -45,7 +45,7 @@ The **cardinality** of a set is "the number of its members," written $|A|$. For 
 
 The **power set** $\mathcal{P}(A)$ is "the set that contains all subsets of a given set," "including the empty set and S itself." Its size is fixed by a counting argument: each element is either in or out of a given subset, two independent choices per element, so a set of $n$ elements has exactly $2^n$ subsets. Wikipedia states it directly: if $|S| = n$ "then the number of all the subsets of S is $|P(S)| = 2^n$."
 
-That $2^n$ is not a curiosity. It is the size of the search space every subset-enumeration algorithm walks, the reason brute-force over all feature combinations is exponential, and the same $2^n$ that bounds a [[propositional-logic|truth table]] over $n$ variables. Subsets of an $n$-set and truth assignments to $n$ booleans are the same objects counted twice.
+That $2^n$ is not a curiosity. It is the size of the search space every [[cs/dsa/backtracking-algorithms|subset-enumeration algorithm]] walks, the reason brute-force over all [[cs/machine-learning/features-and-representations|feature combinations]] is exponential, and the same $2^n$ that bounds a [[propositional-logic|truth table]] over $n$ variables. Subsets of an $n$-set and truth assignments to $n$ booleans are the same objects counted twice.
 
 > [!example]
 > **Power set of $\{a, b\}$.** List every subset by asking include-or-not for each element:

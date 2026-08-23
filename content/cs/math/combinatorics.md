@@ -53,7 +53,7 @@ If $n$ items are placed into $m$ containers and $n > m$, at least one container 
 
 Classic applications:
 - In any group of 13 people, at least two share a birth month.
-- A hash table with $m$ slots and $n > m$ keys **must** have at least one collision. There is no injective hash function when the domain exceeds the range.
+- A hash table with $m$ slots and $n > m$ keys **must** have at least one collision. There is no injective [[cs/security/cryptographic-hash-functions|hash function]] when the domain exceeds the range.
 
 ## Inclusion-Exclusion
 
@@ -87,7 +87,7 @@ $$C_0 = 1, \quad C_{n+1} = \sum_{i=0}^{n} C_i \cdot C_{n-i}$$
 
 **Subsets and brute force.** The brute-force approach to subset-sum examines all $2^n$ subsets. That count comes from $\sum_{k=0}^{n} \binom{n}{k} = 2^n$. Backtracking prunes this space, but $2^n$ is the baseline you're pruning from.
 
-**Inversions and sorting.** The number of permutations of $n$ elements with exactly $k$ inversions (pairs out of order) follows the Mahonian distribution. Sorting algorithms that do adjacent swaps (bubble sort, insertion sort) take exactly as many swaps as there are inversions.
+**Inversions and sorting.** The number of permutations of $n$ elements with exactly $k$ inversions (pairs out of order) follows the Mahonian distribution. Sorting algorithms that do adjacent swaps (bubble sort, [[cs/dsa/insertion-sort|insertion sort]]) take exactly as many swaps as there are inversions.
 
 > [!warning]
 > **Complement counting** is one of the most useful tricks and it's easy to forget about it. Instead of counting what you want directly, count the total minus what you don't want. Binary strings of length $n$ with at least one `1`? Total $2^n$ minus the one all-zero string gives $2^n - 1$. Always check whether the complement is easier before diving into a direct count.

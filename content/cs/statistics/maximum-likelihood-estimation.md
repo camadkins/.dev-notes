@@ -73,9 +73,9 @@ The MLE says the best estimate of the failure probability is 16%. This is exactl
 
 ## Why It Matters in CS
 
-- **Neural network training:** minimizing cross-entropy loss is equivalent to maximizing the log-likelihood of the training labels under the model's predicted distribution.
-- **Logistic regression:** the coefficients are found by maximizing the Bernoulli log-likelihood - there is no closed-form solution, so gradient ascent (or Newton's method) is used.
-- **Language models:** next-token prediction training maximizes $\sum \ln P(w_t \mid w_{<t};\, \theta)$, which is MLE over the training corpus.
+- **Neural network training:** minimizing [[cs/machine-learning/loss-functions|cross-entropy loss]] is equivalent to maximizing the log-likelihood of the training labels under the model's predicted distribution.
+- **[[cs/machine-learning/logistic-regression|Logistic regression]]:** the coefficients are found by maximizing the Bernoulli log-likelihood - there is no closed-form solution, so gradient ascent (or [[cs/dsa/square-root-algorithms|Newton's method]]) is used.
+- **Language models:** [[cs/deep-learning/self-supervised-learning-and-pretraining|next-token prediction]] training maximizes $\sum \ln P(w_t \mid w_{<t};\, \theta)$, which is MLE over the training corpus.
 - **Model comparison:** the Akaike Information Criterion (AIC) penalizes the maximized log-likelihood by the number of parameters, enabling principled model selection.
 
 ## Related Notes

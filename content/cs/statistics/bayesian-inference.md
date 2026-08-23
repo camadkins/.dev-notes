@@ -57,7 +57,7 @@ When the prior and posterior belong to the same distribution family, the prior i
 | Poisson | $\text{Gamma}(\alpha, \beta)$ | $\text{Gamma}(\alpha + \sum x_i, \beta + n)$ |
 | Normal (known $\sigma$) | $\text{Normal}(\mu_0, \sigma_0^2)$ | $\text{Normal}(\mu_n, \sigma_n^2)$ |
 
-Conjugacy makes hand computation tractable. For non-conjugate models, numerical methods like **Markov chain Monte Carlo** (MCMC) sample from the posterior.
+Conjugacy makes hand computation tractable. For non-conjugate models, numerical methods like **[[cs/military-computing/monte-carlo-method-and-the-bomb|Markov chain Monte Carlo]]** (MCMC) sample from the posterior.
 
 ### Sequential updating
 
@@ -69,7 +69,7 @@ Then upon observing $D_2$:
 
 $$P(\theta \mid D_1, D_2) \propto P(D_2 \mid \theta)\, P(\theta \mid D_1)$$
 
-The final result is identical to updating on both datasets at once - order does not matter. This makes Bayesian methods natural for **streaming data** and **online learning**.
+The final result is identical to updating on both datasets at once - order does not matter. This makes Bayesian methods natural for **streaming data** and **[[cs/machine-learning/supervised-learning|online learning]]**.
 
 ![Sequential Bayesian updating flow: prior times likelihood yields posterior, which becomes the next prior](assets/bayesian-updating.svg)
 

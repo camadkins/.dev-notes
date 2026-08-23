@@ -26,7 +26,7 @@ The most direct approach modifies the objective. Instead of minimizing the loss 
 
 $$\tilde{J}(\theta; \mathcal{X}, y) = J(\theta; \mathcal{X}, y) + \alpha\,\Omega(\theta)$$
 
-where $\Omega(\theta)$ is a complexity penalty on the parameters and $\alpha \geq 0$ sets the exchange rate between fitting the data and staying simple. Goodfellow, Bengio, and Courville treat these parameter norm penalties as the classical core of regularization in chapter 7 of *Deep Learning*.
+where $\Omega(\theta)$ is [[cs/math/convexity-and-optimization-basics|a complexity penalty on the parameters]] and $\alpha \geq 0$ sets the exchange rate between fitting the data and staying simple. Goodfellow, Bengio, and Courville treat these parameter norm penalties as the classical core of regularization in chapter 7 of *Deep Learning*.
 
 The $L^2$ penalty, $\Omega(\theta) = \tfrac{1}{2}\lVert\theta\rVert_2^2$, is what people usually mean by weight decay. It pulls every weight toward zero. That matters for networks specifically because large weights push activation functions into their strongly nonlinear regimes, making the learned function more complex than the data justifies. The $L^1$ penalty, $\Omega(\theta) = \lVert\theta\rVert_1$, also penalizes large weights but has a different character: it can drive individual weights exactly to zero, producing sparse solutions, which is why $L^1$ shows up in feature selection (the LASSO family of methods). Both penalties act through the same [[gradient-descent]] machinery as the loss itself.
 
@@ -38,7 +38,7 @@ It is hard to beat for cost. You were computing validation error anyway, and the
 
 ## Dropout: train an ensemble by demolition
 
-Dropout (Srivastava, Hinton, Krizhevsky, Sutskever, and Salakhutdinov, JMLR 2014) randomly removes units, along with their connections, from the network during training. Each training step samples a random mask, so each step trains a different "thinned" subnetwork drawn from an exponential number of possibilities that all share weights.
+Dropout (Srivastava, Hinton, Krizhevsky, Sutskever, and Salakhutdinov, JMLR 2014) randomly removes units, along with their connections, from the network during training. Each training step samples a random mask, so each step trains a different "thinned" subnetwork drawn from [[cs/math/combinatorics|an exponential number of possibilities]] that all share weights.
 
 ![Dropout randomly masks units during a training step](assets/dropout-masking.svg)
 

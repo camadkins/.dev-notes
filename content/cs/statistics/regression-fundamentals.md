@@ -33,7 +33,7 @@ OLS chooses $\hat{\beta}_0$ and $\hat{\beta}_1$ to minimize the **residual sum o
 
 $$\text{RSS} = \sum_{i=1}^n (Y_i - \hat{Y}_i)^2 = \sum_{i=1}^n (Y_i - \hat{\beta}_0 - \hat{\beta}_1 X_i)^2$$
 
-Taking partial derivatives and setting them to zero gives:
+Taking [[cs/math/derivatives-and-gradients|partial derivatives]] and setting them to zero gives:
 
 $$\hat{\beta}_1 = \frac{\sum_{i=1}^n (X_i - \bar{X})(Y_i - \bar{Y})}{\sum_{i=1}^n (X_i - \bar{X})^2}, \qquad \hat{\beta}_0 = \bar{Y} - \hat{\beta}_1 \bar{X}$$
 
@@ -43,7 +43,7 @@ With $p$ predictors, the model becomes:
 
 $$Y = X\beta + \varepsilon$$
 
-where $X$ is the $n \times (p+1)$ design matrix (including a column of ones for the intercept), $\beta$ is the $(p+1) \times 1$ coefficient vector, and $\varepsilon$ is the $n \times 1$ error vector. The OLS solution:
+where $X$ is the $n \times (p+1)$ [[cs/math/matrices-and-linear-transformations|design matrix]] (including a column of ones for the intercept), $\beta$ is the $(p+1) \times 1$ coefficient vector, and $\varepsilon$ is the $n \times 1$ error vector. The OLS solution:
 
 $$\hat{\beta} = (X^T X)^{-1} X^T Y$$
 
@@ -75,7 +75,7 @@ The **residual** for observation $i$ is $e_i = Y_i - \hat{Y}_i$. Residuals are t
 
 $$R^2 = 1 - \frac{\text{RSS}}{\text{TSS}} = 1 - \frac{\sum (Y_i - \hat{Y}_i)^2}{\sum (Y_i - \bar{Y})^2}$$
 
-$R^2 \in [0, 1]$. Higher is better, but adding predictors always increases $R^2$. Use **adjusted $R^2$** to penalize for unnecessary predictors:
+$R^2 \in [0, 1]$. Higher is better, but adding predictors always increases $R^2$. Use **adjusted $R^2$** to [[cs/machine-learning/regularization-ridge-and-lasso|penalize for unnecessary predictors]]:
 
 $$R^2_{\text{adj}} = 1 - \frac{(1 - R^2)(n - 1)}{n - p - 1}$$
 

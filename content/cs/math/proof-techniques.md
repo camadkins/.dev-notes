@@ -15,7 +15,7 @@ aliases:
 
 ## Proving Versus Implementing
 
-A working program is evidence, not proof. It shows the code did the right thing on the inputs you tried. A proof shows a claim holds for every case at once. A mathematical proof is "a deductive argument for a mathematical statement, showing that the stated assumptions logically guarantee the conclusion." The moment a course or a correctness argument asks *why* an algorithm works rather than *that* it ran, you need one of a small set of standard strategies.
+A working program is evidence, not proof. It shows the code did the right thing on [[cs/software-engineering/code-coverage-and-its-limits|the inputs you tried]]. A proof shows a claim holds for every case at once. A mathematical proof is "a deductive argument for a mathematical statement, showing that the stated assumptions logically guarantee the conclusion." The moment a course or a correctness argument asks *why* an algorithm works rather than *that* it ran, you need one of a small set of standard strategies.
 
 > [!note]
 > The payload: the shape of the statement selects the technique. An implication chooses between direct proof and contrapositive; a universal claim invites contradiction; a "for all cases" claim splits into cases; and a single well-chosen counterexample destroys a universal claim outright. Reading the logical form of what you must prove is most of the work.
@@ -40,7 +40,7 @@ An implication and its contrapositive are logically equivalent, so proving one p
 
 ### Proof by contradiction
 
-Also called reductio ad absurdum. You show that "if some statement is assumed true, a logical contradiction occurs, hence the statement must be false." Assume the opposite of what you want, follow the consequences, and hit an impossibility. The archetype is the irrationality of $\sqrt{2}$: assume $\sqrt{2} = a/b$ in lowest terms, derive that $a$ and $b$ are both even, and that contradicts "lowest terms."
+Also called reductio ad absurdum. You show that "if some statement is assumed true, a logical contradiction occurs, hence the statement must be false." Assume the opposite of what you want, follow the consequences, and [[cs/history/turing-and-computability|hit an impossibility]]. The archetype is the irrationality of $\sqrt{2}$: assume $\sqrt{2} = a/b$ in lowest terms, derive that $a$ and $b$ are both even, and that contradicts "lowest terms."
 
 ### Proof by cases
 
@@ -48,7 +48,7 @@ When the domain splits into finitely many situations, "the conclusion is establi
 
 ### Counterexample
 
-To disprove a universal claim you do not need a general argument, only one failure. A single instance can "construct a counterexample to disprove a proposition that all elements have a certain property." "Every prime is odd" dies to $n = 2$. This is the constructive twin of quantifier negation: refuting $\forall x\, P(x)$ means producing an $x$ with $\neg P(x)$, so a counterexample is that witness made explicit.
+To disprove a universal claim you do not need a general argument, only one failure. A single instance can "construct a counterexample to disprove a proposition that all elements have a certain property." "Every [[cs/dsa/prime-numbers-algorithms|prime]] is odd" dies to $n = 2$. This is the constructive twin of quantifier negation: refuting $\forall x\, P(x)$ means producing an $x$ with $\neg P(x)$, so a counterexample is that witness made explicit.
 
 > [!example]
 > **One claim, two failed tools, one that works.** Prove: for integers, if $n^2$ is odd then $n$ is odd.

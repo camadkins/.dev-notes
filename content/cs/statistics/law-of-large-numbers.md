@@ -15,7 +15,7 @@ aliases:
   - Strong Law of Large Numbers
 ---
 
-Roll one six-sided die and the outcome tells you almost nothing. Roll it ten thousand times and the running average settles near 3.5, which is the [[expected-value|expected value]] $(1+2+\cdots+6)/6$. The law of large numbers is the theorem that licenses this, and it is what makes every simulation, every A/B test, and every Monte Carlo estimator work.
+Roll one six-sided die and the outcome tells you almost nothing. Roll it ten thousand times and the running average settles near 3.5, which is the [[expected-value|expected value]] $(1+2+\cdots+6)/6$. The law of large numbers is the theorem that licenses this, and it is what makes every simulation, [[cs/software-engineering/feature-flags-and-trunk-based-development|every A/B test]], and every [[cs/military-computing/monte-carlo-method-and-the-bomb|Monte Carlo estimator]] work.
 
 > [!note] The idea
 > The law of large numbers is a statement about *where* the sample mean goes, and it comes in two strengths that differ only in the mode of convergence. The weak law says that for a fixed large $n$, the average is probably close to $\mu$; the strong law says the sequence of averages converges to $\mu$ with probability 1. The gap between those is real: the weak law leaves open that $|\bar{X}_n - \mu| > \varepsilon$ happens infinitely often at infrequent intervals, and there are distributions where exactly that occurs.

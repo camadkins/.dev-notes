@@ -23,7 +23,7 @@ A function assigns to each element of a domain exactly one element of a codomain
 
 ## Injective (One-to-One)
 
-A function is "injective, or one-to-one, if each element of the codomain is mapped to by at most one element of the domain, or equivalently, if distinct elements of the domain map to distinct elements in the codomain." Nothing collides. An injection can be inverted on its image, because from an output you can recover the unique input that produced it. A perfect hash on a fixed key set is an injection; a lossless encoding is an injection from messages to codewords.
+A function is "injective, or one-to-one, if each element of the codomain is mapped to by at most one element of the domain, or equivalently, if distinct elements of the domain map to distinct elements in the codomain." Nothing collides. An injection can be inverted on its image, because from an output you can recover the unique input that produced it. A perfect hash on a fixed key set is an injection; a [[cs/dsa/huffman-coding|lossless encoding]] is an injection from messages to codewords.
 
 ## Surjective (Onto)
 
@@ -31,11 +31,11 @@ A function is "surjective, or onto, if each element of the codomain is mapped to
 
 ## Bijective (Both)
 
-A function is "bijective ... if each element of the codomain is mapped to by exactly one element of the domain; that is, if the function is both injective and surjective." No collisions and no gaps. Exactly one input per output means a bijection has a genuine two-sided inverse, and it is the only kind of function that does. Bijections are the invertible functions: encryption under a fixed key, a reversible permutation, an index remap that can be undone.
+A function is "bijective ... if each element of the codomain is mapped to by exactly one element of the domain; that is, if the function is both injective and surjective." No collisions and no gaps. Exactly one input per output means a bijection has a genuine two-sided inverse, and it is the only kind of function that does. Bijections are the invertible functions: [[cs/security/aes-and-block-ciphers|encryption]] under a fixed key, a reversible permutation, an index remap that can be undone.
 
 ## Why Bijections Count
 
-Pairing two finite sets by a bijection proves they have equal [[set-theory-basics|cardinality]] without counting either one. This is the backbone of [[combinatorics|combinatorial]] proof: to show two sets of configurations are equal in number, exhibit a bijection between them. It also sets the boundary that the [[pigeonhole-principle|pigeonhole principle]] enforces from the other side. If the domain is strictly larger than the codomain, no injection can exist, so some output must be shared. A hash function from a large key space into a small table cannot be injective, and that impossibility is why collisions are inevitable rather than a bug.
+Pairing two finite sets by a bijection proves they have equal [[set-theory-basics|cardinality]] without counting either one. This is the backbone of [[combinatorics|combinatorial]] proof: to show two sets of configurations are equal in number, exhibit a bijection between them. It also sets the boundary that the [[pigeonhole-principle|pigeonhole principle]] enforces from the other side. If the domain is strictly larger than the codomain, no injection can exist, so some output must be shared. A [[cs/security/cryptographic-hash-functions|hash function]] from a large key space into a small table cannot be injective, and that impossibility is why collisions are inevitable rather than a bug.
 
 > [!example]
 > **Doubling on the naturals, $f(n) = 2n$.** From $\mathbb{N}$ to $\mathbb{N}$:

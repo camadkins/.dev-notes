@@ -15,7 +15,7 @@ aliases:
   - Reusing Pretrained Layers
 ---
 
-Training a deep network from scratch needs a large labeled dataset and a lot of compute, and most problems have neither. Transfer learning is the way around that, and it is arguably the single most important practical technique in Géron's Chapter 11: instead of starting from random weights, start from a network already trained on a big related dataset, keep the [[features-and-representations|features]] it learned, and retrain only the parts that are specific to your task. A model that would need a million images trained from zero can be adapted with a few thousand.
+Training a deep network from scratch needs a large labeled dataset and [[cs/geopolitics/compute-as-a-governable-resource|a lot of compute]], and most problems have neither. Transfer learning is the way around that, and it is arguably the single most important practical technique in Géron's Chapter 11: instead of starting from random weights, start from a network already trained on a big related dataset, keep the [[features-and-representations|features]] it learned, and retrain only the parts that are specific to your task. A model that would need a million images trained from zero can be adapted with a few thousand.
 
 > [!note] The idea
 > A deep network trained on a large dataset learns features in a useful order: the early layers learn general things (edges, textures, colors) that are useful for almost any vision task, while the later layers learn features specific to the original problem. Transfer learning reuses the general early layers as a fixed feature extractor and retrains only the task-specific top on your data. You inherit millions of images' worth of feature learning for the cost of training a small head.
@@ -45,7 +45,7 @@ Fine-tuning unfreezes the base and lets the whole network adjust to the new task
 
 ## Why this connects to the architectures
 
-Transfer learning is the reason the [[pooling-and-cnn-architectures|classic CNN architectures]] matter beyond history. You rarely design a [[convolutional-neural-networks|convolutional network]] from scratch; you download a ResNet or an EfficientNet pretrained on ImageNet and transfer it. The architecture you pick is the feature extractor you inherit. That is why the field converged on a handful of well-trained backbones: a good pretrained base is a reusable asset, and transfer learning is how you spend it.
+Transfer learning is the reason the [[pooling-and-cnn-architectures|classic CNN architectures]] matter beyond history. You rarely design a [[convolutional-neural-networks|convolutional network]] from scratch; [[cs/languages/common/software-supply-chain-and-provenance|you download a ResNet]] or an EfficientNet pretrained on ImageNet and transfer it. The architecture you pick is the feature extractor you inherit. That is why the field converged on a handful of well-trained backbones: a good pretrained base is a reusable asset, and transfer learning is how you spend it.
 
 ## Related Notes
 

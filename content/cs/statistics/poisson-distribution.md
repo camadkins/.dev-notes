@@ -79,12 +79,12 @@ So there is about a 37% chance of a quiet half-hour with no aircraft arrivals.
 
 ## Why It Matters in CS
 
-The entire field of queueing theory starts with "assume arrivals are Poisson." The M/M/1 queue, the M/M/c queue, basically every tractable queueing model uses this as the arrival process because it makes the math work out to closed-form solutions for wait times and queue lengths. When you size a buffer on a router or set autoscaling thresholds on a web server, there's a good chance a Poisson assumption is somewhere in the analysis.
+The entire field of [[cs/systems/process-scheduling-algorithms|queueing theory]] starts with "assume arrivals are Poisson." The M/M/1 queue, the M/M/c queue, basically every tractable queueing model uses this as the arrival process because it makes the math work out to closed-form solutions for wait times and queue lengths. When you [[cs/networking/qos-and-traffic-shaping|size a buffer on a router]] or set autoscaling thresholds on a web server, there's a good chance a Poisson assumption is somewhere in the analysis.
 
 > [!warning]
 > Real network traffic is often *bursty*, which violates the independence assumption and produces overdispersion (variance >> mean). The Poisson is a starting point, not gospel. If your observed variance is three times your mean, you need a different model.
 
-The mean-equals-variance property also makes Poisson a natural baseline for anomaly detection. If your error logs normally see $\mu = 5$ errors per minute, observing 15 in a single minute is a clear signal - you can compute exactly how unlikely that is without fitting anything more complicated.
+The mean-equals-variance property also makes Poisson a natural baseline for [[cs/security/siem-and-security-logging|anomaly detection]]. If your error logs normally see $\mu = 5$ errors per minute, observing 15 in a single minute is a clear signal - you can compute exactly how unlikely that is without fitting anything more complicated.
 
 ## Related Notes
 

@@ -31,7 +31,7 @@ Read column-first instead and you get an equally useful picture: $A\mathbf{x}$ i
 
 ## Multiplication as Composition
 
-For the product $AB$ to exist, "the number of columns in the first matrix must be equal to the number of rows in the second matrix," and "the result matrix has the number of rows of the first and the number of columns of the second matrix." That dimension rule is not bookkeeping; it is the type signature of function composition. If $B: \mathbb{R}^p \to \mathbb{R}^n$ and $A: \mathbb{R}^n \to \mathbb{R}^m$, then the middle dimension $n$ has to match for "$B$ then $A$" to make sense, and the composite maps $\mathbb{R}^p \to \mathbb{R}^m$.
+For the product $AB$ to exist, "the number of columns in the first matrix must be equal to the number of rows in the second matrix," and "the result matrix has the number of rows of the first and the number of columns of the second matrix." That dimension rule is not bookkeeping; it is the [[cs/pl/type-systems-goals-guarantees|type signature]] of function composition. If $B: \mathbb{R}^p \to \mathbb{R}^n$ and $A: \mathbb{R}^n \to \mathbb{R}^m$, then the middle dimension $n$ has to match for "$B$ then $A$" to make sense, and the composite maps $\mathbb{R}^p \to \mathbb{R}^m$.
 
 Two properties follow directly from the composition reading:
 
@@ -53,7 +53,7 @@ Composition needs a "do nothing" element and an "undo" element, and matrices sup
 
 $$A A^{-1} = A^{-1} A = I$$
 
-An inverse exists only for a square, full-rank matrix. That is the same statement as "no dimension was flattened": if the forward map lost a direction (rank deficit), no map can rebuild it, so $A^{-1}$ cannot exist. Solving $A\mathbf{x} = \mathbf{b}$ is asking for the input that lands on $\mathbf{b}$; when $A^{-1}$ exists the answer is unique, and in practice you factor rather than invert because forming $A^{-1}$ outright is slower and less numerically stable.
+An inverse exists only for a square, full-rank matrix. That is the same statement as "no dimension was flattened": if the forward map lost a direction (rank deficit), no map can rebuild it, so $A^{-1}$ cannot exist. Solving $A\mathbf{x} = \mathbf{b}$ is asking for the input that lands on $\mathbf{b}$; when $A^{-1}$ exists the answer is unique, and in practice you factor rather than invert because forming $A^{-1}$ outright is slower and less [[cs/standards/ieee-754-floating-point|numerically stable]].
 
 > [!tip]
 > Graphics pipelines lean on the composition reading constantly. A vertex passes through model, view, and projection matrices as one chained product, and "4x4 transformation matrices are widely used in 3D computer graphics, as they allow to perform translation, scaling, and rotation of objects by repeated matrix multiplication." The extra dimension is the trick that lets translation, which is not linear on its own, ride along as matrix multiplication.

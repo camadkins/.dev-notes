@@ -34,7 +34,7 @@ Four conditions must hold for a binomial model to apply:
 
 $$b(x; n, p) = \binom{n}{x} p^x q^{n-x}, \quad x = 0, 1, \ldots, n$$
 
-where $\binom{n}{x} = \frac{n!}{x!(n-x)!}$ is the binomial coefficient.
+where $\binom{n}{x} = \frac{n!}{x!(n-x)!}$ is the [[cs/math/combinatorics|binomial coefficient]].
 
 **Mean:**
 
@@ -72,9 +72,9 @@ So there is about a 74% chance that 3 or more components survive the test.
 
 ## Why It Matters in CS
 
-Anytime you're counting "how many out of $n$" in a system, you're probably looking at a binomial. Packet losses across $n$ transmissions, bit errors in a block of encoded data, defective chips on a wafer - all binomial if the trials are independent with constant $p$.
+Anytime you're counting "how many out of $n$" in a system, you're probably looking at a binomial. [[cs/networking/tcp-congestion-control|Packet losses]] across $n$ transmissions, [[cs/military-computing/error-correcting-codes-military-comms|bit errors in a block of encoded data]], defective chips on a wafer - all binomial if the trials are independent with constant $p$.
 
-The place you'll encounter it most directly is **A/B testing**. When 5,000 users visit a page and 312 convert, that conversion count is $\text{Bin}(5000, p)$. The entire statistical significance calculation rests on this model. Understanding the binomial also tells you why small-sample A/B tests are so unreliable: the variance $npq$ is large relative to the mean when $n$ is small, so the observed conversion rate swings wildly between runs.
+The place you'll encounter it most directly is **[[cs/software-engineering/feature-flags-and-trunk-based-development|A/B testing]]**. When 5,000 users visit a page and 312 convert, that conversion count is $\text{Bin}(5000, p)$. The entire statistical significance calculation rests on this model. Understanding the binomial also tells you why small-sample A/B tests are so unreliable: the variance $npq$ is large relative to the mean when $n$ is small, so the observed conversion rate swings wildly between runs.
 
 > [!tip]
 > When $n$ is large and $p$ is moderate, computing $\binom{n}{x}$ directly overflows most integer types. In practice you'd use the normal approximation ($np \geq 5$ and $nq \geq 5$) or work in log-space.

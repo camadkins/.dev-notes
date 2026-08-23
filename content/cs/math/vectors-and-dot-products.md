@@ -43,7 +43,7 @@ The scalar projection of $\mathbf{a}$ onto $\mathbf{b}$ answers "how far does $\
 
 $$\text{proj length} = \frac{\mathbf{a} \cdot \mathbf{b}}{\|\mathbf{b}\|}$$
 
-Projection is the shadow $\mathbf{a}$ casts on the line through $\mathbf{b}$. It is the mechanism behind least-squares fitting, where you project a target vector onto the space your model can reach, and behind [[pca-and-dimensionality-reduction|PCA]], where you project data onto the directions that carry the most variance.
+Projection is the shadow $\mathbf{a}$ casts on the line through $\mathbf{b}$. It is the mechanism behind [[cs/statistics/simple-linear-regression|least-squares fitting]], where you project a target vector onto the space your model can reach, and behind [[pca-and-dimensionality-reduction|PCA]], where you project data onto the directions that carry the most variance.
 
 ## Cosine Similarity: The ML Payoff
 

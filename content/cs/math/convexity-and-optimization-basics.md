@@ -18,7 +18,7 @@ aliases:
 
 ## The Shape That Makes Search Easy
 
-Optimization in general is brutal, and convexity is the property that rescues a large slice of it. The headline: "many classes of convex optimization problems admit polynomial-time algorithms, whereas mathematical optimization is in general NP-hard." Same objective-and-constraints framing, wildly different computational fates, and the deciding factor is geometry.
+Optimization in general is brutal, and convexity is the property that rescues a large slice of it. The headline: "many classes of convex optimization problems admit polynomial-time algorithms, whereas mathematical optimization is in general NP-hard." Same objective-and-constraints framing, wildly different [[cs/dsa/time-complexity-analysis|computational fates]], and the deciding factor is geometry.
 
 Two definitions carry the whole idea. A set of points "is convex if it contains every line segment between two points in the set." Formally, for a subset $C$ of a vector or affine space over the reals, $C$ is convex if "for all x and y in C, the line segment connecting x and y is included in C. This means that the affine combination $(1 - t)x + ty$ belongs to C for all x,y in C and t in the interval [0, 1]." The negative examples are the intuitive ones: "a solid cube is a convex set, but anything that is hollow or has an indent, such as a crescent shape, is not convex."
 

@@ -53,7 +53,7 @@ $$P(B) = \sum_{i=1}^{n} P(B \mid A_i) \cdot P(A_i)$$
 
 ## Expected Value
 
-A **random variable** $X: \Omega \to \mathbb{R}$ assigns a number to each outcome. The **expected value** (mean):
+A **[[cs/statistics/random-variable|random variable]]** $X: \Omega \to \mathbb{R}$ assigns a number to each outcome. The **[[cs/statistics/expected-value|expected value]]** (mean):
 
 $$E[X] = \sum_{x} x \cdot P(X = x)$$
 
@@ -86,7 +86,7 @@ Expected value tells you the average, but you often need to know how tightly a r
 
 ## Classic Applications
 
-**Average-case linear search.** Searching for a key in an unsorted array of $n$ elements where each position is equally likely:
+**Average-case [[cs/dsa/linear-search|linear search]].** Searching for a key in an unsorted array of $n$ elements where each position is equally likely:
 
 $$E[X] = \sum_{i=1}^{n} i \cdot \frac{1}{n} = \frac{n+1}{2}$$
 
@@ -96,7 +96,7 @@ On average, you check about half the array. This is one of the simplest expected
 
 **Coupon collector.** To collect all $n$ distinct coupons when each draw is uniform random, the expected draws needed is $n \cdot H_n \approx n \ln n$. The trick is decomposing into geometric waiting times and summing expectations.
 
-**Birthday paradox.** In a group of $n$ people, the probability that at least two share a birthday (out of 365 days) exceeds 50% when $n \geq 23$. The CS version: with $m$ hash slots, expect a collision after roughly $O(\sqrt{m})$ insertions. This is why hash tables need to be sized generously.
+**Birthday paradox.** In a group of $n$ people, the probability that at least two share a birthday (out of 365 days) exceeds 50% when $n \geq 23$. The CS version: with $m$ hash slots, expect a collision after roughly $O(\sqrt{m})$ insertions. This is why [[cs/dsa/hash-tables|hash tables]] need to be sized generously.
 
 ## Related Notes
 

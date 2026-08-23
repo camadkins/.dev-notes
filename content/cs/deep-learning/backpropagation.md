@@ -13,7 +13,7 @@ aliases:
   - reverse-mode-autodiff
 ---
 
-A single unit is easy to train because you can see how each weight touches the output. A deep network is not, because a weight in an early layer influences the loss only through a long chain of later units. To improve that weight with [[gradient-descent]] you need its partial derivative of the loss, and computing all of those derivatives by hand, one per weight, would be hopeless for a network with millions of them. Backpropagation is the bookkeeping that makes it tractable: it computes every gradient in a single organized sweep backward through the network, reusing work at each step.
+A single unit is easy to train because you can see how each weight touches the output. A deep network is not, because a weight in an early layer influences the loss only through a long chain of later units. To improve that weight with [[gradient-descent]] you need its [[cs/math/derivatives-and-gradients|partial derivative]] of the loss, and computing all of those derivatives by hand, one per weight, would be hopeless for a network with millions of them. Backpropagation is the bookkeeping that makes it tractable: it computes every gradient in a single organized sweep backward through the network, reusing work at each step.
 
 > [!note] The idea
 > Backpropagation computes the gradient of the loss $J$ with respect to every weight by applying the chain rule from the output backward to the inputs. Represent the network as a computation graph of simple operations. In one forward pass each node records its value; in one backward pass each node multiplies the gradient arriving from downstream by its own local derivative and passes the product upstream. Because each intermediate result is computed once and reused, the whole gradient costs about as much as the forward pass.
@@ -26,7 +26,7 @@ The forward pass just evaluates the graph left to right on a given input, and ea
 
 ## The Backward Pass
 
-Now walk the graph in reverse. Seed the output with $\frac{\partial J}{\partial J} = 1$. At every node, take the gradient flowing in from its downstream neighbor and multiply by the node's own local derivative. That product is the gradient with respect to the node's inputs, which you then send further upstream. This is nothing more than the chain rule, $\frac{\partial J}{\partial a} = \frac{\partial J}{\partial b}\frac{\partial b}{\partial a}$, applied one edge at a time.
+Now [[cs/dsa/topological-sorting|walk the graph in reverse]]. Seed the output with $\frac{\partial J}{\partial J} = 1$. At every node, take the gradient flowing in from its downstream neighbor and multiply by the node's own local derivative. That product is the gradient with respect to the node's inputs, which you then send further upstream. This is nothing more than the chain rule, $\frac{\partial J}{\partial a} = \frac{\partial J}{\partial b}\frac{\partial b}{\partial a}$, applied one edge at a time.
 
 When a value feeds more than one downstream node, the multivariate chain rule says to sum the contributions along every path from $J$ back to that value. Adding up the paths is the only wrinkle, and it falls out of the same mechanical rule.
 
@@ -34,7 +34,7 @@ When a value feeds more than one downstream node, the multivariate chain rule sa
 
 ## Why It Is Efficient
 
-The reason backpropagation wins is reuse. The gradient at an early layer is built from gradients already computed at later layers, so nothing downstream is recalculated. Once you have $\frac{\partial J}{\partial b}$ for some node, computing $\frac{\partial J}{\partial a}$ for the node feeding it is a single local multiplication, and it does not matter whether that node is near the output or deep inside the network. You can run the process indefinitely backward.
+The reason backpropagation wins is reuse. The gradient at an early layer is built from gradients already computed at later layers, so [[cs/dsa/dynamic-programming|nothing downstream is recalculated]]. Once you have $\frac{\partial J}{\partial b}$ for some node, computing $\frac{\partial J}{\partial a}$ for the node feeding it is a single local multiplication, and it does not matter whether that node is near the output or deep inside the network. You can run the process indefinitely backward.
 
 Formally, backpropagation is a special case of reverse-mode automatic differentiation. This modularity was the breakthrough that revived multilayer networks: David Rumelhart, Geoffrey Hinton, and Ronald Williams popularized the method in their 1986 paper "Learning representations by back-propagating errors" in *Nature*, and it has been the engine of neural network training ever since.
 

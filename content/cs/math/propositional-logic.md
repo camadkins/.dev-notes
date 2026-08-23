@@ -17,7 +17,7 @@ aliases:
 
 ## Starting From True and False
 
-Propositional logic is the smallest interesting logic. It has atomic propositions, each of which is simply true or false, and a handful of operators for gluing them together. That is the entire vocabulary, and it turns out to be enough to model digital circuits, database query conditions, and the branch tests in every program you write.
+Propositional logic is the smallest interesting logic. It has atomic propositions, each of which is simply true or false, and a handful of operators for gluing them together. That is the entire vocabulary, and it turns out to be enough to model [[cs/history/shannon-boolean-algebra-switching|digital circuits]], database query conditions, and the branch tests in every program you write.
 
 A logical connective, in the Wikipedia phrasing, is "an operator that combines or modifies one or more logical variables or formulas." Give it its inputs' truth values and it hands you back a truth value. Nothing about the meaning of the propositions matters, only whether they are true or false.
 
@@ -42,13 +42,13 @@ In classical logic these "connectives are interpreted as truth functions," which
 
 A truth table is a "mathematical table used in logic" that "sets out the functional values of logical expressions on each of their functional arguments." You list every combination of input truth values, evaluate the formula on each row, and read the result. For $n$ distinct variables the table has $2^n$ rows, because each variable independently takes one of two values.
 
-This is the brute-force decision procedure for the whole logic. Any equivalence, any entailment, any question of "is this always true" reduces to filling in a table and inspecting the output column. The cost is the catch: $2^n$ grows fast, and deciding whether a formula can ever be true (the satisfiability problem, SAT) is the canonical NP-complete problem.
+This is the brute-force decision procedure for the whole logic. Any equivalence, any entailment, any question of "is this always true" reduces to filling in a table and inspecting the output column. The cost is the catch: $2^n$ grows fast, and deciding whether a formula can ever be true (the [[cs/dsa/constraint-satisfaction-problems|satisfiability problem]], SAT) is the canonical NP-complete problem.
 
 ## Tautology and Contradiction
 
 Two special shapes of the output column matter most. A **tautology** is a formula "true regardless of the interpretation of its component terms," true on every row of its table. $p \lor \neg p$ is the standard example. A **contradiction** is the opposite, false on every row, like $p \land \neg p$. Everything else, true on some rows and false on others, is contingent.
 
-Tautologies are the theorems of propositional logic. When a compiler folds `x || !x` to `true`, or a query planner drops an always-false filter, it is exploiting exactly this classification. Logical equivalence is a tautology in disguise: $A$ and $B$ are equivalent precisely when $A \leftrightarrow B$ is a tautology.
+Tautologies are the theorems of propositional logic. When a [[cs/pl/intermediate-representations-and-ssa|compiler folds]] `x || !x` to `true`, or a query planner drops an always-false filter, it is exploiting exactly this classification. Logical equivalence is a tautology in disguise: $A$ and $B$ are equivalent precisely when $A \leftrightarrow B$ is a tautology.
 
 > [!example]
 > **Is $(p \to q) \leftrightarrow (\neg p \lor q)$ a tautology?** Build the table over $p, q$:

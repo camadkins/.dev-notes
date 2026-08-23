@@ -71,7 +71,7 @@ If the process variance drifted to $\sigma = 0.03$ mm, the scrap rate would jump
 
 The 68-95-99.7 rule is burned into every engineer's brain for a reason: it lets you eyeball whether data is behaving normally without running a formal test. If roughly 5% of your values fall outside two standard deviations, things are probably fine. If 20% do, something interesting is going on.
 
-In ML, the normal shows up constantly. Weight initialization in neural networks samples from $\mathcal{N}(0, \sigma^2)$ because symmetric, light-tailed starting points help gradient flow. Gaussian Mixture Models are just "what if the data came from $k$ overlapping bell curves?" Variational autoencoders and diffusion models both lean on the normal as a latent prior because it's easy to sample from and has nice analytic properties.
+In ML, the normal shows up constantly. [[cs/deep-learning/weight-initialization|Weight initialization]] in neural networks samples from $\mathcal{N}(0, \sigma^2)$ because symmetric, light-tailed starting points help gradient flow. [[cs/machine-learning/k-means-clustering|Gaussian Mixture Models]] are just "what if the data came from $k$ overlapping bell curves?" [[cs/deep-learning/autoencoders|Variational autoencoders]] and [[cs/deep-learning/diffusion-models|diffusion models]] both lean on the normal as a latent prior because it's easy to sample from and has nice analytic properties.
 
 > [!note]
 > OLS regression assumes $\varepsilon \sim \mathcal{N}(0, \sigma^2)$, which is what justifies $t$-tests on coefficients. If the residuals aren't roughly normal, those p-values you're reading off the regression output may not mean much.

@@ -30,7 +30,7 @@ Where [[supervised-learning]] trains on labeled pairs (input, correct output) an
 
 First, reward is delayed. The move that lost the game may have happened forty turns before the final score arrives, so the learner faces a credit assignment problem: figuring out which earlier decision deserves blame or praise for a reward that shows up late.
 
-Second, the agent has to balance exploration against exploitation. Should it take the action it currently believes is best (exploit), or try something else in case its beliefs are wrong (explore)? A standard compromise is the $\varepsilon$-greedy rule: act greedily most of the time, but with probability $\varepsilon$ pick a random action.
+Second, the agent has to balance exploration against exploitation. Should it take the action it currently believes is best (exploit), or try something else in case its beliefs are wrong (explore)? A standard compromise is the $\varepsilon$-greedy rule: [[cs/dsa/greedy-algorithms|act greedily]] most of the time, but with probability $\varepsilon$ pick a random action.
 
 Third, the agent influences its own training data. Because it chooses the actions, it chooses which states it visits and which experiences it collects. The dataset is not fixed in advance the way a supervised training set is.
 
@@ -52,7 +52,7 @@ Suppose the agent somehow learned $V^*$, the value function of the optimal polic
 
 ## Q-Learning
 
-The fix is to learn a different function. Define $Q(s, a)$ as the expected discounted return of taking action $a$ in state $s$ and acting optimally afterward. If the agent knows $Q$, the optimal action in any state is simply
+The fix is to learn a different function. Define $Q(s, a)$ as the [[cs/statistics/expected-value|expected discounted return]] of taking action $a$ in state $s$ and acting optimally afterward. If the agent knows $Q$, the optimal action in any state is simply
 
 $$\pi^*(s) = \operatorname{argmax}_a Q(s, a)$$
 
@@ -62,7 +62,7 @@ $Q$ obeys a recursive identity, since the value of acting optimally now includes
 
 $$Q(s, a) \leftarrow (1 - \alpha) \, Q(s, a) + \alpha \left( r + \gamma \max_{a'} Q(s', a') \right)$$
 
-where $\alpha$ is a learning rate. In a deterministic world $\alpha = 1$ suffices; with stochastic transitions and rewards, a decaying learning rate averages the noise out. Q-learning was introduced by Chris Watkins in 1989, and Watkins and Dayan published a convergence proof in 1992: for a finite MDP, if every state-action pair is visited infinitely often (with appropriate learning rates), the estimates converge to the true $Q$, and greedy action selection on the learned table is optimal.
+where $\alpha$ is a learning rate. In a deterministic world $\alpha = 1$ suffices; with stochastic transitions and rewards, a decaying learning rate [[cs/statistics/law-of-large-numbers|averages the noise out]]. Q-learning was introduced by Chris Watkins in 1989, and Watkins and Dayan published a convergence proof in 1992: for a finite MDP, if every state-action pair is visited infinitely often (with appropriate learning rates), the estimates converge to the true $Q$, and greedy action selection on the learned table is optimal.
 
 > [!example]
 > A classic toy world: a grid where every move pays reward 0 except entering the goal square, which pays 100, with $\gamma = 0.9$. Suppose the agent moves right into a square whose current action estimates are 66, 81, and 100. The update sets

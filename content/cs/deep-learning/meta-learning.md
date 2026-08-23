@@ -20,7 +20,7 @@ Show a child one picture of an okapi and they will recognize okapis for the rest
 
 ## Why one level up
 
-Every learning algorithm carries an inductive bias, a set of built-in assumptions about the data, and no single bias works well everywhere. Ordinary training fixes the algorithm and fits the data. Meta-learning instead uses experience from many learning episodes to improve the algorithm, a framing the Hospedales et al. survey (2020) uses to distinguish it from solving each task from scratch with a hand-designed learner. The payoff shows up exactly where deep learning is weakest: settings with a data bottleneck, where a big net would simply memorize its handful of examples (the same failure mode that [[regularization-in-deep-learning]] fights within a single task).
+Every learning algorithm carries an [[cs/statistics/bayesian-inference|inductive bias]], a set of built-in assumptions about the data, and no single bias works well everywhere. Ordinary training fixes the algorithm and fits the data. Meta-learning instead uses experience from many learning episodes to improve the algorithm, a framing the Hospedales et al. survey (2020) uses to distinguish it from solving each task from scratch with a hand-designed learner. The payoff shows up exactly where deep learning is weakest: settings with a data bottleneck, where a big net would simply memorize its handful of examples (the same failure mode that [[regularization-in-deep-learning]] fights within a single task).
 
 ## Few-shot learning, the benchmark setting
 

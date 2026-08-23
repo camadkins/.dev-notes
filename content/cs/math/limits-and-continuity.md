@@ -46,9 +46,9 @@ The derivative is defined *as* a limit. The slope of a tangent is the limiting v
 
 $$f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}$$
 
-That quotient is undefined at $h = 0$ (division by zero), which is the whole reason limits exist: they extract the value the expression is heading toward without ever plugging in the forbidden point. A function has to be continuous at a point to be differentiable there, so continuity is the entry ticket to the [[gradient-descent|gradient-based]] optimization that trains models.
+That quotient is undefined at $h = 0$ ([[cs/standards/ieee-754-rounding-and-exceptions|division by zero]]), which is the whole reason limits exist: they extract the value the expression is heading toward without ever plugging in the forbidden point. A function has to be continuous at a point to be differentiable there, so continuity is the entry ticket to the [[gradient-descent|gradient-based]] optimization that trains models.
 
-The second load is convergence. An iterative method converges when the sequence of its outputs has a limit, and the same epsilon-delta logic (for every tolerance, eventually the iterates stay within it) is what "the algorithm converges to the answer" actually means. Whether it is Newton's method, a fixed-point iteration, or gradient descent settling near a minimum, the guarantee is a statement about a limit.
+The second load is convergence. An iterative method converges when the sequence of its outputs has a limit, and the same epsilon-delta logic (for every tolerance, eventually the iterates stay within it) is what "the algorithm converges to the answer" actually means. Whether it is [[cs/dsa/square-root-algorithms|Newton's method]], a fixed-point iteration, or gradient descent settling near a minimum, the guarantee is a statement about a limit.
 
 > [!warning]
 > Continuity does not imply differentiability. A function can be continuous everywhere yet have sharp corners where no single tangent slope exists, and the ReLU activation used across neural networks is exactly this case: continuous but with a kink at zero where the derivative is undefined. Frameworks paper over it by assigning a subgradient at the corner. Continuity buys you "no jumps," not "smooth."

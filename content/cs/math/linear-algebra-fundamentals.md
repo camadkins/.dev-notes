@@ -36,7 +36,7 @@ An $m \times n$ matrix $A$ represents a linear map from $\mathbb{R}^n$ to $\math
 - **Transpose** $A^T$: swaps rows and columns; $(AB)^T = B^T A^T$.
 - **Inverse** $A^{-1}$: exists when $A$ is square and $\det(A) \neq 0$.
 
-A function $T: \mathbb{R}^n \to \mathbb{R}^m$ is linear if $T(\alpha \mathbf{u} + \beta \mathbf{v}) = \alpha T(\mathbf{u}) + \beta T(\mathbf{v})$. Every such transformation can be represented by a matrix. Rotation, scaling, shearing, projection are all linear and compose via matrix multiplication. This is exactly what happens in a graphics pipeline: a vertex $\mathbf{v}$ in object space becomes a pixel via $\mathbf{v}' = P \cdot V \cdot M \cdot \mathbf{v}$, where each matrix is $4 \times 4$ (using homogeneous coordinates so translation becomes linear too). GPUs are essentially massively parallel matrix multiplication engines.
+A function $T: \mathbb{R}^n \to \mathbb{R}^m$ is linear if $T(\alpha \mathbf{u} + \beta \mathbf{v}) = \alpha T(\mathbf{u}) + \beta T(\mathbf{v})$. Every such transformation can be represented by a matrix. Rotation, scaling, shearing, projection are all linear and compose via matrix multiplication. This is exactly what happens in a graphics pipeline: a vertex $\mathbf{v}$ in object space becomes a pixel via $\mathbf{v}' = P \cdot V \cdot M \cdot \mathbf{v}$, where each matrix is $4 \times 4$ (using homogeneous coordinates so translation becomes linear too). GPUs are essentially [[cs/military-computing/illiac-iv-and-parallel-processing|massively parallel]] matrix multiplication engines.
 
 ## Eigenvalues and Eigenvectors
 
@@ -49,7 +49,7 @@ Eigenvalues are roots of the **characteristic polynomial** $\det(A - \lambda I) 
 > [!example]
 > Consider $A = \begin{pmatrix} 2 & 1 \\ 0 & 3 \end{pmatrix}$. The characteristic polynomial is $(2 - \lambda)(3 - \lambda) = 0$, giving eigenvalues $\lambda_1 = 2$ and $\lambda_2 = 3$. For $\lambda_1 = 2$: eigenvector $\mathbf{v}_1 = (1, 0)^T$. For $\lambda_2 = 3$: eigenvector $\mathbf{v}_2 = (1, 1)^T$. The matrix stretches space by factor 2 along $(1,0)$ and by factor 3 along $(1,1)$.
 
-Google's original PageRank is an eigenvector application. The web is modeled as a matrix $M$ where $M_{ij}$ is the probability of following a link from page $j$ to page $i$. The dominant eigenvector (eigenvalue $\lambda = 1$) gives the steady-state page rankings. This is the theorem that made web search work.
+[[cs/history/pagerank-and-web-search|Google's original PageRank]] is an eigenvector application. The web is modeled as a matrix $M$ where $M_{ij}$ is the probability of following a link from page $j$ to page $i$. The dominant eigenvector (eigenvalue $\lambda = 1$) gives the steady-state page rankings. This is the theorem that made web search work.
 
 ## Fundamental Subspaces and Rank
 
@@ -80,14 +80,14 @@ The equation $A\mathbf{x} = \mathbf{b}$ asks: which input $\mathbf{x}$ maps to o
 
 ## SVD: The Swiss Army Knife
 
-**Singular Value Decomposition** factorizes any matrix as $A = U\Sigma V^T$. It's central to dimensionality reduction (PCA), recommendation systems, and data compression.
+**Singular Value Decomposition** factorizes any matrix as $A = U\Sigma V^T$. It's central to [[cs/machine-learning/pca-and-dimensionality-reduction|dimensionality reduction]] (PCA), recommendation systems, and data compression.
 
 Netflix-style recommendations factorize a sparse user-item rating matrix via SVD. The top $k$ singular values and their vectors capture the $k$ most significant latent factors (genre preference, production era, etc.), enabling predictions for unrated items.
 
 ## Computational Notes
 
 - Naive matrix multiplication of two $n \times n$ matrices: $O(n^3)$.
-- Strassen's algorithm: $O(n^{2.807})$.
+- [[cs/dsa/divide-and-conquer|Strassen's algorithm]]: $O(n^{2.807})$.
 - Current best theoretical bound: approximately $O(n^{2.37})$, though practical implementations rarely beat Strassen for typical sizes.
 
 > [!tip]

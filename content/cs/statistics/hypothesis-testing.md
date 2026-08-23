@@ -13,9 +13,9 @@ aliases: []
 
 ## Intuition
 
-Hypothesis testing is a framework for making **decisions from data**. You start with a default assumption (nothing interesting is happening) and ask: is the observed data surprising enough to reject that assumption? It is the statistical equivalent of *proof by contradiction* - assume the boring explanation and see if the evidence forces you to abandon it.
+Hypothesis testing is a framework for making **decisions from data**. You start with a default assumption (nothing interesting is happening) and ask: is the observed data surprising enough to reject that assumption? It is the statistical equivalent of *[[cs/math/proof-techniques|proof by contradiction]]* - assume the boring explanation and see if the evidence forces you to abandon it.
 
-The tension in every test is between two kinds of mistakes: declaring an effect that is not there (false alarm) and missing an effect that is real (missed detection). The entire framework is built around controlling these error rates.
+The tension in every test is between two kinds of mistakes: declaring an effect that is not there ([[cs/security/ids-and-ips|false alarm]]) and missing an effect that is real (missed detection). The entire framework is built around controlling these error rates.
 
 ## Core Idea
 
@@ -80,7 +80,7 @@ When running $m$ tests simultaneously, the probability of at least one false pos
 
 ## Example
 
-**A/B test for click-through rate.** A website tests a new button design against the current one. After $n = 1{,}000$ visitors per group:
+**[[cs/software-engineering/feature-flags-and-trunk-based-development|A/B test]] for click-through rate.** A website tests a new button design against the current one. After $n = 1{,}000$ visitors per group:
 
 - Control: $\hat{p}_1 = 0.12$ (120 clicks)
 - Treatment: $\hat{p}_2 = 0.15$ (150 clicks)
