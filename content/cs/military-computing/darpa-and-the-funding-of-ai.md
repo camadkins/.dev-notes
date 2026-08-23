@@ -20,7 +20,7 @@ Artificial intelligence did not grow in a vacuum, and for most of its history it
 
 ## The Strategic Computing Initiative
 
-From 1983 to 1993, DARPA's Strategic Computing Initiative funded research into advanced computer hardware and artificial intelligence, directed by the Information Processing Technology Office. It set out to develop machine intelligence within a prescribed ten-year window, and it spanned the whole stack, from [[semiconductor-supply-chains|chip design and manufacture]] through computer architecture up to artificial intelligence software.
+From 1983 to 1993, DARPA's Strategic Computing Initiative funded research into [[cs/machine-learning/ai-vs-ml-vs-dl|advanced computer hardware and artificial intelligence]], directed by the Information Processing Technology Office. It set out to develop machine intelligence within a prescribed ten-year window, and it spanned the whole stack, from [[semiconductor-supply-chains|chip design and manufacture]] through [[cs/history/von-neumann-architecture|computer architecture]] up to artificial intelligence software.
 
 ## What it paid for
 
@@ -32,7 +32,7 @@ The money was substantial. By 1985 the initiative had spent 100 million dollars 
 
 ## Why it matters
 
-The artificial intelligence in use today descends in part from work the military paid for when no one else would. The field's long history of soaring ambition followed by disappointment, the so-called AI winters, is in large measure the history of that funding rising and falling. Understanding where AI came from means following the money, and for a long time the money was DARPA's. The questions that raises about who steers the technology are the subject of [[ai-governance|AI governance]].
+[[cs/history/deep-learning-revolution|The artificial intelligence in use today]] descends in part from work the military paid for when no one else would. The field's long history of soaring ambition followed by disappointment, the so-called AI winters, is in large measure the history of that funding rising and falling. Understanding where AI came from means following the money, and for a long time the money was DARPA's. The questions that raises about who steers the technology are the subject of [[ai-governance|AI governance]].
 
 ## Related Notes
 

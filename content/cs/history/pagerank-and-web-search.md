@@ -26,7 +26,7 @@ Page and Brin developed PageRank at Stanford in 1996. A hyperlink to a page coun
 
 ## The mathematics
 
-That recursive definition has a clean solution. The PageRank values are the entries of the dominant eigenvector of the link matrix, rescaled so each column sums to one. Equivalently, picture a random surfer who clicks links forever and occasionally jumps to a random page; a page's rank is the long-run probability the surfer is on it. Eigenvector and random walk are two views of the same answer.
+That recursive definition has a clean solution. The PageRank values are the entries of [[cs/math/eigenvalues-and-eigenvectors|the dominant eigenvector of the link matrix]], rescaled so each column sums to one. Equivalently, picture a random surfer who clicks links forever and occasionally jumps to a random page; a page's rank is [[cs/math/discrete-probability|the long-run probability the surfer is on it]]. Eigenvector and random walk are two views of the same answer.
 
 ## Why it matters
 

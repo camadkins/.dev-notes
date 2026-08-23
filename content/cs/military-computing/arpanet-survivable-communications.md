@@ -12,14 +12,14 @@ aliases:
   - ARPANET
 ---
 
-[[paul-baran-and-packet-switching|Packet switching]] began as an argument on paper about how a network could survive a nuclear strike. ARPANET is where that argument became a running network. Funded by the Defense Department's Advanced Research Projects Agency, it was the first large packet-switched network, and it is the direct technical ancestor of the internet.
+[[paul-baran-and-packet-switching|Packet switching]] began as an argument on paper about how a network could survive a nuclear strike. ARPANET is where that argument became a running network. Funded by the Defense Department's Advanced Research Projects Agency, it was the first large packet-switched network, and it is [[cs/history/history-of-the-internet|the direct technical ancestor of the internet]].
 
 > [!note] The idea
 > Build the survivable, packet-switched network that the theory described, and see it work. ARPANET is the bridge from the concept of packet switching to the global network that grew out of it.
 
 ## From idea to hardware
 
-The intellectual groundwork was already laid. Paul Baran's RAND studies argued for distributed networks that route messages as independent blocks, and packet switching gave a way to do it. ARPA funded the project to actually build such a network among research institutions, turning a survivability concept into wires, machines, and protocols.
+The intellectual groundwork was already laid. Paul Baran's RAND studies argued for distributed networks that [[cs/networking/routing-and-longest-prefix-match|route messages as independent blocks]], and packet switching gave a way to do it. ARPA funded the project to actually build such a network among research institutions, turning a survivability concept into wires, machines, and [[cs/systems/network-protocols|protocols]].
 
 ## The first nodes
 

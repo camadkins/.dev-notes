@@ -20,11 +20,11 @@ A submarine is quiet, but it is not silent. Its machinery makes faint, low-frequ
 
 ## Passive listening at scale
 
-SOSUS, the Sound Surveillance System, was a passive sonar system built to track Soviet submarines. Passive means it only listened; it sent out no ping that could give it away. It consisted of bottom-mounted hydrophone arrays connected by underwater cables to facilities ashore, where the listening and analysis happened.
+SOSUS, the Sound Surveillance System, was a passive sonar system built to track Soviet submarines. Passive means it only listened; [[cs/security/port-scanning-and-network-reconnaissance|it sent out no ping that could give it away]]. It consisted of bottom-mounted hydrophone arrays connected by [[cs/systems/physical-layer-of-the-internet|underwater cables]] to facilities ashore, where the listening and analysis happened.
 
 ## LOFAR, the spectral analyzer
 
-The analysis was done by equipment called the Low Frequency Analyzer and Recorder, or LOFAR, based on AT&T's sound spectrograph and modified to analyze low-frequency underwater sound. A spectrograph takes a stretch of sound and shows how its energy is distributed across frequencies over time. That is spectral analysis: turning a wall of noise into a picture in which structure becomes visible.
+The analysis was done by equipment called the Low Frequency Analyzer and Recorder, or LOFAR, based on AT&T's sound spectrograph and modified to analyze low-frequency underwater sound. A spectrograph takes a stretch of sound and shows how its energy is distributed across frequencies over time. [[cs/machine-learning/features-and-representations|That is spectral analysis]]: turning a wall of noise into a picture in which structure becomes visible.
 
 ## Detection in noise
 

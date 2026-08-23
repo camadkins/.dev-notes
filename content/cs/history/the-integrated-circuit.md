@@ -20,11 +20,11 @@ A [[the-transistor|transistor]] is one switch. A useful computer needs millions 
 
 ## Two inventors
 
-Jack Kilby at Texas Instruments demonstrated the first working integrated circuit on 12 September 1958. About six months later, Robert Noyce at Fairchild Semiconductor developed the first practical monolithic IC, using silicon and the planar process. Noyce's version could be mass-produced, where Kilby's relied on fragile external gold-wire connections, and it is Noyce's approach that the industry built on.
+Jack Kilby at Texas Instruments demonstrated the first working integrated circuit on 12 September 1958. About six months later, Robert Noyce at Fairchild Semiconductor developed the first practical monolithic IC, using silicon and the planar process. [[cs/geopolitics/semiconductor-supply-chains|Noyce's version could be mass-produced]], where Kilby's relied on fragile external gold-wire connections, and it is Noyce's approach that the industry built on.
 
 ## Why it matters
 
-Integration is what turned the transistor from a better tube into the basis of an entire industry. Once a whole circuit could be fabricated on a chip, complexity could grow by improving fabrication rather than by adding parts, which is the engine behind [[moores-law|Moore's law]] and, soon after, the [[the-microprocessor|microprocessor]].
+Integration is what turned the transistor from [[cs/military-computing/anfsq7-and-fault-tolerant-hardware|a better tube]] into the basis of an entire industry. Once a whole circuit could be fabricated on a chip, complexity could grow by improving fabrication rather than by adding parts, which is the engine behind [[moores-law|Moore's law]] and, soon after, the [[the-microprocessor|microprocessor]].
 
 ## The demand behind it
 

@@ -21,11 +21,11 @@ Before 1970, programs reached their data by following pointers through a specifi
 
 ## Codd's model
 
-Edgar F. Codd, working at IBM, set out the relational model in his landmark 1970 paper, having first described it in 1969. Data is represented as tuples grouped into relations, with attributes as columns, tuples as rows, and relations as tables. The whole thing rests on the mathematics of relations, which gives it a firm and simple foundation.
+Edgar F. Codd, working at IBM, set out the relational model in his landmark 1970 paper, having first described it in 1969. Data is represented as tuples grouped into relations, with attributes as columns, tuples as rows, and relations as tables. The whole thing rests on [[cs/math/relations-and-equivalence|the mathematics of relations]], which gives it a firm and simple foundation.
 
 ## Declarative querying
 
-The model provides a declarative method: users directly state what information the database contains and what they want from it, and the database management system works out how to retrieve it. SQL became the language that realized this approach, and decades later it still runs a very large share of the world's data.
+[[cs/languages/common/declarative-models-and-idempotence|The model provides a declarative method]]: users directly state what information the database contains and what they want from it, and [[cs/dsa/bplus-tree|the database management system works out how to retrieve it]]. SQL became the language that realized this approach, and decades later it still runs a very large share of the world's data.
 
 ## Why it matters
 

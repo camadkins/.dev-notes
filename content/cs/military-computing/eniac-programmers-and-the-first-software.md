@@ -12,7 +12,7 @@ aliases:
   - ENIAC programmers
 ---
 
-When ENIAC was finished in the mid 1940s it could calculate an artillery trajectory faster than any machine before it. It could also do nothing at all until someone worked out, in complete detail, how to make it. There was no programming language, no operating system, and no manual. The people who figured it out were six women, and in doing so they turned a pile of switchable hardware into a computer and invented programming as a distinct kind of work.
+When ENIAC was finished in the mid 1940s it could calculate an artillery trajectory faster than any machine before it. It could also do nothing at all until someone worked out, in complete detail, how to make it. There was [[cs/history/fortran-and-high-level-languages|no programming language]], [[cs/history/operating-system-concept-batch-to-interactive|no operating system]], and no manual. The people who figured it out were six women, and in doing so they turned a pile of switchable hardware into a computer and invented programming as a distinct kind of work.
 
 > [!note] The idea
 > Programming is an activity distinct from the hardware: how to compute something is a problem in its own right, separate from the wiring that carries it out.
@@ -31,7 +31,7 @@ A program was not text. It was a physical configuration, set up by plugboard wir
 
 ## Why it counts
 
-Their real invention was conceptual. They separated the program from the machine, treating how to compute something as a problem in its own right, distinct from the wiring that carried it out. That separation is what makes software a thing at all, and it existed in practice before there was a word for it.
+Their real invention was conceptual. [[cs/history/von-neumann-architecture|They separated the program from the machine]], treating how to compute something as a problem in its own right, distinct from the wiring that carried it out. That separation is what makes software a thing at all, and it existed in practice before there was a word for it.
 
 ## Related Notes
 

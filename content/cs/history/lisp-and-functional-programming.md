@@ -13,7 +13,7 @@ aliases:
   - functional programming
 ---
 
-A year after [[fortran-and-high-level-languages|Fortran]], John McCarthy designed a language built on entirely different instincts. Lisp treated computation as the evaluation of expressions over lists, and from that one idea came a remarkable number of concepts the rest of the field would take decades to adopt.
+A year after [[fortran-and-high-level-languages|Fortran]], John McCarthy designed a language built on entirely different instincts. Lisp treated computation as [[cs/languages/Racket/s-expressions-and-evaluation|the evaluation of expressions over lists]], and from that one idea came a remarkable number of concepts the rest of the field would take decades to adopt.
 
 > [!note] The idea
 > Programs and data are the same kind of thing, lists, evaluated recursively. From that single choice flow recursion, symbolic manipulation, and the need for automatic memory management.
@@ -24,7 +24,7 @@ John McCarthy began developing Lisp in 1958 at MIT. It is the second-oldest high
 
 ## What it pioneered
 
-Lisp introduced or popularized a startling list of ideas: recursion, the list as a universal data structure, conditionals, higher-order functions, the read-eval-print loop, and automatic memory management. Garbage collection, the automatic freeing of memory no longer in use, was built for Lisp before 1962, solving a problem that Fortran's simpler model never had.
+Lisp introduced or popularized a startling list of ideas: [[cs/dsa/recursion|recursion]], [[cs/dsa/linked-list|the list as a universal data structure]], conditionals, higher-order functions, the read-eval-print loop, and automatic memory management. [[cs/pl/garbage-collection-concepts|Garbage collection]], the automatic freeing of memory no longer in use, was built for Lisp before 1962, solving a problem that Fortran's simpler model never had.
 
 ## Functional and AI
 

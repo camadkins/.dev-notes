@@ -14,7 +14,7 @@ aliases:
   - slotted ALOHA
 ---
 
-The University of Hawaii had a practical problem in the late 1960s. Its campuses sat on different islands, wired connections between them were impractical, and many terminals needed to reach a central computer over radio. They all had to share one channel. If two stations transmitted at the same instant, their signals collided and both messages were lost. The work that began in September 1968 under Norman Abramson, and went operational in June 1971 as ALOHAnet, answered that problem with a scheme so simple it sounds reckless, and that scheme is the root of how Ethernet and Wi-Fi share a channel today.
+The University of Hawaii had a practical problem in the late 1960s. Its campuses sat on different islands, wired connections between them were impractical, and many terminals needed to reach a central computer over radio. They all had to share one channel. If two stations transmitted at the same instant, their signals collided and both messages were lost. The work that began in September 1968 under Norman Abramson, and went operational in June 1971 as ALOHAnet, answered that problem with a scheme so simple it sounds reckless, and that scheme is the root of how [[cs/standards/ieee-802-3-ethernet|Ethernet]] and [[cs/networking/wifi-and-802-11|Wi-Fi]] share a channel today.
 
 > [!note] The idea
 > Let every station transmit whenever it has data, detect collisions afterward, and retransmit after a random delay. No coordination, just recovery.
@@ -25,7 +25,7 @@ A station with data to send just sends it. It does not listen first and does not
 
 ## Slotted ALOHA
 
-Pure ALOHA wastes capacity, because a collision can happen whenever any two transmissions overlap even slightly. A refinement called slotted ALOHA divides time into fixed slots and requires every station to begin only at the start of a slot. Now two messages either share a slot completely or not at all, which halves the window in which a collision can begin and roughly doubles the best-case throughput to about 36.8 percent of the channel.
+Pure ALOHA wastes capacity, because a collision can happen whenever any two transmissions overlap even slightly. A refinement called slotted ALOHA divides time into fixed slots and requires every station to begin only at the start of a slot. Now two messages either share a slot completely or not at all, which halves the window in which a collision can begin and roughly doubles the best-case throughput to [[cs/statistics/poisson-distribution|about 36.8 percent of the channel]].
 
 ## The lineage
 

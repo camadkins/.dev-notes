@@ -19,11 +19,11 @@ In 1901, divers working a Roman-era shipwreck off the Greek island of Antikyther
 
 ## A calculator of the heavens
 
-The mechanism is an ancient Greek hand-powered device, built in the late second or early first century BC. Turning a crank drove a train of dozens of bronze gears, and it could be used to predict astronomical positions and eclipses decades in advance. For sheer miniaturization and complexity it has no known equal for over a thousand years afterward.
+The mechanism is an ancient Greek hand-powered device, built in the late second or early first century BC. Turning a crank drove a train of dozens of bronze gears, and it could be used to [[cs/math/number-theory-and-modular-arithmetic|predict astronomical positions and eclipses decades in advance]]. For sheer miniaturization and complexity it has no known equal for over a thousand years afterward.
 
 ## Analog, not digital
 
-The mechanism did not count in digits. It modeled. The ratios of its gear teeth embodied the ratios of the astronomical cycles, so advancing the crank advanced a working model of the cosmos. That is the essence of analog computation: a physical system arranged so that its behavior mirrors the mathematics you want to solve. The much later [[ford-rangekeeper-analog-fire-control|naval rangekeeper]] solved its targeting problem the same way, with gears and cams, two millennia on.
+The mechanism did not count in digits. It modeled. The ratios of its gear teeth embodied the ratios of the astronomical cycles, so advancing the crank advanced a working model of the cosmos. That is the essence of analog computation: [[cs/pl/programming-paradigms-models-of-computation|a physical system arranged so that its behavior mirrors the mathematics you want to solve]]. The much later [[ford-rangekeeper-analog-fire-control|naval rangekeeper]] solved its targeting problem the same way, with gears and cams, two millennia on.
 
 ## Why it matters
 

@@ -20,7 +20,7 @@ The central object of computer science, the algorithm, is named after a person. 
 
 ## The House of Wisdom
 
-Al-Khwarizmi, of Persian stock, worked during the Islamic Golden Age at the House of Wisdom in Baghdad around 820, a center of translation and scholarship. His mathematics drew together Greek, Indian, and earlier traditions and pushed them forward.
+Al-Khwarizmi, of Persian stock, worked during the Islamic Golden Age at the House of Wisdom in Baghdad around 820, a center of translation and scholarship. His mathematics drew together [[cs/dsa/euclidean-algorithms|Greek, Indian, and earlier traditions]] and pushed them forward.
 
 ## Two words from one man
 
@@ -28,7 +28,7 @@ His name, Latinized as Algoritmi, became the English words algorism and algorith
 
 ## Step by step
 
-What earns him the connection to computing is method. His systematic approach to solving linear and quadratic equations gave a general recipe: a sequence of steps that works for every problem of a given form, rather than a clever trick for one case. That generality is exactly what an algorithm is.
+What earns him the connection to computing is method. His systematic approach to solving linear and quadratic equations gave a general recipe: [[cs/dsa/algorithm-efficiency|a sequence of steps that works for every problem of a given form]], rather than a clever trick for one case. That generality is exactly what an algorithm is.
 
 ## Forward
 

@@ -14,14 +14,14 @@ aliases:
   - FLOW-MATIC
 ---
 
-In the early 1950s, programming a computer meant writing numeric machine code by hand for one specific machine. Grace Hopper, a U.S. Navy officer who would retire a rear admiral, thought that had it backward. The machine was the thing that was good at tedious, error-prone translation, so the machine should do it. Acting on that conviction, she built some of the first tools that turned human-readable instructions into machine code, and pointed the way to the languages programmers use now.
+In the early 1950s, programming a computer meant writing numeric machine code by hand for one specific machine. Grace Hopper, a U.S. Navy officer who would retire a rear admiral, thought that had it backward. The machine was the thing that was good at tedious, error-prone translation, so the machine should do it. Acting on that conviction, she built some of the first tools that [[cs/pl/compilation-vs-interpretation|turned human-readable instructions into machine code]], and pointed the way to the languages programmers use now.
 
 > [!note] The idea
 > Compilation: people should write in a readable, machine-independent language, and a compiler should do the work of translating it into machine instructions.
 
 ## A program that writes a program
 
-By 1952 Hopper had finished the A-0 system, which she called a compiler. It took named routines and assembled and linked them into runnable machine code, so a programmer could call for a routine by name instead of copying its numbers by hand. The idea that a program could prepare another program for the machine was unfamiliar at the time, and it met resistance from people who assumed computers could only do arithmetic.
+By 1952 Hopper had finished the A-0 system, which she called a compiler. It took named routines and [[cs/languages/Cpp/translation-units-linkage-and-the-build-model|assembled and linked them into runnable machine code]], so a programmer could call for a routine by name instead of copying its numbers by hand. The idea that a program could prepare another program for the machine was unfamiliar at the time, and it met resistance from people who assumed computers could only do arithmetic.
 
 ## Toward English
 
@@ -35,7 +35,7 @@ FLOW-MATIC's ideas carried directly into COBOL, the business-oriented language t
 
 ## What she actually changed
 
-The durable idea is the one she started with: people should write in a readable, machine-independent language, and a compiler should turn that into instructions. Every high-level language since rests on it.
+The durable idea is the one she started with: people should write in a readable, [[cs/languages/common/portability-and-cross-compilation|machine-independent language]], and a compiler should turn that into instructions. Every [[cs/history/fortran-and-high-level-languages|high-level language]] since rests on it.
 
 ## Related Notes
 

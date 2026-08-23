@@ -20,15 +20,15 @@ aliases:
 
 ## The Navy's first digital combat system
 
-The Navy began developing NTDS around a transistorized digital computer in 1956, and first deployed it in the early 1960s. It was a computerized information-processing system at a time when most of the fleet's work was still done by hand, by plot and grease pencil.
+The Navy began developing NTDS around [[cs/history/the-transistor|a transistorized digital computer]] in 1956, and first deployed it in the early 1960s. It was a computerized information-processing system at a time when most of the fleet's work was still done by hand, by plot and grease pencil.
 
 ## Sensor fusion
 
-The heart of NTDS was combination. It took reports from multiple sensors on different ships and aircraft and collated them into a single unified map of the battlespace. Merging many noisy, partial views into one coherent picture is sensor fusion, and it remains a central problem in combat systems and in autonomous machines today.
+The heart of NTDS was combination. It took reports from multiple sensors on different ships and aircraft and collated them into a single unified map of the battlespace. [[cs/statistics/bayesian-inference|Merging many noisy, partial views into one coherent picture]] is sensor fusion, and it remains a central problem in combat systems and in autonomous machines today.
 
 ## Sharing the picture
 
-NTDS did not keep that picture on one ship. Over radio data links, ships shared what their sensors gathered, so an entire task force could see one common map rather than each vessel seeing only what its own radar reached. A shared real-time picture across a moving, distributed group of platforms was a genuinely hard thing to build in the early 1960s.
+NTDS did not keep that picture on one ship. Over radio data links, ships shared what their sensors gathered, [[cs/systems/consistency-models|so an entire task force could see one common map]] rather than each vessel seeing only what its own radar reached. A shared real-time picture across a moving, distributed group of platforms was a genuinely hard thing to build in the early 1960s.
 
 ## Lineage
 

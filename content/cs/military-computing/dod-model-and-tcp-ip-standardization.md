@@ -20,7 +20,7 @@ A protocol is a contract. For two machines to communicate they must agree on the
 
 ## Four layers
 
-The DoD model, the ancestor of what is now called the internet model, sorts the rules into four layers. The link layer moves bits between two directly connected machines. The internet layer, which is the Internet Protocol, gets a packet across many networks toward an address. The transport layer, chiefly the Transmission Control Protocol, turns that best-effort delivery into an ordered, reliable stream. The application layer is where the actual work lives, such as the web or email.
+The DoD model, the ancestor of [[cs/networking/osi-and-tcp-ip-models|what is now called the internet model]], sorts the rules into four layers. The link layer moves bits between two directly connected machines. The internet layer, which is [[cs/networking/ip-addressing-and-subnetting|the Internet Protocol]], gets a packet across many networks toward an address. The transport layer, chiefly [[cs/networking/tcp-vs-udp|the Transmission Control Protocol]], turns that best-effort delivery into an ordered, reliable stream. The application layer is where the actual work lives, such as [[cs/history/world-wide-web|the web]] or email.
 
 ![The four layers of the DoD model, with an example protocol at each level.](assets/dod-four-layer-model.svg)
 

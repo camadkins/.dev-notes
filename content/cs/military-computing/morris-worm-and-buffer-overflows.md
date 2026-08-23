@@ -13,24 +13,24 @@ aliases:
   - buffer overflow
 ---
 
-On the night of November 2, 1988, a program written by a graduate student spread across the early internet and brought a large part of it to a standstill. The Morris worm was the first internet worm to cause serious disruption, and the flaw it rode is, decades later, still one of the most exploited classes of bug in all of computing.
+On the night of November 2, 1988, a program written by a graduate student spread across the early internet and brought a large part of it to a standstill. The Morris worm was [[cs/security/malware-classes|the first internet worm]] to cause serious disruption, and the flaw it rode is, decades later, still one of the most exploited classes of bug in all of computing.
 
 > [!note] The idea
 > A buffer overflow. When a program copies input into a fixed-size buffer without checking the length, an attacker can supply input that runs past the buffer and overwrites adjacent memory, including the address the program will jump to when the current function returns. Control of that address is control of the program.
 
 ## What happened
 
-Robert Tappan Morris, a Cornell graduate student, launched the worm on November 2, 1988, releasing it from a machine at MIT to disguise where it had come from. It spread by exploiting a buffer overflow in the [[unix-and-open-source|Unix]] fingerd network service, along with a debug feature left enabled in the sendmail mail program, copying itself from one machine to the next.
+Robert Tappan Morris, a Cornell graduate student, launched the worm on November 2, 1988, releasing it from a machine at MIT to disguise where it had come from. It spread by exploiting [[cs/security/buffer-overflows|a buffer overflow]] in the [[unix-and-open-source|Unix]] fingerd network service, along with a debug feature left enabled in the sendmail mail program, copying itself from one machine to the next.
 
 ## The damage
 
 ![A buffer overflow: input longer than the buffer runs past it and overwrites the saved return address, redirecting the program.](assets/buffer-overflow-stack.svg)
 
-The worm infected around 6,000 machines, roughly ten percent of the computers then connected to the internet. It was not designed to destroy data, but a flaw in how it checked for copies of itself made it reinfect machines over and over, and the multiplying copies clogged systems until they were unusable.
+The worm infected around 6,000 machines, roughly ten percent of the computers then connected to the internet. It was not designed to destroy data, but a flaw in how it checked for copies of itself made it reinfect machines over and over, and the multiplying copies [[cs/security/denial-of-service-and-ddos|clogged systems until they were unusable]].
 
 ## What changed
 
-The disruption was a wake-up call for a network that had been built among people who trusted each other. The Morris worm prompted [[darpa-and-the-funding-of-ai|DARPA]] to fund the CERT Coordination Center at Carnegie Mellon University, giving the internet a central point for coordinating responses to security emergencies. Coordinated incident response, now an entire profession, traces directly to this night.
+The disruption was a wake-up call for a network that had been built among people who trusted each other. The Morris worm prompted [[darpa-and-the-funding-of-ai|DARPA]] to fund the CERT Coordination Center at Carnegie Mellon University, giving the internet a central point for coordinating responses to security emergencies. Coordinated [[cs/security/incident-response-lifecycle|incident response]], now an entire profession, traces directly to this night.
 
 ## Related Notes
 

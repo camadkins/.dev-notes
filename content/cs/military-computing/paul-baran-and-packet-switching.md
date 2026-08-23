@@ -22,7 +22,7 @@ Paul Baran, a young engineer at the RAND Corporation, spent the early 1960s work
 
 ## Survivability as a design constraint
 
-Baran started from a question about topology, the shape of the connections rather than the equipment hanging off them. He sketched three kinds of network and asked how much damage each could absorb.
+Baran started from a question about [[cs/math/graph-theory|topology, the shape of the connections]] rather than the equipment hanging off them. He sketched three kinds of network and asked how much damage each could absorb.
 
 ![Three network topologies from Baran's 1964 work: centralized, decentralized, and distributed.](assets/baran-network-topologies.svg)
 
@@ -34,7 +34,7 @@ Redundant topology was half the idea. The other half was what travels across it.
 
 Traditional telephony built a single dedicated circuit and held it open for the length of a call. That circuit is a fixed path, and a fixed path through a damaged network is exactly the thing that breaks. Baran proposed cutting every message into small pieces of a standard size, which he called message blocks, and sending each piece on its own. Donald Davies, working independently at the National Physical Laboratory in the United Kingdom, reached the same scheme and named the unit it cut messages into: the packet.
 
-Each packet carries its own destination address. The nodes keep no fixed routes. Every node instead behaves like a small post office. It reads a packet's address, checks which of its links are working at that moment, and forwards the packet one hop closer to where it is going. Baran called this hot-potato routing, since no node holds a packet for long. If a link drops mid-transmission, later packets simply take a different sequence of hops. The network reroutes itself, in flight, with no central authority deciding anything.
+Each packet carries its own destination address. The nodes keep no fixed routes. Every node instead behaves like a small post office. It reads a packet's address, checks which of its links are working at that moment, and forwards the packet [[cs/networking/routing-and-longest-prefix-match|one hop closer to where it is going]]. Baran called this hot-potato routing, since no node holds a packet for long. If a link drops mid-transmission, later packets simply take a different sequence of hops. The network reroutes itself, in flight, with no central authority deciding anything.
 
 ## A packet finding its way
 
@@ -45,13 +45,13 @@ Each packet carries its own destination address. The nodes keep no fixed routes.
 >
 > Nothing in that story needed a working map of the whole network. Each node made a local decision from local information.
 
-That last property is what makes the system survivable, and it is the same property that lets the modern internet route around a severed undersea cable with no human in the loop.
+That last property is what makes the system survivable, and it is the same property that lets the modern internet route around [[cs/systems/physical-layer-of-the-internet|a severed undersea cable]] with no human in the loop.
 
 ## What the idea bought, and what it cost
 
 Packet switching delivered three things together. It gave survivability, because no single point is fatal to lose. It gave efficiency, because many conversations share the same links, each link carrying packets from whichever flows happen to have traffic at that instant rather than sitting idle inside a reserved circuit. That sharing is called statistical multiplexing, and it is why a packet network carries far more conversations per wire than a circuit network of the same size.
 
-The cost lands on the receiver. Packets can arrive out of order, can be duplicated, and can be dropped when a node's queue fills. A circuit, once established, hands over a clean ordered stream; a packet network hands over a pile of fragments and makes reassembly and retransmission someone else's problem. Solving that problem is exactly what the transport protocols layered on top, [[dod-model-and-tcp-ip-standardization|TCP]] chief among them, were later built to do.
+The cost lands on the receiver. Packets can arrive out of order, can be duplicated, and can be [[cs/networking/tcp-congestion-control|dropped when a node's queue fills]]. A circuit, once established, hands over a clean ordered stream; a packet network hands over a pile of fragments and makes reassembly and retransmission someone else's problem. Solving that problem is exactly what the transport protocols layered on top, [[dod-model-and-tcp-ip-standardization|TCP]] chief among them, were later built to do.
 
 Baran joined RAND in 1959, and his designs were published as the eleven-volume series On Distributed Communications in 1964, then set aside for a few years. The idea came back at the end of the decade in the network the Defense Department actually built, the ARPANET, whose first node was installed at UCLA in 1969. The line from a Cold War survivability study to the device rendering this page is direct and unbroken.
 

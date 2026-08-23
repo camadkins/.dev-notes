@@ -29,11 +29,11 @@ The foundational insight came independently from Paul Baran (RAND Corporation, 1
 - Packets travel independently through the network, potentially along different routes.
 - The destination reassembles packets in order.
 
-Packet switching uses network capacity more efficiently than circuit switching and survives node failures gracefully - if one router goes down, packets route around it.
+[[cs/military-computing/paul-baran-and-packet-switching|Packet switching]] uses network capacity more efficiently than circuit switching and survives node failures gracefully - if one router goes down, packets route around it.
 
 ### ARPANET (1969)
 
-The US Advanced Research Projects Agency (ARPA) funded the first packet-switched network. Key milestones:
+The US Advanced Research Projects Agency (ARPA) [[cs/military-computing/arpanet-survivable-communications|funded the first packet-switched network]]. Key milestones:
 
 - **1969**: First message sent between UCLA and Stanford Research Institute - the system crashed after transmitting "LO" (of "LOGIN").
 - **1970**: ARPANET connected four nodes (UCLA, SRI, UC Santa Barbara, University of Utah).
@@ -54,7 +54,7 @@ On January 1, 1983 ("Flag Day"), ARPANET switched from NCP to TCP/IP. This is of
 
 ### DNS (1983–1984)
 
-As the network grew, remembering numeric IP addresses became impractical. Paul Mockapetris designed the **Domain Name System**:
+As the network grew, remembering numeric IP addresses became impractical. Paul Mockapetris designed the **[[cs/systems/dns-the-domain-name-system|Domain Name System]]**:
 
 - A distributed, hierarchical database mapping human-readable names (e.g., `mit.edu`) to IP addresses.
 - Root servers, TLD servers (.com, .org, .edu), and authoritative name servers form the hierarchy.
@@ -93,8 +93,8 @@ Throughout this evolution, the core design - packet switching, layered protocols
 You type `https://example.com` into a browser. Here is what happens, layer by layer:
 
 1. **DNS resolution**: The browser asks a DNS resolver for the IP address of `example.com`. The resolver queries root, TLD, and authoritative servers as needed, caching results.
-2. **TCP connection**: The browser opens a TCP connection to the resolved IP (three-way handshake: SYN, SYN-ACK, ACK).
-3. **TLS handshake**: Since the URL uses `https`, a TLS session is negotiated for encryption.
+2. **TCP connection**: The browser opens a TCP connection to the resolved IP ([[cs/networking/tcp-three-way-handshake|three-way handshake]]: SYN, SYN-ACK, ACK).
+3. **TLS handshake**: Since the URL uses `https`, [[cs/systems/tls-and-the-https-handshake|a TLS session is negotiated for encryption]].
 4. **HTTP request**: The browser sends `GET / HTTP/1.1` (or an HTTP/2 stream) with headers.
 5. **Server response**: The server returns an HTML document with status 200.
 6. **Rendering**: The browser parses HTML, fetches linked resources (CSS, JS, images) - each requiring its own DNS/TCP/HTTP cycle - and renders the page.

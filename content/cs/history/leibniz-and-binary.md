@@ -20,7 +20,7 @@ Gottfried Leibniz did more than build a [[pascaline-and-stepped-reckoner|calcula
 
 ## Two symbols
 
-Binary represents the natural numbers using only 0 and 1. Each position is a power of two, so a string of bits is a sum of the powers whose bit is 1.
+Binary represents the natural numbers using only 0 and 1. [[cs/math/logarithms-and-exponentials|Each position is a power of two]], so [[cs/dsa/bitwise-operations|a string of bits is a sum of the powers whose bit is 1]].
 
 ![Binary place values: the bits 1101 stand for 8 + 4 + 1, which is 13.](assets/binary-place-values.svg)
 
@@ -30,7 +30,7 @@ Leibniz is credited with the invention of the modern binary system. He wrote mor
 
 ## Why it won
 
-Binary had to wait a long time to matter. Its decisive advantage is physical: two symbols match two-state devices exactly, first relays, then transistors, where decimal would need ten distinguishable levels and far more fragile hardware. Almost all modern computers use binary for this reason. Paired with [[boole-and-boolean-algebra|Boole's two-valued logic]], it is half of what [[shannon-boolean-algebra-switching|Shannon]] later wired into circuits.
+Binary had to wait a long time to matter. Its decisive advantage is physical: two symbols match two-state devices exactly, first relays, then transistors, where decimal would need ten distinguishable levels and far more fragile hardware. [[cs/standards/ieee-754-floating-point|Almost all modern computers use binary]] for this reason. Paired with [[boole-and-boolean-algebra|Boole's two-valued logic]], it is half of what [[shannon-boolean-algebra-switching|Shannon]] later wired into circuits.
 
 ## Related Notes
 

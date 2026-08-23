@@ -13,14 +13,14 @@ aliases:
   - high-level language
 ---
 
-In the 1950s, programming meant assembly language: writing the processor's own instructions by hand. Fortran changed that. It proved a compiler could turn human-readable code into machine code efficient enough that even the assembly programmers would accept it.
+In the 1950s, [[cs/pl/levels-of-artificial-languages|programming meant assembly language]]: writing the processor's own instructions by hand. Fortran changed that. It proved [[cs/pl/compilation-vs-interpretation|a compiler could turn human-readable code into machine code]] efficient enough that even the assembly programmers would accept it.
 
 > [!note] The idea
 > Write in a high-level notation close to ordinary mathematics, and let a compiler translate it into efficient machine instructions. The programmer thinks in formulas; the machine still receives optimized code.
 
 ## The IBM team
 
-Fortran was developed at IBM by a team led by John Backus, and it first appeared in 1957, with the first compiler delivered that April. The goal was a practical alternative to assembly for the numerically intensive work scientists and engineers needed.
+Fortran was developed at IBM by a team led by John Backus, and it first appeared in 1957, with the first compiler delivered that April. The goal was a practical alternative to assembly for [[cs/standards/ieee-754-floating-point|the numerically intensive work scientists and engineers needed]].
 
 ## Why it mattered
 

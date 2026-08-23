@@ -13,7 +13,7 @@ aliases:
   - Semi-Automatic Ground Environment
 ---
 
-After the Soviet Union tested an atomic bomb, the United States needed to detect incoming bombers and direct a response in the few minutes available. No batch-processing computer of the day could touch that problem. SAGE, the Semi-Automatic Ground Environment, was built to solve it, and in doing so it pioneered real-time, interactive, and networked computing a generation before any of those were ordinary.
+After the Soviet Union tested an atomic bomb, the United States needed to detect incoming bombers and direct a response in the few minutes available. No [[cs/history/operating-system-concept-batch-to-interactive|batch-processing computer]] of the day could touch that problem. SAGE, the Semi-Automatic Ground Environment, was built to solve it, and in doing so it pioneered real-time, interactive, and networked computing a generation before any of those were ordinary.
 
 > [!note] The idea
 > Computing that reacts within a hard deadline, driven by live sensor data and a human operator, with sites tied together over wires. Real-time, interactive, and networked, all at once, in the 1950s.
@@ -28,11 +28,11 @@ The processing power behind SAGE was supplied by the AN/FSQ-7, the largest discr
 
 ## Real-time and interactive
 
-From the raw radar data, the computers developed tracks for the reported targets and automatically calculated which defenses were in range. Operators used light guns to select targets on the screen for further information, pointing at a glowing display to interrogate the machine. A person pointing at a CRT to query a computer in real time was, in the 1950s, almost science fiction, and it is a direct ancestor of interactive computing.
+From the raw radar data, the computers developed tracks for the reported targets and automatically calculated which defenses were in range. Operators used [[cs/history/xerox-parc-and-the-gui|light guns to select targets on the screen]] for further information, pointing at a glowing display to interrogate the machine. A person pointing at a CRT to query a computer in real time was, in the 1950s, almost science fiction, and it is a direct ancestor of [[cs/history/engelbart-and-interactive-computing|interactive computing]].
 
 ## Networked
 
-SAGE was not one computer but many sites working together. Connecting the various radar stations and direction centers was an enormous network of telephones, modems, and teleprinters, with modems at automated radar stations transmitting range and azimuth to the centers. Moving digital data between distant computers over telephone lines was a foundational step toward the networked world.
+SAGE was not one computer but many sites working together. Connecting the various radar stations and direction centers was an enormous network of telephones, modems, and teleprinters, with modems at automated radar stations transmitting range and azimuth to the centers. [[cs/systems/physical-layer-of-the-internet|Moving digital data between distant computers over telephone lines]] was a foundational step toward the networked world.
 
 ## Legacy
 

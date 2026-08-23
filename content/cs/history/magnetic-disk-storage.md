@@ -25,13 +25,13 @@ The IBM 305 RAMAC, announced in 1956, was the first commercial computer with a m
 
 ## Sequential versus random
 
-Tape is sequential: to reach the millionth record you must pass the first 999,999. A disk is random-access: the head moves directly to the track that holds what you want. That difference is the line between batch processing of whole files and interactive lookup of single records, and it made real-time business computing possible.
+Tape is sequential: [[cs/dsa/linked-list|to reach the millionth record you must pass the first 999,999]]. A disk is random-access: the head moves directly to the track that holds what you want. That difference is the line between batch processing of whole files and interactive lookup of single records, and it made real-time business computing possible.
 
 ![The memory hierarchy: small and fast at the top (registers, cache), large and slow at the bottom (disk, tape), with disk the random-access middle.](assets/memory-hierarchy.svg)
 
 ## The memory hierarchy
 
-Disk took its place in a hierarchy: fast, small, expensive memory such as [[whirlwind-and-core-memory|magnetic core]], and later RAM, on top, and slow, large, cheap storage such as tape at the bottom, with random-access disk in between. That layering still governs how systems are built, from CPU caches down to cloud object stores, and it shapes the design of [[file-systems|file systems]] and databases to this day.
+[[cs/systems/memory-hierarchy-and-caching|Disk took its place in a hierarchy]]: fast, small, expensive memory such as [[whirlwind-and-core-memory|magnetic core]], and later RAM, on top, and slow, large, cheap storage such as tape at the bottom, with random-access disk in between. That layering still governs how systems are built, from CPU caches down to cloud object stores, and it shapes the design of [[file-systems|file systems]] and [[cs/dsa/bplus-tree|databases]] to this day.
 
 ## Related Notes
 

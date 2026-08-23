@@ -13,7 +13,7 @@ aliases:
   - IMP
 ---
 
-When the ARPANET was being built at the end of the 1960s, the hard part was not the long-distance lines. It was the question of what sits at each site between a local computer and the network. The host computers of the day were expensive, incompatible, and busy. Asking each one to also handle routing for everyone else was a bad plan. Bolt Beranek and Newman, the firm that won the contract, answered with a separate machine whose only job was to move packets. They called it the Interface Message Processor, and it is the direct ancestor of the router.
+When the ARPANET was being built at the end of the 1960s, the hard part was not [[cs/systems/physical-layer-of-the-internet|the long-distance lines]]. It was the question of what sits at each site between a local computer and the network. The host computers of the day were expensive, incompatible, and busy. Asking each one to also handle routing for everyone else was a bad plan. Bolt Beranek and Newman, the firm that won the contract, answered with a separate machine whose only job was to move packets. They called it the Interface Message Processor, and it is the direct ancestor of the router.
 
 > [!note] The idea
 > A router is a dedicated machine that reads a packet's destination and forwards it onward, independent of the hosts it serves. The IMP was the first of them.
@@ -28,7 +28,7 @@ BBN described the IMP plainly as a messenger that would store and forward. A pac
 
 ## Why it counts as the first router
 
-A router is exactly this: a dedicated device that reads a packet's destination and forwards it toward that destination, independent of the hosts it serves. The IMP drew that boundary for the first time. Wikipedia's own summary is blunt about the lineage, calling the IMP "the first generation of gateways, which are known today as routers." Every router since has been a faster, smaller version of the machine BBN rolled into UCLA on a hand truck in 1969.
+A router is exactly this: a dedicated device that [[cs/networking/routing-and-longest-prefix-match|reads a packet's destination and forwards it toward that destination]], independent of the hosts it serves. The IMP drew that boundary for the first time. Wikipedia's own summary is blunt about the lineage, calling the IMP "the first generation of gateways, which are known today as routers." Every router since has been a faster, smaller version of the machine BBN rolled into UCLA on a hand truck in 1969.
 
 ## Related Notes
 

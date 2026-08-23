@@ -13,14 +13,14 @@ aliases:
   - public-key cryptography
 ---
 
-Until the mid 1970s, secret communication had a chicken-and-egg problem. To send an encrypted message you and the recipient had to already share a secret key, and the only fully secure way to share a key was the impractical one that [[perfect-secrecy-and-the-one-time-pad|perfect secrecy]] demands. RSA broke the cycle. It lets two people who have never met exchange secret messages without ever sharing a secret in advance, and it does so by leaning on a problem mathematicians believe is genuinely hard.
+Until the mid 1970s, secret communication had a chicken-and-egg problem. To send an encrypted message you and the recipient had to already share a secret key, and the only fully secure way to share a key was the impractical one that [[perfect-secrecy-and-the-one-time-pad|perfect secrecy]] demands. RSA broke the cycle. It lets two people who have never met exchange secret messages [[cs/security/diffie-hellman-and-key-exchange|without ever sharing a secret in advance]], and it does so by leaning on a problem mathematicians believe is genuinely hard.
 
 > [!note] The idea
 > Split the key in two. A public half, which anyone may use to encrypt a message to you, and a private half, which only you hold and which alone can decrypt. Security rests not on hiding a shared key but on a computation that is easy in one direction and infeasible to reverse.
 
 ## Public and private keys
 
-RSA was publicly described in 1977 by Ron Rivest, Adi Shamir, and Leonard Adleman, whose initials name it. In their scheme a user's private key is a pair of large prime numbers, chosen at random and kept secret. The matching public key is the product of those primes, which the user can publish freely. Anyone can encrypt a message using the public product. Only the holder of the two primes can undo it.
+RSA was publicly described in 1977 by Ron Rivest, Adi Shamir, and Leonard Adleman, whose initials name it. In their scheme a user's private key is a pair of [[cs/math/number-theory-and-modular-arithmetic|large prime numbers]], [[cs/security/cryptographically-secure-randomness|chosen at random]] and kept secret. The matching public key is the product of those primes, which the user can publish freely. Anyone can encrypt a message using the public product. Only the holder of the two primes can undo it.
 
 ## Why factoring
 
@@ -28,7 +28,7 @@ The whole thing rests on an asymmetry. Multiplying two large primes together is 
 
 ## Computational, not perfect
 
-RSA is not unbreakable in the way a one-time pad is. It is computationally secure. A code-breaker who could factor the product, or who waited for a fast enough computer, could in principle break it. The bet is that no such computation is feasible in any useful timeframe. Trading the absolute guarantee of perfect secrecy for that practical bet is exactly what made secret communication possible at the scale of the modern world.
+RSA is not unbreakable in the way a one-time pad is. It is computationally secure. A code-breaker who could factor the product, or who [[cs/security/post-quantum-cryptography|waited for a fast enough computer]], could in principle break it. The bet is that no such computation is feasible in any useful timeframe. Trading the absolute guarantee of perfect secrecy for that practical bet is exactly what made secret communication possible at the scale of the modern world.
 
 ## Related Notes
 

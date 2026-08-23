@@ -19,7 +19,7 @@ In December 1947, three physicists at Bell Labs made a sliver of germanium ampli
 
 ## The invention
 
-John Bardeen and Walter Brattain, working under William Shockley at Bell Labs, observed transistor action between 17 November and 23 December 1947; the three shared the 1956 Nobel Prize in Physics. A transistor is a semiconductor device that amplifies or switches electrical signals, and it is now considered one of the twentieth century's greatest inventions.
+John Bardeen and Walter Brattain, working under William Shockley at Bell Labs, observed transistor action between 17 November and 23 December 1947; the three shared the 1956 Nobel Prize in Physics. [[cs/geopolitics/semiconductor-supply-chains|A transistor is a semiconductor device]] that amplifies or switches electrical signals, and it is now considered one of the twentieth century's greatest inventions.
 
 ![A transistor as a switch: a signal on the control terminal decides whether current flows, encoding a 1 or a 0.](assets/transistor-as-switch.svg)
 
@@ -29,7 +29,7 @@ Compared with the vacuum tube, transistors are smaller, cheaper, and need far le
 
 ## The building block
 
-The transistor is the key active component in practically all modern electronics. Everything above it is built from transistors acting as switches: the [[boole-and-boolean-algebra|logic gates]] that [[shannon-boolean-algebra-switching|Shannon]] showed how to design, and from those gates, processors and memory.
+The transistor is the key active component in practically all modern electronics. Everything above it is [[cs/dsa/bitwise-operations|built from transistors acting as switches]]: the [[boole-and-boolean-algebra|logic gates]] that [[shannon-boolean-algebra-switching|Shannon]] showed how to design, and from those gates, processors and memory.
 
 ## Related Notes
 

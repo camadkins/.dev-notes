@@ -13,7 +13,7 @@ aliases:
   - ECM Mark II
 ---
 
-Rotor cipher machines were the strongest practical encryption of the Second World War, and most of them were broken. Enigma is the famous case. The principal American machine, SIGABA, was not broken, and the difference comes down to a single idea about how the machine moves.
+Rotor cipher machines were [[cs/security/symmetric-vs-asymmetric-cryptography|the strongest practical encryption]] of the Second World War, and most of them were broken. Enigma is the famous case. The principal American machine, SIGABA, was not broken, and the difference comes down to a single idea about how the machine moves.
 
 > [!note] The idea
 > A rotor machine is only as strong as the pattern in which its rotors turn. Enigma turned its rotors in a regular, predictable way. SIGABA turned them irregularly, in a pseudorandom pattern, which removed the regularity that codebreakers exploited.
@@ -24,7 +24,7 @@ A rotor machine encrypts each letter by passing it through a stack of wired whee
 
 ## Irregular stepping
 
-SIGABA, also known as the ECM Mark II, was designed by William Friedman and Frank Rowlett to advance its main rotors in a complex, pseudorandom fashion rather than a regular one. The wheels still turned, but when and which ones turned was hard to predict, so the attacks that broke machines with simpler stepping became far harder. The machine bought its strength not from more rotors but from less predictable motion.
+SIGABA, also known as the ECM Mark II, was designed by William Friedman and Frank Rowlett to advance its main rotors in a complex, [[cs/security/cryptographically-secure-randomness|pseudorandom fashion]] rather than a regular one. The wheels still turned, but when and which ones turned was hard to predict, so the attacks that broke machines with simpler stepping became far harder. The machine bought its strength not from more rotors but from less predictable motion.
 
 ## Never broken
 

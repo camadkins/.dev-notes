@@ -20,15 +20,15 @@ By the mid 1970s the Defense Department had a software sprawl problem. Hundreds 
 
 ## The working group
 
-In 1975 the High Order Language Working Group formed to reduce that count. Rather than crown an existing language, it wrote a detailed list of requirements and ran a competition among proposals. The winning design became Ada, named for Ada Lovelace.
+In 1975 the High Order Language Working Group formed to reduce that count. Rather than crown an existing language, it wrote a detailed list of requirements and ran a competition among proposals. The winning design became Ada, [[cs/history/babbage-engines-and-lovelace|named for Ada Lovelace]].
 
 ## Built for large, long-lived, critical systems
 
-Ada was shaped by what military software has to be: large, long-lived, and unforgiving of error. It is strongly typed, so the compiler rejects whole categories of mistakes before the program ever runs. It has explicit concurrency built into the language, with tasks and synchronous message passing, rather than bolted on through libraries. The bias throughout is to catch problems early, where they are cheap, instead of in the field, where they are not.
+Ada was shaped by what military software has to be: large, long-lived, and unforgiving of error. It is [[cs/pl/type-systems-goals-guarantees|strongly typed]], so the compiler rejects whole categories of mistakes before the program ever runs. It has explicit concurrency built into the language, [[cs/pl/concurrency-models-threads-locks-and-actors|with tasks and synchronous message passing]], rather than bolted on through libraries. The bias throughout is to catch problems early, where they are cheap, instead of in the field, where they are not.
 
 ## MIL-STD-1815
 
-The reference manual was approved on December 10, 1980, which is Ada Lovelace's birthday, and given the number MIL-STD-1815 in honor of her birth year. A language standard with a date and a number turned Ada from a design into a mandate.
+The reference manual was approved on December 10, 1980, which is Ada Lovelace's birthday, and [[cs/standards/standards-in-procurement-and-defense-acquisition|given the number MIL-STD-1815]] in honor of her birth year. A language standard with a date and a number turned Ada from a design into a mandate.
 
 ## Did the mandate work
 

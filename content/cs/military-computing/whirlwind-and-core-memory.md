@@ -29,11 +29,11 @@ Early storage, such as electrostatic tubes, was slow and unreliable, and it was 
 
 ![A magnetic-core memory plane. A core flips only where an X wire and a Y wire each carry half the needed current, so the pair selects exactly one bit.](assets/core-memory-plane.svg)
 
-Selecting one core uses a trick called coincident currents. Run half of the current needed to flip a core along one horizontal wire, and half along one vertical wire. Only the single core sitting at the intersection of those two wires receives the full current, so only that one flips. Any bit in the plane can be reached directly by choosing its row and column wire, which makes this random-access memory: every location costs the same to read.
+Selecting one core uses a trick called coincident currents. Run half of the current needed to flip a core along one horizontal wire, and half along one vertical wire. Only the single core sitting at the intersection of those two wires receives the full current, so only that one flips. Any bit in the plane can be reached directly [[cs/dsa/multidimensional-arrays|by choosing its row and column wire]], which makes this random-access memory: [[cs/systems/memory-hierarchy-and-caching|every location costs the same to read]].
 
 ## Legacy
 
-Magnetic-core memory was reliable and fast enough that it became the standard main memory of computers into the 1970s, which is why older programmers still say "core" for memory. Whirlwind's design also carried forward directly. Its successor, Whirlwind II, became the basis for the [[sage-and-real-time-systems|SAGE]] air-defense system.
+Magnetic-core memory was reliable and fast enough that it became [[cs/history/the-mosfet|the standard main memory of computers into the 1970s]], which is why older programmers still say "core" for memory. Whirlwind's design also carried forward directly. Its successor, Whirlwind II, became the basis for the [[sage-and-real-time-systems|SAGE]] air-defense system.
 
 ## Related Notes
 

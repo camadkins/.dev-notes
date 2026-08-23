@@ -21,17 +21,17 @@ For most of computing history, to run programs at scale you bought and racked th
 
 ## On demand and metered
 
-Cloud computing provides a scalable, elastic pool of computing resources with self-service provisioning on demand. Providers typically bill on a utility basis, where the cost reflects the resources allocated and consumed. You pay for what you use, the way you pay for electricity, rather than buying a power plant.
+Cloud computing provides a scalable, elastic pool of computing resources with self-service provisioning on demand. [[cs/geopolitics/compute-as-a-governable-resource|Providers typically bill on a utility basis]], where the cost reflects the resources allocated and consumed. You pay for what you use, the way you pay for electricity, rather than buying a power plant.
 
 ## The hypervisor
 
 ![A hypervisor multiplexes one physical machine into several isolated virtual machines.](assets/hypervisor-vms.svg)
 
-A hypervisor runs virtual machines as guests, and pools of hypervisors support large numbers of virtual machines that scale up and down with demand. This is the layer that decouples computation from any one physical box: a virtual machine can be created, moved, and destroyed in seconds, on hardware its user never touches.
+[[cs/systems/virtualization-vms-and-containers|A hypervisor runs virtual machines as guests]], and pools of hypervisors support large numbers of virtual machines that scale up and down with demand. This is the layer that decouples computation from any one physical box: a virtual machine can be created, moved, and destroyed in seconds, on hardware its user never touches.
 
 ## The commercial turn
 
-In 2006 Amazon released S3 for storage and EC2 for compute, letting developers build applications on rented infrastructure with no servers of their own. That moment turned virtualization from a data-center technique into the defining infrastructure of the modern era, the substrate under a large fraction of the [[history-of-the-internet|internet]] you use every day.
+In 2006 Amazon released S3 for storage and EC2 for compute, [[cs/software-engineering/the-twelve-factor-app|letting developers build applications on rented infrastructure]] with no servers of their own. That moment turned virtualization from a data-center technique into the defining infrastructure of the modern era, the substrate under a large fraction of the [[history-of-the-internet|internet]] you use every day.
 
 ## Related Notes
 

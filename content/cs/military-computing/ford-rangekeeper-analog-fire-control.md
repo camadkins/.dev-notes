@@ -24,15 +24,15 @@ The ship, its gun, and the target are all moving, and the shell flies for many s
 
 ## A mechanical computer
 
-The Mark 1 was an electromechanical analog computer, developed by Hannibal C. Ford of the Ford Instrument Company. It automatically computed the lead angles and added corrections for gravity, relative wind, and the magnus effect, the drift of a spinning shell. It was electrically linked to the gun mounts and drove them toward the solution it computed.
+The Mark 1 was [[cs/history/antikythera-mechanism-analog-computation|an electromechanical analog computer]], developed by Hannibal C. Ford of the Ford Instrument Company. It automatically computed the lead angles and added corrections for gravity, relative wind, and the magnus effect, the drift of a spinning shell. It was electrically linked to the gun mounts and drove them toward the solution it computed.
 
 ## Continuous, not stepwise
 
-A [[von-neumann-architecture|digital computer]] works in discrete steps. The rangekeeper's shafts and gears turned continuously, so its answer updated smoothly the instant any input changed, with no stepping at all. That continuity is the defining trait of analog computation. The Mark 1 was reliable enough to serve from World War II up to 1991 and possibly later.
+A [[von-neumann-architecture|digital computer]] works in discrete steps. The rangekeeper's shafts and gears [[cs/math/limits-and-continuity|turned continuously, so its answer updated smoothly the instant any input changed]], with no stepping at all. That continuity is the defining trait of analog computation. The Mark 1 was reliable enough to serve from World War II up to 1991 and possibly later.
 
 ## What it teaches
 
-The word computer did not always mean digital. For decades the dominant form of real-time computing was analog: a physical mechanism arranged to be a working model of a mathematical relationship. The rangekeeper is one of the finest examples, and a reminder that the digital computer won a contest it did not start out leading.
+The word computer did not always mean digital. For decades the dominant form of real-time computing was analog: [[cs/pl/programming-paradigms-models-of-computation|a physical mechanism arranged to be a working model of a mathematical relationship]]. The rangekeeper is one of the finest examples, and a reminder that the digital computer won a contest it did not start out leading.
 
 ## Related Notes
 

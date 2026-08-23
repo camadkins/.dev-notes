@@ -20,7 +20,7 @@ Long before there was a [[cryptography-codebreaking-and-the-nsa|National Securit
 
 ## OP-20-G
 
-OP-20-G was the U.S. Navy's signals intelligence and cryptanalysis group during World War II. Its mission was to intercept, decrypt, and analyze naval communications from the Japanese, German, and Italian navies. That work, breaking an enemy's encrypted traffic, is one of the oldest and most demanding uses of computation, and in this era it was done largely by hand and mind.
+OP-20-G was the U.S. Navy's [[cs/law/title-10-and-title-50-authorities|signals intelligence]] and cryptanalysis group during World War II. Its mission was to intercept, decrypt, and analyze naval communications from the Japanese, German, and Italian navies. That work, breaking an enemy's encrypted traffic, is one of the oldest and most demanding uses of computation, and in this era it was done largely by hand and mind.
 
 ## The On-the-Roof Gang
 
@@ -28,7 +28,7 @@ Before you can break a message you have to catch it. The radiotelegraph operator
 
 ## Why it belongs here
 
-Codebreaking is one of the oldest drivers of computing power. The discipline OP-20-G practiced, intercept, analyze, exploit, is the human root of work that would later demand machines like [[harvest-and-nsa-supercomputing|Harvest]], and it sits in the same family as the cipher and cryptanalysis notes in this cluster. For anyone who has worn a Navy cryptologic rating, it is also the start of a lineage that runs to the modern fleet.
+Codebreaking is one of the oldest drivers of computing power. The discipline OP-20-G practiced, intercept, analyze, exploit, is the human root of work that would later demand machines like [[harvest-and-nsa-supercomputing|Harvest]], and it sits in the same family as the cipher and cryptanalysis notes in this cluster. For anyone who has worn a [[cs/security/comsec-principles|Navy cryptologic rating]], it is also the start of a lineage that runs to the modern fleet.
 
 ## Related Notes
 

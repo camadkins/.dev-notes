@@ -23,11 +23,11 @@ The first working MOSFET was built by Mohamed Atalla and Dawon Kahng at Bell Lab
 
 ## Why it won
 
-The MOSFET is by far the most common transistor in digital circuits; billions appear in a single memory chip or microprocessor. Its silicon-and-oxide construction is cheap to produce and easy to integrate, which is exactly what mass [[the-integrated-circuit|integration]] demanded. The earlier bipolar transistor was a fine device, but the MOSFET was the one that fabrication could multiply without limit.
+The MOSFET is by far the most common transistor in digital circuits; billions appear in a single memory chip or microprocessor. Its silicon-and-oxide construction is [[cs/geopolitics/semiconductor-supply-chains|cheap to produce and easy to integrate]], which is exactly what mass [[the-integrated-circuit|integration]] demanded. The earlier bipolar transistor was a fine device, but the MOSFET was the one that fabrication could multiply without limit.
 
 ## What it enables
 
-MOSFETs are the switches that implement [[boole-and-boolean-algebra|logic gates]] and store bits, by the billion, on every chip. The entire tower of modern computing, and the steady march of [[moores-law|Moore's law]], rests on shrinking this one device.
+MOSFETs are the switches that implement [[boole-and-boolean-algebra|logic gates]] and [[cs/systems/memory-hierarchy-and-caching|store bits, by the billion, on every chip]]. The entire tower of modern computing, and the steady march of [[moores-law|Moore's law]], rests on shrinking this one device.
 
 ## Related Notes
 

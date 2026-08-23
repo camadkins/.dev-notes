@@ -20,11 +20,11 @@ In 1974 a small New Mexico company put a [[the-microprocessor|microprocessor]] i
 
 ## The machine
 
-The Altair 8800 was introduced by MITS in 1974, built on the Intel 8080 microprocessor. It was sold to hobbyists, often as a kit to assemble at home, and computer historians credit it with catalyzing the microcomputer revolution of the 1970s. It was bare by later standards, switches and lights, but it was a genuine computer an individual could buy.
+The Altair 8800 was introduced by MITS in 1974, built on [[cs/geopolitics/semiconductor-supply-chains|the Intel 8080 microprocessor]]. It was sold to hobbyists, often as a kit to assemble at home, and computer historians credit it with catalyzing the microcomputer revolution of the 1970s. It was bare by later standards, [[cs/systems/io-devices-and-drivers|switches and lights]], but it was a genuine computer an individual could buy.
 
 ## Microsoft's start
 
-The first programming language for the Altair was Altair BASIC, the founding product of Microsoft. When Paul Allen first ran it on the machine, it printed READY and worked, and a company was born around the idea of selling software for personal computers.
+[[cs/pl/history-genealogy-of-languages|The first programming language for the Altair]] was Altair BASIC, the founding product of Microsoft. When Paul Allen first ran it on the machine, it printed READY and worked, and a company was born around the idea of selling software for personal computers.
 
 ## Why it matters
 

@@ -27,7 +27,7 @@ After Bell Labs withdrew from the Multics project (an ambitious but overengineer
 
 - **1969**: Thompson wrote the first Unix in assembly - a single-user system with a file system, a shell, and a few utilities.
 - **1970–1971**: Unix was officially named and ran on the PDP-11; the First Edition "Unix Programmer's Manual" followed in 1971.
-- **1973**: Ritchie rewrote Unix in **C**, a language he designed specifically for systems programming. This made Unix **portable** - it could be recompiled for different hardware, an unprecedented capability for an OS.
+- **1973**: Ritchie rewrote Unix in **C**, a language he designed specifically for systems programming. This made Unix **portable** - [[cs/languages/common/portability-and-cross-compilation|it could be recompiled for different hardware]], an unprecedented capability for an OS.
 
 The decision to write an OS in a high-level language was revolutionary. It tied Unix's fate to C and gave both enormous momentum.
 
@@ -40,7 +40,7 @@ Doug McIlroy, the inventor of Unix pipes, summarized the philosophy:
 Key principles:
 
 - **Small, composable tools**: `grep`, `sort`, `awk`, `sed` - each does one job. Pipes (`|`) connect them.
-- **Everything is a file**: Devices, sockets, and processes are accessed through the same file interface.
+- **Everything is a file**: [[cs/systems/file-systems|Devices, sockets, and processes are accessed through the same file interface]].
 - **Text as universal interface**: Programs communicate via plain text streams, enabling ad-hoc composition.
 - **Worse is better**: A simple, slightly incomplete solution that ships beats a complex, perfect solution that doesn't. (Richard Gabriel's formulation, reflecting Unix culture.)
 
@@ -48,7 +48,7 @@ Key principles:
 
 C was not designed in isolation - it was designed **for Unix**, and Unix was rewritten **in C**. This symbiosis means:
 
-- C's memory model (pointers, manual allocation) maps directly to hardware, which is what an OS kernel needs.
+- [[cs/languages/common/memory-ownership-refcounting-gc|C's memory model]] (pointers, manual allocation) maps directly to hardware, which is what an OS kernel needs.
 - C's simplicity and portability made Unix portable.
 - Unix's success made C the dominant systems language for decades.
 
@@ -58,7 +58,7 @@ See [[compilation-vs-interpretation|Compilation vs Interpretation]] for how C's 
 
 In the late 1970s, UC Berkeley developed its own Unix variant - the **Berkeley Software Distribution (BSD)**:
 
-- Added virtual memory, the TCP/IP networking stack (which became the internet's reference implementation), and the C shell.
+- [[cs/systems/virtual-memory|Added virtual memory]], [[cs/military-computing/dod-model-and-tcp-ip-standardization|the TCP/IP networking stack]] (which became the internet's reference implementation), and the C shell.
 - **1992–1994**: Legal battles between AT&T's Unix subsidiary and BSDi delayed BSD's adoption, opening a window for Linux.
 - BSD lives on today in **FreeBSD**, **OpenBSD**, **NetBSD**, and as the kernel underpinning **macOS** (Darwin/XNU).
 

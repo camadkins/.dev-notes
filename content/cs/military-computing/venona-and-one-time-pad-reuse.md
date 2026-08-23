@@ -31,7 +31,7 @@ A one-time pad is only secure if the key is never reused, and the Soviets reused
 
 ## Why it endures
 
-The decrypts mattered historically, exposing espionage networks over decades. The lesson matters longer. A perfect algorithm wrapped around a flawed procedure is not secure. The weak point in a cryptographic system is almost never the cipher. It is the key handling, the randomness, the reuse, the human process around the math.
+The decrypts mattered historically, exposing espionage networks over decades. The lesson matters longer. A perfect algorithm wrapped around a flawed procedure is not secure. The weak point in a cryptographic system is almost never the cipher. It is the [[cs/security/hardware-security-modules-and-key-management|key handling]], the [[cs/security/cryptographically-secure-randomness|randomness]], the reuse, the human process around the math.
 
 ## Related Notes
 
