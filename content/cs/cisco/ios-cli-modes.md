@@ -24,7 +24,7 @@ The first thing to read on a Cisco box is not the banner, it is the prompt. `Swi
 
 When you land on a device you are automatically in user EXEC mode. The prompt is the device name followed by an angle bracket, `Router>`. The commands available here are a subset of those available at the privileged level, meant for temporarily changing terminal settings, performing basic tests, and listing system information. You can look around a little. You cannot change the device.
 
-`enable` moves you to privileged EXEC and the prompt becomes the device name followed by the pound sign, `Router#`. Cisco's own framing is worth internalizing: because many of the privileged commands configure operating parameters, privileged access should be password-protected to prevent unauthorized use. The privileged command set contains everything user EXEC had, plus the `configure` command through which you reach every remaining mode. `disable` drops you back down.
+`enable` moves you to privileged EXEC and the prompt becomes the device name followed by the pound sign, `Router#`. Cisco's own framing is worth internalizing: because many of the privileged commands configure operating parameters, [[cs/security/authentication-vs-authorization|privileged access should be password-protected]] to prevent unauthorized use. The privileged command set contains everything user EXEC had, plus the `configure` command through which you reach every remaining mode. `disable` drops you back down.
 
 Two habits pay for themselves immediately. First, `?` at any prompt lists the commands available *in that mode*, which is the fastest way to discover what the current mode can do rather than guessing. Second, if a command is rejected, check the prompt before checking your memory.
 

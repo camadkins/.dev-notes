@@ -24,11 +24,11 @@ Cisco's own definition is worth reading slowly, because it is a design statement
 
 ## The flooding boundary is the whole product
 
-A switch with no VLANs floods unknown unicast, broadcast, and multicast out every port. Add VLANs and that flood is scoped. Each VLAN is considered a logical network, and it contains its own bridge MIB information and can support its own implementation of spanning tree. So a VLAN is not a filter bolted onto a flat network, it is a separate bridged network that happens to run on shared hardware, with its own [[spanning-tree-protocol|spanning tree instance]] and its own address learning.
+A switch with no VLANs [[cs/networking/multicast-broadcast-anycast|floods unknown unicast, broadcast, and multicast out every port]]. Add VLANs and that flood is scoped. Each VLAN is considered a logical network, and it contains its own bridge MIB information and can support its own implementation of spanning tree. So a VLAN is not a filter bolted onto a flat network, it is a separate bridged network that happens to run on shared hardware, with its own [[spanning-tree-protocol|spanning tree instance]] and its own address learning.
 
 VLANs are often associated with IP subnetworks. All the end stations in a particular IP subnet belong to the same VLAN, which is why VLAN design and [[ip-addressing-and-subnetting|subnet design]] are one exercise rather than two. If you find yourself with two subnets in one VLAN or one subnet split across two VLANs, something upstream in the design went sideways.
 
-VLANs are identified by a number from 1 to 4094, and VLAN IDs 1002 through 1005 are reserved for Token Ring and FDDI VLANs. Those four reserved IDs are automatically created and cannot be removed, which is why `show vlan` on a factory-fresh switch is never empty.
+[[cs/standards/ieee-802-1q-vlan-tagging|VLANs are identified by a number from 1 to 4094]], and VLAN IDs 1002 through 1005 are reserved for Token Ring and FDDI VLANs. Those four reserved IDs are automatically created and cannot be removed, which is why `show vlan` on a factory-fresh switch is never empty.
 
 ## Access ports: two commands, one of which lies to you
 

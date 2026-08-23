@@ -15,7 +15,7 @@ aliases:
   - state link
 ---
 
-A firewall pair is a distributed system with two nodes, a private control channel, and a hard requirement that exactly one of them own each IP address at any moment. Everything unpleasant about ASA failover follows from that framing: partition the control channel and you get a split brain, replicate the wrong state and connections drop on cutover.
+A firewall pair is [[cs/systems/distributed-consensus|a distributed system]] with two nodes, a private control channel, and a hard requirement that exactly one of them own each IP address at any moment. Everything unpleasant about ASA failover follows from that framing: partition the control channel and you get a [[cs/systems/cap-theorem|split brain]], replicate the wrong state and connections drop on cutover.
 
 > [!note] The idea
 > The ASA splits high availability across two links doing two different jobs. The failover link carries the liveness and configuration channel and is mandatory. The state link carries per-connection state and is optional, which is precisely why "we have failover configured" and "connections survive a failover" are separate claims. Then there is a third question, distinct from both: even with stateful failover on, several specific tables are documented as *not* replicated, and each one is a category of session that will break on cutover no matter how healthy your links are.

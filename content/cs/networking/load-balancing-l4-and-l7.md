@@ -27,7 +27,7 @@ A **layer-7 (application) balancer**, or application load balancer, looks at the
 
 ## Scheduling algorithms: which backend next
 
-Once a balancer has decided to forward, it needs a rule for choosing the backend. The simple algorithms are random choice, round robin, and least connections. Round robin walks the list in order: first request to the first server, next to the second, and back around. Least connections assigns each new request to the server with the fewest active connections, and can be weighted so a beefier server takes proportionally more. More sophisticated balancers fold in a server's reported load, least response times, active connection count, or geographic location. The static algorithms (round robin, plain hashing) ignore backend state and are trivial to run; the dynamic ones react to live conditions and distribute better under uneven load, at the price of tracking that state.
+Once a balancer has decided to forward, it needs a rule for choosing the backend. The simple algorithms are random choice, [[cs/systems/process-scheduling-algorithms|round robin]], and least connections. Round robin walks the list in order: first request to the first server, next to the second, and back around. Least connections assigns each new request to the server with the fewest active connections, and can be weighted so a beefier server takes proportionally more. More sophisticated balancers fold in a server's reported load, least response times, active connection count, or geographic location. The static algorithms (round robin, plain hashing) ignore backend state and are trivial to run; the dynamic ones react to live conditions and distribute better under uneven load, at the price of tracking that state.
 
 ## Health checks: ejecting the dead
 

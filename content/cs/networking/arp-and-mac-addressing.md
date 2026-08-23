@@ -14,7 +14,7 @@ aliases:
   - address resolution protocol
 ---
 
-An IP address tells the internet where to route a packet across networks. It says nothing about how to hand that packet to the actual network card sitting three feet away on the same wire. Inside one local segment, Ethernet does not deliver to IP addresses at all; it delivers to hardware addresses burned into each interface. Something has to bridge the address the network layer knows and the address the link layer uses, and on every LAN that something is ARP.
+An IP address tells the internet where to route a packet across networks. It says nothing about how to hand that packet to the actual network card sitting three feet away on the same wire. Inside one local segment, [[cs/standards/ieee-802-3-ethernet|Ethernet]] does not deliver to IP addresses at all; it delivers to hardware addresses burned into each interface. Something has to bridge the address the network layer knows and the address the link layer uses, and on every LAN that something is ARP.
 
 > [!note] The idea
 > Ethernet frames are delivered to layer-2 hardware (MAC) addresses, not [[ip-addressing-and-subnetting|IP addresses]]. Before a host can send an IP packet to another host on the same segment, it uses the Address Resolution Protocol to discover which MAC address owns the target IP. It caches the answer so it does not have to ask again.
@@ -23,7 +23,7 @@ An IP address tells the internet where to route a packet across networks. It say
 
 Every network interface has a MAC address: a 48-bit hardware identifier used to deliver frames on the local link. When a host wants to transmit an IP packet to a target on the same Ethernet segment, a 48-bit Ethernet address must be generated for the frame, because IP addresses and Ethernet addresses are not compatible, being different lengths and values. The [[osi-and-tcp-ip-models|link layer]] moves frames between MAC addresses on one physical segment; the internet layer moves packets between IP addresses across segments. ARP is the translation table between them.
 
-The Address Resolution Protocol is a communication protocol for discovering the link-layer address, such as a MAC address, associated with an internet-layer address, typically an IPv4 address. It was defined in 1982 as part of the internet protocol suite, and it operates only within a single broadcast domain. ARP does not cross routers; each hop resolves the next hop's MAC on its own segment.
+The Address Resolution Protocol is a communication protocol for discovering the link-layer address, such as a MAC address, associated with an internet-layer address, typically an IPv4 address. It was defined in 1982 as part of the [[cs/military-computing/dod-model-and-tcp-ip-standardization|internet protocol suite]], and it operates only within a single broadcast domain. ARP does not cross routers; each hop resolves the next hop's MAC on its own segment.
 
 ## The resolution exchange
 

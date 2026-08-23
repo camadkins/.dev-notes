@@ -13,7 +13,7 @@ aliases:
   - SYN SYN-ACK ACK
 ---
 
-TCP promises a reliable, ordered byte stream over an internet layer that guarantees none of that. Packets can be lost, duplicated, reordered, or damaged in transit. Before TCP can make its promise, the two ends have to agree that a connection exists and settle on the numbering they will use to track every byte. That opening negotiation is the three-way handshake, and it happens before a single byte of your actual data is sent.
+TCP promises a reliable, ordered byte stream over an [[cs/military-computing/dod-model-and-tcp-ip-standardization|internet layer]] that guarantees none of that. Packets can be lost, duplicated, reordered, or damaged in transit. Before TCP can make its promise, the two ends have to agree that a connection exists and settle on the numbering they will use to track every byte. That opening negotiation is the three-way handshake, and it happens before a single byte of your actual data is sent.
 
 > [!note] The idea
 > To open a connection, the two hosts exchange three segments using the SYN flag: SYN, then SYN-ACK, then ACK. The connection becomes established once sequence numbers have been synchronized in both directions. The handshake exists to agree those starting numbers, not to move data.
@@ -22,7 +22,7 @@ TCP promises a reliable, ordered byte stream over an internet layer that guarant
 
 TCP recovers from data that is damaged, lost, duplicated, or delivered out of order by assigning a sequence number to each octet transmitted and requiring a positive acknowledgment from the receiver. If an ACK does not arrive within a timeout, the data is retransmitted. At the receiving end the sequence numbers reorder segments that arrived out of order and drop duplicates.
 
-That whole scheme rests on both sides knowing where the other's numbering begins. Each side picks an initial sequence number (ISN) for its own direction of the stream. The SYN flag literally means "synchronize sequence numbers," and when SYN is set, the segment's sequence number is that ISN, with the first real data octet numbered ISN+1. The handshake is how each side tells the other its ISN and confirms it heard the other's.
+That whole scheme rests on both sides knowing where the other's numbering begins. Each side picks an [[cs/security/cryptographically-secure-randomness|initial sequence number (ISN)]] for its own direction of the stream. The SYN flag literally means "synchronize sequence numbers," and when SYN is set, the segment's sequence number is that ISN, with the first real data octet numbered ISN+1. The handshake is how each side tells the other its ISN and confirms it heard the other's.
 
 ## The three segments
 

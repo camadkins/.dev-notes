@@ -15,7 +15,7 @@ aliases:
   - QUIC HTTP
 ---
 
-Every version of HTTP asks the same thing: fetch a resource by name over a network. What changed across HTTP/1.1, HTTP/2, and HTTP/3 is not the request but the plumbing beneath it, and each jump was a response to the previous version's specific bottleneck. Read in order, the three versions are a running argument about how to move many small requests fast without tripping over the transport underneath.
+Every version of [[cs/history/world-wide-web|HTTP]] asks the same thing: fetch a resource by name over a network. What changed across HTTP/1.1, HTTP/2, and HTTP/3 is not the request but the plumbing beneath it, and each jump was a response to the previous version's specific bottleneck. Read in order, the three versions are a running argument about how to move many small requests fast without tripping over the transport underneath.
 
 > [!note] The idea
 > HTTP/1.1 made connections reusable so they did not have to be reopened per resource. HTTP/2 made one connection carry many parallel requests by multiplexing them. HTTP/3 moved off TCP entirely onto QUIC over UDP, so a single lost packet no longer stalls every request at once.
@@ -24,7 +24,7 @@ Every version of HTTP asks the same thing: fetch a resource by name over a netwo
 
 HTTP/1.1, first published as RFC 2068 in January 1997, resolved ambiguities and introduced a decisive improvement: a connection could be reused, which saved time. Earlier HTTP opened a fresh [[tcp-three-way-handshake|TCP connection]] for every resource, paying the handshake cost again and again to load one page's worth of images and scripts. Persistent connections, the keep-alive behavior, let a single connection stay open and serve resource after resource.
 
-HTTP/1.1 also added pipelining, which allowed a second request to be sent before the answer to the first had fully arrived, lowering latency. In practice pipelining was fragile and rarely deployed, because responses still had to come back in request order. That ordering constraint on a single connection is the exact problem the next version set out to remove.
+HTTP/1.1 also added pipelining, which allowed a second request to be sent before the answer to the first had fully arrived, lowering latency. In practice pipelining was fragile and [[cs/standards/when-the-standard-loses-to-the-implementation|rarely deployed]], because responses still had to come back in request order. That ordering constraint on a single connection is the exact problem the next version set out to remove.
 
 ## HTTP/2: multiplex over one connection
 

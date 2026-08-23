@@ -16,7 +16,7 @@ aliases:
   - stuck in active
 ---
 
-Watch what a classic distance-vector protocol does when a path dies. Cisco's own worked example with RIP: Router Two loses all connectivity with the destination until it times out the route of its routing table (three update periods, or 90 seconds), and Router Three re-advertises the route, which occurs every 30 seconds in RIP. Excluding hold-down, it takes between 90 and 120 seconds to switch to the surviving path that was there the whole time.
+Watch what [[cs/networking/ospf-and-link-state-routing|a classic distance-vector protocol]] does when a path dies. Cisco's own worked example with RIP: Router Two loses all connectivity with the destination until it times out the route of its routing table (three update periods, or 90 seconds), and Router Three re-advertises the route, which occurs every 30 seconds in RIP. Excluding hold-down, it takes between 90 and 120 seconds to switch to the surviving path that was there the whole time.
 
 EIGRP's answer is to keep the losing paths instead of discarding them, and to precompute which of them are safe to use without asking anyone. That precomputation is the entire protocol.
 
@@ -35,7 +35,7 @@ Four terms, and getting them straight settles most EIGRP confusion.
 
 **Feasible successor**: a neighboring router that meets the feasibility condition for a particular destination, hence providing a guaranteed loop-free path. It may not be the least-cost path, and it becomes the successor when the current successor becomes unreachable.
 
-Cisco's compact statement of the test is worth memorizing: a feasible successor is a path whose reported distance is less than the feasible distance (current best path). Note the asymmetry that makes it work. The comparison is neighbor's RD against *your* FD, not RD against RD. A neighbor whose advertised distance is already lower than your best-ever distance cannot be routing through you, because if it were, its distance would include yours.
+Cisco's compact statement of the test is worth memorizing: a feasible successor is a path whose reported distance is less than the feasible distance (current best path). Note the asymmetry that makes it work. The comparison is neighbor's RD against *your* FD, not RD against RD. A neighbor whose advertised distance is already lower than your best-ever distance cannot be routing through you, [[cs/math/proof-techniques|because if it were, its distance would include yours]].
 
 The payoff is exactly what the failure case looks like. Cisco walks it: when the link between Routers One and Three goes down, Router One examines each path it knows to Network A and finds that it has a feasible successor through Router Four, uses this route, and the network converges instantly, with updates to downstream neighbors as the only traffic from the routing protocol.
 
@@ -50,7 +50,7 @@ Both words mean the opposite of what the English suggests.
 
 A route is in the **passive** state when at least one neighbor that provides the current least-total-cost path passes the feasibility condition check that guarantees loop freedom. A route in the passive state is usable, and the router does not perform any route recalculation in coordination with its neighbors because no such recalculation is needed. Passive is healthy. Passive is the steady state.
 
-A route is in the **active** state if neighbors that do not pass the feasibility condition check provide the lowest-cost path, and therefore the path cannot be guaranteed loop free. A route in the active state is considered unusable, and this router must coordinate with its neighbors in the search for the new loop-free least-total-cost path. Active means EIGRP is running a distributed computation, and the traffic for that prefix is down while it runs.
+A route is in the **active** state if neighbors that do not pass the feasibility condition check provide the lowest-cost path, and therefore the path cannot be guaranteed loop free. A route in the active state is considered unusable, and this router must coordinate with its neighbors in the search for the new loop-free least-total-cost path. Active means EIGRP is running [[cs/systems/distributed-consensus|a distributed computation]], and the traffic for that prefix is down while it runs.
 
 One subtlety in the state definitions: for the purposes of passive versus active, it does not matter if there are feasible successors providing a worse-than-least-total-cost path. Those neighbors are guaranteed to provide a loop-free path, but that path is potentially not the shortest available. The state is defined by the *least-cost* path's feasibility, not by whether any loop-free option exists.
 
@@ -104,7 +104,7 @@ The defaults are K1 = 1, K2 = 0, K3 = 1, K4 = 0, K5 = 0. With K5 = 0 the reliabi
 
 Leave them dead. Cisco's guidance is that EIGRP uses the minimum bandwidth on the path and the total delay to compute routing metrics, and it is not recommended that you configure other metrics because it can cause routing loops in your network. Load and reliability are time-varying, and a metric that changes on its own turns the feasibility condition's historical FD into a moving target.
 
-One arithmetic detail that will make your hand calculation disagree with the box: the delay shown in `show ip eigrp topology` or `show interface` is in microseconds, so you must divide by 10 before using it in the formula. And Cisco routers do not perform floating point math, so at each stage in the calculation you round down to the nearest integer.
+One arithmetic detail that will make your hand calculation disagree with the box: the delay shown in `show ip eigrp topology` or `show interface` is in microseconds, so you must divide by 10 before using it in the formula. And Cisco routers [[cs/standards/ieee-754-floating-point|do not perform floating point math]], so at each stage in the calculation you round down to the nearest integer.
 
 ## Related Notes
 

@@ -21,7 +21,7 @@ Plug a new laptop into a network and it works within a second: it has an address
 
 ## What DHCP actually delivers
 
-The Dynamic Host Configuration Protocol has two jobs: allocating network addresses to hosts, and delivering host-specific configuration parameters from a server to a host. It runs on a client-server model, where designated DHCP servers allocate addresses and deliver configuration to clients. The address is only the headline. The same exchange also carries the options a host needs to function: the default gateway, the domain name, the [[dns-the-domain-name-system|name servers]], and time servers. That is why one automatic conversation is enough to make a device fully operational.
+The Dynamic Host Configuration Protocol has two jobs: allocating network addresses to hosts, and delivering host-specific configuration parameters from a server to a host. It runs on a client-server model, where designated DHCP servers allocate addresses and deliver configuration to clients. The address is only the headline. The same exchange also carries the options a host needs to function: the [[cs/cisco/hsrp-vrrp-and-first-hop-redundancy|default gateway]], the domain name, the [[dns-the-domain-name-system|name servers]], and time servers. That is why one automatic conversation is enough to make a device fully operational.
 
 ## The DORA lease cycle
 

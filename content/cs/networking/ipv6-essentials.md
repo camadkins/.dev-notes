@@ -14,7 +14,7 @@ aliases:
   - dual-stack
 ---
 
-The internet ran out of IPv4 addresses because 32 bits can only count to about four billion, and there are far more than four billion things online. [[nat-and-port-translation|NAT]] bought time by letting many devices hide behind one address, but it did so by breaking the internet's end-to-end model. IPv6 is the structural fix: not a patch on the address shortage but a different address, four times as wide, with enough room that every device can have its own globally unique identity again.
+The internet ran out of IPv4 addresses because 32 bits can only count to about four billion, and there are far more than four billion things online. [[nat-and-port-translation|NAT]] bought time by letting many devices hide behind one address, but it did so by breaking the internet's [[cs/military-computing/internetworking-prnet-satnet|end-to-end model]]. IPv6 is the structural fix: not a patch on the address shortage but a different address, four times as wide, with enough room that every device can have its own globally unique identity again.
 
 > [!note] The idea
 > IPv6 replaces IPv4's 32-bit address with a 128-bit one, expanding the space from about four billion addresses to roughly 3.4 times 10 to the 38th. The width is not the interesting part; the consequence is. With addresses effectively unlimited, a host can generate its own from the network prefix it hears advertised, and NAT stops being necessary.
@@ -44,7 +44,7 @@ The huge address space enables something IPv4 could not do cleanly. On system st
 
 ## Dual-stack: living in both worlds
 
-Since IPv4 and IPv6 do not interoperate, the dominant transition strategy is to run both. A dual-stack host has full IPv4 and IPv6 stacks and can reach either kind of peer. When it resolves a name it sends two DNS queries, one for AAAA records (IPv6) and one for A records (IPv4), and prefers IPv6 when a working route exists. When dual-stack network protocols are in place the application layer can be migrated to IPv6, which is how the internet is crossing over gradually rather than in a single cutover.
+Since IPv4 and IPv6 do not interoperate, the dominant transition strategy is to run both. A dual-stack host has full IPv4 and IPv6 stacks and can reach either kind of peer. When it resolves a name it sends two [[cs/systems/dns-the-domain-name-system|DNS queries]], one for AAAA records (IPv6) and one for A records (IPv4), and prefers IPv6 when a working route exists. When dual-stack network protocols are in place the application layer can be migrated to IPv6, which is how the internet is crossing over gradually rather than in [[cs/military-computing/dod-model-and-tcp-ip-standardization|a single cutover]].
 
 ## Related Notes
 

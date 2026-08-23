@@ -15,7 +15,7 @@ aliases:
   - next-hop-self
 ---
 
-Every interior protocol in this section answers "which of these paths is shortest." BGP answers a different question, and reading it as a shortest-path protocol is why it feels arbitrary. RFC 4271 states the job plainly: the primary function of a BGP speaking system is to exchange network reachability information with other BGP systems, and this network reachability information includes information on the list of autonomous systems that reachability information traverses. What that list is for comes next in the same paragraph: it is sufficient for constructing a graph of AS connectivity, from which routing loops may be pruned, and, at the AS level, some policy decisions may be enforced.
+Every interior protocol in this section answers "which of these paths is shortest." [[cs/systems/bgp-and-internet-routing-as-control|BGP answers a different question]], and reading it as a shortest-path protocol is why it feels arbitrary. RFC 4271 states the job plainly: the primary function of a BGP speaking system is to exchange network reachability information with other BGP systems, and this network reachability information includes information on the list of autonomous systems that reachability information traverses. What that list is for comes next in the same paragraph: it is sufficient for constructing [[cs/dsa/graphs|a graph of AS connectivity]], from which routing loops may be pruned, and, at the AS level, some policy decisions may be enforced.
 
 Loop prevention and policy. Nothing about distance.
 
@@ -24,7 +24,7 @@ Loop prevention and policy. Nothing about distance.
 
 ## eBGP and iBGP, one protocol with two personalities
 
-BGP uses TCP as the transport protocol, on port 179, and two BGP routers form a TCP connection between one another. Peers exchange OPEN messages carrying the AS number, the BGP version, the BGP router ID, and the keepalive hold time. Cisco's operational rule for reading state: any state other than Established is an indication that the two routers did not become neighbors and that the routers cannot exchange BGP updates.
+BGP uses [[cs/networking/tcp-vs-udp|TCP as the transport protocol]], on port 179, and two BGP routers form a TCP connection between one another. Peers exchange OPEN messages carrying the AS number, the BGP version, the BGP router ID, and the keepalive hold time. Cisco's operational rule for reading state: any state other than Established is an indication that the two routers did not become neighbors and that the routers cannot exchange BGP updates.
 
 Whether a session is eBGP or iBGP is decided by one number. When BGP runs between routers that belong to two different ASs, this is called exterior BGP, and when BGP runs between routers in the same AS, this is called iBGP. In configuration, the remote AS number points to either an external or an internal AS, which indicates either eBGP or iBGP.
 

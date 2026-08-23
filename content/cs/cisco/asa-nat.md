@@ -27,7 +27,7 @@ The guide is precise about two words that appear in every command. "The real add
 The four translation types:
 
 - **Dynamic NAT.** "A group of real IP addresses are mapped to a (usually smaller) group of mapped IP addresses, on a first come, first served basis. Only the real host can initiate traffic."
-- **Dynamic PAT.** "A group of real IP addresses are mapped to a single IP address using a unique source port of that IP address."
+- **[[cs/networking/nat-and-port-translation|Dynamic PAT]].** "A group of real IP addresses are mapped to a single IP address using a unique source port of that IP address."
 - **Static NAT.** "A consistent mapping between a real and mapped IP address. Allows bidirectional traffic initiation."
 - **Identity NAT.** "A real address is statically translated to itself, essentially bypassing NAT," used when "you want to translate a large group of addresses, but then want to exempt a smaller subset of addresses."
 
@@ -81,7 +81,7 @@ There is a fourth you cannot see in your configuration: "There is also a Section
 | 2 | Object NAT | Automatic |
 | 3 | Twice NAT (`after-auto`) | First match, in configuration order |
 
-Section 1 is the default landing place for a twice NAT rule, and the warning is the standard first-match warning with teeth: "Because the first match is applied, you must ensure that specific rules come before more general rules, or the specific rules might not be applied as desired." Cisco defines "specific" for you: "Static rules should come before dynamic rules" and "rules that include destination translation should come before rules with source translation only."
+Section 1 is the default landing place for a twice NAT rule, and the warning is [[cs/security/firewalls|the standard first-match warning]] with teeth: "Because the first match is applied, you must ensure that specific rules come before more general rules, or the specific rules might not be applied as desired." Cisco defines "specific" for you: "Static rules should come before dynamic rules" and "rules that include destination translation should come before rules with source translation only."
 
 To put a twice NAT rule in section 3 instead, "use the `after-auto` keyword," and "you can insert a rule anywhere in the applicable section using the `line` argument." Section 3 "should contain your most general rules."
 

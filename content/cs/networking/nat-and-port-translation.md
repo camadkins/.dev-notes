@@ -27,7 +27,7 @@ NAT is what connects such a realm of private addresses to an external realm with
 
 ## From address translation to port translation
 
-Basic NAT translates addresses alone, mapping one private address to one public address. That still consumes a public address per active host, so it does not by itself solve scarcity. The version that does is Network Address Port Translation (NAPT), often called PAT. NAPT is a method by which many network addresses and their TCP or UDP ports are translated into a single public address and its ports.
+Basic NAT translates addresses alone, mapping one private address to one public address. That still consumes a public address per active host, so it does not by itself solve scarcity. The version that does is [[cs/cisco/asa-nat|Network Address Port Translation (NAPT)]], often called PAT. NAPT is a method by which many network addresses and their TCP or UDP ports are translated into a single public address and its ports.
 
 The port number is the disambiguator. When two internal hosts both open connections through the gateway, NAPT gives each a distinct public source port and records the mapping in a table. A reply arriving for public-port 40001 is rewritten back to the first host, one for 40002 back to the second. One public address multiplexes thousands of simultaneous conversations. This is why a single internet-routable address on a NAT gateway can serve an entire private network.
 
@@ -35,7 +35,7 @@ The port number is the disambiguator. When two internal hosts both open connecti
 
 NAT is a popular and essential tool in conserving global address space in the face of IPv4 address exhaustion. By letting one public address stand in for a whole network, it decoupled the number of devices online from the number of addresses available, which is the only reason the IPv4 internet kept scaling long after the address pool was effectively empty.
 
-The same rewriting broke a founding assumption. In traditional NAT, sessions are unidirectional and outbound from the private network: an inside host can start a conversation out, but an outside host cannot address an inside host directly, because that host has no globally reachable address. Hosts behind NAT do not have end-to-end connectivity and cannot participate in some internet protocols. Anything that needs an inbound connection, from peer-to-peer to hosting a server, now needs a workaround such as static port forwarding, hole punching, or a relay.
+The same rewriting broke a founding assumption. In traditional NAT, sessions are unidirectional and outbound from the private network: an inside host can start a conversation out, but an outside host cannot address an inside host directly, because that host has no globally reachable address. Hosts behind NAT do not have [[cs/military-computing/internetworking-prnet-satnet|end-to-end connectivity]] and cannot participate in some internet protocols. Anything that needs an inbound connection, from peer-to-peer to hosting a server, now needs a workaround such as static port forwarding, hole punching, or a relay.
 
 > [!example] One address, two conversations
 > Host A (`192.168.1.10`) and host B (`192.168.1.11`) both browse the web through a gateway whose public address is `203.0.113.5`. The gateway rewrites A's packets to `203.0.113.5:40001` and B's to `203.0.113.5:40002`, storing both mappings. Return traffic to `:40001` goes back to A, to `:40002` goes back to B. The outside world sees one address; inside, two hosts never collide.

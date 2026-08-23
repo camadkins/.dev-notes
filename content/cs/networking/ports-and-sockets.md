@@ -27,13 +27,13 @@ This is what makes multiplexing possible. Ports provide a multiplexing service f
 
 ## Well-known versus ephemeral ports
 
-Not all port numbers are used the same way. Port numbers lower than 1024 identify the historically most commonly used services and are called the well-known port numbers: 443 for HTTPS, 22 for SSH, 53 for [[dns-the-domain-name-system|DNS]]. A server listens on a fixed well-known port so clients know where to reach a service without being told.
+Not all port numbers are used the same way. Port numbers lower than 1024 identify the historically most commonly used services and are called the well-known port numbers: 443 for HTTPS, 22 for [[cs/security/secure-shell-ssh|SSH]], 53 for [[dns-the-domain-name-system|DNS]]. A server listens on a fixed well-known port so clients know where to reach a service without being told.
 
 The client side is different. An ephemeral port is a transport-layer endpoint used for only a short period, for the duration of a communication session, allocated automatically within a predefined range by the operating system's IP stack. TCP, UDP, and SCTP typically use an ephemeral port for the client end of a client-server exchange. RFC 6335 and IANA suggest the range 49152 to 65535 for these dynamic ports, though many Linux kernels use 32768 to 60999. When the session ends the port is released and its number becomes available again. A server's port is a published address; a client's port is a disposable ticket.
 
 ## The socket: what a process actually holds
 
-A program does not manipulate a port directly. It holds a socket: a software structure within a network node that serves as an endpoint for sending and receiving data across the network. A process associates its input and output channels with an internet socket, which in Unix-like systems is a type of file descriptor, tied to a transport protocol, a network address, and a port number. Fixing those together is called binding. After binding, the program reads and writes the network the same way it reads and writes a file, through the descriptor.
+A program does not manipulate a port directly. It holds a socket: a software structure within a network node that serves as an endpoint for sending and receiving data across the network. A process associates its input and output channels with an internet socket, which in Unix-like systems is a type of [[cs/systems/system-calls-and-the-kernel-boundary|file descriptor]], tied to a transport protocol, a network address, and a port number. Fixing those together is called binding. After binding, the program reads and writes the network the same way it reads and writes a file, through the descriptor.
 
 A socket is externally identified to other hosts by its socket address, the triad of transport protocol, IP address, and port number. That triad is why a listener on TCP port 53 and a listener on UDP port 53 are entirely distinct sockets: same address and number, different protocol.
 
