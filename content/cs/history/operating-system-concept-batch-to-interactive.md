@@ -27,11 +27,11 @@ In the early days a job ran from start to finish while everyone else waited. Let
 
 The answer was to give each user [[cs/systems/process-scheduling-algorithms|a small slice of processing time]], [[cs/systems/context-switching|switching among them so rapidly]] that many people interact with one computer at once, [[cs/systems/virtualization-vms-and-containers|each with the illusion of having it to themselves]].
 
-![Time-sharing: one CPU switches among users in fast slices, so each feels alone on the machine.](assets/time-slices.svg)
+![Time-sharing: one CPU switches among users in fast slices, so each feels alone on the machine.](cs/history/assets/time-slices.svg)
 
 ## CTSS and Multics
 
-The first general-purpose time-sharing system usable for software development, CTSS, grew from a 1959 memo by John McCarthy at MIT. From 1964 the [[multics-and-time-sharing-foundations|Multics]] system pushed the idea furthest, modeling computing as a utility like electricity, and Multics is the direct parent of [[unix-and-open-source|Unix]].
+The first general-purpose time-sharing system usable for software development, CTSS, grew from a 1959 memo by John McCarthy at MIT. From 1964 the [[cs/military-computing/multics-and-time-sharing-foundations|Multics]] system pushed the idea furthest, modeling computing as a utility like electricity, and Multics is the direct parent of [[cs/history/unix-and-open-source|Unix]].
 
 ## Why it matters
 
@@ -39,10 +39,10 @@ Time-sharing dramatically lowered the cost of providing computing and made inter
 
 ## Related Notes
 
-- [[multics-and-time-sharing-foundations|Multics and the Engineering of Time-Sharing]], the deep dive
-- [[unix-and-open-source|Unix and Open Source]], Multics's lean descendant
-- [[processes-and-threads|Processes and Threads]], how an OS shares the processor
-- [[engelbart-and-interactive-computing|Engelbart and the Mother of All Demos]], interactive computing's other root
+- [[cs/military-computing/multics-and-time-sharing-foundations|Multics and the Engineering of Time-Sharing]], the deep dive
+- [[cs/history/unix-and-open-source|Unix and Open Source]], Multics's lean descendant
+- [[cs/systems/processes-and-threads|Processes and Threads]], how an OS shares the processor
+- [[cs/history/engelbart-and-interactive-computing|Engelbart and the Mother of All Demos]], interactive computing's other root
 - [[cs/history/index|History of Computing]], the section index
 
 ## Sources

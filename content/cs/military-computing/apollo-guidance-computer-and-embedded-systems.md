@@ -20,7 +20,7 @@ A guidance computer for Apollo had two demands that pull against each other. It 
 
 ## Small enough to fly
 
-To save weight and space, the AGC was among the first computers built on silicon [[minuteman-guidance-and-integrated-circuits|integrated circuits]], at a time when those chips were new and costly. Its programs were not stored in ordinary memory but woven by hand into core rope memory, where the path of a wire through or around a [[whirlwind-and-core-memory|magnetic core]] encoded a bit. The result was a computer that fit on a spacecraft and held its program permanently.
+To save weight and space, the AGC was among the first computers built on silicon [[cs/military-computing/minuteman-guidance-and-integrated-circuits|integrated circuits]], at a time when those chips were new and costly. Its programs were not stored in ordinary memory but woven by hand into core rope memory, where the path of a wire through or around a [[cs/military-computing/whirlwind-and-core-memory|magnetic core]] encoded a bit. The result was a computer that fit on a spacecraft and held its program permanently.
 
 ## Priority scheduling
 
@@ -36,10 +36,10 @@ The AGC is the model for embedded real-time computing: do the critical work on t
 
 ## Related Notes
 
-- [[minuteman-guidance-and-integrated-circuits|Minuteman Guidance and the Integrated Circuit]], the other program that drove early chips
-- [[processes-and-threads|Processes and Threads]], scheduling and preemption in general
-- [[semiconductor-supply-chains|Semiconductor Supply Chains]], the industry these programs seeded
-- [[testing-strategies|Testing Strategies]], the discipline ultra-reliable software demands
+- [[cs/military-computing/minuteman-guidance-and-integrated-circuits|Minuteman Guidance and the Integrated Circuit]], the other program that drove early chips
+- [[cs/systems/processes-and-threads|Processes and Threads]], scheduling and preemption in general
+- [[cs/geopolitics/semiconductor-supply-chains|Semiconductor Supply Chains]], the industry these programs seeded
+- [[cs/software-engineering/testing-strategies|Testing Strategies]], the discipline ultra-reliable software demands
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

@@ -13,7 +13,7 @@ aliases:
   - Pipes and Sockets
 ---
 
-[[virtual-memory|Virtual memory]] exists to keep processes from touching each other's memory. That isolation is the whole point, and it is also a problem: real systems are built from many processes that need to cooperate. A shell pipes one program's output into another; a database server hands a query result back to a client; a daemon tells a worker to reload its config. None of that can happen through raw shared pointers, because there are no shared pointers across the isolation boundary. Inter-process communication is the set of controlled channels the kernel opens through that boundary.
+[[cs/systems/virtual-memory|Virtual memory]] exists to keep processes from touching each other's memory. That isolation is the whole point, and it is also a problem: real systems are built from many processes that need to cooperate. A shell pipes one program's output into another; a database server hands a query result back to a client; a daemon tells a worker to reload its config. None of that can happen through raw shared pointers, because there are no shared pointers across the isolation boundary. Inter-process communication is the set of controlled channels the kernel opens through that boundary.
 
 Formally, IPC "is the sharing of data between running processes in a computer system, or between multiple such systems," and the "mechanisms for IPC may be provided by an operating system."
 
@@ -30,7 +30,7 @@ A named pipe, or FIFO, removes that restriction by giving the channel a name. "A
 
 ### Shared memory
 
-Shared memory is the fast lane. "Multiple processes are given access to the same block of memory, which creates a shared buffer for the processes to communicate with each other." The reason it is fast is exactly what makes it dangerous: after the initial setup the kernel is no longer involved, so there are no per-message copies, but nothing coordinates the two writers either. Shared memory alone is not enough; it must be paired with [[concurrency-primitives|synchronization primitives]] (a semaphore or mutex in the shared region) or you get [[race-conditions-and-toctou|races]]. It buys raw throughput at the cost of making correctness your job.
+Shared memory is the fast lane. "Multiple processes are given access to the same block of memory, which creates a shared buffer for the processes to communicate with each other." The reason it is fast is exactly what makes it dangerous: after the initial setup the kernel is no longer involved, so there are no per-message copies, but nothing coordinates the two writers either. Shared memory alone is not enough; it must be paired with [[cs/systems/concurrency-primitives|synchronization primitives]] (a semaphore or mutex in the shared region) or you get [[cs/security/race-conditions-and-toctou|races]]. It buys raw throughput at the cost of making correctness your job.
 
 ### Message queues
 
@@ -59,10 +59,10 @@ An IPC mechanism is "either synchronous or asynchronous," and synchronization pr
 
 ## Related Notes
 
-- [[processes-and-threads|Processes & Threads]] - the isolated entities IPC exists to connect
-- [[system-calls-and-the-kernel-boundary|System Calls and the Kernel Boundary]] - most IPC channels are opened and driven through syscalls
-- [[concurrency-primitives|Concurrency Primitives]] - the synchronization shared memory forces you to add yourself
-- [[virtual-memory|Virtual Memory]] - the isolation that makes IPC necessary in the first place
+- [[cs/systems/processes-and-threads|Processes & Threads]] - the isolated entities IPC exists to connect
+- [[cs/systems/system-calls-and-the-kernel-boundary|System Calls and the Kernel Boundary]] - most IPC channels are opened and driven through syscalls
+- [[cs/systems/concurrency-primitives|Concurrency Primitives]] - the synchronization shared memory forces you to add yourself
+- [[cs/systems/virtual-memory|Virtual Memory]] - the isolation that makes IPC necessary in the first place
 
 ## Sources
 

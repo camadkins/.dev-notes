@@ -28,7 +28,7 @@ The Mark 1 was [[cs/history/antikythera-mechanism-analog-computation|an electrom
 
 ## Continuous, not stepwise
 
-A [[von-neumann-architecture|digital computer]] works in discrete steps. The rangekeeper's shafts and gears [[cs/math/limits-and-continuity|turned continuously, so its answer updated smoothly the instant any input changed]], with no stepping at all. That continuity is the defining trait of analog computation. The Mark 1 was reliable enough to serve from World War II up to 1991 and possibly later.
+A [[cs/history/von-neumann-architecture|digital computer]] works in discrete steps. The rangekeeper's shafts and gears [[cs/math/limits-and-continuity|turned continuously, so its answer updated smoothly the instant any input changed]], with no stepping at all. That continuity is the defining trait of analog computation. The Mark 1 was reliable enough to serve from World War II up to 1991 and possibly later.
 
 ## What it teaches
 
@@ -36,10 +36,10 @@ The word computer did not always mean digital. For decades the dominant form of 
 
 ## Related Notes
 
-- [[ballistics-tables-and-eniac|Ballistics Tables and ENIAC]], the same targeting math taken digital
-- [[naval-tactical-data-system|The Naval Tactical Data System]], the Navy's later digital combat computing
-- [[von-neumann-architecture|Von Neumann Architecture]], the digital model that displaced analog
-- [[linear-algebra-fundamentals|Linear Algebra Fundamentals]], the mathematics a rangekeeper mechanized
+- [[cs/military-computing/ballistics-tables-and-eniac|Ballistics Tables and ENIAC]], the same targeting math taken digital
+- [[cs/military-computing/naval-tactical-data-system|The Naval Tactical Data System]], the Navy's later digital combat computing
+- [[cs/history/von-neumann-architecture|Von Neumann Architecture]], the digital model that displaced analog
+- [[cs/math/linear-algebra-fundamentals|Linear Algebra Fundamentals]], the mathematics a rangekeeper mechanized
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

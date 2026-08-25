@@ -24,7 +24,7 @@ SAGE directed and controlled the NORAD response to a possible Soviet air attack,
 
 ## The machine
 
-The processing power behind SAGE was supplied by the AN/FSQ-7, the largest discrete-component computer ever built, manufactured by IBM. Its reliability engineering, including the duplex design that kept a site running through failures, is the subject of the [[anfsq7-and-fault-tolerant-hardware|AN/FSQ-7]] note.
+The processing power behind SAGE was supplied by the AN/FSQ-7, the largest discrete-component computer ever built, manufactured by IBM. Its reliability engineering, including the duplex design that kept a site running through failures, is the subject of the [[cs/military-computing/anfsq7-and-fault-tolerant-hardware|AN/FSQ-7]] note.
 
 ## Real-time and interactive
 
@@ -36,14 +36,14 @@ SAGE was not one computer but many sites working together. Connecting the variou
 
 ## Legacy
 
-Real-time systems, interactive human-computer operation, and wide-area data networking all appear together in SAGE, decades before they reached ordinary computing. Its maritime sibling, the [[naval-tactical-data-system|Naval Tactical Data System]], carried the same ideas to sea.
+Real-time systems, interactive human-computer operation, and wide-area data networking all appear together in SAGE, decades before they reached ordinary computing. Its maritime sibling, the [[cs/military-computing/naval-tactical-data-system|Naval Tactical Data System]], carried the same ideas to sea.
 
 ## Related Notes
 
-- [[anfsq7-and-fault-tolerant-hardware|The AN/FSQ-7 and Fault-Tolerant Hardware]], the computer that ran SAGE
-- [[whirlwind-and-core-memory|Whirlwind and Magnetic-Core Memory]], the lineage SAGE grew from
-- [[naval-tactical-data-system|The Naval Tactical Data System]], the same idea at sea
-- [[history-of-the-internet|History of the Internet]], where data networking led
+- [[cs/military-computing/anfsq7-and-fault-tolerant-hardware|The AN/FSQ-7 and Fault-Tolerant Hardware]], the computer that ran SAGE
+- [[cs/military-computing/whirlwind-and-core-memory|Whirlwind and Magnetic-Core Memory]], the lineage SAGE grew from
+- [[cs/military-computing/naval-tactical-data-system|The Naval Tactical Data System]], the same idea at sea
+- [[cs/history/history-of-the-internet|History of the Internet]], where data networking led
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

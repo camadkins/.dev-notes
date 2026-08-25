@@ -222,7 +222,7 @@ for (int sub = mask; sub; sub = (sub - 1) & mask) {
 
 ## Related Notes
 
-- [[algorithm-efficiency|Algorithm Efficiency]]
-- [[dynamic-programming|Dynamic Programming]]
-- [[recursion|Recursion]]
-- [[array-operations|Array Operations]]
+- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]
+- [[cs/dsa/dynamic-programming|Dynamic Programming]]
+- [[cs/dsa/recursion|Recursion]]
+- [[cs/dsa/array-operations|Array Operations]]

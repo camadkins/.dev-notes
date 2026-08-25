@@ -145,7 +145,7 @@ Space bounds shape algorithm choice:
 Space complexity captures the **working memory** required by algorithms. Distinguish **auxiliary** from **total** space, account for **recursion stacks**, and be explicit about what "**in-place**" means. Use iterative forms, buffer reuse, and streaming when memory is scarce; accept larger buffers when they materially improve **locality** and **throughput**. The best choice balances **time**, **space**, and **system constraints** rather than optimizing one metric in isolation.
 
 ## Related Notes
-- [[time-complexity-analysis|Time Complexity Analysis]]
-- [[recursion|Recursion]]
-- [[memory-allocation|Memory Allocation]]
-- [[merge-sort|Merge Sort]]
+- [[cs/dsa/time-complexity-analysis|Time Complexity Analysis]]
+- [[cs/dsa/recursion|Recursion]]
+- [[cs/dsa/memory-allocation|Memory Allocation]]
+- [[cs/dsa/merge-sort|Merge Sort]]

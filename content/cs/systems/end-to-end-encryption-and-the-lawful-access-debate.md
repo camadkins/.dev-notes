@@ -23,7 +23,7 @@ When you encrypt a message in transit, you are trusting a chain of machines to h
 
 In a service with end-to-end encryption, the cryptographic work happens on the user's own device. The sender's app encrypts the message before it leaves; the recipient's app decrypts it after it arrives. The provider relays ciphertext it has no means to read. As the canonical definition puts it, only the sender and intended recipient can read the messages, and no one else, including the system provider, telecom carriers, or internet providers, can access the keys needed to read or send them. This rests on [[cs/military-computing/rsa-and-computational-hardness|public-key cryptography]]: each user holds a private key that never leaves their device, and others encrypt to the matching public key.
 
-This is a different problem from the one [[tls-and-the-https-handshake|TLS]] solves. TLS protects the link between your browser and a server, and that server reads your plaintext once it arrives. End-to-end encryption pushes the trust boundary all the way out to the people actually talking, so even the server in the middle is just another untrusted hop. The strength of the model is exactly that the provider is cut out. That is also what makes it a target, because a provider that cannot read its users' messages cannot hand them over when asked.
+This is a different problem from the one [[cs/systems/tls-and-the-https-handshake|TLS]] solves. TLS protects the link between your browser and a server, and that server reads your plaintext once it arrives. End-to-end encryption pushes the trust boundary all the way out to the people actually talking, so even the server in the middle is just another untrusted hop. The strength of the model is exactly that the provider is cut out. That is also what makes it a target, because a provider that cannot read its users' messages cannot hand them over when asked.
 
 ## The Crypto Wars and the Clipper chip
 
@@ -35,7 +35,7 @@ The sharpest single episode was the Clipper chip. In 1993 the National Security 
 
 The Clipper chip is also the cleanest demonstration of why "a door only for the good guys" is not an engineering option. In 1994 Matt Blaze published a protocol-failure analysis showing the escrow scheme had a serious flaw. Each Clipper message carried a Law Enforcement Access Field, the data needed to recover the key, protected only by a 16-bit hash. That hash was short enough to brute-force, so an attacker could forge a valid-looking access field that passed the check but yielded no usable key, using the chip for encryption while disabling the escrow capability entirely. The very feature added for lawful access became the feature that let users defeat lawful access, and the system was weaker than if it had no backdoor at all.
 
-That is the general argument, not a one-off bug. A backdoor is a second decryption path that must exist whether or not it is being used. It concentrates risk into a master key or an escrow database that becomes the single most valuable target in the system. Whoever holds it can be hacked, bribed, subpoenaed by a different government, or simply make a mistake. The cryptography cannot tell an authorized request from an unauthorized one; it only knows whether the key is correct. So the door does not stay shut for everyone except the warrant-holder. It is a hole in the wall, and walls do not distinguish who climbs through. This is why security researchers treat any mandated access mechanism as a systemic weakening of every user at once, the same tension that runs through [[cs/geopolitics/surveillance-and-privacy|surveillance and privacy]] and the design of [[onion-routing-and-anonymity-networks|onion routing]].
+That is the general argument, not a one-off bug. A backdoor is a second decryption path that must exist whether or not it is being used. It concentrates risk into a master key or an escrow database that becomes the single most valuable target in the system. Whoever holds it can be hacked, bribed, subpoenaed by a different government, or simply make a mistake. The cryptography cannot tell an authorized request from an unauthorized one; it only knows whether the key is correct. So the door does not stay shut for everyone except the warrant-holder. It is a hole in the wall, and walls do not distinguish who climbs through. This is why security researchers treat any mandated access mechanism as a systemic weakening of every user at once, the same tension that runs through [[cs/geopolitics/surveillance-and-privacy|surveillance and privacy]] and the design of [[cs/systems/onion-routing-and-anonymity-networks|onion routing]].
 
 ## Client-side scanning, the modern form
 
@@ -51,10 +51,10 @@ The structural objection is identical. A device that scans your own messages and
 
 ## Related Notes
 
-- [[tls-and-the-https-handshake|TLS and the HTTPS Handshake]], transport encryption where the provider still reads plaintext, versus the endpoint-only model here
+- [[cs/systems/tls-and-the-https-handshake|TLS and the HTTPS Handshake]], transport encryption where the provider still reads plaintext, versus the endpoint-only model here
 - [[cs/military-computing/rsa-and-computational-hardness|RSA and Computational Hardness]], the public-key cryptography that lets each endpoint hold a key the middle never sees
 - [[cs/geopolitics/surveillance-and-privacy|Surveillance & Privacy]], the broader contest the going-dark debate belongs to
-- [[onion-routing-and-anonymity-networks|Onion Routing]], a different endpoint-trust design where the goal is hiding who is talking rather than what is said
+- [[cs/systems/onion-routing-and-anonymity-networks|Onion Routing]], a different endpoint-trust design where the goal is hiding who is talking rather than what is said
 - [[cs/geopolitics/cyber-sovereignty|Cyber Sovereignty]], national demands for access and the politics of who controls encryption
 
 ## Sources

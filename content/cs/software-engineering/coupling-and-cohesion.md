@@ -69,7 +69,7 @@ The advantages of high cohesion track the same maintenance argument: reduced mod
 
 The definition is about knowledge, not about call counts. "Low coupling refers to a relationship in which one module interacts with another module through a simple and stable interface and does not need to be concerned with the other module's internal implementation." Both adjectives carry weight. Simple bounds how much passes through. Stable bounds how often what passes through changes. An interface can be enormous and still be low coupling if it never moves; a two-method interface that changes every sprint is not.
 
-Coupling increases between classes `A` and `B` if `A` has an attribute of type `B`, calls services of a `B`, has a method referencing `B` via return type or parameter, or is a subclass of (or implements) `B`. One approach to decreasing it is functional design, "which seeks to limit the responsibilities of modules along functionality," which is the same instinct the [[solid-principles|single responsibility principle]] later formalized. Martin's SRP was explicitly built on this cohesion literature.
+Coupling increases between classes `A` and `B` if `A` has an attribute of type `B`, calls services of a `B`, has a method referencing `B` via return type or parameter, or is a subclass of (or implements) `B`. One approach to decreasing it is functional design, "which seeks to limit the responsibilities of modules along functionality," which is the same instinct the [[cs/software-engineering/solid-principles|single responsibility principle]] later formalized. Martin's SRP was explicitly built on this cohesion literature.
 
 Coupling can also be scored. Pressman's metric combines input and output data parameters, input and output control parameters (weighted double), global variables used as data and as control (control again doubled), plus fan-out and fan-in:
 
@@ -90,12 +90,12 @@ The two frameworks compose rather than compete. "Coupling identifies what is sha
 
 ## Related Notes
 
-- [[solid-principles|SOLID Principles]] - SRP was explicitly built on the cohesion work of DeMarco and Page-Jones
-- [[software-architecture|Software Architecture]] - module boundaries are where these two forces get traded off
-- [[refactoring|Refactoring]] - the operation that moves elements across boundaries to fix a bad grouping
-- [[design-patterns|Design Patterns]] - most patterns are named coupling-reduction moves
-- [[technical-debt|Technical Debt]] - coincidental cohesion and common coupling are how debt accumulates structurally
-- [[api-design|API Design]] - a published interface is a coupling contract you cannot unilaterally change
+- [[cs/software-engineering/solid-principles|SOLID Principles]] - SRP was explicitly built on the cohesion work of DeMarco and Page-Jones
+- [[cs/software-engineering/software-architecture|Software Architecture]] - module boundaries are where these two forces get traded off
+- [[cs/software-engineering/refactoring|Refactoring]] - the operation that moves elements across boundaries to fix a bad grouping
+- [[cs/software-engineering/design-patterns|Design Patterns]] - most patterns are named coupling-reduction moves
+- [[cs/software-engineering/technical-debt|Technical Debt]] - coincidental cohesion and common coupling are how debt accumulates structurally
+- [[cs/software-engineering/api-design|API Design]] - a published interface is a coupling contract you cannot unilaterally change
 - [[cs/pl/modules-signatures-and-separate-compilation|Modules, Signatures, and Separate Compilation]] - the language-level machinery for enforcing a boundary
 
 ## Sources

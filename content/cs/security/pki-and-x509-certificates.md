@@ -16,7 +16,7 @@ aliases:
   - chain of trust
 ---
 
-A [[digital-signatures|digital signature]] can prove a message came from whoever holds a particular private key. It cannot tell you whose key that is. Public-key infrastructure is the machinery built to answer that second question at internet scale, and its answer is [[cs/dsa/recursion|quietly recursive]]: trust a key because a key you already trust vouched for it.
+A [[cs/security/digital-signatures|digital signature]] can prove a message came from whoever holds a particular private key. It cannot tell you whose key that is. Public-key infrastructure is the machinery built to answer that second question at internet scale, and its answer is [[cs/dsa/recursion|quietly recursive]]: trust a key because a key you already trust vouched for it.
 
 > [!note] The idea
 > PKI binds identities to public keys using certificates, which are "data structures that bind public key values to subjects," where "the binding is asserted by having a trusted CA digitally sign each certificate." Verifying a stranger's key means building a certification path from it up to a certificate authority you already trust. The math of signatures is the easy part; the hard part is the trust topology wrapped around it, and that is where PKI both scales and breaks.
@@ -38,11 +38,11 @@ That preinstalled root store is the load-bearing assumption and the weak point a
 
 ## Related Notes
 
-- [[digital-signatures|Digital Signatures]], the primitive a certificate is built from
-- [[diffie-hellman-and-key-exchange|Diffie-Hellman and Key Exchange]], the key agreement a certificate authenticates
-- [[secure-boot-and-the-chain-of-trust|Secure Boot and the Chain of Trust]], the same root-to-leaf trust pattern in firmware
-- [[kerberos-authentication|Kerberos Authentication]], a different answer to trusting strangers, via a shared trusted third party
-- [[symmetric-vs-asymmetric-cryptography|Symmetric vs. Asymmetric Cryptography]], the hybrid a certificate ultimately protects
+- [[cs/security/digital-signatures|Digital Signatures]], the primitive a certificate is built from
+- [[cs/security/diffie-hellman-and-key-exchange|Diffie-Hellman and Key Exchange]], the key agreement a certificate authenticates
+- [[cs/security/secure-boot-and-the-chain-of-trust|Secure Boot and the Chain of Trust]], the same root-to-leaf trust pattern in firmware
+- [[cs/security/kerberos-authentication|Kerberos Authentication]], a different answer to trusting strangers, via a shared trusted third party
+- [[cs/security/symmetric-vs-asymmetric-cryptography|Symmetric vs. Asymmetric Cryptography]], the hybrid a certificate ultimately protects
 
 ## Sources
 

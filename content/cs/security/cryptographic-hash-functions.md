@@ -28,7 +28,7 @@ That last freedom is why collision resistance is the hardest to hold. The attack
 
 ## Why the hierarchy matters
 
-The three are not interchangeable, and matching the property to the job is the whole design discipline. A [[digital-signatures|digital signature]] hashes the message and signs the digest, so if an adversary can find a collision they can get a signature on one document and bind it to another. Signatures need collision resistance. A password stored as a hash needs preimage resistance so the stored value does not reveal the password. Confusing the two is how systems get built on the wrong guarantee.
+The three are not interchangeable, and matching the property to the job is the whole design discipline. A [[cs/security/digital-signatures|digital signature]] hashes the message and signs the digest, so if an adversary can find a collision they can get a signature on one document and bind it to another. Signatures need collision resistance. A password stored as a hash needs preimage resistance so the stored value does not reveal the password. Confusing the two is how systems get built on the wrong guarantee.
 
 ## The fall of SHA-1
 
@@ -39,11 +39,11 @@ This is where the theory meets a real headstone. "In February 2017, CWI Amsterda
 
 ## Related Notes
 
-- [[digital-signatures|Digital Signatures]], where collision resistance is load-bearing
-- [[password-hashing-and-salting|Password Hashing and Salting]], which needs preimage resistance and deliberately does not use a plain fast hash
-- [[aes-and-block-ciphers|AES and Block Ciphers]], whose authenticated modes lean on a hash-like integrity check
-- [[rsa-and-computational-hardness|RSA and Computational Hardness]], the trapdoor that signs the digest
-- [[shannon-and-information-theory|Shannon and Information Theory]], the confusion-and-diffusion roots of the design
+- [[cs/security/digital-signatures|Digital Signatures]], where collision resistance is load-bearing
+- [[cs/security/password-hashing-and-salting|Password Hashing and Salting]], which needs preimage resistance and deliberately does not use a plain fast hash
+- [[cs/security/aes-and-block-ciphers|AES and Block Ciphers]], whose authenticated modes lean on a hash-like integrity check
+- [[cs/military-computing/rsa-and-computational-hardness|RSA and Computational Hardness]], the trapdoor that signs the digest
+- [[cs/military-computing/shannon-and-information-theory|Shannon and Information Theory]], the confusion-and-diffusion roots of the design
 
 ## Sources
 

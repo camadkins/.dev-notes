@@ -51,7 +51,7 @@ This gives the **clock consistency condition**: if `a -> b` then `C(a) < C(b)`. 
 
 A vector clock recovers the information a scalar throws away. For `n` processes it is a vector of `n` counters; process `i` keeps its own counter *and* the highest counter value it has heard from every other process. The rules generalize the Lamport ones: increment your own entry on a local event or send, ship the whole vector with the message, and on receipt take the element-wise maximum with the received vector, then increment your own entry.
 
-Now comparison is two-way. Define `VC(x) < VC(y)` to mean every component of `x` is less than or equal to the matching component of `y`, and at least one is strictly less. Then `x -> y` **if and only if** `VC(x) < VC(y)`. If neither vector dominates the other, the events are concurrent, and you can detect that fact, which a Lamport clock cannot. This is the strong clock consistency condition, and it is why systems that need to spot concurrent updates for [[consistency-models|conflict resolution]] reach for vector clocks. The generalization to vector time was worked out independently by several authors in the early 1980s; Colin Fidge and Friedemann Mattern's 1988 papers established the name and the properties.
+Now comparison is two-way. Define `VC(x) < VC(y)` to mean every component of `x` is less than or equal to the matching component of `y`, and at least one is strictly less. Then `x -> y` **if and only if** `VC(x) < VC(y)`. If neither vector dominates the other, the events are concurrent, and you can detect that fact, which a Lamport clock cannot. This is the strong clock consistency condition, and it is why systems that need to spot concurrent updates for [[cs/systems/consistency-models|conflict resolution]] reach for vector clocks. The generalization to vector time was worked out independently by several authors in the early 1980s; Colin Fidge and Friedemann Mattern's 1988 papers established the name and the properties.
 
 The cost is space. A vector clock carries one entry per process, so its size grows with the number of participants, which is why some systems use bounded alternatives (matrix clocks, interval tree clocks, Bloom clocks) or avoid them entirely.
 
@@ -60,10 +60,10 @@ The cost is space. A vector clock carries one entry per process, so its size gro
 
 ## Related Notes
 
-- [[distributed-consensus|Distributed Consensus]] is the harder problem of agreeing on a single ordered log, where these clocks provide the raw ordering
-- [[consistency-models|Consistency Models]] defines causal consistency directly on top of the happens-before relation
-- [[processes-and-threads|Processes and Threads]] are the entities whose local event order the clocks extend across the network
-- [[concurrency-primitives|Concurrency Primitives]] face the same ordering question inside one machine, where the hardware memory model plays the role of happens-before
+- [[cs/systems/distributed-consensus|Distributed Consensus]] is the harder problem of agreeing on a single ordered log, where these clocks provide the raw ordering
+- [[cs/systems/consistency-models|Consistency Models]] defines causal consistency directly on top of the happens-before relation
+- [[cs/systems/processes-and-threads|Processes and Threads]] are the entities whose local event order the clocks extend across the network
+- [[cs/systems/concurrency-primitives|Concurrency Primitives]] face the same ordering question inside one machine, where the hardware memory model plays the role of happens-before
 
 ## Sources
 

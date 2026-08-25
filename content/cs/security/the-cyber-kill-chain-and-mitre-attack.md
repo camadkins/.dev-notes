@@ -39,10 +39,10 @@ MITRE ATT&CK answers those gaps by dropping the linear assumption. It describes 
 
 ## Related Notes
 
-- [[stride-threat-modeling|STRIDE Threat Modeling]], a complementary framework aimed at design-time threats rather than live intrusions
-- [[malware-classes|Malware Classes]], the weaponization and installation payloads these frameworks track moving through the stages
-- [[ids-and-ips|IDS and IPS]], the detection and disruption controls a kill-chain or ATT&CK mapping is used to place
-- [[zero-trust-architecture|Zero Trust Architecture]], a response to exactly the perimeter and insider gaps the kill chain is criticized for
+- [[cs/security/stride-threat-modeling|STRIDE Threat Modeling]], a complementary framework aimed at design-time threats rather than live intrusions
+- [[cs/security/malware-classes|Malware Classes]], the weaponization and installation payloads these frameworks track moving through the stages
+- [[cs/security/ids-and-ips|IDS and IPS]], the detection and disruption controls a kill-chain or ATT&CK mapping is used to place
+- [[cs/security/zero-trust-architecture|Zero Trust Architecture]], a response to exactly the perimeter and insider gaps the kill chain is criticized for
 
 ## Sources
 

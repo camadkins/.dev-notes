@@ -16,7 +16,7 @@ aliases:
 
 ## A Function Is a Rule With One Output
 
-A function assigns to each element of a domain exactly one element of a codomain. That "exactly one" is the whole discipline: it is what separates a function from a general [[relations-and-equivalence|relation]], which may send an element to zero, one, or many partners. Given the constraint, the interesting questions are about how the outputs cover the codomain and whether any output is hit twice. Three properties answer them.
+A function assigns to each element of a domain exactly one element of a codomain. That "exactly one" is the whole discipline: it is what separates a function from a general [[cs/math/relations-and-equivalence|relation]], which may send an element to zero, one, or many partners. Given the constraint, the interesting questions are about how the outputs cover the codomain and whether any output is hit twice. Three properties answer them.
 
 > [!note]
 > The payload: a bijection is the formal meaning of "these two sets are the same size." Two sets have "the same number of elements ... if there is a bijection between them," a definition that keeps working when the sets are infinite and counting stops being an option. Every counting proof in CS that pairs up two collections to show they are equinumerous is secretly constructing a bijection.
@@ -35,7 +35,7 @@ A function is "bijective ... if each element of the codomain is mapped to by exa
 
 ## Why Bijections Count
 
-Pairing two finite sets by a bijection proves they have equal [[set-theory-basics|cardinality]] without counting either one. This is the backbone of [[combinatorics|combinatorial]] proof: to show two sets of configurations are equal in number, exhibit a bijection between them. It also sets the boundary that the [[pigeonhole-principle|pigeonhole principle]] enforces from the other side. If the domain is strictly larger than the codomain, no injection can exist, so some output must be shared. A [[cs/security/cryptographic-hash-functions|hash function]] from a large key space into a small table cannot be injective, and that impossibility is why collisions are inevitable rather than a bug.
+Pairing two finite sets by a bijection proves they have equal [[cs/math/set-theory-basics|cardinality]] without counting either one. This is the backbone of [[cs/math/combinatorics|combinatorial]] proof: to show two sets of configurations are equal in number, exhibit a bijection between them. It also sets the boundary that the [[cs/math/pigeonhole-principle|pigeonhole principle]] enforces from the other side. If the domain is strictly larger than the codomain, no injection can exist, so some output must be shared. A [[cs/security/cryptographic-hash-functions|hash function]] from a large key space into a small table cannot be injective, and that impossibility is why collisions are inevitable rather than a bug.
 
 > [!example]
 > **Doubling on the naturals, $f(n) = 2n$.** From $\mathbb{N}$ to $\mathbb{N}$:
@@ -44,10 +44,10 @@ Pairing two finite sets by a bijection proves they have equal [[set-theory-basic
 
 ## Related Notes
 
-- [[relations-and-equivalence|Relations and Equivalence]] - a function is a relation constrained to one output per input
-- [[set-theory-basics|Set Theory Basics]] - bijection is the definition of equal cardinality
-- [[combinatorics|Combinatorics]] - counting by constructing a bijection between two configuration sets
-- [[pigeonhole-principle|Pigeonhole Principle]] - when the domain exceeds the codomain, injectivity is impossible
+- [[cs/math/relations-and-equivalence|Relations and Equivalence]] - a function is a relation constrained to one output per input
+- [[cs/math/set-theory-basics|Set Theory Basics]] - bijection is the definition of equal cardinality
+- [[cs/math/combinatorics|Combinatorics]] - counting by constructing a bijection between two configuration sets
+- [[cs/math/pigeonhole-principle|Pigeonhole Principle]] - when the domain exceeds the codomain, injectivity is impossible
 
 ## Sources
 

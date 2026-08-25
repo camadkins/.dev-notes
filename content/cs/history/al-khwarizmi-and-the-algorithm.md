@@ -32,13 +32,13 @@ What earns him the connection to computing is method. His systematic approach to
 
 ## Forward
 
-The formal question of what a step-by-step procedure can and cannot compute waited a thousand years, until [[turing-and-computability|Turing and the theory of computability]] gave "algorithm" a precise mathematical meaning.
+The formal question of what a step-by-step procedure can and cannot compute waited a thousand years, until [[cs/history/turing-and-computability|Turing and the theory of computability]] gave "algorithm" a precise mathematical meaning.
 
 ## Related Notes
 
-- [[turing-and-computability|Turing and Computability]], where the algorithm became a formal object
-- [[mathematical-induction|Mathematical Induction]], the proof technique behind correct procedures
-- [[antikythera-mechanism-analog-computation|The Antikythera Mechanism]], the other ancient root of computing
+- [[cs/history/turing-and-computability|Turing and Computability]], where the algorithm became a formal object
+- [[cs/math/mathematical-induction|Mathematical Induction]], the proof technique behind correct procedures
+- [[cs/history/antikythera-mechanism-analog-computation|The Antikythera Mechanism]], the other ancient root of computing
 - [[cs/history/index|History of Computing]], the section index
 
 ## Sources

@@ -17,7 +17,7 @@ aliases:
 
 ## Slope, Made Precise
 
-The derivative answers a question you already have an instinct for: if I nudge the input a little, how much does the output move, and in which direction? Formally, the derivative "quantifies the sensitivity to change of a function's output with respect to its input," and at a single point it "is the slope of the tangent line to the graph of the function at that point." Steep graph, large derivative; flat graph, derivative near zero. It is "often described as the instantaneous rate of change," the limiting slope you get as you shrink the gap between two points on the curve to nothing. That limiting step is why derivatives rest on [[limits-and-continuity|limits]].
+The derivative answers a question you already have an instinct for: if I nudge the input a little, how much does the output move, and in which direction? Formally, the derivative "quantifies the sensitivity to change of a function's output with respect to its input," and at a single point it "is the slope of the tangent line to the graph of the function at that point." Steep graph, large derivative; flat graph, derivative near zero. It is "often described as the instantaneous rate of change," the limiting slope you get as you shrink the gap between two points on the curve to nothing. That limiting step is why derivatives rest on [[cs/math/limits-and-continuity|limits]].
 
 > [!note] The idea
 > Optimization on a computer is derivative-following. The derivative is the local slope, the gradient is that same slope generalized to many inputs, and the gradient "plays a fundamental role in optimization theory, machine learning, and artificial intelligence, where it is used to minimize a function by gradient descent." The non-obvious part is that a purely *local* quantity, the slope right where you stand, is enough to train a model with millions of parameters: you never need to see the whole loss surface, only the slope under your feet.
@@ -34,7 +34,7 @@ $$\nabla f = \left( \frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial 
 
 Its two properties are what make it the central object of ML. First, direction: the gradient points the way the function increases fastest. On a landscape whose height is $H(x, y)$, "the gradient of $H$ at a point is a plane vector pointing in the direction of the steepest slope or grade at that point." Second, magnitude: "the magnitude of the gradient is the rate of increase in that direction, the greatest absolute directional derivative." So the gradient says more than "uphill is that way," it also says "and this steeply."
 
-The gradient also measures the slope in *any* direction, not only the steepest, through a [[vectors-and-dot-products|dot product]]. Project the gradient onto a unit vector along the direction you care about and you get the slope along that path. The Wikipedia hill example makes it concrete: if the steepest slope is 40% and a road runs at 60° from straight uphill, "the slope along the road will be the dot product between the gradient vector and a unit vector along the road, which is 40% times the cosine of 60°, or 20%." Angle away from steepest and the climb gets gentler by exactly $\cos\theta$.
+The gradient also measures the slope in *any* direction, not only the steepest, through a [[cs/math/vectors-and-dot-products|dot product]]. Project the gradient onto a unit vector along the direction you care about and you get the slope along that path. The Wikipedia hill example makes it concrete: if the steepest slope is 40% and a road runs at 60° from straight uphill, "the slope along the road will be the dot product between the gradient vector and a unit vector along the road, which is 40% times the cosine of 60°, or 20%." Angle away from steepest and the climb gets gentler by exactly $\cos\theta$.
 
 > [!example]
 > Let $f(x, y) = x^2 + 3y^2$. The partials are $\frac{\partial f}{\partial x} = 2x$ and $\frac{\partial f}{\partial y} = 6y$, so $\nabla f = (2x, 6y)$. At the point $(1, 1)$ the gradient is $(2, 6)$: the function rises fastest in the direction $(2, 6)$, roughly three times steeper along $y$ than along $x$, which matches the $3y^2$ term. At the minimum $(0, 0)$ the gradient is $(0, 0)$, the flat spot where every partial vanishes.
@@ -53,8 +53,8 @@ where $\eta$ is the learning rate controlling step size. That single line, repea
 ## Related Notes
 
 - [[cs/machine-learning/gradient-descent|Gradient Descent]] - the optimizer that steps opposite the gradient to minimize a loss
-- [[limits-and-continuity|Limits and Continuity]] - the limit of a difference quotient is what defines the derivative
-- [[vectors-and-dot-products|Vectors and Dot Products]] - the directional derivative is the gradient dotted with a unit direction
+- [[cs/math/limits-and-continuity|Limits and Continuity]] - the limit of a difference quotient is what defines the derivative
+- [[cs/math/vectors-and-dot-products|Vectors and Dot Products]] - the directional derivative is the gradient dotted with a unit direction
 - [[cs/machine-learning/loss-functions|Loss Functions]] - the surfaces whose gradients training actually descends
 
 ## Sources

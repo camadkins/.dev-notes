@@ -26,7 +26,7 @@ Unicast is a one-to-one transmission from one point in the network to another: o
 
 ## Broadcast: one to all
 
-Broadcast delivers a message to all nodes in the network using a one-to-all association: a single datagram from one sender is routed to all endpoints associated with the broadcast address, and the network replicates the datagram as needed to reach every recipient. The scope is deliberately bounded. A broadcast is limited to a **broadcast domain**, generally an entire subnet, which is exactly the boundary a [[vlans-and-802-1q-trunking|VLAN]] carves and a router refuses to forward across. This is why protocols that must reach everyone locally before addresses are known, like [[arp-and-mac-addressing|ARP]] and DHCP discovery, use broadcast: they have no specific address to aim at yet, so they shout to the whole segment. It is also why large flat networks get expensive, since every broadcast touches every host.
+Broadcast delivers a message to all nodes in the network using a one-to-all association: a single datagram from one sender is routed to all endpoints associated with the broadcast address, and the network replicates the datagram as needed to reach every recipient. The scope is deliberately bounded. A broadcast is limited to a **broadcast domain**, generally an entire subnet, which is exactly the boundary a [[cs/networking/vlans-and-802-1q-trunking|VLAN]] carves and a router refuses to forward across. This is why protocols that must reach everyone locally before addresses are known, like [[cs/networking/arp-and-mac-addressing|ARP]] and DHCP discovery, use broadcast: they have no specific address to aim at yet, so they shout to the whole segment. It is also why large flat networks get expensive, since every broadcast touches every host.
 
 ## Multicast: one to a group
 
@@ -36,11 +36,11 @@ Membership is dynamic, and the protocol that manages it is the **Internet Group 
 
 ## Anycast: one to the nearest
 
-Anycast is the one that looks like magic until you see the mechanism. It delivers a message to any one out of a group of nodes, typically the one nearest the sender, using a one-to-one-of-many association: many potential receivers are all identified by the same destination address, and the routing algorithm selects the single nearest one by some distance or cost measure. In practice a single IP address is shared by servers in multiple locations, and routers direct packets to the location nearest the sender using their normal decision-making, typically the lowest number of [[routing-and-longest-prefix-match|BGP]] hops.
+Anycast is the one that looks like magic until you see the mechanism. It delivers a message to any one out of a group of nodes, typically the one nearest the sender, using a one-to-one-of-many association: many potential receivers are all identified by the same destination address, and the routing algorithm selects the single nearest one by some distance or cost measure. In practice a single IP address is shared by servers in multiple locations, and routers direct packets to the location nearest the sender using their normal decision-making, typically the lowest number of [[cs/networking/routing-and-longest-prefix-match|BGP]] hops.
 
-The sender does nothing special; it sends to one address, and the network's ordinary routing quietly delivers to whichever instance is closest. That property makes anycast the backbone of two systems in this garden. The [[cs/systems/dns-the-domain-name-system|DNS]] root and major name servers use it so a query is answered by a nearby box rather than one distant machine, and many initial anycast deployments were exactly DNS servers over UDP. The same trick steers each user of a [[cs/systems/content-delivery-networks-and-the-centralization-of-control|CDN]] to the nearest edge PoP. Anycast pairs naturally with connectionless protocols; a stateless [[tcp-vs-udp|UDP]] query to whichever instance answers is safe, whereas long-lived stateful connections need care in case routing shifts a flow to a different instance mid-session.
+The sender does nothing special; it sends to one address, and the network's ordinary routing quietly delivers to whichever instance is closest. That property makes anycast the backbone of two systems in this garden. The [[cs/systems/dns-the-domain-name-system|DNS]] root and major name servers use it so a query is answered by a nearby box rather than one distant machine, and many initial anycast deployments were exactly DNS servers over UDP. The same trick steers each user of a [[cs/systems/content-delivery-networks-and-the-centralization-of-control|CDN]] to the nearest edge PoP. Anycast pairs naturally with connectionless protocols; a stateless [[cs/networking/tcp-vs-udp|UDP]] query to whichever instance answers is safe, whereas long-lived stateful connections need care in case routing shifts a flow to a different instance mid-session.
 
-![The four IP delivery modes: unicast reaches one node, broadcast reaches every node in the subnet, multicast reaches only subscribed group members, and anycast reaches the single nearest of several nodes sharing one address](assets/delivery-modes.svg)
+![The four IP delivery modes: unicast reaches one node, broadcast reaches every node in the subnet, multicast reaches only subscribed group members, and anycast reaches the single nearest of several nodes sharing one address](cs/networking/assets/delivery-modes.svg)
 
 > [!example] Same source, four destinations
 > A host wants to send a datagram. Under unicast it names one server and reaches exactly that server. Under broadcast it targets the subnet's broadcast address and every host on the segment receives a copy. Under multicast it targets a group address, and only the hosts that joined that group via IGMP get the packet, delivered once and replicated by routers along the way. Under anycast it targets an address advertised from ten cities at once, and BGP delivers it to the single nearest city, the other nine never seeing it.
@@ -50,12 +50,12 @@ The sender does nothing special; it sends to one address, and the network's ordi
 
 ## Related Notes
 
-- [[ip-addressing-and-subnetting|IP Addressing and Subnetting]] - the address ranges reserved for broadcast and multicast
-- [[arp-and-mac-addressing|ARP and MAC Addressing]] - a canonical broadcast protocol, and Ethernet's own multicast bit
-- [[vlans-and-802-1q-trunking|VLANs and 802.1Q Trunking]] - the broadcast domain that bounds a broadcast
+- [[cs/networking/ip-addressing-and-subnetting|IP Addressing and Subnetting]] - the address ranges reserved for broadcast and multicast
+- [[cs/networking/arp-and-mac-addressing|ARP and MAC Addressing]] - a canonical broadcast protocol, and Ethernet's own multicast bit
+- [[cs/networking/vlans-and-802-1q-trunking|VLANs and 802.1Q Trunking]] - the broadcast domain that bounds a broadcast
 - [[cs/systems/dns-the-domain-name-system|DNS]] - the system anycast makes resilient and fast
 - [[cs/systems/content-delivery-networks-and-the-centralization-of-control|Content Delivery Networks]] - anycast steering users to the nearest edge
-- [[routing-and-longest-prefix-match|Routing and Longest Prefix Match]] - the BGP hop-count decision anycast rides on
+- [[cs/networking/routing-and-longest-prefix-match|Routing and Longest Prefix Match]] - the BGP hop-count decision anycast rides on
 
 ## Sources
 

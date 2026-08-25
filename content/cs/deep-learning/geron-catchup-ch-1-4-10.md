@@ -169,7 +169,7 @@ Regularization = deliberately constraining the model so it can't fit noise. Chap
 - **Early stopping** — stop training the moment validation error starts rising. Dead simple, remarkably effective, and it reappears verbatim in Chapter 10.
 
 > [!note] The one intuition for all of them
-> Big weights let a model make sharp, confident swings to chase individual points — that's overfitting. Penalizing weight size forces smoother, humbler fits. In [[regularization-in-deep-learning|deep learning regularization]] the same idea returns as **weight decay** (L2), plus dropout and others. Same goal, same tradeoff axis.
+> Big weights let a model make sharp, confident swings to chase individual points — that's overfitting. Penalizing weight size forces smoother, humbler fits. In [[cs/deep-learning/regularization-in-deep-learning|deep learning regularization]] the same idea returns as **weight decay** (L2), plus dropout and others. Same goal, same tradeoff axis.
 
 ### 7. Classification with the same loop: Logistic & Softmax Regression
 
@@ -181,13 +181,13 @@ Swap the output and the cost and the *identical* loop now does classification.
 - **Softmax regression** — the multiclass generalization: output a probability for each of $K$ classes (they sum to 1), trained with **cross-entropy** loss. This is *exactly* the output layer of most Chapter 10 classifiers.
 
 > [!tip] The payoff for Chapter 10
-> A neural-net classifier's final layer **is** softmax regression, and its loss **is** cross-entropy. The sigmoid you just met is one of the [[activation-functions|activation functions]]. Chapter 4 didn't just teach regression — it pre-built Chapter 10's output layer and one of its activations.
+> A neural-net classifier's final layer **is** softmax regression, and its loss **is** cross-entropy. The sigmoid you just met is one of the [[cs/deep-learning/activation-functions|activation functions]]. Chapter 4 didn't just teach regression — it pre-built Chapter 10's output layer and one of its activations.
 
 ---
 
 ## Chapter 10 — Neural Networks with Keras (the loop, stacked)
 
-Now stack the loop. A neuron is a linear model ($\mathbf{x}^\top\boldsymbol{\theta}$) followed by a nonlinearity. A network is layers of those. See [[artificial-neural-networks|artificial neural networks]] for the full arc; here's the through-line.
+Now stack the loop. A neuron is a linear model ($\mathbf{x}^\top\boldsymbol{\theta}$) followed by a nonlinearity. A network is layers of those. See [[cs/deep-learning/artificial-neural-networks|artificial neural networks]] for the full arc; here's the through-line.
 
 ### 1. Perceptron → why one layer isn't enough
 
@@ -198,7 +198,7 @@ The **perceptron** is a single layer of these neurons. It can only carve the inp
 An MLP has an input layer, one or more **hidden layers**, and an output layer. Here is the single most important subtlety in the whole chapter:
 
 > [!warning] Why the nonlinearity is the entire point
-> Stack two *linear* layers and the result is still just linear — $W_2(W_1\mathbf{x}) = (W_2 W_1)\mathbf{x}$, one matrix. You gained nothing. The **[[activation-functions|activation function]]** (ReLU, sigmoid, tanh…) inserted between layers is the nonlinearity that lets depth actually build richer functions. Without it, a 100-layer network is exactly as powerful as linear regression. **ReLU** — $\max(0, z)$ — is the modern default because it's cheap and trains well.
+> Stack two *linear* layers and the result is still just linear — $W_2(W_1\mathbf{x}) = (W_2 W_1)\mathbf{x}$, one matrix. You gained nothing. The **[[cs/deep-learning/activation-functions|activation function]]** (ReLU, sigmoid, tanh…) inserted between layers is the nonlinearity that lets depth actually build richer functions. Without it, a 100-layer network is exactly as powerful as linear regression. **ReLU** — $\max(0, z)$ — is the modern default because it's cheap and trains well.
 
 This is also the answer to "what does a hidden layer *do*?" — it learns [[cs/machine-learning/features-and-representations|features]] automatically, instead of you hand-engineering polynomial terms like you did in Chapter 4.
 
@@ -206,7 +206,7 @@ This is also the answer to "what does a hidden layer *do*?" — it learns [[cs/m
 
 Here is the only genuinely new machine in Chapter 10, and it's less new than it looks.
 
-In Chapter 4 you took the gradient of the cost with respect to a handful of weights — doable by hand. In a network, a weight in the first layer affects the cost only *through* every layer after it. To get its gradient you apply the **chain rule** repeatedly, layer by layer, from the output backward. That backward sweep is **[[backpropagation|backpropagation]]**.
+In Chapter 4 you took the gradient of the cost with respect to a handful of weights — doable by hand. In a network, a weight in the first layer affects the cost only *through* every layer after it. To get its gradient you apply the **chain rule** repeatedly, layer by layer, from the output backward. That backward sweep is **[[cs/deep-learning/backpropagation|backpropagation]]**.
 
 > [!abstract] Backprop in one breath
 > 1. **Forward pass** — run inputs through the network, compute the prediction and the cost. (This is just the model + cost, steps 1–2.)
@@ -250,7 +250,7 @@ Notice how much of this is Chapters 1 and 4 by another name: `softmax` and `cros
 - **Number of hidden layers / neurons** — more capacity = more power = more overfitting risk.
 - **Learning rate** — still the single most important hyperparameter, exactly as in Chapter 4.
 - **Optimizer** — SGD, momentum, Adam. Same downhill loop, smarter steps (see [[cs/machine-learning/gradient-descent|the momentum/Adam family]]).
-- **Regularization** — early stopping (a Keras callback — the *same* early stopping from Ch 4), plus dropout and L2 weight decay (see [[regularization-in-deep-learning|regularization in DL]]).
+- **Regularization** — early stopping (a Keras callback — the *same* early stopping from Ch 4), plus dropout and L2 weight decay (see [[cs/deep-learning/regularization-in-deep-learning|regularization in DL]]).
 - **Epochs / batch size** — how many passes over the data and how big each mini-batch is (Chapter 4's mini-batch knob).
 
 ---
@@ -296,8 +296,8 @@ Cover the guide and answer these out loud. If any is fuzzy, that's exactly the s
 
 ## Related notes
 
-- Foundations you already have: [[gradient-descent]] · [[loss-functions]] · [[bias-variance-tradeoff]] · [[train-validation-test]] · [[supervised-learning]] · [[generalization-vs-memorization]]
-- The Chapter 10 deep dives: [[artificial-neural-networks]] · [[backpropagation]] · [[activation-functions]] · [[regularization-in-deep-learning]] · [[features-and-representations]]
+- Foundations you already have: [[cs/machine-learning/gradient-descent]] · [[cs/machine-learning/loss-functions]] · [[cs/machine-learning/bias-variance-tradeoff]] · [[cs/machine-learning/train-validation-test]] · [[cs/machine-learning/supervised-learning]] · [[cs/machine-learning/generalization-vs-memorization]]
+- The Chapter 10 deep dives: [[cs/deep-learning/artificial-neural-networks]] · [[cs/deep-learning/backpropagation]] · [[cs/deep-learning/activation-functions]] · [[cs/deep-learning/regularization-in-deep-learning]] · [[cs/machine-learning/features-and-representations]]
 - Where it all sits: [[cs/machine-learning/ai-vs-ml-vs-dl|AI vs ML vs DL]] · [[cs/deep-learning/index|Deep Learning index]]
 
 *Source: Aurélien Géron, Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow, 3rd ed. — Chapters 1, 4, 10. This guide is a connective map; the derivations and standard facts are the book's, restated for the through-line.*

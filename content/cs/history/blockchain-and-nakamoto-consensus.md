@@ -29,14 +29,14 @@ Bitcoin runs as a peer-to-peer network in which [[cs/systems/replication-and-quo
 
 ## Why it matters
 
-Whatever one makes of cryptocurrency, the technical achievement is real: agreement among untrusting parties with no trusted middleman. That is a genuinely new point in the design space of [[distributed-consensus|distributed consensus]], which had always assumed either trust or a coordinator. It leans on [[hash-tables|hashing]] to chain each block to the last, making the ledger tamper-evident.
+Whatever one makes of cryptocurrency, the technical achievement is real: agreement among untrusting parties with no trusted middleman. That is a genuinely new point in the design space of [[cs/systems/distributed-consensus|distributed consensus]], which had always assumed either trust or a coordinator. It leans on [[cs/dsa/hash-tables|hashing]] to chain each block to the last, making the ledger tamper-evident.
 
 ## Related Notes
 
-- [[distributed-consensus|Distributed Consensus]], the problem blockchain attacks from a new angle
-- [[hash-tables|Hash Tables]], the hashing that chains the ledger
-- [[surveillance-and-privacy|Surveillance and Privacy]], the politics of decentralized money
-- [[history-of-the-internet|History of the Internet]], the network it runs on
+- [[cs/systems/distributed-consensus|Distributed Consensus]], the problem blockchain attacks from a new angle
+- [[cs/dsa/hash-tables|Hash Tables]], the hashing that chains the ledger
+- [[cs/geopolitics/surveillance-and-privacy|Surveillance and Privacy]], the politics of decentralized money
+- [[cs/history/history-of-the-internet|History of the Internet]], the network it runs on
 - [[cs/history/index|History of Computing]], the section index
 
 ## Sources

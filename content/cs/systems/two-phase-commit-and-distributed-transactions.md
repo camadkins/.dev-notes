@@ -48,7 +48,7 @@ The forced log writes are what let the protocol recover from most failures autom
 
 The greatest disadvantage of 2PC is that it is a blocking protocol. After a participant has voted yes, it must wait for a commit or rollback; it cannot unilaterally decide, because it does not know how the other participants voted. If the coordinator fails permanently, those participants never resolve, holding their locks indefinitely.
 
-Worse is the ambiguous case where **both** the coordinator and one participant fail during the commit phase. If only the coordinator had failed and no participant had received a commit, a new coordinator could safely infer that nothing committed. But if a participant also failed, that participant might have been the first told to commit and might have done so. A replacement coordinator cannot proceed safely until it has heard from every participant, so it must block until the failed one returns. This is a direct cousin of the [[distributed-consensus|FLP impossibility]] result: no timeout-free protocol escapes bad timing entirely.
+Worse is the ambiguous case where **both** the coordinator and one participant fail during the commit phase. If only the coordinator had failed and no participant had received a commit, a new coordinator could safely infer that nothing committed. But if a participant also failed, that participant might have been the first told to commit and might have done so. A replacement coordinator cannot proceed safely until it has heard from every participant, so it must block until the failed one returns. This is a direct cousin of the [[cs/systems/distributed-consensus|FLP impossibility]] result: no timeout-free protocol escapes bad timing entirely.
 
 ## Three-phase commit and sagas
 
@@ -61,10 +61,10 @@ Worse is the ambiguous case where **both** the coordinator and one participant f
 
 ## Related Notes
 
-- [[distributed-consensus|Distributed Consensus]] frames 2PC as a specialized consensus protocol and covers Paxos and Raft, which replicate the coordinator so its failure is survivable
-- [[cap-theorem|CAP Theorem]] explains why a strongly consistent commit sacrifices availability exactly when the network partitions
-- [[replication-and-quorums|Replication and Quorums]] uses quorum voting as an alternative path to atomic commit under partition
-- [[deadlock|Deadlock]] is the local analogue of participants stuck holding resources they will not release
+- [[cs/systems/distributed-consensus|Distributed Consensus]] frames 2PC as a specialized consensus protocol and covers Paxos and Raft, which replicate the coordinator so its failure is survivable
+- [[cs/systems/cap-theorem|CAP Theorem]] explains why a strongly consistent commit sacrifices availability exactly when the network partitions
+- [[cs/systems/replication-and-quorums|Replication and Quorums]] uses quorum voting as an alternative path to atomic commit under partition
+- [[cs/systems/deadlock|Deadlock]] is the local analogue of participants stuck holding resources they will not release
 
 ## Sources
 

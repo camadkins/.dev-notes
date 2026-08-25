@@ -40,9 +40,9 @@ That is the whole trick, and it is structural rather than lexical. The dangerous
 
 ## Related Notes
 
-- [[cross-site-scripting-xss|Cross-Site Scripting (XSS)]], the same code-versus-data confusion aimed at the browser instead of the database
-- [[owasp-top-10|The OWASP Top 10]], where SQL injection sits inside the broader A03 Injection class
-- [[stride-threat-modeling|STRIDE Threat Modeling]], for naming the tampering and disclosure threats injection realizes
+- [[cs/security/cross-site-scripting-xss|Cross-Site Scripting (XSS)]], the same code-versus-data confusion aimed at the browser instead of the database
+- [[cs/security/owasp-top-10|The OWASP Top 10]], where SQL injection sits inside the broader A03 Injection class
+- [[cs/security/stride-threat-modeling|STRIDE Threat Modeling]], for naming the tampering and disclosure threats injection realizes
 
 ## Sources
 

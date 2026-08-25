@@ -56,7 +56,7 @@ UDP shows up in DNS because queries are small, latency matters, and if you don't
 
 ## DNS Resolution
 
-[[dns-the-domain-name-system|DNS]] translates human-readable names (`example.com`) into IP addresses (`93.184.216.34`). The resolution process is hierarchical, which is something I didn't fully appreciate until I traced through it:
+[[cs/systems/dns-the-domain-name-system|DNS]] translates human-readable names (`example.com`) into IP addresses (`93.184.216.34`). The resolution process is hierarchical, which is something I didn't fully appreciate until I traced through it:
 
 1. Client asks its **recursive resolver** (usually ISP or `8.8.8.8`).
 2. Resolver queries a **root nameserver** (`.`), which points to the **TLD nameserver** (`.com`).
@@ -98,7 +98,7 @@ This is the classic interview question, and walking through it connects all the 
 
 1. **DNS**: resolve `example.com` to an IP address (UDP port 53).
 2. **TCP**: open a connection to that IP on port 443 (three-way handshake).
-3. **[[tls-and-the-https-handshake|TLS]]**: negotiate encryption (certificate exchange, key agreement).
+3. **[[cs/systems/tls-and-the-https-handshake|TLS]]**: negotiate encryption (certificate exchange, key agreement).
 4. **HTTP**: send `GET /` over the encrypted channel.
 5. **Response**: server returns HTML; browser parses, discovers linked CSS/JS/images, and repeats steps 1-4 for each (often reusing the TCP connection).
 
@@ -109,10 +109,10 @@ At the IP layer, routers forward packets hop by hop using routing tables. At the
 
 ## Related Notes
 
-- [[distributed-consensus|Distributed Consensus]] - what happens when networked machines must agree on shared state
-- [[processes-and-threads|Processes & Threads]] - servers use processes or threads to handle concurrent network connections
-- [[dns-the-domain-name-system|DNS - The Domain Name System]] - the name-resolution layer in depth
-- [[tls-and-the-https-handshake|TLS and the HTTPS Handshake]] - the encryption step between TCP and HTTP in depth
+- [[cs/systems/distributed-consensus|Distributed Consensus]] - what happens when networked machines must agree on shared state
+- [[cs/systems/processes-and-threads|Processes & Threads]] - servers use processes or threads to handle concurrent network connections
+- [[cs/systems/dns-the-domain-name-system|DNS - The Domain Name System]] - the name-resolution layer in depth
+- [[cs/systems/tls-and-the-https-handshake|TLS and the HTTPS Handshake]] - the encryption step between TCP and HTTP in depth
 
 ## Sources
 

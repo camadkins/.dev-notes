@@ -24,7 +24,7 @@ Paul Baran, a young engineer at the RAND Corporation, spent the early 1960s work
 
 Baran started from a question about [[cs/math/graph-theory|topology, the shape of the connections]] rather than the equipment hanging off them. He sketched three kinds of network and asked how much damage each could absorb.
 
-![Three network topologies from Baran's 1964 work: centralized, decentralized, and distributed.](assets/baran-network-topologies.svg)
+![Three network topologies from Baran's 1964 work: centralized, decentralized, and distributed.](cs/military-computing/assets/baran-network-topologies.svg)
 
 A *centralized* network routes everything through one hub. Destroy the hub and the network is gone. A *decentralized* network has several hubs, which helps, but each hub is still a fat target whose loss isolates everything behind it. A *distributed* network has no hubs at all. Every node connects to several neighbors, so between any two points there are many possible paths. Baran calculated that a redundancy level of around three, meaning roughly three links per node on average, let such a network survive the loss of as much as half its nodes and still pass traffic among the survivors.
 
@@ -51,17 +51,17 @@ That last property is what makes the system survivable, and it is the same prope
 
 Packet switching delivered three things together. It gave survivability, because no single point is fatal to lose. It gave efficiency, because many conversations share the same links, each link carrying packets from whichever flows happen to have traffic at that instant rather than sitting idle inside a reserved circuit. That sharing is called statistical multiplexing, and it is why a packet network carries far more conversations per wire than a circuit network of the same size.
 
-The cost lands on the receiver. Packets can arrive out of order, can be duplicated, and can be [[cs/networking/tcp-congestion-control|dropped when a node's queue fills]]. A circuit, once established, hands over a clean ordered stream; a packet network hands over a pile of fragments and makes reassembly and retransmission someone else's problem. Solving that problem is exactly what the transport protocols layered on top, [[dod-model-and-tcp-ip-standardization|TCP]] chief among them, were later built to do.
+The cost lands on the receiver. Packets can arrive out of order, can be duplicated, and can be [[cs/networking/tcp-congestion-control|dropped when a node's queue fills]]. A circuit, once established, hands over a clean ordered stream; a packet network hands over a pile of fragments and makes reassembly and retransmission someone else's problem. Solving that problem is exactly what the transport protocols layered on top, [[cs/military-computing/dod-model-and-tcp-ip-standardization|TCP]] chief among them, were later built to do.
 
 Baran joined RAND in 1959, and his designs were published as the eleven-volume series On Distributed Communications in 1964, then set aside for a few years. The idea came back at the end of the decade in the network the Defense Department actually built, the ARPANET, whose first node was installed at UCLA in 1969. The line from a Cold War survivability study to the device rendering this page is direct and unbroken.
 
 ## Related Notes
 
-- [[arpanet-survivable-communications|ARPANET and Survivable Communications]], the network that put this idea into hardware
-- [[network-protocols|Network Protocols]], the layered rules that ride on top of packet switching
-- [[history-of-the-internet|History of the Internet]], where the story continues
-- [[dijkstras-algorithm|Dijkstra's Algorithm]], one way a node works out which neighbor is closer to a destination
-- [[von-neumann-architecture|Von Neumann Architecture]], the kind of machine each node and host actually is
+- [[cs/military-computing/arpanet-survivable-communications|ARPANET and Survivable Communications]], the network that put this idea into hardware
+- [[cs/systems/network-protocols|Network Protocols]], the layered rules that ride on top of packet switching
+- [[cs/history/history-of-the-internet|History of the Internet]], where the story continues
+- [[cs/dsa/dijkstras-algorithm|Dijkstra's Algorithm]], one way a node works out which neighbor is closer to a destination
+- [[cs/history/von-neumann-architecture|Von Neumann Architecture]], the kind of machine each node and host actually is
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

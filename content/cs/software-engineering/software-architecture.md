@@ -97,6 +97,6 @@ The same business logic, shaped differently by where you draw the boundaries.
 
 ## Related Notes
 
-- [[design-patterns|Design Patterns]] - class-level patterns that implement architectural decisions
-- [[api-design|API Design]] - the contracts between architectural components
-- [[testing-strategies|Testing Strategies]] - architecture determines where integration boundaries fall
+- [[cs/software-engineering/design-patterns|Design Patterns]] - class-level patterns that implement architectural decisions
+- [[cs/software-engineering/api-design|API Design]] - the contracts between architectural components
+- [[cs/software-engineering/testing-strategies|Testing Strategies]] - architecture determines where integration boundaries fall

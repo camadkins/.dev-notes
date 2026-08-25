@@ -226,10 +226,10 @@ An array-backed stack offers a **simple, fast, and cache-efficient** LIFO contai
 
 ## Related Notes
 
-- [[stack|Stack]]
+- [[cs/dsa/stack|Stack]]
 
-- [[push-and-pop-operations|Push & Pop Operations]]
+- [[cs/dsa/push-and-pop-operations|Push & Pop Operations]]
 
-- [[stack-using-linked-list|Stack Using Linked List]]
+- [[cs/dsa/stack-using-linked-list|Stack Using Linked List]]
 
-- [[dynamic-arrays|Dynamic Arrays]]
+- [[cs/dsa/dynamic-arrays|Dynamic Arrays]]

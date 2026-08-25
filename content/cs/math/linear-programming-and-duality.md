@@ -37,7 +37,7 @@ The restriction to maximization with $\leq$ constraints and non-negative variabl
 
 Everything about how LP is solved follows from the shape the constraints cut out. "Its feasible region is a convex polytope, which is a set defined as the intersection of finitely many half spaces, each of which is defined by a linear inequality. Its objective function is a real-valued affine (linear) function defined on this polytope. A linear programming algorithm finds a point in the polytope where this function has the largest (or smallest) value if such a point exists."
 
-Linearity gives the geometry for free. "A linear function is a convex function, which implies that every local minimum is a global minimum; similarly, a linear function is a concave function, which implies that every local maximum is a global maximum." No local traps exist to worry about, which is the same guarantee [[convexity-and-optimization-basics|convexity]] provides in the general case, here holding automatically.
+Linearity gives the geometry for free. "A linear function is a convex function, which implies that every local minimum is a global minimum; similarly, a linear function is a concave function, which implies that every local maximum is a global maximum." No local traps exist to worry about, which is the same guarantee [[cs/math/convexity-and-optimization-basics|convexity]] provides in the general case, here holding automatically.
 
 Two ways the problem can have no answer, and both are structural rather than numerical. "First, if the constraints are inconsistent, then no feasible solution exists: For instance, the constraints x ≥ 2 and x ≤ 1 cannot be satisfied jointly; in this case, we say that the LP is infeasible. Second, when the polytope is unbounded in the direction of the gradient of the objective function (where the gradient of the objective function is the vector of the coefficients of the objective function), then no optimal value is attained because it is always possible to do better than any finite value of the objective function."
 
@@ -93,12 +93,12 @@ Historically the influence runs wider than the technique. "Ideas from linear pro
 
 ## Related Notes
 
-- [[convexity-and-optimization-basics|Convexity and Optimization Basics]] - the general convex setting where local optima are global and duality gaps close
-- [[matrices-and-linear-transformations|Matrices and Linear Transformations]] - the matrix form the constraints and the dual transpose live in
-- [[linear-algebra-fundamentals|Linear Algebra Fundamentals]] - vectors, half spaces, and the algebra behind basic feasible solutions
-- [[greedy-algorithms|Greedy Algorithms]] - a different local-improvement strategy, without the polytope guarantee that makes simplex terminate correctly
-- [[dynamic-programming|Dynamic Programming]] - the other standard route from an exponential search space to a tractable one
-- [[graph-theory|Graph Theory]] - the source of the flow, matching, and covering problems LP relaxations attack
+- [[cs/math/convexity-and-optimization-basics|Convexity and Optimization Basics]] - the general convex setting where local optima are global and duality gaps close
+- [[cs/math/matrices-and-linear-transformations|Matrices and Linear Transformations]] - the matrix form the constraints and the dual transpose live in
+- [[cs/math/linear-algebra-fundamentals|Linear Algebra Fundamentals]] - vectors, half spaces, and the algebra behind basic feasible solutions
+- [[cs/dsa/greedy-algorithms|Greedy Algorithms]] - a different local-improvement strategy, without the polytope guarantee that makes simplex terminate correctly
+- [[cs/dsa/dynamic-programming|Dynamic Programming]] - the other standard route from an exponential search space to a tractable one
+- [[cs/math/graph-theory|Graph Theory]] - the source of the flow, matching, and covering problems LP relaxations attack
 
 ## Sources
 

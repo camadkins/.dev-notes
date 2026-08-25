@@ -25,7 +25,7 @@ The flat address space is still there. What is gone is the flat cost model.
 
 The starting condition is the one that has driven memory architecture since the 1960s. "Modern CPUs operate considerably faster than the main memory they use. In the early days of computing and data processing, the CPU generally ran slower than its own memory. The performance lines of processors and memory crossed in the 1960s with the advent of [[cs/military-computing/illiac-iv-and-parallel-processing|the first supercomputers]]. Since then, CPUs increasingly have found themselves 'starved for data' and forced to stall to wait for data to arrive from memory."
 
-The commodity answer was [[memory-hierarchy-and-caching|cache]]: "for commodity processors, this meant installing an ever-increasing amount of high-speed cache memory and using increasingly sophisticated algorithms to avoid cache misses." It stopped being enough, because "the dramatic increase in size of both the operating systems and the applications that run on them has generally overwhelmed these cache-processing improvements."
+The commodity answer was [[cs/systems/memory-hierarchy-and-caching|cache]]: "for commodity processors, this meant installing an ever-increasing amount of high-speed cache memory and using increasingly sophisticated algorithms to avoid cache misses." It stopped being enough, because "the dramatic increase in size of both the operating systems and the applications that run on them has generally overwhelmed these cache-processing improvements."
 
 Adding processors to a single shared memory makes the situation strictly worse, and the reason is a serialization bottleneck rather than a bandwidth shortage. "Multi-processor systems without NUMA make the problem considerably worse. Now a system can starve several processors at the same time, notably because only one processor can access the computer's memory at a time."
 
@@ -51,7 +51,7 @@ The NUMA platforms that matter in practice are the cache-coherent ones. "For Lin
 
 Why not skip coherence and save the overhead? Because the programming cost is worse than the hardware cost. "With NUMA, maintaining cache coherence across shared memory has a significant overhead. Although simpler to design and build, non-cache-coherent NUMA systems become prohibitively complex to program in the standard [[cs/history/von-neumann-architecture|von Neumann architecture]] programming model." Somebody pays for coherence. ccNUMA decides it should be the hardware, once, rather than every programmer, forever.
 
-The overhead is real and it has a characteristic bad case. "Typically, ccNUMA uses inter-processor communication between cache controllers to keep a consistent memory image when more than one cache stores the same memory location. For this reason, ccNUMA may perform poorly when multiple processors attempt to access the same memory area in rapid succession." That is [[cache-coherence|cache coherence]] traffic, except that here the coherence messages cross a socket interconnect instead of staying on one die.
+The overhead is real and it has a characteristic bad case. "Typically, ccNUMA uses inter-processor communication between cache controllers to keep a consistent memory image when more than one cache stores the same memory location. For this reason, ccNUMA may perform poorly when multiple processors attempt to access the same memory area in rapid succession." That is [[cs/systems/cache-coherence|cache coherence]] traffic, except that here the coherence messages cross a socket interconnect instead of staying on one die.
 
 Two mitigations get named. Protocol-level: "cache coherency protocols such as the MESIF protocol attempt to reduce the communication required to maintain cache coherency." Structural: "Scalable Coherent Interface (SCI) is an [[cs/standards/how-ieee-makes-a-standard|IEEE standard]] defining a directory-based cache coherency protocol to avoid scalability limitations found in earlier multiprocessor systems," and "SCI is used as the basis for the NumaConnect technology."
 
@@ -61,7 +61,7 @@ The other mitigation is the operating system's job, which is where this note is 
 
 Here is where NUMA stops being a hardware fact and becomes a scheduling problem, and the Linux documentation is unusually direct about the seam.
 
-Linux mirrors cells as **nodes**: it "divides the system's hardware resources into multiple software abstractions called 'nodes'. Linux maps the nodes onto the physical cells of the hardware platform." For each node with memory, "Linux constructs an independent memory management subsystem, complete with its own free page lists, in-use page lists, usage statistics and locks to mediate access." Separate allocators, separate locks, per node. The [[memory-allocators-and-fragmentation|allocator]] is not one shared structure to contend over.
+Linux mirrors cells as **nodes**: it "divides the system's hardware resources into multiple software abstractions called 'nodes'. Linux maps the nodes onto the physical cells of the hardware platform." For each node with memory, "Linux constructs an independent memory management subsystem, complete with its own free page lists, in-use page lists, usage statistics and locks to mediate access." Separate allocators, separate locks, per node. The [[cs/systems/memory-allocators-and-fragmentation|allocator]] is not one shared structure to contend over.
 
 The default allocation policy follows the CPU. "By default, Linux will attempt to satisfy memory allocation requests from the node to which the CPU that executes the request is assigned. Specifically, Linux will attempt to allocate from the first node in the appropriate zonelist for the node where the request originates. This is called 'local allocation.' If the 'local' node cannot satisfy the request, the kernel will examine other nodes' zones in the selected zonelist looking for the first zone in the list that can satisfy the request."
 
@@ -87,12 +87,12 @@ The kernel grew into this over years rather than arriving with it. "Version 2.5 
 
 ## Related Notes
 
-- [[cache-coherence|Cache Coherence]] - the protocol traffic that ccNUMA pushes across a socket interconnect
-- [[memory-hierarchy-and-caching|Memory Hierarchy and Caching]] - the response to the processor/memory speed gap that NUMA extends
-- [[process-scheduling-algorithms|Process Scheduling Algorithms]] - the load balancer whose objective conflicts with memory locality
-- [[memory-allocators-and-fragmentation|Memory Allocators and Fragmentation]] - per-node free lists as the allocator side of the design
-- [[virtual-memory|Virtual Memory]] - the page-level machinery that makes software NUMA possible at all
-- [[concurrency-primitives|Concurrency Primitives]] - lock contention, the second condition NUMA's benefit depends on
+- [[cs/systems/cache-coherence|Cache Coherence]] - the protocol traffic that ccNUMA pushes across a socket interconnect
+- [[cs/systems/memory-hierarchy-and-caching|Memory Hierarchy and Caching]] - the response to the processor/memory speed gap that NUMA extends
+- [[cs/systems/process-scheduling-algorithms|Process Scheduling Algorithms]] - the load balancer whose objective conflicts with memory locality
+- [[cs/systems/memory-allocators-and-fragmentation|Memory Allocators and Fragmentation]] - per-node free lists as the allocator side of the design
+- [[cs/systems/virtual-memory|Virtual Memory]] - the page-level machinery that makes software NUMA possible at all
+- [[cs/systems/concurrency-primitives|Concurrency Primitives]] - lock contention, the second condition NUMA's benefit depends on
 
 ## Sources
 

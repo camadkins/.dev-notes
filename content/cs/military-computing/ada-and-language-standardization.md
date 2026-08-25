@@ -13,7 +13,7 @@ aliases:
   - MIL-STD-1815
 ---
 
-By the mid 1970s the Defense Department had a software sprawl problem. Hundreds of programming languages were in use across its projects. Every language meant its own [[compilation-vs-interpretation|compilers]], its own training, and its own tooling, and code written in one could not be shared with another. The fix the DoD chose was unusual and characteristically direct: design a single language well enough to cover the work, then require it.
+By the mid 1970s the Defense Department had a software sprawl problem. Hundreds of programming languages were in use across its projects. Every language meant its own [[cs/pl/compilation-vs-interpretation|compilers]], its own training, and its own tooling, and code written in one could not be shared with another. The fix the DoD chose was unusual and characteristically direct: design a single language well enough to cover the work, then require it.
 
 > [!note] The idea
 > Standardization by mandate: design one strongly typed language well enough to cover the work, then require it, collapsing a sprawl of incompatible languages into a single standard.
@@ -36,10 +36,10 @@ It did. The number of high-level languages in use across DoD projects fell from 
 
 ## Related Notes
 
-- [[type-systems-goals-guarantees|Type Systems: Goals and Guarantees]], the strong typing Ada leans on
-- [[history-genealogy-of-languages|History and Genealogy of Languages]], where Ada sits in the family
-- [[concurrency-models-threads-locks-and-actors|Concurrency Models]], the tasking Ada builds in
-- [[modules-signatures-and-separate-compilation|Modules and Separate Compilation]], the large-system features Ada targets
+- [[cs/pl/type-systems-goals-guarantees|Type Systems: Goals and Guarantees]], the strong typing Ada leans on
+- [[cs/pl/history-genealogy-of-languages|History and Genealogy of Languages]], where Ada sits in the family
+- [[cs/pl/concurrency-models-threads-locks-and-actors|Concurrency Models]], the tasking Ada builds in
+- [[cs/pl/modules-signatures-and-separate-compilation|Modules and Separate Compilation]], the large-system features Ada targets
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

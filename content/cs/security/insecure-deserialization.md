@@ -26,16 +26,16 @@ The consequence is stark. OWASP: "Attacks against deserializers have been found 
 
 You cannot reliably scan a serialized blob for malice, because whether it is malicious depends on which classes exist in the running process, not on any pattern in the bytes. So the strongest mitigation changes the format. OWASP: "A great reduction of risk is achieved by avoiding native (de)serialization formats. By switching to a pure data format like JSON or XML, you lessen the chance of custom deserialization logic being repurposed towards malicious ends." A pure data format has no notion of "instantiate this class," so there is no reconstruction machinery for an attacker to aim.
 
-When native serialization is unavoidable, the second control is authentication of the stream itself. OWASP: "If the application knows before deserialization which messages will need to be processed, they could sign them as part of the serialization process," and then refuse to deserialize any message that lacks a valid signature. This is where a [[digital-signatures|digital signature]] earns its keep: it moves the trust decision *before* the dangerous rebuild, so an attacker-forged stream is rejected while it is still inert bytes. As a last-resort language control, OWASP's Java advice is to "override the ObjectInputStream#resolveClass() method to prevent arbitrary classes from being deserialized," constraining the type choice the attacker was relying on.
+When native serialization is unavoidable, the second control is authentication of the stream itself. OWASP: "If the application knows before deserialization which messages will need to be processed, they could sign them as part of the serialization process," and then refuse to deserialize any message that lacks a valid signature. This is where a [[cs/security/digital-signatures|digital signature]] earns its keep: it moves the trust decision *before* the dangerous rebuild, so an attacker-forged stream is rejected while it is still inert bytes. As a last-resort language control, OWASP's Java advice is to "override the ObjectInputStream#resolveClass() method to prevent arbitrary classes from being deserialized," constraining the type choice the attacker was relying on.
 
 > [!warning] Allowlisting classes is a floor, not a ceiling
 > Restricting which classes may be deserialized (via `resolveClass` or a library) shrinks the attack surface, but gadget chains have been found even within seemingly innocuous allowed classes. Prefer removing native deserialization of untrusted input entirely; treat class allowlisting as hardening for the cases you cannot yet remove, not as the primary defense.
 
 ## Related Notes
 
-- [[digital-signatures|Digital Signatures]], the primitive behind refusing to deserialize any message that is not authenticated
-- [[sql-injection|SQL Injection]], another failure where untrusted input crosses from data into execution
-- [[owasp-top-10|The OWASP Top 10]], where this sits inside the A08 Software and Data Integrity Failures category
+- [[cs/security/digital-signatures|Digital Signatures]], the primitive behind refusing to deserialize any message that is not authenticated
+- [[cs/security/sql-injection|SQL Injection]], another failure where untrusted input crosses from data into execution
+- [[cs/security/owasp-top-10|The OWASP Top 10]], where this sits inside the A08 Software and Data Integrity Failures category
 
 ## Sources
 

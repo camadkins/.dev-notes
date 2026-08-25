@@ -45,7 +45,7 @@ These layers recur in every paradigm, from procedural loops to functional recurs
 
 All three are **computationally equivalent** (Church–Turing thesis): any function computable in one can be expressed in the others, but each emphasizes a different *style of reasoning*.
 
-![Church-Turing equivalence: three models, same expressive power](assets/paradigms-models-equivalence.svg)
+![Church-Turing equivalence: three models, same expressive power](cs/pl/assets/paradigms-models-equivalence.svg)
 
 ---
 
@@ -209,7 +209,7 @@ A single language can balance multiple axes:
 - **Static vs. Dynamic**
     
 
-![Paradigm dimensions: declarative vs imperative, stateless vs stateful](assets/paradigms-axes.svg)
+![Paradigm dimensions: declarative vs imperative, stateless vs stateful](cs/pl/assets/paradigms-axes.svg)
 
 ---
 
@@ -219,7 +219,7 @@ Every paradigm corresponds to a computational model or _abstract machine_:
 
 - Imperative → **[[cs/history/turing-and-computability|Turing Machine]]**, **RAM model**
 
-- Functional → **[[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus]]**, **[[abstract-machines-cek-secd|CEK/SECD machine]]**
+- Functional → **[[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus]]**, **[[cs/pl/abstract-machines-cek-secd|CEK/SECD machine]]**
     
 - Logic → **Resolution engine**, **SLD tree**
     
@@ -249,7 +249,7 @@ These machines provide formal grounding for reasoning about correctness, equival
     
 - [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus: Syntax & Substitution]]
     
-- [[abstract-machines-cek-secd|Abstract Machines: CEK & SECD]]
+- [[cs/pl/abstract-machines-cek-secd|Abstract Machines: CEK & SECD]]
     
 - [[cs/pl/history-genealogy-of-languages|History & Genealogy of Languages]]
 

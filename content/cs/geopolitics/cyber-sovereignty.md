@@ -81,9 +81,9 @@ The episode demonstrated that states which invest in centralized internet archit
 
 ## Related Notes
 
-- [[surveillance-and-privacy|Surveillance & Privacy]] - data localization enables state surveillance; censorship infrastructure doubles as monitoring infrastructure
-- [[semiconductor-supply-chains|Semiconductor Supply Chains]] - domestic chip production is part of broader technological sovereignty ambitions
-- [[ai-governance|AI Governance]] - AI regulation is the newest front in the contest over how states govern digital technology
+- [[cs/geopolitics/surveillance-and-privacy|Surveillance & Privacy]] - data localization enables state surveillance; censorship infrastructure doubles as monitoring infrastructure
+- [[cs/geopolitics/semiconductor-supply-chains|Semiconductor Supply Chains]] - domestic chip production is part of broader technological sovereignty ambitions
+- [[cs/geopolitics/ai-governance|AI Governance]] - AI regulation is the newest front in the contest over how states govern digital technology
 - [[cs/history/history-of-the-internet|History of the Internet]] - the decentralized, borderless architecture sovereignty pushes against
 - [[cs/military-computing/paul-baran-and-packet-switching|Paul Baran and Packet Switching]] - why the network was designed to route around damage (and around blocks)
 - [[cs/military-computing/imp-the-first-router|The IMP, the First Router]] - the routing layer national filters operate on

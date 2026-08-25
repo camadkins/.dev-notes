@@ -48,7 +48,7 @@ Let `n` be the number of nodes and `h` the **height** (length in edges on the lo
 
 ## Shape Comparison
 
-![Four binary tree types compared: full, complete, perfect, and degenerate with node counts, heights, and property annotations](assets/bintree-types.svg)
+![Four binary tree types compared: full, complete, perfect, and degenerate with node counts, heights, and property annotations](cs/dsa/assets/bintree-types.svg)
 
 Each panel shows a minimal witness tree with its Full / Complete / Perfect classification. Note that **Perfect ⇒ Full ∧ Complete**, but neither Full nor Complete alone implies the other.
 
@@ -111,7 +111,7 @@ Consider the following node counts and the implied heights:
   - **Red–black**: `h ≤ 2 · ⌊log2(11)⌋ = 6`.
 - `n = 2^{h+1} − 1` ⇒ perfect with height `h`; any missing leaf at the last level makes it **complete** but not perfect.
 
-![Height bounds by tree type: perfect (lower), AVL (middle), red-black (upper), and worst-case h=n-1](assets/bintree-height-bounds.svg)
+![Height bounds by tree type: perfect (lower), AVL (middle), red-black (upper), and worst-case h=n-1](cs/dsa/assets/bintree-height-bounds.svg)
 
 ## Balanced Families (At a Glance)
 - **AVL Trees:** Strict local balance via height differences. Guarantees `h ≤ 1.44 log2(n+2) − 1.328` (classical bound). Excellent lookup times; rotations on updates may be more frequent.
@@ -140,4 +140,4 @@ Know which property you need: **complete** for heaps and array layouts, **balanc
 - [[cs/dsa/binary-tree|Binary Tree]]
 - [[cs/dsa/heaps|Heaps — Overview]]
 - [[cs/dsa/avl-tree|AVL Tree]]
-- [[rb-tree]]
+- [[cs/dsa/rb-tree]]

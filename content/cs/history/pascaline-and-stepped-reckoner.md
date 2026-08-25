@@ -32,9 +32,9 @@ The carry is the genuinely hard part of mechanized arithmetic. Adding two digits
 
 ## Related Notes
 
-- [[leibniz-and-binary|Leibniz and Binary]], the number system Leibniz also gave computing
-- [[antikythera-mechanism-analog-computation|The Antikythera Mechanism]], an even older computing machine
-- [[von-neumann-architecture|Von Neumann Architecture]], where arithmetic finally went electronic
+- [[cs/history/leibniz-and-binary|Leibniz and Binary]], the number system Leibniz also gave computing
+- [[cs/history/antikythera-mechanism-analog-computation|The Antikythera Mechanism]], an even older computing machine
+- [[cs/history/von-neumann-architecture|Von Neumann Architecture]], where arithmetic finally went electronic
 - [[cs/history/index|History of Computing]], the section index
 
 ## Sources

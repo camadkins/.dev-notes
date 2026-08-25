@@ -22,13 +22,13 @@ There are two ways to make a computer faster. One is to build a quicker processo
 
 The design put a single control unit in charge of a large array of processing elements. The control unit [[cs/history/von-neumann-architecture|read one instruction stream]] and broadcast each instruction to every processing element at once. Each element then carried out that same instruction on its own slice of data.
 
-![A SIMD array: one control unit broadcasts a single instruction to many processing elements, each working on its own data.](assets/illiac-iv-simd.svg)
+![A SIMD array: one control unit broadcasts a single instruction to many processing elements, each working on its own data.](cs/military-computing/assets/illiac-iv-simd.svg)
 
-This arrangement is called SIMD, for single instruction, multiple data. It is a poor fit for work full of branches and decisions, since every element must do the same thing. It is a superb fit for work that applies the same operation across a large block of numbers, such as physics simulations and [[linear-algebra-fundamentals|linear algebra]].
+This arrangement is called SIMD, for single instruction, multiple data. It is a poor fit for work full of branches and decisions, since every element must do the same thing. It is a superb fit for work that applies the same operation across a large block of numbers, such as physics simulations and [[cs/math/linear-algebra-fundamentals|linear algebra]].
 
 ## Built smaller than planned
 
-ILLIAC IV was designed for 256 processing elements across four quadrants, but budget cuts limited construction to a single quadrant of 64. Even so, it was the first massively parallel computer, and it proved the architecture was real rather than theoretical. In November 1975 it was connected to the [[arpanet-survivable-communications|ARPANET]] at NASA Ames, making it [[cs/history/cloud-computing-and-virtualization|an early supercomputer that researchers could reach over a network]].
+ILLIAC IV was designed for 256 processing elements across four quadrants, but budget cuts limited construction to a single quadrant of 64. Even so, it was the first massively parallel computer, and it proved the architecture was real rather than theoretical. In November 1975 it was connected to the [[cs/military-computing/arpanet-survivable-communications|ARPANET]] at NASA Ames, making it [[cs/history/cloud-computing-and-virtualization|an early supercomputer that researchers could reach over a network]].
 
 ## Legacy
 
@@ -36,10 +36,10 @@ SIMD did not stay exotic. The same idea, one instruction driving many data lanes
 
 ## Related Notes
 
-- [[cray-1-and-vector-processing|The Cray-1 and Vector Processing]], a different route to data parallelism
-- [[arpanet-survivable-communications|ARPANET and Survivable Communications]], the network ILLIAC IV joined
-- [[linear-algebra-fundamentals|Linear Algebra Fundamentals]], the math SIMD accelerates
-- [[processes-and-threads|Processes and Threads]], parallelism in the general case
+- [[cs/military-computing/cray-1-and-vector-processing|The Cray-1 and Vector Processing]], a different route to data parallelism
+- [[cs/military-computing/arpanet-survivable-communications|ARPANET and Survivable Communications]], the network ILLIAC IV joined
+- [[cs/math/linear-algebra-fundamentals|Linear Algebra Fundamentals]], the math SIMD accelerates
+- [[cs/systems/processes-and-threads|Processes and Threads]], parallelism in the general case
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

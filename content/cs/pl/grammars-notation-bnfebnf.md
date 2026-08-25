@@ -240,7 +240,7 @@ This version is better for predictive parsing and clearer for human readers.
 
 ---
 
-![Chomsky hierarchy pyramid and BNF vs EBNF comparison](assets/grammar-hierarchy-bnf.svg)
+![Chomsky hierarchy pyramid and BNF vs EBNF comparison](cs/pl/assets/grammar-hierarchy-bnf.svg)
 
 ---
 

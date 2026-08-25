@@ -93,7 +93,7 @@ function OCCURRENCES(root, P) -> list<int>:
 
 Walk the trie; the deepest node with **subtree size ≥ 2** (distinct starting indices) yields a longest repeated substring. This is simpler on suffix **trees** due to compression.
 
-![Querying "ana" in the suffix trie: follow edges a→n→a to find positions [1, 3]](assets/suffix-query-trace.svg)
+![Querying "ana" in the suffix trie: follow edges a→n→a to find positions [1, 3]](cs/dsa/assets/suffix-query-trace.svg)
 
 ## Example (Stepwise)
 
@@ -146,7 +146,7 @@ Let `n = |S|` and `m = |P|`.
 
 ## Implementation Details or Trade-offs
 
-- **Alphabet & encoding:** Choose [[cs/languages/common/text-encoding-and-unicode|UTF-8/16-aware]] iteration if `S` is Unicode. It’s usually best to index by **code points** (or even grapheme clusters for UI), not raw bytes. See [[strings|Strings]].
+- **Alphabet & encoding:** Choose [[cs/languages/common/text-encoding-and-unicode|UTF-8/16-aware]] iteration if `S` is Unicode. It’s usually best to index by **code points** (or even grapheme clusters for UI), not raw bytes. See [[cs/dsa/strings|Strings]].
     
 - **End marker:** Ensure `$` (or chosen sentinel) is **not** in the alphabet; otherwise, escape or reserve a unique code point.
     
@@ -181,7 +181,7 @@ Let `n = |S|` and `m = |P|`.
 - **Pattern lab**: compare behaviors of tries, compressed tries, suffix tries/trees, and arrays on the same `S`.
     
 
-![Suffix trie for "banana$" showing all suffixes inserted with shared prefix branches highlighted](assets/suffix-construction.svg)
+![Suffix trie for "banana$" showing all suffixes inserted with shared prefix branches highlighted](cs/dsa/assets/suffix-construction.svg)
 
 ## Limitations / Pitfalls
 
@@ -203,8 +203,8 @@ A suffix trie indexes **all suffixes** of `S`, making **substring queries** conc
 
 ## Related Notes
 
-- [[standard-trie|Standard Trie]]
+- [[cs/dsa/standard-trie|Standard Trie]]
     
-- [[compressed-trie|Compressed Trie]]
+- [[cs/dsa/compressed-trie|Compressed Trie]]
     
-- [[strings|Strings]]
+- [[cs/dsa/strings|Strings]]

@@ -44,7 +44,7 @@ The payoff is that measurement defers the trust decision to someone else and som
 - [[cs/military-computing/rsa-and-computational-hardness|RSA and Computational Hardness]], the signature math each stage checks
 - [[cs/systems/tls-and-the-https-handshake|TLS and the HTTPS Handshake]], the same chain-of-trust idea for network identity
 - [[cs/military-computing/tcsec-and-graded-assurance|The Orange Book and Graded Assurance]], early formal assurance evaluation
-- [[sandboxing-and-isolation|Sandboxing and Isolation]], a defense that assumes the OS beneath it booted honestly
+- [[cs/security/sandboxing-and-isolation|Sandboxing and Isolation]], a defense that assumes the OS beneath it booted honestly
 
 ## Sources
 

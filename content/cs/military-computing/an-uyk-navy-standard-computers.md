@@ -13,14 +13,14 @@ aliases:
   - AN/UYK-20
 ---
 
-By 1970 the Navy faced, at sea, a smaller version of the sprawl problem that [[ada-and-language-standardization|Ada]] would later fight for the whole Defense Department. Too many different computers were finding their way onto ships, each with its own software, its own spare parts, and its own people to maintain it. The AN/UYK family was the answer: [[cs/standards/standards-in-procurement-and-defense-acquisition|a small set of standard, ruggedized computers]] meant to run the fleet's systems.
+By 1970 the Navy faced, at sea, a smaller version of the sprawl problem that [[cs/military-computing/ada-and-language-standardization|Ada]] would later fight for the whole Defense Department. Too many different computers were finding their way onto ships, each with its own software, its own spare parts, and its own people to maintain it. The AN/UYK family was the answer: [[cs/standards/standards-in-procurement-and-defense-acquisition|a small set of standard, ruggedized computers]] meant to run the fleet's systems.
 
 > [!note] The idea
 > Standardize the hardware. Field one rugged computer architecture across the fleet, so software, training, and spare parts can be shared instead of reinvented for every new system.
 
 ## A standard machine
 
-The AN/UYK-7, introduced in 1970, was the standard 32-bit computer of the Navy for surface ships and submarines, built with a [[processes-and-threads|multiprocessor design]] that let it grow by adding processors. It ran the Navy's [[naval-tactical-data-system|NTDS]] and Aegis combat systems, the heart of a warship's ability to sense and fight.
+The AN/UYK-7, introduced in 1970, was the standard 32-bit computer of the Navy for surface ships and submarines, built with a [[cs/systems/processes-and-threads|multiprocessor design]] that let it grow by adding processors. It ran the Navy's [[cs/military-computing/naval-tactical-data-system|NTDS]] and Aegis combat systems, the heart of a warship's ability to sense and fight.
 
 ## A smaller sibling
 
@@ -32,10 +32,10 @@ A shipboard computer has a hard life. It must survive shock, vibration, and salt
 
 ## Related Notes
 
-- [[naval-tactical-data-system|The Naval Tactical Data System]], the system these computers ran
-- [[ada-and-language-standardization|Ada and Language Standardization]], the same fight at the language level
-- [[processes-and-threads|Processes and Threads]], the multiprocessing the UYK-7 supported
-- [[virtual-memory|Virtual Memory]], the memory model of standard computers
+- [[cs/military-computing/naval-tactical-data-system|The Naval Tactical Data System]], the system these computers ran
+- [[cs/military-computing/ada-and-language-standardization|Ada and Language Standardization]], the same fight at the language level
+- [[cs/systems/processes-and-threads|Processes and Threads]], the multiprocessing the UYK-7 supported
+- [[cs/systems/virtual-memory|Virtual Memory]], the memory model of standard computers
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

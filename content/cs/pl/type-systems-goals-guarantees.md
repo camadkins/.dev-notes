@@ -53,7 +53,7 @@ Dynamic typing detects it _at runtime_:
 3 + True  # raises TypeError
 ```
 
-![Static vs dynamic typing pipelines contrasting compile-time and runtime error detection](assets/types-static-vs-dynamic.svg)
+![Static vs dynamic typing pipelines contrasting compile-time and runtime error detection](cs/pl/assets/types-static-vs-dynamic.svg)
 
 ---
 
@@ -113,7 +113,7 @@ These correspond to **safety** and **stability** of execution.
 > [!note]  
 > Together, they imply that **typed programs can only “go wrong” if the type checker is wrong.**
 
-![Type safety pipeline showing Progress at the evaluator and Preservation across reduction steps](assets/types-safety-pipeline.svg)
+![Type safety pipeline showing Progress at the evaluator and Preservation across reduction steps](cs/pl/assets/types-safety-pipeline.svg)
 
 ---
 

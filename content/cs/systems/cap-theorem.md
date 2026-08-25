@@ -35,7 +35,7 @@ No real network is safe from failures, so partition tolerance has to be tolerate
 > [!warning]
 > The "two out of three" slogan is what Brewer himself walked back in 2012. In the absence of a partition a well-built system covers all three; designers only surrender consistency or availability *in the presence of partitions*, and partition management and recovery techniques exist to shrink how often that presence occurs. Reading CAP as a permanent one-of-three sacrifice overstates the cost.
 
-Traditional [[cs/history/relational-model-and-sql|relational systems]] built around ACID lean toward consistency; systems built on the BASE philosophy common in NoSQL lean toward availability. Cassandra and ScyllaDB are examples of AP stores. There is no useful CA category, because a system that assumed no partitions would simply be undefined the moment one occurred. This is why the [[distributed-consensus|consensus]] protocols that back coordination metadata (etcd, ZooKeeper) sit firmly on the CP side, while a session cache can afford to be AP.
+Traditional [[cs/history/relational-model-and-sql|relational systems]] built around ACID lean toward consistency; systems built on the BASE philosophy common in NoSQL lean toward availability. Cassandra and ScyllaDB are examples of AP stores. There is no useful CA category, because a system that assumed no partitions would simply be undefined the moment one occurred. This is why the [[cs/systems/distributed-consensus|consensus]] protocols that back coordination metadata (etcd, ZooKeeper) sit firmly on the CP side, while a session cache can afford to be AP.
 
 ## PACELC: the part CAP leaves out
 
@@ -59,10 +59,10 @@ Early Dynamo, Cassandra, and Riak are PA/EL: they drop consistency for availabil
 
 ## Related Notes
 
-- [[distributed-consensus|Distributed Consensus]] covers Paxos, Raft, and the FLP impossibility result that sits underneath why CP systems stall rather than lie during bad timing
-- [[consistency-models|Consistency Models]] unpacks what the "C" actually ranges over, from linearizability down to eventual consistency
-- [[replication-and-quorums|Replication and Quorums]] shows the quorum math (R + W > N) that a CP store uses to keep reads current
-- [[network-protocols|Network Protocols]] is the transport whose message loss and delay is exactly what "partition" names
+- [[cs/systems/distributed-consensus|Distributed Consensus]] covers Paxos, Raft, and the FLP impossibility result that sits underneath why CP systems stall rather than lie during bad timing
+- [[cs/systems/consistency-models|Consistency Models]] unpacks what the "C" actually ranges over, from linearizability down to eventual consistency
+- [[cs/systems/replication-and-quorums|Replication and Quorums]] shows the quorum math (R + W > N) that a CP store uses to keep reads current
+- [[cs/systems/network-protocols|Network Protocols]] is the transport whose message loss and delay is exactly what "partition" names
 
 ## Sources
 

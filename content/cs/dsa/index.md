@@ -16,111 +16,111 @@ DS&A studies how to represent data and design algorithms that scale. The notes b
 
 ### Foundations
 
-- [[recursion|Recursion]] - recursive thinking, base cases, stack frames
-- [[functions|Functions]] - abstraction, composition, parameter passing
-- [[pass-by-value-and-pass-by-reference|Pass by Value & Reference]]
-- [[pointer-with-functions|Pointers & Functions]]
-- [[bitwise-operations|Bitwise Operations]] - operators, masks, bit tricks
+- [[cs/dsa/recursion|Recursion]] - recursive thinking, base cases, stack frames
+- [[cs/dsa/functions|Functions]] - abstraction, composition, parameter passing
+- [[cs/dsa/pass-by-value-and-pass-by-reference|Pass by Value & Reference]]
+- [[cs/dsa/pointer-with-functions|Pointers & Functions]]
+- [[cs/dsa/bitwise-operations|Bitwise Operations]] - operators, masks, bit tricks
 
 ### Complexity & Analysis
 
-- [[algorithm-efficiency|Algorithm Efficiency]] - bridging theory and practice
-- [[asymptotic-notation|Asymptotic Notation]] - O, Θ, Ω, o, ω
-- [[time-complexity-analysis|Time Complexity Analysis]]
-- [[time-complexity-and-space-complexity|Time & Space Complexity]]
-- [[time-complexity-calculation|Time Complexity Calculation]]
-- [[space-complexity|Space Complexity]]
-- [[best-worst-average-cases|Best, Worst & Average Cases]]
-- [[amortized-analysis-methods|Amortized Analysis]]
-- [[recurrence-relations|Recurrence Relations]]
-- [[recurrences-master-theorem|Master Theorem]]
+- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]] - bridging theory and practice
+- [[cs/dsa/asymptotic-notation|Asymptotic Notation]] - O, Θ, Ω, o, ω
+- [[cs/dsa/time-complexity-analysis|Time Complexity Analysis]]
+- [[cs/dsa/time-complexity-and-space-complexity|Time & Space Complexity]]
+- [[cs/dsa/time-complexity-calculation|Time Complexity Calculation]]
+- [[cs/dsa/space-complexity|Space Complexity]]
+- [[cs/dsa/best-worst-average-cases|Best, Worst & Average Cases]]
+- [[cs/dsa/amortized-analysis-methods|Amortized Analysis]]
+- [[cs/dsa/recurrence-relations|Recurrence Relations]]
+- [[cs/dsa/recurrences-master-theorem|Master Theorem]]
 
 ### Linear Data Structures
 
 **Arrays**
-- [[arrays|Arrays]] - [[array-operations|Operations]] - [[dynamic-arrays|Dynamic Arrays]]
-- [[multidimensional-arrays|Multidimensional Arrays]] - [[matrices|Matrices]]
-- [[strings|Strings]]
+- [[cs/dsa/arrays|Arrays]] - [[cs/dsa/array-operations|Operations]] - [[cs/dsa/dynamic-arrays|Dynamic Arrays]]
+- [[cs/dsa/multidimensional-arrays|Multidimensional Arrays]] - [[cs/dsa/matrices|Matrices]]
+- [[cs/dsa/strings|Strings]]
 
 **Linked Lists**
-- [[linked-list|Linked List]] - [[doubly-linked-list|Doubly Linked]] - [[circular-linked-list|Circular]]
-- [[linked-list-operations|Linked List Operations]] - [[linked-list-searching|Searching]]
+- [[cs/dsa/linked-list|Linked List]] - [[cs/dsa/doubly-linked-list|Doubly Linked]] - [[cs/dsa/circular-linked-list|Circular]]
+- [[cs/dsa/linked-list-operations|Linked List Operations]] - [[cs/dsa/linked-list-searching|Searching]]
 
 **Stacks**
-- [[stack|Stack]] - [[push-and-pop-operations|Push & Pop]]
-- [[stack-using-array|Array Implementation]] - [[stack-using-linked-list|Linked List Implementation]]
-- [[stack-using-queue|Stack via Queue]]
+- [[cs/dsa/stack|Stack]] - [[cs/dsa/push-and-pop-operations|Push & Pop]]
+- [[cs/dsa/stack-using-array|Array Implementation]] - [[cs/dsa/stack-using-linked-list|Linked List Implementation]]
+- [[cs/dsa/stack-using-queue|Stack via Queue]]
 
 **Queues**
-- [[queue|Queue]] - [[enque-and-deque-operations|Enqueue & Dequeue]]
-- [[queue-using-array|Array Implementation]] - [[queue-using-linked-list|Linked List Implementation]]
-- [[circular-queue|Circular Queue]] - [[deque|Deque]] - [[priority-queue|Priority Queue]]
+- [[cs/dsa/queue|Queue]] - [[cs/dsa/enque-and-deque-operations|Enqueue & Dequeue]]
+- [[cs/dsa/queue-using-array|Array Implementation]] - [[cs/dsa/queue-using-linked-list|Linked List Implementation]]
+- [[cs/dsa/circular-queue|Circular Queue]] - [[cs/dsa/deque|Deque]] - [[cs/dsa/priority-queue|Priority Queue]]
 
 **Hash-Based**
-- [[hash-tables|Hash Tables]] - [[maps-and-hashtable|Maps & Hash Tables]]
+- [[cs/dsa/hash-tables|Hash Tables]] - [[cs/dsa/maps-and-hashtable|Maps & Hash Tables]]
 
 ### Trees & Heaps
 
 **Trees**
-- [[trees|Trees Overview]] - [[binary-tree|Binary Tree]] - [[types-of-binary-tree|Types of Binary Tree]]
-- [[tree-traversal|Tree Traversal]] - [[preorder|Preorder]] - [[inorder|Inorder]] - [[postorder|Postorder]]
-- [[bst|Binary Search Tree]]
-- [[avl-tree|AVL Tree]] - [[avl-rotations|AVL Rotations]]
-- [[rb-tree|Red-Black Tree]] - [[splay-tree|Splay Tree]]
-- [[b-tree|B-Tree]] - [[bplus-tree|B+ Tree]]
+- [[cs/dsa/trees|Trees Overview]] - [[cs/dsa/binary-tree|Binary Tree]] - [[cs/dsa/types-of-binary-tree|Types of Binary Tree]]
+- [[cs/dsa/tree-traversal|Tree Traversal]] - [[cs/dsa/preorder|Preorder]] - [[cs/dsa/inorder|Inorder]] - [[cs/dsa/postorder|Postorder]]
+- [[cs/dsa/bst|Binary Search Tree]]
+- [[cs/dsa/avl-tree|AVL Tree]] - [[cs/dsa/avl-rotations|AVL Rotations]]
+- [[cs/dsa/rb-tree|Red-Black Tree]] - [[cs/dsa/splay-tree|Splay Tree]]
+- [[cs/dsa/b-tree|B-Tree]] - [[cs/dsa/bplus-tree|B+ Tree]]
 
 **Tries**
-- [[tries|Tries Overview]] - [[types-of-tries|Types of Tries]]
-- [[standard-trie|Standard Trie]] - [[compressed-trie|Compressed Trie]] - [[suffix-trie|Suffix Trie]]
+- [[cs/dsa/tries|Tries Overview]] - [[cs/dsa/types-of-tries|Types of Tries]]
+- [[cs/dsa/standard-trie|Standard Trie]] - [[cs/dsa/compressed-trie|Compressed Trie]] - [[cs/dsa/suffix-trie|Suffix Trie]]
 
 **Heaps**
-- [[heaps|Heaps Overview]] - [[binary-heap|Binary Heap]] - [[d-ary-heap|D-ary Heap]]
-- [[heapify|Heapify]] - [[heap-insert-delete|Insert & Delete]]
-- [[heapsort|Heapsort]]
+- [[cs/dsa/heaps|Heaps Overview]] - [[cs/dsa/binary-heap|Binary Heap]] - [[cs/dsa/d-ary-heap|D-ary Heap]]
+- [[cs/dsa/heapify|Heapify]] - [[cs/dsa/heap-insert-delete|Insert & Delete]]
+- [[cs/dsa/heapsort|Heapsort]]
 
 ### Graphs
 
-- [[graphs|Graphs Overview]]
-- [[graph-representations|Representations]] - [[adjacency-list|Adjacency List]] - [[adjacency-matrix|Adjacency Matrix]]
-- [[graph-traversals-bfs-dfs|Traversals (BFS & DFS)]] - [[breadth-first-search-algorithms|BFS]] - [[depth-first-search-algorithms|DFS]]
-- [[dijkstras-algorithm|Dijkstra's Algorithm]] - [[floyd-warshall|Floyd-Warshall]]
-- [[minimum-spanning-trees-kruskal-prim|Minimum Spanning Trees]] - [[kruskals-algorithm|Kruskal's]] - [[prims-algorithm|Prim's]]
-- [[topological-sorting|Topological Sorting]] - [[disjoint-set|Disjoint Set (Union-Find)]]
+- [[cs/dsa/graphs|Graphs Overview]]
+- [[cs/dsa/graph-representations|Representations]] - [[cs/dsa/adjacency-list|Adjacency List]] - [[cs/dsa/adjacency-matrix|Adjacency Matrix]]
+- [[cs/dsa/graph-traversals-bfs-dfs|Traversals (BFS & DFS)]] - [[cs/dsa/breadth-first-search-algorithms|BFS]] - [[cs/dsa/depth-first-search-algorithms|DFS]]
+- [[cs/dsa/dijkstras-algorithm|Dijkstra's Algorithm]] - [[cs/dsa/floyd-warshall|Floyd-Warshall]]
+- [[cs/dsa/minimum-spanning-trees-kruskal-prim|Minimum Spanning Trees]] - [[cs/dsa/kruskals-algorithm|Kruskal's]] - [[cs/dsa/prims-algorithm|Prim's]]
+- [[cs/dsa/topological-sorting|Topological Sorting]] - [[cs/dsa/disjoint-set|Disjoint Set (Union-Find)]]
 
 ### Sorting & Searching
 
 **Sorting**
-- [[sorting|Sorting Overview]]
-- [[bubble-sort|Bubble Sort]] - [[insertion-sort|Insertion Sort]] - [[selection-sort|Selection Sort]]
-- [[merge-sort|Merge Sort]] - [[quick-sort|Quick Sort]] - [[heapsort|Heapsort]]
-- [[counting-sort|Counting Sort]] - [[bucket-sort|Bucket Sort]] - [[radix-sort|Radix Sort]]
-- [[external-sorting|External Sorting]]
+- [[cs/dsa/sorting|Sorting Overview]]
+- [[cs/dsa/bubble-sort|Bubble Sort]] - [[cs/dsa/insertion-sort|Insertion Sort]] - [[cs/dsa/selection-sort|Selection Sort]]
+- [[cs/dsa/merge-sort|Merge Sort]] - [[cs/dsa/quick-sort|Quick Sort]] - [[cs/dsa/heapsort|Heapsort]]
+- [[cs/dsa/counting-sort|Counting Sort]] - [[cs/dsa/bucket-sort|Bucket Sort]] - [[cs/dsa/radix-sort|Radix Sort]]
+- [[cs/dsa/external-sorting|External Sorting]]
 
 **Searching**
-- [[searching|Searching Overview]]
-- [[linear-search|Linear Search]] - [[binary-search|Binary Search]] - [[ternary-search|Ternary Search]]
+- [[cs/dsa/searching|Searching Overview]]
+- [[cs/dsa/linear-search|Linear Search]] - [[cs/dsa/binary-search|Binary Search]] - [[cs/dsa/ternary-search|Ternary Search]]
 
 ### Algorithmic Paradigms
 
-- [[divide-and-conquer|Divide & Conquer]]
-- [[dynamic-programming|Dynamic Programming]] - [[knapsack-problem|Knapsack Problem]]
-- [[greedy-algorithms|Greedy Algorithms]] - [[huffman-coding|Huffman Coding]]
-- [[backtracking-algorithms|Backtracking]]
-- [[branch-and-bound|Branch & Bound]]
-- [[constraint-satisfaction-problems|Constraint Satisfaction]]
+- [[cs/dsa/divide-and-conquer|Divide & Conquer]]
+- [[cs/dsa/dynamic-programming|Dynamic Programming]] - [[cs/dsa/knapsack-problem|Knapsack Problem]]
+- [[cs/dsa/greedy-algorithms|Greedy Algorithms]] - [[cs/dsa/huffman-coding|Huffman Coding]]
+- [[cs/dsa/backtracking-algorithms|Backtracking]]
+- [[cs/dsa/branch-and-bound|Branch & Bound]]
+- [[cs/dsa/constraint-satisfaction-problems|Constraint Satisfaction]]
 
 ### Math Foundations
 
-- [[maths|Math Overview]]
-- [[logarithmic-functions|Logarithmic Functions]]
-- [[prime-numbers-algorithms|Prime Number Algorithms]]
-- [[square-root-algorithms|Square Root Algorithms]]
-- [[euclidean-algorithms|Euclidean Algorithms]] - [[hcf-and-lcm-algorithms|HCF & LCM]]
-- [[bitwise-operations|Bit Manipulation]]
+- [[cs/dsa/maths|Math Overview]]
+- [[cs/dsa/logarithmic-functions|Logarithmic Functions]]
+- [[cs/dsa/prime-numbers-algorithms|Prime Number Algorithms]]
+- [[cs/dsa/square-root-algorithms|Square Root Algorithms]]
+- [[cs/dsa/euclidean-algorithms|Euclidean Algorithms]] - [[cs/dsa/hcf-and-lcm-algorithms|HCF & LCM]]
+- [[cs/dsa/bitwise-operations|Bit Manipulation]]
 
 ### Memory & Data Layout
 
-- [[memory-allocation|Memory Allocation]] - [[dynamic-memory-allocation|Dynamic Memory Allocation]]
+- [[cs/dsa/memory-allocation|Memory Allocation]] - [[cs/dsa/dynamic-memory-allocation|Dynamic Memory Allocation]]
 
 ---
 

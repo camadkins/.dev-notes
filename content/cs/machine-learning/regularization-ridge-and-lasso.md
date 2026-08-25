@@ -61,18 +61,18 @@ $$\min_{w}\ \frac{1}{2n_{\text{samples}}}\lVert Xw - y\rVert_2^2 + \alpha\rho\lV
 scikit-learn's stated case for it is exactly the correlated-feature problem above, plus a stability property: trading off between lasso and ridge "allows Elastic-Net to inherit some of Ridge's stability under rotation."
 
 > [!tip] These penalties are everywhere, under other names
-> The same two terms show up far outside linear regression. [[logistic-regression|Logistic regression]] in scikit-learn applies regularization by default and offers the identical $\ell_1$, $\ell_2$, and Elastic-Net choices. The [[support-vector-machines|SVM]] objective's $\lVert w\rVert^2$ margin term plays the same role, which is why Wikipedia describes the soft-margin SVM as equivalent to empirical risk minimization with Tikhonov regularization under the hinge loss. The neural-network side has its own family of methods, covered in [[regularization-in-deep-learning|regularization in deep learning]]. Learning the ridge/lasso distinction once pays off repeatedly, because the mechanism does not change when the model does.
+> The same two terms show up far outside linear regression. [[cs/machine-learning/logistic-regression|Logistic regression]] in scikit-learn applies regularization by default and offers the identical $\ell_1$, $\ell_2$, and Elastic-Net choices. The [[cs/machine-learning/support-vector-machines|SVM]] objective's $\lVert w\rVert^2$ margin term plays the same role, which is why Wikipedia describes the soft-margin SVM as equivalent to empirical risk minimization with Tikhonov regularization under the hinge loss. The neural-network side has its own family of methods, covered in [[cs/deep-learning/regularization-in-deep-learning|regularization in deep learning]]. Learning the ridge/lasso distinction once pays off repeatedly, because the mechanism does not change when the model does.
 
 ## Related Notes
 
-- [[regression|Regression: Linear, Logistic, and Softmax]] - the models these penalties were first attached to
-- [[bias-variance-tradeoff|Bias-Variance Tradeoff]] - what alpha moves you along
-- [[generalization-vs-memorization|Generalization vs Memorization]] - the failure regularization exists to prevent
-- [[logistic-regression|Logistic Regression]] - where the same penalty menu reappears, applied by default
-- [[support-vector-machines|Support Vector Machines]] - the margin term as an L2 regularizer
-- [[regularization-in-deep-learning|Regularization in Deep Learning]] - L2 as weight decay, plus the neural-specific methods
-- [[features-and-representations|Features and Representations]] - lasso as an automatic feature selector
-- [[train-validation-test|Train, Validation, Test]] - where alpha and the L1 ratio get chosen
+- [[cs/machine-learning/regression|Regression: Linear, Logistic, and Softmax]] - the models these penalties were first attached to
+- [[cs/machine-learning/bias-variance-tradeoff|Bias-Variance Tradeoff]] - what alpha moves you along
+- [[cs/machine-learning/generalization-vs-memorization|Generalization vs Memorization]] - the failure regularization exists to prevent
+- [[cs/machine-learning/logistic-regression|Logistic Regression]] - where the same penalty menu reappears, applied by default
+- [[cs/machine-learning/support-vector-machines|Support Vector Machines]] - the margin term as an L2 regularizer
+- [[cs/deep-learning/regularization-in-deep-learning|Regularization in Deep Learning]] - L2 as weight decay, plus the neural-specific methods
+- [[cs/machine-learning/features-and-representations|Features and Representations]] - lasso as an automatic feature selector
+- [[cs/machine-learning/train-validation-test|Train, Validation, Test]] - where alpha and the L1 ratio get chosen
 
 ## Sources
 

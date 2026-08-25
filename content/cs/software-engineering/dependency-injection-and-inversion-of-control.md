@@ -58,18 +58,18 @@ So testability is evidence that *something* decoupled the client from the concre
 
 The advantage that survives scrutiny is legibility of the dependency graph. "Using dependency injection can help make it easier to see what the component dependencies are. With dependency injector you can just look at the injection mechanism, such as the constructor, and see the dependencies. With the service locator you have to search the source code for calls to the locator." A constructor signature is a machine-readable statement of everything a class needs. That is a documentation property, and it holds whether or not a container is present.
 
-Underneath sits the principle Fowler puts above the pattern choice: "the important issue in all of this is to ensure that the configuration of services is separated from their use. Indeed this is a fundamental design principle that sits with the separation of interfaces from implementation." Injection is one implementation of that separation, which is why the technique is usually described as a way "to keep code in-line with the [[solid-principles|dependency inversion principle]]" and as aiming "to separate the concerns of constructing objects and using them, leading to [[coupling-and-cohesion|loosely coupled]] programs."
+Underneath sits the principle Fowler puts above the pattern choice: "the important issue in all of this is to ensure that the configuration of services is separated from their use. Indeed this is a fundamental design principle that sits with the separation of interfaces from implementation." Injection is one implementation of that separation, which is why the technique is usually described as a way "to keep code in-line with the [[cs/software-engineering/solid-principles|dependency inversion principle]]" and as aiming "to separate the concerns of constructing objects and using them, leading to [[cs/software-engineering/coupling-and-cohesion|loosely coupled]] programs."
 
 > [!tip] The test to apply
 > Before adding an interface and a constructor parameter, ask what second implementation the decision is for, and who chooses between them. If the answer is "the test suite, and only the test suite," you have discovered that your design was already stubbable and you are buying framework dependence to prove it. If the answer names a deployment, a customer, or a plugin author, the injection is doing its job.
 
 ## Related Notes
 
-- [[solid-principles|SOLID Principles]] - the D is the principle injection is usually deployed to satisfy
-- [[coupling-and-cohesion|Coupling and Cohesion]] - the property injection claims to improve, and the one to measure it against
-- [[design-patterns|Design Patterns]] - service locator and factory are the alternatives Fowler weighs injection against
-- [[testing-strategies|Testing Strategies]] - stubs and mocks are the substitution this note argues is not injection-specific
-- [[software-architecture|Software Architecture]] - deciding which side of a boundary the abstraction sits on is an architectural call
+- [[cs/software-engineering/solid-principles|SOLID Principles]] - the D is the principle injection is usually deployed to satisfy
+- [[cs/software-engineering/coupling-and-cohesion|Coupling and Cohesion]] - the property injection claims to improve, and the one to measure it against
+- [[cs/software-engineering/design-patterns|Design Patterns]] - service locator and factory are the alternatives Fowler weighs injection against
+- [[cs/software-engineering/testing-strategies|Testing Strategies]] - stubs and mocks are the substitution this note argues is not injection-specific
+- [[cs/software-engineering/software-architecture|Software Architecture]] - deciding which side of a boundary the abstraction sits on is an architectural call
 - [[cs/pl/objects-classes-and-dispatch|Objects, Classes, and Dispatch]] - the runtime dispatch that makes a swapped implementation work
 - [[cs/pl/modules-signatures-and-separate-compilation|Modules, Signatures, and Separate Compilation]] - the same separation expressed in a module system instead of a container
 

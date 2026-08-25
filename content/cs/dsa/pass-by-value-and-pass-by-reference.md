@@ -232,10 +232,10 @@ This is **call-by-sharing**: aliasing on the object, isolation on the variable b
 
 ## Related Notes
 
-- [[functions|Functions]]
+- [[cs/dsa/functions|Functions]]
 
-- [[arrays|Arrays]]
+- [[cs/dsa/arrays|Arrays]]
 
-- [[pointer-with-functions|Pointer with Functions]]
+- [[cs/dsa/pointer-with-functions|Pointer with Functions]]
 
-- [[dynamic-arrays|Dynamic Arrays]]
+- [[cs/dsa/dynamic-arrays|Dynamic Arrays]]

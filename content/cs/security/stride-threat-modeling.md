@@ -24,7 +24,7 @@ STRIDE, developed by Praerit Garg and Loren Kohnfelder at Microsoft in 1999, sta
 
 ## The duality that makes it complete
 
-![Each STRIDE threat pairs with the one security property it negates: Spoofing with authentication, Tampering with integrity, Repudiation with non-repudiation, Information disclosure with confidentiality, Denial of service with availability, Elevation of privilege with authorization.](assets/stride-duality.svg)
+![Each STRIDE threat pairs with the one security property it negates: Spoofing with authentication, Tampering with integrity, Repudiation with non-repudiation, Information disclosure with confidentiality, Denial of service with availability, Elevation of privilege with authorization.](cs/security/assets/stride-duality.svg)
 
 Read the categories again and a pattern falls out: "each STRIDE category corresponds to a core principle of information security: Authenticity, Integrity, Non-repudiability, Confidentiality, Availability and Authorization." Spoofing is the failure of authentication. Tampering is the failure of integrity. Repudiation is the failure of non-repudiation. Information disclosure is the failure of confidentiality. Denial of service is the failure of availability. Elevation of privilege is the failure of authorization.
 
@@ -44,8 +44,8 @@ The method is mechanical on purpose, which is why Microsoft could ship it in a t
 
 - [[cs/military-computing/bell-lapadula-and-mandatory-access-control|Bell-LaPadula and Mandatory Access Control]], the formal answer to the elevation and disclosure threats
 - [[cs/systems/tls-and-the-https-handshake|TLS and the HTTPS Handshake]], a mitigation for tampering and disclosure on the wire
-- [[sandboxing-and-isolation|Sandboxing and Isolation]], a containment answer to elevation of privilege
-- [[secure-boot-and-the-chain-of-trust|Secure Boot and the Chain of Trust]], integrity and authenticity pushed down to the firmware
+- [[cs/security/sandboxing-and-isolation|Sandboxing and Isolation]], a containment answer to elevation of privilege
+- [[cs/security/secure-boot-and-the-chain-of-trust|Secure Boot and the Chain of Trust]], integrity and authenticity pushed down to the firmware
 
 ## Sources
 

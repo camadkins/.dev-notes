@@ -32,7 +32,7 @@ The procedure uses the SYN control flag and involves an exchange of three messag
 2. **SYN-ACK.** The server replies with SYN set and its own `SEQ=300`, plus `ACK=101`. The acknowledgment field says the server is now expecting sequence 101, which acknowledges the SYN that occupied sequence 100. The server enters SYN-RECEIVED.
 3. **ACK.** The client sends `SEQ=101 ACK=301`, acknowledging the server's SYN. Both ends are now ESTABLISHED and data can flow.
 
-![The TCP three-way handshake: client sends SYN SEQ=100, server replies SYN-ACK SEQ=300 ACK=101, client replies ACK SEQ=101 ACK=301, and both reach the established state.](assets/tcp-three-way-handshake.svg)
+![The TCP three-way handshake: client sends SYN SEQ=100, server replies SYN-ACK SEQ=300 ACK=101, client replies ACK SEQ=101 ACK=301, and both reach the established state.](cs/networking/assets/tcp-three-way-handshake.svg)
 
 The connection reaches "established" precisely when sequence numbers have been synchronized in both directions, which is the state after that third segment. Each side has now announced its ISN and seen its own ISN acknowledged.
 
@@ -40,14 +40,14 @@ The connection reaches "established" precisely when sequence numbers have been s
 > The SYN consumes one sequence number even though it carries no data. The client's SYN sat at 100, so the next expected number is 101, and that is what the server acknowledges. A bare ACK, by contrast, does not consume a sequence number, so the client's data can begin at 101 without wasting a slot. As the specification notes, if the ACK occupied sequence space you would end up acknowledging ACKs forever.
 
 > [!warning] The handshake is an attack surface
-> Because the server allocates connection state on receiving a SYN, a flood of SYN segments with no final ACK can exhaust that state. This is the SYN-flood [[denial-of-service-and-ddos|denial-of-service]] technique, mitigated by SYN cookies that defer state allocation until the handshake completes.
+> Because the server allocates connection state on receiving a SYN, a flood of SYN segments with no final ACK can exhaust that state. This is the SYN-flood [[cs/security/denial-of-service-and-ddos|denial-of-service]] technique, mitigated by SYN cookies that defer state allocation until the handshake completes.
 
 ## Related Notes
 
-- [[network-protocols|Network Protocols]] - TCP versus UDP and where the handshake sits in the stack
-- [[osi-and-tcp-ip-models|OSI and TCP/IP Models]] - TCP is the transport layer of the suite
-- [[tls-and-the-https-handshake|TLS and the HTTPS Handshake]] - the encryption negotiation that rides on top of this TCP handshake
-- [[ip-addressing-and-subnetting|IP Addressing and Subnetting]] - how the two hosts are addressed before they connect
+- [[cs/systems/network-protocols|Network Protocols]] - TCP versus UDP and where the handshake sits in the stack
+- [[cs/networking/osi-and-tcp-ip-models|OSI and TCP/IP Models]] - TCP is the transport layer of the suite
+- [[cs/systems/tls-and-the-https-handshake|TLS and the HTTPS Handshake]] - the encryption negotiation that rides on top of this TCP handshake
+- [[cs/networking/ip-addressing-and-subnetting|IP Addressing and Subnetting]] - how the two hosts are addressed before they connect
 
 ## Sources
 

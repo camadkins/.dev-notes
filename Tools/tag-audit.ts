@@ -106,6 +106,9 @@ for (const f of glob.scanSync(CONTENT)) {
   const abs = join(CONTENT, f);
   const rel = f.replace(/\\/g, "/");
   if (rel === "index.md") { files--; continue; } // garden home page, no root/section
+  // private/ holds raw lecture notes (Quartz ignorePatterns already excludes them from
+  // the build). They are Harvest feedstock, not garden notes, so the taxonomy does not apply.
+  if (rel === "private" || rel.startsWith("private/")) { files--; continue; }
   const relDir = dirname(rel);
   const text = readFileSync(abs, "utf8");
   const fmMatch = text.match(/^---\n([\s\S]*?)\n---/);

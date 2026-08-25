@@ -69,7 +69,7 @@ lookup(x, ρ, σ) = σ(ρ(x))
 
 Lexical scoping creates an **environment chain**: each new function introduces a new environment linked to its parent.
 
-![Nested environment chain: global contains x, f links to global, g links to f, and variables resolve by following parent pointers](assets/scope-lexical-chain.svg)
+![Nested environment chain: global contains x, f links to global, g links to f, and variables resolve by following parent pointers](cs/pl/assets/scope-lexical-chain.svg)
 
 ---
 
@@ -103,7 +103,7 @@ let x = 5 in
 > [!tip]  
 > Shadowing is harmless if deliberate, but often hides bugs when used accidentally in nested scopes.
 
-![Scope shadowing: inner x = 10 shadows outer x = 5, resolution follows inner binding](assets/scope-shadowing.svg)
+![Scope shadowing: inner x = 10 shadows outer x = 5, resolution follows inner binding](cs/pl/assets/scope-shadowing.svg)
 
 ---
 
@@ -134,7 +134,7 @@ At creation time:
 2. When called later, evaluation uses the _captured_ environment, not the caller’s.
     
 
-![Closure capture: inc and get share the same environment with r mapped to a shared store location](assets/scope-closure-capture.svg)
+![Closure capture: inc and get share the same environment with r mapped to a shared store location](cs/pl/assets/scope-closure-capture.svg)
 
 ---
 
@@ -230,7 +230,7 @@ This **chain of captured environments** enables higher-order abstractions withou
     
 - [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus: Syntax & Substitution]]
     
-- [[evaluation-order-and-strictness | Evaluation Order & Strictness]]
+- [[cs/pl/evaluation-order-and-strictness| Evaluation Order & Strictness]]
     
 - [[cs/pl/mutable-state-references-effects|Mutable State, References & Effects]]
 

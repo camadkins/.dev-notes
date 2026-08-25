@@ -36,7 +36,7 @@ Five connectives carry almost all the weight. Using the standard symbols:
 
 In classical logic these "connectives are interpreted as truth functions," which is the formal way of saying each one is just a lookup from input truth values to an output truth value. The material conditional is the one that trips people up. $p \to q$ is not causation and not relevance; it is false in one case only, when the premise holds but the conclusion fails. Every other combination, including both cases where $p$ is false, comes out true.
 
-![Truth table for material implication p implies q, with the two rows where p is false highlighted as vacuously true](assets/implication-truth-table.svg)
+![Truth table for material implication p implies q, with the two rows where p is false highlighted as vacuously true](cs/math/assets/implication-truth-table.svg)
 
 ## Truth Tables
 
@@ -67,10 +67,10 @@ Tautologies are the theorems of propositional logic. When a [[cs/pl/intermediate
 
 ## Related Notes
 
-- [[predicate-logic-and-quantifiers|Predicate Logic and Quantifiers]] - extends propositions with variables, predicates, and quantifiers
-- [[proof-techniques|Proof Techniques]] - propositional equivalences justify the moves inside a proof
-- [[mathematical-induction|Mathematical Induction]] - proves statements that quantify over the naturals, built on this logical base
-- [[set-theory-basics|Set Theory Basics]] - AND/OR/NOT mirror intersection, union, and complement exactly
+- [[cs/math/predicate-logic-and-quantifiers|Predicate Logic and Quantifiers]] - extends propositions with variables, predicates, and quantifiers
+- [[cs/math/proof-techniques|Proof Techniques]] - propositional equivalences justify the moves inside a proof
+- [[cs/math/mathematical-induction|Mathematical Induction]] - proves statements that quantify over the naturals, built on this logical base
+- [[cs/math/set-theory-basics|Set Theory Basics]] - AND/OR/NOT mirror intersection, union, and complement exactly
 
 ## Sources
 

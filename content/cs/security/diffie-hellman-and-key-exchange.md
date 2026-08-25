@@ -27,7 +27,7 @@ Both sides agree publicly on a modulus p and base g. Alice picks a secret a and 
 
 ## What it does not do
 
-Nothing in the exchange tells Alice she is talking to Bob. The math treats both public values identically, so an active attacker in the middle can run one Diffie-Hellman with Alice and another with Bob, and relay. This is the standard caveat: unauthenticated Diffie-Hellman defeats a passive eavesdropper and falls to an active one. That is why real protocols sign the exchange. "The ephemeral Diffie-Hellman key exchange is often signed by the server using a static signing key," which is exactly where [[digital-signatures|digital signatures]] enter a key agreement.
+Nothing in the exchange tells Alice she is talking to Bob. The math treats both public values identically, so an active attacker in the middle can run one Diffie-Hellman with Alice and another with Bob, and relay. This is the standard caveat: unauthenticated Diffie-Hellman defeats a passive eavesdropper and falls to an active one. That is why real protocols sign the exchange. "The ephemeral Diffie-Hellman key exchange is often signed by the server using a static signing key," which is exactly where [[cs/security/digital-signatures|digital signatures]] enter a key agreement.
 
 ## Ephemeral is the whole point
 
@@ -38,11 +38,11 @@ The forward-secrecy payoff comes from throwing keys away. Forward secrecy "gives
 
 ## Related Notes
 
-- [[symmetric-vs-asymmetric-cryptography|Symmetric vs. Asymmetric Cryptography]], the hybrid where Diffie-Hellman moves the key and a symmetric cipher moves the data
-- [[digital-signatures|Digital Signatures]], what authenticates the otherwise anonymous exchange
-- [[rsa-and-computational-hardness|RSA and Computational Hardness]], the other route to public-key key transport
-- [[aes-and-block-ciphers|AES and Block Ciphers]], the symmetric half that uses the agreed key
-- [[perfect-secrecy-and-the-one-time-pad|Perfect Secrecy and the One-Time Pad]], the pre-public-key answer to key distribution
+- [[cs/security/symmetric-vs-asymmetric-cryptography|Symmetric vs. Asymmetric Cryptography]], the hybrid where Diffie-Hellman moves the key and a symmetric cipher moves the data
+- [[cs/security/digital-signatures|Digital Signatures]], what authenticates the otherwise anonymous exchange
+- [[cs/military-computing/rsa-and-computational-hardness|RSA and Computational Hardness]], the other route to public-key key transport
+- [[cs/security/aes-and-block-ciphers|AES and Block Ciphers]], the symmetric half that uses the agreed key
+- [[cs/military-computing/perfect-secrecy-and-the-one-time-pad|Perfect Secrecy and the One-Time Pad]], the pre-public-key answer to key distribution
 
 ## Sources
 

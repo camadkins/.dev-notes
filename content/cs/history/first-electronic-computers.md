@@ -21,22 +21,22 @@ The 1940s produced the first computers built from electronics rather than gears 
 
 ## Electronic, but not yet stored-program
 
-Colossus, [[cs/military-computing/cryptography-codebreaking-and-the-nsa|built by British codebreakers at Bletchley Park]] between 1943 and 1945, is regarded as the world's first programmable electronic digital computer. It was built to break the German Lorenz cipher, not [[cs/military-computing/sigaba-cipher-machine|Enigma]], which was the job of the earlier electromechanical Bombe. Across the Atlantic, [[ballistics-tables-and-eniac|ENIAC]] (1945) was general-purpose but was programmed by plugboard wiring and switches. Both machines were electronic, and neither yet held its program in memory.
+Colossus, [[cs/military-computing/cryptography-codebreaking-and-the-nsa|built by British codebreakers at Bletchley Park]] between 1943 and 1945, is regarded as the world's first programmable electronic digital computer. It was built to break the German Lorenz cipher, not [[cs/military-computing/sigaba-cipher-machine|Enigma]], which was the job of the earlier electromechanical Bombe. Across the Atlantic, [[cs/military-computing/ballistics-tables-and-eniac|ENIAC]] (1945) was general-purpose but was programmed by plugboard wiring and switches. Both machines were electronic, and neither yet held its program in memory.
 
 ## The stored-program leap
 
-The decisive step was to store the program in memory alongside the data, the idea at the heart of the [[von-neumann-architecture|von Neumann architecture]]. The Manchester Baby ran the first such program on 21 June 1948. It was a tiny machine built to prove a point, and the point was the most important one in computing: the modern computer's defining feature worked.
+The decisive step was to store the program in memory alongside the data, the idea at the heart of the [[cs/history/von-neumann-architecture|von Neumann architecture]]. The Manchester Baby ran the first such program on 21 June 1948. It was a tiny machine built to prove a point, and the point was the most important one in computing: the modern computer's defining feature worked.
 
 ## Why it matters
 
-Every general-purpose computer since is a stored-program electronic machine. Colossus and ENIAC proved that electronics could compute; the Baby proved the architecture that organizes how they compute. The [[eniac-programmers-and-the-first-software|people who programmed ENIAC]] were doing by plugboard what the stored program would soon let software do in memory.
+Every general-purpose computer since is a stored-program electronic machine. Colossus and ENIAC proved that electronics could compute; the Baby proved the architecture that organizes how they compute. The [[cs/military-computing/eniac-programmers-and-the-first-software|people who programmed ENIAC]] were doing by plugboard what the stored program would soon let software do in memory.
 
 ## Related Notes
 
-- [[von-neumann-architecture|Von Neumann Architecture]], the stored-program model these machines reached
-- [[ballistics-tables-and-eniac|Ballistics Tables and ENIAC]], the American general-purpose machine
-- [[eniac-programmers-and-the-first-software|The ENIAC Programmers]], who programmed it by hand
-- [[magnetic-disk-storage|Magnetic Disk Storage]], the storage that came next
+- [[cs/history/von-neumann-architecture|Von Neumann Architecture]], the stored-program model these machines reached
+- [[cs/military-computing/ballistics-tables-and-eniac|Ballistics Tables and ENIAC]], the American general-purpose machine
+- [[cs/military-computing/eniac-programmers-and-the-first-software|The ENIAC Programmers]], who programmed it by hand
+- [[cs/history/magnetic-disk-storage|Magnetic Disk Storage]], the storage that came next
 - [[cs/history/index|History of Computing]], the section index
 
 ## Sources

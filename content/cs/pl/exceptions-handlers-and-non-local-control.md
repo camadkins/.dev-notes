@@ -107,7 +107,7 @@ Here `f*` takes two continuations:
 
 If `f*` calls its second continuation, control jumps directly to the handler, bypassing everything in between.
 
-This insight connects exception semantics to [[abstract-machines-cek-secd|abstract machines (like CEK/SECD)]], which explicitly represent continuations as part of runtime state.
+This insight connects exception semantics to [[cs/pl/abstract-machines-cek-secd|abstract machines (like CEK/SECD)]], which explicitly represent continuations as part of runtime state.
 
 ---
 
@@ -172,7 +172,7 @@ Modern systems rarely support this directly because it complicates reasoning abo
 
 ---
 
-![Stack unwinding with raise, handler catch, and finally cleanup](assets/exceptions-propagation.svg)
+![Stack unwinding with raise, handler catch, and finally cleanup](cs/pl/assets/exceptions-propagation.svg)
 
 ---
 

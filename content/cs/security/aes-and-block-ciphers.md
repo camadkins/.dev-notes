@@ -22,7 +22,7 @@ A block cipher is a strange primitive. On its own it does exactly one thing: it 
 
 ## What AES is
 
-AES "is based on a design principle known as a substitution-permutation network," which repeatedly substitutes and shuffles bytes across a set number of rounds. It is a symmetric-key algorithm, so the same key encrypts and decrypts, which puts it on the fast side of the [[symmetric-vs-asymmetric-cryptography|symmetric/asymmetric divide]]. NIST selected three members of the Rijndael family, "each with a block size of 128 bits, but three different key lengths: 128, 192 and 256 bits," and announced it "as the US [[cs/standards/what-a-standard-actually-is|FIPS PUB 197]] (FIPS 197) standard on November 26, 2001." It superseded [[des-standardization-and-symmetric-crypto|DES]].
+AES "is based on a design principle known as a substitution-permutation network," which repeatedly substitutes and shuffles bytes across a set number of rounds. It is a symmetric-key algorithm, so the same key encrypts and decrypts, which puts it on the fast side of the [[cs/security/symmetric-vs-asymmetric-cryptography|symmetric/asymmetric divide]]. NIST selected three members of the Rijndael family, "each with a block size of 128 bits, but three different key lengths: 128, 192 and 256 bits," and announced it "as the US [[cs/standards/what-a-standard-actually-is|FIPS PUB 197]] (FIPS 197) standard on November 26, 2001." It superseded [[cs/military-computing/des-standardization-and-symmetric-crypto|DES]].
 
 ## The block problem
 
@@ -37,10 +37,10 @@ Better modes randomize each block's encryption so identical plaintext no longer 
 
 ## Related Notes
 
-- [[symmetric-vs-asymmetric-cryptography|Symmetric vs. Asymmetric Cryptography]], where the fast symmetric half fits
-- [[des-standardization-and-symmetric-crypto|DES and the Politics of a Standard Cipher]], the block cipher AES replaced
-- [[cryptographic-hash-functions|Cryptographic Hash Functions]], the integrity primitive authenticated modes lean on
-- [[shannon-and-information-theory|Shannon and Information Theory]], the confusion-and-diffusion roots of the design
+- [[cs/security/symmetric-vs-asymmetric-cryptography|Symmetric vs. Asymmetric Cryptography]], where the fast symmetric half fits
+- [[cs/military-computing/des-standardization-and-symmetric-crypto|DES and the Politics of a Standard Cipher]], the block cipher AES replaced
+- [[cs/security/cryptographic-hash-functions|Cryptographic Hash Functions]], the integrity primitive authenticated modes lean on
+- [[cs/military-computing/shannon-and-information-theory|Shannon and Information Theory]], the confusion-and-diffusion roots of the design
 
 ## Sources
 

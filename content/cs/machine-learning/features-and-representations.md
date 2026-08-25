@@ -30,7 +30,7 @@ This hand-work is feature engineering, and for decades it was where most of the 
 The representation is the space the model reasons in. Raw pixels are a representation, but a poor one for recognizing objects, because the thing you care about (is there a cat?) is tangled across thousands of correlated values. A good representation untangles the factors of variation so that the target becomes easy to read off. [[cs/math/linear-algebra-fundamentals|Linear algebra]] is the language here: features are vectors, and a representation is a chosen coordinate system.
 
 > [!tip] Representation learning is the deep learning bet
-> Instead of engineering features by hand, a deep network learns them. Early layers of a [[cs/deep-learning/convolutional-neural-networks|convolutional network]] discover edges and textures, later layers discover parts and objects, all driven by the training signal. This is why deep learning sits at its own layer in [[ai-vs-ml-vs-dl|AI vs ML vs DL]]: it makes a claim about representation itself, where classical machine learning only claims to learn from data.
+> Instead of engineering features by hand, a deep network learns them. Early layers of a [[cs/deep-learning/convolutional-neural-networks|convolutional network]] discover edges and textures, later layers discover parts and objects, all driven by the training signal. This is why deep learning sits at its own layer in [[cs/machine-learning/ai-vs-ml-vs-dl|AI vs ML vs DL]]: it makes a claim about representation itself, where classical machine learning only claims to learn from data.
 
 ## Learned representations elsewhere
 
@@ -41,8 +41,8 @@ The idea shows up wherever raw symbols are turned into useful vectors. Word [[cs
 
 ## Related Notes
 
-- [[ai-vs-ml-vs-dl|AI vs ML vs DL]], where representation learning defines the DL layer
-- [[supervised-learning|Supervised Learning]], which consumes these features
+- [[cs/machine-learning/ai-vs-ml-vs-dl|AI vs ML vs DL]], where representation learning defines the DL layer
+- [[cs/machine-learning/supervised-learning|Supervised Learning]], which consumes these features
 - [[cs/deep-learning/embeddings|Embeddings]], learned representations of discrete symbols
 - [[cs/deep-learning/autoencoders|Autoencoders]], learned compressed representations
 - [[cs/deep-learning/convolutional-neural-networks|Convolutional Neural Networks]], which learn spatial features layer by layer

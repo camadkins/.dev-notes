@@ -14,7 +14,7 @@ aliases:
   - SATNET
 ---
 
-By the mid 1970s the United States had built more than one packet network, and they had nothing in common. The [[arpanet-survivable-communications|ARPANET]] ran over leased telephone lines. PRNET carried packets by radio. SATNET crossed the Atlantic by satellite. Each had [[cs/networking/mtu-and-fragmentation|its own packet sizes]], error rates, and speeds. The military wanted them to behave as a single network, so that a message could start on one and finish on another. The work of making that happen, led by Vint Cerf and Bob Kahn, produced the design the whole internet still runs on.
+By the mid 1970s the United States had built more than one packet network, and they had nothing in common. The [[cs/military-computing/arpanet-survivable-communications|ARPANET]] ran over leased telephone lines. PRNET carried packets by radio. SATNET crossed the Atlantic by satellite. Each had [[cs/networking/mtu-and-fragmentation|its own packet sizes]], error rates, and speeds. The military wanted them to behave as a single network, so that a message could start on one and finish on another. The work of making that happen, led by Vint Cerf and Bob Kahn, produced the design the whole internet still runs on.
 
 > [!note] The idea
 > Put a machine at each boundary, a gateway, that forwards packets between networks without caring how either works inside, and let reliability live at the endpoints rather than in the networks.
@@ -33,11 +33,11 @@ The proof came on 22 November 1977. A packet left a Packet Radio Van run by SRI,
 
 ## Related Notes
 
-- [[imp-the-first-router|The IMP, the First Router]], forwarding inside one network
-- [[dod-model-and-tcp-ip-standardization|The DoD Model and the TCP/IP Flag Day]], how this design became the standard
-- [[paul-baran-and-packet-switching|Paul Baran and the Birth of Packet Switching]], the packet idea underneath it all
-- [[network-protocols|Network Protocols]], the layered rules in general
-- [[history-of-the-internet|History of the Internet]], the wider story
+- [[cs/military-computing/imp-the-first-router|The IMP, the First Router]], forwarding inside one network
+- [[cs/military-computing/dod-model-and-tcp-ip-standardization|The DoD Model and the TCP/IP Flag Day]], how this design became the standard
+- [[cs/military-computing/paul-baran-and-packet-switching|Paul Baran and the Birth of Packet Switching]], the packet idea underneath it all
+- [[cs/systems/network-protocols|Network Protocols]], the layered rules in general
+- [[cs/history/history-of-the-internet|History of the Internet]], the wider story
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

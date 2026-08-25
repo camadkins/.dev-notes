@@ -13,7 +13,7 @@ aliases:
   - functional programming
 ---
 
-A year after [[fortran-and-high-level-languages|Fortran]], John McCarthy designed a language built on entirely different instincts. Lisp treated computation as [[cs/languages/Racket/s-expressions-and-evaluation|the evaluation of expressions over lists]], and from that one idea came a remarkable number of concepts the rest of the field would take decades to adopt.
+A year after [[cs/history/fortran-and-high-level-languages|Fortran]], John McCarthy designed a language built on entirely different instincts. Lisp treated computation as [[cs/languages/Racket/s-expressions-and-evaluation|the evaluation of expressions over lists]], and from that one idea came a remarkable number of concepts the rest of the field would take decades to adopt.
 
 > [!note] The idea
 > Programs and data are the same kind of thing, lists, evaluated recursively. From that single choice flow recursion, symbolic manipulation, and the need for automatic memory management.
@@ -28,14 +28,14 @@ Lisp introduced or popularized a startling list of ideas: [[cs/dsa/recursion|rec
 
 ## Functional and AI
 
-Lisp quickly became the favored language of artificial intelligence research, and it is the root of the functional tradition described in [[programming-paradigms-models-of-computation|programming paradigms]]. Its evaluation model is close kin to Church's [[lambda-calculus-syntax-substitution|lambda calculus]], the same theory that sits under the [[hilbert-godel-church-computability|limits of computation]].
+Lisp quickly became the favored language of artificial intelligence research, and it is the root of the functional tradition described in [[cs/pl/programming-paradigms-models-of-computation|programming paradigms]]. Its evaluation model is close kin to Church's [[cs/pl/lambda-calculus-syntax-substitution|lambda calculus]], the same theory that sits under the [[cs/history/hilbert-godel-church-computability|limits of computation]].
 
 ## Related Notes
 
-- [[fortran-and-high-level-languages|Fortran and the High-Level Language]], its contemporary opposite
-- [[lambda-calculus-syntax-substitution|Lambda Calculus]], the theory Lisp echoes
-- [[programming-paradigms-models-of-computation|Programming Paradigms]], where functional programming fits
-- [[history-genealogy-of-languages|History and Genealogy of Languages]], the family tree
+- [[cs/history/fortran-and-high-level-languages|Fortran and the High-Level Language]], its contemporary opposite
+- [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus]], the theory Lisp echoes
+- [[cs/pl/programming-paradigms-models-of-computation|Programming Paradigms]], where functional programming fits
+- [[cs/pl/history-genealogy-of-languages|History and Genealogy of Languages]], the family tree
 - [[cs/history/index|History of Computing]], the section index
 
 ## Sources

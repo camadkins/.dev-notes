@@ -200,10 +200,10 @@ Inorder traversal is the canonical **Left -> Root -> Right** visit order. It run
 
 ## Related Notes
 
-- [[binary-tree|Binary Tree]]
+- [[cs/dsa/binary-tree|Binary Tree]]
 
-- [[bst|Binary Search Tree]]
+- [[cs/dsa/bst|Binary Search Tree]]
 
-- [[preorder|Traversal - Preorder]]
+- [[cs/dsa/preorder|Traversal - Preorder]]
 
-- [[postorder|Traversal - Postorder]]
+- [[cs/dsa/postorder|Traversal - Postorder]]

@@ -247,10 +247,10 @@ Multidimensional arrays are **1D buffers with a view** defined by layout and str
 
 ## Related Notes
 
-- [[matrices|Matrices]]
+- [[cs/dsa/matrices|Matrices]]
 
-- [[arrays|Arrays]]
+- [[cs/dsa/arrays|Arrays]]
 
-- [[graph-representations|Graph Representations]]
+- [[cs/dsa/graph-representations|Graph Representations]]
 
-- [[algorithm-efficiency|Algorithm Efficiency]]
+- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]

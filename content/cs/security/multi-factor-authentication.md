@@ -42,10 +42,10 @@ The deeper rule generalizes the concern: "Methods that do not prove possession o
 
 ## Related Notes
 
-- [[kerberos-authentication|Kerberos Authentication]] - the single password MFA hardens is what bootstraps a whole single-sign-on day
-- [[oauth2-and-openid-connect|OAuth 2.0 and OpenID Connect]] - MFA runs at the authorization server before any token is minted
-- [[cryptographic-hash-functions|Cryptographic Hash Functions]] - how the knowledge factor is stored so a database breach does not hand over the password
-- [[side-channel-attacks|Side-Channel Attacks]] - a reminder that even a possessed secret can leak through an unintended path
+- [[cs/security/kerberos-authentication|Kerberos Authentication]] - the single password MFA hardens is what bootstraps a whole single-sign-on day
+- [[cs/security/oauth2-and-openid-connect|OAuth 2.0 and OpenID Connect]] - MFA runs at the authorization server before any token is minted
+- [[cs/security/cryptographic-hash-functions|Cryptographic Hash Functions]] - how the knowledge factor is stored so a database breach does not hand over the password
+- [[cs/security/side-channel-attacks|Side-Channel Attacks]] - a reminder that even a possessed secret can leak through an unintended path
 
 ## Sources
 

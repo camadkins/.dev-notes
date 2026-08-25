@@ -28,13 +28,13 @@ The design deliberately distinguished architecture, [[cs/software-engineering/ap
 
 ## Why it endures
 
-This idea, the instruction set as a stable contract, governs processor design to this day. It is why decades of software keep running on new chips, and why [[the-microprocessor|microprocessor]] families like x86 and ARM hold their instruction sets steady while reinventing the silicon beneath them generation after generation.
+This idea, the instruction set as a stable contract, governs processor design to this day. It is why decades of software keep running on new chips, and why [[cs/history/the-microprocessor|microprocessor]] families like x86 and ARM hold their instruction sets steady while reinventing the silicon beneath them generation after generation.
 
 ## Related Notes
 
-- [[the-microprocessor|The Microprocessor]], where the ISA-as-contract idea lives today
-- [[von-neumann-architecture|Von Neumann Architecture]], the underlying machine model
-- [[virtual-memory|Virtual Memory]], another abstraction the mainframe era refined
+- [[cs/history/the-microprocessor|The Microprocessor]], where the ISA-as-contract idea lives today
+- [[cs/history/von-neumann-architecture|Von Neumann Architecture]], the underlying machine model
+- [[cs/systems/virtual-memory|Virtual Memory]], another abstraction the mainframe era refined
 - [[cs/history/index|History of Computing]], the section index
 
 ## Sources

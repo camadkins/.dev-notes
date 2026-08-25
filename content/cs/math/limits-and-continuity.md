@@ -19,7 +19,7 @@ aliases:
 Calculus is built on a single idea that sounds almost too simple to matter: you can talk rigorously about what a function is *approaching* without ever reaching it. The limit "is a fundamental concept in calculus and analysis concerning the behavior of that function near a particular input which may or may not be in the domain of the function." That last clause is the surprise. A function can have a perfectly definite limit at a point where it is undefined or misbehaves, because a limit is about the neighborhood, not the point itself.
 
 > [!note] The idea
-> A limit replaces "what is the value here" with "what value is forced by every path leading in." The function "has a limit $L$ at an input $p$, if $f(x)$ gets closer and closer to $L$ as $x$ moves closer and closer to $p$." That reframing is what makes both the [[derivatives-and-gradients|derivative]] (a limit of slopes) and the notion of convergence (a limit of a sequence) precise. Without it, "instantaneous rate of change" and "the algorithm converges" would be hand-waving.
+> A limit replaces "what is the value here" with "what value is forced by every path leading in." The function "has a limit $L$ at an input $p$, if $f(x)$ gets closer and closer to $L$ as $x$ moves closer and closer to $p$." That reframing is what makes both the [[cs/math/derivatives-and-gradients|derivative]] (a limit of slopes) and the notion of convergence (a limit of a sequence) precise. Without it, "instantaneous rate of change" and "the algorithm converges" would be hand-waving.
 
 ## The Limit, Stated Carefully
 
@@ -46,7 +46,7 @@ The derivative is defined *as* a limit. The slope of a tangent is the limiting v
 
 $$f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}$$
 
-That quotient is undefined at $h = 0$ ([[cs/standards/ieee-754-rounding-and-exceptions|division by zero]]), which is the whole reason limits exist: they extract the value the expression is heading toward without ever plugging in the forbidden point. A function has to be continuous at a point to be differentiable there, so continuity is the entry ticket to the [[gradient-descent|gradient-based]] optimization that trains models.
+That quotient is undefined at $h = 0$ ([[cs/standards/ieee-754-rounding-and-exceptions|division by zero]]), which is the whole reason limits exist: they extract the value the expression is heading toward without ever plugging in the forbidden point. A function has to be continuous at a point to be differentiable there, so continuity is the entry ticket to the [[cs/machine-learning/gradient-descent|gradient-based]] optimization that trains models.
 
 The second load is convergence. An iterative method converges when the sequence of its outputs has a limit, and the same epsilon-delta logic (for every tolerance, eventually the iterates stay within it) is what "the algorithm converges to the answer" actually means. Whether it is [[cs/dsa/square-root-algorithms|Newton's method]], a fixed-point iteration, or gradient descent settling near a minimum, the guarantee is a statement about a limit.
 
@@ -55,10 +55,10 @@ The second load is convergence. An iterative method converges when the sequence 
 
 ## Related Notes
 
-- [[derivatives-and-gradients|Derivatives and Gradients]] - the derivative is the limit of a difference quotient
-- [[gradient-descent|Gradient Descent]] - convergence is a statement that the sequence of iterates has a limit
-- [[functions-injective-surjective-bijective|Functions: Injective, Surjective, Bijective]] - the function machinery limits and continuity are properties of
-- [[asymptotic-notation|Asymptotic Notation]] - limiting behavior of growth rates as input size goes to infinity
+- [[cs/math/derivatives-and-gradients|Derivatives and Gradients]] - the derivative is the limit of a difference quotient
+- [[cs/machine-learning/gradient-descent|Gradient Descent]] - convergence is a statement that the sequence of iterates has a limit
+- [[cs/math/functions-injective-surjective-bijective|Functions: Injective, Surjective, Bijective]] - the function machinery limits and continuity are properties of
+- [[cs/dsa/asymptotic-notation|Asymptotic Notation]] - limiting behavior of growth rates as input size goes to infinity
 
 ## Sources
 

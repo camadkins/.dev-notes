@@ -20,7 +20,7 @@ Rotor cipher machines were [[cs/security/symmetric-vs-asymmetric-cryptography|th
 
 ## Rotors and their weakness
 
-A rotor machine encrypts each letter by passing it through a stack of wired wheels, and after each letter one or more wheels advance, changing the wiring for the next letter. The security lives in that motion. In Enigma the wheels stepped like an odometer, in a fixed and predictable sequence. That regularity gave [[cryptography-codebreaking-and-the-nsa|cryptanalysts]] a foothold: knowing how the machine would move next is a large part of working backward to the message.
+A rotor machine encrypts each letter by passing it through a stack of wired wheels, and after each letter one or more wheels advance, changing the wiring for the next letter. The security lives in that motion. In Enigma the wheels stepped like an odometer, in a fixed and predictable sequence. That regularity gave [[cs/military-computing/cryptography-codebreaking-and-the-nsa|cryptanalysts]] a foothold: knowing how the machine would move next is a large part of working backward to the message.
 
 ## Irregular stepping
 
@@ -32,9 +32,9 @@ The record is blunt. No successful cryptanalysis of the machine during its servi
 
 ## Related Notes
 
-- [[perfect-secrecy-and-the-one-time-pad|Perfect Secrecy and the One-Time Pad]], the theoretical ceiling SIGABA approached in practice
-- [[cryptography-codebreaking-and-the-nsa|Cryptography, Codebreaking, and the NSA]], the wider codemaking and codebreaking story
-- [[discrete-probability|Discrete Probability]], the randomness that irregular stepping imitates
+- [[cs/military-computing/perfect-secrecy-and-the-one-time-pad|Perfect Secrecy and the One-Time Pad]], the theoretical ceiling SIGABA approached in practice
+- [[cs/military-computing/cryptography-codebreaking-and-the-nsa|Cryptography, Codebreaking, and the NSA]], the wider codemaking and codebreaking story
+- [[cs/math/discrete-probability|Discrete Probability]], the randomness that irregular stepping imitates
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

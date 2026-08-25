@@ -16,7 +16,7 @@ aliases:
   - Certificate Revocation List
 ---
 
-A [[pki-and-x509-certificates|certificate]] carries an expiry date, and "when a certificate is issued, it is expected to be in use for its entire validity period." But keys leak. If a private key is compromised in month one of a two-year certificate, the certificate is still cryptographically valid for the remaining twenty-three months. Revocation is the only recourse: a way to say "ignore this certificate, it is dead" before its own clock runs out. The two standard mechanisms make opposite tradeoffs, and neither is clean.
+A [[cs/security/pki-and-x509-certificates|certificate]] carries an expiry date, and "when a certificate is issued, it is expected to be in use for its entire validity period." But keys leak. If a private key is compromised in month one of a two-year certificate, the certificate is still cryptographically valid for the remaining twenty-three months. Revocation is the only recourse: a way to say "ignore this certificate, it is dead" before its own clock runs out. The two standard mechanisms make opposite tradeoffs, and neither is clean.
 
 > [!note] The idea
 > Revocation exists because a certificate can become invalid before it expires, through "compromise or suspected compromise of the corresponding private key." A CRL is a periodically published, signed list of dead certificates; its weakness is *staleness*, revocation is only as fresh as the last list. OCSP answers a live per-certificate query for timeliness, but its "good" answer is a surprisingly weak statement, and the entire scheme assumes the relying party can actually reach the responder.
@@ -25,7 +25,7 @@ A [[pki-and-x509-certificates|certificate]] carries an expiry date, and "when a 
 
 [[cs/standards/what-a-standard-actually-is|The original X.509 method]] is a bulletin board. Each CA "periodically issu[es] a signed data structure called a certificate revocation list (CRL). A CRL is a time-stamped list identifying revoked certificates that is signed by a CA or CRL issuer and made freely available in a public repository." To use a certificate safely, a verifier "acquires a suitably recent CRL and checks that the certificate serial number is not on that CRL."
 
-The elegant part is that a CRL is signed, so it "may be distributed by exactly the same means as certificates themselves, namely, via untrusted servers and untrusted communications." You do not need a trusted channel to fetch it; the [[digital-signatures|signature]] proves it is genuine.
+The elegant part is that a CRL is signed, so it "may be distributed by exactly the same means as certificates themselves, namely, via untrusted servers and untrusted communications." You do not need a trusted channel to fetch it; the [[cs/security/digital-signatures|signature]] proves it is genuine.
 
 The unavoidable weakness is timing. "One limitation of the CRL revocation method ... is that the time granularity of revocation is limited to the CRL issue period." If a CA issues CRLs daily and a key is compromised an hour after publication, that revocation "will not be reliably notified to certificate-using systems until all currently issued CRLs are scheduled to be updated," which "may be up to one hour, one day, or one week depending on the frequency that CRLs are issued." During that gap the compromised certificate still checks out against every [[cs/systems/dns-the-domain-name-system|cached CRL]].
 
@@ -42,11 +42,11 @@ The three states also split responsibility deliberately. `revoked` "indicates th
 
 ## Related Notes
 
-- [[pki-and-x509-certificates|PKI and X.509 Certificates]] - the certificates whose early death revocation handles
-- [[digital-signatures|Digital Signatures]] - what makes a CRL trustworthy over an untrusted channel
-- [[certificate-transparency|Certificate Transparency]] - detects a bad certificate; revocation is what a monitor then demands
-- [[cryptographic-hash-functions|Cryptographic Hash Functions]] - the serial numbers and digests that identify certificates in these lists
-- [[tls-and-the-https-handshake|TLS and the HTTPS Handshake]] - where a browser must decide whether to trust the presented certificate
+- [[cs/security/pki-and-x509-certificates|PKI and X.509 Certificates]] - the certificates whose early death revocation handles
+- [[cs/security/digital-signatures|Digital Signatures]] - what makes a CRL trustworthy over an untrusted channel
+- [[cs/security/certificate-transparency|Certificate Transparency]] - detects a bad certificate; revocation is what a monitor then demands
+- [[cs/security/cryptographic-hash-functions|Cryptographic Hash Functions]] - the serial numbers and digests that identify certificates in these lists
+- [[cs/systems/tls-and-the-https-handshake|TLS and the HTTPS Handshake]] - where a browser must decide whether to trust the presented certificate
 
 ## Sources
 

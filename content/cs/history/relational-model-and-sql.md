@@ -29,14 +29,14 @@ Edgar F. Codd, working at IBM, set out the relational model in his landmark 1970
 
 ## Why it matters
 
-Separating what from how is one of the most productive ideas in all of computing. It let the physical storage change without rewriting the applications on top, and it founded the entire database industry. Underneath the tidy tables sits the messy reality of the [[file-systems|file system]] and the [[magnetic-disk-storage|disk]], which the model deliberately hides.
+Separating what from how is one of the most productive ideas in all of computing. It let the physical storage change without rewriting the applications on top, and it founded the entire database industry. Underneath the tidy tables sits the messy reality of the [[cs/systems/file-systems|file system]] and the [[cs/history/magnetic-disk-storage|disk]], which the model deliberately hides.
 
 ## Related Notes
 
-- [[file-systems|File Systems]], the storage layer relational databases sit above
-- [[magnetic-disk-storage|Magnetic Disk Storage]], the random access that made databases practical
-- [[hash-tables|Hash Tables]], a core structure inside database engines
-- [[cloud-computing-and-virtualization|Cloud Computing]], where databases now run
+- [[cs/systems/file-systems|File Systems]], the storage layer relational databases sit above
+- [[cs/history/magnetic-disk-storage|Magnetic Disk Storage]], the random access that made databases practical
+- [[cs/dsa/hash-tables|Hash Tables]], a core structure inside database engines
+- [[cs/history/cloud-computing-and-virtualization|Cloud Computing]], where databases now run
 - [[cs/history/index|History of Computing]], the section index
 
 ## Sources

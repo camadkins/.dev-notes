@@ -107,6 +107,6 @@ A payment service tested at each level:
 
 ## Related Notes
 
-- [[design-patterns|Design Patterns]] - patterns like Strategy and Dependency Injection make code more testable
-- [[software-architecture|Software Architecture]] - architecture determines where integration boundaries fall
-- [[api-design|API Design]] - contract tests validate API promises between services
+- [[cs/software-engineering/design-patterns|Design Patterns]] - patterns like Strategy and Dependency Injection make code more testable
+- [[cs/software-engineering/software-architecture|Software Architecture]] - architecture determines where integration boundaries fall
+- [[cs/software-engineering/api-design|API Design]] - contract tests validate API promises between services

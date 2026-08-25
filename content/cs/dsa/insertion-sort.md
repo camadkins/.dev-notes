@@ -128,7 +128,7 @@ Consider `A = [7, 3, 5, 2, 3]`.
 
 - **Small-subarray cutoff.** In hybrid sorts (e.g., introsort, timsort), switch to insertion sort when subarray size `≤ 16–32`, exploiting cache and low constant factors.
 
-- **Gapped variants / Shellsort.** Insertion sort over **gapped** subsequences (stride `h`) is the building block of [[sorting|Shellsort families]]; final `h=1` pass reduces to standard insertion.
+- **Gapped variants / Shellsort.** Insertion sort over **gapped** subsequences (stride `h`) is the building block of [[cs/dsa/sorting|Shellsort families]]; final `h=1` pass reduces to standard insertion.
 
 - **Bidirectional insertion (list-like).** For data structures with fast insert in the middle (linked lists, gap buffers), insertion sort can be applied with fewer moves but more pointer chasing; typically slower on arrays due to caches.
 
@@ -175,10 +175,10 @@ Insertion sort grows a sorted prefix by **shifting** larger elements and droppin
 
 ## Related Notes
 
-- [[selection-sort|Selection Sort]]
+- [[cs/dsa/selection-sort|Selection Sort]]
 
-- [[merge-sort|Merge Sort]]
+- [[cs/dsa/merge-sort|Merge Sort]]
 
-- [[quick-sort|Quick Sort]]
+- [[cs/dsa/quick-sort|Quick Sort]]
 
-- [[algorithm-efficiency|Algorithm Efficiency]]
+- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]

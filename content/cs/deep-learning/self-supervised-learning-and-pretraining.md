@@ -16,7 +16,7 @@ aliases:
   - contrastive learning
 ---
 
-Labels are the expensive part of [[supervised-learning|supervised learning]]. Text, images, audio, and video exist in effectively unlimited quantity; annotated text, images, audio, and video do not. Self-supervised learning is the move that makes the unlabeled pile usable: train the model on a task whose answers are already inside the data, then keep the representation and throw the task away.
+Labels are the expensive part of [[cs/machine-learning/supervised-learning|supervised learning]]. Text, images, audio, and video exist in effectively unlimited quantity; annotated text, images, audio, and video do not. Self-supervised learning is the move that makes the unlabeled pile usable: train the model on a task whose answers are already inside the data, then keep the representation and throw the task away.
 
 > [!note] The idea
 > Self-supervised learning trains a model on a task using the data itself to generate supervisory signals, rather than relying on externally-provided labels. The pretext task is disposable scaffolding. Nobody cares whether a model can guess a deleted word or tell two crops of the same photo apart. What matters is that succeeding at a well-chosen pretext task is impossible without building the representation you actually wanted, and that representation transfers.
@@ -25,7 +25,7 @@ Labels are the expensive part of [[supervised-learning|supervised learning]]. Te
 
 The paradigm has a fixed structure. First the model solves an auxiliary or pretext task using pseudo-labels, labels generated automatically from the data rather than annotated by a person, which initializes the model parameters. Then the actual task is performed with supervised or unsupervised learning on top of those parameters. Tasks are designed so that solving them requires capturing essential features or relationships in the data, typically by augmenting or transforming the input to create pairs of related samples, one serving as input and the other as the supervisory signal.
 
-That second phase is [[transfer-learning|transfer learning]] by another name, and it is where the economics change. Pretraining is done once, expensively, on [[cs/law/gdpr-as-it-reaches-us-engineers|a giant unlabeled corpus]]. Fine-tuning is done many times, cheaply, on whatever small labeled dataset a particular problem happens to have.
+That second phase is [[cs/deep-learning/transfer-learning|transfer learning]] by another name, and it is where the economics change. Pretraining is done once, expensively, on [[cs/law/gdpr-as-it-reaches-us-engineers|a giant unlabeled corpus]]. Fine-tuning is done many times, cheaply, on whatever small labeled dataset a particular problem happens to have.
 
 ## Masked language modeling
 
@@ -37,11 +37,11 @@ In masked language modeling, 15% of tokens are randomly selected for the masked-
 > Masking every selected token would mean the model only ever sees inputs containing `[MASK]`, while at deployment it sees ordinary sentences that contain none. That gap is the dataset shift problem: the distribution of inputs seen during training differs significantly from the distribution encountered during inference. The 80/10/10 split exists to blunt it. Wikipedia's account also records the later verdict that more diverse training objectives are generally better.
 
 > [!example] One masking draw
-> Take "my dog is cute", tokenized as `my` `dog` `is` `cute`, and suppose the 4th token is picked. With probability 80% it becomes `my dog is [MASK]`; with probability 10% it is replaced by a uniformly sampled random token, say `my dog is happy`; with probability 10% nothing changes and the input stays `my dog is cute`. The model's 4th output vector is then passed to a decoder layer producing a probability distribution over the 30,000-dimensional [[tokenization-and-subword-units|vocabulary]].
+> Take "my dog is cute", tokenized as `my` `dog` `is` `cute`, and suppose the 4th token is picked. With probability 80% it becomes `my dog is [MASK]`; with probability 10% it is replaced by a uniformly sampled random token, say `my dog is happy`; with probability 10% nothing changes and the input stays `my dog is cute`. The model's 4th output vector is then passed to a decoder layer producing a probability distribution over the 30,000-dimensional [[cs/deep-learning/tokenization-and-subword-units|vocabulary]].
 
 The payoff is architectural reuse. A task head is necessary for pretraining but usually unnecessary downstream. You remove the pretraining head, replace it with a newly initialized module suited to the task, feed the model's latent representation into it, and fine-tune, which yields sample-efficient transfer. BERT was meant as a general pretrained model: after pretraining, it can be fine-tuned with fewer resources on smaller datasets for natural language inference, text classification, question answering, and generation.
 
-The historical contrast is with context-free embeddings. Word2vec or GloVe generate a single vector per vocabulary word, so "running" gets the same representation in "He is running a company" and "He is running a marathon". BERT, pretrained bidirectionally on a plain text corpus, produces a different [[embeddings|contextual embedding]] in each sentence.
+The historical contrast is with context-free embeddings. Word2vec or GloVe generate a single vector per vocabulary word, so "running" gets the same representation in "He is running a company" and "He is running a marathon". BERT, pretrained bidirectionally on a plain text corpus, produces a different [[cs/deep-learning/embeddings|contextual embedding]] in each sentence.
 
 ## Contrastive objectives
 
@@ -57,18 +57,18 @@ Not every method needs negatives. Non-contrastive self-supervised learning uses 
 
 ## Where reconstruction fits
 
-Training an [[autoencoders|autoencoder]] is intrinsically self-supervised, since the output has to be an optimal reconstruction of the input itself. Wikipedia's survey files this under autoassociative self-supervised learning: the model associates the data with itself, learning a latent representation by minimizing reconstruction error. In current usage, though, "self-supervised" more often refers to a designed pretext task, and the design of that task is where the human judgment moved after it left the labeling process.
+Training an [[cs/deep-learning/autoencoders|autoencoder]] is intrinsically self-supervised, since the output has to be an optimal reconstruction of the input itself. Wikipedia's survey files this under autoassociative self-supervised learning: the model associates the data with itself, learning a latent representation by minimizing reconstruction error. In current usage, though, "self-supervised" more often refers to a designed pretext task, and the design of that task is where the human judgment moved after it left the labeling process.
 
 ## Related Notes
 
-- [[transfer-learning]], the second half of the pipeline that pretraining feeds
-- [[autoencoders]], reconstruction as the earliest self-supervised objective
-- [[embeddings]], the representations pretraining is trying to produce
-- [[tokenization-and-subword-units]], the vocabulary masked language modeling predicts over
-- [[attention-and-transformers]], the architecture BERT pretrains
-- [[unsupervised-learning]], the wider family of label-free methods
-- [[supervised-learning]], the labeled regime this exists to economize on
-- [[meta-learning]], a different route to learning from little labeled data
+- [[cs/deep-learning/transfer-learning]], the second half of the pipeline that pretraining feeds
+- [[cs/deep-learning/autoencoders]], reconstruction as the earliest self-supervised objective
+- [[cs/deep-learning/embeddings]], the representations pretraining is trying to produce
+- [[cs/deep-learning/tokenization-and-subword-units]], the vocabulary masked language modeling predicts over
+- [[cs/deep-learning/attention-and-transformers]], the architecture BERT pretrains
+- [[cs/machine-learning/unsupervised-learning]], the wider family of label-free methods
+- [[cs/machine-learning/supervised-learning]], the labeled regime this exists to economize on
+- [[cs/deep-learning/meta-learning]], a different route to learning from little labeled data
 
 ## Sources
 

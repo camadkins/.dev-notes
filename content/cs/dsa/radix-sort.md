@@ -14,7 +14,7 @@ aliases: []
 
 ## Overview
 
-**Radix sort** orders keys by examining their **digits** (or fixed-size **radices**) from either the **Least Significant Digit (LSD)** upward or the **Most Significant Digit (MSD)** downward. Each pass uses a **stable** subroutine - commonly [[counting-sort|Counting Sort]] - to bucket and concatenate elements based on the current digit. For **fixed-width keys** (e.g., 32-bit integers, 128-bit UUIDs, fixed-length strings/bytes), radix achieves near-linear time, typically `Θ(n · d + b)` where `n` is the number of elements, `d` the number of digit passes, and `b` the radix (alphabet) size per pass.
+**Radix sort** orders keys by examining their **digits** (or fixed-size **radices**) from either the **Least Significant Digit (LSD)** upward or the **Most Significant Digit (MSD)** downward. Each pass uses a **stable** subroutine - commonly [[cs/dsa/counting-sort|Counting Sort]] - to bucket and concatenate elements based on the current digit. For **fixed-width keys** (e.g., 32-bit integers, 128-bit UUIDs, fixed-length strings/bytes), radix achieves near-linear time, typically `Θ(n · d + b)` where `n` is the number of elements, `d` the number of digit passes, and `b` the radix (alphabet) size per pass.
 
 Key strengths:
 
@@ -27,7 +27,7 @@ Key constraints:
 - Requires **known digit structure** and benefits from **fixed widths**; extra care for **negatives**, **variable lengths**, or **locale/collation**.
 
 > [!note]
-> Radix sort is non-comparative; it can beat the `Ω(n log n)` lower bound that applies to **comparison** sorts like [[merge-sort|Merge Sort]] or [[quick-sort|Quick Sort]].
+> Radix sort is non-comparative; it can beat the `Ω(n log n)` lower bound that applies to **comparison** sorts like [[cs/dsa/merge-sort|Merge Sort]] or [[cs/dsa/quick-sort|Quick Sort]].
 
 ## Core Idea
 
@@ -188,11 +188,11 @@ Comparisons with comparison-based sorts:
 
 Radix complements and often feeds:
 
-- [[counting-sort|Counting Sort]] as the per-pass stable routine.
+- [[cs/dsa/counting-sort|Counting Sort]] as the per-pass stable routine.
 
-- [[bucket-sort|Bucket Sort]] when distribution is known and continuous.
+- [[cs/dsa/bucket-sort|Bucket Sort]] when distribution is known and continuous.
 
-- [[heapsort|Heapsort]]/[[merge-sort|Merge Sort]] when keys are comparison-only or need stability with arbitrary comparators.
+- [[cs/dsa/heapsort|Heapsort]]/[[cs/dsa/merge-sort|Merge Sort]] when keys are comparison-only or need stability with arbitrary comparators.
 
 ## Common Pitfalls or Edge Cases
 
@@ -221,7 +221,7 @@ Radix complements and often feeds:
 
 - **Key-value pairs**: Carry the **payload** alongside the key during stable scatter; keep structs compact to maximize memory bandwidth.
 
-- **Cutoffs**: For small arrays, fall back to [[insertion-sort|Insertion Sort]] to reduce overhead.
+- **Cutoffs**: For small arrays, fall back to [[cs/dsa/insertion-sort|Insertion Sort]] to reduce overhead.
 
 ## Summary
 
@@ -229,10 +229,10 @@ Radix sort organizes keys by **digits** and performs **stable bucket passes** to
 
 ## Related Notes
 
-- [[counting-sort|Counting Sort]]
+- [[cs/dsa/counting-sort|Counting Sort]]
 
-- [[bucket-sort|Bucket Sort]]
+- [[cs/dsa/bucket-sort|Bucket Sort]]
 
-- [[heapsort|Heapsort]]
+- [[cs/dsa/heapsort|Heapsort]]
 
-- [[insertion-sort|Insertion Sort]]
+- [[cs/dsa/insertion-sort|Insertion Sort]]

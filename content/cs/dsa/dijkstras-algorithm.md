@@ -15,7 +15,7 @@ aliases: []
 
 **Dijkstra’s algorithm** computes **single-source shortest paths** in graphs with **non-negative edge weights**. It maintains a set `S` of **settled** vertices (final distances) and a **priority queue** keyed by current best tentative distances for a **frontier** of discovered vertices. Each step removes the vertex with minimum tentative distance, **relaxes** its outgoing edges, and repeats until all reachable vertices are settled. The method is correct because removing the smallest tentative distance is safe when all edges are non-negative.
 
-![Dijkstra state after popping b: settled set S with final distances, frontier PQ with tentative keys, and relaxation edges highlighted](assets/dijkstra-frontier.svg)
+![Dijkstra state after popping b: settled set S with final distances, frontier PQ with tentative keys, and relaxation edges highlighted](cs/dsa/assets/dijkstra-frontier.svg)
 
 ## Core Idea
 
@@ -89,7 +89,7 @@ Consider source `s` and edges (undirected, shown as two directed edges) with wei
 7. Pop `e` (9). Done. Parents define shortest-path tree.
     
 
-![Dijkstra stepwise trace showing PQ contents, popped vertex, relaxed edges, and distance updates per iteration](assets/dijkstra-trace.svg)
+![Dijkstra stepwise trace showing PQ contents, popped vertex, relaxed edges, and distance updates per iteration](cs/dsa/assets/dijkstra-trace.svg)
 
 ## Complexity Analysis
 
@@ -97,7 +97,7 @@ Let `n = |V|`, `m = |E|`.
 
 - With a **binary heap**: each `extract_min` is `O(log n)` (≤ `n` times), each successful relaxation does a `decrease_key` `O(log n)` (≤ `m` times). **Time:** `O((n + m) log n)`. **Space:** `O(n)`.
     
-- With a **d-ary heap**: `extract_min = O(d log_d n)`, `decrease_key = O(log_d n)`. Choose `d` to balance operations (see [[d-ary-heap|D-ary Heap]]).
+- With a **d-ary heap**: `extract_min = O(d log_d n)`, `decrease_key = O(log_d n)`. Choose `d` to balance operations (see [[cs/dsa/d-ary-heap|D-ary Heap]]).
     
 - With **Fibonacci / pairing heaps** (amortized): **Time:** `O(m + n log n)` due to `O(1)` amortized `decrease_key`.
     
@@ -162,10 +162,10 @@ Dijkstra’s algorithm grows a **settled set** outward from the source, always e
 
 ## Related Notes
 
-- [[breadth-first-search-algorithms|Breadth-First Search Algorithms]]
+- [[cs/dsa/breadth-first-search-algorithms|Breadth-First Search Algorithms]]
     
-- [[greedy-algorithms|Greedy Algorithms]]
+- [[cs/dsa/greedy-algorithms|Greedy Algorithms]]
     
-- [[d-ary-heap|D-ary Heap]]
+- [[cs/dsa/d-ary-heap|D-ary Heap]]
     
-- [[graph-representations|Graph Representations]]
+- [[cs/dsa/graph-representations|Graph Representations]]

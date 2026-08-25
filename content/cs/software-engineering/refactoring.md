@@ -58,18 +58,18 @@ What he falls back on in those languages is the actual foundation: "I rely on ta
 
 The reason to do any of this is stated as a cost argument, not an aesthetic one. Successful software keeps needing enhancement, "but the nature of a code-base makes a big difference on how easy it is to make these changes. Often enhancements are applied on top of each other in a manner that makes it increasingly harder to make changes. Over time new work slows to a crawl."
 
-Refactoring is the countermeasure to that specific drift, applied continuously so that "added enhancements don't lead to unnecessary complexity." This is the same ledger [[technical-debt|technical debt]] describes from the finance side: refactoring is the operation that pays down principal, and the reason it belongs in day-to-day work rather than a quarterly cleanup sprint is that interest only accrues where you are actually working.
+Refactoring is the countermeasure to that specific drift, applied continuously so that "added enhancements don't lead to unnecessary complexity." This is the same ledger [[cs/software-engineering/technical-debt|technical debt]] describes from the finance side: refactoring is the operation that pays down principal, and the reason it belongs in day-to-day work rather than a quarterly cleanup sprint is that interest only accrues where you are actually working.
 
 > [!tip]
 > Fowler is careful to disclaim authorship: "I'm not the father or the inventor of refactoring, just a documenter." That is a useful frame for the catalog too. It is not a set of rules someone designed, it is a written-down record of moves practitioners were already making, which is why the entries feel obvious once named and were nearly impossible to teach before they were.
 
 ## Related Notes
 
-- [[technical-debt|Technical Debt]] - refactoring is how principal gets paid down
-- [[testing-strategies|Testing Strategies]] - the fast test suite that makes small steps verifiable
-- [[design-patterns|Design Patterns]] - frequently the target shape a sequence of refactorings moves toward
-- [[code-review|Code Review]] - named refactorings make a large diff reviewable
-- [[version-control-fundamentals|Version Control Fundamentals]] - small commits mirror small transformations
+- [[cs/software-engineering/technical-debt|Technical Debt]] - refactoring is how principal gets paid down
+- [[cs/software-engineering/testing-strategies|Testing Strategies]] - the fast test suite that makes small steps verifiable
+- [[cs/software-engineering/design-patterns|Design Patterns]] - frequently the target shape a sequence of refactorings moves toward
+- [[cs/software-engineering/code-review|Code Review]] - named refactorings make a large diff reviewable
+- [[cs/software-engineering/version-control-fundamentals|Version Control Fundamentals]] - small commits mirror small transformations
 
 ## Sources
 

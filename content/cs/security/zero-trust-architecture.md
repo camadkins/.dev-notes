@@ -14,7 +14,7 @@ aliases:
   - never trust always verify
 ---
 
-The old network security model was a castle: a hard perimeter of [[firewalls|firewalls]] and VPN gateways, and inside, a soft trusted zone where being *on the LAN* was itself a credential. That model fails the moment anything inside is compromised, because an attacker who breaches one internal host inherits the network's implicit trust and [[cs/forensics/flow-records-and-log-based-investigation|moves laterally]] at will. Zero trust throws out the premise that location implies trust.
+The old network security model was a castle: a hard perimeter of [[cs/security/firewalls|firewalls]] and VPN gateways, and inside, a soft trusted zone where being *on the LAN* was itself a credential. That model fails the moment anything inside is compromised, because an attacker who breaches one internal host inherits the network's implicit trust and [[cs/forensics/flow-records-and-log-based-investigation|moves laterally]] at will. Zero trust throws out the premise that location implies trust.
 
 > [!note] The idea
 > Zero trust deletes the trusted interior. It assumes the network is already compromised and makes every single access request prove itself, verifying identity, device, and context per request, regardless of where the request comes from. NIST SP 800-207 frames it as minimizing uncertainty in "least privilege per-request access decisions" made "in the face of a network viewed as compromised."
@@ -29,20 +29,20 @@ Two phrases in that sentence carry the whole model. "Per-request access decision
 
 ## Per-session, least-privilege, re-evaluated
 
-SP 800-207 makes the granularity explicit: "Access to individual enterprise resources is granted on a per-session basis. Trust in the requester is evaluated before the access is granted." Access to one resource does not extend to the next; each is its own decision. And the grant itself is minimal: access "should also be granted with the least privileges needed to complete the task." That is [[privilege-separation-and-least-privilege|least privilege]] lifted from a single process to the whole enterprise: no request gets more authority than its immediate task requires, and that authority does not persist.
+SP 800-207 makes the granularity explicit: "Access to individual enterprise resources is granted on a per-session basis. Trust in the requester is evaluated before the access is granted." Access to one resource does not extend to the next; each is its own decision. And the grant itself is minimal: access "should also be granted with the least privileges needed to complete the task." That is [[cs/security/privilege-separation-and-least-privilege|least privilege]] lifted from a single process to the whole enterprise: no request gets more authority than its immediate task requires, and that authority does not persist.
 
-The practical consequence is a shift in where enforcement lives. Instead of a firewall at the boundary deciding what may cross, a policy engine at each resource evaluates identity, device posture, and context for every request. Strong authentication becomes central, which is why [[multi-factor-authentication|multi-factor authentication]] and device attestation are foundational to any real zero-trust deployment rather than optional add-ons.
+The practical consequence is a shift in where enforcement lives. Instead of a firewall at the boundary deciding what may cross, a policy engine at each resource evaluates identity, device posture, and context for every request. Strong authentication becomes central, which is why [[cs/security/multi-factor-authentication|multi-factor authentication]] and device attestation are foundational to any real zero-trust deployment rather than optional add-ons.
 
 > [!warning] Zero trust is an architecture, not a product
 > SP 800-207 is deliberately abstract because zero trust is a set of principles, not a box you buy. "Never trust, always verify" is the slogan, but the standard's substance is the per-request, per-session, least-privilege discipline plus the assumption of a hostile network. A vendor appliance labeled "zero trust" that still hands out standing network-level trust after one login has kept the castle and repainted the sign.
 
 ## Related Notes
 
-- [[firewalls|Firewalls]] - the perimeter chokepoint whose implicit-trust interior zero trust rejects
-- [[multi-factor-authentication|Multi-Factor Authentication]] - the strong per-request identity proof zero trust depends on
-- [[privilege-separation-and-least-privilege|Privilege Separation and Least Privilege]] - the least-privilege principle scaled to the enterprise
-- [[stride-threat-modeling|STRIDE Threat Modeling]] - a way to reason about the lateral-movement threats zero trust targets
-- [[kerberos-authentication|Kerberos Authentication]] - an authentication backbone that per-request verification builds on
+- [[cs/security/firewalls|Firewalls]] - the perimeter chokepoint whose implicit-trust interior zero trust rejects
+- [[cs/security/multi-factor-authentication|Multi-Factor Authentication]] - the strong per-request identity proof zero trust depends on
+- [[cs/security/privilege-separation-and-least-privilege|Privilege Separation and Least Privilege]] - the least-privilege principle scaled to the enterprise
+- [[cs/security/stride-threat-modeling|STRIDE Threat Modeling]] - a way to reason about the lateral-movement threats zero trust targets
+- [[cs/security/kerberos-authentication|Kerberos Authentication]] - an authentication backbone that per-request verification builds on
 
 ## Sources
 

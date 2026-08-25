@@ -64,11 +64,11 @@ A last piece of pedantry the spec is explicit about: `v1.2.3` is not a semantic 
 
 ## Related Notes
 
-- [[api-design|API Design]] - the declared public API is the surface SemVer's numbers are measured against
+- [[cs/software-engineering/api-design|API Design]] - the declared public API is the surface SemVer's numbers are measured against
 - [[cs/languages/common/build-systems-and-dependency-management|Build Systems and Dependency Management]] - resolvers and lockfiles are what consume the version contract
-- [[version-control-fundamentals|Version Control Fundamentals]] - tags are where versions are stamped into history
-- [[continuous-integration|Continuous Integration]] - the pipeline that decides a release is fit to be numbered
-- [[software-architecture|Software Architecture]] - module boundaries determine how much surface each version has to promise about
+- [[cs/software-engineering/version-control-fundamentals|Version Control Fundamentals]] - tags are where versions are stamped into history
+- [[cs/software-engineering/continuous-integration|Continuous Integration]] - the pipeline that decides a release is fit to be numbered
+- [[cs/software-engineering/software-architecture|Software Architecture]] - module boundaries determine how much surface each version has to promise about
 
 ## Sources
 

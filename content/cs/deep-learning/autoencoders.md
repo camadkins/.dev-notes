@@ -21,9 +21,9 @@ Copying the input to the output sounds pointless, and it is, right up until you 
 
 ## Encoder, Bottleneck, Decoder
 
-The network splits into two subnetworks that meet in the middle. The encoder $f(\cdot)$ maps each input to an embedded, or latent, representation. The decoder $g(\cdot)$ maps that representation back into input space. What connects them is a loss you already know: reconstruction is scored with square loss for real-valued inputs or cross-entropy for binary ones, so training an autoencoder is ordinary [[gradient-descent]] on a [[cs/machine-learning/loss-functions|reconstruction loss]]. There are no labels involved, which makes this a form of [[unsupervised-learning]]: the input is its own target.
+The network splits into two subnetworks that meet in the middle. The encoder $f(\cdot)$ maps each input to an embedded, or latent, representation. The decoder $g(\cdot)$ maps that representation back into input space. What connects them is a loss you already know: reconstruction is scored with square loss for real-valued inputs or cross-entropy for binary ones, so training an autoencoder is ordinary [[cs/machine-learning/gradient-descent]] on a [[cs/machine-learning/loss-functions|reconstruction loss]]. There are no labels involved, which makes this a form of [[cs/machine-learning/unsupervised-learning]]: the input is its own target.
 
-![Encoder maps the input down to a small latent code, the bottleneck, and the decoder reconstructs the input from that code](assets/encoder-bottleneck-decoder.svg)
+![Encoder maps the input down to a small latent code, the bottleneck, and the decoder reconstructs the input from that code](cs/deep-learning/assets/encoder-bottleneck-decoder.svg)
 
 The width of the bottleneck defines the two regimes. An **undercomplete** autoencoder has a hidden layer smaller than the input, so the latent space has fewer dimensions than the data. It cannot simply memorize the training instances; it has to compress. An **overcomplete** autoencoder has a hidden layer larger than the input, which invites the trivial solution of copying the input straight through. To stop that, overcomplete autoencoders are regularized, for example by enforcing a sparsity constraint so that most latent units sit near zero for any given input.
 
@@ -49,13 +49,13 @@ The change is that the encoder stops outputting a single code and instead output
 
 ## Related Notes
 
-- [[artificial-neural-networks]] for the encoder and decoder building blocks
-- [[unsupervised-learning]] because an autoencoder learns from unlabeled data, its own input as target
-- [[loss-functions]] and [[gradient-descent]] supply the reconstruction objective and the optimizer
-- [[features-and-representations]] on why the latent code is the real product
-- [[generative-adversarial-networks]] and [[diffusion-models]] are the other two generative models in this batch; a VAE organizes a latent prior, a GAN plays an adversarial game, and diffusion learns to denoise
-- [[normal-distribution]] and [[maximum-likelihood-estimation]] underpin the VAE's Gaussian prior and training objective
-- [[ai-vs-ml-vs-dl]] for where generative deep learning sits in the bigger picture
+- [[cs/deep-learning/artificial-neural-networks]] for the encoder and decoder building blocks
+- [[cs/machine-learning/unsupervised-learning]] because an autoencoder learns from unlabeled data, its own input as target
+- [[cs/machine-learning/loss-functions]] and [[cs/machine-learning/gradient-descent]] supply the reconstruction objective and the optimizer
+- [[cs/machine-learning/features-and-representations]] on why the latent code is the real product
+- [[cs/deep-learning/generative-adversarial-networks]] and [[cs/deep-learning/diffusion-models]] are the other two generative models in this batch; a VAE organizes a latent prior, a GAN plays an adversarial game, and diffusion learns to denoise
+- [[cs/statistics/normal-distribution]] and [[cs/statistics/maximum-likelihood-estimation]] underpin the VAE's Gaussian prior and training objective
+- [[cs/machine-learning/ai-vs-ml-vs-dl]] for where generative deep learning sits in the bigger picture
 
 ## Sources
 

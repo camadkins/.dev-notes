@@ -28,18 +28,18 @@ ENIAC was designed by John Mauchly and J. Presper Eckert to calculate artillery 
 
 ## What changed
 
-The deep shift was that one machine could be reconfigured to compute any problem, rather than being built to do a single fixed thing. That is programmability, and it is the property that makes a general-purpose computer general. The people who worked out how to express a calculation in ENIAC's switches and cables, the subject of the [[eniac-programmers-and-the-first-software|ENIAC programmers]] note, were inventing the activity of programming as they went.
+The deep shift was that one machine could be reconfigured to compute any problem, rather than being built to do a single fixed thing. That is programmability, and it is the property that makes a general-purpose computer general. The people who worked out how to express a calculation in ENIAC's switches and cables, the subject of the [[cs/military-computing/eniac-programmers-and-the-first-software|ENIAC programmers]] note, were inventing the activity of programming as they went.
 
 ## Legacy
 
-ENIAC's clumsy patch-cable setup pointed directly at the next idea: storing the program in memory alongside the data, which became the [[von-neumann-architecture|von Neumann architecture]] that every later machine followed. And ENIAC itself did not stop at firing tables. Within a few years it was running the first [[monte-carlo-method-and-the-bomb|Monte Carlo]] calculations for nuclear weapons design, the same machine turned to an entirely different problem, which is exactly what programmability makes possible.
+ENIAC's clumsy patch-cable setup pointed directly at the next idea: storing the program in memory alongside the data, which became the [[cs/history/von-neumann-architecture|von Neumann architecture]] that every later machine followed. And ENIAC itself did not stop at firing tables. Within a few years it was running the first [[cs/military-computing/monte-carlo-method-and-the-bomb|Monte Carlo]] calculations for nuclear weapons design, the same machine turned to an entirely different problem, which is exactly what programmability makes possible.
 
 ## Related Notes
 
-- [[von-neumann-architecture|Von Neumann Architecture]], the stored-program idea ENIAC's setup motivated
-- [[eniac-programmers-and-the-first-software|The ENIAC Programmers]], who made the machine compute
-- [[ford-rangekeeper-analog-fire-control|The Ford Rangekeeper]], the analog way of solving targeting math
-- [[monte-carlo-method-and-the-bomb|Monte Carlo and the Bomb]], ENIAC put to a new use
+- [[cs/history/von-neumann-architecture|Von Neumann Architecture]], the stored-program idea ENIAC's setup motivated
+- [[cs/military-computing/eniac-programmers-and-the-first-software|The ENIAC Programmers]], who made the machine compute
+- [[cs/military-computing/ford-rangekeeper-analog-fire-control|The Ford Rangekeeper]], the analog way of solving targeting math
+- [[cs/military-computing/monte-carlo-method-and-the-bomb|Monte Carlo and the Bomb]], ENIAC put to a new use
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

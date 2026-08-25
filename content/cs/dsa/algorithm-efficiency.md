@@ -33,7 +33,7 @@ Efficient algorithms scale to larger inputs, reduce resource usage, and deliver 
 > - **RAM model** with unit-cost integer arithmetic is standard for intro analysis.
 > - For large integers, hashing, I/O, or cache effects, annotate what counts as O(1) vs variable.
 
-![Asymptotic theory above, implementation constants below, and where the two meet](assets/efficiency-layers.svg)
+![Asymptotic theory above, implementation constants below, and where the two meet](cs/dsa/assets/efficiency-layers.svg)
 
 ### 1. Asymptotic Growth
 Describes how runtime grows with input size `n`:
@@ -97,12 +97,12 @@ Theoretical complexity assumes _worst-case_ or _average-case_ over all inputs, b
 
 Examples:
 
-- **[[quick-sort|QuickSort]]**: worst-case O(n²), average O(n log n), but input ordering heavily impacts runtime.
+- **[[cs/dsa/quick-sort|QuickSort]]**: worst-case O(n²), average O(n log n), but input ordering heavily impacts runtime.
     
 - **Hashing**: [[cs/statistics/expected-value|expected O(1)]], but collisions can make it O(n).
     
 
-> ![Five growth curves plotted against input size, constant through quadratic](assets/efficiency-perf-vs-input.svg)
+> ![Five growth curves plotted against input size, constant through quadratic](cs/dsa/assets/efficiency-perf-vs-input.svg)
 
 > [!tip]  
 > Benchmark on realistic workloads, not just random data.
@@ -113,9 +113,9 @@ Runtime isn’t everything - some algorithms trade speed for memory.
 
 |Algorithm|Time|Space|Trade-off|
 |---|---|---|---|
-|[[merge-sort|Merge Sort]]|O(n log n)|O(n)|Simpler recursion, more memory|
-|[[heapsort|Heap Sort]]|O(n log n)|O(1)|Slower constant, less memory|
-|[[counting-sort|Counting Sort]]|O(n + k)|O(k)|Fast for small key ranges|
+|[[cs/dsa/merge-sort|Merge Sort]]|O(n log n)|O(n)|Simpler recursion, more memory|
+|[[cs/dsa/heapsort|Heap Sort]]|O(n log n)|O(1)|Slower constant, less memory|
+|[[cs/dsa/counting-sort|Counting Sort]]|O(n + k)|O(k)|Fast for small key ranges|
 
 Choose based on _context_: memory-constrained systems (embedded) may prioritize O(1) space.
 
@@ -157,10 +157,10 @@ Choose based on _context_: memory-constrained systems (embedded) may prioritize 
 
 |Algorithm|Time|Space|Stability|Practical Use|
 |---|---|---|---|---|
-|[[quick-sort|QuickSort]]|O(n log n) avg|O(log n)|No|General-purpose|
-|[[merge-sort|MergeSort]]|O(n log n)|O(n)|Yes|External sorting|
-|[[heapsort|HeapSort]]|O(n log n)|O(1)|No|Memory-limited systems|
-|[[insertion-sort|InsertionSort]]|O(n²)|O(1)|Yes|Small datasets|
+|[[cs/dsa/quick-sort|QuickSort]]|O(n log n) avg|O(log n)|No|General-purpose|
+|[[cs/dsa/merge-sort|MergeSort]]|O(n log n)|O(n)|Yes|External sorting|
+|[[cs/dsa/heapsort|HeapSort]]|O(n log n)|O(1)|No|Memory-limited systems|
+|[[cs/dsa/insertion-sort|InsertionSort]]|O(n²)|O(1)|Yes|Small datasets|
 
 > [!tip]  
 > Hybrid algorithms (e.g., **Timsort**) combine multiple strategies to balance constants and asymptotic growth.
@@ -187,17 +187,17 @@ Choose based on _context_: memory-constrained systems (embedded) may prioritize 
 
 ## Related Notes
 
-- [[asymptotic-notation|Asymptotic Notation]]
+- [[cs/dsa/asymptotic-notation|Asymptotic Notation]]
     
-- [[amortized-analysis-methods|Amortized Analysis]]
+- [[cs/dsa/amortized-analysis-methods|Amortized Analysis]]
     
-- [[best-worst-average-cases|Best/Worst/Average Cases]]
+- [[cs/dsa/best-worst-average-cases|Best/Worst/Average Cases]]
     
-- [[time-complexity-analysis|Time Complexity Analysis]]
+- [[cs/dsa/time-complexity-analysis|Time Complexity Analysis]]
     
-- [[recurrence-relations|Recurrence Relations]]
+- [[cs/dsa/recurrence-relations|Recurrence Relations]]
     
-- [[memory-allocation|Memory Allocation]]
+- [[cs/dsa/memory-allocation|Memory Allocation]]
     
-- [[space-complexity|Space Complexity]]
+- [[cs/dsa/space-complexity|Space Complexity]]
     

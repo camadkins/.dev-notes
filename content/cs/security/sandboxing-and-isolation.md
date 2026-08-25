@@ -52,7 +52,7 @@ Each mechanism closes a different escape route, so an attacker has to defeat all
 - [[cs/systems/processes-and-threads|Processes and Threads]], the subjects being confined
 - [[cs/military-computing/bell-lapadula-and-mandatory-access-control|Bell-LaPadula and Mandatory Access Control]], policy the system enforces rather than the user
 - [[cs/military-computing/multics-and-time-sharing-foundations|Multics and Time-Sharing Foundations]], where protection rings began
-- [[stride-threat-modeling|STRIDE Threat Modeling]], for naming the elevation-of-privilege threat a sandbox contains
+- [[cs/security/stride-threat-modeling|STRIDE Threat Modeling]], for naming the elevation-of-privilege threat a sandbox contains
 
 ## Sources
 

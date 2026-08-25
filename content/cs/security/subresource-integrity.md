@@ -15,7 +15,7 @@ aliases:
   - integrity attribute
 ---
 
-A modern web page is assembled from other people's servers: a framework from one [[cs/networking/cdn-and-edge-caching|CDN]], a font from another, an analytics script from a third. Every one of those is code running with your page's full privileges. The transport-security stack, TLS plus [[hsts-and-http-security-headers|HSTS]] plus [[certificate-pinning|key pinning]], does an excellent job of one thing and a poor job of another. As the SRI specification puts it, these mechanisms "authenticate only the server, not the content." You can be certain you are really talking to the CDN. You have no assurance the CDN is sending what you expect.
+A modern web page is assembled from other people's servers: a framework from one [[cs/networking/cdn-and-edge-caching|CDN]], a font from another, an analytics script from a third. Every one of those is code running with your page's full privileges. The transport-security stack, TLS plus [[cs/security/hsts-and-http-security-headers|HSTS]] plus [[cs/security/certificate-pinning|key pinning]], does an excellent job of one thing and a poor job of another. As the SRI specification puts it, these mechanisms "authenticate only the server, not the content." You can be certain you are really talking to the CDN. You have no assurance the CDN is sending what you expect.
 
 > [!note] The idea
 > Subresource Integrity lets a page declare the exact cryptographic hash of a resource it intends to load, in an `integrity` attribute on the `<script>` or `<link>` tag, and the browser refuses to use the resource if the bytes do not hash to that value. The spec's framing is precise: authors want to "not only be able to pin the keys of a server, but also pin the content." SRI moves the trust anchor from *who served the file* to *what the file actually is*.
@@ -45,15 +45,15 @@ An author may list several hashes for one resource, computed with different algo
 There is one subtlety worth internalizing. If a page specifies integrity using only an algorithm the browser does not support, the check does not fail closed. Per the spec, "validation using unsupported hash functions acts like no integrity value was provided," which lets authors adopt a stronger future hash without breaking older browsers. The design choice is deliberate and reasonable, but it means SRI's guarantee is conditional on the client actually understanding at least one of the offered algorithms. An attacker cannot forge a matching hash, but a downgrade to "no protection" is quietly on the table if you offer only exotic algorithms.
 
 > [!tip] SRI is content pinning, and it composes
-> The right mental model is that TLS pins the channel and SRI pins the payload; you want both. [[content-security-policy|Content-Security-Policy]] can even mandate SRI on all scripts and styles via `require-sri-for`, turning "the developer remembered to add a hash" into an enforced site-wide policy. Layered, they cover the two questions TLS alone conflates: am I talking to the right server, and did it send me the right bytes.
+> The right mental model is that TLS pins the channel and SRI pins the payload; you want both. [[cs/security/content-security-policy|Content-Security-Policy]] can even mandate SRI on all scripts and styles via `require-sri-for`, turning "the developer remembered to add a hash" into an enforced site-wide policy. Layered, they cover the two questions TLS alone conflates: am I talking to the right server, and did it send me the right bytes.
 
 ## Related Notes
 
-- [[cryptographic-hash-functions|Cryptographic Hash Functions]] - the digest whose collision-resistance makes SRI meaningful
-- [[content-security-policy|Content Security Policy]] - can require SRI and shares the browser-enforced-policy model
-- [[hsts-and-http-security-headers|HSTS and HTTP Security Headers]] - authenticates the channel that SRI complements
-- [[certificate-pinning|Certificate Pinning]] - pins the server's key, where SRI pins the file's bytes
-- [[cross-site-scripting-xss|Cross-Site Scripting]] - the code-injection class a compromised third-party script becomes
+- [[cs/security/cryptographic-hash-functions|Cryptographic Hash Functions]] - the digest whose collision-resistance makes SRI meaningful
+- [[cs/security/content-security-policy|Content Security Policy]] - can require SRI and shares the browser-enforced-policy model
+- [[cs/security/hsts-and-http-security-headers|HSTS and HTTP Security Headers]] - authenticates the channel that SRI complements
+- [[cs/security/certificate-pinning|Certificate Pinning]] - pins the server's key, where SRI pins the file's bytes
+- [[cs/security/cross-site-scripting-xss|Cross-Site Scripting]] - the code-injection class a compromised third-party script becomes
 
 ## Sources
 

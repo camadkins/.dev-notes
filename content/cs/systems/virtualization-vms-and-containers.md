@@ -62,9 +62,9 @@ The rule that falls out: reach for a VM when you need a different OS, a hard sec
 
 ## Related Notes
 
-- [[processes-and-threads|Processes & Threads]] - a container is essentially a process group with a private view, drawn by namespaces
-- [[system-calls-and-the-kernel-boundary|System Calls and the Kernel Boundary]] - the shared kernel that containers isolate against and VMs replace
-- [[virtual-memory|Virtual Memory]] - the same isolation instinct one level down, per process rather than per machine
+- [[cs/systems/processes-and-threads|Processes & Threads]] - a container is essentially a process group with a private view, drawn by namespaces
+- [[cs/systems/system-calls-and-the-kernel-boundary|System Calls and the Kernel Boundary]] - the shared kernel that containers isolate against and VMs replace
+- [[cs/systems/virtual-memory|Virtual Memory]] - the same isolation instinct one level down, per process rather than per machine
 
 ## Sources
 

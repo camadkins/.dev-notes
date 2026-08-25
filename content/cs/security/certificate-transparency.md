@@ -15,14 +15,14 @@ aliases:
   - CT logs
 ---
 
-The web's trust model has a single-point-of-failure baked in: any [[pki-and-x509-certificates|certificate authority]] your browser trusts can issue a valid certificate for *any* domain, including yours, and you would never know. A compromised or coerced CA that issues `google.com` to an attacker produces a certificate that every browser accepts. Before Certificate Transparency, the domain owner had no way to even find out. CT does not remove the CA's power to mis-issue. It removes their ability to do it in secret.
+The web's trust model has a single-point-of-failure baked in: any [[cs/security/pki-and-x509-certificates|certificate authority]] your browser trusts can issue a valid certificate for *any* domain, including yours, and you would never know. A compromised or coerced CA that issues `google.com` to an attacker produces a certificate that every browser accepts. Before Certificate Transparency, the domain owner had no way to even find out. CT does not remove the CA's power to mis-issue. It removes their ability to do it in secret.
 
 > [!note] The idea
 > Certificate Transparency "aims to mitigate the problem of misissued certificates by providing publicly auditable, append-only, untrusted logs of all issued certificates." The logs "do not themselves prevent misissue, but they ensure that interested parties (particularly those named in certificates) can detect such misissuance." The shift is from *prevention* to *guaranteed detectability*: make every certificate public, and the domain owner watching the logs sees any rogue issuance.
 
 ## Append-only, and why that word is load-bearing
 
-A public list of certificates is worthless if the log operator can quietly edit it. The whole scheme depends on the log being *[[cs/history/blockchain-and-nakamoto-consensus|append-only]]*, unable to remove or alter an entry after the fact, and CT enforces this cryptographically with a [[cs/dsa/trees|Merkle hash tree]] rather than by trusting the operator. Two proofs make it work: a Merkle audit path proves a specific certificate is included in the log, and a Merkle consistency proof proves that a newer log is a strict superset of an older one, that nothing was removed or rewritten. This is why the logs can be "untrusted", their good behavior is verifiable rather than assumed, the same design instinct behind a [[cryptographic-hash-functions|hash]]-linked ledger.
+A public list of certificates is worthless if the log operator can quietly edit it. The whole scheme depends on the log being *[[cs/history/blockchain-and-nakamoto-consensus|append-only]]*, unable to remove or alter an entry after the fact, and CT enforces this cryptographically with a [[cs/dsa/trees|Merkle hash tree]] rather than by trusting the operator. Two proofs make it work: a Merkle audit path proves a specific certificate is included in the log, and a Merkle consistency proof proves that a newer log is a strict superset of an older one, that nothing was removed or rewritten. This is why the logs can be "untrusted", their good behavior is verifiable rather than assumed, the same design instinct behind a [[cs/security/cryptographic-hash-functions|hash]]-linked ledger.
 
 The spec is explicit that a cheating log gets caught. A log can violate its "append-only property by presenting two different, conflicting views of the Merkle Tree at different times and/or to different parties," and "both forms of violation will be promptly and publicly detectable."
 
@@ -43,11 +43,11 @@ So the security property is precise and worth stating carefully. CT guarantees t
 
 ## Related Notes
 
-- [[pki-and-x509-certificates|PKI and X.509 Certificates]] - the CA trust model whose blind spot CT audits
-- [[cryptographic-hash-functions|Cryptographic Hash Functions]] - the Merkle-tree hashing that makes the log append-only
-- [[certificate-revocation-ocsp-and-crls|Certificate Revocation: CRLs and OCSP]] - what a monitor invokes after detecting a bad certificate
-- [[digital-signatures|Digital Signatures]] - the signature on each SCT and log statement
-- [[dnssec|DNSSEC]] - another retrofit that added verifiable trust to a deployed insecure system
+- [[cs/security/pki-and-x509-certificates|PKI and X.509 Certificates]] - the CA trust model whose blind spot CT audits
+- [[cs/security/cryptographic-hash-functions|Cryptographic Hash Functions]] - the Merkle-tree hashing that makes the log append-only
+- [[cs/security/certificate-revocation-ocsp-and-crls|Certificate Revocation: CRLs and OCSP]] - what a monitor invokes after detecting a bad certificate
+- [[cs/security/digital-signatures|Digital Signatures]] - the signature on each SCT and log statement
+- [[cs/security/dnssec|DNSSEC]] - another retrofit that added verifiable trust to a deployed insecure system
 
 ## Sources
 

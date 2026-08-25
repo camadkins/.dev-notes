@@ -82,7 +82,7 @@ This directly mirrors how recursive functions process [[cs/pl/parametric-polymor
 
 **Algorithm correctness.** For [[cs/dsa/divide-and-conquer|divide-and-conquer]] or recursive algorithms, strong induction on input size shows that if the algorithm is correct on all inputs smaller than $n$, it is correct on input $n$.
 
-**Recurrence verification.** You have a recurrence $T(n) = aT(n/b) + f(n)$ and a claimed closed form. Substitute and induct to verify it. This is the "guess and check" approach that complements the [[recurrence-relations|master theorem]].
+**Recurrence verification.** You have a recurrence $T(n) = aT(n/b) + f(n)$ and a claimed closed form. Substitute and induct to verify it. This is the "guess and check" approach that complements the [[cs/dsa/recurrence-relations|master theorem]].
 
 > [!warning]
 > **Common mistakes in induction proofs:**
@@ -96,7 +96,7 @@ This directly mirrors how recursive functions process [[cs/pl/parametric-polymor
 
 ## Related Notes
 
-- [[recursion|Recursion]] - induction is the proof technique that mirrors recursive computation
-- [[recurrence-relations|Recurrence Relations]] - induction verifies closed-form solutions to recurrences
-- [[graph-theory|Graph Theory]] - many graph proofs proceed by induction on vertices or edges
-- [[discrete-probability|Discrete Probability]] - inductive arguments establish properties of random processes
+- [[cs/dsa/recursion|Recursion]] - induction is the proof technique that mirrors recursive computation
+- [[cs/dsa/recurrence-relations|Recurrence Relations]] - induction verifies closed-form solutions to recurrences
+- [[cs/math/graph-theory|Graph Theory]] - many graph proofs proceed by induction on vertices or edges
+- [[cs/math/discrete-probability|Discrete Probability]] - inductive arguments establish properties of random processes

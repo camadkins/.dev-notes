@@ -68,7 +68,7 @@ Preorder yields `A, B, D, E, C, F`.
     - **Inorder**: Left->Root->Right (sorted output for BSTs).
 
     - **Postorder**: Left->Right->Root (bottom-up; good for deletion/evaluation).
-        See [[inorder|Traversal - Inorder]] and [[postorder|Traversal - Postorder]].
+        See [[cs/dsa/inorder|Traversal - Inorder]] and [[cs/dsa/postorder|Traversal - Postorder]].
 
 - **Serialization correctness:** With **null sentinels** for missing children, preorder is sufficient to reconstruct the unique binary tree.
 
@@ -206,7 +206,7 @@ function PREORDER_KARY(root):
 
 - **Determinism:** define a fixed child order; nondeterministic iteration yields nondeterministic traversals.
 
-- **Interoperability:** for BST tasks that also need sorted output, combine with [[inorder|Traversal - Inorder]]; for teardown or DP folds use [[postorder|Traversal - Postorder]].
+- **Interoperability:** for BST tasks that also need sorted output, combine with [[cs/dsa/inorder|Traversal - Inorder]]; for teardown or DP folds use [[cs/dsa/postorder|Traversal - Postorder]].
 
 
 ## Summary
@@ -215,10 +215,10 @@ Preorder is a **parent-first** traversal: **Root -> Left -> Right** for binary t
 
 ## Related Notes
 
-- [[inorder|Traversal - Inorder]]
+- [[cs/dsa/inorder|Traversal - Inorder]]
 
-- [[postorder|Traversal - Postorder]]
+- [[cs/dsa/postorder|Traversal - Postorder]]
 
-- [[tree-traversal|Tree Traversal]]
+- [[cs/dsa/tree-traversal|Tree Traversal]]
 
-- [[binary-tree|Binary Tree]]
+- [[cs/dsa/binary-tree|Binary Tree]]

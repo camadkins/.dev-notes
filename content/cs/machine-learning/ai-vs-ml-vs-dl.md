@@ -18,7 +18,7 @@ The three terms get used as if they were louder and quieter versions of the same
 > [!note] The idea
 > AI, ML, and DL are nested but answer three different questions: AI is about *what a system does* (it acts intelligently), ML is about *how it was built* (it learned from data), and DL is about *how it represents the world* (it learns its own features through depth). Going inward is not an upgrade in difficulty, it is a narrower kind of claim.
 
-![Three nested sets. Artificial intelligence is the outer box (what it does), machine learning the middle (how it was built), deep learning the inner box (how it represents), each answering a different question.](assets/ai-ml-dl-nesting.svg)
+![Three nested sets. Artificial intelligence is the outer box (what it does), machine learning the middle (how it was built), deep learning the inner box (how it represents), each answering a different question.](cs/machine-learning/assets/ai-ml-dl-nesting.svg)
 
 ## Artificial intelligence: a claim about behavior
 
@@ -28,11 +28,11 @@ Artificial intelligence is the broadest of the three and the oldest, dating to t
 
 Machine learning is a subset of AI defined by *how the behavior was acquired*. Instead of a programmer specifying the rules, the system infers them from data. The standard definition is Tom Mitchell's from 1997: a program learns from experience E with respect to some task T and performance measure P if its performance at T, as measured by P, improves with E. The key word is *improves with experience*. A [[cs/statistics/regression-fundamentals|linear regression]] fit to data is machine learning. So is a decision tree, a support vector machine, or a naive Bayes classifier built on [[cs/statistics/bayes-rule|Bayes' rule]]. None of those involve neural networks. ML is the answer to "was it learned from data rather than hand-programmed?"
 
-This is why the [[supervised-learning|supervised]], [[unsupervised-learning|unsupervised]], and reinforcement paradigms all live at the ML layer: they are three ways of learning from experience, independent of what model does the learning.
+This is why the [[cs/machine-learning/supervised-learning|supervised]], [[cs/machine-learning/unsupervised-learning|unsupervised]], and reinforcement paradigms all live at the ML layer: they are three ways of learning from experience, independent of what model does the learning.
 
 ## Deep learning: a claim about representation
 
-Deep learning is a subset of ML that uses neural networks with many layers, and its defining move is *representation learning*. A traditional ML pipeline depends on humans engineering good [[features-and-representations|features]] first, then handing those features to the learner. A deep network learns the features itself, building them up layer by layer from raw input, so that early layers capture edges and textures and later layers capture objects and concepts. Depth is the mechanism: each layer transforms the representation from the one below it. DL is the answer to "does it learn its own representation through depth, instead of relying on features we hand it?"
+Deep learning is a subset of ML that uses neural networks with many layers, and its defining move is *representation learning*. A traditional ML pipeline depends on humans engineering good [[cs/machine-learning/features-and-representations|features]] first, then handing those features to the learner. A deep network learns the features itself, building them up layer by layer from raw input, so that early layers capture edges and textures and later layers capture objects and concepts. Depth is the mechanism: each layer transforms the representation from the one below it. DL is the answer to "does it learn its own representation through depth, instead of relying on features we hand it?"
 
 The [[cs/history/deep-learning-revolution|2012 AlexNet result]] is the moment this stopped being a promise. A deep [[cs/deep-learning/convolutional-neural-networks|convolutional network]] learned better image features than decades of hand-engineering, and it did so because cheap parallel compute finally made the [[cs/math/linear-algebra-fundamentals|matrix arithmetic]] affordable.
 
@@ -52,10 +52,10 @@ Because the three answer different questions, the boundaries are real, not marke
 
 ## Related Notes
 
-- [[supervised-learning|Supervised Learning]], one of the paradigms at the ML layer
-- [[unsupervised-learning|Unsupervised Learning]], another ML paradigm
-- [[generalization-vs-memorization|Generalization vs Memorization]], what "learning" actually requires
-- [[features-and-representations|Features and Representations]], the thing deep learning learns for itself
+- [[cs/machine-learning/supervised-learning|Supervised Learning]], one of the paradigms at the ML layer
+- [[cs/machine-learning/unsupervised-learning|Unsupervised Learning]], another ML paradigm
+- [[cs/machine-learning/generalization-vs-memorization|Generalization vs Memorization]], what "learning" actually requires
+- [[cs/machine-learning/features-and-representations|Features and Representations]], the thing deep learning learns for itself
 - [[cs/deep-learning/artificial-neural-networks|Artificial Neural Networks]], the model class deep learning stacks into depth
 - [[cs/history/deep-learning-revolution|The Deep Learning Revolution]], the history of how DL took over
 - [[cs/geopolitics/ai-governance|AI Governance]], the questions this capability forced open

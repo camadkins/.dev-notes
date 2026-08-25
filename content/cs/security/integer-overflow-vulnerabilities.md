@@ -37,9 +37,9 @@ Overflow does not only shrink values. "An integer overflow can cause the value t
 
 ## Related Notes
 
-- [[buffer-overflows|Buffer Overflows]], the memory corruption an undersized allocation feeds directly into
-- [[use-after-free-and-heap-exploitation|Use-After-Free and Heap Exploitation]], another route from an allocator-level mistake to attacker-controlled memory
-- [[fuzzing|Fuzzing]], the technique that finds these boundary-arithmetic bugs by hammering the edges of the input range
+- [[cs/security/buffer-overflows|Buffer Overflows]], the memory corruption an undersized allocation feeds directly into
+- [[cs/security/use-after-free-and-heap-exploitation|Use-After-Free and Heap Exploitation]], another route from an allocator-level mistake to attacker-controlled memory
+- [[cs/security/fuzzing|Fuzzing]], the technique that finds these boundary-arithmetic bugs by hammering the edges of the input range
 
 ## Sources
 

@@ -20,7 +20,7 @@ The browser holds two things at once: your logged-in session at your bank, and a
 
 MDN defines the policy by what it forbids: "The same-origin policy is a critical security mechanism that restricts how a document or script loaded by one origin can interact with a resource from another origin." An origin is a precise tuple, not a fuzzy notion of "the same site": "Two URLs have the same origin if [[cs/networking/ports-and-sockets|the protocol, port (if specified), and host]] are the same for both. You may see this referenced as the 'scheme/host/port tuple', or just 'tuple'." Change the scheme, the host, or the port and it is a different origin.
 
-The reason the rule exists is concrete. MDN: "it prevents a malicious website on the Internet from running JS in a browser to read data from a third-party webmail service (which the user is signed into) or a company intranet ... and relaying that data to the attacker." Note what is and is not blocked. The cross-origin request can still be *sent*, cookies and all. What is blocked is the sending page *reading the response*. This send-but-not-read asymmetry is the same one that shapes [[cross-site-request-forgery-csrf|CSRF]], and it is the whole security value of the policy.
+The reason the rule exists is concrete. MDN: "it prevents a malicious website on the Internet from running JS in a browser to read data from a third-party webmail service (which the user is signed into) or a company intranet ... and relaying that data to the attacker." Note what is and is not blocked. The cross-origin request can still be *sent*, cookies and all. What is blocked is the sending page *reading the response*. This send-but-not-read asymmetry is the same one that shapes [[cs/security/cross-site-request-forgery-csrf|CSRF]], and it is the whole security value of the policy.
 
 ## CORS is the opt-out, held by the server
 
@@ -33,9 +33,9 @@ So CORS is a relaxation, and a relaxation is only as safe as its bounds. The tig
 
 ## Related Notes
 
-- [[cross-site-request-forgery-csrf|Cross-Site Request Forgery (CSRF)]], which turns on the same send-but-not-read asymmetry this policy creates
-- [[content-security-policy|Content Security Policy]], a separate browser-enforced control over what a page may load and run
-- [[cross-site-scripting-xss|Cross-Site Scripting (XSS)]], which runs inside an origin and so sidesteps this boundary entirely
+- [[cs/security/cross-site-request-forgery-csrf|Cross-Site Request Forgery (CSRF)]], which turns on the same send-but-not-read asymmetry this policy creates
+- [[cs/security/content-security-policy|Content Security Policy]], a separate browser-enforced control over what a page may load and run
+- [[cs/security/cross-site-scripting-xss|Cross-Site Scripting (XSS)]], which runs inside an origin and so sidesteps this boundary entirely
 
 ## Sources
 

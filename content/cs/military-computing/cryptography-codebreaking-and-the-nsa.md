@@ -20,11 +20,11 @@ Secrecy is a computational arms race. [[cs/security/comsec-principles|Protecting
 
 ## Codes as a military problem
 
-In the Second World War the United States protected its own high-level traffic with cipher machines like [[sigaba-cipher-machine|SIGABA]], which was never broken, while codebreaking the enemy's traffic was understood, even then, as fundamentally a problem of pattern, statistics, and computation. The Navy's own codebreakers, [[naval-cryptology-roof-gang|OP-20-G and the On-the-Roof Gang]], are part of the same story.
+In the Second World War the United States protected its own high-level traffic with cipher machines like [[cs/military-computing/sigaba-cipher-machine|SIGABA]], which was never broken, while codebreaking the enemy's traffic was understood, even then, as fundamentally a problem of pattern, statistics, and computation. The Navy's own codebreakers, [[cs/military-computing/naval-cryptology-roof-gang|OP-20-G and the On-the-Roof Gang]], are part of the same story.
 
 ## Breaking the unbreakable
 
-The [[venona-and-one-time-pad-reuse|VENONA]] project showed the other side: even a provably secure cipher falls when it is used wrong, and reading the resulting traffic took years of painstaking analysis. Cryptanalysis is relentless, and it rewards whoever can bring the most computation to bear.
+The [[cs/military-computing/venona-and-one-time-pad-reuse|VENONA]] project showed the other side: even a provably secure cipher falls when it is used wrong, and reading the resulting traffic took years of painstaking analysis. Cryptanalysis is relentless, and it rewards whoever can bring the most computation to bear.
 
 ## The NSA
 
@@ -32,15 +32,15 @@ The National Security Agency was formed on 4 November 1952. It is responsible fo
 
 ## The compute arms race
 
-That appetite drove hardware. The NSA commissioned machines built specifically to attack codes at scale, such as the stream-processing [[harvest-and-nsa-supercomputing|Harvest]], an early example of building hardware shaped like the problem. The same pressure runs forward into the public era of cryptography, through the [[des-standardization-and-symmetric-crypto|DES]] standard and the arrival of [[rsa-and-computational-hardness|public-key cryptography]].
+That appetite drove hardware. The NSA commissioned machines built specifically to attack codes at scale, such as the stream-processing [[cs/military-computing/harvest-and-nsa-supercomputing|Harvest]], an early example of building hardware shaped like the problem. The same pressure runs forward into the public era of cryptography, through the [[cs/military-computing/des-standardization-and-symmetric-crypto|DES]] standard and the arrival of [[cs/military-computing/rsa-and-computational-hardness|public-key cryptography]].
 
 ## Related Notes
 
-- [[sigaba-cipher-machine|SIGABA]], the American cipher that held
-- [[venona-and-one-time-pad-reuse|VENONA]], reading a cipher broken by misuse
-- [[harvest-and-nsa-supercomputing|IBM Harvest]], hardware built for cryptanalysis
-- [[des-standardization-and-symmetric-crypto|DES]] and [[rsa-and-computational-hardness|RSA]], the public era of cryptography
-- [[surveillance-and-privacy|Surveillance and Privacy]], the modern stakes of this power
+- [[cs/military-computing/sigaba-cipher-machine|SIGABA]], the American cipher that held
+- [[cs/military-computing/venona-and-one-time-pad-reuse|VENONA]], reading a cipher broken by misuse
+- [[cs/military-computing/harvest-and-nsa-supercomputing|IBM Harvest]], hardware built for cryptanalysis
+- [[cs/military-computing/des-standardization-and-symmetric-crypto|DES]] and [[cs/military-computing/rsa-and-computational-hardness|RSA]], the public era of cryptography
+- [[cs/geopolitics/surveillance-and-privacy|Surveillance and Privacy]], the modern stakes of this power
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

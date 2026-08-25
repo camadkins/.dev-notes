@@ -23,7 +23,7 @@ A formation of aircraft, ships, and ground stations needs to [[cs/networking/mul
 
 Link 16 is built on time-division multiple access, or TDMA. Time is cut into small intervals, and a participant transmits only during the intervals allotted to it. Because no two terminals are sending in the same interval, their transmissions do not collide. Where ALOHA resolves contention after the fact with random backoff, TDMA prevents contention in advance by handing out time.
 
-![Time-division multiple access: each terminal transmits only in its assigned slots, so transmissions never collide.](assets/link-16-tdma-slots.svg)
+![Time-division multiple access: each terminal transmits only in its assigned slots, so transmissions never collide.](cs/military-computing/assets/link-16-tdma-slots.svg)
 
 The tradeoff is the mirror image of ALOHA's. A scheduled channel never wastes capacity on collisions and [[cs/networking/qos-and-traffic-shaping|gives predictable timing]], which matters for a weapons system. It pays for that with rigidity, since a slot reserved for a terminal that has nothing to say sits idle.
 
@@ -37,9 +37,9 @@ Link 16 is not a single radio but a service carried by a family of terminals, th
 
 ## Related Notes
 
-- [[alohanet-random-access|ALOHAnet and Random Access]], the contended counterpart to scheduled access
-- [[network-protocols|Network Protocols]], where channel access sits in the stack
-- [[cyber-warfare-and-the-fifth-domain|Cyber Warfare and the Fifth Domain]], the modern contest over military signals
+- [[cs/military-computing/alohanet-random-access|ALOHAnet and Random Access]], the contended counterpart to scheduled access
+- [[cs/systems/network-protocols|Network Protocols]], where channel access sits in the stack
+- [[cs/military-computing/cyber-warfare-and-the-fifth-domain|Cyber Warfare and the Fifth Domain]], the modern contest over military signals
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

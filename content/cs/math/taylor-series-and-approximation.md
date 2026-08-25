@@ -50,7 +50,7 @@ Having an inequality rather than a limit statement is what makes the practical q
 > [!example]
 > Set $k = 1$. The truncation is the linear approximation $f(a) + f'(a)(x-a)$, the derivative that needs bounding is $f''$, and with $q \leq f''(x) \leq Q$ across the interval the estimate reads
 > $$q\frac{(x-a)^{2}}{2} \leq R_1(x) \leq Q\frac{(x-a)^{2}}{2}$$
-> Error is controlled by the *square* of the distance from the center, so halving that distance cuts the bound to a quarter. That is the quantitative content behind the vague claim that a tangent line is a good approximation nearby, and it is the same squaring that shows up in [[derivatives-and-gradients|first-order methods]] when they are analyzed for how fast they improve.
+> Error is controlled by the *square* of the distance from the center, so halving that distance cuts the bound to a quarter. That is the quantitative content behind the vague claim that a tangent line is a good approximation nearby, and it is the same squaring that shows up in [[cs/math/derivatives-and-gradients|first-order methods]] when they are analyzed for how fast they improve.
 
 ## Convergence Is Not Accuracy
 
@@ -80,12 +80,12 @@ Why stop at first order? The question has been asked and answered by experiment.
 
 ## Related Notes
 
-- [[derivatives-and-gradients|Derivatives and Gradients]] - the derivatives at a single point that the whole expansion is built from
-- [[sequences-and-series|Sequences and Series]] - partial sums, convergence, and the radius of convergence machinery
-- [[limits-and-continuity|Limits and Continuity]] - the limit statements underneath convergence and the remainder going to zero
-- [[integrals-and-the-fundamental-theorem|Integrals and the Fundamental Theorem]] - the integral form of the remainder and the continuous counterpart to summing terms
-- [[convexity-and-optimization-basics|Convexity and Optimization Basics]] - where quadratic approximations get used to drive a search
-- [[gradient-descent|Gradient Descent]] - a first-order method, meaning it keeps exactly one term past the constant
+- [[cs/math/derivatives-and-gradients|Derivatives and Gradients]] - the derivatives at a single point that the whole expansion is built from
+- [[cs/math/sequences-and-series|Sequences and Series]] - partial sums, convergence, and the radius of convergence machinery
+- [[cs/math/limits-and-continuity|Limits and Continuity]] - the limit statements underneath convergence and the remainder going to zero
+- [[cs/math/integrals-and-the-fundamental-theorem|Integrals and the Fundamental Theorem]] - the integral form of the remainder and the continuous counterpart to summing terms
+- [[cs/math/convexity-and-optimization-basics|Convexity and Optimization Basics]] - where quadratic approximations get used to drive a search
+- [[cs/machine-learning/gradient-descent|Gradient Descent]] - a first-order method, meaning it keeps exactly one term past the constant
 
 ## Sources
 

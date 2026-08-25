@@ -60,7 +60,7 @@ The EU AI Act treats open-source models more leniently below the systemic-risk t
 
 But binding international AI governance remains distant. The incentive structures resemble climate negotiations more than arms control: every state wants others to regulate while preserving its own competitive advantage. There is no equivalent of the IAEA for AI, and proposals for one face the fundamental difficulty that AI capabilities are diffuse, dual-use, and rapidly evolving.
 
-**Compute governance.** An emerging approach that regulates AI through its physical prerequisites rather than its software. [[cs/law/the-export-administration-regulations|Export controls on advanced chips]] (see [[semiconductor-supply-chains|Semiconductor Supply Chains]]), reporting requirements for large training runs, and proposals for international compute monitoring draw on non-proliferation precedents.
+**Compute governance.** An emerging approach that regulates AI through its physical prerequisites rather than its software. [[cs/law/the-export-administration-regulations|Export controls on advanced chips]] (see [[cs/geopolitics/semiconductor-supply-chains|Semiconductor Supply Chains]]), reporting requirements for large training runs, and proposals for international compute monitoring draw on non-proliferation precedents.
 
 Compute is measurable, physical, and concentrated - making it more tractable to govern than code or data. But compute governance has limitations: training efficiency improves over time, reducing the compute needed for a given capability level. A bright-line compute threshold that captures frontier models today may miss them in three years.
 
@@ -78,9 +78,9 @@ The pattern echoes GDPR: the EU sets a standard, multinational companies adopt i
 
 ## Related Notes
 
-- [[semiconductor-supply-chains|Semiconductor Supply Chains]] - compute access is a prerequisite for frontier AI, making chip policy and AI policy inseparable
-- [[cyber-sovereignty|Cyber Sovereignty]] - AI governance is the newest layer in the broader contest over digital sovereignty
-- [[surveillance-and-privacy|Surveillance & Privacy]] - AI-powered surveillance (facial recognition, predictive policing) is a primary driver of AI regulation
+- [[cs/geopolitics/semiconductor-supply-chains|Semiconductor Supply Chains]] - compute access is a prerequisite for frontier AI, making chip policy and AI policy inseparable
+- [[cs/geopolitics/cyber-sovereignty|Cyber Sovereignty]] - AI governance is the newest layer in the broader contest over digital sovereignty
+- [[cs/geopolitics/surveillance-and-privacy|Surveillance & Privacy]] - AI-powered surveillance (facial recognition, predictive policing) is a primary driver of AI regulation
 - [[cs/history/deep-learning-revolution|The Deep Learning Revolution]] - the frontier models and training-compute thresholds these regimes regulate
 - [[cs/ethics/could-an-llm-be-conscious|Could an LLM Be Conscious?]] - the moral-status question these governance regimes quietly assume an answer to
 

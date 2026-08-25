@@ -43,9 +43,9 @@ Modern browsers add a structural control. The `SameSite` cookie attribute tells 
 
 ## Related Notes
 
-- [[cross-site-scripting-xss|Cross-Site Scripting (XSS)]], the sibling web attack, and the one that can steal a CSRF token when both are present
-- [[owasp-top-10|The OWASP Top 10]], for where web risks like this rank across real applications
-- [[stride-threat-modeling|STRIDE Threat Modeling]], which names the spoofing and tampering threats CSRF realizes
+- [[cs/security/cross-site-scripting-xss|Cross-Site Scripting (XSS)]], the sibling web attack, and the one that can steal a CSRF token when both are present
+- [[cs/security/owasp-top-10|The OWASP Top 10]], for where web risks like this rank across real applications
+- [[cs/security/stride-threat-modeling|STRIDE Threat Modeling]], which names the spoofing and tampering threats CSRF realizes
 
 ## Sources
 

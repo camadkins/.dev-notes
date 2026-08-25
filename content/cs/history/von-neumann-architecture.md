@@ -53,7 +53,7 @@ Every instruction passes through three phases:
 
 This cycle repeats indefinitely (or until a halt instruction). Branch instructions modify the PC, enabling loops and conditionals. The cycle is the heartbeat of every conventional processor.
 
-![The fetch-decode-execute cycle: the control unit fetches an instruction, decodes it, the ALU executes it, then the program counter advances and the cycle repeats.](assets/fetch-decode-execute.svg)
+![The fetch-decode-execute cycle: the control unit fetches an instruction, decodes it, the ALU executes it, then the program counter advances and the cycle repeats.](cs/history/assets/fetch-decode-execute.svg)
 
 ### The Von Neumann Bottleneck
 
@@ -99,9 +99,9 @@ The cycle then repeats for the instruction at 0x0014. This mechanical rhythm - f
 
 ## Related Notes
 
-- [[turing-and-computability|Turing & Computability]] - the theoretical model that von Neumann's hardware realizes
-- [[unix-and-open-source|Unix & Open Source]] - the software layer built atop stored-program machines
-- [[history-of-the-internet|History of the Internet]] - networking connects von Neumann machines into a global system
+- [[cs/history/turing-and-computability|Turing & Computability]] - the theoretical model that von Neumann's hardware realizes
+- [[cs/history/unix-and-open-source|Unix & Open Source]] - the software layer built atop stored-program machines
+- [[cs/history/history-of-the-internet|History of the Internet]] - networking connects von Neumann machines into a global system
 
 ## Sources
 

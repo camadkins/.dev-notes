@@ -105,9 +105,9 @@ Every step in this chain traces back to a design decision made between 1969 and 
 
 ## Related Notes
 
-- [[turing-and-computability|Turing & Computability]] - the theoretical foundation underlying all networked computation
-- [[von-neumann-architecture|Von Neumann Architecture]] - the machines the internet connects
-- [[unix-and-open-source|Unix & Open Source]] - the OS culture that shaped internet infrastructure
+- [[cs/history/turing-and-computability|Turing & Computability]] - the theoretical foundation underlying all networked computation
+- [[cs/history/von-neumann-architecture|Von Neumann Architecture]] - the machines the internet connects
+- [[cs/history/unix-and-open-source|Unix & Open Source]] - the OS culture that shaped internet infrastructure
 
 ## Sources
 

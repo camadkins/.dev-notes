@@ -28,7 +28,7 @@ Those 32 bits carry a hidden seam. The address divides into two fields: the netw
 
 A subnet is a logical subdivision of an IP network, and dividing a network into two or more networks is called subnetting. The tool that marks the split is the subnet mask: a 32-bit pattern of leading ones followed by zeros. A [[cs/dsa/bitwise-operations|bitwise AND]] of the mask against any address in the network yields that network's routing prefix. The ones cover the network bits, the zeros cover the host bits.
 
-![The address 192.168.10.0/24 split into 24 network bits across the first three octets and 8 host bits in the last octet.](assets/subnet-network-host-bits.svg)
+![The address 192.168.10.0/24 split into 24 network bits across the first three octets and 8 host bits in the last octet.](cs/networking/assets/subnet-network-host-bits.svg)
 
 Inside any subnet, two host values are reserved and cannot be assigned to a machine. The all-zeros host value is the network address of the subnet, and the all-ones host value is its broadcast address. That is why a subnet with an 8-bit host field holds 256 addresses but only 254 usable hosts.
 
@@ -43,10 +43,10 @@ CIDR is built on variable-length subnet masking, where network prefixes can be a
 
 ## Related Notes
 
-- [[osi-and-tcp-ip-models|OSI and TCP/IP Models]] - addressing is the internet layer's job in the stack
-- [[network-protocols|Network Protocols]] - where IP sits among the layered protocols
-- [[bgp-and-internet-routing-as-control|BGP and Internet Routing]] - how prefixes get advertised between networks
-- [[tcp-three-way-handshake|The TCP Three-Way Handshake]] - what happens once two addressed hosts want a connection
+- [[cs/networking/osi-and-tcp-ip-models|OSI and TCP/IP Models]] - addressing is the internet layer's job in the stack
+- [[cs/systems/network-protocols|Network Protocols]] - where IP sits among the layered protocols
+- [[cs/systems/bgp-and-internet-routing-as-control|BGP and Internet Routing]] - how prefixes get advertised between networks
+- [[cs/networking/tcp-three-way-handshake|The TCP Three-Way Handshake]] - what happens once two addressed hosts want a connection
 
 ## Sources
 

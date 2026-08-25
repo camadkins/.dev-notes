@@ -16,7 +16,7 @@ aliases:
   - stack canaries
 ---
 
-None of the three standard memory protections fixes the underlying bug. A [[buffer-overflows|buffer overflow]] is still a buffer overflow with all of them enabled. What they do instead is break specific links in the chain that turns a memory-corruption bug into running code, and they aim at different links, which is why deploying all three is worth far more than any one. Read together they tell a story about how exploitation was forced to evolve.
+None of the three standard memory protections fixes the underlying bug. A [[cs/security/buffer-overflows|buffer overflow]] is still a buffer overflow with all of them enabled. What they do instead is break specific links in the chain that turns a memory-corruption bug into running code, and they aim at different links, which is why deploying all three is worth far more than any one. Read together they tell a story about how exploitation was forced to evolve.
 
 > [!note] The idea
 > ASLR, DEP, and stack canaries are not bug fixes but exploit-step defeats. Canaries detect the overwrite before the corrupted return address is used, DEP makes the injected payload non-executable, and ASLR makes the addresses an exploit needs unpredictable. Each attacks a different assumption the classic stack-smash relies on, and together they leave attackers reusing existing executable code rather than injecting their own.
@@ -42,10 +42,10 @@ Stack canaries defend the return address in one frame; DEP defends against runni
 
 ## Related Notes
 
-- [[buffer-overflows|Buffer Overflows]], the exploit chain these three defenses are built to interrupt
-- [[virtual-memory|Virtual Memory]], the address space ASLR randomizes and DEP marks per-page
-- [[sandboxing-and-isolation|Sandboxing and Isolation]], containment for the code that runs when a mitigation is beaten
-- [[secure-boot-and-the-chain-of-trust|Secure Boot and the Chain of Trust]], integrity pushed below the software these protections run in
+- [[cs/security/buffer-overflows|Buffer Overflows]], the exploit chain these three defenses are built to interrupt
+- [[cs/systems/virtual-memory|Virtual Memory]], the address space ASLR randomizes and DEP marks per-page
+- [[cs/security/sandboxing-and-isolation|Sandboxing and Isolation]], containment for the code that runs when a mitigation is beaten
+- [[cs/security/secure-boot-and-the-chain-of-trust|Secure Boot and the Chain of Trust]], integrity pushed below the software these protections run in
 
 ## Sources
 

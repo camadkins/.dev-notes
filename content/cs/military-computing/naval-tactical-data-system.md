@@ -13,7 +13,7 @@ aliases:
   - Naval Tactical Data System
 ---
 
-[[sage-and-real-time-systems|SAGE]] put air defense on a computer ashore, in a building that never moved. The Navy needed the same capability at sea, on a pitching ship, fusing many sensors into one picture fast enough to act on. The Naval Tactical Data System was the answer, and it was the Navy's first step into digital combat systems.
+[[cs/military-computing/sage-and-real-time-systems|SAGE]] put air defense on a computer ashore, in a building that never moved. The Navy needed the same capability at sea, on a pitching ship, fusing many sensors into one picture fast enough to act on. The Naval Tactical Data System was the answer, and it was the Navy's first step into digital combat systems.
 
 > [!note] The idea
 > Take radar and other sensor reports from many ships and aircraft, and in real time combine them into a single shared map of the battlespace, kept current as events unfold.
@@ -32,14 +32,14 @@ NTDS did not keep that picture on one ship. Over radio data links, ships shared 
 
 ## Lineage
 
-NTDS is the maritime sibling of SAGE and the ancestor of the Aegis combat system. The standard Navy computers that ran its later versions are the subject of the [[an-uyk-navy-standard-computers|AN/UYK]] note.
+NTDS is the maritime sibling of SAGE and the ancestor of the Aegis combat system. The standard Navy computers that ran its later versions are the subject of the [[cs/military-computing/an-uyk-navy-standard-computers|AN/UYK]] note.
 
 ## Related Notes
 
-- [[sage-and-real-time-systems|SAGE and Real-Time Systems]], the shore-based system NTDS parallels
-- [[an-uyk-navy-standard-computers|The AN/UYK Family]], the computers that ran it
-- [[distributed-consensus|Distributed Consensus]], the modern form of keeping a shared picture agreed
-- [[network-protocols|Network Protocols]], the data links underneath
+- [[cs/military-computing/sage-and-real-time-systems|SAGE and Real-Time Systems]], the shore-based system NTDS parallels
+- [[cs/military-computing/an-uyk-navy-standard-computers|The AN/UYK Family]], the computers that ran it
+- [[cs/systems/distributed-consensus|Distributed Consensus]], the modern form of keeping a shared picture agreed
+- [[cs/systems/network-protocols|Network Protocols]], the data links underneath
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

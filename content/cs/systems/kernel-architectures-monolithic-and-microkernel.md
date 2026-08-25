@@ -17,7 +17,7 @@ aliases:
 Every operating system has to answer one structural question before it answers any other: how much code gets to run at the hardware's most privileged level? The file system, the network stack, the driver for your graphics card, all of them need to do things ordinary programs cannot. The monolithic answer is to put them inside the kernel and be done with it. The microkernel answer is to push them out into ordinary processes and let them ask the kernel for the few things only the kernel can do. Both designs ship in production systems today, which is the first clue that neither one simply won.
 
 > [!note] The idea
-> The monolithic/microkernel split is not really an argument about code organization. It is an argument about where the [[system-calls-and-the-kernel-boundary|privilege boundary]] sits, and every service you move across that boundary trades a cheap function call for an expensive message round trip. Isolation is not free, and the entire history of microkernel research is the story of trying to make that one crossing cheap enough that the isolation becomes worth having.
+> The monolithic/microkernel split is not really an argument about code organization. It is an argument about where the [[cs/systems/system-calls-and-the-kernel-boundary|privilege boundary]] sits, and every service you move across that boundary trades a cheap function call for an expensive message round trip. Isolation is not free, and the entire history of microkernel research is the story of trying to make that one crossing cheap enough that the isolation becomes worth having.
 
 ## The monolithic design
 
@@ -55,7 +55,7 @@ There is measured evidence, though it comes from microkernel advocates and shoul
 
 Here is the mechanism, and it is worth being precise because the cost is structural rather than incidental. "On most mainstream processors, obtaining a service is inherently more expensive in a microkernel-based system than a monolithic system. In the monolithic system, the service is obtained by a single system call, which requires two mode switches. In the microkernel-based system, the service is obtained by sending an IPC message to a server, and obtaining the result in another IPC message from the server. This requires a context switch if the drivers are implemented as processes, or a function call if they are implemented as procedures."
 
-And then the data movement: "passing actual data to the server and back may incur extra copying overhead, while in a monolithic system the kernel can directly access the data in the client's buffers." Two [[context-switching|context switches]] and two copies where the monolith had one trap and a pointer dereference.
+And then the data movement: "passing actual data to the server and back may incur extra copying overhead, while in a monolithic system the kernel can directly access the data in the client's buffers." Two [[cs/systems/context-switching|context switches]] and two copies where the monolith had one trap and a pointer dereference.
 
 This is why "first-generation microkernels such as Mach and ChorusOS indeed performed poorly." The interesting part is what happened next. Liedtke argued that "Mach's performance problems were the result of poor design and implementation, specifically Mach's excessive cache footprint," and demonstrated with L4 "that through careful design and implementation, and especially by following the minimality principle, IPC costs could be reduced by more than an order of magnitude compared to Mach."
 
@@ -79,11 +79,11 @@ For what it is worth, user-space drivers are older than microkernels: the Michig
 
 ## Related Notes
 
-- [[system-calls-and-the-kernel-boundary|System Calls and the Kernel Boundary]] - the mode switch whose cost this whole argument is denominated in
-- [[inter-process-communication|Inter-Process Communication]] - the mechanism microkernels rely on for every service invocation
-- [[context-switching|Context Switching]] - what an IPC round trip to a server process actually costs
-- [[io-devices-and-drivers|I/O Devices and Drivers]] - the DMA capability that makes driver trust the hard case
-- [[virtualization-vms-and-containers|Virtualization, VMs, and Containers]] - hypervisors as another answer to the same isolation question
+- [[cs/systems/system-calls-and-the-kernel-boundary|System Calls and the Kernel Boundary]] - the mode switch whose cost this whole argument is denominated in
+- [[cs/systems/inter-process-communication|Inter-Process Communication]] - the mechanism microkernels rely on for every service invocation
+- [[cs/systems/context-switching|Context Switching]] - what an IPC round trip to a server process actually costs
+- [[cs/systems/io-devices-and-drivers|I/O Devices and Drivers]] - the DMA capability that makes driver trust the hard case
+- [[cs/systems/virtualization-vms-and-containers|Virtualization, VMs, and Containers]] - hypervisors as another answer to the same isolation question
 
 ## Sources
 

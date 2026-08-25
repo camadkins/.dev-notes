@@ -61,7 +61,7 @@ The escape hatch is expensive. Rather than failing, "the allocator may... trigge
 
 And even short of failure, fragmentation degrades things quietly. "Fragmentation increases the work required to allocate and access a resource." If free memory is unfragmented, "allocation requests can simply be satisfied by returning a single block from the start of the free area." If it is fragmented, "the request requires either searching for a large enough free block, which may take a long time, or fulfilling the request by several smaller blocks (if this is possible), which results in this allocation being fragmented, and requiring additional overhead to manage the several pieces."
 
-The subtlest cost is one people rarely connect to allocation at all. "Fragmentation may prematurely exhaust a cache, causing thrashing, due to caches holding blocks, not individual data." Take a program with a 256 KiB working set on a machine with a 256 KiB L2 and 64 TLB entries covering 4 KiB pages each. "If the working set is unfragmented, then it will fit onto exactly 64 pages... and all memory lookups can be served from cache. However, if the working set is fragmented, then it will not fit into 64 pages, and execution will slow due to thrashing: pages will be repeatedly added and removed from the TLB during operation." The conclusion drawn from this is a design rule: "cache sizing in system design must include a margin to account for fragmentation." The same bytes, spread differently, blow past your [[memory-hierarchy-and-caching|cache]] budget.
+The subtlest cost is one people rarely connect to allocation at all. "Fragmentation may prematurely exhaust a cache, causing thrashing, due to caches holding blocks, not individual data." Take a program with a 256 KiB working set on a machine with a 256 KiB L2 and 64 TLB entries covering 4 KiB pages each. "If the working set is unfragmented, then it will fit onto exactly 64 pages... and all memory lookups can be served from cache. However, if the working set is fragmented, then it will not fit into 64 pages, and execution will slow due to thrashing: pages will be repeatedly added and removed from the TLB during operation." The conclusion drawn from this is a design rule: "cache sizing in system design must include a margin to account for fragmentation." The same bytes, spread differently, blow past your [[cs/systems/memory-hierarchy-and-caching|cache]] budget.
 
 Weighed against all that, the article's own verdict on internal fragmentation is dismissive: "compared to external fragmentation, overhead and internal fragmentation account for little loss in terms of wasted memory and reduced performance."
 
@@ -85,18 +85,18 @@ The buddy system is old and still current. Knuth attributes its invention to Har
 
 There is one recovery route available to the OS that a user-space allocator does not have. "External fragmentation on the page level can also be reclaimed by the operating system by moving pages in the physical address space and editing the page table to match. This is called *page migration*. The application is oblivious to the process because the virtual memory addresses remain unchanged."
 
-This is [[virtual-memory|virtual memory]] doing something no heap allocator can do, and the reason is instructive. A `malloc` implementation cannot move a live allocation, because the program is holding raw pointers to it. The kernel can move a physical page freely, because the program only ever holds a virtual address. Indirection is what makes compaction legal.
+This is [[cs/systems/virtual-memory|virtual memory]] doing something no heap allocator can do, and the reason is instructive. A `malloc` implementation cannot move a live allocation, because the program is holding raw pointers to it. The kernel can move a physical page freely, because the program only ever holds a virtual address. Indirection is what makes compaction legal.
 
 > [!warning] Files fragment differently
-> The intuition from RAM does not transfer to storage. "External fragmentation tends to be less of a problem in file systems than in primary memory (RAM) storage systems, because programs usually require their RAM storage requests to be fulfilled with contiguous blocks, but file systems typically are designed to be able to use any collection of available blocks (fragments) to assemble a file which logically appears contiguous." A fragmented [[file-systems|file system]] gets slow, since "on a hard drive or tape drive, sequential data reads are very fast, but seeking to a different address is slow, so reading or writing a fragmented file requires numerous seeks." A fragmented heap gets a failed allocation. Slow and dead are different outcomes.
+> The intuition from RAM does not transfer to storage. "External fragmentation tends to be less of a problem in file systems than in primary memory (RAM) storage systems, because programs usually require their RAM storage requests to be fulfilled with contiguous blocks, but file systems typically are designed to be able to use any collection of available blocks (fragments) to assemble a file which logically appears contiguous." A fragmented [[cs/systems/file-systems|file system]] gets slow, since "on a hard drive or tape drive, sequential data reads are very fast, but seeking to a different address is slow, so reading or writing a fragmented file requires numerous seeks." A fragmented heap gets a failed allocation. Slow and dead are different outcomes.
 
 ## Related Notes
 
-- [[virtual-memory|Virtual Memory]] - the page layer beneath the allocator, and the indirection that makes page migration possible
-- [[memory-hierarchy-and-caching|Memory Hierarchy and Caching]] - why a fragmented working set blows the cache and TLB budget
-- [[file-systems|File Systems]] - the other allocator, with different contiguity requirements
-- [[memory-allocation|Memory Allocation]] - the data-structures view of static, stack, and heap allocation
-- [[use-after-free-and-heap-exploitation|Use-After-Free and Heap Exploitation]] - what happens when allocator metadata becomes an attack surface
+- [[cs/systems/virtual-memory|Virtual Memory]] - the page layer beneath the allocator, and the indirection that makes page migration possible
+- [[cs/systems/memory-hierarchy-and-caching|Memory Hierarchy and Caching]] - why a fragmented working set blows the cache and TLB budget
+- [[cs/systems/file-systems|File Systems]] - the other allocator, with different contiguity requirements
+- [[cs/dsa/memory-allocation|Memory Allocation]] - the data-structures view of static, stack, and heap allocation
+- [[cs/security/use-after-free-and-heap-exploitation|Use-After-Free and Heap Exploitation]] - what happens when allocator metadata becomes an attack surface
 
 ## Sources
 

@@ -243,7 +243,7 @@ Thus, evaluation order becomes part of the **language semantics**.
 
 ---
 
-![One λ-term with four reduction branches: CBV, CBN, Normal Order, Call-by-Need](assets/lambda-eval-strategies.svg)
+![One λ-term with four reduction branches: CBV, CBN, Normal Order, Call-by-Need](cs/pl/assets/lambda-eval-strategies.svg)
 
 ---
 

@@ -17,7 +17,7 @@ A **graph** models relationships. It consists of **vertices** (nodes) and **edge
 
 ## Motivation
 
-Graphs capture structure with minimal assumptions. Because the model is so general, many problems reduce to "build the right graph, then run a standard traversal or path algorithm." Once you're fluent with degree, neighborhoods, and representations, the rest of the toolbox - [[graph-traversals-bfs-dfs|Graph Traversals (BFS & DFS)]], [[dijkstras-algorithm|Dijkstra's Algorithm]], [[floyd-warshall|Floyd–Warshall Algorithm]] - slides into place.
+Graphs capture structure with minimal assumptions. Because the model is so general, many problems reduce to "build the right graph, then run a standard traversal or path algorithm." Once you're fluent with degree, neighborhoods, and representations, the rest of the toolbox - [[cs/dsa/graph-traversals-bfs-dfs|Graph Traversals (BFS & DFS)]], [[cs/dsa/dijkstras-algorithm|Dijkstra's Algorithm]], [[cs/dsa/floyd-warshall|Floyd–Warshall Algorithm]] - slides into place.
 
 ## Definition and Formalism
 
@@ -87,14 +87,14 @@ Let `V = {0,1,2,3,4}` and edges
 
 - **Total degree rules.** Undirected: `Sum_u deg(u) = 2m`. Directed: `Sum_u deg+(u) = Sum_u deg-(u) = m`. These identities are handy for sanity checks.
 
-- **Paths and shortest paths.** On unweighted graphs, **BFS** from a source gives shortest hop counts. With nonnegative weights, use [[dijkstras-algorithm|Dijkstra's Algorithm]]; with negatives (no negative cycles), [[floyd-warshall|Floyd–Warshall Algorithm]] or Bellman–Ford.
+- **Paths and shortest paths.** On unweighted graphs, **BFS** from a source gives shortest hop counts. With nonnegative weights, use [[cs/dsa/dijkstras-algorithm|Dijkstra's Algorithm]]; with negatives (no negative cycles), [[cs/dsa/floyd-warshall|Floyd–Warshall Algorithm]] or Bellman–Ford.
 
 - **Components.** Undirected connectivity uses BFS/DFS to find components. Directed graphs split into **SCCs** (strongly connected components) via algorithms like Kosaraju/Tarjan (both DFS-based).
 
 
 ## Implementation or Practical Context
 
-**Representations.** See [[graph-representations|Graph Representations - Adjacency List vs Matrix]]. In brief:
+**Representations.** See [[cs/dsa/graph-representations|Graph Representations - Adjacency List vs Matrix]]. In brief:
 
 - **Adjacency list (AL):** space `Theta(n+m)`, neighbor iteration is `Theta(deg(u))`. Best for sparse graphs and traversal-heavy work.
 
@@ -149,10 +149,10 @@ Graphs model entities and relationships with almost no baggage. Know the basics 
 
 ## Related Notes
 
-- [[graph-representations|Graph Representations - Adjacency List vs Matrix]]
+- [[cs/dsa/graph-representations|Graph Representations - Adjacency List vs Matrix]]
 
-- [[graph-traversals-bfs-dfs|Graph Traversals (BFS & DFS)]]
+- [[cs/dsa/graph-traversals-bfs-dfs|Graph Traversals (BFS & DFS)]]
 
-- [[dijkstras-algorithm|Dijkstra's Algorithm]]
+- [[cs/dsa/dijkstras-algorithm|Dijkstra's Algorithm]]
 
-- [[floyd-warshall|Floyd–Warshall Algorithm]]
+- [[cs/dsa/floyd-warshall|Floyd–Warshall Algorithm]]

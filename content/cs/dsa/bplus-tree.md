@@ -83,7 +83,7 @@ function insert(node, key, value):
             splitInternal(child)
 ```
 
-![Inserting 30 overflows a leaf, which splits and copies 20 upward](assets/bplus-tree-insertion.svg)
+![Inserting 30 overflows a leaf, which splits and copies 20 upward](cs/dsa/assets/bplus-tree-insertion.svg)
 
 **Cost:** O(log_m n) I/O operations.
 
@@ -114,7 +114,7 @@ Range queries (e.g., `find all keys in [k1, k2]`) are where B+ Trees excel:
 2. Follow the **leaf-level linked list** until `k2` is reached.
     
 
-![A range query descending to 6 then scanning the leaf chain to 20](assets/bplus-tree-range-query.svg)
+![A range query descending to 6 then scanning the leaf chain to 20](cs/dsa/assets/bplus-tree-range-query.svg)
 
 This design supports efficient **ordered scans** - a major reason B+ Trees dominate [[cs/history/relational-model-and-sql|database indexing]].
 
@@ -145,7 +145,7 @@ This design supports efficient **ordered scans** - a major reason B+ Trees domin
 |**Order (m)**|Maximum number of children for any internal node.|
 |**Height (h)**|Determines search cost; typically small due to high fan-out.|
 
-![An order 4 B+ tree with keys above and records in linked leaves](assets/bplus-tree-structure.svg)
+![An order 4 B+ tree with keys above and records in linked leaves](cs/dsa/assets/bplus-tree-structure.svg)
 
 ### Practical Notes
 
@@ -253,12 +253,12 @@ These advantages make B+ trees ideal for large datasets that cannot fit entirely
 
 ## Related Notes
 
-- [[b-tree|B-Tree]]
+- [[cs/dsa/b-tree|B-Tree]]
     
-- [[bst|Binary Search Tree]]
+- [[cs/dsa/bst|Binary Search Tree]]
     
-- [[hash-tables|Hash Tables]]
+- [[cs/dsa/hash-tables|Hash Tables]]
     
-- [[graph-representations|Graph Representations]]
+- [[cs/dsa/graph-representations|Graph Representations]]
     
-- [[algorithm-efficiency|Algorithm Efficiency]]
+- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]

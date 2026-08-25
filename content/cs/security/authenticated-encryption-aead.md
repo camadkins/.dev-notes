@@ -19,7 +19,7 @@ aliases:
 For years the standard advice was: encrypt for secrecy, then MAC for integrity, and be very careful how you bolt the two together. The care was the problem. Encrypt-then-MAC, MAC-then-encrypt, which key for which, what exactly the MAC covers, all of it was a minefield that produced a long line of real vulnerabilities. AEAD removes the minefield by making both properties one operation.
 
 > [!note] The idea
-> Authenticated encryption "in addition to providing confidentiality for the plaintext that is encrypted, provides a way to check its integrity and authenticity." AEAD adds the ability to also authenticate associated data that travels in the clear. The design win is that it replaces the fragile hand-composition of a cipher and a [[message-authentication-codes-hmac|MAC]] with "a single cryptoalgorithm," so the caller never has to get the composition right.
+> Authenticated encryption "in addition to providing confidentiality for the plaintext that is encrypted, provides a way to check its integrity and authenticity." AEAD adds the ability to also authenticate associated data that travels in the clear. The design win is that it replaces the fragile hand-composition of a cipher and a [[cs/security/message-authentication-codes-hmac|MAC]] with "a single cryptoalgorithm," so the caller never has to get the composition right.
 
 ## What the single primitive buys you
 
@@ -27,18 +27,18 @@ For years the standard advice was: encrypt for secrecy, then MAC for integrity, 
 
 ## Associated data authenticates what you cannot encrypt
 
-The "AD" is the part people miss. A packet has [[cs/networking/routing-and-longest-prefix-match|a header that has to stay readable for routing]] but must not be tampered with. AEAD authenticates that "Associated Data (AD), also called 'additional authenticated data,' that is not encrypted." So a single call encrypts the payload and binds the visible header to it, and any change to either is caught at decryption. That is why AEAD, not raw encryption, is the primitive underneath [[cs/systems/tls-and-the-https-handshake|TLS records]] and [[vpns-and-tunneling|modern VPN protocols]].
+The "AD" is the part people miss. A packet has [[cs/networking/routing-and-longest-prefix-match|a header that has to stay readable for routing]] but must not be tampered with. AEAD authenticates that "Associated Data (AD), also called 'additional authenticated data,' that is not encrypted." So a single call encrypts the payload and binds the visible header to it, and any change to either is caught at decryption. That is why AEAD, not raw encryption, is the primitive underneath [[cs/systems/tls-and-the-https-handshake|TLS records]] and [[cs/security/vpns-and-tunneling|modern VPN protocols]].
 
 > [!warning] The nonce is the sharp edge
 > AEAD moves the composition risk into one remaining rule: never repeat a nonce under the same key. RFC 8439 requires the ChaCha20-Poly1305 nonce to be "unique per invocation with the same key, so it MUST NOT be randomly generated. A counter is a good way to implement this." Reuse a nonce and the guarantees collapse. The primitive is safe, but its one precondition is not optional.
 
 ## Related Notes
 
-- [[aes-and-block-ciphers|AES and Block Ciphers]], the cipher AES-GCM builds on
-- [[block-cipher-modes-of-operation|Block Cipher Modes of Operation]], where GCM sits as an authenticated counter mode
-- [[message-authentication-codes-hmac|Message Authentication Codes and HMAC]], the integrity half AEAD absorbs
-- [[cryptographically-secure-randomness|Cryptographically Secure Randomness]], relevant when a nonce must be unique and unpredictable
-- [[symmetric-vs-asymmetric-cryptography|Symmetric vs. Asymmetric Cryptography]], AEAD is the symmetric workhorse the hybrid design hands the bulk data to
+- [[cs/security/aes-and-block-ciphers|AES and Block Ciphers]], the cipher AES-GCM builds on
+- [[cs/security/block-cipher-modes-of-operation|Block Cipher Modes of Operation]], where GCM sits as an authenticated counter mode
+- [[cs/security/message-authentication-codes-hmac|Message Authentication Codes and HMAC]], the integrity half AEAD absorbs
+- [[cs/security/cryptographically-secure-randomness|Cryptographically Secure Randomness]], relevant when a nonce must be unique and unpredictable
+- [[cs/security/symmetric-vs-asymmetric-cryptography|Symmetric vs. Asymmetric Cryptography]], AEAD is the symmetric workhorse the hybrid design hands the bulk data to
 
 ## Sources
 

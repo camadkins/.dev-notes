@@ -152,10 +152,10 @@ Huffman coding is the **greedy** solution to building an **optimal prefix-free**
 
 ## Related Notes
 
-- [[greedy-algorithms|Greedy Algorithms]]
+- [[cs/dsa/greedy-algorithms|Greedy Algorithms]]
 
-- [[binary-heap|Binary Heap]]
+- [[cs/dsa/binary-heap|Binary Heap]]
 
-- [[priority-queue|Priority Queue]]
+- [[cs/dsa/priority-queue|Priority Queue]]
 
-- [[strings|Strings]]
+- [[cs/dsa/strings|Strings]]

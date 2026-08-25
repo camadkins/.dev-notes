@@ -27,18 +27,18 @@ The IBM 305 RAMAC, announced in 1956, was the first commercial computer with a m
 
 Tape is sequential: [[cs/dsa/linked-list|to reach the millionth record you must pass the first 999,999]]. A disk is random-access: the head moves directly to the track that holds what you want. That difference is the line between batch processing of whole files and interactive lookup of single records, and it made real-time business computing possible.
 
-![The memory hierarchy: small and fast at the top (registers, cache), large and slow at the bottom (disk, tape), with disk the random-access middle.](assets/memory-hierarchy.svg)
+![The memory hierarchy: small and fast at the top (registers, cache), large and slow at the bottom (disk, tape), with disk the random-access middle.](cs/history/assets/memory-hierarchy.svg)
 
 ## The memory hierarchy
 
-[[cs/systems/memory-hierarchy-and-caching|Disk took its place in a hierarchy]]: fast, small, expensive memory such as [[whirlwind-and-core-memory|magnetic core]], and later RAM, on top, and slow, large, cheap storage such as tape at the bottom, with random-access disk in between. That layering still governs how systems are built, from CPU caches down to cloud object stores, and it shapes the design of [[file-systems|file systems]] and [[cs/dsa/bplus-tree|databases]] to this day.
+[[cs/systems/memory-hierarchy-and-caching|Disk took its place in a hierarchy]]: fast, small, expensive memory such as [[cs/military-computing/whirlwind-and-core-memory|magnetic core]], and later RAM, on top, and slow, large, cheap storage such as tape at the bottom, with random-access disk in between. That layering still governs how systems are built, from CPU caches down to cloud object stores, and it shapes the design of [[cs/systems/file-systems|file systems]] and [[cs/dsa/bplus-tree|databases]] to this day.
 
 ## Related Notes
 
-- [[whirlwind-and-core-memory|Whirlwind and Magnetic-Core Memory]], the fast layer above disk
-- [[virtual-memory|Virtual Memory]], an abstraction built across the hierarchy
-- [[file-systems|File Systems]], how random-access storage is organized
-- [[ibm-system-360|The IBM System/360]], the mainframe era this storage served
+- [[cs/military-computing/whirlwind-and-core-memory|Whirlwind and Magnetic-Core Memory]], the fast layer above disk
+- [[cs/systems/virtual-memory|Virtual Memory]], an abstraction built across the hierarchy
+- [[cs/systems/file-systems|File Systems]], how random-access storage is organized
+- [[cs/history/ibm-system-360|The IBM System/360]], the mainframe era this storage served
 - [[cs/history/index|History of Computing]], the section index
 
 ## Sources

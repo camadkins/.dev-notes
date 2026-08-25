@@ -21,7 +21,7 @@ The hard part of encryption is not scrambling a message. It is agreeing on the s
 
 ## The two families
 
-In symmetric cryptography, the same key both encrypts and decrypts. It is efficient and it is what actually protects bulk traffic, but it inherits the oldest problem in the field: before you can talk, both parties must already hold the same secret, and getting it to them securely is its own puzzle. That is the chicken-and-egg problem [[rsa-and-computational-hardness|public-key cryptography]] was invented to break.
+In symmetric cryptography, the same key both encrypts and decrypts. It is efficient and it is what actually protects bulk traffic, but it inherits the oldest problem in the field: before you can talk, both parties must already hold the same secret, and getting it to them securely is its own puzzle. That is the chicken-and-egg problem [[cs/military-computing/rsa-and-computational-hardness|public-key cryptography]] was invented to break.
 
 Asymmetric cryptography splits the key in two. A public half anyone may use to encrypt to you, and a private half only you hold to decrypt. Nobody has to share a secret first. The cost is speed: as Wikipedia's description of hybrid systems puts it, public-key schemes "often rely on [[cs/math/number-theory-and-modular-arithmetic|complicated mathematical computations]] and are thus generally much more inefficient than comparable symmetric-key cryptosystems."
 
@@ -31,18 +31,18 @@ Symmetric is fast but cannot bootstrap a conversation between strangers. Asymmet
 
 ## The hybrid that actually runs
 
-A hybrid cryptosystem "combines the convenience of a public-key cryptosystem with the efficiency of a symmetric-key cryptosystem." The trick is to spend the expensive asymmetric operation on nothing but a short key: "for very long messages the bulk of the work in encryption/decryption is done by the more efficient symmetric-key scheme, while the inefficient public-key scheme is used only to encrypt/decrypt a short key value." This is not a niche pattern. Every practical deployment of public-key cryptography today is a hybrid, [[cs/systems/tls-and-the-https-handshake|TLS]] and SSH included, pairing a public-key mechanism for key exchange (such as [[diffie-hellman-and-key-exchange|Diffie-Hellman]]) with a symmetric cipher for the data (such as [[aes-and-block-ciphers|AES]]).
+A hybrid cryptosystem "combines the convenience of a public-key cryptosystem with the efficiency of a symmetric-key cryptosystem." The trick is to spend the expensive asymmetric operation on nothing but a short key: "for very long messages the bulk of the work in encryption/decryption is done by the more efficient symmetric-key scheme, while the inefficient public-key scheme is used only to encrypt/decrypt a short key value." This is not a niche pattern. Every practical deployment of public-key cryptography today is a hybrid, [[cs/systems/tls-and-the-https-handshake|TLS]] and SSH included, pairing a public-key mechanism for key exchange (such as [[cs/security/diffie-hellman-and-key-exchange|Diffie-Hellman]]) with a symmetric cipher for the data (such as [[cs/security/aes-and-block-ciphers|AES]]).
 
 > [!example] A TLS session in one line
 > The handshake uses asymmetric cryptography to agree on a fresh symmetric key that neither an eavesdropper nor the other party can predict, and every byte of the actual page after that is encrypted with fast symmetric AES under that key.
 
 ## Related Notes
 
-- [[rsa-and-computational-hardness|RSA and Computational Hardness]], the asymmetric scheme that solved key distribution
-- [[des-standardization-and-symmetric-crypto|DES and the Politics of a Standard Cipher]], the symmetric standard that came before AES
-- [[diffie-hellman-and-key-exchange|Diffie-Hellman and Key Exchange]], the key-agreement half of the hybrid
-- [[aes-and-block-ciphers|AES and Block Ciphers]], the symmetric half that moves the data
-- [[perfect-secrecy-and-the-one-time-pad|Perfect Secrecy and the One-Time Pad]], the extreme case of a shared symmetric key
+- [[cs/military-computing/rsa-and-computational-hardness|RSA and Computational Hardness]], the asymmetric scheme that solved key distribution
+- [[cs/military-computing/des-standardization-and-symmetric-crypto|DES and the Politics of a Standard Cipher]], the symmetric standard that came before AES
+- [[cs/security/diffie-hellman-and-key-exchange|Diffie-Hellman and Key Exchange]], the key-agreement half of the hybrid
+- [[cs/security/aes-and-block-ciphers|AES and Block Ciphers]], the symmetric half that moves the data
+- [[cs/military-computing/perfect-secrecy-and-the-one-time-pad|Perfect Secrecy and the One-Time Pad]], the extreme case of a shared symmetric key
 
 ## Sources
 

@@ -207,10 +207,10 @@ Correctness hinges on **overflow-safe comparisons**, **clear rounding semantics*
 
 ## Related Notes
 
-- [[binary-search|Binary Search]]
+- [[cs/dsa/binary-search|Binary Search]]
 
-- [[recurrences-master-theorem|Recurrences - Master Theorem]]
+- [[cs/dsa/recurrences-master-theorem|Recurrences - Master Theorem]]
 
-- [[time-complexity-analysis|Time Complexity Analysis]]
+- [[cs/dsa/time-complexity-analysis|Time Complexity Analysis]]
 
-- [[maths|Math Basics for DS&A]]
+- [[cs/dsa/maths|Math Basics for DS&A]]

@@ -25,7 +25,7 @@ Every password-based login shares one fatal property: the secret the user types 
 
 At sign-up the browser asks an authenticator (a security key, or the phone or laptop itself) to make a credential for this site. "At registration time, the authenticator creates an asymmetric key pair, and stores its private key portion and information from the Relying Party into a public key credential source. The public key portion is returned to the Relying Party, who then stores it in conjunction with the present user's account." The server keeps only the public half. "Subsequently, only that Relying Party, as identified by its RP ID, is able to employ" that credential.
 
-Compare this to [[password-hashing-and-salting|password storage]]. A breached password database, even a well-hashed one, leaks material an attacker can grind against. A breached WebAuthn database leaks public keys, which are useless to an attacker by design. The private key that could actually authenticate never left the authenticator: "it is expected that a credential private key never leaves the authenticator that created it."
+Compare this to [[cs/security/password-hashing-and-salting|password storage]]. A breached password database, even a well-hashed one, leaks material an attacker can grind against. A breached WebAuthn database leaks public keys, which are useless to an attacker by design. The private key that could actually authenticate never left the authenticator: "it is expected that a credential private key never leaves the authenticator that created it."
 
 ## Why phishing dies
 
@@ -42,11 +42,11 @@ The moving parts have three names that get conflated. WebAuthn is [[cs/software-
 
 ## Related Notes
 
-- [[password-hashing-and-salting|Password Hashing and Salting]] - the model WebAuthn replaces, and why a leaked public-key store is harmless by comparison
-- [[phishing-and-social-engineering|Phishing and Social Engineering]] - the attack class origin binding defeats structurally
-- [[multi-factor-authentication|Multi-Factor Authentication]] - the possession-plus-biometric factors an authenticator combines in one step
-- [[digital-signatures|Digital Signatures]] - the asymmetric primitive every WebAuthn assertion is built on
-- [[symmetric-vs-asymmetric-cryptography|Symmetric vs Asymmetric Cryptography]] - why only the public half needs to reach the server
+- [[cs/security/password-hashing-and-salting|Password Hashing and Salting]] - the model WebAuthn replaces, and why a leaked public-key store is harmless by comparison
+- [[cs/security/phishing-and-social-engineering|Phishing and Social Engineering]] - the attack class origin binding defeats structurally
+- [[cs/security/multi-factor-authentication|Multi-Factor Authentication]] - the possession-plus-biometric factors an authenticator combines in one step
+- [[cs/security/digital-signatures|Digital Signatures]] - the asymmetric primitive every WebAuthn assertion is built on
+- [[cs/security/symmetric-vs-asymmetric-cryptography|Symmetric vs Asymmetric Cryptography]] - why only the public half needs to reach the server
 
 ## Sources
 

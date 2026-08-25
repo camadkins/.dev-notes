@@ -29,7 +29,7 @@ Multics blurred a line that older systems kept sharp, the line between files on 
 
 With many users sharing one machine, the system needed to keep them from harming each other and the system itself. Multics used hardware-supported protection rings, [[cs/security/privilege-separation-and-least-privilege|concentric levels of privilege]] with the most trusted code in the inner ring and less trusted code further out. Code in an outer ring cannot freely reach into an inner one, which bounds the damage any one program can do.
 
-![Multics protection rings: the most trusted code runs in the innermost ring, and outer rings hold progressively less privilege.](assets/multics-protection-rings.svg)
+![Multics protection rings: the most trusted code runs in the innermost ring, and outer rings hold progressively less privilege.](cs/military-computing/assets/multics-protection-rings.svg)
 
 ## The Unix connection
 
@@ -37,10 +37,10 @@ Multics grew large and complex. Some of the Bell Labs researchers who had worked
 
 ## Related Notes
 
-- [[unix-and-open-source|Unix and Open Source]], the descendant that carried these ideas forward
-- [[virtual-memory|Virtual Memory]], the memory model Multics helped pioneer
-- [[processes-and-threads|Processes and Threads]], the sharing of a machine among many jobs
-- [[file-systems|File Systems]], the hierarchical structure Unix took from Multics
+- [[cs/history/unix-and-open-source|Unix and Open Source]], the descendant that carried these ideas forward
+- [[cs/systems/virtual-memory|Virtual Memory]], the memory model Multics helped pioneer
+- [[cs/systems/processes-and-threads|Processes and Threads]], the sharing of a machine among many jobs
+- [[cs/systems/file-systems|File Systems]], the hierarchical structure Unix took from Multics
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

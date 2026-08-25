@@ -14,7 +14,7 @@ aliases:
   - dual-stack
 ---
 
-The internet ran out of IPv4 addresses because 32 bits can only count to about four billion, and there are far more than four billion things online. [[nat-and-port-translation|NAT]] bought time by letting many devices hide behind one address, but it did so by breaking the internet's [[cs/military-computing/internetworking-prnet-satnet|end-to-end model]]. IPv6 is the structural fix: not a patch on the address shortage but a different address, four times as wide, with enough room that every device can have its own globally unique identity again.
+The internet ran out of IPv4 addresses because 32 bits can only count to about four billion, and there are far more than four billion things online. [[cs/networking/nat-and-port-translation|NAT]] bought time by letting many devices hide behind one address, but it did so by breaking the internet's [[cs/military-computing/internetworking-prnet-satnet|end-to-end model]]. IPv6 is the structural fix: not a patch on the address shortage but a different address, four times as wide, with enough room that every device can have its own globally unique identity again.
 
 > [!note] The idea
 > IPv6 replaces IPv4's 32-bit address with a 128-bit one, expanding the space from about four billion addresses to roughly 3.4 times 10 to the 38th. The width is not the interesting part; the consequence is. With addresses effectively unlimited, a host can generate its own from the network prefix it hears advertised, and NAT stops being necessary.
@@ -40,7 +40,7 @@ IPv6 addresses come in three kinds: unicast (one interface), anycast (a group of
 
 ## SLAAC: a host that addresses itself
 
-The huge address space enables something IPv4 could not do cleanly. On system startup, an IPv6 node automatically creates a link-local address on each IPv6-enabled interface, without any prior configuration, by stateless address autoconfiguration (SLAAC), using a component of the Neighbor Discovery Protocol. That link-local address uses the prefix `fe80::/64`. For a globally routable address, the host listens for a router advertising a network prefix and combines that prefix with an interface identifier to form its own global address, again without a server handing it out. IPv4 leans on [[dhcp-and-address-assignment|DHCP]] to assign addresses from a pool; SLAAC lets the host do it itself, because addresses are no longer scarce enough to need central rationing.
+The huge address space enables something IPv4 could not do cleanly. On system startup, an IPv6 node automatically creates a link-local address on each IPv6-enabled interface, without any prior configuration, by stateless address autoconfiguration (SLAAC), using a component of the Neighbor Discovery Protocol. That link-local address uses the prefix `fe80::/64`. For a globally routable address, the host listens for a router advertising a network prefix and combines that prefix with an interface identifier to form its own global address, again without a server handing it out. IPv4 leans on [[cs/networking/dhcp-and-address-assignment|DHCP]] to assign addresses from a pool; SLAAC lets the host do it itself, because addresses are no longer scarce enough to need central rationing.
 
 ## Dual-stack: living in both worlds
 
@@ -48,11 +48,11 @@ Since IPv4 and IPv6 do not interoperate, the dominant transition strategy is to 
 
 ## Related Notes
 
-- [[ip-addressing-and-subnetting|IP Addressing and Subnetting]] - the 32-bit IPv4 scheme IPv6 succeeds
-- [[nat-and-port-translation|NAT and Port Translation]] - the IPv4 workaround IPv6's address space makes unnecessary
-- [[arp-and-mac-addressing|ARP and MAC Addressing]] - ARP's job is done by the Neighbor Discovery Protocol in IPv6
-- [[dhcp-and-address-assignment|DHCP and Address Assignment]] - the stateful assignment SLAAC can replace
-- [[mtu-and-fragmentation|MTU and Fragmentation]] - IPv6 pushes fragmentation entirely onto the end hosts
+- [[cs/networking/ip-addressing-and-subnetting|IP Addressing and Subnetting]] - the 32-bit IPv4 scheme IPv6 succeeds
+- [[cs/networking/nat-and-port-translation|NAT and Port Translation]] - the IPv4 workaround IPv6's address space makes unnecessary
+- [[cs/networking/arp-and-mac-addressing|ARP and MAC Addressing]] - ARP's job is done by the Neighbor Discovery Protocol in IPv6
+- [[cs/networking/dhcp-and-address-assignment|DHCP and Address Assignment]] - the stateful assignment SLAAC can replace
+- [[cs/networking/mtu-and-fragmentation|MTU and Fragmentation]] - IPv6 pushes fragmentation entirely onto the end hosts
 
 ## Sources
 

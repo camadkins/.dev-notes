@@ -13,7 +13,7 @@ aliases:
   - SAGE computer
 ---
 
-A machine built from [[cs/history/the-transistor|tens of thousands of vacuum tubes]] has a tube failing somewhere all the time. For most computers that is an annoyance. For the computer at the center of a Cold War air-defense system, one that is supposed to be watching the skies without interruption, a failure in the wrong moment is the whole problem. The AN/FSQ-7, built by IBM for the [[sage-and-real-time-systems|SAGE]] network, answered that problem in the bluntest way available: it kept a second copy of itself ready to take over.
+A machine built from [[cs/history/the-transistor|tens of thousands of vacuum tubes]] has a tube failing somewhere all the time. For most computers that is an annoyance. For the computer at the center of a Cold War air-defense system, one that is supposed to be watching the skies without interruption, a failure in the wrong moment is the whole problem. The AN/FSQ-7, built by IBM for the [[cs/military-computing/sage-and-real-time-systems|SAGE]] network, answered that problem in the bluntest way available: it kept a second copy of itself ready to take over.
 
 > [!note] The idea
 > Fault tolerance through redundancy: run a second copy of the machine so that the failure of the first, which at this scale is guaranteed, does not take the system down.
@@ -26,7 +26,7 @@ The AN/FSQ-7 is, by most accounts, the largest discrete computer system ever bui
 
 Each SAGE site was configured as a duplex system: two complete AN/FSQ-7 computers, one active and one on standby.
 
-![A duplex AN/FSQ-7: one computer runs the air-defense site while its twin stands by, ready to take over.](assets/anfsq7-duplex.svg)
+![A duplex AN/FSQ-7: one computer runs the air-defense site while its twin stands by, ready to take over.](cs/military-computing/assets/anfsq7-duplex.svg)
 
 At any moment one machine ran the air-defense site while the other waited. If the active machine faltered, or had to come down for maintenance, the standby took over, and the site kept watching. The cost was building and running two of everything. The benefit was a system that survived the failure of parts that were guaranteed to fail.
 
@@ -36,10 +36,10 @@ This is fault tolerance through redundancy, and it is one of the oldest ideas in
 
 ## Related Notes
 
-- [[whirlwind-and-core-memory|Whirlwind and Magnetic-Core Memory]], the lineage that led to this machine
-- [[sage-and-real-time-systems|SAGE and Real-Time Systems]], the system the AN/FSQ-7 ran
-- [[distributed-consensus|Distributed Consensus]], the modern problem of keeping replicas agreed
-- [[von-neumann-architecture|Von Neumann Architecture]], the underlying machine model
+- [[cs/military-computing/whirlwind-and-core-memory|Whirlwind and Magnetic-Core Memory]], the lineage that led to this machine
+- [[cs/military-computing/sage-and-real-time-systems|SAGE and Real-Time Systems]], the system the AN/FSQ-7 ran
+- [[cs/systems/distributed-consensus|Distributed Consensus]], the modern problem of keeping replicas agreed
+- [[cs/history/von-neumann-architecture|Von Neumann Architecture]], the underlying machine model
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

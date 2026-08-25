@@ -14,7 +14,7 @@ aliases:
   - Degrees of Freedom
 ---
 
-The [[normal-distribution|normal]] machinery for testing a mean assumes you know $\sigma$. You almost never do. Substituting the sample standard deviation $s$ introduces a second source of randomness into the test statistic, and the resulting distribution is fatter in the tails than a normal. Student's $t$ is the exact accounting of that extra uncertainty.
+The [[cs/statistics/normal-distribution|normal]] machinery for testing a mean assumes you know $\sigma$. You almost never do. Substituting the sample standard deviation $s$ introduces a second source of randomness into the test statistic, and the resulting distribution is fatter in the tails than a normal. Student's $t$ is the exact accounting of that extra uncertainty.
 
 > [!note] The idea
 > The $t$ distribution generalizes the standard normal, is symmetric around zero and bell-shaped like it, but has heavier tails, and the tail mass is controlled entirely by the degrees-of-freedom parameter $\nu$. The two endpoints are instructive: at $\nu = 1$, $t_\nu$ is the standard Cauchy distribution with very fat tails and no mean; as $\nu \to \infty$ it becomes $\mathcal{N}(0,1)$ with very thin tails. Small samples do not merely give you a wider interval, they give you a qualitatively different distribution.
@@ -29,13 +29,13 @@ where $Z$ is standard normal, $V$ is chi-squared with $\nu$ degrees of freedom, 
 
 $$f(t) = \frac{\Gamma\!\left(\frac{\nu+1}{2}\right)}{\sqrt{\pi\nu}\,\Gamma\!\left(\frac{\nu}{2}\right)}\left(1 + \frac{t^2}{\nu}\right)^{-(\nu+1)/2}.$$
 
-The moments make the heavy tails concrete. For $\nu$ degrees of freedom, the expected value is 0 when $\nu > 1$, the [[variance-and-covariance|variance]] is $\nu/(\nu-2)$ when $\nu > 2$, skewness is 0 when $\nu > 3$, and excess kurtosis is $6/(\nu - 4)$ when $\nu > 4$. Moments of order $\nu$ or higher do not exist at all. A $t$ with 3 degrees of freedom has no finite kurtosis; a $t$ with 1 has no mean.
+The moments make the heavy tails concrete. For $\nu$ degrees of freedom, the expected value is 0 when $\nu > 1$, the [[cs/statistics/variance-and-covariance|variance]] is $\nu/(\nu-2)$ when $\nu > 2$, skewness is 0 when $\nu > 3$, and excess kurtosis is $6/(\nu - 4)$ when $\nu > 4$. Moments of order $\nu$ or higher do not exist at all. A $t$ with 3 degrees of freedom has no finite kurtosis; a $t$ with 1 has no mean.
 
 Shifting the constant gives the *noncentral* $t$: the distribution of $(Z + \mu)\sqrt{\nu/V}$ has noncentrality parameter $\mu$, and that is the object used to study the power of a $t$-test.
 
 ## The test
 
-A Student's $t$-test is any [[hypothesis-testing|hypothesis test]] whose test statistic follows a $t$ distribution under the null. It applies where the statistic would be normal if a scaling term were known, and that scaling term is typically an unknown nuisance parameter estimated from the data. A $Z$-test often yields very similar results, because the $t$-test converges to the $Z$-test as the dataset grows.
+A Student's $t$-test is any [[cs/statistics/hypothesis-testing|hypothesis test]] whose test statistic follows a $t$ distribution under the null. It applies where the statistic would be normal if a scaling term were known, and that scaling term is typically an unknown nuisance parameter estimated from the data. A $Z$-test often yields very similar results, because the $t$-test converges to the $Z$-test as the dataset grows.
 
 ### One-sample
 
@@ -43,7 +43,7 @@ Testing $H_0\colon \mu = \mu_0$:
 
 $$t = \frac{\bar{x} - \mu_0}{s/\sqrt{n}}, \qquad \text{df} = n - 1.$$
 
-The parent population does not have to be normal, but the distribution of sample means is assumed to be. If the observations are independent and the second moment exists, the [[central-limit-theorem|central limit theorem]] makes $t$ approximately $\mathcal{N}(0,1)$, though only approximately, since the CLT would apply exactly if $s$ were the true standard deviation rather than an estimate. That gap is why $t$ follows Student's $t$ asymptotically rather than the normal outright.
+The parent population does not have to be normal, but the distribution of sample means is assumed to be. If the observations are independent and the second moment exists, the [[cs/statistics/central-limit-theorem|central limit theorem]] makes $t$ approximately $\mathcal{N}(0,1)$, though only approximately, since the CLT would apply exactly if $s$ were the true standard deviation rather than an estimate. That gap is why $t$ follows Student's $t$ asymptotically rather than the normal outright.
 
 ### Two-sample, independent
 
@@ -82,7 +82,7 @@ The simplest form of the test assumes three things: $\bar{X} \sim \mathcal{N}(\m
 
 Robustness is better than the assumption list suggests. Most two-sample $t$-tests are robust to all but large deviations. Student's original test is highly robust to unequal variances when the two sample sizes are equal, while Welch's test is insensitive to variance equality regardless of whether sample sizes are similar. The CLT usually rescues the normality requirement for moderately large samples, but the sample size needed for convergence depends on the skewness of the original data, and can run from 30 to 100 or higher.
 
-For large $n$, Slutsky's theorem shows the sample-variance distribution barely matters: $\sqrt{n}(\bar{X} - \mu) \xrightarrow{d} N(0, \sigma^2)$ by the CLT, $s^2 \xrightarrow{p} \sigma^2$ by the [[law-of-large-numbers|law of large numbers]], and the ratio [[cs/math/limits-and-continuity|converges in distribution]] to $N(0,1)$.
+For large $n$, Slutsky's theorem shows the sample-variance distribution barely matters: $\sqrt{n}(\bar{X} - \mu) \xrightarrow{d} N(0, \sigma^2)$ by the CLT, $s^2 \xrightarrow{p} \sigma^2$ by the [[cs/statistics/law-of-large-numbers|law of large numbers]], and the ratio [[cs/math/limits-and-continuity|converges in distribution]] to $N(0,1)$.
 
 ## The brewery
 
@@ -92,13 +92,13 @@ That someone is William Sealy Gosset, who published it in English in 1908 in *Bi
 
 ## Related Notes
 
-- [[hypothesis-testing|Hypothesis Testing]] - the decision framework the $t$-test instantiates
-- [[normal-distribution|Normal Distribution]] - the limit of $t_\nu$ as $\nu \to \infty$
-- [[confidence-intervals|Confidence Intervals]] - the same pivot, inverted into an interval
-- [[central-limit-theorem|Central Limit Theorem]] - what makes the normality assumption survivable
-- [[sampling-and-sampling-distributions|Sampling and Sampling Distributions]] - $t$ is the sampling distribution of the standardized mean when $\sigma$ is estimated
-- [[variance-and-covariance|Variance and Covariance]] - the pooled variance estimator and the $\nu/(\nu-2)$ variance
-- [[bootstrap-and-resampling|Bootstrap and Resampling]] - permutation tests as a distribution-free alternative
+- [[cs/statistics/hypothesis-testing|Hypothesis Testing]] - the decision framework the $t$-test instantiates
+- [[cs/statistics/normal-distribution|Normal Distribution]] - the limit of $t_\nu$ as $\nu \to \infty$
+- [[cs/statistics/confidence-intervals|Confidence Intervals]] - the same pivot, inverted into an interval
+- [[cs/statistics/central-limit-theorem|Central Limit Theorem]] - what makes the normality assumption survivable
+- [[cs/statistics/sampling-and-sampling-distributions|Sampling and Sampling Distributions]] - $t$ is the sampling distribution of the standardized mean when $\sigma$ is estimated
+- [[cs/statistics/variance-and-covariance|Variance and Covariance]] - the pooled variance estimator and the $\nu/(\nu-2)$ variance
+- [[cs/statistics/bootstrap-and-resampling|Bootstrap and Resampling]] - permutation tests as a distribution-free alternative
 
 ## Sources
 

@@ -22,7 +22,7 @@ GPS quietly turns one question into another. It answers "where am I" by answerin
 
 A GPS receiver calculates its own four-dimensional position in spacetime from the signals of multiple satellites. The time delay between when a satellite transmits a signal and when the receiver gets it is proportional to the distance between them. Each satellite's distance places the receiver somewhere on a sphere around that satellite, and the spheres from several satellites intersect at the receiver's position.
 
-![Each satellite's signal gives a distance, a sphere of possible positions; the spheres from several satellites meet at one point.](assets/gps-trilateration.svg)
+![Each satellite's signal gives a distance, a sphere of possible positions; the spheres from several satellites meet at one point.](cs/military-computing/assets/gps-trilateration.svg)
 
 ## Why four satellites
 
@@ -30,7 +30,7 @@ There are four unknowns to solve: three coordinates of position, and the deviati
 
 ## Atomic clocks
 
-The satellites carry very stable atomic clocks, synchronized with one another and with reference clocks at the ground control stations. Because the whole scheme converts time into distance, the accuracy of those clocks is the accuracy of your position. Keeping them right is the job of the [[gps-control-segment|control segment]].
+The satellites carry very stable atomic clocks, synchronized with one another and with reference clocks at the ground control stations. Because the whole scheme converts time into distance, the accuracy of those clocks is the accuracy of your position. Keeping them right is the job of the [[cs/military-computing/gps-control-segment|control segment]].
 
 ## Why relativity matters
 
@@ -38,14 +38,14 @@ Time on a GPS satellite does not tick at the same rate as time on the ground. Sp
 
 ## A distributed system
 
-Seen as computer science, GPS is [[cs/systems/logical-clocks-lamport-and-vector|synchronized clocks across many nodes]], continuous error correction, and a receiver [[cs/statistics/maximum-likelihood-estimation|fusing partial, noisy signals into one estimate]]. It shares that shape with [[ntp-distributed-clock-synchronization|NTP]] on the ground and with the [[sins-polaris-inertial-navigation|inertial navigation]] that fills in when no satellite is visible.
+Seen as computer science, GPS is [[cs/systems/logical-clocks-lamport-and-vector|synchronized clocks across many nodes]], continuous error correction, and a receiver [[cs/statistics/maximum-likelihood-estimation|fusing partial, noisy signals into one estimate]]. It shares that shape with [[cs/military-computing/ntp-distributed-clock-synchronization|NTP]] on the ground and with the [[cs/military-computing/sins-polaris-inertial-navigation|inertial navigation]] that fills in when no satellite is visible.
 
 ## Related Notes
 
-- [[gps-control-segment|The GPS Control Segment]], the ground system that keeps the satellites honest
-- [[ntp-distributed-clock-synchronization|NTP and Distributed Clock Synchronization]], the same problem on the network
-- [[sins-polaris-inertial-navigation|Inertial Navigation and the Missile Submarine]], navigation without a sky view
-- [[distributed-consensus|Distributed Consensus]], agreement across distributed nodes
+- [[cs/military-computing/gps-control-segment|The GPS Control Segment]], the ground system that keeps the satellites honest
+- [[cs/military-computing/ntp-distributed-clock-synchronization|NTP and Distributed Clock Synchronization]], the same problem on the network
+- [[cs/military-computing/sins-polaris-inertial-navigation|Inertial Navigation and the Missile Submarine]], navigation without a sky view
+- [[cs/systems/distributed-consensus|Distributed Consensus]], agreement across distributed nodes
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

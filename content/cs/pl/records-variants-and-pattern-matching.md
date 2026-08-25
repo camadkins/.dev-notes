@@ -41,7 +41,7 @@ Records make code more self-documenting and robust to field reordering.
 |Extensibility|rigid|flexible (with optional defaults)|
 |Example|`(1.0, 2.0)`|`{x=1.0; y=2.0}`|
 
-![Tuple vs record access semantics](assets/records-vs-tuple.svg)
+![Tuple vs record access semantics](cs/pl/assets/records-vs-tuple.svg)
 
 ---
 
@@ -135,7 +135,7 @@ match s with
 > Non-exhaustive matches cause runtime errors in many languages.  
 > Some, like Haskell and OCaml, statically detect missing cases and issue warnings.
 
-![Pattern match exhaustiveness analysis](assets/records-match-exhaustiveness.svg)
+![Pattern match exhaustiveness analysis](cs/pl/assets/records-match-exhaustiveness.svg)
 
 ---
 

@@ -61,7 +61,7 @@ Consider a binary tree with values:
 - **Postorder:** 1, 4, 7, 6, 3, 13, 14, 10, 8  
 - **Level order:** 8, 3, 10, 1, 6, 14, 4, 7, 13
 
-![Four views of the same BST annotated with visit-order badges for preorder, inorder, postorder, and level-order traversals](assets/traversal-skeletons.svg)
+![Four views of the same BST annotated with visit-order badges for preorder, inorder, postorder, and level-order traversals](cs/dsa/assets/traversal-skeletons.svg)
 
 ## Recursive Skeletons (Binary Trees)
 ```pseudo
@@ -261,7 +261,7 @@ For `n` nodes:
 > [!tip]  
 > When exposing iteration APIs, provide all four: `preorder()`, `inorder()`, `postorder()`, `levelOrder()`. For BSTs, make `inorder()` the **default iterator** so `for x in bst` yields sorted keys.
 
-![Recursive call stack frames versus iterative explicit stack snapshots for preorder traversal](assets/traversal-recursive-vs-iterative.svg)
+![Recursive call stack frames versus iterative explicit stack snapshots for preorder traversal](cs/dsa/assets/traversal-recursive-vs-iterative.svg)
 
 ## Summary
 

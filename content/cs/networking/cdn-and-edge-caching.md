@@ -53,7 +53,7 @@ The point of all of this is offload. Every request answered from an edge or shie
 
 - [[cs/systems/content-delivery-networks-and-the-centralization-of-control|Content Delivery Networks]] - the anycast routing and centralization picture this note's caching sits inside
 - [[cs/systems/dns-the-domain-name-system|DNS]] - the lookup that points a client at the CDN before any cache is consulted
-- [[http-evolution-1-1-to-3|HTTP Evolution, 1.1 to 3]] - the request protocol whose headers carry the cache directives
+- [[cs/networking/http-evolution-1-1-to-3|HTTP Evolution, 1.1 to 3]] - the request protocol whose headers carry the cache directives
 - [[cs/systems/physical-layer-of-the-internet|The Physical Layer of the Internet]] - the finite distance edge caching exists to shorten
 - [[cs/security/denial-of-service-and-ddos|Denial of Service and DDoS]] - the flood the cache tier absorbs before the origin
 

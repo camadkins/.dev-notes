@@ -133,7 +133,7 @@ function DELETE(root, key):
     return L
 ```
 
-![Splay rotation cases: zig, zig-zig, and zig-zag shown as before/after mini-trees with x, p, g highlighted](assets/splay-rotations.svg)
+![Splay rotation cases: zig, zig-zig, and zig-zag shown as before/after mini-trees with x, p, g highlighted](cs/dsa/assets/splay-rotations.svg)
 
 ## Example (Stepwise)
 
@@ -184,7 +184,7 @@ Consider starting with a skewed BST on keys `[1,2,3,4,5,6,7]` (ascending inserts
 - **No balance metadata:** Simpler node structure than [[cs/dsa/avl-tree|AVL Tree]] or [[cs/dsa/rb-tree|Red–Black Tree]], at the cost of **per-operation variance**.
     
 
-![Effect of splaying on tree shape: frequent accesses pull hot keys toward the root, clustering them and reducing path lengths](assets/splay-path-effects.svg)
+![Effect of splaying on tree shape: frequent accesses pull hot keys toward the root, clustering them and reducing path lengths](cs/dsa/assets/splay-path-effects.svg)
 
 ## Practical Use Cases
 
@@ -220,10 +220,10 @@ Splay trees are **metadata-free, self-adjusting BSTs**: every access performs **
 
 ## See also
 
-- [[bst|Binary Search Tree]]
+- [[cs/dsa/bst|Binary Search Tree]]
     
 - [[cs/dsa/avl-tree|AVL Tree]]
     
-- [[rb-tree]]
+- [[cs/dsa/rb-tree]]
     
 - [[cs/dsa/trees|Trees]]

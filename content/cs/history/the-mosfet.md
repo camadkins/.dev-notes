@@ -12,7 +12,7 @@ aliases:
   - MOSFET
 ---
 
-The first [[the-transistor|transistors]] worked, but they were not easy to pack by the million onto a single chip. The transistor that made that possible, and that runs every processor and memory chip in use today, is the MOSFET.
+The first [[cs/history/the-transistor|transistors]] worked, but they were not easy to pack by the million onto a single chip. The transistor that made that possible, and that runs every processor and memory chip in use today, is the MOSFET.
 
 > [!note] The idea
 > The MOSFET is a voltage-controlled switch. A voltage on an insulated gate decides whether current flows in the channel beneath it. Being voltage-controlled and cheap to fabricate in silicon, it is the design that scales to billions of switches on one chip.
@@ -23,17 +23,17 @@ The first working MOSFET was built by Mohamed Atalla and Dawon Kahng at Bell Lab
 
 ## Why it won
 
-The MOSFET is by far the most common transistor in digital circuits; billions appear in a single memory chip or microprocessor. Its silicon-and-oxide construction is [[cs/geopolitics/semiconductor-supply-chains|cheap to produce and easy to integrate]], which is exactly what mass [[the-integrated-circuit|integration]] demanded. The earlier bipolar transistor was a fine device, but the MOSFET was the one that fabrication could multiply without limit.
+The MOSFET is by far the most common transistor in digital circuits; billions appear in a single memory chip or microprocessor. Its silicon-and-oxide construction is [[cs/geopolitics/semiconductor-supply-chains|cheap to produce and easy to integrate]], which is exactly what mass [[cs/history/the-integrated-circuit|integration]] demanded. The earlier bipolar transistor was a fine device, but the MOSFET was the one that fabrication could multiply without limit.
 
 ## What it enables
 
-MOSFETs are the switches that implement [[boole-and-boolean-algebra|logic gates]] and [[cs/systems/memory-hierarchy-and-caching|store bits, by the billion, on every chip]]. The entire tower of modern computing, and the steady march of [[moores-law|Moore's law]], rests on shrinking this one device.
+MOSFETs are the switches that implement [[cs/history/boole-and-boolean-algebra|logic gates]] and [[cs/systems/memory-hierarchy-and-caching|store bits, by the billion, on every chip]]. The entire tower of modern computing, and the steady march of [[cs/history/moores-law|Moore's law]], rests on shrinking this one device.
 
 ## Related Notes
 
-- [[the-transistor|The Transistor]], the device the MOSFET refined
-- [[the-integrated-circuit|The Integrated Circuit]], where MOSFETs are packed together
-- [[moores-law|Moore's Law]], the scaling that shrinking MOSFETs drives
+- [[cs/history/the-transistor|The Transistor]], the device the MOSFET refined
+- [[cs/history/the-integrated-circuit|The Integrated Circuit]], where MOSFETs are packed together
+- [[cs/history/moores-law|Moore's Law]], the scaling that shrinking MOSFETs drives
 - [[cs/history/index|History of Computing]], the section index
 
 ## Sources

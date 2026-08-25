@@ -32,7 +32,7 @@ A Turing machine consists of:
 
 Computation proceeds step-by-step: read the current symbol, consult the transition function, write a symbol, move left or right, and enter a new state. The machine halts when it reaches an accepting or rejecting state (or it may run forever).
 
-![A Turing machine: a finite-state head reads and writes one cell of an infinite tape, then moves and changes state.](assets/turing-machine-tape.svg)
+![A Turing machine: a finite-state head reads and writes one cell of an infinite tape, then moves and changes state.](cs/history/assets/turing-machine-tape.svg)
 
 ### The Halting Problem
 
@@ -46,7 +46,7 @@ This was the first rigorous proof that some well-defined mathematical questions 
 
 ### The Church-Turing Thesis
 
-Independently, Alonzo Church developed the [[lambda-calculus-syntax-substitution|lambda calculus]] as a formalism for computable functions. Church and Turing showed that their two models - lambda calculus and Turing machines - compute exactly the same class of functions. The **Church-Turing thesis** asserts:
+Independently, Alonzo Church developed the [[cs/pl/lambda-calculus-syntax-substitution|lambda calculus]] as a formalism for computable functions. Church and Turing showed that their two models - lambda calculus and Turing machines - compute exactly the same class of functions. The **Church-Turing thesis** asserts:
 
 > *Any function that can be computed by an effective procedure can be computed by a Turing machine.*
 
@@ -89,10 +89,10 @@ This machine halts on every input - it is a **decider**. The halting problem tel
 
 ## Related Notes
 
-- [[lambda-calculus-syntax-substitution|Lambda Calculus - Syntax & Substitution]] - Church's parallel formalism for computability
-- [[programming-paradigms-models-of-computation|Programming Paradigms & Models of Computation]] - how Turing's ideas map to real language design
-- [[von-neumann-architecture|Von Neumann Architecture]] - the practical realization of stored-program computation
-- [[history-of-the-internet|History of the Internet]] - a later chapter in computing's timeline
+- [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus - Syntax & Substitution]] - Church's parallel formalism for computability
+- [[cs/pl/programming-paradigms-models-of-computation|Programming Paradigms & Models of Computation]] - how Turing's ideas map to real language design
+- [[cs/history/von-neumann-architecture|Von Neumann Architecture]] - the practical realization of stored-program computation
+- [[cs/history/history-of-the-internet|History of the Internet]] - a later chapter in computing's timeline
 
 ## Sources
 

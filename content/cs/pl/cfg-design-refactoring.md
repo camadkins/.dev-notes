@@ -73,7 +73,7 @@ Stmt → if Expr then Stmt else Stmt | if Expr then Stmt
 ### 4. Excessive ε-Rules
 While ε (empty) rules support optional constructs, overuse causes hidden ambiguities or infinite loops.
 
-![Side-by-side parse trees showing how ambiguity arises and how refactoring resolves it](assets/cfg-ambiguity-trees.svg)
+![Side-by-side parse trees showing how ambiguity arises and how refactoring resolves it](cs/pl/assets/cfg-ambiguity-trees.svg)
 
 ---
 
@@ -111,7 +111,7 @@ Tail → else Stmt | ε
 
 ```
 
-![Before/after shared prefix extraction into Tail nonterminal](assets/cfg-left-factoring.svg)
+![Before/after shared prefix extraction into Tail nonterminal](cs/pl/assets/cfg-left-factoring.svg)
 
 ### Enforcing Operator Precedence
 Layer nonterminals by binding strength:
@@ -126,7 +126,7 @@ Factor → (Expr) | num
 ```
 Each level isolates a precedence tier: multiplication binds tighter than addition.
 
-![Three stacked precedence tiers: Factor, Term, Expr showing binding order](assets/cfg-precedence.svg)
+![Three stacked precedence tiers: Factor, Term, Expr showing binding order](cs/pl/assets/cfg-precedence.svg)
 
 ---
 
@@ -229,7 +229,7 @@ Factor → ( Expr ) | num
 - Uses meaningful names and minimal ε rules.  
 - Easy to extend with new operators.
 
-![Left recursion rewrite: A to A-alpha-or-beta becomes A to beta-A-prime](assets/cfg-left-recursion.svg)
+![Left recursion rewrite: A to A-alpha-or-beta becomes A to beta-A-prime](cs/pl/assets/cfg-left-recursion.svg)
 
 ---
 

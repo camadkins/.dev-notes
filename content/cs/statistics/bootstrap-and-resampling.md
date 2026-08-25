@@ -23,18 +23,18 @@ Classical inference gets a standard error by writing down a formula. That works 
 
 Bootstrapping estimates properties of an estimand by measuring them under sampling from an approximating distribution, and the standard choice is the empirical distribution function of the observed data. For i.i.d. observations, that means constructing resamples with replacement, each of equal size to the observed data set.
 
-Take heights of $N$ people as a [[sampling-and-sampling-distributions|sample]] from the world population. One sample gives one estimate of the mean and no sense of its variability. Draw a new sample of size $N$ from the observed data *with replacement* (resampling five times from [1,2,3,4,5] might give [2,5,4,4,1]), so for large $N$ there is virtually zero probability the resample equals the original. Compute the mean. Repeat, typically 1,000 or 10,000 times. The histogram of bootstrap means estimates the shape of the sampling distribution of the mean, and the method applies to almost any statistic or estimator.
+Take heights of $N$ people as a [[cs/statistics/sampling-and-sampling-distributions|sample]] from the world population. One sample gives one estimate of the mean and no sense of its variability. Draw a new sample of size $N$ from the observed data *with replacement* (resampling five times from [1,2,3,4,5] might give [2,5,4,4,1]), so for large $N$ there is virtually zero probability the resample equals the original. Compute the mean. Repeat, typically 1,000 or 10,000 times. The histogram of bootstrap means estimates the shape of the sampling distribution of the mean, and the method applies to almost any statistic or estimator.
 
 The exhaustive version [[cs/math/combinatorics|enumerates every possible resample]] instead of sampling them, which is only tractable for tiny data. There are $\binom{2n-1}{n}$ distinct resamples, giving 126 for $n = 5$, 92,378 for $n = 10$, and about $5.91 \times 10^{16}$ for $n = 30$.
 
 > [!example]
-> Ten coin flips, $x_i = 1$ for heads. The classical route assumes the average is normally distributed and uses a [[t-distribution-and-t-tests|$t$-statistic]]. That justification is shaky in one direction and fine in another: individual flips are Bernoulli, not normal, so the per-flip reading is a poor approximation, while the average-of-many reading is valid in infinitely large samples by the [[central-limit-theorem|central limit theorem]]. If you would rather not lean on either, resample. One bootstrap resample might be $x_2, x_1, x_{10}, x_{10}, x_3, x_4, x_6, x_7, x_1, x_9$ (duplicates appear because sampling is with replacement, and the resample has the same number of points as the original). Its mean is $\mu_1^*$. Repeat 100 times for $\mu_1^*, \dots, \mu_{100}^*$, the empirical bootstrap distribution of the sample mean, from which a bootstrap confidence interval follows.
+> Ten coin flips, $x_i = 1$ for heads. The classical route assumes the average is normally distributed and uses a [[cs/statistics/t-distribution-and-t-tests|$t$-statistic]]. That justification is shaky in one direction and fine in another: individual flips are Bernoulli, not normal, so the per-flip reading is a poor approximation, while the average-of-many reading is valid in infinitely large samples by the [[cs/statistics/central-limit-theorem|central limit theorem]]. If you would rather not lean on either, resample. One bootstrap resample might be $x_2, x_1, x_{10}, x_{10}, x_3, x_4, x_6, x_7, x_1, x_9$ (duplicates appear because sampling is with replacement, and the resample has the same number of points as the original). Its mean is $\mu_1^*$. Repeat 100 times for $\mu_1^*, \dots, \mu_{100}^*$, the empirical bootstrap distribution of the sample mean, from which a bootstrap confidence interval follows.
 
 The key result in Efron's founding paper is that sampling *with* replacement performs favorably compared to prior methods like the jackknife, which samples without replacement. Variants since then include schemes that sample without replacement and ones that build resamples larger or smaller than the original data.
 
 ## Why bother
 
-The bootstrap's advantage is simplicity: a direct route to standard errors and [[confidence-intervals|confidence intervals]] for complex estimators like percentile points, odds ratios, and correlation coefficients, where no analytical form or applicable central limit theorem exists. It handles complex sampling designs, including stratified ones. It checks the stability of results. Although the true interval is usually unknowable, the bootstrap is asymptotically more accurate than standard intervals built from the sample variance plus normality assumptions. And it avoids the cost of repeating an experiment to get more sample data.
+The bootstrap's advantage is simplicity: a direct route to standard errors and [[cs/statistics/confidence-intervals|confidence intervals]] for complex estimators like percentile points, odds ratios, and correlation coefficients, where no analytical form or applicable central limit theorem exists. It handles complex sampling designs, including stratified ones. It checks the stability of results. Although the true interval is usually unknowable, the bootstrap is asymptotically more accurate than standard intervals built from the sample variance plus normality assumptions. And it avoids the cost of repeating an experiment to get more sample data.
 
 Adèr et al. recommend it in three situations: when the theoretical distribution of the statistic is complicated or unknown, when the sample size is insufficient for straightforward inference, and when power calculations must be run off a small pilot sample.
 
@@ -47,13 +47,13 @@ On the number of resamples, more computing power has pushed recommendations upwa
 
 For univariate problems, resampling individual observations with replacement (case resampling) is usually acceptable. Subsampling, which resamples without replacement, is valid under much weaker conditions. Small samples may favor a parametric bootstrap; other problems favor a smooth bootstrap.
 
-[[regression-fundamentals|Regression]] is the case where naive case resampling is most suspect. Explanatory variables are often fixed or at least observed with more control than the response, and their range defines the information they carry. Resampling cases therefore loses some of that information in each bootstrap sample, which is why residual resampling and the other regression-specific alternatives exist.
+[[cs/statistics/regression-fundamentals|Regression]] is the case where naive case resampling is most suspect. Explanatory variables are often fixed or at least observed with more control than the response, and their range defines the information they carry. Resampling cases therefore loses some of that information in each bootstrap sample, which is why residual resampling and the other regression-specific alternatives exist.
 
-There is also a Bayesian reading. Reweighting the initial data with weights $w_i^J = x_i^J - x_{i-1}^J$, where $\mathbf{x}^J$ is a sorted list of $N-1$ uniform random numbers on $[0,1]$ bracketed by 0 and 1, makes the induced parameter distributions interpretable as [[bayesian-inference|posterior distributions]].
+There is also a Bayesian reading. Reweighting the initial data with weights $w_i^J = x_i^J - x_{i-1}^J$, where $\mathbf{x}^J$ is a sorted list of $N-1$ uniform random numbers on $[0,1]$ bracketed by 0 and 1, makes the induced parameter distributions interpretable as [[cs/statistics/bayesian-inference|posterior distributions]].
 
 ## Permutation tests
 
-A permutation test (also re-randomization test or shuffle test) is an *exact* [[hypothesis-testing|hypothesis test]] on two or more samples, with null $H_0\colon F = G$ that all samples come from the same distribution. The null distribution of the test statistic is obtained by computing its value under possible rearrangements of the observed data, which makes it a form of resampling.
+A permutation test (also re-randomization test or shuffle test) is an *exact* [[cs/statistics/hypothesis-testing|hypothesis test]] on two or more samples, with null $H_0\colon F = G$ that all samples come from the same distribution. The null distribution of the test statistic is obtained by computing its value under possible rearrangements of the observed data, which makes it a form of resampling.
 
 The mechanics for two groups: compute the observed difference in sample means $T_\text{obs}$; pool the observations; recompute the difference for every way of dividing the pooled values into groups of size $n_A$ and $n_B$. That set of differences is the exact distribution under the null that group labels are exchangeable. The one-sided p-value is the proportion of sampled permutations with a difference greater than $T_\text{obs}$; the two-sided version uses absolute differences against $|T_\text{obs}|$. Many implementations count the observed data as one of the permutations so the p-value can never be zero.
 
@@ -73,13 +73,13 @@ The bootstrap was first described by Bradley Efron in "Bootstrap methods: anothe
 
 ## Related Notes
 
-- [[sampling-and-sampling-distributions|Sampling and Sampling Distributions]] - the object the bootstrap approximates
-- [[confidence-intervals|Confidence Intervals]] - bootstrapping is one of the two main construction routes
-- [[hypothesis-testing|Hypothesis Testing]] - permutation tests as an exact alternative to parametric tests
-- [[t-distribution-and-t-tests|t-Distribution and t-Tests]] - the parametric method resampling replaces, and the shared Behrens-Fisher problem
-- [[central-limit-theorem|Central Limit Theorem]] - the asymptotic justification you avoid needing
-- [[law-of-large-numbers|Law of Large Numbers]] - Monte Carlo resampling converges by the same argument
-- [[bayesian-inference|Bayesian Inference]] - the Bayesian bootstrap reweighting reading
+- [[cs/statistics/sampling-and-sampling-distributions|Sampling and Sampling Distributions]] - the object the bootstrap approximates
+- [[cs/statistics/confidence-intervals|Confidence Intervals]] - bootstrapping is one of the two main construction routes
+- [[cs/statistics/hypothesis-testing|Hypothesis Testing]] - permutation tests as an exact alternative to parametric tests
+- [[cs/statistics/t-distribution-and-t-tests|t-Distribution and t-Tests]] - the parametric method resampling replaces, and the shared Behrens-Fisher problem
+- [[cs/statistics/central-limit-theorem|Central Limit Theorem]] - the asymptotic justification you avoid needing
+- [[cs/statistics/law-of-large-numbers|Law of Large Numbers]] - Monte Carlo resampling converges by the same argument
+- [[cs/statistics/bayesian-inference|Bayesian Inference]] - the Bayesian bootstrap reweighting reading
 
 ## Sources
 

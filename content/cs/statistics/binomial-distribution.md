@@ -50,7 +50,7 @@ $$\sigma = \sqrt{npq}$$
 
 The binomial coefficient $\binom{n}{x}$ counts the number of ways to choose which $x$ of the $n$ trials are successes.
 
-![PMF bar charts comparing B(10,0.3), B(10,0.5), and B(10,0.7)](assets/binomial-pmf.svg)
+![PMF bar charts comparing B(10,0.3), B(10,0.5), and B(10,0.7)](cs/statistics/assets/binomial-pmf.svg)
 
 ## Example
 
@@ -81,8 +81,8 @@ The place you'll encounter it most directly is **[[cs/software-engineering/featu
 
 ## Related Notes
 
-- [[probability-distributions|Probability Distributions]] - overview that introduces the binomial alongside other distributions
-- [[geometric-distribution|Geometric Distribution]] - models trials until the *first* success rather than counting successes in $n$ trials
-- [[poisson-distribution|Poisson Distribution]] - approximates the binomial when $n$ is large and $p$ is small
+- [[cs/statistics/probability-distributions|Probability Distributions]] - overview that introduces the binomial alongside other distributions
+- [[cs/statistics/geometric-distribution|Geometric Distribution]] - models trials until the *first* success rather than counting successes in $n$ trials
+- [[cs/statistics/poisson-distribution|Poisson Distribution]] - approximates the binomial when $n$ is large and $p$ is small
 
-> **Note:** [[probability-distributions|Probability Distributions]] covers the binomial at an overview level. This note provides a deeper treatment with worked examples and CS applications.
+> **Note:** [[cs/statistics/probability-distributions|Probability Distributions]] covers the binomial at an overview level. This note provides a deeper treatment with worked examples and CS applications.

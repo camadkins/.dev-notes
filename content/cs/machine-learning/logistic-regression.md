@@ -54,30 +54,30 @@ and its logarithm, the log-likelihood, collapses into a single summed expression
 
 $$\ell = \sum_{k=1}^{K}\left(y_k \ln p_k + (1 - y_k)\ln(1 - p_k)\right)$$
 
-Negate that and you have the binary cross-entropy that scikit-learn minimizes, whose cost function is written as a sum of $-y_i \log(\hat{p}(X_i)) - (1 - y_i)\log(1 - \hat{p}(X_i))$ terms plus a regularization term. Cross-entropy loss and negative log-likelihood are the same object approached from two directions, which is a useful thing to know before meeting cross-entropy again in [[loss-functions|loss functions]] and again in every deep classifier.
+Negate that and you have the binary cross-entropy that scikit-learn minimizes, whose cost function is written as a sum of $-y_i \log(\hat{p}(X_i)) - (1 - y_i)\log(1 - \hat{p}(X_i))$ terms plus a regularization term. Cross-entropy loss and negative log-likelihood are the same object approached from two directions, which is a useful thing to know before meeting cross-entropy again in [[cs/machine-learning/loss-functions|loss functions]] and again in every deep classifier.
 
-The catch is that maximum likelihood here has no closed form. Wikipedia is explicit that logistic regression's parameters are most commonly estimated by MLE and that this "does not have a closed-form expression, unlike linear least squares." Setting the derivatives to zero yields conditions like $\sum_k (y_k - p_k) x_k = 0$, which are nonlinear in the coefficients and cannot be solved algebraically. So you fall back to an iterative numerical method, which is [[gradient-descent|gradient descent]] and its relatives in the ML world, and iteratively reweighted least squares or a quasi-Newton method such as L-BFGS in the statistics world. [[regression|Linear regression]] has a normal equation; logistic regression never does. That difference, not the sigmoid, is the real structural break between the two.
+The catch is that maximum likelihood here has no closed form. Wikipedia is explicit that logistic regression's parameters are most commonly estimated by MLE and that this "does not have a closed-form expression, unlike linear least squares." Setting the derivatives to zero yields conditions like $\sum_k (y_k - p_k) x_k = 0$, which are nonlinear in the coefficients and cannot be solved algebraically. So you fall back to an iterative numerical method, which is [[cs/machine-learning/gradient-descent|gradient descent]] and its relatives in the ML world, and iteratively reweighted least squares or a quasi-Newton method such as L-BFGS in the statistics world. [[cs/machine-learning/regression|Linear regression]] has a normal equation; logistic regression never does. That difference, not the sigmoid, is the real structural break between the two.
 
 > [!example] Reading a fitted model on three scales
 > Wikipedia works a two-variable model with base 10, $t = \log_{10}\frac{p}{1-p} = -3 + x_1 + 2x_2$. At $x_1 = x_2 = 0$ the log-odds are $-3$, so the odds are $10^{-3}$, one-to-1000, and the probability is $1/1001$. Increasing $x_1$ by one raises the log-odds by 1, multiplying the odds by $10^1$. Increasing $x_2$ by one raises the log-odds by 2, multiplying the odds by $10^2$. Note what the source stresses about the third scale: the effect of $x_2$ on the log-odds is twice that of $x_1$, and its effect on the odds is ten times greater, but the effect on the probability is not ten times greater. Three scales, three different stories, one linear model.
 
 ## The threshold is not part of the model
 
-The fitted model outputs a number in $(0,1)$. Turning that into a predicted label requires picking a cutoff, and scikit-learn documents its own choice: the predicted probability "can be used as a classifier by applying a threshold (by default 0.5) to it. This is how it is implemented in scikit-learn, so it expects a categorical target, making the Logistic Regression a classifier." The default 0.5 is a convention, not a derivation. Moving it trades precision against recall without retraining anything, which is why the [[evaluation-metrics|ROC and precision-recall curves]] sweep the threshold rather than fixing it. A model that looks bad at 0.5 on an imbalanced problem is often a fine model read at the wrong cutoff.
+The fitted model outputs a number in $(0,1)$. Turning that into a predicted label requires picking a cutoff, and scikit-learn documents its own choice: the predicted probability "can be used as a classifier by applying a threshold (by default 0.5) to it. This is how it is implemented in scikit-learn, so it expects a categorical target, making the Logistic Regression a classifier." The default 0.5 is a convention, not a derivation. Moving it trades precision against recall without retraining anything, which is why the [[cs/machine-learning/evaluation-metrics|ROC and precision-recall curves]] sweep the threshold rather than fixing it. A model that looks bad at 0.5 on an imbalanced problem is often a fine model read at the wrong cutoff.
 
 > [!warning] Regularization defaults differ by culture
-> scikit-learn notes that regularization "is applied by default, which is common in machine learning but not in statistics," and that turning it off amounts to setting `C` to a very high value. A statistician fitting the same data in a stats package and an engineer fitting it in scikit-learn can get different coefficients from identical inputs, purely from this default. The penalty options offered are $\ell_1$, $\ell_2$, and Elastic-Net, the same levers covered in [[regularization-ridge-and-lasso|ridge and lasso]].
+> scikit-learn notes that regularization "is applied by default, which is common in machine learning but not in statistics," and that turning it off amounts to setting `C` to a very high value. A statistician fitting the same data in a stats package and an engineer fitting it in scikit-learn can get different coefficients from identical inputs, purely from this default. The penalty options offered are $\ell_1$, $\ell_2$, and Elastic-Net, the same levers covered in [[cs/machine-learning/regularization-ridge-and-lasso|ridge and lasso]].
 
 ## Related Notes
 
-- [[regression|Regression: Linear, Logistic, and Softmax]] - the three-model progression this note zooms in on
+- [[cs/machine-learning/regression|Regression: Linear, Logistic, and Softmax]] - the three-model progression this note zooms in on
 - [[cs/statistics/maximum-likelihood-estimation|Maximum Likelihood Estimation]] - the estimation principle that produces the cross-entropy objective
-- [[loss-functions|Loss Functions]] - cross-entropy as negative log-likelihood
-- [[gradient-descent|Gradient Descent]] - the iterative fit used because no closed form exists
+- [[cs/machine-learning/loss-functions|Loss Functions]] - cross-entropy as negative log-likelihood
+- [[cs/machine-learning/gradient-descent|Gradient Descent]] - the iterative fit used because no closed form exists
 - [[cs/deep-learning/activation-functions|Activation Functions]] - the sigmoid in its neural-network role
-- [[evaluation-metrics|Evaluation Metrics]] - what changes when you move the decision threshold
-- [[regularization-ridge-and-lasso|Regularization: Ridge and Lasso]] - the L1 and L2 penalties applied by default here
-- [[supervised-learning|Supervised Learning]] - the labeled setting this model lives in
+- [[cs/machine-learning/evaluation-metrics|Evaluation Metrics]] - what changes when you move the decision threshold
+- [[cs/machine-learning/regularization-ridge-and-lasso|Regularization: Ridge and Lasso]] - the L1 and L2 penalties applied by default here
+- [[cs/machine-learning/supervised-learning|Supervised Learning]] - the labeled setting this model lives in
 
 ## Sources
 

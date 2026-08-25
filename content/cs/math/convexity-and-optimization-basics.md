@@ -25,7 +25,7 @@ Two definitions carry the whole idea. A set of points "is convex if it contains 
 A function is convex when the same no-indent condition holds for the region above its graph. "A real-valued function is called convex if the line segment between any two distinct points on the graph of the function lies above or on the graph of the function between the two points. Equivalently, a function is convex if its epigraph (the set of points on or above the graph of the function) is a convex set." Informally, "a convex function graph is shaped like a cup, while a concave function's graph is shaped like a cap."
 
 > [!note] The idea
-> Convexity converts a global claim into a local check, and that is the entire source of its power. "Any local minimum of a convex function is also a global minimum." An algorithm that can only see its immediate neighborhood, such as [[gradient-descent|gradient descent]], normally has no way to know whether a flat spot is the best answer or a trap. Under convexity, finding a local minimum *is* finding the global one, so a myopic procedure earns a global guarantee for free. Everything else in convex optimization is downstream of this one sentence.
+> Convexity converts a global claim into a local check, and that is the entire source of its power. "Any local minimum of a convex function is also a global minimum." An algorithm that can only see its immediate neighborhood, such as [[cs/machine-learning/gradient-descent|gradient descent]], normally has no way to know whether a flat spot is the best answer or a trap. Under convexity, finding a local minimum *is* finding the global one, so a myopic procedure earns a global guarantee for free. Everything else in convex optimization is downstream of this one sentence.
 
 ## Local Becomes Global
 
@@ -62,18 +62,18 @@ Inequality constraints are harder. "A common way to solve them is to reduce them
 
 The application list is broad and unmistakably computational: convex optimization models problems "in a wide range of disciplines, such as automatic control systems, estimation and signal processing, communications and networks, electronic circuit design, data analysis and modeling, finance, statistics (optimal experimental design), and structural optimization." Named instances include "variations of statistical regression (including regularization and quantile regression)," "model fitting (particularly multiclass classification)," and "combinatorial optimization."
 
-Those three touch most of the [[ai-vs-ml-vs-dl|machine learning]] stack. Fitting a [[regression|regression]] model, adding a penalty as in [[regularization-ridge-and-lasso|ridge and lasso]], and training a classifier are all optimization problems whose solvability depends on the shape of the objective, which is why loss functions are so often chosen for convenience of geometry as much as for statistical meaning.
+Those three touch most of the [[cs/machine-learning/ai-vs-ml-vs-dl|machine learning]] stack. Fitting a [[cs/machine-learning/regression|regression]] model, adding a penalty as in [[cs/machine-learning/regularization-ridge-and-lasso|ridge and lasso]], and training a classifier are all optimization problems whose solvability depends on the shape of the objective, which is why loss functions are so often chosen for convenience of geometry as much as for statistical meaning.
 
 > [!warning]
-> Deep learning objectives are not convex, and the guarantees above simply do not apply to them. The claim "every local minimum is a global minimum" is a theorem about convex functions, not a general property of optimization, and it is not something [[loss-functions|a loss surface]] inherits by being differentiable or well-behaved. Convexity is worth knowing precisely because it draws the line: on one side, polynomial-time algorithms with global guarantees; on the other, the general problem that "is in general NP-hard."
+> Deep learning objectives are not convex, and the guarantees above simply do not apply to them. The claim "every local minimum is a global minimum" is a theorem about convex functions, not a general property of optimization, and it is not something [[cs/machine-learning/loss-functions|a loss surface]] inherits by being differentiable or well-behaved. Convexity is worth knowing precisely because it draws the line: on one side, polynomial-time algorithms with global guarantees; on the other, the general problem that "is in general NP-hard."
 
 ## Related Notes
 
-- [[gradient-descent|Gradient Descent]] - the local method whose global guarantee comes entirely from convexity
-- [[derivatives-and-gradients|Derivatives and Gradients]] - the first and second derivatives that test convexity and drive the search
-- [[set-theory-basics|Set Theory Basics]] - subsets, intersections, and the operations behind the convex hull
-- [[loss-functions|Loss Functions]] - the objectives whose shape decides whether optimization is tractable
-- [[support-vector-machines|Support Vector Machines]] - a classifier posed as a constrained optimization problem
+- [[cs/machine-learning/gradient-descent|Gradient Descent]] - the local method whose global guarantee comes entirely from convexity
+- [[cs/math/derivatives-and-gradients|Derivatives and Gradients]] - the first and second derivatives that test convexity and drive the search
+- [[cs/math/set-theory-basics|Set Theory Basics]] - subsets, intersections, and the operations behind the convex hull
+- [[cs/machine-learning/loss-functions|Loss Functions]] - the objectives whose shape decides whether optimization is tractable
+- [[cs/machine-learning/support-vector-machines|Support Vector Machines]] - a classifier posed as a constrained optimization problem
 
 ## Sources
 

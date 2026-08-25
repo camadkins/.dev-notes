@@ -16,7 +16,7 @@ aliases:
   - backward-edge CFI
 ---
 
-Every prior memory defense answered a question about storage. Stack canaries ask "was this saved value tampered with?" Non-executable memory asks "is this page allowed to run code?" [[return-oriented-programming|Return-oriented programming]] walked around both by corrupting the return value the canary did not cover and reusing code the page permissions already blessed. Control-flow integrity changes the question entirely. It stops reasoning about bytes and permissions and starts reasoning about the program's [[cs/pl/intermediate-representations-and-ssa|control-flow graph]] directly: for every indirect branch, is this jump one the compiled program was ever supposed to be able to make?
+Every prior memory defense answered a question about storage. Stack canaries ask "was this saved value tampered with?" Non-executable memory asks "is this page allowed to run code?" [[cs/security/return-oriented-programming|Return-oriented programming]] walked around both by corrupting the return value the canary did not cover and reusing code the page permissions already blessed. Control-flow integrity changes the question entirely. It stops reasoning about bytes and permissions and starts reasoning about the program's [[cs/pl/intermediate-representations-and-ssa|control-flow graph]] directly: for every indirect branch, is this jump one the compiled program was ever supposed to be able to make?
 
 > [!note] The idea
 > CFI enforces that indirect control transfers land only on targets a precomputed valid-target set allows. A program's control flow is a graph of possible transfers; CFI instruments each indirect call, jump, and return to check its destination against that graph at runtime and aborts if the destination is not in the set. Because ROP and its relatives work precisely by redirecting indirect transfers to unintended locations, constraining those transfers to legitimate edges removes the primitive the attack is built from, without needing to know anything about the specific bug that enabled the corruption.
@@ -38,10 +38,10 @@ CFI is not one policy but a dial, and where you set it decides how much attack s
 
 ## Related Notes
 
-- [[return-oriented-programming|Return-Oriented Programming]], the backward-edge attack CFI and shadow stacks are built to reject
-- [[buffer-overflows|Buffer Overflows]], the corruption that supplies the hijacked control transfer in the first place
-- [[memory-protections-aslr-dep-canaries|Memory Protections: ASLR, DEP, and Stack Canaries]], the earlier defenses CFI complements rather than replaces
-- [[stride-threat-modeling|STRIDE Threat Modeling]], for naming the elevation-of-privilege threat a control-flow hijack realizes
+- [[cs/security/return-oriented-programming|Return-Oriented Programming]], the backward-edge attack CFI and shadow stacks are built to reject
+- [[cs/security/buffer-overflows|Buffer Overflows]], the corruption that supplies the hijacked control transfer in the first place
+- [[cs/security/memory-protections-aslr-dep-canaries|Memory Protections: ASLR, DEP, and Stack Canaries]], the earlier defenses CFI complements rather than replaces
+- [[cs/security/stride-threat-modeling|STRIDE Threat Modeling]], for naming the elevation-of-privilege threat a control-flow hijack realizes
 
 ## Sources
 

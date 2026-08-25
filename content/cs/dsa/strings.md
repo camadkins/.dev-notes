@@ -147,7 +147,7 @@ Validate input (reject overlong encodings, invalid surrogates).
 
     - Immutable: create new object or share + copy on write.
 
-    - Mutable: amortized O(1) with geometric capacity growth (like [[dynamic-arrays|Dynamic Arrays]]).
+    - Mutable: amortized O(1) with geometric capacity growth (like [[cs/dsa/dynamic-arrays|Dynamic Arrays]]).
 
 - `concat` many pieces: avoid quadratic behavior by buffering chunks; consider ropes for editors.
 
@@ -210,7 +210,7 @@ Validate input (reject overlong encodings, invalid surrogates).
 
     - Hash **normalized** strings.
 
-    - Cache hash with the string object (invalidated on mutation) to make dict/set operations O(1) average with low constants. See [[hash-tables|Hash Tables]].
+    - Cache hash with the string object (invalidated on mutation) to make dict/set operations O(1) average with low constants. See [[cs/dsa/hash-tables|Hash Tables]].
 
 - **Memory**:
 
@@ -262,7 +262,7 @@ Never cut in the middle of a grapheme; ensures UI correctness.
 
 - **Parsers & tokenizers**: protocol messages, programming languages - prefer normalized, validated Unicode.
 
-- **Search & indexing**: substring search over normalized text; for prefix systems, consider [[standard-trie|Standard Trie]]; for heavy-duty indexing, suffix structures.
+- **Search & indexing**: substring search over normalized text; for prefix systems, consider [[cs/dsa/standard-trie|Standard Trie]]; for heavy-duty indexing, suffix structures.
 
 - **User interfaces**: cursor movement, deletion, and selection by **grapheme clusters**; rendering width requires East Asian Width and combining mark rules.
 
@@ -275,10 +275,10 @@ Strings combine **encoding**, **layout**, and **semantics**. Choose a clear **en
 
 ## Related Notes
 
-- [[standard-trie|Standard Trie]]
+- [[cs/dsa/standard-trie|Standard Trie]]
 
-- [[compressed-trie|Compressed Trie]]
+- [[cs/dsa/compressed-trie|Compressed Trie]]
 
-- [[hash-tables|Hash Tables]]
+- [[cs/dsa/hash-tables|Hash Tables]]
 
-- [[bitwise-operations|Bit Manipulation]]
+- [[cs/dsa/bitwise-operations|Bit Manipulation]]

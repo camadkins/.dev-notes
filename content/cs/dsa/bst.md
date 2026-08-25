@@ -67,7 +67,7 @@ function search(node, key):
 
 The search path follows comparisons — left for smaller, right for larger.
 
-![BST structure showing search path for key 37: 50 → 25 → 37](assets/bst-structure.svg)
+![BST structure showing search path for key 37: 50 → 25 → 37](cs/dsa/assets/bst-structure.svg)
 
 ---
 
@@ -100,7 +100,7 @@ There are three common approaches:
 > [!warning]  
 > Duplicate-handling must be consistent — mixing policies can silently violate ordering.
 
-![Inserting 42 into the chain 40, 50, 60, descending right then left](assets/bst-insertion-trace.svg)
+![Inserting 42 into the chain 40, 50, 60, descending right then left](cs/dsa/assets/bst-insertion-trace.svg)
 
 ---
 
@@ -140,7 +140,7 @@ function delete(node, key):
     return node
 ```
 
-![BST deletion cases: leaf removal, single-child promotion, inorder-successor replacement](assets/bst-deletion-cases.svg)
+![BST deletion cases: leaf removal, single-child promotion, inorder-successor replacement](cs/dsa/assets/bst-deletion-cases.svg)
 
 ---
 
@@ -234,7 +234,7 @@ Inorder traversal yields `[10, 25, 37, 50, 60, 75, 90]`.
 
 - [[cs/dsa/avl-tree|AVL Tree]]
     
-- [[rb-tree]]
+- [[cs/dsa/rb-tree]]
     
 - [[cs/dsa/tree-traversal|Tree Traversal]]
     

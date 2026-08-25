@@ -35,9 +35,9 @@ Structurally, the robust defense resolves the requested path to its canonical ab
 
 ## Related Notes
 
-- [[command-injection|OS Command Injection]], the sibling failure where untrusted input is trusted as structure, one layer over at the shell
-- [[sandboxing-and-isolation|Sandboxing and Isolation]], the chrooted-jail idea OWASP recommends as a containment layer
-- [[owasp-top-10|The OWASP Top 10]], where path traversal falls under the A01 Broken Access Control category
+- [[cs/security/command-injection|OS Command Injection]], the sibling failure where untrusted input is trusted as structure, one layer over at the shell
+- [[cs/security/sandboxing-and-isolation|Sandboxing and Isolation]], the chrooted-jail idea OWASP recommends as a containment layer
+- [[cs/security/owasp-top-10|The OWASP Top 10]], where path traversal falls under the A01 Broken Access Control category
 
 ## Sources
 

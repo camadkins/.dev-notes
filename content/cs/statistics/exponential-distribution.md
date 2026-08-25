@@ -47,7 +47,7 @@ $$P(X > s + t \mid X > s) = P(X > t)$$
 
 This is the only continuous distribution with this property. It means past survival gives no information about remaining lifetime.
 
-![Exponential PDF and CDF curves for varying beta](assets/exponential-pdf.svg)
+![Exponential PDF and CDF curves for varying beta](cs/statistics/assets/exponential-pdf.svg)
 
 **Relationship to Poisson:**
 
@@ -80,6 +80,6 @@ The median is always less than the mean for an exponential distribution, reflect
 
 ## Related Notes
 
-- [[poisson-distribution|Poisson Distribution]] - counts events in an interval; the exponential models time between those events
-- [[normal-distribution|Normal Distribution]] - another foundational continuous distribution, used when many independent factors combine additively
-- [[probability-distributions|Probability Distributions]] - overview of the broader distribution taxonomy
+- [[cs/statistics/poisson-distribution|Poisson Distribution]] - counts events in an interval; the exponential models time between those events
+- [[cs/statistics/normal-distribution|Normal Distribution]] - another foundational continuous distribution, used when many independent factors combine additively
+- [[cs/statistics/probability-distributions|Probability Distributions]] - overview of the broader distribution taxonomy

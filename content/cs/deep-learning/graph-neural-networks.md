@@ -13,7 +13,7 @@ aliases:
   - graph convolutional network
 ---
 
-A [[convolutional-neural-networks|convolutional network]] assumes a grid. A [[recurrent-neural-networks|recurrent network]] assumes a line. Both architectures get their power from an assumption about how the input is laid out, and both break when the input is a molecule, a citation network, or [[cs/dsa/dijkstras-algorithm|a road system]]. Graph neural networks are artificial neural networks designed for tasks whose inputs are [[graphs|graphs]], where the layout is the data.
+A [[cs/deep-learning/convolutional-neural-networks|convolutional network]] assumes a grid. A [[cs/deep-learning/recurrent-neural-networks|recurrent network]] assumes a line. Both architectures get their power from an assumption about how the input is laid out, and both break when the input is a molecule, a citation network, or [[cs/dsa/dijkstras-algorithm|a road system]]. Graph neural networks are artificial neural networks designed for tasks whose inputs are [[cs/dsa/graphs|graphs]], where the layout is the data.
 
 > [!note] The idea
 > A graph has no canonical ordering of its nodes, so any function of a graph that depends on the order you happened to list the nodes in is computing something the graph does not contain. That constraint alone forces the architecture. Each layer must aggregate a node's neighborhood with an operator whose result does not depend on neighbor order (sum, mean, max), which makes the layer permutation equivariant by construction, and any whole-graph readout must be permutation invariant. Message passing is not one design choice among many; it is roughly what is left after the symmetry requirement rules the alternatives out.
@@ -44,7 +44,7 @@ Gilmer, Schoenholz, Riley, Vinyals, and Dahl named the framework in 2017 by refo
 
 Kipf and Welling's graph convolutional network is the variant most people meet first, and its framing is deliberately convolution-shaped: an efficient variant of convolutional neural networks operating directly on graphs, motivated via a localized first-order approximation of spectral graph convolutions. GCNs can be understood as generalizing convolutional networks to graph-structured data, and the model [[cs/dsa/asymptotic-notation|scales linearly]] in the number of graph edges while learning hidden layer representations that encode both local graph structure and node features. On citation networks and a knowledge graph dataset, it outperformed related methods by a significant margin. GCNs and graph attention networks are both expressible in the MPNN formalism, differing in how the message and aggregation steps are parameterized.
 
-The generalization runs the other way too. In geometric deep learning, existing architectures can be reinterpreted as GNNs on suitably defined graphs. A convolutional layer in vision is a GNN on a graph whose nodes are pixels with edges only between adjacent pixels. A [[attention-and-transformers|transformer]] layer is a GNN on a complete graph whose nodes are the tokens in a passage. Attention over all pairs of tokens is message passing where every node is everyone's neighbor.
+The generalization runs the other way too. In geometric deep learning, existing architectures can be reinterpreted as GNNs on suitably defined graphs. A convolutional layer in vision is a GNN on a graph whose nodes are pixels with edges only between adjacent pixels. A [[cs/deep-learning/attention-and-transformers|transformer]] layer is a GNN on a complete graph whose nodes are the tokens in a passage. Attention over all pairs of tokens is message passing where every node is everyone's neighbor.
 
 > [!warning] Depth hurts differently here
 > Stacking many message passing layers causes two named failures. Oversmoothing is node representations becoming indistinguishable, since repeated neighborhood averaging pulls everything toward a common value. Oversquashing is the bottleneck created by squeezing long-range dependencies into fixed-size representations. Skip connections (as in residual networks), gated update rules, and jumping knowledge mitigate oversmoothing; making the final layer fully adjacent, treating the graph as complete, mitigates oversquashing where long-range dependencies matter.
@@ -56,13 +56,13 @@ There is also a ceiling on what this primitive can express. Standard message-pas
 
 ## Related Notes
 
-- [[graphs]], the structure being learned over
-- [[graph-representations]], adjacency lists and matrices behind the neighborhood set
-- [[convolutional-neural-networks]], the grid-shaped special case
-- [[attention-and-transformers]], message passing on a complete graph
-- [[pooling-and-cnn-architectures]], where the pooling and skip-connection ideas came from
-- [[features-and-representations]], what the node vectors are
-- [[embeddings]], the learned node representations these layers produce
+- [[cs/dsa/graphs]], the structure being learned over
+- [[cs/dsa/graph-representations]], adjacency lists and matrices behind the neighborhood set
+- [[cs/deep-learning/convolutional-neural-networks]], the grid-shaped special case
+- [[cs/deep-learning/attention-and-transformers]], message passing on a complete graph
+- [[cs/deep-learning/pooling-and-cnn-architectures]], where the pooling and skip-connection ideas came from
+- [[cs/machine-learning/features-and-representations]], what the node vectors are
+- [[cs/deep-learning/embeddings]], the learned node representations these layers produce
 
 ## Sources
 

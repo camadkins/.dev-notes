@@ -117,6 +117,6 @@ REST returns a fixed shape. GraphQL returns exactly what was asked. gRPC returns
 ## Related Notes
 
 - [[cs/pl/type-systems-goals-guarantees|Type Systems - Goals & Guarantees]] - type-level contracts as the foundation of API safety
-- [[design-patterns|Design Patterns]] - Facade, Adapter, and Proxy patterns shape API boundaries
-- [[software-architecture|Software Architecture]] - APIs are the seams between architectural components
-- [[testing-strategies|Testing Strategies]] - contract tests validate API promises between services
+- [[cs/software-engineering/design-patterns|Design Patterns]] - Facade, Adapter, and Proxy patterns shape API boundaries
+- [[cs/software-engineering/software-architecture|Software Architecture]] - APIs are the seams between architectural components
+- [[cs/software-engineering/testing-strategies|Testing Strategies]] - contract tests validate API promises between services

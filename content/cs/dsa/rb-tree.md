@@ -381,7 +381,7 @@ Let `n` be the number of nodes.
 - Therefore `h ≤ 2 log2(n + 1)`, giving the logarithmic guarantees.
     
 
-![Black-height proof: shortest path (length 2) vs longest alternating path (length 4), both with bh=2, showing h ≤ 2·log₂(n+1)](assets/rbt-black-height.svg)
+![Black-height proof: shortest path (length 2) vs longest alternating path (length 4), both with bh=2, showing h ≤ 2·log₂(n+1)](cs/dsa/assets/rbt-black-height.svg)
 
 ## Implementation Details or Trade-offs
 
@@ -470,10 +470,10 @@ Red–black trees are **height-balanced BSTs** that guarantee `O(log n)` operati
 
 ## Related Notes
 
-- [[bst|Binary Search Tree]]
+- [[cs/dsa/bst|Binary Search Tree]]
     
-- [[avl-tree|AVL Tree]]
+- [[cs/dsa/avl-tree|AVL Tree]]
     
-- [[splay-tree|Splay Tree]]
+- [[cs/dsa/splay-tree|Splay Tree]]
     
-- [[trees|Trees]]
+- [[cs/dsa/trees|Trees]]

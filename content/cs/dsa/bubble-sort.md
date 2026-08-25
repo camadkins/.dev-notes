@@ -151,12 +151,12 @@ Input: `[5, 2, 9, 1, 5, 6]`
 
 ## Related Notes
 
-- [[insertion-sort|Insertion Sort]]
+- [[cs/dsa/insertion-sort|Insertion Sort]]
 
-- [[selection-sort|Selection Sort]]
+- [[cs/dsa/selection-sort|Selection Sort]]
 
-- [[algorithm-efficiency|Algorithm Efficiency]]
+- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]
 
-- [[asymptotic-notation|Asymptotic Notation]]
+- [[cs/dsa/asymptotic-notation|Asymptotic Notation]]
 
-- [[time-complexity-analysis|Time Complexity Analysis]]
+- [[cs/dsa/time-complexity-analysis|Time Complexity Analysis]]

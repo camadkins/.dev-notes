@@ -22,7 +22,7 @@ aliases:
 These notions let you predict performance, communicate guarantees, and reason about **risk** (pathological inputs) versus **typical** behavior.
 
 > [!note]
-> Always specify **which case** you're reporting and, for average-case, the **assumptions** (input distribution, pivot rule, hash function model, etc.). See [[time-complexity-analysis|Time Complexity Analysis]].
+> Always specify **which case** you're reporting and, for average-case, the **assumptions** (input distribution, pivot rule, hash function model, etc.). See [[cs/dsa/time-complexity-analysis|Time Complexity Analysis]].
 
 ## Motivation
 - **User-facing guarantees:** Worst-case bounds protect latency SLAs when inputs can be adversarial (public APIs, security contexts).
@@ -138,7 +138,7 @@ Common modeling patterns:
 - In adversarial settings (crafted collisions), degrade to `$Θ(n)$`. Mitigations:
   - **Randomized hash functions** (e.g., multiplicative hashing with secret seeds).
   - **Cuckoo hashing** (expected O(1), worst-case rehash).
-  - **Tree-bucket fallback** (RB-tree per bucket) to cap worst-case at `$O(\log n)$`. See [[hash-tables|Hash Tables]].
+  - **Tree-bucket fallback** (RB-tree per bucket) to cap worst-case at `$O(\log n)$`. See [[cs/dsa/hash-tables|Hash Tables]].
 
 ## Common Misunderstandings
 > [!warning]
@@ -151,7 +151,7 @@ Common modeling patterns:
 > **"Best case proves algorithm is fast."** A best-case bound is often trivial and misleading. Emphasize **average** under justified assumptions and **worst** for guarantees.
 
 > [!warning]
-> **"Amortized = average-case."** **Amortized** cost averages over **operation sequences**, independent of input distribution (e.g., dynamic-array push). **Average-case** averages over **inputs** (or internal randomness). See [[dynamic-arrays|Dynamic Arrays]].
+> **"Amortized = average-case."** **Amortized** cost averages over **operation sequences**, independent of input distribution (e.g., dynamic-array push). **Average-case** averages over **inputs** (or internal randomness). See [[cs/dsa/dynamic-arrays|Dynamic Arrays]].
 
 > [!warning]
 > **"Randomized ⇒ unpredictable latency."** Randomization typically controls **tail risk** by making adversarial patterns unlikely, improving *predictability* across runs.
@@ -162,7 +162,7 @@ Common modeling patterns:
 ## Broader Implications
 - **Risk management:** Systems interacting with untrusted inputs should prioritize worst-case guarantees or employ **defenses** (randomization, balancing, timeouts).
 - **Benchmarking discipline:** Report **which case** a benchmark targets; avoid cherry-picking best-case distributions.
-- **Algorithm portfolios:** Combine strategies: fast average-case (e.g., quicksort) with **fallbacks** for bad cases (e.g., introsort → heap sort). See [[quick-sort|Quick Sort]] and [[heapsort|Heapsort]].
+- **Algorithm portfolios:** Combine strategies: fast average-case (e.g., quicksort) with **fallbacks** for bad cases (e.g., introsort → heap sort). See [[cs/dsa/quick-sort|Quick Sort]] and [[cs/dsa/heapsort|Heapsort]].
 - **Data pipelines:** Understand your input sources. If they skew toward nearly-sorted or heavy-duplicate regimes, choose algorithms that **adapt** to those structures.
 
 ## Summary
@@ -173,10 +173,10 @@ Common modeling patterns:
 Great engineering calls out the case, the assumptions, and the **mitigations** used to keep performance predictable: pivot sampling, rehashing, balancing, or hybrid fallbacks.
 
 ## Related Notes
-- [[asymptotic-notation|Asymptotic Notation]]
-- [[amortized-analysis-methods|Amortized Analysis]]
-- [[time-complexity-analysis|Time Complexity Analysis]]
-- [[time-complexity-calculation|Time Complexity Calculation]]
-- [[algorithm-efficiency|Algorithm Efficiency]]
-- [[quick-sort|Quick Sort]]
-- [[hash-tables|Hash Tables]]
+- [[cs/dsa/asymptotic-notation|Asymptotic Notation]]
+- [[cs/dsa/amortized-analysis-methods|Amortized Analysis]]
+- [[cs/dsa/time-complexity-analysis|Time Complexity Analysis]]
+- [[cs/dsa/time-complexity-calculation|Time Complexity Calculation]]
+- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]
+- [[cs/dsa/quick-sort|Quick Sort]]
+- [[cs/dsa/hash-tables|Hash Tables]]

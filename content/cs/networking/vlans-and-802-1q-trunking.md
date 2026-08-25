@@ -22,11 +22,11 @@ A switch, left alone, floods a broadcast frame out every port: every device plug
 
 ## Segmentation without separate cable
 
-A VLAN behaves like a virtual switch that shares the same physical structure with other VLANs while staying logically separate. It works by applying tags to frames forwarded within the broadcast domain, creating the appearance of traffic split across separate networks even though one set of cabling and switches carries all of it. Because switches do not bridge between VLANs, each VLAN is its own broadcast domain, and breaking a large network into smaller ones reduces the broadcast load every device has to absorb. A VLAN usually maps one-to-one to an IP subnet, so the segmentation you see in [[ip-addressing-and-subnetting|subnetting]] at layer 3 lines up with the VLAN boundary at layer 2. Getting a packet from one VLAN to another means routing between the subnets, which is where a router (or a layer-3 switch) filters broadcasts and enforces policy between the segments.
+A VLAN behaves like a virtual switch that shares the same physical structure with other VLANs while staying logically separate. It works by applying tags to frames forwarded within the broadcast domain, creating the appearance of traffic split across separate networks even though one set of cabling and switches carries all of it. Because switches do not bridge between VLANs, each VLAN is its own broadcast domain, and breaking a large network into smaller ones reduces the broadcast load every device has to absorb. A VLAN usually maps one-to-one to an IP subnet, so the segmentation you see in [[cs/networking/ip-addressing-and-subnetting|subnetting]] at layer 3 lines up with the VLAN boundary at layer 2. Getting a packet from one VLAN to another means routing between the subnets, which is where a router (or a layer-3 switch) filters broadcasts and enforces policy between the segments.
 
 ## The 802.1Q tag: 32 bits between MAC and EtherType
 
-The near-universal way to carry VLAN membership is [[cs/standards/ieee-802-1q-vlan-tagging|IEEE 802.1Q]], often called Dot1q, which defines VLAN tagging for Ethernet frames. It adds a 32-bit field between the source MAC address and the EtherType field of the original frame, which [[cs/standards/ieee-802-3-ethernet|pushes the maximum frame size from 1,518 to 1,522 bytes]]. Two of those bytes are the tag protocol identifier (TPID), set to 0x8100 and sitting where the EtherType would be so a receiver can tell a tagged frame from an untagged one. The other two bytes are tag control information, and inside them is the field that does the real work: the VLAN identifier (VID), a 12-bit number specifying the VLAN the frame belongs to. Values 0 and 4095 are reserved, leaving up to 4,094 usable VLANs. The [[arp-and-mac-addressing|MAC addresses]] are untouched; the tag rides between the source MAC and the type field the switch was already reading.
+The near-universal way to carry VLAN membership is [[cs/standards/ieee-802-1q-vlan-tagging|IEEE 802.1Q]], often called Dot1q, which defines VLAN tagging for Ethernet frames. It adds a 32-bit field between the source MAC address and the EtherType field of the original frame, which [[cs/standards/ieee-802-3-ethernet|pushes the maximum frame size from 1,518 to 1,522 bytes]]. Two of those bytes are the tag protocol identifier (TPID), set to 0x8100 and sitting where the EtherType would be so a receiver can tell a tagged frame from an untagged one. The other two bytes are tag control information, and inside them is the field that does the real work: the VLAN identifier (VID), a 12-bit number specifying the VLAN the frame belongs to. Values 0 and 4095 are reserved, leaving up to 4,094 usable VLANs. The [[cs/networking/arp-and-mac-addressing|MAC addresses]] are untouched; the tag rides between the source MAC and the type field the switch was already reading.
 
 ## Access ports, trunks, and the native VLAN
 
@@ -34,23 +34,23 @@ How a port treats tags depends on its role. An **access port** faces an ordinary
 
 A **trunk port** connects two switches (or a switch to a router or hypervisor) and carries many VLANs over one link. Here the tag stays on, because the far end needs to know which VLAN each frame belongs to. Simpler equipment can only partition per physical port, so each VLAN would need its own cable; tagging is what lets a single interconnect, the trunk, transport data for multiple VLANs at once.
 
-The exception is the **native VLAN**. On a trunk, one VLAN is designated native and its frames cross the trunk *untagged*. The rule that makes this work is in the standard: a frame in the VLAN-aware part of the network that does not contain a VLAN tag is assumed to be flowing on the native VLAN. That backward-compatible convenience is also a classic footgun, because a mismatch in the native VLAN between two ends of a trunk, or an injected extra tag, is the basis of VLAN-hopping attacks (see [[arp-spoofing-and-lan-attacks|LAN-layer attacks]]).
+The exception is the **native VLAN**. On a trunk, one VLAN is designated native and its frames cross the trunk *untagged*. The rule that makes this work is in the standard: a frame in the VLAN-aware part of the network that does not contain a VLAN tag is assumed to be flowing on the native VLAN. That backward-compatible convenience is also a classic footgun, because a mismatch in the native VLAN between two ends of a trunk, or an injected extra tag, is the basis of VLAN-hopping attacks (see [[cs/security/arp-spoofing-and-lan-attacks|LAN-layer attacks]]).
 
-![802.1Q inserts a 32-bit tag between the source MAC address and the EtherType field; its 12-bit VID names the VLAN](assets/dot1q-tag.svg)
+![802.1Q inserts a 32-bit tag between the source MAC address and the EtherType field; its 12-bit VID names the VLAN](cs/networking/assets/dot1q-tag.svg)
 
 > [!example] One frame, two ports
 > A laptop on VLAN 20 sends a normal untagged frame into its access port. The switch stamps VID 20 into an 802.1Q tag and forwards it. When the frame needs to reach a second switch, it leaves over the trunk still carrying VID 20, so the second switch knows to keep it inside VLAN 20 and never leaks it to VLAN 10. Reaching the far switch's access port for the destination, the tag is stripped and a plain frame is delivered. The endpoints on both ends only ever saw untagged Ethernet.
 
 > [!warning] Isolation is a switch promise, not encryption
-> VLAN separation is enforced by switch forwarding rules, not cryptography. Frames on different VLANs share the same wire and hardware, so the isolation holds only as long as the switch configuration and trunk boundaries are correct. VLANs are a segmentation and management tool; they are not a substitute for [[firewalls|firewalls]] or link encryption.
+> VLAN separation is enforced by switch forwarding rules, not cryptography. Frames on different VLANs share the same wire and hardware, so the isolation holds only as long as the switch configuration and trunk boundaries are correct. VLANs are a segmentation and management tool; they are not a substitute for [[cs/security/firewalls|firewalls]] or link encryption.
 
 ## Related Notes
 
-- [[arp-and-mac-addressing|ARP and MAC Addressing]] - the layer-2 addressing the 802.1Q tag sits beside
-- [[ip-addressing-and-subnetting|IP Addressing and Subnetting]] - the layer-3 subnets VLANs usually map onto
-- [[osi-and-tcp-ip-models|OSI and TCP/IP Models]] - the data link layer where VLANs live
-- [[mtu-and-fragmentation|MTU and Fragmentation]] - why the extra tag bytes matter to frame size
-- [[arp-spoofing-and-lan-attacks|ARP Spoofing and LAN Attacks]] - VLAN hopping and other layer-2 abuses
+- [[cs/networking/arp-and-mac-addressing|ARP and MAC Addressing]] - the layer-2 addressing the 802.1Q tag sits beside
+- [[cs/networking/ip-addressing-and-subnetting|IP Addressing and Subnetting]] - the layer-3 subnets VLANs usually map onto
+- [[cs/networking/osi-and-tcp-ip-models|OSI and TCP/IP Models]] - the data link layer where VLANs live
+- [[cs/networking/mtu-and-fragmentation|MTU and Fragmentation]] - why the extra tag bytes matter to frame size
+- [[cs/security/arp-spoofing-and-lan-attacks|ARP Spoofing and LAN Attacks]] - VLAN hopping and other layer-2 abuses
 
 ## Sources
 

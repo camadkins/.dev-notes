@@ -113,11 +113,11 @@ Two more failure classes sit outside the array's scope entirely. Physical: "an a
 
 ## Related Notes
 
-- [[file-systems|File Systems]] - the layer above, and where copy-on-write designs close the write hole
-- [[io-devices-and-drivers|I/O Devices and Drivers]] - the controllers and drivers an array depends on, and can be stranded by
-- [[replication-and-quorums|Replication and Quorums]] - the same redundancy argument across machines instead of drives
-- [[magnetic-disk-storage|Magnetic Disk Storage]] - the physical device whose failure characteristics drive all of this
-- [[memory-hierarchy-and-caching|Memory Hierarchy and Caching]] - write-back caching, which introduces its own durability gap
+- [[cs/systems/file-systems|File Systems]] - the layer above, and where copy-on-write designs close the write hole
+- [[cs/systems/io-devices-and-drivers|I/O Devices and Drivers]] - the controllers and drivers an array depends on, and can be stranded by
+- [[cs/systems/replication-and-quorums|Replication and Quorums]] - the same redundancy argument across machines instead of drives
+- [[cs/history/magnetic-disk-storage|Magnetic Disk Storage]] - the physical device whose failure characteristics drive all of this
+- [[cs/systems/memory-hierarchy-and-caching|Memory Hierarchy and Caching]] - write-back caching, which introduces its own durability gap
 
 ## Sources
 

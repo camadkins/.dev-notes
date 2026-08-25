@@ -71,7 +71,7 @@ $$P(\theta \mid D_1, D_2) \propto P(D_2 \mid \theta)\, P(\theta \mid D_1)$$
 
 The final result is identical to updating on both datasets at once - order does not matter. This makes Bayesian methods natural for **streaming data** and **[[cs/machine-learning/supervised-learning|online learning]]**.
 
-![Sequential Bayesian updating flow: prior times likelihood yields posterior, which becomes the next prior](assets/bayesian-updating.svg)
+![Sequential Bayesian updating flow: prior times likelihood yields posterior, which becomes the next prior](cs/statistics/assets/bayesian-updating.svg)
 
 ### Bayesian vs. frequentist
 
@@ -99,6 +99,6 @@ With 100 flips and 70 heads, the posterior becomes $\text{Beta}(72, 32)$ with me
 
 ## Related Notes
 
-- [[probability-distributions|Probability Distributions]] - priors and posteriors are distributions
-- [[hypothesis-testing|Hypothesis Testing]] - frequentist alternative; Bayesian methods compute $P(H \mid D)$ directly
-- [[regression-fundamentals|Regression Fundamentals]] - Bayesian regression places priors on coefficients
+- [[cs/statistics/probability-distributions|Probability Distributions]] - priors and posteriors are distributions
+- [[cs/statistics/hypothesis-testing|Hypothesis Testing]] - frequentist alternative; Bayesian methods compute $P(H \mid D)$ directly
+- [[cs/statistics/regression-fundamentals|Regression Fundamentals]] - Bayesian regression places priors on coefficients

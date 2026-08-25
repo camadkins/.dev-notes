@@ -144,7 +144,7 @@ Each layer refines precision:
 2. **Static semantics:** filters invalid ones.
 3. **Dynamic semantics:** defines execution behavior.
 
-![Formalization pipeline: source text through parser, type checker, and evaluator](assets/syntax-layers.svg)
+![Formalization pipeline: source text through parser, type checker, and evaluator](cs/pl/assets/syntax-layers.svg)
 
 ---
 
@@ -171,7 +171,7 @@ F ::= n
 
 ```
 
-![Ambiguous vs refined grammar parse trees for 1 + 2 * 3](assets/syntax-ambiguity.svg)
+![Ambiguous vs refined grammar parse trees for 1 + 2 * 3](cs/pl/assets/syntax-ambiguity.svg)
 
 > [!warning]
 > Grammar-level ambiguity affects parsing, not semantics.  

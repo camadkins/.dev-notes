@@ -230,7 +230,7 @@ FIFO implies **arrival order** preserved. If you must iterate, be aware that con
 
 - **[[cs/systems/process-scheduling-algorithms|Task scheduling]]**: breadth-first worklists, cooperative schedulers.
 
-- **Graph traversals**: [[breadth-first-search-algorithms|Breadth-First Search Algorithms]] maintain a queue of vertices by discovery order.
+- **Graph traversals**: [[cs/dsa/breadth-first-search-algorithms|Breadth-First Search Algorithms]] maintain a queue of vertices by discovery order.
 
 - **Rate limiting**: enqueue timestamps/tokens; dequeue to permit actions at controlled pace.
 
@@ -260,10 +260,10 @@ Queues provide **FIFO** semantics with simple `ENQUEUE`/`DEQUEUE` operations. Th
 
 ## Related Notes
 
-- [[queue-using-array|Queue Using Array]]
+- [[cs/dsa/queue-using-array|Queue Using Array]]
 
-- [[queue-using-linked-list|Queue Using Linked List]]
+- [[cs/dsa/queue-using-linked-list|Queue Using Linked List]]
 
-- [[circular-queue|Circular Queue]]
+- [[cs/dsa/circular-queue|Circular Queue]]
 
-- [[breadth-first-search-algorithms|Breadth-First Search Algorithms]]
+- [[cs/dsa/breadth-first-search-algorithms|Breadth-First Search Algorithms]]

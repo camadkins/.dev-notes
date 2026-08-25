@@ -31,7 +31,7 @@ The denominator is the **[[cs/math/discrete-probability|law of total probability
 > [!tip]
 > The denominator is often the hardest part to compute. In practice, you can evaluate the numerator for each $B_i$ and then normalize. This is exactly what many inference algorithms do.
 
-![Sample space partitioned into B1, B2, B3 with event A overlapping all three](assets/bayes-partition.svg)
+![Sample space partitioned into B1, B2, B3 with event A overlapping all three](cs/statistics/assets/bayes-partition.svg)
 
 ### Posterior form (continuous parameter)
 
@@ -39,7 +39,7 @@ When the "cause" is a continuous parameter $\theta$ with prior density $\pi(\the
 
 $$\pi(\theta \mid x) = \frac{f(x \mid \theta)\, \pi(\theta)}{g(x)}, \qquad g(x) = \int f(x \mid \theta)\, \pi(\theta)\, d\theta$$
 
-This is the starting point of [[bayesian-inference|Bayesian Inference]], which builds a full framework around this formula - prior selection, conjugacy, sequential updating, and computational methods like MCMC.
+This is the starting point of [[cs/statistics/bayesian-inference|Bayesian Inference]], which builds a full framework around this formula - prior selection, conjugacy, sequential updating, and computational methods like MCMC.
 
 ## Key Formulas
 
@@ -94,7 +94,7 @@ The most famous application is the **[[cs/machine-learning/supervised-learning|N
 
 ## Related Notes
 
-- [[conditional-probability|Conditional Probability]] - the foundation Bayes' rule rearranges
-- [[bayesian-inference|Bayesian Inference]] - the full inference framework built around this rule
-- [[probability-distributions|Probability Distributions]] - priors and likelihoods are distributions
-- [[the-impossibility-of-algorithmic-fairness|The Impossibility of Algorithmic Fairness]] - calibration and base rates are Bayes' rule applied to risk scores, and why fairness criteria collide
+- [[cs/statistics/conditional-probability|Conditional Probability]] - the foundation Bayes' rule rearranges
+- [[cs/statistics/bayesian-inference|Bayesian Inference]] - the full inference framework built around this rule
+- [[cs/statistics/probability-distributions|Probability Distributions]] - priors and likelihoods are distributions
+- [[cs/ethics/the-impossibility-of-algorithmic-fairness|The Impossibility of Algorithmic Fairness]] - calibration and base rates are Bayes' rule applied to risk scores, and why fairness criteria collide

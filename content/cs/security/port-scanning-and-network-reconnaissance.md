@@ -25,22 +25,22 @@ Before anyone attacks a system, they have to find it, and find out what it runs.
 
 A normal TCP connection completes a [[cs/networking/tcp-three-way-handshake|three-way handshake]]: SYN, SYN/ACK, ACK. A SYN scan stops one step short. As the Nmap reference explains, "because the three-way handshake is never completed, SYN scan is sometimes called half-open scanning." The scanner sends the opening SYN, reads whatever comes back, and never sends the ACK that would finalize a connection. That is enough, because the diagnostic information is entirely in the response.
 
-The value is precision. A SYN scan "allows clear, reliable differentiation between `open`, `closed`, and `filtered` states." Those three states map directly to three behaviors of the remote stack. A SYN/ACK reply means a service is listening: the port is open. A RST reply means the host is reachable but nothing is listening there: the port is closed. No reply at all, even after retransmissions, means a firewall or filter silently dropped the probe: the port is filtered. That last state is why a scan doubles as [[firewalls|firewall]] reconnaissance, because the absence of an answer is itself an answer about what sits in front of the host.
+The value is precision. A SYN scan "allows clear, reliable differentiation between `open`, `closed`, and `filtered` states." Those three states map directly to three behaviors of the remote stack. A SYN/ACK reply means a service is listening: the port is open. A RST reply means the host is reachable but nothing is listening there: the port is closed. No reply at all, even after retransmissions, means a firewall or filter silently dropped the probe: the port is filtered. That last state is why a scan doubles as [[cs/security/firewalls|firewall]] reconnaissance, because the absence of an answer is itself an answer about what sits in front of the host.
 
 ## Why half-open is the default
 
 Not completing the handshake is not only informative, it is efficient and quiet. The reference notes that a SYN scan "is relatively unobtrusive and stealthy, since it never completes TCP connections," and it is fast: "it can be performed quickly, scanning thousands of ports per second on a fast network not hampered by intrusive firewalls." Historically, leaving the connection half-open also meant the target application never saw a completed connection to log, though modern monitoring closes much of that gap. For those reasons the reference calls it plainly "the default and most popular scan option for good reason."
 
 > [!tip] Reconnaissance is symmetric, so run it on yourself
-> Every technique here is available to both sides. The map an attacker builds of your open ports and service versions is the same map you should build first, because you cannot defend an exposure you do not know you have. Scanning your own address space and comparing it to what should be reachable is how you catch the forgotten service, the misconfigured rule, the port a deploy quietly opened. What a scan reveals to an attacker, an [[ids-and-ips|intrusion detection system]] tries to catch in the act, and a tightly scoped [[firewalls|firewall]] tries to make boring: mostly filtered, nothing listening.
+> Every technique here is available to both sides. The map an attacker builds of your open ports and service versions is the same map you should build first, because you cannot defend an exposure you do not know you have. Scanning your own address space and comparing it to what should be reachable is how you catch the forgotten service, the misconfigured rule, the port a deploy quietly opened. What a scan reveals to an attacker, an [[cs/security/ids-and-ips|intrusion detection system]] tries to catch in the act, and a tightly scoped [[cs/security/firewalls|firewall]] tries to make boring: mostly filtered, nothing listening.
 
 ## Related Notes
 
-- [[firewalls|Firewalls]] - the device whose presence a scan infers from filtered, unanswered ports
-- [[network-protocols|Network Protocols]] - the TCP handshake and state machine the scan interrogates
-- [[ids-and-ips|IDS and IPS]] - the monitors that try to detect a scan sweeping across ports
-- [[stride-threat-modeling|STRIDE Threat Modeling]] - reconnaissance maps the surface that threat modeling reasons about
-- [[denial-of-service-and-ddos|Denial of Service and DDoS]] - the SYN packet reused, this time to exhaust rather than probe
+- [[cs/security/firewalls|Firewalls]] - the device whose presence a scan infers from filtered, unanswered ports
+- [[cs/systems/network-protocols|Network Protocols]] - the TCP handshake and state machine the scan interrogates
+- [[cs/security/ids-and-ips|IDS and IPS]] - the monitors that try to detect a scan sweeping across ports
+- [[cs/security/stride-threat-modeling|STRIDE Threat Modeling]] - reconnaissance maps the surface that threat modeling reasons about
+- [[cs/security/denial-of-service-and-ddos|Denial of Service and DDoS]] - the SYN packet reused, this time to exhaust rather than probe
 
 ## Sources
 

@@ -116,7 +116,7 @@ When `k` is called, execution jumps back to the `call/cc` site with the provided
 
 ---
 
-![Direct-style call stack vs CPS horizontal chain](assets/cps-transform.svg)
+![Direct-style call stack vs CPS horizontal chain](cs/pl/assets/cps-transform.svg)
 
 ---
 
@@ -157,7 +157,7 @@ execution is just **explicitly passing control**.
 
 - [[cs/pl/exceptions-handlers-and-non-local-control|Exceptions & Non-local Control]]
     
-- [[abstract-machines-cek-secd|Abstract Machines: CEK and SECD]]
+- [[cs/pl/abstract-machines-cek-secd|Abstract Machines: CEK and SECD]]
     
 - [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus: Syntax & Substitution]]
 

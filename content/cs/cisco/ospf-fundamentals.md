@@ -142,12 +142,12 @@ For the MTU case there is a bypass and a warning attached to it. You can configu
 
 ## Related Notes
 
-- [[ospf-and-link-state-routing|OSPF and Link-State Routing]] - the link-state model and Dijkstra computation behind the state machine here
-- [[eigrp-fundamentals|EIGRP Fundamentals]] - the other IGP, and the one that beats OSPF on administrative distance
-- [[static-routing-and-administrative-distance|Static Routing and Administrative Distance]] - AD 110 and how a static route overrides it
-- [[bgp-fundamentals|BGP Fundamentals]] - the exterior protocol OSPF hands off to at the AS boundary
-- [[mtu-and-fragmentation|MTU and Fragmentation]] - the mismatch that strands adjacencies in Exstart
-- [[show-and-debug-methodology|Show and Debug Methodology]] - `debug ip ospf adj` and when to reach for it
+- [[cs/networking/ospf-and-link-state-routing|OSPF and Link-State Routing]] - the link-state model and Dijkstra computation behind the state machine here
+- [[cs/cisco/eigrp-fundamentals|EIGRP Fundamentals]] - the other IGP, and the one that beats OSPF on administrative distance
+- [[cs/cisco/static-routing-and-administrative-distance|Static Routing and Administrative Distance]] - AD 110 and how a static route overrides it
+- [[cs/cisco/bgp-fundamentals|BGP Fundamentals]] - the exterior protocol OSPF hands off to at the AS boundary
+- [[cs/networking/mtu-and-fragmentation|MTU and Fragmentation]] - the mismatch that strands adjacencies in Exstart
+- [[cs/cisco/show-and-debug-methodology|Show and Debug Methodology]] - `debug ip ospf adj` and when to reach for it
 
 ## Sources
 

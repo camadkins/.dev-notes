@@ -49,7 +49,7 @@ A distinctive (and useful) feature: the mean and variance are equal. This gives 
 
 $$\sigma = \sqrt{\mu}$$
 
-![Poisson PMF: shape change with increasing lambda](assets/poisson-pmf.svg)
+![Poisson PMF: shape change with increasing lambda](cs/statistics/assets/poisson-pmf.svg)
 
 **Moment Generating Function:**
 
@@ -88,6 +88,6 @@ The mean-equals-variance property also makes Poisson a natural baseline for [[cs
 
 ## Related Notes
 
-- [[exponential-distribution|Exponential Distribution]] - models the continuous time *between* Poisson events
-- [[binomial-distribution|Binomial Distribution]] - the Poisson approximates the binomial for large $n$ and small $p$
-- [[probability-distributions|Probability Distributions]] - broader taxonomy of discrete and continuous distributions
+- [[cs/statistics/exponential-distribution|Exponential Distribution]] - models the continuous time *between* Poisson events
+- [[cs/statistics/binomial-distribution|Binomial Distribution]] - the Poisson approximates the binomial for large $n$ and small $p$
+- [[cs/statistics/probability-distributions|Probability Distributions]] - broader taxonomy of discrete and continuous distributions

@@ -19,7 +19,7 @@ aliases:
 Ordinary algebra manipulates symbols standing for numbers. Boolean algebra does the same thing over a domain of exactly two elements. In it, "the values of the variables are the truth values true and false, usually denoted by 1 and 0." The operations are three: "conjunction (and) denoted as $\land$, disjunction (or) denoted as $\lor$, and negation (not) denoted as $\lnot$." That is the entire alphabet. Everything a digital computer decides is written in it.
 
 > [!note]
-> The payload: Boolean algebra "is a formal way of describing logical operations in the same way that elementary algebra describes numerical operations." Because the structure is defined by its laws rather than its objects, the same algebra is being obeyed by logical propositions, by [[set-theory-basics|set operations]], and by physical switches at once. Prove an identity in one and it holds in all three. Simplifying a Boolean expression and minimizing a circuit are literally the same act.
+> The payload: Boolean algebra "is a formal way of describing logical operations in the same way that elementary algebra describes numerical operations." Because the structure is defined by its laws rather than its objects, the same algebra is being obeyed by logical propositions, by [[cs/math/set-theory-basics|set operations]], and by physical switches at once. Prove an identity in one and it holds in all three. Simplifying a Boolean expression and minimizing a circuit are literally the same act.
 
 ## The Operations and Their Laws
 
@@ -43,7 +43,7 @@ The single most used pair. Negation turns each operation into the other:
 
 $$(\lnot x) \land (\lnot y) = \lnot(x \lor y) \qquad (\lnot x) \lor (\lnot y) = \lnot(x \land y)$$
 
-Wikipedia states both forms in exactly this shape. They are the algebraic engine behind rewriting conditions in code: "not (a or b)" becomes "not a and not b," which is how a compiler or a careful programmer pushes negations inward and flattens branch logic. They also come straight out of the [[propositional-logic|truth tables]], since Boolean algebra and propositional logic are the same laws under different names.
+Wikipedia states both forms in exactly this shape. They are the algebraic engine behind rewriting conditions in code: "not (a or b)" becomes "not a and not b," which is how a compiler or a careful programmer pushes negations inward and flattens branch logic. They also come straight out of the [[cs/math/propositional-logic|truth tables]], since Boolean algebra and propositional logic are the same laws under different names.
 
 ## Simplification
 
@@ -61,8 +61,8 @@ Boolean algebra "is used in digital electronics, and is provided for in all mode
 
 ## Related Notes
 
-- [[propositional-logic|Propositional Logic]] - the same two-valued algebra presented as connectives and truth tables
-- [[set-theory-basics|Set Theory Basics]] - union, intersection, and complement obey these identities one for one
+- [[cs/math/propositional-logic|Propositional Logic]] - the same two-valued algebra presented as connectives and truth tables
+- [[cs/math/set-theory-basics|Set Theory Basics]] - union, intersection, and complement obey these identities one for one
 - [[cs/history/boole-and-boolean-algebra|George Boole and the Algebra of Logic]] - the historical origin of the two-valued system
 - [[cs/history/shannon-boolean-algebra-switching|Shannon's Switching Thesis]] - the proof that this algebra is the mathematics of circuits
 

@@ -26,24 +26,24 @@ Verification with the public key answers three questions at once. Authenticity: 
 
 ## Why you sign the hash
 
-Signing the digest rather than the raw message is deliberate on three counts. For efficiency, the operation runs over a short fixed digest instead of a long document. For compatibility, some schemes operate only on numbers [[cs/math/number-theory-and-modular-arithmetic|modulo a composite]], so a hash converts arbitrary input "into the proper format." For integrity across a long message, "the receiver of the signed blocks is not able to recognize if all the blocks are present and in the appropriate order" without a hash binding the whole thing into one digest. Collapse the message to one [[cryptographic-hash-functions|hash]] first and all three fall out.
+Signing the digest rather than the raw message is deliberate on three counts. For efficiency, the operation runs over a short fixed digest instead of a long document. For compatibility, some schemes operate only on numbers [[cs/math/number-theory-and-modular-arithmetic|modulo a composite]], so a hash converts arbitrary input "into the proper format." For integrity across a long message, "the receiver of the signed blocks is not able to recognize if all the blocks are present and in the appropriate order" without a hash binding the whole thing into one digest. Collapse the message to one [[cs/security/cryptographic-hash-functions|hash]] first and all three fall out.
 
 This is also where [[cs/math/proof-techniques|the security proof]] lives. Hash-then-sign, modeled with an idealized hash, "is existentially unforgeable, even against a chosen-plaintext attack." It also explains why a broken hash breaks the signature: find a collision and you can move a valid signature onto a second document.
 
 ## The guarantee has an expiry
 
-A signature's promises are conditional on something outside the math. "These authentication, non-repudiation etc. properties rely on the secret key not having been revoked prior to its usage." A leaked private key that is not revoked keeps implicating its owner; a revoked key must be checkable, or old signatures cannot be trusted. That dependency is precisely what [[pki-and-x509-certificates|public-key infrastructure]] exists to manage, and it is why a signature scheme in isolation is only half a system.
+A signature's promises are conditional on something outside the math. "These authentication, non-repudiation etc. properties rely on the secret key not having been revoked prior to its usage." A leaked private key that is not revoked keeps implicating its owner; a revoked key must be checkable, or old signatures cannot be trusted. That dependency is precisely what [[cs/security/pki-and-x509-certificates|public-key infrastructure]] exists to manage, and it is why a signature scheme in isolation is only half a system.
 
 > [!example] Verifying a software update
 > A vendor publishes a patch and its signature. The patch is not secret; the point is that "computers running the software must verify the authenticity of the patch before applying it, lest they become victims to malware." The device hashes the patch, checks the signature against the vendor's public key, and installs only on a match. Integrity and origin, verified before a single byte executes.
 
 ## Related Notes
 
-- [[cryptographic-hash-functions|Cryptographic Hash Functions]], the digest that actually gets signed
-- [[pki-and-x509-certificates|PKI and X.509 Certificates]], what makes the verifier trust the public key
-- [[rsa-and-computational-hardness|RSA and Computational Hardness]], the trapdoor behind the first practical signatures
-- [[secure-boot-and-the-chain-of-trust|Secure Boot and the Chain of Trust]], signatures verifying code before it runs
-- [[diffie-hellman-and-key-exchange|Diffie-Hellman and Key Exchange]], the anonymous exchange a signature authenticates
+- [[cs/security/cryptographic-hash-functions|Cryptographic Hash Functions]], the digest that actually gets signed
+- [[cs/security/pki-and-x509-certificates|PKI and X.509 Certificates]], what makes the verifier trust the public key
+- [[cs/military-computing/rsa-and-computational-hardness|RSA and Computational Hardness]], the trapdoor behind the first practical signatures
+- [[cs/security/secure-boot-and-the-chain-of-trust|Secure Boot and the Chain of Trust]], signatures verifying code before it runs
+- [[cs/security/diffie-hellman-and-key-exchange|Diffie-Hellman and Key Exchange]], the anonymous exchange a signature authenticates
 
 ## Sources
 

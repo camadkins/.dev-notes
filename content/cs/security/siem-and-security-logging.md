@@ -37,9 +37,9 @@ The uncomfortable implication is that a SIEM is only as good as the telemetry fe
 
 ## Related Notes
 
-- [[ids-and-ips|IDS and IPS]], the sensors whose alerts are among a SIEM's most important inputs
-- [[incident-response-lifecycle|The Incident Response Lifecycle]], whose detection and analysis phase runs on this correlated telemetry
-- [[the-cyber-kill-chain-and-mitre-attack|The Cyber Kill Chain and MITRE ATT&CK]], the frameworks that name the multi-step activity correlation is trying to reconstruct
+- [[cs/security/ids-and-ips|IDS and IPS]], the sensors whose alerts are among a SIEM's most important inputs
+- [[cs/security/incident-response-lifecycle|The Incident Response Lifecycle]], whose detection and analysis phase runs on this correlated telemetry
+- [[cs/security/the-cyber-kill-chain-and-mitre-attack|The Cyber Kill Chain and MITRE ATT&CK]], the frameworks that name the multi-step activity correlation is trying to reconstruct
 
 ## Sources
 

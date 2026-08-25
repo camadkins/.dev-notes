@@ -35,9 +35,9 @@ The second loop-back is the whole justification for the fourth phase. NIST is bl
 
 ## Related Notes
 
-- [[the-cyber-kill-chain-and-mitre-attack|The Cyber Kill Chain and MITRE ATT&CK]], the attacker-side models that detection and analysis map observations onto
-- [[siem-and-security-logging|SIEM and Security Logging]], the telemetry layer that makes the detection phase possible at all
-- [[stride-threat-modeling|STRIDE Threat Modeling]], a preparation-phase practice for anticipating the incidents you will later respond to
+- [[cs/security/the-cyber-kill-chain-and-mitre-attack|The Cyber Kill Chain and MITRE ATT&CK]], the attacker-side models that detection and analysis map observations onto
+- [[cs/security/siem-and-security-logging|SIEM and Security Logging]], the telemetry layer that makes the detection phase possible at all
+- [[cs/security/stride-threat-modeling|STRIDE Threat Modeling]], a preparation-phase practice for anticipating the incidents you will later respond to
 
 ## Sources
 

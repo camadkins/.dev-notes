@@ -96,5 +96,5 @@ Given a directed graph with edge capacities, the **max-flow min-cut theorem** st
 
 - [[cs/dsa/graphs|Graphs]] - overview of graph structures in the DSA context
 - [[cs/dsa/graph-representations|Graph Representations]] - adjacency list vs adjacency matrix
-- [[combinatorics|Combinatorics]] - counting arguments used in graph proofs
-- [[mathematical-induction|Mathematical Induction]] - induction on vertices/edges is a core proof technique in graph theory
+- [[cs/math/combinatorics|Combinatorics]] - counting arguments used in graph proofs
+- [[cs/math/mathematical-induction|Mathematical Induction]] - induction on vertices/edges is a core proof technique in graph theory

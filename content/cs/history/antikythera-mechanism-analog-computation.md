@@ -23,17 +23,17 @@ The mechanism is an ancient Greek hand-powered device, built in the late second 
 
 ## Analog, not digital
 
-The mechanism did not count in digits. It modeled. The ratios of its gear teeth embodied the ratios of the astronomical cycles, so advancing the crank advanced a working model of the cosmos. That is the essence of analog computation: [[cs/pl/programming-paradigms-models-of-computation|a physical system arranged so that its behavior mirrors the mathematics you want to solve]]. The much later [[ford-rangekeeper-analog-fire-control|naval rangekeeper]] solved its targeting problem the same way, with gears and cams, two millennia on.
+The mechanism did not count in digits. It modeled. The ratios of its gear teeth embodied the ratios of the astronomical cycles, so advancing the crank advanced a working model of the cosmos. That is the essence of analog computation: [[cs/pl/programming-paradigms-models-of-computation|a physical system arranged so that its behavior mirrors the mathematics you want to solve]]. The much later [[cs/military-computing/ford-rangekeeper-analog-fire-control|naval rangekeeper]] solved its targeting problem the same way, with gears and cams, two millennia on.
 
 ## Why it matters
 
-The Antikythera mechanism plants the analog-versus-digital distinction at the very beginning of the story. For most of history, to compute meant to build a physical analog of a problem. The [[von-neumann-architecture|digital, stored-program machine]] that came to dominate is, in the long view, the newcomer.
+The Antikythera mechanism plants the analog-versus-digital distinction at the very beginning of the story. For most of history, to compute meant to build a physical analog of a problem. The [[cs/history/von-neumann-architecture|digital, stored-program machine]] that came to dominate is, in the long view, the newcomer.
 
 ## Related Notes
 
-- [[ford-rangekeeper-analog-fire-control|The Ford Rangekeeper]], analog computation two thousand years later
-- [[al-khwarizmi-and-the-algorithm|Al-Khwarizmi and the Algorithm]], the other ancient root of computing
-- [[von-neumann-architecture|Von Neumann Architecture]], the digital model that displaced analog
+- [[cs/military-computing/ford-rangekeeper-analog-fire-control|The Ford Rangekeeper]], analog computation two thousand years later
+- [[cs/history/al-khwarizmi-and-the-algorithm|Al-Khwarizmi and the Algorithm]], the other ancient root of computing
+- [[cs/history/von-neumann-architecture|Von Neumann Architecture]], the digital model that displaced analog
 - [[cs/history/index|History of Computing]], the section index
 
 ## Sources

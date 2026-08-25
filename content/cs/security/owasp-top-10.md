@@ -40,7 +40,7 @@ The 2021 list, in order, is:
 
 The order is not editorial. It reflects how often each class showed up in a contributed dataset of real applications, which is why watching an item move is more instructive than reading its name. Broken access control is the headline case: OWASP notes it moved "up from the fifth position, 94% of applications were tested for some form of broken access control," and that it "has the most occurrences in the contributed dataset with over 318k." A failure class does not climb from fifth to first because it got scarier in the abstract. It climbs because testers kept finding it.
 
-[[stride-threat-modeling|Injection]] tells the same story from the other direction. In 2021 it sits at third with an average incidence rate of 3.37% across 274,228 total occurrences, still enormous, but no longer the reflexive number-one it was in older lists. The category absorbing [[sql-injection|SQL injection]] and [[cross-site-scripting-xss|cross-site scripting]] slipping down the ranking is itself a signal: parameterized APIs and framework-default escaping have measurably changed where the industry bleeds.
+[[cs/security/stride-threat-modeling|Injection]] tells the same story from the other direction. In 2021 it sits at third with an average incidence rate of 3.37% across 274,228 total occurrences, still enormous, but no longer the reflexive number-one it was in older lists. The category absorbing [[cs/security/sql-injection|SQL injection]] and [[cs/security/cross-site-scripting-xss|cross-site scripting]] slipping down the ranking is itself a signal: parameterized APIs and framework-default escaping have measurably changed where the industry bleeds.
 
 ## Why "map, not checklist" is the correct reading
 
@@ -51,10 +51,10 @@ A checklist implies completeness: tick every box and you are safe. The Top 10 ma
 
 ## Related Notes
 
-- [[sql-injection|SQL Injection]], the archetypal member of the A03 Injection class
-- [[cross-site-scripting-xss|Cross-Site Scripting (XSS)]], another injection-family risk the rankings track
-- [[stride-threat-modeling|STRIDE Threat Modeling]], for reasoning about risks a lagging list cannot yet rank
-- [[cross-site-request-forgery-csrf|Cross-Site Request Forgery (CSRF)]], a web risk whose decline the list also records
+- [[cs/security/sql-injection|SQL Injection]], the archetypal member of the A03 Injection class
+- [[cs/security/cross-site-scripting-xss|Cross-Site Scripting (XSS)]], another injection-family risk the rankings track
+- [[cs/security/stride-threat-modeling|STRIDE Threat Modeling]], for reasoning about risks a lagging list cannot yet rank
+- [[cs/security/cross-site-request-forgery-csrf|Cross-Site Request Forgery (CSRF)]], a web risk whose decline the list also records
 
 ## Sources
 

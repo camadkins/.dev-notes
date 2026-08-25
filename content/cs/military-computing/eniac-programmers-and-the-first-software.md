@@ -35,9 +35,9 @@ Their real invention was conceptual. [[cs/history/von-neumann-architecture|They 
 
 ## Related Notes
 
-- [[ballistics-tables-and-eniac|Ballistics Tables and ENIAC]], the machine and the firing-table problem it served
-- [[von-neumann-architecture|Von Neumann Architecture]], the stored-program idea that would replace plugboard setup
-- [[programming-paradigms-models-of-computation|Programming Paradigms]], the later vocabulary for what they were doing by hand
+- [[cs/military-computing/ballistics-tables-and-eniac|Ballistics Tables and ENIAC]], the machine and the firing-table problem it served
+- [[cs/history/von-neumann-architecture|Von Neumann Architecture]], the stored-program idea that would replace plugboard setup
+- [[cs/pl/programming-paradigms-models-of-computation|Programming Paradigms]], the later vocabulary for what they were doing by hand
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

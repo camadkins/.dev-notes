@@ -15,7 +15,7 @@ aliases:
   - control plane data plane separation
 ---
 
-A traditional switch or router is two machines fused into one box. There is a control plane that decides where traffic should go, running [[ospf-and-link-state-routing|routing protocols]], learning topology, and building forwarding tables. And there is a data plane that does the actual forwarding, matching each packet against those tables and pushing it out a port at wire speed. In conventional networking every device carries both, so every box makes its own local decisions, and configuring the network means logging into each one and coaxing its independent brain toward a coherent whole. Software-defined networking starts by prying those two planes apart.
+A traditional switch or router is two machines fused into one box. There is a control plane that decides where traffic should go, running [[cs/networking/ospf-and-link-state-routing|routing protocols]], learning topology, and building forwarding tables. And there is a data plane that does the actual forwarding, matching each packet against those tables and pushing it out a port at wire speed. In conventional networking every device carries both, so every box makes its own local decisions, and configuring the network means logging into each one and coaxing its independent brain toward a coherent whole. Software-defined networking starts by prying those two planes apart.
 
 > [!note] The idea
 > SDN centralizes network intelligence by disassociating the forwarding of packets (the data plane) from the routing decision (the control plane). The control plane is lifted out of the individual switches into one or more controllers, the "brains" of the network, so the whole network can be configured dynamically and programmatically from a central point. The subtle payoff is that the switch keeps forwarding at wire speed from a local flow table; the controller only writes the rules into that table, and a packet matching no rule is punted up to the controller, which then installs new rules.
@@ -26,7 +26,7 @@ The control plane is the part that decides: it computes paths and populates tabl
 
 SDN improves on that static architecture by centralizing the intelligence in one component, separating the forwarding process from the routing process. The control plane becomes one or more controllers where the whole intelligence is incorporated, and the switches are demoted to fast, dumb forwarders that do what the controller tells them. The result is a network you program like software rather than configure box by box, which is why the approach feels closer to [[cs/history/cloud-computing-and-virtualization|cloud computing]] than to traditional network management.
 
-![Diagram: a central SDN controller holding the control plane, connected by OpenFlow to three switches that keep only flow tables and forward matched packets at wire speed, punting unmatched packets up to the controller.](assets/sdn-control-data-plane.svg)
+![Diagram: a central SDN controller holding the control plane, connected by OpenFlow to three switches that keep only flow tables and forward matched packets at wire speed, punting unmatched packets up to the controller.](cs/networking/assets/sdn-control-data-plane.svg)
 
 ## OpenFlow: writing rules into the switches
 
@@ -41,10 +41,10 @@ The clever bit is what happens on a miss. Packets that are unmatched by the swit
 
 ## Related Notes
 
-- [[ospf-and-link-state-routing|OSPF and Link-State Routing]] - the distributed control-plane logic SDN pulls into a central controller
-- [[routing-and-longest-prefix-match|Routing and Longest Prefix Match]] - the data-plane lookup an SDN switch still performs at wire speed
-- [[network-protocols|Network Protocols]] - where the control and data planes sit in the layered stack
-- [[load-balancing-l4-and-l7|Load Balancing, L4 and L7]] - centralized traffic steering SDN makes programmable
+- [[cs/networking/ospf-and-link-state-routing|OSPF and Link-State Routing]] - the distributed control-plane logic SDN pulls into a central controller
+- [[cs/networking/routing-and-longest-prefix-match|Routing and Longest Prefix Match]] - the data-plane lookup an SDN switch still performs at wire speed
+- [[cs/systems/network-protocols|Network Protocols]] - where the control and data planes sit in the layered stack
+- [[cs/networking/load-balancing-l4-and-l7|Load Balancing, L4 and L7]] - centralized traffic steering SDN makes programmable
 
 ## Sources
 

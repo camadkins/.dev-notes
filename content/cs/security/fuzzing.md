@@ -28,23 +28,23 @@ The original numbers landed hard. Miller's team "was able to crash 25 to 33 perc
 
 ## Why crashes are security bugs, and why absence proves nothing
 
-A crash is more than a robustness defect. In a memory-unsafe language a crash frequently marks a corrupted pointer or an out-of-bounds access, which is to say the raw material of a [[buffer-overflows|buffer overflow]] or worse. Wikipedia is careful about the boundary: for a C program that overflows a buffer, "the program's [[cs/languages/common/undefined-behavior-as-a-contract|behavior is undefined]]," so it "may or may not crash." Crashes are a lower bound on the bugs present, not an upper bound. That cuts both ways, and it is the epistemic honesty at the center of the method: "fuzzing is used to demonstrate the presence of bugs rather than their absence. Running a fuzzing campaign for several weeks without finding a bug does not prove the program correct." Fuzzing is a bug finder, never a correctness proof.
+A crash is more than a robustness defect. In a memory-unsafe language a crash frequently marks a corrupted pointer or an out-of-bounds access, which is to say the raw material of a [[cs/security/buffer-overflows|buffer overflow]] or worse. Wikipedia is careful about the boundary: for a C program that overflows a buffer, "the program's [[cs/languages/common/undefined-behavior-as-a-contract|behavior is undefined]]," so it "may or may not crash." Crashes are a lower bound on the bugs present, not an upper bound. That cuts both ways, and it is the epistemic honesty at the center of the method: "fuzzing is used to demonstrate the presence of bugs rather than their absence. Running a fuzzing campaign for several weeks without finding a bug does not prove the program correct." Fuzzing is a bug finder, never a correctness proof.
 
 ## Coverage feedback: from dumb to guided
 
 The modern leap is to stop fuzzing blind. A "dumb" mutation fuzzer like early AFL just "modifies a seed file by flipping random bits" and hoping. A coverage-guided (gray-box) fuzzer adds lightweight instrumentation: as Wikipedia describes, tools like "AFL and libFuzzer utilize lightweight instrumentation to trace [[cs/pl/intermediate-representations-and-ssa|basic block]] transitions exercised by an input," which "informs the fuzzer about the increase in code coverage during fuzzing." Now the loop has direction. An input that reaches a basic block no previous input touched is saved and mutated further; inputs that explore nothing new are discarded. Random generation supplies variety while coverage supplies a fitness signal, and the fuzzer effectively climbs toward the deep, rarely-exercised code where the interesting bugs hide. Wikipedia calls the result "extremely efficient vulnerability detection tools."
 
-That efficiency is why fuzzing moved from a research trick to infrastructure. Google's OSS-Fuzz, launched in 2016, describes its own origin as a direct response to a fuzzable disaster: the Heartbleed vulnerability "was caused by a relatively simple memory buffer overflow bug that could have been detected by fuzzing," yet at the time "fuzzing was not widely used and was cumbersome for developers." OSS-Fuzz now runs continuous fuzzing as a free service for open-source projects, making a stage that was once a one-off experiment a permanent part of the [[testing-strategies|testing pipeline]].
+That efficiency is why fuzzing moved from a research trick to infrastructure. Google's OSS-Fuzz, launched in 2016, describes its own origin as a direct response to a fuzzable disaster: the Heartbleed vulnerability "was caused by a relatively simple memory buffer overflow bug that could have been detected by fuzzing," yet at the time "fuzzing was not widely used and was cumbersome for developers." OSS-Fuzz now runs continuous fuzzing as a free service for open-source projects, making a stage that was once a one-off experiment a permanent part of the [[cs/software-engineering/testing-strategies|testing pipeline]].
 
 > [!tip] The lesson Miller drew is that simplicity scaled
 > The reason random noise beat careful tests is not that noise is smart. It is that the crash-or-hang oracle is so cheap that you can run astronomically more of it, and volume plus a trivial verdict finds corner cases no human enumerates. Coverage feedback did not replace that principle; it aimed it. Keep the cheap universal oracle, add a signal that tells you when an input reached somewhere new, and let the machine grind.
 
 ## Related Notes
 
-- [[buffer-overflows|Buffer Overflows]], the memory-safety bug class that fuzzer-found crashes most often reveal
-- [[testing-strategies|Testing Strategies]], the broader pipeline into which continuous fuzzing now fits
-- [[memory-protections-aslr-dep-canaries|Memory Protections: ASLR, DEP, and Stack Canaries]], the runtime defenses that turn a latent memory bug into a detectable crash a fuzzer can catch
-- [[vulnerability-scoring-cve-and-cvss|CVE and CVSS: Naming and Scoring Vulnerabilities]], where the bugs a fuzzing campaign finds get identified and rated
+- [[cs/security/buffer-overflows|Buffer Overflows]], the memory-safety bug class that fuzzer-found crashes most often reveal
+- [[cs/software-engineering/testing-strategies|Testing Strategies]], the broader pipeline into which continuous fuzzing now fits
+- [[cs/security/memory-protections-aslr-dep-canaries|Memory Protections: ASLR, DEP, and Stack Canaries]], the runtime defenses that turn a latent memory bug into a detectable crash a fuzzer can catch
+- [[cs/security/vulnerability-scoring-cve-and-cvss|CVE and CVSS: Naming and Scoring Vulnerabilities]], where the bugs a fuzzing campaign finds get identified and rated
 
 ## Sources
 

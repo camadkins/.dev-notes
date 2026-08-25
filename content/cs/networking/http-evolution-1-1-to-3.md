@@ -22,7 +22,7 @@ Every version of [[cs/history/world-wide-web|HTTP]] asks the same thing: fetch a
 
 ## HTTP/1.1: reuse the connection
 
-HTTP/1.1, first published as RFC 2068 in January 1997, resolved ambiguities and introduced a decisive improvement: a connection could be reused, which saved time. Earlier HTTP opened a fresh [[tcp-three-way-handshake|TCP connection]] for every resource, paying the handshake cost again and again to load one page's worth of images and scripts. Persistent connections, the keep-alive behavior, let a single connection stay open and serve resource after resource.
+HTTP/1.1, first published as RFC 2068 in January 1997, resolved ambiguities and introduced a decisive improvement: a connection could be reused, which saved time. Earlier HTTP opened a fresh [[cs/networking/tcp-three-way-handshake|TCP connection]] for every resource, paying the handshake cost again and again to load one page's worth of images and scripts. Persistent connections, the keep-alive behavior, let a single connection stay open and serve resource after resource.
 
 HTTP/1.1 also added pipelining, which allowed a second request to be sent before the answer to the first had fully arrived, lowering latency. In practice pipelining was fragile and [[cs/standards/when-the-standard-loses-to-the-implementation|rarely deployed]], because responses still had to come back in request order. That ordering constraint on a single connection is the exact problem the next version set out to remove.
 
@@ -34,7 +34,7 @@ Multiplexing means many logical request-response streams share one TCP connectio
 
 ## HTTP/3: independent streams over QUIC
 
-HTTP/3, defined in RFC 9114, is HTTP over QUIC, and QUIC is designed to provide much lower latency. Like HTTP/2 it is multiplexed, but the transport underneath is different. HTTP/2 runs over a single TCP connection, so packet-loss detection and retransmission handled at the TCP layer can block all streams: one dropped packet halts delivery of every multiplexed stream until it is resent. This is [[tcp-vs-udp|head-of-line blocking]] pushed down to the transport.
+HTTP/3, defined in RFC 9114, is HTTP over QUIC, and QUIC is designed to provide much lower latency. Like HTTP/2 it is multiplexed, but the transport underneath is different. HTTP/2 runs over a single TCP connection, so packet-loss detection and retransmission handled at the TCP layer can block all streams: one dropped packet halts delivery of every multiplexed stream until it is resent. This is [[cs/networking/tcp-vs-udp|head-of-line blocking]] pushed down to the transport.
 
 QUIC runs multiple streams over UDP and implements packet-loss detection and retransmission independently for each stream, so if an error occurs, only the stream with data in that packet is blocked. The other streams keep flowing. By owning loss recovery itself instead of inheriting TCP's single-stream model, HTTP/3 finally delivers on the promise HTTP/2 made but its transport undercut.
 
@@ -46,11 +46,11 @@ QUIC runs multiple streams over UDP and implements packet-loss detection and ret
 
 ## Related Notes
 
-- [[tcp-vs-udp|TCP vs UDP]] - the head-of-line trade-off that pushed HTTP/3 onto UDP
-- [[tcp-three-way-handshake|The TCP Three-Way Handshake]] - the per-connection cost HTTP/1.1 reuse avoided
-- [[tls-and-the-https-handshake|TLS and the HTTPS Handshake]] - the encryption layer these versions negotiate
-- [[network-protocols|Network Protocols]] - where HTTP sits in the layered stack
-- [[dns-the-domain-name-system|DNS]] - the lookup that precedes any HTTP request
+- [[cs/networking/tcp-vs-udp|TCP vs UDP]] - the head-of-line trade-off that pushed HTTP/3 onto UDP
+- [[cs/networking/tcp-three-way-handshake|The TCP Three-Way Handshake]] - the per-connection cost HTTP/1.1 reuse avoided
+- [[cs/systems/tls-and-the-https-handshake|TLS and the HTTPS Handshake]] - the encryption layer these versions negotiate
+- [[cs/systems/network-protocols|Network Protocols]] - where HTTP sits in the layered stack
+- [[cs/systems/dns-the-domain-name-system|DNS]] - the lookup that precedes any HTTP request
 
 ## Sources
 

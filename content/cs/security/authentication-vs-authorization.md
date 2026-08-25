@@ -38,11 +38,11 @@ Skip the per-object authorization check and you get the classic broken-access-co
 
 ## Related Notes
 
-- [[access-control-models-rbac-abac|Access Control Models: RBAC and ABAC]], the models that actually answer the authorization question
-- [[multi-factor-authentication|Multi-Factor Authentication]], strengthening the authentication half
-- [[oauth2-and-openid-connect|OAuth 2.0 and OpenID Connect]], a protocol split that mirrors this one, with OIDC for authentication and OAuth for delegated authorization
-- [[privilege-separation-and-least-privilege|Privilege Separation and Least Privilege]], the principle that bounds what any authorized subject may do
-- [[owasp-top-10|OWASP Top 10]], where broken access control sits near the top
+- [[cs/security/access-control-models-rbac-abac|Access Control Models: RBAC and ABAC]], the models that actually answer the authorization question
+- [[cs/security/multi-factor-authentication|Multi-Factor Authentication]], strengthening the authentication half
+- [[cs/security/oauth2-and-openid-connect|OAuth 2.0 and OpenID Connect]], a protocol split that mirrors this one, with OIDC for authentication and OAuth for delegated authorization
+- [[cs/security/privilege-separation-and-least-privilege|Privilege Separation and Least Privilege]], the principle that bounds what any authorized subject may do
+- [[cs/security/owasp-top-10|OWASP Top 10]], where broken access control sits near the top
 
 ## Sources
 

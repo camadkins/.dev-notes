@@ -20,31 +20,31 @@ Most of the machine learning that reaches production is supervised. You collect 
 
 ## The setup
 
-You start with a training set of pairs, each an input described by [[features-and-representations|features]] and a known label. A supervised algorithm searches for a hypothesis, a function from inputs to outputs, that agrees with the training pairs and is expected to agree with future ones. In Tom Mitchell's framing the labeled set is the experience E, predicting the label is the task T, and prediction accuracy on unseen data is the performance measure P.
+You start with a training set of pairs, each an input described by [[cs/machine-learning/features-and-representations|features]] and a known label. A supervised algorithm searches for a hypothesis, a function from inputs to outputs, that agrees with the training pairs and is expected to agree with future ones. In Tom Mitchell's framing the labeled set is the experience E, predicting the label is the task T, and prediction accuracy on unseen data is the performance measure P.
 
 Two shapes cover most problems. When the label is a category the task is classification (spam or not, which digit, which disease). When the label is a continuous number the task is regression, the subject of the garden's [[cs/statistics/regression-fundamentals|regression fundamentals]] and [[cs/statistics/simple-linear-regression|linear regression]] notes.
 
 ## How the fitting works
 
-The algorithm needs a way to score a candidate function against the data, which is the job of a [[loss-functions|loss function]], and a way to reduce that score, usually [[gradient-descent|gradient descent]]. Training is the loop: measure the loss on the training pairs, adjust the model to lower it, repeat. That is true whether the model is a linear regression or a deep [[cs/deep-learning/convolutional-neural-networks|convolutional network]], which is why supervised learning sits at the machine learning layer of [[ai-vs-ml-vs-dl|the AI, ML, DL distinction]] rather than the deep learning layer.
+The algorithm needs a way to score a candidate function against the data, which is the job of a [[cs/machine-learning/loss-functions|loss function]], and a way to reduce that score, usually [[cs/machine-learning/gradient-descent|gradient descent]]. Training is the loop: measure the loss on the training pairs, adjust the model to lower it, repeat. That is true whether the model is a linear regression or a deep [[cs/deep-learning/convolutional-neural-networks|convolutional network]], which is why supervised learning sits at the machine learning layer of [[cs/machine-learning/ai-vs-ml-vs-dl|the AI, ML, DL distinction]] rather than the deep learning layer.
 
 > [!warning] The label is the bottleneck
-> Supervised learning is only as good as its labels, and labels are expensive. Getting a radiologist to mark ten thousand scans, or paying annotators to tag images, is often the hardest and most costly part of a project. This is exactly the cost that [[unsupervised-learning|unsupervised learning]] tries to avoid.
+> Supervised learning is only as good as its labels, and labels are expensive. Getting a radiologist to mark ten thousand scans, or paying annotators to tag images, is often the hardest and most costly part of a project. This is exactly the cost that [[cs/machine-learning/unsupervised-learning|unsupervised learning]] tries to avoid.
 
 ## Why it can fail
 
-Fitting the training pairs is easy. A model with enough capacity can memorize them outright, which is worthless, because the goal was never the training answers. The real target is [[generalization-vs-memorization|generalization]] to unseen inputs, and the gap between training performance and unseen performance is governed by the [[bias-variance-tradeoff|bias-variance tradeoff]]. This is why supervised results are only trusted when they come from a held-out [[train-validation-test|test set]] and are reported with honest [[evaluation-metrics|metrics]].
+Fitting the training pairs is easy. A model with enough capacity can memorize them outright, which is worthless, because the goal was never the training answers. The real target is [[cs/machine-learning/generalization-vs-memorization|generalization]] to unseen inputs, and the gap between training performance and unseen performance is governed by the [[cs/machine-learning/bias-variance-tradeoff|bias-variance tradeoff]]. This is why supervised results are only trusted when they come from a held-out [[cs/machine-learning/train-validation-test|test set]] and are reported with honest [[cs/machine-learning/evaluation-metrics|metrics]].
 
 > [!example] Trucks vs non-trucks
 > Scott's course opens with a toddler learning "truck." Show a fire truck and a toy truck (labeled examples), described by features like number of wheels and whether it hauls cargo, and the learner builds a hypothesis. The test is not whether it re-labels the two it saw, but whether it calls a garbage truck it has never seen a truck. That single question is supervised learning in miniature.
 
 ## Related Notes
 
-- [[ai-vs-ml-vs-dl|AI vs ML vs DL]], where supervised learning sits in the hierarchy
-- [[unsupervised-learning|Unsupervised Learning]], learning without labels
-- [[generalization-vs-memorization|Generalization vs Memorization]], the thing supervised learning is really after
-- [[features-and-representations|Features and Representations]], how inputs are described
-- [[loss-functions|Loss Functions]] and [[gradient-descent|Gradient Descent]], the fitting machinery
+- [[cs/machine-learning/ai-vs-ml-vs-dl|AI vs ML vs DL]], where supervised learning sits in the hierarchy
+- [[cs/machine-learning/unsupervised-learning|Unsupervised Learning]], learning without labels
+- [[cs/machine-learning/generalization-vs-memorization|Generalization vs Memorization]], the thing supervised learning is really after
+- [[cs/machine-learning/features-and-representations|Features and Representations]], how inputs are described
+- [[cs/machine-learning/loss-functions|Loss Functions]] and [[cs/machine-learning/gradient-descent|Gradient Descent]], the fitting machinery
 - [[cs/statistics/regression-fundamentals|Regression Fundamentals]], the continuous-label case
 
 ## Sources

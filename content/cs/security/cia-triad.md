@@ -32,7 +32,7 @@ Availability is "ensuring timely and reliable access to and use of information."
 
 The value is not the three words; it is that they partition the space of security failures. A confidentiality breach is someone reading what they should not. An integrity breach is someone writing what they should not, or the data silently corrupting. An availability breach is the rightful user locked out. Every attack you can name lands in at least one bucket, and knowing which bucket tells you what mechanism could possibly help.
 
-This is why the triad pairs so cleanly with threat frameworks. [[stride-threat-modeling|STRIDE]] works precisely because its six threats are negations of security properties, and information disclosure, tampering, and denial of service are the direct negations of confidentiality, integrity, and availability. A [[symmetric-vs-asymmetric-cryptography|cipher]] buys confidentiality; a [[stride-threat-modeling|message authentication code]] buys integrity; [[cs/systems/raid-and-storage-redundancy|redundancy]] and rate limiting buy availability. Ask of any control "which leg?" and if the answer is "none," it is not a security control.
+This is why the triad pairs so cleanly with threat frameworks. [[cs/security/stride-threat-modeling|STRIDE]] works precisely because its six threats are negations of security properties, and information disclosure, tampering, and denial of service are the direct negations of confidentiality, integrity, and availability. A [[cs/security/symmetric-vs-asymmetric-cryptography|cipher]] buys confidentiality; a [[cs/security/stride-threat-modeling|message authentication code]] buys integrity; [[cs/systems/raid-and-storage-redundancy|redundancy]] and rate limiting buy availability. Ask of any control "which leg?" and if the answer is "none," it is not a security control.
 
 ## The properties fight each other
 
@@ -43,11 +43,11 @@ The non-obvious consequence is that the three are not independent goods you accu
 
 ## Related Notes
 
-- [[stride-threat-modeling|STRIDE Threat Modeling]] enumerates threats as the negations of these very properties
-- [[authentication-vs-authorization|Authentication vs Authorization]] are the mechanisms that enforce confidentiality and integrity at the access boundary
+- [[cs/security/stride-threat-modeling|STRIDE Threat Modeling]] enumerates threats as the negations of these very properties
+- [[cs/security/authentication-vs-authorization|Authentication vs Authorization]] are the mechanisms that enforce confidentiality and integrity at the access boundary
 - Defense in depth layers controls so a single failure does not collapse any one leg
-- [[symmetric-vs-asymmetric-cryptography|Symmetric vs. Asymmetric Cryptography]] is the primary tool for the confidentiality leg
-- [[denial-of-service-and-ddos|Denial of Service and DDoS]] is the availability leg under direct attack
+- [[cs/security/symmetric-vs-asymmetric-cryptography|Symmetric vs. Asymmetric Cryptography]] is the primary tool for the confidentiality leg
+- [[cs/security/denial-of-service-and-ddos|Denial of Service and DDoS]] is the availability leg under direct attack
 
 ## Sources
 

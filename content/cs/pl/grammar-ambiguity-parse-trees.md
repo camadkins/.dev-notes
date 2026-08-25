@@ -41,7 +41,7 @@ Each complete derivation can be visualized as a **parse tree**.
 
 ---
 
-![Two parse trees for a+b*c and refactored precedence grammar](assets/grammar-ambiguity.svg)
+![Two parse trees for a+b*c and refactored precedence grammar](cs/pl/assets/grammar-ambiguity.svg)
 
 ---
 

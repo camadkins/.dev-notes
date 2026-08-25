@@ -30,9 +30,9 @@ Stated as control theory, the constellation is the plant and the ground segment 
 
 ## Related Notes
 
-- [[gps-and-distributed-time|GPS and Distributed Time]], how a receiver turns these signals into a position
-- [[ntp-distributed-clock-synchronization|NTP and Distributed Clock Synchronization]], the same problem of distributed time on the ground
-- [[distributed-consensus|Distributed Consensus]], keeping distributed state agreed and correct
+- [[cs/military-computing/gps-and-distributed-time|GPS and Distributed Time]], how a receiver turns these signals into a position
+- [[cs/military-computing/ntp-distributed-clock-synchronization|NTP and Distributed Clock Synchronization]], the same problem of distributed time on the ground
+- [[cs/systems/distributed-consensus|Distributed Consensus]], keeping distributed state agreed and correct
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

@@ -35,10 +35,10 @@ The lesson underneath it is the one that defines reliable real-time software: as
 
 ## Related Notes
 
-- [[apollo-guidance-computer-and-embedded-systems|The Apollo Guidance Computer]], the machine her software ran on
-- [[nato-conferences-and-software-engineering|The NATO Conferences and the Software Crisis]], where the field formalized the term she used
-- [[testing-strategies|Testing Strategies]], the discipline of proving software works
-- [[processes-and-threads|Processes and Threads]], the scheduling and priority her design relied on
+- [[cs/military-computing/apollo-guidance-computer-and-embedded-systems|The Apollo Guidance Computer]], the machine her software ran on
+- [[cs/military-computing/nato-conferences-and-software-engineering|The NATO Conferences and the Software Crisis]], where the field formalized the term she used
+- [[cs/software-engineering/testing-strategies|Testing Strategies]], the discipline of proving software works
+- [[cs/systems/processes-and-threads|Processes and Threads]], the scheduling and priority her design relied on
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

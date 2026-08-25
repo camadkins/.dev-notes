@@ -42,7 +42,7 @@ Fowler's move was to refuse the framing. "Technical Debt is a metaphor, so the r
 
 Crossing that with a second axis, whether the debt was taken on **deliberately** or **inadvertently**, produces a two by two.
 
-![Fowler's technical debt quadrant, crossing reckless against prudent and deliberate against inadvertent, with the four resulting kinds of debt.|523](assets/technical-debt-quadrant.svg)
+![Fowler's technical debt quadrant, crossing reckless against prudent and deliberate against inadvertent, with the four resulting kinds of debt.|523](cs/software-engineering/assets/technical-debt-quadrant.svg)
 
 Three cells are intuitive. Prudent and deliberate is the team that knows it is borrowing and "puts some thought as to whether the payoff for an earlier release is greater than the costs of paying it off." Reckless and inadvertent is the team "ignorant of design practices" that takes on debt "without even realizing how much hock it's getting into." Reckless and deliberate is the team that knows better and goes "quick and dirty" anyway because it thinks it cannot afford clean code, which Fowler judges reckless "because people underestimate where the DesignPayoffLine is."
 
@@ -61,11 +61,11 @@ The Wikipedia treatment adds a useful counterweight from the other direction. Th
 
 ## Related Notes
 
-- [[refactoring|Refactoring]] - the operation that pays down principal without changing behavior
-- [[testing-strategies|Testing Strategies]] - the safety net that makes paying down debt affordable
-- [[software-architecture|Software Architecture]] - where structural debt accumulates and gets expensive
-- [[design-patterns|Design Patterns]] - a shared vocabulary for the structures cruft erodes
-- [[code-review|Code Review]] - the checkpoint where inadvertent debt is most cheaply caught
+- [[cs/software-engineering/refactoring|Refactoring]] - the operation that pays down principal without changing behavior
+- [[cs/software-engineering/testing-strategies|Testing Strategies]] - the safety net that makes paying down debt affordable
+- [[cs/software-engineering/software-architecture|Software Architecture]] - where structural debt accumulates and gets expensive
+- [[cs/software-engineering/design-patterns|Design Patterns]] - a shared vocabulary for the structures cruft erodes
+- [[cs/software-engineering/code-review|Code Review]] - the checkpoint where inadvertent debt is most cheaply caught
 
 ## Sources
 

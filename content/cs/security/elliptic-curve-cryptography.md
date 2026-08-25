@@ -27,18 +27,18 @@ Public-key cryptography always trades key size for security. Push the security l
 
 ## The curve has to be chosen carefully
 
-A smaller key is worthless if the curve leaks the secret through a side channel. [[cs/standards/what-a-standard-actually-is|RFC 7748]] specifies Curve25519 and Curve448 precisely because they "lend themselves to constant-time implementation and an exception-free scalar multiplication that is resistant to a wide range of side-channel attacks, including timing and cache attacks." The general group law on an elliptic curve treats point doubling and point addition differently, which historically gave [[side-channel-attacks|timing and power side channels]] a foothold; Montgomery and Edwards curves were adopted in part to erase that difference. So the curve is not a neutral parameter. Its shape decides whether an implementation can run in constant time at all.
+A smaller key is worthless if the curve leaks the secret through a side channel. [[cs/standards/what-a-standard-actually-is|RFC 7748]] specifies Curve25519 and Curve448 precisely because they "lend themselves to constant-time implementation and an exception-free scalar multiplication that is resistant to a wide range of side-channel attacks, including timing and cache attacks." The general group law on an elliptic curve treats point doubling and point addition differently, which historically gave [[cs/security/side-channel-attacks|timing and power side channels]] a foothold; Montgomery and Edwards curves were adopted in part to erase that difference. So the curve is not a neutral parameter. Its shape decides whether an implementation can run in constant time at all.
 
 > [!warning] Not all named curves are equal
 > The NIST P-curves and the newer Curve25519 family both target the same security levels, but they differ in how easily they resist implementation attacks and in how their parameters were generated. Choosing a curve is a security decision, not a performance knob.
 
 ## Related Notes
 
-- [[rsa-and-computational-hardness|RSA and Computational Hardness]], the factoring-based scheme ECC undercuts on key size
-- [[diffie-hellman-and-key-exchange|Diffie-Hellman and Key Exchange]], whose elliptic-curve variant (ECDH) is where ECC does its everyday work
-- [[symmetric-vs-asymmetric-cryptography|Symmetric vs. Asymmetric Cryptography]], the hybrid design ECC slots into as the asymmetric half
-- [[side-channel-attacks|Side-Channel Attacks]], the reason curve choice and constant-time code matter
-- [[post-quantum-cryptography|Post-Quantum Cryptography]], the coming break that retires ECDLP entirely
+- [[cs/military-computing/rsa-and-computational-hardness|RSA and Computational Hardness]], the factoring-based scheme ECC undercuts on key size
+- [[cs/security/diffie-hellman-and-key-exchange|Diffie-Hellman and Key Exchange]], whose elliptic-curve variant (ECDH) is where ECC does its everyday work
+- [[cs/security/symmetric-vs-asymmetric-cryptography|Symmetric vs. Asymmetric Cryptography]], the hybrid design ECC slots into as the asymmetric half
+- [[cs/security/side-channel-attacks|Side-Channel Attacks]], the reason curve choice and constant-time code matter
+- [[cs/security/post-quantum-cryptography|Post-Quantum Cryptography]], the coming break that retires ECDLP entirely
 
 ## Sources
 

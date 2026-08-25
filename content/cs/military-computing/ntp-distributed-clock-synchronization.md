@@ -22,7 +22,7 @@ Two computers that disagree about the time [[cs/systems/logical-clocks-lamport-a
 
 NTP arranges time sources into levels it calls strata. At the top, stratum 0, are the reference clocks themselves, such as atomic clocks and GPS receivers, which are not on the network. A stratum 1 server is directly attached to one of those references. A stratum 2 server sets its clock from stratum 1 servers, a stratum 3 from stratum 2, and so on down. Each level is a little less accurate than the one above, and the tree spreads authoritative time outward to millions of machines without every machine needing its own atomic clock.
 
-![NTP strata: reference clocks at stratum 0 feed a tree of servers, each level synchronizing from the one above.](assets/ntp-stratum-hierarchy.svg)
+![NTP strata: reference clocks at stratum 0 feed a tree of servers, each level synchronizing from the one above.](cs/military-computing/assets/ntp-stratum-hierarchy.svg)
 
 ## Measuring time across a noisy link
 
@@ -30,14 +30,14 @@ The harder problem is the delay. A client cannot simply accept the timestamp a s
 
 ## Why it endures
 
-NTP has been running since before 1985, which makes it one of the oldest internet protocols still in daily use. It was built on the [[darpa-and-the-funding-of-ai|DARPA]]-funded internet, and the same design carries time across data centers, financial systems, and phone networks today.
+NTP has been running since before 1985, which makes it one of the oldest internet protocols still in daily use. It was built on the [[cs/military-computing/darpa-and-the-funding-of-ai|DARPA]]-funded internet, and the same design carries time across data centers, financial systems, and phone networks today.
 
 ## Related Notes
 
-- [[gps-control-segment|The GPS Control Segment]], one of the stratum-0 references NTP leans on
-- [[gps-and-distributed-time|GPS and Distributed Time]], the other side of time as a distributed problem
-- [[distributed-consensus|Distributed Consensus]], agreement across unreliable links
-- [[network-protocols|Network Protocols]], the layer NTP rides on
+- [[cs/military-computing/gps-control-segment|The GPS Control Segment]], one of the stratum-0 references NTP leans on
+- [[cs/military-computing/gps-and-distributed-time|GPS and Distributed Time]], the other side of time as a distributed problem
+- [[cs/systems/distributed-consensus|Distributed Consensus]], agreement across unreliable links
+- [[cs/systems/network-protocols|Network Protocols]], the layer NTP rides on
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

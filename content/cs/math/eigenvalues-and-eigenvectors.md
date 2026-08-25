@@ -17,9 +17,9 @@ aliases:
 
 ## The Vectors a Transformation Cannot Rotate
 
-Most vectors, when you hit them with a [[matrices-and-linear-transformations|matrix]], come out pointing somewhere new. A few special ones do not. An eigenvector "is a (nonzero) vector that has its direction unchanged (or reversed) by a given linear transformation." The transformation may stretch it or flip it, but it stays on its own line. Those privileged directions are the skeleton of the matrix: find them, and you know the axes along which the transformation is nothing more than scaling.
+Most vectors, when you hit them with a [[cs/math/matrices-and-linear-transformations|matrix]], come out pointing somewhere new. A few special ones do not. An eigenvector "is a (nonzero) vector that has its direction unchanged (or reversed) by a given linear transformation." The transformation may stretch it or flip it, but it stays on its own line. Those privileged directions are the skeleton of the matrix: find them, and you know the axes along which the transformation is nothing more than scaling.
 
-![Under a shear, a generic vector v changes direction while the eigenvector e stays on its own line and is only scaled by lambda.](assets/eigenvector-invariant-direction.svg)
+![Under a shear, a generic vector v changes direction while the eigenvector e stays on its own line and is only scaled by lambda.](cs/math/assets/eigenvector-invariant-direction.svg)
 
 > [!note] The idea
 > Every square matrix has a set of directions along which it acts as pure multiplication, and those directions expose what the matrix *does* far better than its entries do. "Applying $T$ to the eigenvector only scales the eigenvector by the scalar value $\lambda$, called an eigenvalue." So a messy grid of numbers reduces, along its eigenvectors, to a single number per direction. That reduction is the engine under PCA, PageRank, and any question of the form "what does this system settle into?"
@@ -45,7 +45,7 @@ Eigenvalues and eigenvectors "have a wide range of applications, for example in 
 
 ### PCA finds the axes of variance
 
-[[pca-and-dimensionality-reduction|Principal component analysis]] rotates data onto the directions where it spreads out the most. Those directions are not chosen by hand: "it can be shown that the principal components are eigenvectors of the data's covariance matrix. Thus, the principal components are often computed by eigendecomposition of the data covariance matrix." The eigenvector with the largest eigenvalue is the direction of greatest variance, the single line that "minimizes the average squared perpendicular distance from the points to the line." Keep the top few and you compress high-dimensional data with minimal loss.
+[[cs/machine-learning/pca-and-dimensionality-reduction|Principal component analysis]] rotates data onto the directions where it spreads out the most. Those directions are not chosen by hand: "it can be shown that the principal components are eigenvectors of the data's covariance matrix. Thus, the principal components are often computed by eigendecomposition of the data covariance matrix." The eigenvector with the largest eigenvalue is the direction of greatest variance, the single line that "minimizes the average squared perpendicular distance from the points to the line." Keep the top few and you compress high-dimensional data with minimal loss.
 
 ### PageRank is a dominant eigenvector
 
@@ -60,10 +60,10 @@ When a system evolves by repeated multiplication ($\mathbf{x}_{t+1} = A\mathbf{x
 
 ## Related Notes
 
-- [[matrices-and-linear-transformations|Matrices and Linear Transformations]] - the transformations whose invariant directions eigenvectors are
-- [[linear-algebra-fundamentals|Linear Algebra Fundamentals]] - the survey that introduces the characteristic polynomial and PageRank
-- [[pca-and-dimensionality-reduction|PCA and Dimensionality Reduction]] - principal components are eigenvectors of the covariance matrix
-- [[graph-theory|Graph Theory]] - the adjacency matrix whose dominant eigenvector PageRank computes
+- [[cs/math/matrices-and-linear-transformations|Matrices and Linear Transformations]] - the transformations whose invariant directions eigenvectors are
+- [[cs/math/linear-algebra-fundamentals|Linear Algebra Fundamentals]] - the survey that introduces the characteristic polynomial and PageRank
+- [[cs/machine-learning/pca-and-dimensionality-reduction|PCA and Dimensionality Reduction]] - principal components are eigenvectors of the covariance matrix
+- [[cs/math/graph-theory|Graph Theory]] - the adjacency matrix whose dominant eigenvector PageRank computes
 
 ## Sources
 

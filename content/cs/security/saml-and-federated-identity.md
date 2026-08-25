@@ -24,13 +24,13 @@ An enterprise runs a payroll app, a benefits portal, an expense tool, and a wiki
 
 SAML names the participants by what they do with an assertion, not by what they are. "An asserting party is a system entity that makes SAML assertions." "A relying party is a system entity that uses assertions it has received." For web single sign-on the spec gives these the familiar names: to support single sign-on, "SAML defines the roles called identity provider (IdP) and service provider (SP)."
 
-That is the whole indirection. The identity provider holds the credentials and authenticates the human. The service provider holds the application and holds no credentials at all. When a user reaches an SP without a session, the SP redirects the browser to the IdP; the IdP authenticates the user (against whatever [[multi-factor-authentication|multi-factor]] policy it enforces) and hands back an assertion; the SP consumes it and opens a local session. The same IdP can vouch to a dozen SPs, so the user authenticates once and the credential store lives in exactly one place.
+That is the whole indirection. The identity provider holds the credentials and authenticates the human. The service provider holds the application and holds no credentials at all. When a user reaches an SP without a session, the SP redirects the browser to the IdP; the IdP authenticates the user (against whatever [[cs/security/multi-factor-authentication|multi-factor]] policy it enforces) and hands back an assertion; the SP consumes it and opens a local session. The same IdP can vouch to a dozen SPs, so the user authenticates once and the credential store lives in exactly one place.
 
 ## What an assertion actually says
 
 An assertion is not a blob of trust. SAML "defines three kinds of statements that can be carried within an assertion." Authentication statements "are created by the party that successfully authenticated a user" and record how and when that happened. Attribute statements "contain specific identifying attributes about the subject," for example that a user has a particular department or clearance. Authorization decision statements "define something that the subject is entitled to do." Most SSO traffic rides on authentication and attribute statements; the SP reads the attributes to decide what the user may see.
 
-The assertion is [[cs/languages/common/serialization-and-wire-formats|signed XML]], so the SP can verify it with the IdP's key rather than calling back. That offline check is the same [[digital-signatures|digital-signature]] property that lets a [[json-web-tokens-jwt|JWT]] or a [[kerberos-authentication|Kerberos]] ticket be trusted without a round trip to the issuer. SAML simply chose XML and enterprise deployment where the web later chose JSON.
+The assertion is [[cs/languages/common/serialization-and-wire-formats|signed XML]], so the SP can verify it with the IdP's key rather than calling back. That offline check is the same [[cs/security/digital-signatures|digital-signature]] property that lets a [[cs/security/json-web-tokens-jwt|JWT]] or a [[cs/security/kerberos-authentication|Kerberos]] ticket be trusted without a round trip to the issuer. SAML simply chose XML and enterprise deployment where the web later chose JSON.
 
 ## Federation is a prior agreement
 
@@ -41,11 +41,11 @@ The word "federated" carries the load-bearing subtlety. Two organizations do not
 
 ## Related Notes
 
-- [[oauth2-and-openid-connect|OAuth 2.0 and OpenID Connect]] - the JSON-era identity layer that displaced SAML for new consumer and API single sign-on
-- [[json-web-tokens-jwt|JSON Web Tokens]] - the compact signed-claims format that plays the role SAML's XML assertion plays
-- [[kerberos-authentication|Kerberos Authentication]] - the older ticket-issuing model of a central authority vouching for users
-- [[digital-signatures|Digital Signatures]] - what makes a SAML assertion verifiable without calling the issuer
-- [[multi-factor-authentication|Multi-Factor Authentication]] - the authentication strength an identity provider enforces before issuing an assertion
+- [[cs/security/oauth2-and-openid-connect|OAuth 2.0 and OpenID Connect]] - the JSON-era identity layer that displaced SAML for new consumer and API single sign-on
+- [[cs/security/json-web-tokens-jwt|JSON Web Tokens]] - the compact signed-claims format that plays the role SAML's XML assertion plays
+- [[cs/security/kerberos-authentication|Kerberos Authentication]] - the older ticket-issuing model of a central authority vouching for users
+- [[cs/security/digital-signatures|Digital Signatures]] - what makes a SAML assertion verifiable without calling the issuer
+- [[cs/security/multi-factor-authentication|Multi-Factor Authentication]] - the authentication strength an identity provider enforces before issuing an assertion
 
 ## Sources
 

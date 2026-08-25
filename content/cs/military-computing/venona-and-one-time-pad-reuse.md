@@ -20,11 +20,11 @@ The one-time pad is provably unbreakable. The VENONA project read Soviet message
 
 ## The effort
 
-VENONA was a United States counterintelligence program begun during the Second World War by the Army's Signal Intelligence Service and later absorbed by the [[cryptography-codebreaking-and-the-nsa|National Security Agency]]. It ran a remarkably long time, from February 1943 to October 1980, working to decrypt Soviet intelligence cables that had been protected with one-time pads.
+VENONA was a United States counterintelligence program begun during the Second World War by the Army's Signal Intelligence Service and later absorbed by the [[cs/military-computing/cryptography-codebreaking-and-the-nsa|National Security Agency]]. It ran a remarkably long time, from February 1943 to October 1980, working to decrypt Soviet intelligence cables that had been protected with one-time pads.
 
 ## The blunder
 
-A one-time pad is only secure if the key is never reused, and the Soviets reused it. The company that manufactured their pads produced around 35,000 pages of duplicate key. As the mathematics of [[perfect-secrecy-and-the-one-time-pad|perfect secrecy]] guarantees, reused key material is fatal: where the same key encrypted two different messages, the protection collapses. American codebreakers found those reused pages and used them to decrypt part of the traffic.
+A one-time pad is only secure if the key is never reused, and the Soviets reused it. The company that manufactured their pads produced around 35,000 pages of duplicate key. As the mathematics of [[cs/military-computing/perfect-secrecy-and-the-one-time-pad|perfect secrecy]] guarantees, reused key material is fatal: where the same key encrypted two different messages, the protection collapses. American codebreakers found those reused pages and used them to decrypt part of the traffic.
 
 > [!example] Why reuse is fatal
 > When one key encrypts two messages, combining the two ciphertexts cancels the key and leaves the two plaintexts combined together. From there a patient analyst can tease the two messages apart. The pad was perfect; using a page twice was not.
@@ -35,10 +35,10 @@ The decrypts mattered historically, exposing espionage networks over decades. Th
 
 ## Related Notes
 
-- [[perfect-secrecy-and-the-one-time-pad|Perfect Secrecy and the One-Time Pad]], the rule VENONA's targets broke
-- [[cryptography-codebreaking-and-the-nsa|Cryptography, Codebreaking, and the NSA]], the agency that ran it
-- [[surveillance-and-privacy|Surveillance and Privacy]], the modern weight of state codebreaking
-- [[hypothesis-testing|Hypothesis Testing]], the statistical work of separating overlaid messages
+- [[cs/military-computing/perfect-secrecy-and-the-one-time-pad|Perfect Secrecy and the One-Time Pad]], the rule VENONA's targets broke
+- [[cs/military-computing/cryptography-codebreaking-and-the-nsa|Cryptography, Codebreaking, and the NSA]], the agency that ran it
+- [[cs/geopolitics/surveillance-and-privacy|Surveillance and Privacy]], the modern weight of state codebreaking
+- [[cs/statistics/hypothesis-testing|Hypothesis Testing]], the statistical work of separating overlaid messages
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

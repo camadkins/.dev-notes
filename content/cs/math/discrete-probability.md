@@ -100,7 +100,7 @@ On average, you check about half the array. This is one of the simplest expected
 
 ## Related Notes
 
-- [[best-worst-average-cases|Best, Worst & Average Cases]] - probability underpins average-case complexity analysis
-- [[combinatorics|Combinatorics]] - counting outcomes is the foundation of computing probabilities
-- [[linear-algebra-fundamentals|Linear Algebra Fundamentals]] - Markov chains connect probability with matrix methods
-- [[graph-theory|Graph Theory]] - random graphs and probabilistic methods in combinatorics
+- [[cs/dsa/best-worst-average-cases|Best, Worst & Average Cases]] - probability underpins average-case complexity analysis
+- [[cs/math/combinatorics|Combinatorics]] - counting outcomes is the foundation of computing probabilities
+- [[cs/math/linear-algebra-fundamentals|Linear Algebra Fundamentals]] - Markov chains connect probability with matrix methods
+- [[cs/math/graph-theory|Graph Theory]] - random graphs and probabilistic methods in combinatorics

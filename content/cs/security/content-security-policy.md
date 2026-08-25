@@ -11,7 +11,7 @@ date: 2026-07-25
 updated:
 ---
 
-Every [[cross-site-scripting-xss|cross-site scripting]] defense on the server side is a bet that you found and neutralized every injection point. Real applications lose that bet eventually, because the attack surface is large and one missed output context is enough. Content Security Policy accepts that premise and adds a second gate the attacker cannot see or touch: even if malicious script reaches the page, the browser decides whether to run it, according to rules the server declared in advance.
+Every [[cs/security/cross-site-scripting-xss|cross-site scripting]] defense on the server side is a bet that you found and neutralized every injection point. Real applications lose that bet eventually, because the attack surface is large and one missed output context is enough. Content Security Policy accepts that premise and adds a second gate the attacker cannot see or touch: even if malicious script reaches the page, the browser decides whether to run it, according to rules the server declared in advance.
 
 > [!note] The idea
 > CSP is a browser-enforced allowlist that shifts the XSS decision from "was the injection prevented" to "is this script authorized to execute." The server sends a policy; the browser refuses any script that does not match it. Because enforcement happens in the browser against a policy the attacker cannot edit, CSP holds even when the injection succeeds, which is exactly why it is defense in depth and not a first line.
@@ -33,9 +33,9 @@ The sharpest single lever is inline script. MDN: "If a CSP contains either a def
 
 ## Related Notes
 
-- [[cross-site-scripting-xss|Cross-Site Scripting (XSS)]], the attack CSP is primarily built to blunt
-- [[same-origin-policy-and-cors|Same-Origin Policy and CORS]], the surrounding browser model of what an origin may load and reach
-- [[clickjacking-and-ui-redressing|Clickjacking and UI Redressing]], defended by the same header's `frame-ancestors` directive
+- [[cs/security/cross-site-scripting-xss|Cross-Site Scripting (XSS)]], the attack CSP is primarily built to blunt
+- [[cs/security/same-origin-policy-and-cors|Same-Origin Policy and CORS]], the surrounding browser model of what an origin may load and reach
+- [[cs/security/clickjacking-and-ui-redressing|Clickjacking and UI Redressing]], defended by the same header's `frame-ancestors` directive
 
 ## Sources
 

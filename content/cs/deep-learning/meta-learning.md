@@ -13,14 +13,14 @@ aliases:
   - MAML
 ---
 
-Show a child one picture of an okapi and they will recognize okapis for the rest of their life. Show a conventionally trained neural network one picture and it has learned almost nothing, because ordinary [[supervised-learning]] treats every new task as a fresh start requiring thousands of labeled examples. Meta-learning closes that gap by moving the learning up a level: instead of learning one task from many examples, the system learns *across many tasks* how to learn, so that the next task takes only a few examples.
+Show a child one picture of an okapi and they will recognize okapis for the rest of their life. Show a conventionally trained neural network one picture and it has learned almost nothing, because ordinary [[cs/machine-learning/supervised-learning]] treats every new task as a fresh start requiring thousands of labeled examples. Meta-learning closes that gap by moving the learning up a level: instead of learning one task from many examples, the system learns *across many tasks* how to learn, so that the next task takes only a few examples.
 
 > [!note] The idea
 > Treat entire tasks the way ordinary training treats examples. Over many learning episodes, improve the learning algorithm itself (its comparisons, its memory, or its starting point) so that adaptation to a new task becomes fast and data-cheap. The literature calls this "learning to learn."
 
 ## Why one level up
 
-Every learning algorithm carries an [[cs/statistics/bayesian-inference|inductive bias]], a set of built-in assumptions about the data, and no single bias works well everywhere. Ordinary training fixes the algorithm and fits the data. Meta-learning instead uses experience from many learning episodes to improve the algorithm, a framing the Hospedales et al. survey (2020) uses to distinguish it from solving each task from scratch with a hand-designed learner. The payoff shows up exactly where deep learning is weakest: settings with a data bottleneck, where a big net would simply memorize its handful of examples (the same failure mode that [[regularization-in-deep-learning]] fights within a single task).
+Every learning algorithm carries an [[cs/statistics/bayesian-inference|inductive bias]], a set of built-in assumptions about the data, and no single bias works well everywhere. Ordinary training fixes the algorithm and fits the data. Meta-learning instead uses experience from many learning episodes to improve the algorithm, a framing the Hospedales et al. survey (2020) uses to distinguish it from solving each task from scratch with a hand-designed learner. The payoff shows up exactly where deep learning is weakest: settings with a data bottleneck, where a big net would simply memorize its handful of examples (the same failure mode that [[cs/deep-learning/regularization-in-deep-learning]] fights within a single task).
 
 ## Few-shot learning, the benchmark setting
 
@@ -40,9 +40,9 @@ The field sorts roughly into three strategies, differing in *what* gets learned 
 
 ## MAML: learn an initialization worth fine-tuning
 
-Model-Agnostic Meta-Learning (Finn, Abbeel, and Levine, 2017) is the cleanest expression of the optimization-based idea. "Model-agnostic" means it assumes nothing about the architecture beyond one thing: the model is trained with [[gradient-descent]]. That makes it applicable to essentially any modern network, including any [[artificial-neural-networks|artificial neural network]] you would train normally.
+Model-Agnostic Meta-Learning (Finn, Abbeel, and Levine, 2017) is the cleanest expression of the optimization-based idea. "Model-agnostic" means it assumes nothing about the architecture beyond one thing: the model is trained with [[cs/machine-learning/gradient-descent]]. That makes it applicable to essentially any modern network, including any [[cs/deep-learning/artificial-neural-networks|artificial neural network]] you would train normally.
 
-![MAML's inner loop adapts to each task while the outer loop improves the shared initialization](assets/maml-loops.svg)
+![MAML's inner loop adapts to each task while the outer loop improves the shared initialization](cs/deep-learning/assets/maml-loops.svg)
 
 The mechanism is two nested loops. The **inner loop** takes the current shared parameters $\theta$ and adapts a copy to one specific task using a small number of gradient steps on a small amount of that task's data. The **outer loop** then asks the meta-question: after that cheap adaptation, how well did the adapted model do? It updates $\theta$ itself to make the answer better next time. Nothing about the trained model is exotic; what is special is where it starts. MAML deliberately optimizes for maximal sensitivity to fine-tuning, an initialization from which a few steps in any task's direction go a long way.
 
@@ -53,11 +53,11 @@ Finn et al. demonstrated the recipe on few-shot image classification (where it w
 
 ## Related Notes
 
-- [[supervised-learning]], the one-task-many-examples baseline meta-learning generalizes
-- [[gradient-descent]], the machinery MAML's inner and outer loops both run on
-- [[artificial-neural-networks]], the models being meta-trained
-- [[regularization-in-deep-learning]], the within-task answer to scarce data; meta-learning is the across-task answer
-- [[ai-vs-ml-vs-dl]], where all of this sits in the wider field
+- [[cs/machine-learning/supervised-learning]], the one-task-many-examples baseline meta-learning generalizes
+- [[cs/machine-learning/gradient-descent]], the machinery MAML's inner and outer loops both run on
+- [[cs/deep-learning/artificial-neural-networks]], the models being meta-trained
+- [[cs/deep-learning/regularization-in-deep-learning]], the within-task answer to scarce data; meta-learning is the across-task answer
+- [[cs/machine-learning/ai-vs-ml-vs-dl]], where all of this sits in the wider field
 
 ## Sources
 

@@ -26,7 +26,7 @@ The order of operations matters more than the table of numbers, because most con
 
 First, each routing protocol runs its own metric and path selection algorithm and produces its own best candidate. Then the routing table compares candidates: only the protocol's best candidate for a given prefix is considered, and if multiple routing sources advertise the same network and prefix length, AD determines which route is installed. Then the route is installed, but only after the router validates that it is usable, including a reachable next hop or valid exit interface. If the route uses a next-hop IP address, the router performs [[cs/dsa/recursion|recursive lookup]], also called route recursion, to resolve the outgoing interface, and if the next hop cannot be resolved, the route is not installed in the routing table.
 
-Forwarding is a separate stage with separate rules. When forwarding a packet, the router searches the forwarding table for all matching routes and selects the most specific prefix, the [[routing-and-longest-prefix-match|longest prefix match]]. Cisco is blunt about the relationship: AD and routing metrics are not evaluated during forwarding, those values have already been used to determine which routes were installed in the RIB, hence AD does not override longest prefix match.
+Forwarding is a separate stage with separate rules. When forwarding a packet, the router searches the forwarding table for all matching routes and selects the most specific prefix, the [[cs/networking/routing-and-longest-prefix-match|longest prefix match]]. Cisco is blunt about the relationship: AD and routing metrics are not evaluated during forwarding, those values have already been used to determine which routes were installed in the RIB, hence AD does not override longest prefix match.
 
 That single sentence settles a recurring argument. A /24 learned from OSPF beats a /16 static for a packet inside the /24, every time, no matter that the static has AD 1. The static did not lose; it was never in that competition.
 
@@ -49,7 +49,7 @@ That single sentence settles a recurring argument. A /24 learned from OSPF beats
 | Internal BGP | 200 |
 | Unknown | 255 |
 
-Two entries are doing work beyond their row. 255 is not "very bad," it is a veto: if the administrative distance is 255, the router does not consider the route reliable and does not install it in the routing table. And the eBGP/iBGP split at 20 and 200 is why a route learned from a peer AS outranks OSPF while the same prefix learned from your own iBGP mesh loses to it, a design decision covered in [[bgp-fundamentals|BGP fundamentals]].
+Two entries are doing work beyond their row. 255 is not "very bad," it is a veto: if the administrative distance is 255, the router does not consider the route reliable and does not install it in the routing table. And the eBGP/iBGP split at 20 and 200 is why a route learned from a peer AS outranks OSPF while the same prefix learned from your own iBGP mesh loses to it, a design decision covered in [[cs/cisco/bgp-fundamentals|BGP fundamentals]].
 
 Reading the table back off the box, the bracket notation is `[administrative distance/metric]`. Cisco's example: `[90/1]` means the route has an administrative distance of 90 and a protocol metric of 1. So `[110/2]` is OSPF at cost 2, and `[1/0]` is a static route, which always shows metric 0.
 
@@ -106,13 +106,13 @@ The general lesson is that a floating static is only as good as the failure dete
 
 ## Related Notes
 
-- [[routing-and-longest-prefix-match|Routing and Longest-Prefix Match]] - the forwarding-stage rule that AD does not override
-- [[ospf-fundamentals|OSPF Fundamentals]] - the AD 110 source most often overridden by a static
-- [[eigrp-fundamentals|EIGRP Fundamentals]] - internal 90 and external 170, the two values a floating static has to clear
-- [[bgp-fundamentals|BGP Fundamentals]] - why eBGP sits at 20 and iBGP at 200
-- [[hsrp-vrrp-and-first-hop-redundancy|HSRP, VRRP, and First-Hop Redundancy]] - redundancy for the default gateway a host statically points at
-- [[show-and-debug-methodology|Show and Debug Methodology]] - the discipline behind the verification commands
-- [[arp-and-mac-addressing|ARP and MAC Addressing]] - the cache that an interface-only static route on Ethernet blows up
+- [[cs/networking/routing-and-longest-prefix-match|Routing and Longest-Prefix Match]] - the forwarding-stage rule that AD does not override
+- [[cs/cisco/ospf-fundamentals|OSPF Fundamentals]] - the AD 110 source most often overridden by a static
+- [[cs/cisco/eigrp-fundamentals|EIGRP Fundamentals]] - internal 90 and external 170, the two values a floating static has to clear
+- [[cs/cisco/bgp-fundamentals|BGP Fundamentals]] - why eBGP sits at 20 and iBGP at 200
+- [[cs/cisco/hsrp-vrrp-and-first-hop-redundancy|HSRP, VRRP, and First-Hop Redundancy]] - redundancy for the default gateway a host statically points at
+- [[cs/cisco/show-and-debug-methodology|Show and Debug Methodology]] - the discipline behind the verification commands
+- [[cs/networking/arp-and-mac-addressing|ARP and MAC Addressing]] - the cache that an interface-only static route on Ethernet blows up
 
 ## Sources
 

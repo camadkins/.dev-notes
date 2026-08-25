@@ -40,10 +40,10 @@ In IPv4 it works by a controlled probe. The sender sets the Don't Fragment (DF) 
 
 ## Related Notes
 
-- [[ip-addressing-and-subnetting|IP Addressing and Subnetting]] - the IP layer whose packets get fragmented
-- [[ipv6-essentials|IPv6 Essentials]] - why IPv6 pushed fragmentation off routers and onto hosts
-- [[tcp-congestion-control|TCP Congestion Control]] - why one lost fragment is expensive for a reliable stream
-- [[osi-and-tcp-ip-models|OSI and TCP/IP Models]] - MTU lives at the boundary of the link and internet layers
+- [[cs/networking/ip-addressing-and-subnetting|IP Addressing and Subnetting]] - the IP layer whose packets get fragmented
+- [[cs/networking/ipv6-essentials|IPv6 Essentials]] - why IPv6 pushed fragmentation off routers and onto hosts
+- [[cs/networking/tcp-congestion-control|TCP Congestion Control]] - why one lost fragment is expensive for a reliable stream
+- [[cs/networking/osi-and-tcp-ip-models|OSI and TCP/IP Models]] - MTU lives at the boundary of the link and internet layers
 
 ## Sources
 

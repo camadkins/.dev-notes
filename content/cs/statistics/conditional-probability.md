@@ -19,7 +19,7 @@ The idea is simple. When you learn that event $A$ occurred, you throw away every
 
 This "reduced sample space" perspective is what makes conditional probability the gateway to all of Bayesian reasoning - every update, every inference, every learned model starts here.
 
-![Venn diagram showing sample space S with events A and B, highlighting the reduced sample space and intersection defining P(B|A)](assets/conditional-venn.svg)
+![Venn diagram showing sample space S with events A and B, highlighting the reduced sample space and intersection defining P(B|A)](cs/statistics/assets/conditional-venn.svg)
 
 ## Definition
 
@@ -58,7 +58,7 @@ For a partition $\{B_1, B_2, \ldots, B_k\}$ of the sample space:
 
 $$P(A) = \sum_{i=1}^{k} P(B_i)\, P(A \mid B_i)$$
 
-This bridges conditional and unconditional probabilities and is the denominator in [[bayes-rule|Bayes' Rule]].
+This bridges conditional and unconditional probabilities and is the denominator in [[cs/statistics/bayes-rule|Bayes' Rule]].
 
 ## Example
 
@@ -85,8 +85,8 @@ Using total probability: $P(A) = 0.85 \times 0.965 + 0.15 \times 0.30 = 0.865$. 
 
 ## Related Notes
 
-- [[bayes-rule|Bayes' Rule]] - reverses the conditioning direction using conditional probability
-- [[probability-distributions|Probability Distributions]] - the distributions that conditional probabilities operate over
-- [[bayesian-inference|Bayesian Inference]] - the full framework for updating beliefs with data
-- [[the-impossibility-of-algorithmic-fairness|The Impossibility of Algorithmic Fairness]] - the confusion matrix is a table of conditional probabilities, and the fairness criteria are conditions on them that cannot all hold at once
-- [[social-categories-and-machine-learning|Social Categories and Machine Learning]] - the Berkeley admissions case as a real instance of Simpson's paradox
+- [[cs/statistics/bayes-rule|Bayes' Rule]] - reverses the conditioning direction using conditional probability
+- [[cs/statistics/probability-distributions|Probability Distributions]] - the distributions that conditional probabilities operate over
+- [[cs/statistics/bayesian-inference|Bayesian Inference]] - the full framework for updating beliefs with data
+- [[cs/ethics/the-impossibility-of-algorithmic-fairness|The Impossibility of Algorithmic Fairness]] - the confusion matrix is a table of conditional probabilities, and the fairness criteria are conditions on them that cannot all hold at once
+- [[cs/ethics/social-categories-and-machine-learning|Social Categories and Machine Learning]] - the Berkeley admissions case as a real instance of Simpson's paradox

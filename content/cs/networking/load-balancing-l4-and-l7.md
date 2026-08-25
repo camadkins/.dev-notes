@@ -21,9 +21,9 @@ One server can only answer so many requests before it saturates. The standard an
 
 ## What each layer can see
 
-The names come from the [[osi-and-tcp-ip-models|OSI model]]. A **layer-4 (transport) balancer**, which cloud vendors often call a network load balancer, examines IP addresses and other network information to redirect traffic. It works at the level of [[ports-and-sockets|TCP and UDP connections]]: it sees the four-tuple of source and destination IP and [[ports-and-sockets|port]], picks a backend, and forwards packets, without ever parsing what the connection carries. It is fast and content-blind, which is exactly right when every backend is interchangeable and the payload is opaque (encrypted, or a non-HTTP protocol).
+The names come from the [[cs/networking/osi-and-tcp-ip-models|OSI model]]. A **layer-4 (transport) balancer**, which cloud vendors often call a network load balancer, examines IP addresses and other network information to redirect traffic. It works at the level of [[cs/networking/ports-and-sockets|TCP and UDP connections]]: it sees the four-tuple of source and destination IP and [[cs/networking/ports-and-sockets|port]], picks a backend, and forwards packets, without ever parsing what the connection carries. It is fast and content-blind, which is exactly right when every backend is interchangeable and the payload is opaque (encrypted, or a non-HTTP protocol).
 
-A **layer-7 (application) balancer**, or application load balancer, looks at the request content, such as HTTP headers or SSL session IDs, to redirect traffic. Because it terminates the connection and reads the actual request, it can send a request for the product catalog to one server farm and a checkout request to another, route by hostname or URL path, and make decisions no L4 balancer could because an L4 balancer never sees the URL. The cost is that it must do the work of parsing (and usually of terminating [[tls-and-the-https-handshake|TLS]]) for every request.
+A **layer-7 (application) balancer**, or application load balancer, looks at the request content, such as HTTP headers or SSL session IDs, to redirect traffic. Because it terminates the connection and reads the actual request, it can send a request for the product catalog to one server farm and a checkout request to another, route by hostname or URL path, and make decisions no L4 balancer could because an L4 balancer never sees the URL. The cost is that it must do the work of parsing (and usually of terminating [[cs/systems/tls-and-the-https-handshake|TLS]]) for every request.
 
 ## Scheduling algorithms: which backend next
 
@@ -35,22 +35,22 @@ Spreading load across servers is worthless if requests keep going to a server th
 
 ## Session persistence: the state problem
 
-Spreading requests freely assumes any backend can serve any request, which breaks the moment a server keeps per-user state locally. If a user's shopping-cart data lives on server A and their next request lands on server B, the cart is gone. The clean fix is to make the backends stateless, holding session data in a shared store (a database or an in-memory cache like Memcached) so any server can serve any request. When that is not possible, the fallback is **persistence**, also called stickiness: send every request in a user's session to the same backend, keyed on client IP, a username, or a cookie. Stickiness has a real cost the note-worthy sources are blunt about: it defeats automatic failover, because when a sticky backend dies, the sessions pinned to it are lost, and client-IP stickiness is unreliable when [[nat-and-port-translation|NAT]] and proxies make many users share one apparent address.
+Spreading requests freely assumes any backend can serve any request, which breaks the moment a server keeps per-user state locally. If a user's shopping-cart data lives on server A and their next request lands on server B, the cart is gone. The clean fix is to make the backends stateless, holding session data in a shared store (a database or an in-memory cache like Memcached) so any server can serve any request. When that is not possible, the fallback is **persistence**, also called stickiness: send every request in a user's session to the same backend, keyed on client IP, a username, or a cookie. Stickiness has a real cost the note-worthy sources are blunt about: it defeats automatic failover, because when a sticky backend dies, the sessions pinned to it are lost, and client-IP stickiness is unreliable when [[cs/networking/nat-and-port-translation|NAT]] and proxies make many users share one apparent address.
 
 > [!example] Same request, two balancers
 > A browser sends `GET /checkout` over HTTPS. An L4 balancer sees only a TCP connection to port 443 from some IP and forwards it to whichever backend its algorithm picks; the path `/checkout` is invisible to it, buried in encrypted bytes. An L7 balancer terminates the TLS, reads `GET /checkout` and the `Host` header, and routes it specifically to the checkout server farm, perhaps pinning the user there by cookie so the rest of their session stays put.
 
 > [!warning] The balancer must not become the single point of failure
-> Putting every request through one box concentrates risk. Production load balancers are run in high-availability pairs, sometimes replicating session-persistence state, so the thing that was supposed to add resilience does not itself take the whole service down when it fails. Fronting many servers also lets the balancer absorb work like TLS termination and [[denial-of-service-and-ddos|SYN-flood]] mitigation on behalf of the backends.
+> Putting every request through one box concentrates risk. Production load balancers are run in high-availability pairs, sometimes replicating session-persistence state, so the thing that was supposed to add resilience does not itself take the whole service down when it fails. Fronting many servers also lets the balancer absorb work like TLS termination and [[cs/security/denial-of-service-and-ddos|SYN-flood]] mitigation on behalf of the backends.
 
 ## Related Notes
 
-- [[ports-and-sockets|Ports and Sockets]] - the transport-layer identifiers an L4 balancer routes on
-- [[osi-and-tcp-ip-models|OSI and TCP/IP Models]] - the layers the L4/L7 split is named after
-- [[tls-and-the-https-handshake|TLS and the HTTPS Handshake]] - the encryption an L7 balancer terminates to read the request
-- [[nat-and-port-translation|NAT and Port Translation]] - why client-IP stickiness is unreliable
-- [[dns-the-domain-name-system|DNS]] - round-robin DNS as a load-spreading method without a dedicated balancer
-- [[denial-of-service-and-ddos|Denial of Service and DDoS]] - the flood mitigation a balancer offloads from backends
+- [[cs/networking/ports-and-sockets|Ports and Sockets]] - the transport-layer identifiers an L4 balancer routes on
+- [[cs/networking/osi-and-tcp-ip-models|OSI and TCP/IP Models]] - the layers the L4/L7 split is named after
+- [[cs/systems/tls-and-the-https-handshake|TLS and the HTTPS Handshake]] - the encryption an L7 balancer terminates to read the request
+- [[cs/networking/nat-and-port-translation|NAT and Port Translation]] - why client-IP stickiness is unreliable
+- [[cs/systems/dns-the-domain-name-system|DNS]] - round-robin DNS as a load-spreading method without a dedicated balancer
+- [[cs/security/denial-of-service-and-ddos|Denial of Service and DDoS]] - the flood mitigation a balancer offloads from backends
 
 ## Sources
 

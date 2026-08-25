@@ -156,12 +156,12 @@ The scale numbers, verbatim from the guidelines: "The maximum number of class ma
 
 ## Related Notes
 
-- [[asa-access-rules-and-acls|ASA Access Rules and ACLs]] - the permit decision that runs before any service policy
-- [[asa-security-levels|ASA Security Levels]] - the interface model service policies are attached to
-- [[asa-nat|NAT on the ASA]] - the `nat-rewrite` parameter in the default DNS inspection map
-- [[qos-and-traffic-shaping|QoS and Traffic Shaping]] - the policing and priority-queue features MPF exposes
-- [[ids-and-ips|IDS and IPS]] - application inspection as a lighter cousin of protocol-aware detection
-- [[firewalls|Firewalls]] - where deep protocol inspection sits in the firewall taxonomy
+- [[cs/cisco/asa-access-rules-and-acls|ASA Access Rules and ACLs]] - the permit decision that runs before any service policy
+- [[cs/cisco/asa-security-levels|ASA Security Levels]] - the interface model service policies are attached to
+- [[cs/cisco/asa-nat|NAT on the ASA]] - the `nat-rewrite` parameter in the default DNS inspection map
+- [[cs/networking/qos-and-traffic-shaping|QoS and Traffic Shaping]] - the policing and priority-queue features MPF exposes
+- [[cs/security/ids-and-ips|IDS and IPS]] - application inspection as a lighter cousin of protocol-aware detection
+- [[cs/security/firewalls|Firewalls]] - where deep protocol inspection sits in the firewall taxonomy
 
 ## Sources
 

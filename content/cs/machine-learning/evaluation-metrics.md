@@ -13,7 +13,7 @@ aliases:
   - roc-auc
 ---
 
-Accuracy is one number, and one number can hide the exact failure you care about. A classifier that is 96.7% accurate sounds excellent until you learn the positive class it exists to find makes up 2% of the data and it misses nearly all of it. Serious evaluation starts by breaking errors apart by type, then choosing summaries that match what mistakes actually cost in your problem. Everything below is computed on the held-out data from [[train-validation-test]], never on what the model trained on.
+Accuracy is one number, and one number can hide the exact failure you care about. A classifier that is 96.7% accurate sounds excellent until you learn the positive class it exists to find makes up 2% of the data and it misses nearly all of it. Serious evaluation starts by breaking errors apart by type, then choosing summaries that match what mistakes actually cost in your problem. Everything below is computed on the held-out data from [[cs/machine-learning/train-validation-test]], never on what the model trained on.
 
 > [!note] The idea
 > The confusion matrix is the ground truth of classifier evaluation: it counts true positives, false positives, false negatives, and true negatives separately. Accuracy, precision, recall, F1, and ROC-AUC are each just a different summary of those counts, and each answers a different question.
@@ -27,11 +27,11 @@ For a binary problem, cross true class against predicted class (Wikipedia also c
 | **Actually +** | true positive ($tp$) | false negative ($fn$) |
 | **Actually −** | false positive ($fp$) | true negative ($tn$) |
 
-This generalizes to any number of classes, where it shows at a glance which classes get confused with which. The two error types are rarely equal in cost: a false negative in cancer screening and a false positive in [[cs/security/phishing-and-social-engineering|spam filtering]] are different kinds of expensive, and the matrix is what lets you see them separately. In probability terms these cells are counts of joint events, and the row-versus-column rates you derive from them are conditional probabilities (the same bookkeeping as [[bayes-rule]]).
+This generalizes to any number of classes, where it shows at a glance which classes get confused with which. The two error types are rarely equal in cost: a false negative in cancer screening and a false positive in [[cs/security/phishing-and-social-engineering|spam filtering]] are different kinds of expensive, and the matrix is what lets you see them separately. In probability terms these cells are counts of joint events, and the row-versus-column rates you derive from them are conditional probabilities (the same bookkeeping as [[cs/statistics/bayes-rule]]).
 
 ## Accuracy, and Its Trap
 
-Accuracy is $(tp + tn) / N$, the fraction right, equivalently one minus the average 0-1 loss from [[loss-functions]]. It fails silently under class imbalance. The course example: a test set of 1000 examples with 20 positives and 980 negatives. A classifier that gets 2 of 20 positives and 965 of 980 negatives scores $(2 + 965)/1000 = 96.7\%$. Impressive, except the do-nothing classifier that always predicts negative scores $980/1000 = 98.0\%$ while catching zero positives. Whether you would rather have a 94.9% accurate model that catches 19 of 20 positives (at the cost of fifty [[cs/security/ids-and-ips|false alarms]]) depends entirely on what positives cost you, and accuracy alone cannot express that.
+Accuracy is $(tp + tn) / N$, the fraction right, equivalently one minus the average 0-1 loss from [[cs/machine-learning/loss-functions]]. It fails silently under class imbalance. The course example: a test set of 1000 examples with 20 positives and 980 negatives. A classifier that gets 2 of 20 positives and 965 of 980 negatives scores $(2 + 965)/1000 = 96.7\%$. Impressive, except the do-nothing classifier that always predicts negative scores $980/1000 = 98.0\%$ while catching zero positives. Whether you would rather have a 94.9% accurate model that catches 19 of 20 positives (at the cost of fifty [[cs/security/ids-and-ips|false alarms]]) depends entirely on what positives cost you, and accuracy alone cannot express that.
 
 ## Precision, Recall, and F1
 
@@ -50,12 +50,12 @@ The **area under the curve (AUC)** compresses the curve into one threshold-free 
 
 ## Related Notes
 
-- [[train-validation-test]] governs which data these numbers may legally be computed on
-- [[loss-functions]] for 0-1 loss, the quantity accuracy inverts
-- [[bayes-rule]] for reading matrix-derived rates as conditional probabilities
-- [[hypothesis-testing]] for deciding whether a metric difference between two models is real
-- [[bias-variance-tradeoff]] on why great training-set metrics can mean nothing
-- [[supervised-learning]] for the classification setting all of this evaluates
+- [[cs/machine-learning/train-validation-test]] governs which data these numbers may legally be computed on
+- [[cs/machine-learning/loss-functions]] for 0-1 loss, the quantity accuracy inverts
+- [[cs/statistics/bayes-rule]] for reading matrix-derived rates as conditional probabilities
+- [[cs/statistics/hypothesis-testing]] for deciding whether a metric difference between two models is real
+- [[cs/machine-learning/bias-variance-tradeoff]] on why great training-set metrics can mean nothing
+- [[cs/machine-learning/supervised-learning]] for the classification setting all of this evaluates
 
 ## Sources
 

@@ -18,7 +18,7 @@ aliases:
 Every other supervised method compresses a training set into parameters and then throws the data away. k-nearest neighbors does the opposite. scikit-learn classifies neighbor methods as "non-generalizing machine learning methods, since they simply 'remember' all of its training data," and describes the classifier as instance-based learning that "does not attempt to construct a general internal model, but simply stores instances of the training data." Prediction is a lookup: find the $k$ closest stored examples to the query point and take a majority vote among their labels.
 
 > [!note] The idea
-> Because kNN has no parameters to fit, the modeling decisions do not disappear, they relocate. The distance metric becomes the model, since it alone defines which stored points count as "similar." The value of $k$ becomes the [[bias-variance-tradeoff|bias-variance]] dial, since it sets how much of the neighborhood gets averaged. And the number of features becomes an active threat rather than a nuisance, because in high dimensions Euclidean distance stops discriminating at all and the notion of a "nearest" neighbor quietly loses meaning.
+> Because kNN has no parameters to fit, the modeling decisions do not disappear, they relocate. The distance metric becomes the model, since it alone defines which stored points count as "similar." The value of $k$ becomes the [[cs/machine-learning/bias-variance-tradeoff|bias-variance]] dial, since it sets how much of the neighborhood gets averaged. And the number of features becomes an active threat rather than a nuisance, because in high dimensions Euclidean distance stops discriminating at all and the notion of a "nearest" neighbor quietly loses meaning.
 
 ## Deferred computation, and where the cost goes
 
@@ -34,7 +34,7 @@ Two properties of the data leak straight through the metric into predictions. Fi
 
 ## k as a bias-variance dial
 
-At $k = 1$ the prediction is the label of the single closest training point, which Wikipedia calls the nearest neighbor algorithm. That decision surface fits every local wrinkle in the training data, including the noise. Raising $k$ averages over a larger neighborhood, and both sources describe the same tradeoff. Wikipedia: larger values of $k$ reduce the effect of noise on the classification but make boundaries between classes less distinct. scikit-learn: "in general a larger $k$ suppresses the effects of noise, but makes the classification boundaries less distinct." That is the [[bias-variance-tradeoff|bias-variance tradeoff]] in one hyperparameter, with no retraining cost to explore it, so $k$ is a natural thing to select on a [[train-validation-test|validation set]].
+At $k = 1$ the prediction is the label of the single closest training point, which Wikipedia calls the nearest neighbor algorithm. That decision surface fits every local wrinkle in the training data, including the noise. Raising $k$ averages over a larger neighborhood, and both sources describe the same tradeoff. Wikipedia: larger values of $k$ reduce the effect of noise on the classification but make boundaries between classes less distinct. scikit-learn: "in general a larger $k$ suppresses the effects of noise, but makes the classification boundaries less distinct." That is the [[cs/machine-learning/bias-variance-tradeoff|bias-variance tradeoff]] in one hyperparameter, with no retraining cost to explore it, so $k$ is a natural thing to select on a [[cs/machine-learning/train-validation-test|validation set]].
 
 A refinement sits between the extremes. Default kNN uses uniform weights, a simple majority vote. scikit-learn's `weights='distance'` instead assigns weights proportional to the inverse of the distance from the query point, so a large $k$ can be used for stability while nearby points still dominate the answer.
 
@@ -45,17 +45,17 @@ A refinement sits between the extremes. Default kNN uses uniform weights, a simp
 
 The failure mode is not slowness, it is meaninglessness. Wikipedia states what the curse means specifically in the kNN context: Euclidean distance "is unhelpful in high dimensions because all vectors are almost equidistant to the search query vector," and offers the picture of points lying more or less on a circle with the query at the center, every distance nearly the same. When the nearest and farthest neighbors sit at almost identical distances, ranking them by distance is close to ranking them by noise, and the vote that follows carries no signal.
 
-The standard mitigation is to shrink $D$ before the algorithm ever runs. Wikipedia notes that for high-dimensional data, with more than roughly ten dimensions, dimension reduction is usually performed prior to applying kNN in order to avoid the curse's effects. This is one of the clearest practical arguments for [[pca-and-dimensionality-reduction|dimensionality reduction]] as a preprocessing step rather than an analysis technique, and one reason [[features-and-representations|feature engineering]] matters more for kNN than for models that can learn to ignore what you give them.
+The standard mitigation is to shrink $D$ before the algorithm ever runs. Wikipedia notes that for high-dimensional data, with more than roughly ten dimensions, dimension reduction is usually performed prior to applying kNN in order to avoid the curse's effects. This is one of the clearest practical arguments for [[cs/machine-learning/pca-and-dimensionality-reduction|dimensionality reduction]] as a preprocessing step rather than an analysis technique, and one reason [[cs/machine-learning/features-and-representations|feature engineering]] matters more for kNN than for models that can learn to ignore what you give them.
 
 ## Related Notes
 
-- [[bias-variance-tradeoff|Bias-Variance Tradeoff]] - what the choice of k trades off
-- [[pca-and-dimensionality-reduction|PCA and Dimensionality Reduction]] - the standard preprocessing that makes kNN viable in high dimensions
-- [[features-and-representations|Features and Representations]] - why scaling and relevance leak directly into the distance
-- [[supervised-learning|Supervised Learning]] - the labeled setting kNN operates in
-- [[train-validation-test|Train, Validation, Test]] - where k gets selected
-- [[decision-trees-and-ensembles|Decision Trees and Ensembles]] - the other classic non-parametric family, which does build a model
-- [[asymptotic-notation|Asymptotic Notation]] - reading the O[DN^2] and O[DN log N] search costs
+- [[cs/machine-learning/bias-variance-tradeoff|Bias-Variance Tradeoff]] - what the choice of k trades off
+- [[cs/machine-learning/pca-and-dimensionality-reduction|PCA and Dimensionality Reduction]] - the standard preprocessing that makes kNN viable in high dimensions
+- [[cs/machine-learning/features-and-representations|Features and Representations]] - why scaling and relevance leak directly into the distance
+- [[cs/machine-learning/supervised-learning|Supervised Learning]] - the labeled setting kNN operates in
+- [[cs/machine-learning/train-validation-test|Train, Validation, Test]] - where k gets selected
+- [[cs/machine-learning/decision-trees-and-ensembles|Decision Trees and Ensembles]] - the other classic non-parametric family, which does build a model
+- [[cs/dsa/asymptotic-notation|Asymptotic Notation]] - reading the O[DN^2] and O[DN log N] search costs
 
 ## Sources
 

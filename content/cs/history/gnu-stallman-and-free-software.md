@@ -29,13 +29,13 @@ The GNU General Public License enforces copyleft by [[cs/languages/common/softwa
 
 ## GNU plus Linux
 
-The GNU Project produced the tools and utilities of an operating system but, for years, lacked a finished kernel. [[cs/systems/kernel-architectures-monolithic-and-microkernel|Combined with the Linux kernel]], the GNU software forms a complete Unix-like system. This is the free and open-source world whose origins, in the culture of [[unix-and-open-source|Unix]], the open-source note describes.
+The GNU Project produced the tools and utilities of an operating system but, for years, lacked a finished kernel. [[cs/systems/kernel-architectures-monolithic-and-microkernel|Combined with the Linux kernel]], the GNU software forms a complete Unix-like system. This is the free and open-source world whose origins, in the culture of [[cs/history/unix-and-open-source|Unix]], the open-source note describes.
 
 ## Related Notes
 
-- [[unix-and-open-source|Unix and Open Source]], the culture GNU grew from and reshaped
-- [[multics-and-time-sharing-foundations|Multics]], the ancestor of the Unix that GNU rebuilt freely
-- [[history-genealogy-of-languages|History and Genealogy of Languages]], the tools GNU reimplemented
+- [[cs/history/unix-and-open-source|Unix and Open Source]], the culture GNU grew from and reshaped
+- [[cs/military-computing/multics-and-time-sharing-foundations|Multics]], the ancestor of the Unix that GNU rebuilt freely
+- [[cs/pl/history-genealogy-of-languages|History and Genealogy of Languages]], the tools GNU reimplemented
 - [[cs/history/index|History of Computing]], the section index
 
 ## Sources

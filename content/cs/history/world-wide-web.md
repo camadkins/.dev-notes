@@ -16,7 +16,7 @@ aliases:
 The internet moves packets between machines. The World Wide Web is something built on top of it: a global space of documents linked by hyperlinks, which Tim Berners-Lee invented at CERN around 1990. Keeping the two straight matters, because confusing the Web with the internet is one of the most common misunderstandings about how computing works.
 
 > [!note] The idea
-> The Web is an application layer over the [[history-of-the-internet|internet]]. It adds three things: a way to name any resource (the URL), a way to request it (HTTP), and a way to write linked documents (HTML).
+> The Web is an application layer over the [[cs/history/history-of-the-internet|internet]]. It adds three things: a way to name any resource (the URL), a way to request it (HTTP), and a way to write linked documents (HTML).
 
 ## Invented at CERN
 
@@ -28,14 +28,14 @@ The internet is a global system of interconnected computer networks. The Web is 
 
 ## Why it mattered
 
-The networking, [[dod-model-and-tcp-ip-standardization|TCP/IP]] and all, was already in place. What the Web added was a reason for ordinary people to use it: a navigable space of linked documents anyone could read and publish to. That turned a network for researchers into the medium of modern life.
+The networking, [[cs/military-computing/dod-model-and-tcp-ip-standardization|TCP/IP]] and all, was already in place. What the Web added was a reason for ordinary people to use it: a navigable space of linked documents anyone could read and publish to. That turned a network for researchers into the medium of modern life.
 
 ## Related Notes
 
-- [[history-of-the-internet|History of the Internet]], the network the Web runs on
-- [[world-wide-web-browser-wars|The Browser Wars]], how the Web became a platform
-- [[dod-model-and-tcp-ip-standardization|The DoD Model and the TCP/IP Flag Day]], the protocols underneath
-- [[network-protocols|Network Protocols]], the layers in general
+- [[cs/history/history-of-the-internet|History of the Internet]], the network the Web runs on
+- [[cs/history/world-wide-web-browser-wars|The Browser Wars]], how the Web became a platform
+- [[cs/military-computing/dod-model-and-tcp-ip-standardization|The DoD Model and the TCP/IP Flag Day]], the protocols underneath
+- [[cs/systems/network-protocols|Network Protocols]], the layers in general
 - [[cs/history/index|History of Computing]], the section index
 
 ## Sources

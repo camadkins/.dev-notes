@@ -21,7 +21,7 @@ The word "hacking" suggests improvisation, but a professional penetration test i
 
 ## The phases
 
-Wikipedia's definition fixes the scope: a penetration test is "an authorized simulated cyberattack on a computer system, performed live to evaluate the security of the system." NIST structures the work into "the four phases of penetration testing": planning, discovery, attack, and reporting. Planning sets the rules of engagement, secures [[cs/law/the-computer-fraud-and-abuse-act|written authorization]], and defines goals; NIST notes that "no actual testing occurs in this phase," which is what keeps a sanctioned test from becoming [[cs/forensics/incident-response-and-where-forensics-begins|an incident]]. Discovery is information gathering, [[port-scanning-and-network-reconnaissance|port and service identification]], and vulnerability analysis, comparing what was found against known-vulnerability databases. Attack executes. Reporting documents findings so they can be remediated and re-tested.
+Wikipedia's definition fixes the scope: a penetration test is "an authorized simulated cyberattack on a computer system, performed live to evaluate the security of the system." NIST structures the work into "the four phases of penetration testing": planning, discovery, attack, and reporting. Planning sets the rules of engagement, secures [[cs/law/the-computer-fraud-and-abuse-act|written authorization]], and defines goals; NIST notes that "no actual testing occurs in this phase," which is what keeps a sanctioned test from becoming [[cs/forensics/incident-response-and-where-forensics-begins|an incident]]. Discovery is information gathering, [[cs/security/port-scanning-and-network-reconnaissance|port and service identification]], and vulnerability analysis, comparing what was found against known-vulnerability databases. Attack executes. Reporting documents findings so they can be remediated and re-tested.
 
 ## The attack phase is the whole point
 
@@ -36,10 +36,10 @@ The phases are ordered but not strictly linear, and the exception is instructive
 
 ## Related Notes
 
-- [[port-scanning-and-network-reconnaissance|Port Scanning and Network Reconnaissance]], the core technique of the discovery phase
-- [[vulnerability-scoring-cve-and-cvss|Vulnerability Scoring: CVE and CVSS]], the systems a discovery-phase vulnerability analysis maps findings onto
-- [[fuzzing|Fuzzing]], an automated way to find the exploitable inputs a manual attack phase then weaponizes
-- [[owasp-top-10|OWASP Top 10]], the vulnerability catalog a web-application pentest works down
+- [[cs/security/port-scanning-and-network-reconnaissance|Port Scanning and Network Reconnaissance]], the core technique of the discovery phase
+- [[cs/security/vulnerability-scoring-cve-and-cvss|Vulnerability Scoring: CVE and CVSS]], the systems a discovery-phase vulnerability analysis maps findings onto
+- [[cs/security/fuzzing|Fuzzing]], an automated way to find the exploitable inputs a manual attack phase then weaponizes
+- [[cs/security/owasp-top-10|OWASP Top 10]], the vulnerability catalog a web-application pentest works down
 
 ## Sources
 

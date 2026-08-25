@@ -33,7 +33,7 @@ The dependency runs one way. "In order to do Continuous Deployment you must be d
 | Continuous delivery | The software is deployable at any point in its lifecycle; deploying is a choice. |
 | Continuous deployment | Every change that passes the pipeline goes to production automatically. |
 
-Fowler positions the relationship between the first two directly: "Continuous Integration usually refers to integrating, building, and testing code within the development environment. Continuous Delivery builds on this, dealing with the final stages required for production deployment." [[continuous-integration|CI]] ends at a green mainline. CD carries that mainline the rest of the way.
+Fowler positions the relationship between the first two directly: "Continuous Integration usually refers to integrating, building, and testing code within the development environment. Continuous Delivery builds on this, dealing with the final stages required for production deployment." [[cs/software-engineering/continuous-integration|CI]] ends at a green mainline. CD carries that mainline the rest of the way.
 
 ## How you get there
 
@@ -82,12 +82,12 @@ Canaries carry two costs. You "have to manage multiple versions of your software
 
 ## Related Notes
 
-- [[continuous-integration|Continuous Integration]] - the practice CD builds on, ending where CD begins
-- [[testing-strategies|Testing Strategies]] - the automated tests that make an unattended pipeline trustworthy
-- [[observability-logging-metrics-tracing|Observability, Logging, Metrics, and Tracing]] - how you know a canary is failing before your users tell you
-- [[incident-postmortems-and-blameless-culture|Incident Postmortems and Blameless Culture]] - what happens when the rollback was not fast enough
-- [[semantic-versioning|Semantic Versioning]] - versioning artifacts that a pipeline promotes between environments
-- [[software-architecture|Software Architecture]] - deployability is an architectural property, not a late-stage concern
+- [[cs/software-engineering/continuous-integration|Continuous Integration]] - the practice CD builds on, ending where CD begins
+- [[cs/software-engineering/testing-strategies|Testing Strategies]] - the automated tests that make an unattended pipeline trustworthy
+- [[cs/software-engineering/observability-logging-metrics-tracing|Observability, Logging, Metrics, and Tracing]] - how you know a canary is failing before your users tell you
+- [[cs/software-engineering/incident-postmortems-and-blameless-culture|Incident Postmortems and Blameless Culture]] - what happens when the rollback was not fast enough
+- [[cs/software-engineering/semantic-versioning|Semantic Versioning]] - versioning artifacts that a pipeline promotes between environments
+- [[cs/software-engineering/software-architecture|Software Architecture]] - deployability is an architectural property, not a late-stage concern
 - [[cs/systems/virtualization-vms-and-containers|Virtualization, VMs, and Containers]] - what makes two "as identical as possible" environments cheap
 
 ## Sources

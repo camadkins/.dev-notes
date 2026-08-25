@@ -53,8 +53,8 @@ The cost is that Kerberos assumes reasonably synchronized clocks. A machine whos
 
 ## Related Notes
 
-- [[multi-factor-authentication|Multi-Factor Authentication]] - what backs the single password that bootstraps the whole Kerberos day
-- [[oauth2-and-openid-connect|OAuth 2.0 and OpenID Connect]] - the web's token-based analogue to Kerberos tickets
+- [[cs/security/multi-factor-authentication|Multi-Factor Authentication]] - what backs the single password that bootstraps the whole Kerberos day
+- [[cs/security/oauth2-and-openid-connect|OAuth 2.0 and OpenID Connect]] - the web's token-based analogue to Kerberos tickets
 - [[cs/military-computing/rsa-and-computational-hardness|RSA and Computational Hardness]] - the public-key alternative to Kerberos's shared-secret model
 - [[cs/military-computing/ntp-distributed-clock-synchronization|NTP and Distributed Clocks]] - the clock synchronization Kerberos timestamps depend on
 - [[cs/military-computing/perfect-secrecy-and-the-one-time-pad|Perfect Secrecy and the One-Time Pad]] - proving identity by decryption rests on symmetric secrets

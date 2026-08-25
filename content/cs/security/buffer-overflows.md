@@ -39,10 +39,10 @@ Stringing those two facts together is the classic attack, and it has a name: a d
 
 ## Related Notes
 
-- [[memory-protections-aslr-dep-canaries|Memory Protections: ASLR, DEP, and Stack Canaries]], the defenses built specifically to break this chain
-- [[virtual-memory|Virtual Memory]], the address space the overflow corrupts and the layout randomization scrambles
-- [[side-channel-attacks|Side-Channel Attacks]], a different route to a secret that also exploits how hardware really behaves
-- [[stride-threat-modeling|STRIDE Threat Modeling]], for naming the elevation-of-privilege threat a code-execution bug realizes
+- [[cs/security/memory-protections-aslr-dep-canaries|Memory Protections: ASLR, DEP, and Stack Canaries]], the defenses built specifically to break this chain
+- [[cs/systems/virtual-memory|Virtual Memory]], the address space the overflow corrupts and the layout randomization scrambles
+- [[cs/security/side-channel-attacks|Side-Channel Attacks]], a different route to a secret that also exploits how hardware really behaves
+- [[cs/security/stride-threat-modeling|STRIDE Threat Modeling]], for naming the elevation-of-privilege threat a code-execution bug realizes
 
 ## Sources
 

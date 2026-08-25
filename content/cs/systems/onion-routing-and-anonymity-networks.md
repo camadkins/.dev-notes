@@ -23,11 +23,11 @@ Encryption hides what you say. It does not hide that you are saying it, or to wh
 
 The sender chooses a path through several relays and encrypts the message once for each, innermost layer first. When the package travels, the first router removes the outermost layer and learns only the next hop, the second removes the next layer and learns its next hop, and the final router removes the last layer and delivers the original message to its destination. Each intermediary knows only the node immediately before it and the node immediately after it, never the whole route. That is the entire trick, and it is why the technique provides strong anonymity against an observer sitting at any one relay.
 
-Onion routing was developed in the mid-1990s at the U.S. Naval Research Laboratory by Paul Syverson, Michael Reed, and David Goldschlag, refined under DARPA, and patented by the Navy in 1998. Its first purpose was protecting U.S. intelligence communications, a reminder that the same property that shields a dissident also shields a spy. The trust model that [[tls-and-the-https-handshake|TLS]] solves (proving who you are talking to) is almost the opposite of the one here, where the whole goal is that nobody can prove who you are talking to.
+Onion routing was developed in the mid-1990s at the U.S. Naval Research Laboratory by Paul Syverson, Michael Reed, and David Goldschlag, refined under DARPA, and patented by the Navy in 1998. Its first purpose was protecting U.S. intelligence communications, a reminder that the same property that shields a dissident also shields a spy. The trust model that [[cs/systems/tls-and-the-https-handshake|TLS]] solves (proving who you are talking to) is almost the opposite of the one here, where the whole goal is that nobody can prove who you are talking to.
 
 ## Why three relays
 
-Tor, the best-known implementation of onion routing, nests its encryption over exactly three relays: a guard, a middle, and an exit. The split of roles is deliberate. The guard relay sees your real address but not your destination. The exit relay sees the destination, and the cleartext if the inner connection is not itself encrypted, but not your address. The middle relay exists so that the guard and exit never talk directly, so neither can be the single hop that links you to your traffic. The relays are run by volunteers around the world, which spreads trust across many jurisdictions rather than concentrating it in one. This is anonymity layered on top of ordinary [[network-protocols|network protocols]], not a replacement for them.
+Tor, the best-known implementation of onion routing, nests its encryption over exactly three relays: a guard, a middle, and an exit. The split of roles is deliberate. The guard relay sees your real address but not your destination. The exit relay sees the destination, and the cleartext if the inner connection is not itself encrypted, but not your address. The middle relay exists so that the guard and exit never talk directly, so neither can be the single hop that links you to your traffic. The relays are run by volunteers around the world, which spreads trust across many jurisdictions rather than concentrating it in one. This is anonymity layered on top of ordinary [[cs/systems/network-protocols|network protocols]], not a replacement for them.
 
 > [!example] One request through a circuit
 > 1. Your client builds a circuit: it picks a guard, a middle, and an exit relay, and negotiates a separate key with each.
@@ -49,11 +49,11 @@ The same design that hides destinations also helps people reach destinations a s
 
 ## Related Notes
 
-- [[tls-and-the-https-handshake|TLS and the HTTPS Handshake]], the opposite trust problem: proving identity rather than hiding it
+- [[cs/systems/tls-and-the-https-handshake|TLS and the HTTPS Handshake]], the opposite trust problem: proving identity rather than hiding it
 - [[cs/military-computing/rsa-and-computational-hardness|RSA and Computational Hardness]], the public-key cryptography that makes per-relay layers possible
 - [[cs/geopolitics/cyber-sovereignty|Cyber Sovereignty]], blocking relays and the censorship arms race bridges are built to lose slowly
 - [[cs/geopolitics/surveillance-and-privacy|Surveillance & Privacy]], traffic analysis and the metadata that encryption alone does not hide
-- [[network-protocols|Network Protocols]], the ordinary routing this anonymity layer sits on top of
+- [[cs/systems/network-protocols|Network Protocols]], the ordinary routing this anonymity layer sits on top of
 
 ## Sources
 

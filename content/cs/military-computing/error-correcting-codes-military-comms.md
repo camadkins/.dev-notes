@@ -33,14 +33,14 @@ The marquee application is distance. Reed-Solomon coding encoded the digital pic
 
 ## The lesson
 
-Reliable communication over an unreliable channel is the practical fulfillment of [[shannon-and-information-theory|Shannon's]] proof that such communication is possible at all. Error-correcting codes are how that promise is kept, in [[cs/history/magnetic-disk-storage|every hard drive]], [[cs/networking/wifi-and-802-11|every wireless link]], and every spacecraft sending data home.
+Reliable communication over an unreliable channel is the practical fulfillment of [[cs/military-computing/shannon-and-information-theory|Shannon's]] proof that such communication is possible at all. Error-correcting codes are how that promise is kept, in [[cs/history/magnetic-disk-storage|every hard drive]], [[cs/networking/wifi-and-802-11|every wireless link]], and every spacecraft sending data home.
 
 ## Related Notes
 
-- [[shannon-and-information-theory|Shannon and Information Theory]], the proof that reliable communication is possible
-- [[huffman-coding|Huffman Coding]], the compression side of coding theory
-- [[discrete-probability|Discrete Probability]], the mathematics of errors and their correction
-- [[gps-control-segment|The GPS Control Segment]], another system depending on clean signals from space
+- [[cs/military-computing/shannon-and-information-theory|Shannon and Information Theory]], the proof that reliable communication is possible
+- [[cs/dsa/huffman-coding|Huffman Coding]], the compression side of coding theory
+- [[cs/math/discrete-probability|Discrete Probability]], the mathematics of errors and their correction
+- [[cs/military-computing/gps-control-segment|The GPS Control Segment]], another system depending on clean signals from space
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

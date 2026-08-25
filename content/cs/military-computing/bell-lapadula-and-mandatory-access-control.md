@@ -25,7 +25,7 @@ Every subject, meaning a user or a running process, and every object, meaning a 
 
 ## The two rules
 
-![Bell-LaPadula: a subject cleared at Secret may not read higher (no read up) and may not write lower (no write down).](assets/bell-lapadula-mls.svg)
+![Bell-LaPadula: a subject cleared at Secret may not read higher (no read up) and may not write lower (no write down).](cs/military-computing/assets/bell-lapadula-mls.svg)
 
 The model rests on two properties. The simple security property, often phrased as no read up, says a subject at a given level may not read an object at a higher level. The star property, phrased as no write down, says a subject at a given level may not write to an object at a lower level.
 
@@ -35,14 +35,14 @@ The first rule is obvious. The second one surprises people. Why forbid a cleared
 
 ## What it gave the field
 
-Bell-LaPadula gave security something it had lacked: a formal model you can reason about and even verify, rather than a set of informal hopes. It is the foundation of multilevel security and a milestone in the larger project of treating security as something provable, which is exactly what the [[tcsec-and-graded-assurance|Orange Book]] would later try to grade and certify.
+Bell-LaPadula gave security something it had lacked: a formal model you can reason about and even verify, rather than a set of informal hopes. It is the foundation of multilevel security and a milestone in the larger project of treating security as something provable, which is exactly what the [[cs/military-computing/tcsec-and-graded-assurance|Orange Book]] would later try to grade and certify.
 
 ## Related Notes
 
-- [[tcsec-and-graded-assurance|The Orange Book and Graded Assurance]], which built evaluation on top of this model
-- [[cyber-warfare-and-the-fifth-domain|Cyber Warfare and the Fifth Domain]], the modern security domain
-- [[processes-and-threads|Processes and Threads]], the subjects the model governs
-- [[virtual-memory|Virtual Memory]], the isolation security models depend on
+- [[cs/military-computing/tcsec-and-graded-assurance|The Orange Book and Graded Assurance]], which built evaluation on top of this model
+- [[cs/military-computing/cyber-warfare-and-the-fifth-domain|Cyber Warfare and the Fifth Domain]], the modern security domain
+- [[cs/systems/processes-and-threads|Processes and Threads]], the subjects the model governs
+- [[cs/systems/virtual-memory|Virtual Memory]], the isolation security models depend on
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

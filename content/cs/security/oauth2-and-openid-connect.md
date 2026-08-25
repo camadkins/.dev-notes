@@ -42,18 +42,18 @@ Because OAuth gets you a token that unlocks an API, it is tempting to treat "the
 
 OpenID Connect closes that gap. Its abstract calls it "a simple identity layer on top of the OAuth 2.0 protocol" that "enables Clients to verify the identity of the End-User based on the authentication performed by an Authorization Server." The concrete mechanism is one new artifact: "The primary extension that OpenID Connect makes to OAuth 2.0 to enable End-Users to be Authenticated is the ID Token data structure."
 
-The ID token is defined as "a security token that contains Claims about the Authentication of an End-User by an Authorization Server," and it "is represented as a JSON Web Token (JWT)." Because it is a signed JWT, the client can verify it locally, the same offline-verification trick that makes a [[digital-signatures|digital signature]] or a [[kerberos-authentication|Kerberos]] ticket checkable without calling back to the issuer. The signature is what makes the identity claim trustworthy, which is why OIDC leans on the same [[pki-and-x509-certificates|public-key infrastructure]] as the rest of the web.
+The ID token is defined as "a security token that contains Claims about the Authentication of an End-User by an Authorization Server," and it "is represented as a JSON Web Token (JWT)." Because it is a signed JWT, the client can verify it locally, the same offline-verification trick that makes a [[cs/security/digital-signatures|digital signature]] or a [[cs/security/kerberos-authentication|Kerberos]] ticket checkable without calling back to the issuer. The signature is what makes the identity claim trustworthy, which is why OIDC leans on the same [[cs/security/pki-and-x509-certificates|public-key infrastructure]] as the rest of the web.
 
 > [!tip] The one-line test
 > If you need to know *what an app may access on your behalf*, that is OAuth and an access token. If you need to know *who the user is*, that is OpenID Connect and an ID token. Using an access token as a login proof is the mistake OIDC exists to prevent.
 
 ## Related Notes
 
-- [[kerberos-authentication|Kerberos Authentication]] - the enterprise ticket model that OAuth's web tokens echo
-- [[multi-factor-authentication|Multi-Factor Authentication]] - what the authorization server uses to actually establish identity before minting an ID token
-- [[digital-signatures|Digital Signatures]] - why a signed JWT can be verified offline
-- [[pki-and-x509-certificates|PKI and X.509 Certificates]] - the trust roots behind the keys that sign tokens
-- [[tls-and-the-https-handshake|TLS and the HTTPS Handshake]] - the channel every OAuth exchange rides on
+- [[cs/security/kerberos-authentication|Kerberos Authentication]] - the enterprise ticket model that OAuth's web tokens echo
+- [[cs/security/multi-factor-authentication|Multi-Factor Authentication]] - what the authorization server uses to actually establish identity before minting an ID token
+- [[cs/security/digital-signatures|Digital Signatures]] - why a signed JWT can be verified offline
+- [[cs/security/pki-and-x509-certificates|PKI and X.509 Certificates]] - the trust roots behind the keys that sign tokens
+- [[cs/systems/tls-and-the-https-handshake|TLS and the HTTPS Handshake]] - the channel every OAuth exchange rides on
 
 ## Sources
 

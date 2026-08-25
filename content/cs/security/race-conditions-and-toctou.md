@@ -38,8 +38,8 @@ The reason this is a security bug and not merely a correctness bug is the privil
 
 ## Related Notes
 
-- [[privilege-separation-and-least-privilege|Privilege Separation and Least Privilege]], the design that limits what a won TOCTOU race can reach
-- [[buffer-overflows|Buffer Overflows]], another single-flaw class this bug is usefully contrasted against
+- [[cs/security/privilege-separation-and-least-privilege|Privilege Separation and Least Privilege]], the design that limits what a won TOCTOU race can reach
+- [[cs/security/buffer-overflows|Buffer Overflows]], another single-flaw class this bug is usefully contrasted against
 
 ## Sources
 

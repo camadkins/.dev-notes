@@ -34,21 +34,21 @@ That sequence number is what makes flooding safe. An LSA is forwarded to every o
 
 ## Dijkstra and the shortest-path tree
 
-With the map in hand, OSPF computes the shortest-path tree for each route using a method based on [[routing-and-longest-prefix-match|Dijkstra's algorithm]]. The edges of that graph are weighted by link metrics associated with each routing interface, expressed as simple unitless numbers; cost factors may reflect a link's round-trip time, throughput, or reliability. Routes of equal cost let OSPF balance traffic across them. The output, the router's own shortest-path tree, is then presented as a routing table to the internet layer, which forwards packets by destination IP address alone.
+With the map in hand, OSPF computes the shortest-path tree for each route using a method based on [[cs/networking/routing-and-longest-prefix-match|Dijkstra's algorithm]]. The edges of that graph are weighted by link metrics associated with each routing interface, expressed as simple unitless numbers; cost factors may reflect a link's round-trip time, throughput, or reliability. Routes of equal cost let OSPF balance traffic across them. The output, the router's own shortest-path tree, is then presented as a routing table to the internet layer, which forwards packets by destination IP address alone.
 
 ## Areas and the backbone
 
 Flooding every LSA to every router does not scale to a large network, so OSPF divides the network into routing areas to simplify administration and limit how far detailed topology information travels. Areas are identified by 32-bit numbers written in dotted-decimal form. By convention, area 0 (0.0.0.0) is the backbone, and every other area must connect to it. The connection is held by an area border router, which maintains a separate link-state database for each area it serves and advertises summarized routes between them. Inside an area every router shares the full map; across areas they exchange summaries, which keeps the detailed flooding local while still giving every router reachability to the rest.
 
 > [!warning] OSPF is interior; BGP is exterior
-> OSPF is an interior gateway protocol (IGP), operating within a single autonomous system, an administrative domain under one operator. [[bgp-and-internet-routing-as-control|BGP]] is the exterior protocol that stitches autonomous systems together across the internet. The split is not cosmetic: an IGP optimizes shortest paths on metrics it trusts because one operator owns the whole map, while BGP routes between operators who do not share maps and make decisions on policy and trust rather than a global shortest path. OSPF finds the best path inside your network; BGP negotiates paths between networks that will not show each other their internals.
+> OSPF is an interior gateway protocol (IGP), operating within a single autonomous system, an administrative domain under one operator. [[cs/systems/bgp-and-internet-routing-as-control|BGP]] is the exterior protocol that stitches autonomous systems together across the internet. The split is not cosmetic: an IGP optimizes shortest paths on metrics it trusts because one operator owns the whole map, while BGP routes between operators who do not share maps and make decisions on policy and trust rather than a global shortest path. OSPF finds the best path inside your network; BGP negotiates paths between networks that will not show each other their internals.
 
 ## Related Notes
 
-- [[routing-and-longest-prefix-match|Routing and Longest Prefix Match]] - the forwarding lookup that OSPF's computed routes feed into
-- [[bgp-and-internet-routing-as-control|BGP and Internet Routing]] - the exterior gateway protocol OSPF is the interior counterpart to
-- [[network-protocols|Network Protocols]] - where routing protocols sit in the layered stack
-- [[ip-addressing-and-subnetting|IP Addressing and Subnetting]] - the CIDR prefixes OSPF advertises and summarizes
+- [[cs/networking/routing-and-longest-prefix-match|Routing and Longest Prefix Match]] - the forwarding lookup that OSPF's computed routes feed into
+- [[cs/systems/bgp-and-internet-routing-as-control|BGP and Internet Routing]] - the exterior gateway protocol OSPF is the interior counterpart to
+- [[cs/systems/network-protocols|Network Protocols]] - where routing protocols sit in the layered stack
+- [[cs/networking/ip-addressing-and-subnetting|IP Addressing and Subnetting]] - the CIDR prefixes OSPF advertises and summarizes
 
 ## Sources
 

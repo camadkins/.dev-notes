@@ -145,9 +145,9 @@ On subsequent accesses to the same page, the TLB hits and the translation costs 
 
 ## Related Notes
 
-- [[memory-allocation|Memory Allocation]] - how user-space allocators (malloc, arenas) work on top of virtual memory
-- [[processes-and-threads|Processes & Threads]] - virtual memory provides the isolation between processes
-- [[file-systems|File Systems]] - memory-mapped files bridge virtual memory and the file system
+- [[cs/dsa/memory-allocation|Memory Allocation]] - how user-space allocators (malloc, arenas) work on top of virtual memory
+- [[cs/systems/processes-and-threads|Processes & Threads]] - virtual memory provides the isolation between processes
+- [[cs/systems/file-systems|File Systems]] - memory-mapped files bridge virtual memory and the file system
 
 ## Sources
 

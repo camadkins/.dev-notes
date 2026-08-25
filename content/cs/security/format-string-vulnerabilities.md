@@ -37,10 +37,10 @@ The specifiers escalate cleanly. OWASP's summary lists them: `%x` will "read dat
 
 ## Related Notes
 
-- [[buffer-overflows|Buffer Overflows]], the other classic memory-corruption bug, reached here by writing rather than by miscounting arguments
-- [[return-oriented-programming|Return-Oriented Programming]], which consumes the arbitrary write a `%n` provides to seed a gadget chain
-- [[memory-protections-aslr-dep-canaries|Memory Protections: ASLR, DEP, and Stack Canaries]], several of which the `%x`/`%s` read primitive is used to defeat by leaking addresses
-- [[sql-injection|SQL Injection]], the same root failure in a different language: data crossing into a control channel that interprets it
+- [[cs/security/buffer-overflows|Buffer Overflows]], the other classic memory-corruption bug, reached here by writing rather than by miscounting arguments
+- [[cs/security/return-oriented-programming|Return-Oriented Programming]], which consumes the arbitrary write a `%n` provides to seed a gadget chain
+- [[cs/security/memory-protections-aslr-dep-canaries|Memory Protections: ASLR, DEP, and Stack Canaries]], several of which the `%x`/`%s` read primitive is used to defeat by leaking addresses
+- [[cs/security/sql-injection|SQL Injection]], the same root failure in a different language: data crossing into a control channel that interprets it
 
 ## Sources
 

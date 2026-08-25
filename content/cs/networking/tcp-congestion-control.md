@@ -54,10 +54,10 @@ Classic AIMD ties the sending rate to loss events, which behaves poorly on fast,
 
 ## Related Notes
 
-- [[tcp-three-way-handshake|The TCP Three-Way Handshake]] - where the connection and its initial window are established
-- [[tcp-vs-udp|TCP vs UDP]] - UDP has none of this, and skipping congestion control carelessly can harm the network
-- [[http-evolution-1-1-to-3|HTTP Evolution]] - QUIC reimplements congestion control in user space over UDP
-- [[mtu-and-fragmentation|MTU and Fragmentation]] - the segment size the window is counted in
+- [[cs/networking/tcp-three-way-handshake|The TCP Three-Way Handshake]] - where the connection and its initial window are established
+- [[cs/networking/tcp-vs-udp|TCP vs UDP]] - UDP has none of this, and skipping congestion control carelessly can harm the network
+- [[cs/networking/http-evolution-1-1-to-3|HTTP Evolution]] - QUIC reimplements congestion control in user space over UDP
+- [[cs/networking/mtu-and-fragmentation|MTU and Fragmentation]] - the segment size the window is counted in
 
 ## Sources
 

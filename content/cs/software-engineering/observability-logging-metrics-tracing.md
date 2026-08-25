@@ -79,15 +79,15 @@ Observability tooling rots the way any system rots. "Like all software systems, 
 
 Google also avoids "'magic' systems that try to learn thresholds or automatically detect causality," and has had "only limited success with complex dependency hierarchies," partly because "our infrastructure has a steady rate of continuous refactoring" so the dependency model goes stale. The resolution advice is the same discipline applied to sampling rate: measuring CPU load over a minute "won't reveal even quite long-lived spikes that drive high tail latencies," while probing a 99.9%-uptime web service for a 200 status "more than once or twice a minute is probably unnecessarily frequent."
 
-The architectural recommendation is a [[coupling-and-cohesion|coupling]] argument. It is tempting to fold profiling, single-process debugging, crash tracking, load testing, log analysis, and traffic inspection into the monitoring system, but "blending together too many results in overly complex and fragile systems," so "maintaining distinct systems with clear, simple, loosely coupled points of integration is a better strategy."
+The architectural recommendation is a [[cs/software-engineering/coupling-and-cohesion|coupling]] argument. It is tempting to fold profiling, single-process debugging, crash tracking, load testing, log analysis, and traffic inspection into the monitoring system, but "blending together too many results in overly complex and fragile systems," so "maintaining distinct systems with clear, simple, loosely coupled points of integration is a better strategy."
 
 ## Related Notes
 
-- [[incident-postmortems-and-blameless-culture|Incident Postmortems and Blameless Culture]] - what you do with the telemetry after the outage
-- [[continuous-delivery-and-deployment|Continuous Delivery and Deployment]] - canary releases only work if you can see the canary failing
-- [[coupling-and-cohesion|Coupling and Cohesion]] - the loosely-coupled-integration argument applied to your own tooling
-- [[software-architecture|Software Architecture]] - tracing is what makes a service architecture debuggable at all
-- [[testing-strategies|Testing Strategies]] - end-to-end tests are the only way to catch a correct status code with wrong content
+- [[cs/software-engineering/incident-postmortems-and-blameless-culture|Incident Postmortems and Blameless Culture]] - what you do with the telemetry after the outage
+- [[cs/software-engineering/continuous-delivery-and-deployment|Continuous Delivery and Deployment]] - canary releases only work if you can see the canary failing
+- [[cs/software-engineering/coupling-and-cohesion|Coupling and Cohesion]] - the loosely-coupled-integration argument applied to your own tooling
+- [[cs/software-engineering/software-architecture|Software Architecture]] - tracing is what makes a service architecture debuggable at all
+- [[cs/software-engineering/testing-strategies|Testing Strategies]] - end-to-end tests are the only way to catch a correct status code with wrong content
 - [[cs/security/incident-response-lifecycle|Incident Response Lifecycle]] - the security-side counterpart to this telemetry
 - [[cs/systems/logical-clocks-lamport-and-vector|Logical Clocks: Lamport and Vector]] - the ordering problem underneath correlating events across machines
 

@@ -60,17 +60,17 @@ The canonical instance is the one Zeno tripped over. The series $\tfrac{1}{2} + 
 
 **Recursion trees are sums.** The master theorem "for divide-and-conquer recurrences provides an asymptotic analysis for many recurrence relations that occur in the analysis of divide-and-conquer algorithms," and its underlying picture is exactly a series: "the total amount of work done by the entire algorithm is the sum of the work performed by all the nodes in the tree." Grouping those nodes by depth turns a recursion into a sum over levels, and for the common cases that sum is geometric. See [[cs/dsa/recurrences-master-theorem|Recurrences and the Master Theorem]] and [[cs/dsa/recurrence-relations|Recurrence Relations]] for the algorithmic side.
 
-**Closed forms replace loops.** The finite geometric formula above is derived by a two-line trick: multiply the partial sum by $r$, subtract, and everything telescopes. That pattern, replacing a summation with an expression evaluated once, is the same move the [[integrals-and-the-fundamental-theorem|fundamental theorem of calculus]] makes in the continuous setting.
+**Closed forms replace loops.** The finite geometric formula above is derived by a two-line trick: multiply the partial sum by $r$, subtract, and everything telescopes. That pattern, replacing a summation with an expression evaluated once, is the same move the [[cs/math/integrals-and-the-fundamental-theorem|fundamental theorem of calculus]] makes in the continuous setting.
 
 > [!warning]
 > Convergence in the mathematical sense says a limit exists, not that you will reach it quickly. In the geometric case, "when the series converges, the rate of convergence gets slower as $|r|$ approaches 1." A ratio of 0.999 converges just as surely as a ratio of 0.5 and is useless as a numerical method. Existence and efficiency are separate questions, and only the first is what "convergent" asserts.
 
 ## Related Notes
 
-- [[limits-and-continuity|Limits and Continuity]] - convergence of a series is the limit of its sequence of partial sums
-- [[integrals-and-the-fundamental-theorem|Integrals and the Fundamental Theorem]] - the continuous analog of summing a series
+- [[cs/math/limits-and-continuity|Limits and Continuity]] - convergence of a series is the limit of its sequence of partial sums
+- [[cs/math/integrals-and-the-fundamental-theorem|Integrals and the Fundamental Theorem]] - the continuous analog of summing a series
 - [[cs/dsa/recurrences-master-theorem|Recurrences and the Master Theorem]] - the recursion tree whose level sums are usually geometric
-- [[mathematical-induction|Mathematical Induction]] - the standard tool for proving a closed form for a finite sum
+- [[cs/math/mathematical-induction|Mathematical Induction]] - the standard tool for proving a closed form for a finite sum
 - [[cs/dsa/amortized-analysis-methods|Amortized Analysis Methods]] - accounting arguments that lean on bounded total work
 
 ## Sources

@@ -129,18 +129,18 @@ Interface PAT fallback is the `interface` keyword: "After the mapped IP addresse
 ## The interaction people get wrong
 
 > [!warning] Access rules match the real address
-> "Access rules always use the real IP addresses when determining an access rule match, even if you configure NAT." The documented case: an inside server at 10.1.1.5 mapped to 209.165.201.5 on the outside needs an inbound rule referencing "the server's real IP address (10.1.1.5), and not the mapped address (209.165.201.5)." Writing the rule against the public address produces a configuration that reads correctly to a reviewer, passes a syntax check, and never matches a packet. See [[asa-access-rules-and-acls|ASA access rules]].
+> "Access rules always use the real IP addresses when determining an access rule match, even if you configure NAT." The documented case: an inside server at 10.1.1.5 mapped to 209.165.201.5 on the outside needs an inbound rule referencing "the server's real IP address (10.1.1.5), and not the mapped address (209.165.201.5)." Writing the rule against the public address produces a configuration that reads correctly to a reviewer, passes a syntax check, and never matches a packet. See [[cs/cisco/asa-access-rules-and-acls|ASA access rules]].
 
 > [!warning] Version scope
 > Every command, keyword, and ordering rule above is taken from the ASA 9.17 firewall configuration guide. ASA NAT configuration syntax is not stable across all releases, so confirm against the configuration guide for the exact version running on your box rather than against whatever guide a search engine surfaces.
 
 ## Related Notes
 
-- [[asa-access-rules-and-acls|ASA Access Rules and ACLs]] - real-address matching, and where NAT sits relative to the rule base
-- [[asa-security-levels|ASA Security Levels]] - the interface ordering NAT rules are written against
-- [[nat-and-port-translation|NAT and Port Translation]] - the protocol-level mechanics of address and port rewriting
-- [[ip-addressing-and-subnetting|IP Addressing and Subnetting]] - the address-quantity comparison the section 2 sort depends on
-- [[asa-modular-policy-framework|ASA Modular Policy Framework]] - where DNS inspection, referenced by the `dns` keyword, is configured
+- [[cs/cisco/asa-access-rules-and-acls|ASA Access Rules and ACLs]] - real-address matching, and where NAT sits relative to the rule base
+- [[cs/cisco/asa-security-levels|ASA Security Levels]] - the interface ordering NAT rules are written against
+- [[cs/networking/nat-and-port-translation|NAT and Port Translation]] - the protocol-level mechanics of address and port rewriting
+- [[cs/networking/ip-addressing-and-subnetting|IP Addressing and Subnetting]] - the address-quantity comparison the section 2 sort depends on
+- [[cs/cisco/asa-modular-policy-framework|ASA Modular Policy Framework]] - where DNS inspection, referenced by the `dns` keyword, is configured
 
 ## Sources
 

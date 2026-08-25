@@ -15,7 +15,7 @@ aliases:
   - Reusing Pretrained Layers
 ---
 
-Training a deep network from scratch needs a large labeled dataset and [[cs/geopolitics/compute-as-a-governable-resource|a lot of compute]], and most problems have neither. Transfer learning is the way around that, and it is arguably the single most important practical technique in Géron's Chapter 11: instead of starting from random weights, start from a network already trained on a big related dataset, keep the [[features-and-representations|features]] it learned, and retrain only the parts that are specific to your task. A model that would need a million images trained from zero can be adapted with a few thousand.
+Training a deep network from scratch needs a large labeled dataset and [[cs/geopolitics/compute-as-a-governable-resource|a lot of compute]], and most problems have neither. Transfer learning is the way around that, and it is arguably the single most important practical technique in Géron's Chapter 11: instead of starting from random weights, start from a network already trained on a big related dataset, keep the [[cs/machine-learning/features-and-representations|features]] it learned, and retrain only the parts that are specific to your task. A model that would need a million images trained from zero can be adapted with a few thousand.
 
 > [!note] The idea
 > A deep network trained on a large dataset learns features in a useful order: the early layers learn general things (edges, textures, colors) that are useful for almost any vision task, while the later layers learn features specific to the original problem. Transfer learning reuses the general early layers as a fixed feature extractor and retrains only the task-specific top on your data. You inherit millions of images' worth of feature learning for the cost of training a small head.
@@ -38,22 +38,22 @@ The freeze in step two is the crucial move. As the guide puts it, you freeze the
 
 ## Fine-tuning at a low learning rate
 
-Fine-tuning unfreezes the base and lets the whole network adjust to the new task, but it must be done gently. The pretrained weights are already good, so you nudge them with a very low learning rate, small enough that the update does not undo what was learned. This is where the low-learning-rate discipline from [[vanishing-and-exploding-gradients|training deep networks]] pays off directly: fine-tuning is the case where too large a step does more than slow convergence, it actively destroys the pretrained weights.
+Fine-tuning unfreezes the base and lets the whole network adjust to the new task, but it must be done gently. The pretrained weights are already good, so you nudge them with a very low learning rate, small enough that the update does not undo what was learned. This is where the low-learning-rate discipline from [[cs/deep-learning/vanishing-and-exploding-gradients|training deep networks]] pays off directly: fine-tuning is the case where too large a step does more than slow convergence, it actively destroys the pretrained weights.
 
 > [!warning] The batch-norm trap that silently ruins fine-tuning
-> The most common way to break transfer learning is subtle. A base model with [[regularization-in-deep-learning|batch normalization]] layers carries non-trainable statistics (running mean and variance) learned on the source data. If you unfreeze the base for fine-tuning without care, those statistics start updating on your small new batch, and the Keras guide warns this can suddenly destroy what the model has learned. The fix is to keep the batch-norm layers in inference mode during fine-tuning, calling the base with `training=False`, so the running statistics stay frozen even as the weights adjust. A fine-tune that mysteriously collapses is almost always this.
+> The most common way to break transfer learning is subtle. A base model with [[cs/deep-learning/regularization-in-deep-learning|batch normalization]] layers carries non-trainable statistics (running mean and variance) learned on the source data. If you unfreeze the base for fine-tuning without care, those statistics start updating on your small new batch, and the Keras guide warns this can suddenly destroy what the model has learned. The fix is to keep the batch-norm layers in inference mode during fine-tuning, calling the base with `training=False`, so the running statistics stay frozen even as the weights adjust. A fine-tune that mysteriously collapses is almost always this.
 
 ## Why this connects to the architectures
 
-Transfer learning is the reason the [[pooling-and-cnn-architectures|classic CNN architectures]] matter beyond history. You rarely design a [[convolutional-neural-networks|convolutional network]] from scratch; [[cs/languages/common/software-supply-chain-and-provenance|you download a ResNet]] or an EfficientNet pretrained on ImageNet and transfer it. The architecture you pick is the feature extractor you inherit. That is why the field converged on a handful of well-trained backbones: a good pretrained base is a reusable asset, and transfer learning is how you spend it.
+Transfer learning is the reason the [[cs/deep-learning/pooling-and-cnn-architectures|classic CNN architectures]] matter beyond history. You rarely design a [[cs/deep-learning/convolutional-neural-networks|convolutional network]] from scratch; [[cs/languages/common/software-supply-chain-and-provenance|you download a ResNet]] or an EfficientNet pretrained on ImageNet and transfer it. The architecture you pick is the feature extractor you inherit. That is why the field converged on a handful of well-trained backbones: a good pretrained base is a reusable asset, and transfer learning is how you spend it.
 
 ## Related Notes
 
-- [[features-and-representations|Features and Representations]] - the general-to-specific feature hierarchy that makes early layers transferable
-- [[convolutional-neural-networks|Convolutional Neural Networks]] - the vision models most often reused via transfer learning
-- [[pooling-and-cnn-architectures|Pooling and CNN Architectures]] - the pretrained backbones (ResNet and friends) you transfer from
-- [[vanishing-and-exploding-gradients|Vanishing and Exploding Gradients]] - why fine-tuning demands a low learning rate
-- [[regularization-in-deep-learning|Regularization in Deep Learning]] - batch normalization, and why its running statistics must stay frozen during fine-tuning
+- [[cs/machine-learning/features-and-representations|Features and Representations]] - the general-to-specific feature hierarchy that makes early layers transferable
+- [[cs/deep-learning/convolutional-neural-networks|Convolutional Neural Networks]] - the vision models most often reused via transfer learning
+- [[cs/deep-learning/pooling-and-cnn-architectures|Pooling and CNN Architectures]] - the pretrained backbones (ResNet and friends) you transfer from
+- [[cs/deep-learning/vanishing-and-exploding-gradients|Vanishing and Exploding Gradients]] - why fine-tuning demands a low learning rate
+- [[cs/deep-learning/regularization-in-deep-learning|Regularization in Deep Learning]] - batch normalization, and why its running statistics must stay frozen during fine-tuning
 
 ## Sources
 

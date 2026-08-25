@@ -28,7 +28,7 @@ The difference is the summation index. Batch normalization operates on the activ
 
 Picture [[cs/dsa/multidimensional-arrays|the activation tensor as a table]] with examples down the rows and features across the columns. Batch norm normalizes a column. Layer norm normalizes a row.
 
-Ioffe and Szegedy introduced batch norm in 2015 to attack what they named internal covariate shift, the fact that each layer's input distribution keeps changing as earlier parameters change. Their framing is that this slows training by requiring lower learning rates and careful parameter initialization, and makes saturating nonlinearities notoriously hard to train. Making normalization part of the model architecture instead of a preprocessing step let them use much higher learning rates and be less careful about [[weight-initialization|initialization]], reaching the same accuracy as a state-of-the-art image classifier with 14 times fewer training steps. The internal-covariate-shift explanation itself has not aged as cleanly as the technique; the Wikipedia survey of the area notes the original claim has both supporters and detractors in the later literature.
+Ioffe and Szegedy introduced batch norm in 2015 to attack what they named internal covariate shift, the fact that each layer's input distribution keeps changing as earlier parameters change. Their framing is that this slows training by requiring lower learning rates and careful parameter initialization, and makes saturating nonlinearities notoriously hard to train. Making normalization part of the model architecture instead of a preprocessing step let them use much higher learning rates and be less careful about [[cs/deep-learning/weight-initialization|initialization]], reaching the same accuracy as a state-of-the-art image classifier with 14 times fewer training steps. The internal-covariate-shift explanation itself has not aged as cleanly as the technique; the Wikipedia survey of the area notes the original claim has both supporters and detractors in the later literature.
 
 ## The train/inference split, and why only batch norm has one
 
@@ -41,9 +41,9 @@ Layer normalization has no such split. Ba, Kiros, and Hinton designed it so that
 
 ## Why transformers use layer norm
 
-The motivation in the layer norm paper is explicitly the two places batch norm gets awkward. The effect of batch normalization is dependent on the mini-batch size, and it is not obvious how to apply it to [[recurrent-neural-networks|recurrent neural networks]]. Sequence models are where this bites hardest. A batch of sequences has ragged lengths, so a given timestep may be present in every sequence or only in the longest one, and the batch statistics at that timestep are computed over whatever subset happens to be there. Layer norm sidesteps the question by never looking across the batch; in recurrent networks and transformers it is applied individually to each timestep, over the hidden vector at that step.
+The motivation in the layer norm paper is explicitly the two places batch norm gets awkward. The effect of batch normalization is dependent on the mini-batch size, and it is not obvious how to apply it to [[cs/deep-learning/recurrent-neural-networks|recurrent neural networks]]. Sequence models are where this bites hardest. A batch of sequences has ragged lengths, so a given timestep may be present in every sequence or only in the longest one, and the batch statistics at that timestep are computed over whatever subset happens to be there. Layer norm sidesteps the question by never looking across the batch; in recurrent networks and transformers it is applied individually to each timestep, over the hidden vector at that step.
 
-That property is what makes it the default in [[attention-and-transformers|transformer]] architectures, where Wikipedia's survey calls it a key component. The paper's own claim is narrower and empirical: layer normalization is very effective at stabilizing the hidden state dynamics in recurrent networks, and substantially reduces training time compared with previously published techniques.
+That property is what makes it the default in [[cs/deep-learning/attention-and-transformers|transformer]] architectures, where Wikipedia's survey calls it a key component. The paper's own claim is narrower and empirical: layer normalization is very effective at stabilizing the hidden state dynamics in recurrent networks, and substantially reduces training time compared with previously published techniques.
 
 > [!example] Two arrangements, same layer
 > The original 2017 transformer placed its layer norms after each sub-layer's residual addition, the "post-LN" configuration. It was difficult to train, and required careful hyperparameter tuning plus a learning rate warm-up that starts small and gradually increases. The "pre-LN" convention, normalizing before the sub-layer instead, was proposed several times in 2018 and found to be easier to train, requiring no warm-up and converging faster. Same normalization, one position moved, and a whole class of training instability goes away.
@@ -52,13 +52,13 @@ Batch norm still earns its place in convolutional vision models, where batches a
 
 ## Related Notes
 
-- [[weight-initialization]], the other lever on activation scale, applied once instead of every forward pass
-- [[vanishing-and-exploding-gradients]], the failure mode both initialization and normalization exist to hold off
-- [[regularization-in-deep-learning]], where batch norm's noise shows up as a side-effect regularizer
-- [[attention-and-transformers]], the architecture layer norm became standard in
-- [[recurrent-neural-networks]], the case that motivated layer norm in the first place
-- [[faster-optimizers-and-learning-rate-scheduling]], the warm-up schedules post-LN transformers needed
-- [[convolutional-neural-networks]], where batch norm remains the common choice
+- [[cs/deep-learning/weight-initialization]], the other lever on activation scale, applied once instead of every forward pass
+- [[cs/deep-learning/vanishing-and-exploding-gradients]], the failure mode both initialization and normalization exist to hold off
+- [[cs/deep-learning/regularization-in-deep-learning]], where batch norm's noise shows up as a side-effect regularizer
+- [[cs/deep-learning/attention-and-transformers]], the architecture layer norm became standard in
+- [[cs/deep-learning/recurrent-neural-networks]], the case that motivated layer norm in the first place
+- [[cs/deep-learning/faster-optimizers-and-learning-rate-scheduling]], the warm-up schedules post-LN transformers needed
+- [[cs/deep-learning/convolutional-neural-networks]], where batch norm remains the common choice
 
 ## Sources
 

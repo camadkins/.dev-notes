@@ -29,13 +29,13 @@ Engelbart's aim was to free computing from being merely about number crunching a
 
 ## The legacy
 
-Nearly everything in the demo became commonplace. The direct-manipulation interface it pioneered was carried forward and refined at [[xerox-parc-and-the-gui|Xerox PARC]], and from there it passed into every personal computer. Engelbart had shown the destination; others built the road.
+Nearly everything in the demo became commonplace. The direct-manipulation interface it pioneered was carried forward and refined at [[cs/history/xerox-parc-and-the-gui|Xerox PARC]], and from there it passed into every personal computer. Engelbart had shown the destination; others built the road.
 
 ## Related Notes
 
-- [[xerox-parc-and-the-gui|Xerox PARC and the Graphical User Interface]], where the demo's ideas became a machine
-- [[operating-system-concept-batch-to-interactive|From Batch to Interactive]], the shift Engelbart embodied
-- [[history-of-the-internet|History of the Internet]], the networked future he also glimpsed
+- [[cs/history/xerox-parc-and-the-gui|Xerox PARC and the Graphical User Interface]], where the demo's ideas became a machine
+- [[cs/history/operating-system-concept-batch-to-interactive|From Batch to Interactive]], the shift Engelbart embodied
+- [[cs/history/history-of-the-internet|History of the Internet]], the networked future he also glimpsed
 - [[cs/history/index|History of Computing]], the section index
 
 ## Sources

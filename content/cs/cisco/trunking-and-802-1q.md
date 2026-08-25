@@ -33,9 +33,9 @@ The configuration is three or four lines. The reason people get hurt is that two
 | CFI | 1 bit | Canonical Format Indicator: 1 means the MAC address is in noncanonical format, 0 means canonical |
 | VID | 12 bits | The VLAN Identifier, a value between 0 and 4095 |
 
-The practical consequences are two. First, the extra 4 bytes are a real MTU consideration on anything that cares about frame size, which is the same arithmetic as [[mtu-and-fragmentation|MTU and fragmentation]] one layer up. Second, the 3-bit priority field is where switch-level [[qos-and-traffic-shaping|QoS]] marking lives on a trunk, and it disappears on the native VLAN along with the rest of the tag. Untagged means unmarked.
+The practical consequences are two. First, the extra 4 bytes are a real MTU consideration on anything that cares about frame size, which is the same arithmetic as [[cs/networking/mtu-and-fragmentation|MTU and fragmentation]] one layer up. Second, the 3-bit priority field is where switch-level [[cs/networking/qos-and-traffic-shaping|QoS]] marking lives on a trunk, and it disappears on the native VLAN along with the rest of the tag. Untagged means unmarked.
 
-The tag format details are in the [[vlans-and-802-1q-trunking|vendor-neutral 802.1Q note]]. What follows is what IOS does with it.
+The tag format details are in the [[cs/networking/vlans-and-802-1q-trunking|vendor-neutral 802.1Q note]]. What follows is what IOS does with it.
 
 ## DTP: the negotiation you should turn off
 
@@ -65,7 +65,7 @@ Switch(config-if)# switchport trunk allowed vlan 10,20,30
 
 This is the one that shows up in incident reviews. Cisco states the rule and the consequence in the same breath: make sure the native VLAN for an IEEE 802.1Q trunk is the same on both ends of the trunk link, and if the native VLAN on one end of the trunk is different from the native VLAN on the other end, spanning-tree loops might result.
 
-The mechanism is straightforward once you hold the tagging rule next to it. Cisco's statement of that rule: if a packet has a VLAN ID that is the same as the outgoing port native VLAN ID, the packet is sent untagged, otherwise the switch sends the packet with a tag. And on receipt, by default the switch forwards untagged traffic in the native VLAN configured for the port. So an untagged frame leaves switch A as VLAN 10 and arrives at switch B as VLAN 20, purely because the two ends disagree about what "untagged" means. Two VLANs are now bridged together at a point neither switch's topology accounts for, and [[spanning-tree-protocol|spanning tree]] is calculating loop-free topologies for VLANs that are not actually separate.
+The mechanism is straightforward once you hold the tagging rule next to it. Cisco's statement of that rule: if a packet has a VLAN ID that is the same as the outgoing port native VLAN ID, the packet is sent untagged, otherwise the switch sends the packet with a tag. And on receipt, by default the switch forwards untagged traffic in the native VLAN configured for the port. So an untagged frame leaves switch A as VLAN 10 and arrives at switch B as VLAN 20, purely because the two ends disagree about what "untagged" means. Two VLANs are now bridged together at a point neither switch's topology accounts for, and [[cs/cisco/spanning-tree-protocol|spanning tree]] is calculating loop-free topologies for VLANs that are not actually separate.
 
 Configure it explicitly:
 
@@ -105,13 +105,13 @@ And a conversion detail that produces confusing results during a change: if a tr
 
 ## Related Notes
 
-- [[vlans-and-vlan-design|VLANs and VLAN Design]] - the VLANs a trunk carries, and where their definitions live
-- [[spanning-tree-protocol|Spanning Tree Protocol]] - what a native VLAN mismatch breaks
-- [[etherchannel-and-lacp|EtherChannel and LACP]] - bundling trunks, where the allowed list must match across members
-- [[vlans-and-802-1q-trunking|VLANs and 802.1Q Trunking]] - the vendor-neutral tag format note
-- [[ios-cli-modes|IOS CLI Modes]] - `(config-if)`, where every command here lives
-- [[mtu-and-fragmentation|MTU and Fragmentation]] - the 4 bytes the tag costs you
-- [[qos-and-traffic-shaping|QoS and Traffic Shaping]] - the 3-bit priority field the tag carries
+- [[cs/cisco/vlans-and-vlan-design|VLANs and VLAN Design]] - the VLANs a trunk carries, and where their definitions live
+- [[cs/cisco/spanning-tree-protocol|Spanning Tree Protocol]] - what a native VLAN mismatch breaks
+- [[cs/cisco/etherchannel-and-lacp|EtherChannel and LACP]] - bundling trunks, where the allowed list must match across members
+- [[cs/networking/vlans-and-802-1q-trunking|VLANs and 802.1Q Trunking]] - the vendor-neutral tag format note
+- [[cs/cisco/ios-cli-modes|IOS CLI Modes]] - `(config-if)`, where every command here lives
+- [[cs/networking/mtu-and-fragmentation|MTU and Fragmentation]] - the 4 bytes the tag costs you
+- [[cs/networking/qos-and-traffic-shaping|QoS and Traffic Shaping]] - the 3-bit priority field the tag carries
 
 ## Sources
 

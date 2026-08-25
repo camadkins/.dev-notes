@@ -65,7 +65,7 @@ Violating that gives a panic rather than a compile error, and the message is `al
 
 A common way to use `RefCell<T>` is in combination with `Rc<T>`. The layering is the point: `Rc` supplies multiple owners but only immutable access, `RefCell` supplies mutability but only single ownership, and nesting one in the other yields multiple owners of mutable data.
 
-![Three nested layers wrapping a mutable value, Rc outside and RefCell inside](assets/rc-refcell-layers.svg)
+![Three nested layers wrapping a mutable value, Rc outside and RefCell inside](cs/languages/Rust/assets/rc-refcell-layers.svg)
 
 > [!example] Mutating a shared cons list
 > With `List` defined as `Cons(Rc<RefCell<i32>>, Rc<List>)`, three lists can share one value. Calling `borrow_mut` on the shared `value` dereferences the `Rc` to the inner `RefCell` automatically, returns a `RefMut<T>`, and lets you add to the inner number through the dereference operator. Printing afterward shows the shared element as 15 in all three lists while their private elements stay 3 and 4. The `List` values are outwardly immutable; the mutation happens through the `RefCell` methods.

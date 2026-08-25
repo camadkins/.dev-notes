@@ -119,12 +119,12 @@ What it does not buy is protection against anything past the first hop. Everythi
 
 ## Related Notes
 
-- [[arp-and-mac-addressing|ARP and MAC Addressing]] - the cached gateway MAC that makes the virtual MAC necessary
-- [[static-routing-and-administrative-distance|Static Routing and Administrative Distance]] - the host-side static default route this protocol protects
-- [[ospf-fundamentals|OSPF Fundamentals]] - the routing protocol that handles everything past the first hop
-- [[spanning-tree-protocol|Spanning Tree Protocol]] - the other place where an election with a bad default puts the wrong box in charge
-- [[vlans-and-vlan-design|VLANs and VLAN Design]] - one HSRP or VRRP group per SVI, which is where group numbering discipline starts
-- [[dhcp-and-address-assignment|DHCP and Address Assignment]] - how the virtual IP reaches the hosts as their default gateway
+- [[cs/networking/arp-and-mac-addressing|ARP and MAC Addressing]] - the cached gateway MAC that makes the virtual MAC necessary
+- [[cs/cisco/static-routing-and-administrative-distance|Static Routing and Administrative Distance]] - the host-side static default route this protocol protects
+- [[cs/cisco/ospf-fundamentals|OSPF Fundamentals]] - the routing protocol that handles everything past the first hop
+- [[cs/cisco/spanning-tree-protocol|Spanning Tree Protocol]] - the other place where an election with a bad default puts the wrong box in charge
+- [[cs/cisco/vlans-and-vlan-design|VLANs and VLAN Design]] - one HSRP or VRRP group per SVI, which is where group numbering discipline starts
+- [[cs/networking/dhcp-and-address-assignment|DHCP and Address Assignment]] - how the virtual IP reaches the hosts as their default gateway
 
 ## Sources
 

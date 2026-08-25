@@ -187,7 +187,7 @@ Iterate **logically** from `i=0..n-1` using `A[(head+i) % cap]`. Exposing raw po
 
 - **Networking**: packet buffers, completion queues.
 
-- **Graph traversal**: worklists for [[breadth-first-search-algorithms|Breadth-First Search Algorithms]].
+- **Graph traversal**: worklists for [[cs/dsa/breadth-first-search-algorithms|Breadth-First Search Algorithms]].
 
 - **Scheduling**: round-robin ready queues, timers (paired with a priority structure for expirations).
 
@@ -212,10 +212,10 @@ An array-based **circular queue** provides fast, predictable FIFO with two indic
 
 ## Related Notes
 
-- [[queue|Queue]]
+- [[cs/dsa/queue|Queue]]
 
-- [[circular-queue|Circular Queue]]
+- [[cs/dsa/circular-queue|Circular Queue]]
 
-- [[queue-using-linked-list|Queue Using Linked List]]
+- [[cs/dsa/queue-using-linked-list|Queue Using Linked List]]
 
-- [[dynamic-arrays|Dynamic Arrays]]
+- [[cs/dsa/dynamic-arrays|Dynamic Arrays]]

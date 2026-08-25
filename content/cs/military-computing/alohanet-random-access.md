@@ -33,10 +33,10 @@ The pure ALOHA idea, transmit freely and recover from collisions, became the bas
 
 ## Related Notes
 
-- [[link-16-tactical-data-links|Link 16 and Time-Slotted Tactical Data]], the opposite approach, where slots are assigned rather than contended
-- [[network-protocols|Network Protocols]], where channel access fits in the stack
-- [[distributed-consensus|Distributed Consensus]], another problem of coordination without a central authority
-- [[paul-baran-and-packet-switching|Paul Baran and the Birth of Packet Switching]], the packet idea ALOHAnet carried over radio
+- [[cs/military-computing/link-16-tactical-data-links|Link 16 and Time-Slotted Tactical Data]], the opposite approach, where slots are assigned rather than contended
+- [[cs/systems/network-protocols|Network Protocols]], where channel access fits in the stack
+- [[cs/systems/distributed-consensus|Distributed Consensus]], another problem of coordination without a central authority
+- [[cs/military-computing/paul-baran-and-packet-switching|Paul Baran and the Birth of Packet Switching]], the packet idea ALOHAnet carried over radio
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

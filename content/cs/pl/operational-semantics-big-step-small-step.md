@@ -90,7 +90,7 @@ n1 + n2 → n3 where n3 = n1 + n2
 ```
 
 > [!example] Inference Rules and Derivation
-> ![Inference rule boxes for E-Plus1, E-Plus2, E-PlusV with a concrete derivation tree for (1+2)+(3+4)](assets/opsem-derivation.svg)
+> ![Inference rule boxes for E-Plus1, E-Plus2, E-PlusV with a concrete derivation tree for (1+2)+(3+4)](cs/pl/assets/opsem-derivation.svg)
 
 ---
 
@@ -240,7 +240,7 @@ E-Mul
 ```
 
 > [!example] Small-Step vs Big-Step
-> ![Two panels comparing small-step reduction sequence and big-step derivation tree for 1+(2+3)](assets/opsem-judgement-forms.svg)
+> ![Two panels comparing small-step reduction sequence and big-step derivation tree for 1+(2+3)](cs/pl/assets/opsem-judgement-forms.svg)
 
 ---
 
@@ -277,7 +277,7 @@ Languages and textbooks often use hybrid styles:
 - [[cs/pl/booleans-conditionals-semantics|Booleans & Conditionals: Semantics]]
 - [[cs/pl/mutable-state-references-effects|Mutable State, References & Effects]]
 - [[cs/pl/language-design-values-variables-environments|Values, Variables & Environments]]
-- [[evaluation-order-and-strictness | Evaluation Order & Strictness]]
+- [[cs/pl/evaluation-order-and-strictness| Evaluation Order & Strictness]]
 
 ## Sources
 

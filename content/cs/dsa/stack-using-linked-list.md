@@ -268,10 +268,10 @@ A **stack using a linked list** provides clean **O(1)** push/pop/peek with **no 
 
 ## Related Notes
 
-- [[stack|Stack]]
+- [[cs/dsa/stack|Stack]]
 
-- [[stack-using-array|Stack Using Array]]
+- [[cs/dsa/stack-using-array|Stack Using Array]]
 
-- [[push-and-pop-operations|Push & Pop Operations]]
+- [[cs/dsa/push-and-pop-operations|Push & Pop Operations]]
 
-- [[linked-list|Linked Lists]]
+- [[cs/dsa/linked-list|Linked Lists]]

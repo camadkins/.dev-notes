@@ -34,7 +34,7 @@ Second, vty lines are a finite resource, and that makes them a denial-of-service
 
 This is the part that reframes how you think about physical security on network gear. Cisco states it plainly: "console ports on Cisco IOS devices have special privileges. In particular, these privileges allow an administrator to perform the password recovery procedure. To perform password recovery, an unauthenticated attacker would need access to the console port and the ability to interrupt power to the device or to cause the device to crash."
 
-That is the entire attack. Console cable plus a power cycle. The mechanism is the configuration register, covered in [[running-vs-startup-config|running vs startup config]].
+That is the entire attack. Console cable plus a power cycle. The mechanism is the configuration register, covered in [[cs/cisco/running-vs-startup-config|running vs startup config]].
 
 Cisco's conclusion is the right one to internalize: "Any method used to access the console port of a device must be secured in a manner that is equal to the security enforced for privileged access to a device." The console is not a lesser door. It is the highest-privilege door on the box, and locking the rack is a network security control.
 
@@ -111,7 +111,7 @@ Router(config-line)#access-class 23 in
 Router(config-line)#exit
 ```
 
-In Cisco's example, "only SSH access to the 10.10.10.0 255.255.255.0 subnet is permitted, any other is denied access," and the same procedure applies to switch platforms. This is the control that keeps a stolen credential from being usable from an arbitrary corner of the network. Pair it with per-device authentication against a central server, covered in [[tacacs-vs-radius|TACACS+ vs RADIUS]].
+In Cisco's example, "only SSH access to the 10.10.10.0 255.255.255.0 subnet is permitted, any other is denied access," and the same procedure applies to switch platforms. This is the control that keeps a stolen credential from being usable from an arbitrary corner of the network. Pair it with per-device authentication against a central server, covered in [[cs/cisco/tacacs-vs-radius|TACACS+ vs RADIUS]].
 
 Cisco's overall position on authentication is unambiguous: "Authentication can be enforced through the use of AAA, which is the recommended method for authenticated access to a device, with the use of the local user database, or by simple password authentication configured directly on the vty or tty line." Local users are the fallback, not the plan.
 
@@ -129,9 +129,9 @@ Cisco's overall position on authentication is unambiguous: "Authentication can b
 
 ## Related Notes
 
-- [[ios-cli-modes|IOS CLI Modes]] - the `(config-line)` mode every command here is entered from
-- [[running-vs-startup-config|Running vs Startup Config]] - the configuration register mechanism behind console password recovery
-- [[tacacs-vs-radius|TACACS+ vs RADIUS]] - centralizing the authentication these lines defer to
+- [[cs/cisco/ios-cli-modes|IOS CLI Modes]] - the `(config-line)` mode every command here is entered from
+- [[cs/cisco/running-vs-startup-config|Running vs Startup Config]] - the configuration register mechanism behind console password recovery
+- [[cs/cisco/tacacs-vs-radius|TACACS+ vs RADIUS]] - centralizing the authentication these lines defer to
 - [[cs/security/secure-shell-ssh|Secure Shell (SSH)]] - what the protocol itself guarantees
 - [[cs/security/man-in-the-middle-attacks|Man-in-the-Middle Attacks]] - the threat that makes Telnet unacceptable
 - [[cs/security/comsec-principles|COMSEC Principles]] - key management discipline applied to the RSA pair you just generated

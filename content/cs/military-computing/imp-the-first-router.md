@@ -32,10 +32,10 @@ A router is exactly this: a dedicated device that [[cs/networking/routing-and-lo
 
 ## Related Notes
 
-- [[paul-baran-and-packet-switching|Paul Baran and the Birth of Packet Switching]], the idea the IMP made physical
-- [[arpanet-survivable-communications|ARPANET and Survivable Communications]], the network the IMPs built
-- [[internetworking-prnet-satnet|Cerf, Kahn, and the Internetworking Problem]], what happened when IMP subnets had to meet other networks
-- [[network-protocols|Network Protocols]], the rules the forwarded packets obey
+- [[cs/military-computing/paul-baran-and-packet-switching|Paul Baran and the Birth of Packet Switching]], the idea the IMP made physical
+- [[cs/military-computing/arpanet-survivable-communications|ARPANET and Survivable Communications]], the network the IMPs built
+- [[cs/military-computing/internetworking-prnet-satnet|Cerf, Kahn, and the Internetworking Problem]], what happened when IMP subnets had to meet other networks
+- [[cs/systems/network-protocols|Network Protocols]], the rules the forwarded packets obey
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

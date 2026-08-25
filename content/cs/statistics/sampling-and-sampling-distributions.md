@@ -14,7 +14,7 @@ aliases:
   - Stratified Sampling
 ---
 
-Every statistic you compute is itself a [[random-variable|random variable]]. Draw a different sample and you get a different sample mean. The whole apparatus of inference rests on characterizing *that* variation, not the variation of the individual observations, and the object holding it is the sampling distribution.
+Every statistic you compute is itself a [[cs/statistics/random-variable|random variable]]. Draw a different sample and you get a different sample mean. The whole apparatus of inference rests on characterizing *that* variation, not the variation of the individual observations, and the object holding it is the sampling distribution.
 
 > [!note] The idea
 > A sampling distribution is the distribution of a statistic, treated as a random variable, over all possible samples of size $n$ from the same population. It is the simplification that makes inference tractable: instead of reasoning about the joint distribution of all $n$ individual sample values, you reason about the one-dimensional distribution of the statistic. In practice you observe a single sample, and the sampling distribution is found theoretically or simulated, never enumerated.
@@ -31,9 +31,9 @@ Take a normal population $\mathcal{N}(\mu, \sigma^2)$ and repeatedly compute the
 | $\operatorname{Bernoulli}(p)$ | sample proportion $\bar{X}$ | $n\bar{X} \sim \operatorname{Binomial}(n, p)$ |
 | two independent normals | $\bar{X}_1 - \bar{X}_2$ | $\mathcal{N}\!\left(\mu_1 - \mu_2,\ \frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}\right)$ |
 
-Sampling distributions can be close to normal even when the population is not, which is the content of the [[central-limit-theorem|central limit theorem]]. When $\sigma$ is unknown, $T = (\bar{X} - \mu)\sqrt{n}/S$ follows a [[t-distribution-and-t-tests|Student's $t$ distribution]] with $\nu = n - 1$ degrees of freedom, and $T$ is a pivotal quantity whose distribution does not depend on $\sigma$.
+Sampling distributions can be close to normal even when the population is not, which is the content of the [[cs/statistics/central-limit-theorem|central limit theorem]]. When $\sigma$ is unknown, $T = (\bar{X} - \mu)\sqrt{n}/S$ follows a [[cs/statistics/t-distribution-and-t-tests|Student's $t$ distribution]] with $\nu = n - 1$ degrees of freedom, and $T$ is a pivotal quantity whose distribution does not depend on $\sigma$.
 
-The normal-mean case is about as simple as populations and statistics get. For other combinations the formulas are more complicated and often have no closed form at all. Then you approximate the sampling distribution by [[cs/military-computing/monte-carlo-method-and-the-bomb|Monte Carlo simulation]], [[bootstrap-and-resampling|bootstrap]] methods, or asymptotic distribution theory.
+The normal-mean case is about as simple as populations and statistics get. For other combinations the formulas are more complicated and often have no closed form at all. Then you approximate the sampling distribution by [[cs/military-computing/monte-carlo-method-and-the-bomb|Monte Carlo simulation]], [[cs/statistics/bootstrap-and-resampling|bootstrap]] methods, or asymptotic distribution theory.
 
 ## Standard error
 
@@ -41,7 +41,7 @@ The standard error of a statistic is the standard deviation of its sampling dist
 
 $$\sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}},$$
 
-where $\sigma$ is the population standard deviation. This is the number that goes into a [[confidence-intervals|confidence interval]], and its practical meaning is a design constraint. Because of the $1/\sqrt{n}$ factor, halving the error requires quadrupling the sample, and reducing it tenfold requires a hundred times as many observations. That curve is what makes cost-benefit tradeoffs in study design nontrivial.
+where $\sigma$ is the population standard deviation. This is the number that goes into a [[cs/statistics/confidence-intervals|confidence interval]], and its practical meaning is a design constraint. Because of the $1/\sqrt{n}$ factor, halving the error requires quadrupling the sample, and reducing it tenfold requires a hundred times as many observations. That curve is what makes cost-benefit tradeoffs in study design nontrivial.
 
 For the sample *total* rather than the mean, the standard error moves the other way: $\sigma_{\Sigma x} = \sigma\sqrt{n}$.
 
@@ -97,13 +97,13 @@ Non-sampling errors come from data collection, processing, or design, and they a
 
 ## Related Notes
 
-- [[central-limit-theorem|Central Limit Theorem]] - why the sampling distribution of the mean is approximately normal regardless of the population
-- [[law-of-large-numbers|Law of Large Numbers]] - the sampling distribution of the mean concentrates on $\mu$ as $n$ grows
-- [[confidence-intervals|Confidence Intervals]] - built directly from the standard error
-- [[t-distribution-and-t-tests|t-Distribution and t-Tests]] - the sampling distribution of the mean when $\sigma$ must be estimated
-- [[bootstrap-and-resampling|Bootstrap and Resampling]] - approximates a sampling distribution when no closed form exists
-- [[variance-and-covariance|Variance and Covariance]] - the population $\sigma^2$ that drives the standard error
-- [[hypothesis-testing|Hypothesis Testing]] - test statistics are evaluated against their sampling distribution under $H_0$
+- [[cs/statistics/central-limit-theorem|Central Limit Theorem]] - why the sampling distribution of the mean is approximately normal regardless of the population
+- [[cs/statistics/law-of-large-numbers|Law of Large Numbers]] - the sampling distribution of the mean concentrates on $\mu$ as $n$ grows
+- [[cs/statistics/confidence-intervals|Confidence Intervals]] - built directly from the standard error
+- [[cs/statistics/t-distribution-and-t-tests|t-Distribution and t-Tests]] - the sampling distribution of the mean when $\sigma$ must be estimated
+- [[cs/statistics/bootstrap-and-resampling|Bootstrap and Resampling]] - approximates a sampling distribution when no closed form exists
+- [[cs/statistics/variance-and-covariance|Variance and Covariance]] - the population $\sigma^2$ that drives the standard error
+- [[cs/statistics/hypothesis-testing|Hypothesis Testing]] - test statistics are evaluated against their sampling distribution under $H_0$
 
 ## Sources
 

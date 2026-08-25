@@ -13,7 +13,7 @@ aliases: []
 
 ## Overview
 
-Graphs are commonly stored as either **adjacency lists** or an **adjacency matrix**. Lists store, for each vertex `u`, the neighbors `Adj[u]`. A matrix stores a `V x V` table where entry `(i,j)` indicates the weight/existence of edge `i->j`. The choice drives **space**, **iteration cost**, and **edge lookup cost**, and it shapes how algorithms like [[dijkstras-algorithm|Dijkstra's Algorithm]] or [[graph-traversals-bfs-dfs|Graph Traversals (BFS & DFS)]] behave in practice.
+Graphs are commonly stored as either **adjacency lists** or an **adjacency matrix**. Lists store, for each vertex `u`, the neighbors `Adj[u]`. A matrix stores a `V x V` table where entry `(i,j)` indicates the weight/existence of edge `i->j`. The choice drives **space**, **iteration cost**, and **edge lookup cost**, and it shapes how algorithms like [[cs/dsa/dijkstras-algorithm|Dijkstra's Algorithm]] or [[cs/dsa/graph-traversals-bfs-dfs|Graph Traversals (BFS & DFS)]] behave in practice.
 
 ## Motivation
 
@@ -114,7 +114,7 @@ Adj[4]: {}
 
 - **Dijkstra:** AL with a priority queue is `Theta((n + m) log n)`; AM version is `Theta(n^2)` and is competitive only when the graph is dense or `n` is small.
 
-- **Floyd–Warshall / Warshall:** Naturally matrix-based; initializing `dist`/`reach` comes "for free" with AM. See [[floyd-warshall|Floyd–Warshall Algorithm]].
+- **Floyd–Warshall / Warshall:** Naturally matrix-based; initializing `dist`/`reach` comes "for free" with AM. See [[cs/dsa/floyd-warshall|Floyd–Warshall Algorithm]].
 
 - **Edge-existence-heavy workloads:** AM shines (e.g., constraint checking, dense DP transitions).
 
@@ -156,10 +156,10 @@ Representation choices ripple into:
 
 ## Related Notes
 
-- [[adjacency-list|Adjacency List]]
+- [[cs/dsa/adjacency-list|Adjacency List]]
 
-- [[adjacency-matrix|Adjacency Matrix]]
+- [[cs/dsa/adjacency-matrix|Adjacency Matrix]]
 
-- [[graph-traversals-bfs-dfs|Graph Traversals (BFS & DFS)]]
+- [[cs/dsa/graph-traversals-bfs-dfs|Graph Traversals (BFS & DFS)]]
 
-- [[dijkstras-algorithm|Dijkstra's Algorithm]]
+- [[cs/dsa/dijkstras-algorithm|Dijkstra's Algorithm]]

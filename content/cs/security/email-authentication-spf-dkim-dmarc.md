@@ -29,7 +29,7 @@ The limitation is scope. SPF binds to the envelope sender and the HELO name, not
 
 ## DKIM signs, and signs for whoever chose to sign
 
-DKIM adds a cryptographic layer. It "permits a person, role, or organization that owns the signing domain to claim some responsibility for a message by associating the domain with the message." The mechanism is a [[digital-signatures|digital signature]] over the message, verified with a public key fetched from DNS: "assertion of responsibility is validated through a cryptographic signature and by querying the Signer's domain directly to retrieve the appropriate public key," conceptually the same key-in-DNS pattern that underpins [[pki-and-x509-certificates|public-key trust]] elsewhere.
+DKIM adds a cryptographic layer. It "permits a person, role, or organization that owns the signing domain to claim some responsibility for a message by associating the domain with the message." The mechanism is a [[cs/security/digital-signatures|digital signature]] over the message, verified with a public key fetched from DNS: "assertion of responsibility is validated through a cryptographic signature and by querying the Signer's domain directly to retrieve the appropriate public key," conceptually the same key-in-DNS pattern that underpins [[cs/security/pki-and-x509-certificates|public-key trust]] elsewhere.
 
 DKIM's honest subtlety is spelled out in its own spec: it "separates the question of the identity of the Signer of the message from the purported author of the message." The signer is whoever holds the key and chose to sign. That can be a forwarding service, a mailing list, or an attacker's own domain, none of which need match the From address. A valid DKIM signature proves *some* domain vouched for the message, not that *the From domain* did.
 
@@ -44,11 +44,11 @@ DMARC also lets the owner state what receivers should do on failure, published a
 
 ## Related Notes
 
-- [[digital-signatures|Digital Signatures]] - the primitive DKIM uses to bind a domain to a message
-- [[pki-and-x509-certificates|PKI and X.509 Certificates]] - the same publish-a-key pattern DKIM applies through DNS
-- [[dns-the-domain-name-system|DNS: The Domain Name System]] - the distributed database all three mechanisms publish their records in
-- [[phishing-and-social-engineering|Phishing and Social Engineering]] - the spoofed-sender attacks these layers are meant to blunt
-- [[cryptographic-hash-functions|Cryptographic Hash Functions]] - what a DKIM signature covers to detect message tampering
+- [[cs/security/digital-signatures|Digital Signatures]] - the primitive DKIM uses to bind a domain to a message
+- [[cs/security/pki-and-x509-certificates|PKI and X.509 Certificates]] - the same publish-a-key pattern DKIM applies through DNS
+- [[cs/systems/dns-the-domain-name-system|DNS: The Domain Name System]] - the distributed database all three mechanisms publish their records in
+- [[cs/security/phishing-and-social-engineering|Phishing and Social Engineering]] - the spoofed-sender attacks these layers are meant to blunt
+- [[cs/security/cryptographic-hash-functions|Cryptographic Hash Functions]] - what a DKIM signature covers to detect message tampering
 
 ## Sources
 

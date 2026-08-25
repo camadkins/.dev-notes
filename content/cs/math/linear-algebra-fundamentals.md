@@ -95,7 +95,7 @@ Netflix-style recommendations factorize a sparse user-item rating matrix via SVD
 
 ## Related Notes
 
-- [[graph-theory|Graph Theory]] - adjacency matrices are the bridge between graph theory and linear algebra
-- [[discrete-probability|Discrete Probability]] - Markov chains use stochastic matrices and eigenvector analysis
-- [[mathematical-induction|Mathematical Induction]] - induction on matrix dimension proves many linear algebra theorems
-- [[combinatorics|Combinatorics]] - counting arguments for matrix properties like the permanent and determinant
+- [[cs/math/graph-theory|Graph Theory]] - adjacency matrices are the bridge between graph theory and linear algebra
+- [[cs/math/discrete-probability|Discrete Probability]] - Markov chains use stochastic matrices and eigenvector analysis
+- [[cs/math/mathematical-induction|Mathematical Induction]] - induction on matrix dimension proves many linear algebra theorems
+- [[cs/math/combinatorics|Combinatorics]] - counting arguments for matrix properties like the permanent and determinant

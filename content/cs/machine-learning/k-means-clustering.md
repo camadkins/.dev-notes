@@ -47,7 +47,7 @@ Naive initializations behave differently in ways that matter. Wikipedia describe
 k-means++ is the standard fix. scikit-learn describes it as initializing the centroids "to be (generally) distant from each other, leading to probably better results than random initialization." Wikipedia adds the theoretical property that makes it more than a heuristic-on-a-heuristic: k-means++ "chooses initial centers in a way that gives a provable upper bound on the WCSS objective." An algorithm with no global guarantee acquires one from its seeding step, which is a satisfying result. scikit-learn also notes k-means++ can be called independently to select seeds for other clustering algorithms.
 
 > [!warning] Inertia is a biased scorer
-> scikit-learn lists two drawbacks of the objective itself. First, inertia "makes the assumption that clusters are convex and isotropic," so it responds poorly to elongated clusters or manifolds with irregular shapes. k-means will happily slice a crescent in half. Second, inertia is not normalized, and "in very high-dimensional spaces, Euclidean distances tend to become inflated," an instance of the curse of dimensionality. The recommended remedy is to run [[pca-and-dimensionality-reduction|PCA]] before clustering, which "can alleviate this problem and speed up the computations." The same curse that breaks [[k-nearest-neighbors|kNN]] breaks k-means, for the same reason: both are built on Euclidean distance.
+> scikit-learn lists two drawbacks of the objective itself. First, inertia "makes the assumption that clusters are convex and isotropic," so it responds poorly to elongated clusters or manifolds with irregular shapes. k-means will happily slice a crescent in half. Second, inertia is not normalized, and "in very high-dimensional spaces, Euclidean distances tend to become inflated," an instance of the curse of dimensionality. The recommended remedy is to run [[cs/machine-learning/pca-and-dimensionality-reduction|PCA]] before clustering, which "can alleviate this problem and speed up the computations." The same curse that breaks [[cs/machine-learning/k-nearest-neighbors|kNN]] breaks k-means, for the same reason: both are built on Euclidean distance.
 
 ## Choosing k
 
@@ -62,12 +62,12 @@ Silhouette analysis is the alternative Wikipedia describes: it measures the qual
 
 ## Related Notes
 
-- [[unsupervised-learning|Unsupervised Learning]] - the no-labels setting clustering belongs to
-- [[pca-and-dimensionality-reduction|PCA and Dimensionality Reduction]] - the recommended preprocessing before clustering high-dimensional data
-- [[k-nearest-neighbors|k-Nearest Neighbors]] - the other Euclidean-distance method with the same dimensionality failure
-- [[evaluation-metrics|Evaluation Metrics]] - scoring models when there is no ground-truth label to check against
-- [[features-and-representations|Features and Representations]] - why the feature space determines what "nearest" means
-- [[variance-and-covariance|Variance and Covariance]] - the within-cluster variance the objective minimizes
+- [[cs/machine-learning/unsupervised-learning|Unsupervised Learning]] - the no-labels setting clustering belongs to
+- [[cs/machine-learning/pca-and-dimensionality-reduction|PCA and Dimensionality Reduction]] - the recommended preprocessing before clustering high-dimensional data
+- [[cs/machine-learning/k-nearest-neighbors|k-Nearest Neighbors]] - the other Euclidean-distance method with the same dimensionality failure
+- [[cs/machine-learning/evaluation-metrics|Evaluation Metrics]] - scoring models when there is no ground-truth label to check against
+- [[cs/machine-learning/features-and-representations|Features and Representations]] - why the feature space determines what "nearest" means
+- [[cs/statistics/variance-and-covariance|Variance and Covariance]] - the within-cluster variance the objective minimizes
 
 ## Sources
 

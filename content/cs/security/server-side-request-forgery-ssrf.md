@@ -40,9 +40,9 @@ Because the payload is a legitimate URL, filtering out bad destinations is a los
 
 ## Related Notes
 
-- [[zero-trust-architecture|Zero Trust Architecture]], whose whole premise is that the network position SSRF abuses should never have implied trust
-- [[firewalls|Firewalls]], the perimeter control SSRF routes around by originating requests from the inside
-- [[owasp-top-10|The OWASP Top 10]], where SSRF is its own category A10
+- [[cs/security/zero-trust-architecture|Zero Trust Architecture]], whose whole premise is that the network position SSRF abuses should never have implied trust
+- [[cs/security/firewalls|Firewalls]], the perimeter control SSRF routes around by originating requests from the inside
+- [[cs/security/owasp-top-10|The OWASP Top 10]], where SSRF is its own category A10
 
 ## Sources
 

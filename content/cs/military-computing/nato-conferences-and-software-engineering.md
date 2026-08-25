@@ -32,10 +32,10 @@ This is the hinge where programming began to be treated as engineering. Once the
 
 ## Related Notes
 
-- [[margaret-hamilton-and-reliable-software|Margaret Hamilton and Ultra-Reliable Software]], who used the term software engineering in the same years
-- [[software-architecture|Software Architecture]], one discipline that grew from this shift
-- [[testing-strategies|Testing Strategies]], another
-- [[design-patterns|Design Patterns]], documented engineering practice for software
+- [[cs/military-computing/margaret-hamilton-and-reliable-software|Margaret Hamilton and Ultra-Reliable Software]], who used the term software engineering in the same years
+- [[cs/software-engineering/software-architecture|Software Architecture]], one discipline that grew from this shift
+- [[cs/software-engineering/testing-strategies|Testing Strategies]], another
+- [[cs/software-engineering/design-patterns|Design Patterns]], documented engineering practice for software
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

@@ -22,7 +22,7 @@ aliases:
 
 ## What 802.11 actually is
 
-IEEE 802.11 is part of the [[cs/standards/ieee-802-the-family-and-its-split|IEEE 802 family of LAN standards]], and it specifies the set of medium access control (MAC) and physical layer (PHY) protocols for implementing wireless local area network computer communication. The standard is the machinery; Wi-Fi is the brand. Products that pass the Wi-Fi Alliance's interoperability tests carry the Wi-Fi trademark, but the protocol underneath is 802.11, released first in 1997 and [[cs/standards/ieee-802-11-wireless-lan|amended ever since]] (802.11b, a, g, n, ac, ax). The protocols are designed to interwork with [[arp-and-mac-addressing|Ethernet]] and most often carry Internet Protocol traffic, so from the layer above, a Wi-Fi link is meant to look like just another link.
+IEEE 802.11 is part of the [[cs/standards/ieee-802-the-family-and-its-split|IEEE 802 family of LAN standards]], and it specifies the set of medium access control (MAC) and physical layer (PHY) protocols for implementing wireless local area network computer communication. The standard is the machinery; Wi-Fi is the brand. Products that pass the Wi-Fi Alliance's interoperability tests carry the Wi-Fi trademark, but the protocol underneath is 802.11, released first in 1997 and [[cs/standards/ieee-802-11-wireless-lan|amended ever since]] (802.11b, a, g, n, ac, ax). The protocols are designed to interwork with [[cs/networking/arp-and-mac-addressing|Ethernet]] and most often carry Internet Protocol traffic, so from the layer above, a Wi-Fi link is meant to look like just another link.
 
 ## CSMA/CA: listen, send, confirm
 
@@ -45,10 +45,10 @@ When A and C transmit to the AP at the same time, neither heard the other's carr
 
 ## Related Notes
 
-- [[arp-and-mac-addressing|ARP and MAC Addressing]] - the link layer 802.11 is designed to interwork with
-- [[vlans-and-802-1q-trunking|VLANs and 802.1Q Trunking]] - another 802 standard shaping how the link layer is segmented
-- [[multicast-broadcast-anycast|Multicast, Broadcast, Anycast]] - delivery modes the shared radio medium makes cheap
-- [[tcp-congestion-control|TCP Congestion Control]] - how the layer above copes with the loss a noisy radio link introduces
+- [[cs/networking/arp-and-mac-addressing|ARP and MAC Addressing]] - the link layer 802.11 is designed to interwork with
+- [[cs/networking/vlans-and-802-1q-trunking|VLANs and 802.1Q Trunking]] - another 802 standard shaping how the link layer is segmented
+- [[cs/networking/multicast-broadcast-anycast|Multicast, Broadcast, Anycast]] - delivery modes the shared radio medium makes cheap
+- [[cs/networking/tcp-congestion-control|TCP Congestion Control]] - how the layer above copes with the loss a noisy radio link introduces
 
 ## Sources
 
