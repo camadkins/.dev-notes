@@ -1,7 +1,7 @@
 ---
 title: Tries
 description: Prefix trees for fast string lookup; trades memory for predictable time and prefix-aware features.
-draft: true
+draft: false
 tags:
   - cs
   - dsa

@@ -1,7 +1,7 @@
 ---
 title: Types of Tries
 description: Standard (explicit-edge), compressed/radix (path-compressed), and suffix tries—trade-offs in memory, depth, and operations.
-draft: true
+draft: false
 tags:
   - cs
   - dsa

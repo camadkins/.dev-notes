@@ -1,7 +1,7 @@
 ---
 title: Splay Tree  
 description: Self-adjusting BST with a splay operation that moves the accessed node to the root and provides amortized efficiency.  
-draft: true  
+draft: false
 tags:
   - cs
   - dsa

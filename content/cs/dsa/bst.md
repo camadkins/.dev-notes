@@ -1,7 +1,7 @@
 ---
 title: Binary Search Tree
 description: Data structure maintaining ordered keys where left subtree < node < right subtree; supports logarithmic average-case search, insertion, and deletion.
-draft: true
+draft: false
 tags:
   - cs
   - dsa

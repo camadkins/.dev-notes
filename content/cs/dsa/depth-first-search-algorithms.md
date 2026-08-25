@@ -1,7 +1,7 @@
 ---
 title: Depth-First Search (DFS)  
 description: Systematic graph exploration that timestamps discovery/finish times and classifies edges; foundation for cycle detection and topological order.  
-draft: true  
+draft: false
 tags:
   - cs
   - dsa

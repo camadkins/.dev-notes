@@ -1,7 +1,7 @@
 ---
 title: Types of Binary Tree
 description: Full, complete, perfect, and balanced binary trees—precise definitions, examples, and how the properties relate.
-draft: true
+draft: false
 tags:
   - cs
   - dsa

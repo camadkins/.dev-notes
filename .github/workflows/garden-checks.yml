@@ -1,0 +1,51 @@
+name: Garden checks
+
+# Gates the things that silently break a published garden. The built-site audit is the
+# load-bearing one: markdown-level slug checks reported zero dangling links while the deployed
+# site served 3,332 broken ones, because they are two different surfaces.
+
+on:
+  pull_request:
+  push:
+    branches: [dev, main]
+  workflow_dispatch:
+
+concurrency:
+  group: garden-checks-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile || bun install
+
+      - name: Tag taxonomy
+        run: bun Tools/tag-audit.ts
+
+      - name: Link convention (no bare-basename wikilinks)
+        run: bun Tools/link-convention.ts .
+
+      - name: Build site
+        run: node ./quartz/bootstrap-cli.mjs build
+
+      # Thresholds are the accepted floor, not a target. Currently 2: both are golf notes
+      # deliberately left as drafts. Lower this when they publish; never raise it silently.
+      - name: Built-site link and image audit
+        run: bun Tools/link-audit-built.ts public --max-links 2 --max-images 0
+
+      - name: Garden report
+        if: always()
+        run: bun Tools/garden-report.ts . >> "$GITHUB_STEP_SUMMARY"

@@ -1,7 +1,7 @@
 ---
 title: Standard Trie
 description: Prefix tree with per-character child pointers; fast lookups and natural prefix operations at the cost of memory.
-draft: true
+draft: false
 tags:
   - cs
   - dsa
