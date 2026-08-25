@@ -23,7 +23,10 @@ import { homedir } from "node:os";
 
 const expand = (p: string) => (p.startsWith("~") ? join(homedir(), p.slice(1)) : p);
 const ARGS = process.argv.slice(2).filter((a) => !a.startsWith("-"));
-const GARDEN = expand(ARGS[0] ?? "~/Desktop/dev-notes");
+// Default to the repo we are standing in, so the same command works locally and on a CI
+// runner. Falling back to a fixed ~ path resolved to /home/runner/... and failed the job.
+import { existsSync } from "node:fs";
+const GARDEN = expand(ARGS[0] ?? (existsSync(join(process.cwd(), "content")) ? process.cwd() : "~/Desktop/dev-notes"));
 const CONTENT = join(GARDEN, "content");
 const FIX = process.argv.includes("--fix");
 const JSON_OUT = process.argv.includes("--json");
