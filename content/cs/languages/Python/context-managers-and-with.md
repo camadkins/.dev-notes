@@ -9,10 +9,7 @@ tags:
   - error-handling
 date: 2026-05-21
 updated:
-aliases:
-  - Python with Statement
-  - contextlib
-  - "__enter__ and __exit__"
+aliases: []
 ---
 
 `try`/`finally` works. The problem is that it does not compose and it does not travel. Every caller who opens the same resource writes the same acquire step, the same guard, and the same release step, and any one of them can get it slightly wrong. The `with` statement exists so that the correct pairing is written once, by the author of the resource, and reused by everyone else. The language reference states the purpose exactly that way: `with` wraps the execution of a block with methods defined by a context manager, allowing common `try...except...finally` usage patterns to be encapsulated for convenient reuse.

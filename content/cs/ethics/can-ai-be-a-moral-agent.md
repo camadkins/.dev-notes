@@ -6,15 +6,9 @@ comments: true
 tags:
   - cs
   - ethics
-  - philosophy
-  - ai
 date: 2026-06-30
 updated:
-aliases:
-  - artificial moral agent
-  - mind-less morality
-  - moral zombies
-  - moral agency
+aliases: []
 ---
 
 A self-driving car swerves and someone gets hurt. [[cs/machine-learning/logistic-regression|A loan model denies an application]] on grounds that turn out to be discriminatory. The instinct is to ask who is to blame, and the awkward part is that the immediate cause was a machine that no one thinks has a mind. So a prior question has to be settled first: is the machine even the kind of thing that can be blamed, or is it just a complicated instrument whose blame belongs entirely to the people around it? That is the question of whether an AI can be a moral agent, and it turns out to split cleanly along the same fault line that runs through the [[cs/ethics/consciousness-access-vs-phenomenal|consciousness debate]]. One camp says agency can be read off behavior alone. The other says it requires having felt something, which no algorithm has.

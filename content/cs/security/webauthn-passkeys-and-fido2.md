@@ -10,9 +10,6 @@ tags:
 date: 2026-05-29
 updated:
 aliases:
-  - WebAuthn
-  - Web Authentication
-  - Passkeys
   - FIDO2
 ---
 

@@ -8,10 +8,7 @@ tags:
   - systems
 date: 2026-06-28
 updated:
-aliases:
-  - Tor
-  - onion routing
-  - anonymity networks
+aliases: []
 ---
 
 Encryption hides what you say. It does not hide that you are saying it, or to whom. A wiretap that cannot read your message can still see that your machine talked to a particular server at a particular time, and for many people in many places that metadata is the dangerous part. Onion routing attacks exactly that gap. It hides the relationship between sender and receiver by passing the message through a chain of relays, each of which learns only one link of the path, so no single point on the network sees both ends at once.

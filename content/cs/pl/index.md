@@ -8,8 +8,7 @@ tags:
   - pl
 date: 2025-10-16
 updated: 2026-07-27
-aliases:
-  - Programming Language Concepts
+aliases: []
 ---
 
 PL asks what a language *is* independent of any compiler that implements it. A language is a grammar, a set of evaluation rules, and a set of guarantees, and nearly every design argument in the field is about what a language promises versus what it costs to keep that promise.

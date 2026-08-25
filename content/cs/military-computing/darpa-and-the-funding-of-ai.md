@@ -8,9 +8,7 @@ tags:
   - military
 date: 2026-05-31
 updated:
-aliases:
-  - Strategic Computing Initiative
-  - DARPA AI funding
+aliases: []
 ---
 
 Artificial intelligence did not grow in a vacuum, and for most of its history it was not funded by industry. For decades the largest patron of AI research in the United States was the military, through DARPA, and the shape of the field, what got tried, what got overpromised, and what got abandoned, tracked the flow of that money closely.

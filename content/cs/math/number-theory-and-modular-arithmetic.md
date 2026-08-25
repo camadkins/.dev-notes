@@ -6,13 +6,11 @@ comments: true
 tags:
   - cs
   - math
-  - discrete-math
   - cryptography
 date: 2026-02-14
 updated:
 aliases:
   - modular-arithmetic
-  - congruences
 ---
 
 ## Arithmetic That Wraps

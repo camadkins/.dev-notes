@@ -8,11 +8,7 @@ tags:
   - cisco
 date: 2026-03-08
 updated:
-aliases:
-  - Cisco IOS command modes
-  - Privileged EXEC
-  - configure terminal
-  - IOS modes
+aliases: []
 ---
 
 The first thing to read on a Cisco box is not the banner, it is the prompt. `Switch>` and `Switch#` differ by one character and by everything you are permitted to do. A command that "does not exist" on a device almost always exists fine, one mode up. Learning the mode ladder is the difference between fighting the parser and driving the box.

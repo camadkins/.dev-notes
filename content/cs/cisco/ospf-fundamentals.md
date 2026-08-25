@@ -8,11 +8,7 @@ tags:
   - cisco
 date: 2026-04-23
 updated:
-aliases:
-  - OSPF on IOS
-  - DR BDR election
-  - LSA types
-  - show ip ospf neighbor
+aliases: []
 ---
 
 Almost nothing that goes wrong with OSPF in production is a shortest-path problem. [[cs/dsa/dijkstras-algorithm|Dijkstra]] works. What breaks is the step before it: two routers that should be exchanging databases are not, and the routing table is missing entries because the database is missing entries. That is why the first command on an OSPF problem is `show ip ospf neighbor` and not `show ip route`.

@@ -8,9 +8,7 @@ tags:
   - military
 date: 2026-06-18
 updated:
-aliases:
-  - Military Computing
-  - Military Computing History
+aliases: []
 ---
 
 Much of modern computing was not born in a garage - it was born from a military requirement. Artillery firing tables drove the first programmable electronic computer. Air defense drove real-time interactive computing. Surviving a nuclear strike drove packet switching. Navigation drove a planetary-scale distributed system. Each breakthrough started as a problem someone in uniform needed solved.

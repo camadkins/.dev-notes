@@ -10,7 +10,6 @@ date: 2026-03-01
 updated:
 aliases:
   - AN/FSQ-7
-  - SAGE computer
 ---
 
 A machine built from [[cs/history/the-transistor|tens of thousands of vacuum tubes]] has a tube failing somewhere all the time. For most computers that is an annoyance. For the computer at the center of a Cold War air-defense system, one that is supposed to be watching the skies without interruption, a failure in the wrong moment is the whole problem. The AN/FSQ-7, built by IBM for the [[cs/military-computing/sage-and-real-time-systems|SAGE]] network, answered that problem in the bluntest way available: it kept a second copy of itself ready to take over.

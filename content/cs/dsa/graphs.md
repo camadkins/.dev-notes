@@ -1,5 +1,5 @@
 ---
-title: Graphs - Overview
+title: Graphs
 description: Vertices and edges; directed vs undirected; weighted vs unweighted; core terms and how to work with neighborhoods and degrees.
 draft: false
 comments: true

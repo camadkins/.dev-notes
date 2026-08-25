@@ -9,10 +9,7 @@ tags:
   - cryptography
 date: 2026-05-09
 updated:
-aliases:
-  - secure boot
-  - chain of trust
-  - measured boot
+aliases: []
 ---
 
 Antivirus, sandboxes, and access controls all assume the operating system underneath them is honest. If malware installs itself below the OS, in the firmware or the bootloader, it comes up first, and every defense that loads afterward is running on a compromised foundation without knowing it. The classic bootkit hides exactly there. Secure boot answers a prior question than "is this program safe": is the code that is about to run even the code the machine was supposed to run?

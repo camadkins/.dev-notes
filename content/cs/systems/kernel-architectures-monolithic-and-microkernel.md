@@ -1,5 +1,5 @@
 ---
-title: Kernel Architectures - Monolithic and Microkernel
+title: Kernel Architectures
 description: "Where the privilege boundary goes: what runs in kernel space, what gets pushed out to user space, and the performance cost of the isolation you buy."
 draft: false
 comments: true
@@ -9,9 +9,7 @@ tags:
   - operating-systems
 date: 2026-02-09
 updated:
-aliases:
-  - Microkernel
-  - Monolithic Kernel
+aliases: []
 ---
 
 Every operating system has to answer one structural question before it answers any other: how much code gets to run at the hardware's most privileged level? The file system, the network stack, the driver for your graphics card, all of them need to do things ordinary programs cannot. The monolithic answer is to put them inside the kernel and be done with it. The microkernel answer is to push them out into ordinary processes and let them ask the kernel for the few things only the kernel can do. Both designs ship in production systems today, which is the first clue that neither one simply won.

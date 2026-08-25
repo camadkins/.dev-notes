@@ -8,10 +8,7 @@ tags:
   - security
 date: 2026-05-08
 updated:
-aliases:
-  - ARP spoofing
-  - ARP poisoning
-  - ARP cache poisoning
+aliases: []
 ---
 
 Inside a local network, IP addresses are an abstraction. Ethernet frames are delivered to hardware (MAC) addresses, so before one host can send an IP packet to another on the same segment, it must learn the target's MAC. That translation is the job of the [[cs/networking/arp-and-mac-addressing|Address Resolution Protocol]], and ARP was designed in 1982 for a network where everyone on the wire was assumed to be honest. That assumption is the whole vulnerability.

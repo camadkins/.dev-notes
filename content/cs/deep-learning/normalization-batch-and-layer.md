@@ -6,13 +6,8 @@ comments: true
 tags:
   - cs
   - deep-learning
-  - training
 date: 2026-03-18
-aliases:
-  - batch norm
-  - layer norm
-  - BatchNorm
-  - LayerNorm
+aliases: []
 ---
 
 Every hidden layer in a deep network sees inputs produced by the layers beneath it, and those layers are still learning. The distribution arriving at layer twenty in step one looks nothing like the distribution arriving at step ten thousand. Normalization layers pin that moving target down: rescale each layer's activations to a fixed mean and [[cs/statistics/variance-and-covariance|variance]], then hand the network two learned parameters so it can undo the rescaling wherever the rescaling was a bad idea.

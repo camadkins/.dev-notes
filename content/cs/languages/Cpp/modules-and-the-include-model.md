@@ -9,10 +9,7 @@ tags:
   - build-systems
 date: 2026-08-16
 updated:
-aliases:
-  - C++20 Modules
-  - Header Units
-  - Global Module Fragment
+aliases: []
 ---
 
 `#include` is not a language feature. It is a directive to a text processor that runs before the compiler exists, and its entire semantics is: find that file and paste it here. Everything difficult about large C++ builds comes from taking that literally.

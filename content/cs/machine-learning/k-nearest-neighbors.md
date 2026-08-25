@@ -6,13 +6,9 @@ comments: true
 tags:
   - cs
   - machine-learning
-  - supervised-learning
 date: 2026-02-17
 updated:
-aliases:
-  - kNN
-  - Nearest Neighbor Classifier
-  - Instance-Based Learning
+aliases: []
 ---
 
 Every other supervised method compresses a training set into parameters and then throws the data away. k-nearest neighbors does the opposite. scikit-learn classifies neighbor methods as "non-generalizing machine learning methods, since they simply 'remember' all of its training data," and describes the classifier as instance-based learning that "does not attempt to construct a general internal model, but simply stores instances of the training data." Prediction is a lookup: find the $k$ closest stored examples to the query point and take a majority vote among their labels.

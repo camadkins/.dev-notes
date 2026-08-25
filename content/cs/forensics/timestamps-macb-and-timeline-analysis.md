@@ -10,9 +10,6 @@ date: 2026-07-09
 updated:
 aliases:
   - MACB
-  - MAC Times
-  - Super Timeline
-  - Timeline Analysis
 ---
 
 The shorthand MACB collects four classes of file timestamp: modified, accessed, changed in the metadata sense, and born. The acronym is convenient and it hides the thing that matters. These are not four columns of one table. They are values written by different code paths, into different structures, at different resolutions, with different update policies, and in at least one common case into two structures at once.

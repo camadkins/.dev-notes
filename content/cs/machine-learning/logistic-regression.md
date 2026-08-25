@@ -6,13 +6,9 @@ comments: true
 tags:
   - cs
   - machine-learning
-  - regression
 date: 2026-05-12
 updated:
-aliases:
-  - Logit Model
-  - Logit Regression
-  - Sigmoid Classifier
+aliases: []
 ---
 
 The name is the first obstacle. Logistic regression is taught as the entry point to classification, and yet it is called regression, and the disagreement is not sloppiness. Wikipedia's statistics-side framing says the model "simply models probability of output in terms of input and does not perform statistical classification (it is not a classifier), though it can be used to make a classifier, for instance by choosing a cutoff value." scikit-learn's ML-side framing says the opposite about its own implementation: "Despite its name, it is implemented as a linear model for classification rather than regression in terms of the scikit-learn/ML nomenclature." Both are right, and the gap between them is exactly one line of code: a threshold.

@@ -10,7 +10,6 @@ date: 2026-03-07
 updated:
 aliases:
   - NSA
-  - cryptanalysis
 ---
 
 Secrecy is a computational arms race. [[cs/security/comsec-principles|Protecting your own communications]] and breaking your enemy's are two sides of the same problem, and both, pushed hard enough, demand computation. The United States did both throughout the twentieth century, and in 1952 it created an agency for it that became one of the hungriest consumers of computing power on Earth.

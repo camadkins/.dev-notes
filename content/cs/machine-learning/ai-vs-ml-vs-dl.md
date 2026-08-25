@@ -7,10 +7,7 @@ tags:
   - cs
   - machine-learning
 date: 2026-07-13
-aliases:
-  - AI vs ML vs DL
-  - artificial intelligence vs machine learning
-  - difference between AI and machine learning
+aliases: []
 ---
 
 The three terms get used as if they were louder and quieter versions of the same word. They are not. Artificial intelligence, machine learning, and deep learning sit inside one another as nested sets, but each set is defined by a different question, and mistaking one for another is how people end up calling a spreadsheet formula "AI" or a linear regression "deep learning."

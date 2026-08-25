@@ -10,9 +10,7 @@ tags:
 date: 2026-02-17
 updated:
 aliases:
-  - perfect forward secrecy
   - PFS
-  - forward secrecy
 ---
 
 Encrypt a conversation today and the natural question is whether it stays private forever. Most people assume the answer is yes as long as the cipher holds. The sharper question is what happens the day the *server's* private key leaks, years later, in a breach that has nothing to do with the cipher. Without forward secrecy, that one leak retroactively opens every session that key ever protected. With it, the leak buys the attacker nothing on old traffic.

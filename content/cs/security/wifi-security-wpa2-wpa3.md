@@ -13,8 +13,6 @@ aliases:
   - WPA2
   - WPA3
   - SAE
-  - 802.11 security
-  - four-way handshake
 ---
 
 A wired network gives you a small physical secret: to read the traffic, you have to touch the cable. Wi-Fi throws that away. [[cs/standards/ieee-802-11-wireless-lan|An 802.11 radio]] broadcasts to everyone in range, so an attacker never has to get on the wire; they only have to be nearby with an antenna. Every byte of confidentiality and authentication therefore has to be manufactured by cryptography, and specifically by the handshake that turns a shared password into fresh session keys. When that handshake has a flaw, the whole link has a flaw.

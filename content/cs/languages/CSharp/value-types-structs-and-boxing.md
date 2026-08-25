@@ -9,10 +9,7 @@ tags:
   - memory
 date: 2026-06-14
 updated:
-aliases:
-  - C# Value Semantics
-  - Struct vs Class in C#
-  - What a Boxing Conversion Allocates
+aliases: []
 ---
 
 Nearly every C# question that starts "why does my struct do that" resolves to one distinction, and the documentation states it in a single line. A variable of a value type contains an instance of the type. A variable of a reference type contains a reference to an instance of the type. Everything else is bookkeeping around those two sentences.

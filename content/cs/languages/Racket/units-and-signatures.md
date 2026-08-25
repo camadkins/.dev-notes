@@ -9,9 +9,7 @@ tags:
 date: 2026-06-24
 updated:
 aliases:
-  - Racket Units
   - define-signature
-  - Racket Components
 ---
 
 Racket already has a module system that is static, checkable, and separately compilable. It then ships a second modularity form, `unit`, that most Racket programmers never touch. The obvious question is why a language would want two, and the honest answer is that the first one has a specific hole in it that no amount of `require` cleverness fills.

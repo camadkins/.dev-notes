@@ -1,5 +1,5 @@
 ---
-title: Linked Lists - Insertion, Deletion, Traversal
+title: Linked List Operations
 description: Singly linked list operations with pointer rewiring invariants, edge cases, and testable pseudocode for head, tail, and middle updates.
 draft: false
 comments: true

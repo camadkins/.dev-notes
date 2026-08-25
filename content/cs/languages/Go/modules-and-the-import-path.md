@@ -9,9 +9,7 @@ tags:
   - build-systems
 date: 2026-06-17
 updated:
-aliases:
-  - Go Modules
-  - Minimal Version Selection
+aliases: []
 ---
 
 Two things about Go modules look wrong on first contact. Upgrading a dependency picks the oldest version that satisfies the constraints, not the newest. And releasing version 2 of a library requires renaming it. Both are consequences of decisions made to avoid a specific failure, and both are more interesting than the surface annoyance suggests.

@@ -8,9 +8,7 @@ tags:
   - networking
 date: 2026-03-11
 updated:
-aliases:
-  - TCP versus UDP
-  - transport protocol choice
+aliases: []
 ---
 
 Both TCP and UDP sit at the transport layer, both ride on IP, and both use port numbers to hand data to the right process. That is where the resemblance ends. One spends effort to hide the network's unreliability from you; the other hands you the network's raw behavior and gets out of the way. Choosing between them is choosing what you want the transport layer to do on your behalf, and what you would rather do yourself.

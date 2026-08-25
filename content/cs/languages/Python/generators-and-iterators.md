@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-02-17
 updated:
-aliases:
-  - Python Generators
-  - The Iterator Protocol
+aliases: []
 ---
 
 A `for` loop in Python does not know what a list is. It calls `iter()` on whatever you gave it, gets back an object, and calls `__next__()` on that object until the object raises `StopIteration`. Everything that can be looped over, files, dictionaries, ranges, database cursors, network streams, is a participant in that one two-method conversation. Generators are the syntax that lets you write a participant without writing a class.

@@ -9,10 +9,8 @@ tags:
 date: 2026-02-19
 updated:
 aliases:
-  - copy running-config startup-config
   - startup-config
-  - configuration register
-  - "0x2142"
+  - 0x2142
 ---
 
 The single most common way to lose an afternoon on Cisco gear is to fix something, verify it works, walk away, and have the box reload. Nothing you typed survives. This is not a bug and it is not a quirk of one platform. A Cisco device holds two distinct configuration files in two distinct kinds of memory, and every command you enter lands in only one of them.

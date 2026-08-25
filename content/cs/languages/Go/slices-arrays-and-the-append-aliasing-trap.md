@@ -9,10 +9,7 @@ tags:
   - memory
 date: 2026-06-30
 updated:
-aliases:
-  - Go Slices
-  - Slice Header
-  - append Aliasing
+aliases: []
 ---
 
 Two Go programs differ by one integer in a `make` call. One of them mutates a caller's data through a slice it was handed; the other quietly does not. Neither is wrong, neither warns, and the difference is invisible at the call site. This is the single most reliable way to write a Go bug that survives code review.

@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-06-19
 updated:
-aliases:
-  - Ansiballz
-  - How Ansible Executes a Task
+aliases: []
 ---
 
 Most people write Ansible for years without knowing what a task does. The surface reads like a remote procedure call: name a module, give it arguments, get a result. The mechanism is stranger and better than that, and knowing it settles a long list of otherwise arbitrary-seeming behaviors.

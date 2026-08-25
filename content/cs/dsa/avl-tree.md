@@ -1,5 +1,5 @@
 ---
-title: AVL Tree - Height-Balanced Binary Search Tree
+title: AVL Tree
 description: Self-balancing BST that maintains O(log n) height via single and double rotations based on balance factors.
 draft: false
 comments: true

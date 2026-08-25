@@ -8,9 +8,7 @@ tags:
   - history
 date: 2026-02-19
 updated:
-aliases:
-  - IBM System/360
-  - instruction set architecture
+aliases: []
 ---
 
 Before 1964, buying a bigger computer usually meant [[cs/languages/common/portability-and-cross-compilation|rewriting your software for it]]. IBM's System/360 ended that, and in doing so it created one of the most important ideas in how processors are designed: the separation of architecture from implementation.

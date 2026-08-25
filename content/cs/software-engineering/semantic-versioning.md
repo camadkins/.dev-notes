@@ -8,10 +8,7 @@ tags:
   - software-engineering
 date: 2026-04-22
 updated:
-aliases:
-  - SemVer
-  - Semantic Versioning 2.0.0
-  - MAJOR.MINOR.PATCH
+aliases: []
 ---
 
 A version number is usually treated as a label. SemVer treats it as a contract. The specification opens on the failure mode it exists to prevent, "[[cs/languages/common/build-systems-and-dependency-management|a dreaded place called dependency hell]]," and names the two ways you get there. Pin your dependencies too tightly and you hit **version lock**, "the inability to upgrade a package without having to release new versions of every dependent package." Pin them too loosely and you hit **version promiscuity**, "assuming compatibility with more future versions than is reasonable." Both come from the same root cause: the version string carried no information a tool could act on.

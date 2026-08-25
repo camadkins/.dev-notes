@@ -11,8 +11,6 @@ updated:
 aliases:
   - VLAN
   - 802.1Q
-  - Dot1q
-  - VLAN trunking
 ---
 
 A switch, left alone, floods a broadcast frame out every port: every device plugged into it shares one broadcast domain. That is fine for a closet of ten machines and a problem for a building of a thousand, where the broadcast chatter alone becomes a tax and where finance, guest Wi-Fi, and IP phones have no business seeing each other's frames. The old fix was more switches and more cable, one physical network per group. VLANs do it in software: they carve one physical switch fabric into many logically separate networks that never touch, without laying a second strand of copper.

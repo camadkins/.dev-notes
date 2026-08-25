@@ -8,10 +8,7 @@ tags:
   - military
 date: 2026-03-28
 updated:
-aliases:
-  - ALOHAnet
-  - pure ALOHA
-  - slotted ALOHA
+aliases: []
 ---
 
 The University of Hawaii had a practical problem in the late 1960s. Its campuses sat on different islands, wired connections between them were impractical, and many terminals needed to reach a central computer over radio. They all had to share one channel. If two stations transmitted at the same instant, their signals collided and both messages were lost. The work that began in September 1968 under Norman Abramson, and went operational in June 1971 as ALOHAnet, answered that problem with a scheme so simple it sounds reckless, and that scheme is the root of how [[cs/standards/ieee-802-3-ethernet|Ethernet]] and [[cs/networking/wifi-and-802-11|Wi-Fi]] share a channel today.

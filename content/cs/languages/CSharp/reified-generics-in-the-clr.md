@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-07-02
 updated:
-aliases:
-  - Reified Generics
-  - C# Reification
+aliases: []
 ---
 
 Ask a running .NET program what type a `List<string>` is and it answers `System.Collections.Generic.List<System.String>`. Ask the same of a `List<int>` and it answers something different. The two are not the same class wearing different compile-time labels. They are two distinct types in the runtime's own type system, each with its own identity, its own method table, and its own static storage. That single fact is the root of this entire folder.

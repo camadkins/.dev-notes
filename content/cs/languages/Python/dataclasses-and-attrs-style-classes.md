@@ -8,10 +8,7 @@ tags:
   - languages
 date: 2026-06-14
 updated:
-aliases:
-  - Python Dataclasses
-  - PEP 557
-  - default_factory
+aliases: []
 ---
 
 The `dataclasses` module exists because a specific class shape kept being reinvented. PEP 557's rationale lists the prior art: `collections.namedtuple` in the standard library, `typing.NamedTuple` in the standard library, the popular `attrs` project, George Sakkis' `recordType` recipe, and many online recipes, packages, and questions. David Beazley used a form of data classes as the motivating example in a PyCon 2013 [[cs/languages/Python/metaclasses-and-class-creation|metaclass]] talk. All of them solve the same problem, classes which exist primarily to store values which are accessible by attribute lookup, and all of them solve it with different machinery.

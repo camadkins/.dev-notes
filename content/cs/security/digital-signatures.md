@@ -10,7 +10,6 @@ tags:
 date: 2026-05-30
 updated:
 aliases:
-  - digital signature
   - hash-then-sign
   - non-repudiation
 ---

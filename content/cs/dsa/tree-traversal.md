@@ -1,5 +1,5 @@
 ---
-title: Tree Traversal — Overview
+title: Tree Traversal
 description: Systematic ways to visit tree nodes; depth-first (pre/in/post), breadth-first (level order), with recursive and iterative patterns.
 draft: true
 tags:

@@ -10,9 +10,7 @@ tags:
 date: 2026-07-14
 updated:
 aliases:
-  - Non-Lexical Lifetimes
   - NLL
-  - Polonius
 ---
 
 The borrow checker has a one-sentence job: values may not be mutated or moved while they are borrowed. Every difficulty is in the second half of that sentence, because knowing whether a value is borrowed at a given moment requires knowing where each outstanding reference is still in play. Whenever you create a borrow, the compiler assigns the resulting reference a lifetime, corresponding to the span of the code where the reference may be used, and it infers that lifetime to be the smallest one that still encompasses all the uses of the reference.

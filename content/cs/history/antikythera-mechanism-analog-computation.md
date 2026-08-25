@@ -8,8 +8,7 @@ tags:
   - history
 date: 2026-05-10
 updated:
-aliases:
-  - Antikythera mechanism
+aliases: []
 ---
 
 In 1901, divers working a Roman-era shipwreck off the Greek island of Antikythera brought up a corroded lump of bronze. It took most of a century to understand what it was: a geared astronomical calculator more than two thousand years old, and the oldest known analog computer.

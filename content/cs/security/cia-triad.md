@@ -8,9 +8,7 @@ tags:
   - security
 date: 2026-01-19
 updated:
-aliases:
-  - CIA triad
-  - confidentiality integrity availability
+aliases: []
 ---
 
 Ask someone to "secure" a system and you get an unbounded shopping list: encryption, firewalls, backups, passwords, audit logs. The list has no natural end because "secure" is not one property. The CIA triad is the observation that underneath the sprawl there are only three things any of it can be protecting, and that pinning a control to which of the three it serves is what makes a security argument finite instead of a pile of good intentions.

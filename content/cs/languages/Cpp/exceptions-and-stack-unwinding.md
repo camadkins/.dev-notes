@@ -9,10 +9,7 @@ tags:
   - error-handling
 date: 2026-06-27
 updated:
-aliases:
-  - C++ Exceptions
-  - Stack Unwinding
-  - noexcept
+aliases: []
 ---
 
 A `throw` looks like a `return` that skips several frames. It is not. A return unwinds one frame in a way the compiler planned when it emitted the function. A throw hands control to a runtime that has to walk frames it was not told about in advance, run destructors it finds along the way, compare the thrown type against handler types at each level, and get all of that right in the presence of partially constructed objects. Almost every surprising rule about C++ exceptions is a consequence of doing that safely.

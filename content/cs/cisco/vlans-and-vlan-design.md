@@ -8,11 +8,7 @@ tags:
   - cisco
 date: 2026-04-02
 updated:
-aliases:
-  - Cisco VLANs
-  - switchport access vlan
-  - VLAN 1
-  - vlan.dat
+aliases: []
 ---
 
 You reach for a VLAN when two groups of devices share a switch but should not share a broadcast domain. Cameras and workstations in the same closet. A vendor's test bench and the production LAN. The trigger is almost never "we ran out of ports," it is "these things should not be able to see each other's frames without passing something that can enforce policy."

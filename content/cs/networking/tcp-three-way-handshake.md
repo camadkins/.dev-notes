@@ -8,9 +8,7 @@ tags:
   - networking
 date: 2026-06-22
 updated:
-aliases:
-  - three-way handshake
-  - SYN SYN-ACK ACK
+aliases: []
 ---
 
 TCP promises a reliable, ordered byte stream over an [[cs/military-computing/dod-model-and-tcp-ip-standardization|internet layer]] that guarantees none of that. Packets can be lost, duplicated, reordered, or damaged in transit. Before TCP can make its promise, the two ends have to agree that a connection exists and settle on the numbering they will use to track every byte. That opening negotiation is the three-way handshake, and it happens before a single byte of your actual data is sent.

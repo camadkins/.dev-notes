@@ -10,8 +10,6 @@ date: 2026-06-28
 updated:
 aliases:
   - CDN
-  - content delivery network
-  - edge caching
 ---
 
 When you load a popular site, the bytes almost never come from the company that owns it. They come from a rented box a few network hops away, in a building in your own city or region, that has kept a copy of the page ready for exactly this moment. The site's real servers might sit on another continent, but you would not know it from the speed. That is a content delivery network at work: a layer of cache servers spread across the world, sitting between you and the origin, whose entire job is to put a copy of the content close enough that distance stops mattering. The result is a faster, more resilient web, bought at the price of routing a large share of all internet traffic through a small number of companies.

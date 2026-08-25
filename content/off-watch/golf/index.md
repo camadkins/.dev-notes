@@ -9,9 +9,7 @@ tags:
 permalink: /golf/
 date: 2026-06-28
 updated: 2026-06-28
-aliases:
-  - Golf
-  - The Clubhouse
+aliases: []
 ---
 
 Golf is the one game that gives you the whole truth at the end of the day. The card does not care how it felt over the ball. This is where I keep the parts worth keeping: why the ball does what it does, the courses I have played and what they were actually like, the ones I still want to play, and the honest record of how I scored when it counted.

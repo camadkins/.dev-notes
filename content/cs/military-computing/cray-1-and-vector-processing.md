@@ -8,9 +8,7 @@ tags:
   - military
 date: 2026-02-01
 updated:
-aliases:
-  - Cray-1
-  - vector processing
+aliases: []
 ---
 
 [[cs/military-computing/illiac-iv-and-parallel-processing|ILLIAC IV]] pursued speed by spreading data across many processing elements. The Cray-1 reached a similar destination, doing the same operation across a lot of data, by a different road. Instead of many processors, it used one very fast processor with instructions that act on [[cs/math/vectors-and-dot-products|a whole vector of numbers in a single step]]. That choice made vector processing a commercial success and shaped supercomputing for years.

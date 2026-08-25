@@ -8,9 +8,7 @@ tags:
   - history
 date: 2026-03-21
 updated:
-aliases:
-  - binary number system
-  - Leibniz binary
+aliases: []
 ---
 
 Gottfried Leibniz did more than build a [[cs/history/pascaline-and-stepped-reckoner|calculating machine]]. He worked out the number system that every computer would eventually run on, centuries before there was a computer to run it.

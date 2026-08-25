@@ -9,11 +9,7 @@ tags:
   - web
 date: 2026-01-19
 updated:
-aliases:
-  - edge caching
-  - CDN caching
-  - origin offload
-  - cache hierarchy
+aliases: []
 ---
 
 The [[cs/systems/content-delivery-networks-and-the-centralization-of-control|content delivery network]] note frames the CDN as a geographic and political object: cache servers spread worldwide, reached by anycast, and the concentration that makes them a chokepoint. This note goes inside one of those edge servers and asks the mechanical question the geography sits on top of. When a request lands at an edge PoP, what actually decides whether the byte is already there, how long it stays valid, and what happens when it is not. The whole performance win rests on the answer, because an edge server that has to ask the origin on every request has saved no one anything.

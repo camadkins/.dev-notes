@@ -8,9 +8,7 @@ tags:
   - forensics
 date: 2026-06-17
 updated:
-aliases:
-  - Phone Forensics
-  - Mobile Extraction
+aliases: []
 ---
 
 Disk forensics has a clean hierarchy. A bit-for-bit image of the raw storage is the best evidence, and anything less is a compromise made under time pressure. Mobile forensics started from the same assumption and then watched hardware encryption invert it. On a current phone, the deepest possible acquisition, the one that removes the flash and reads it directly, returns ciphertext bound to a key the examiner does not have.

@@ -11,8 +11,6 @@ updated:
 aliases:
   - TACACS+
   - RADIUS
-  - AAA protocols
-  - Device Administration AAA
 ---
 
 The moment a network grows past the handful of boxes one person can remember the passwords for, local credentials stop scaling and stop being auditable. Centralized AAA is the fix, and the first fork in the road is which protocol carries it. TACACS+ and RADIUS are routinely described as alternatives, which is misleading. They were designed around different questions and they protect different things.

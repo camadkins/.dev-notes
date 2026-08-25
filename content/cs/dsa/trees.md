@@ -1,5 +1,5 @@
 ---
-title: Trees - Overview
+title: Trees
 description: Hierarchical structures of nodes and edges; terminology (size, height, degree), variants, and core representations.
 draft: false
 comments: true
@@ -9,7 +9,6 @@ tags:
 date: 2025-10-16
 updated:
 aliases: []
-
 ---
 
 ## Overview

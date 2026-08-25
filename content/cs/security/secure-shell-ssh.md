@@ -10,8 +10,6 @@ date: 2026-02-16
 updated:
 aliases:
   - SSH
-  - Secure Shell
-  - SSH Protocol
 ---
 
 [[cs/history/history-of-the-internet|Telnet and rlogin]] sent your password across the wire in the clear. Anyone on the path read it. SSH replaced them, and [[cs/standards/what-a-standard-actually-is|RFC 4251]] states the goal plainly: it is "a protocol for secure remote login and other secure network services over an insecure network." The interesting part is not that SSH encrypts, it is *where the security actually comes from*. Encryption alone buys nothing if you handed the key to an impostor. SSH's entire guarantee rests on one earlier step, verifying that the machine you reached is the machine you meant.

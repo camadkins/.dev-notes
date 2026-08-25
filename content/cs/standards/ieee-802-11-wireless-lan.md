@@ -10,8 +10,6 @@ date: 2026-06-18
 updated:
 aliases:
   - 802.11
-  - Wi-Fi Standard
-  - 802.11 Amendments
 ---
 
 Three naming systems are in play at once. IEEE publishes a base standard with a year on it. IEEE also publishes amendments with letters. And a trade association sells generation numbers. A product box says Wi-Fi 6, a datasheet says 802.11ax, and the normative document is 802.11-2024. All three refer to overlapping but non-identical things, and understanding which is which is most of what reading this standard requires.

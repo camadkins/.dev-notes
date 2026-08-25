@@ -6,12 +6,9 @@ comments: true
 tags:
   - cs
   - deep-learning
-  - training
 date: 2026-07-23
 updated:
-aliases:
-  - Vanishing Gradients
-  - Exploding Gradients
+aliases: []
 ---
 
 Stacking layers is supposed to make a network more powerful. For years it did the opposite: past a handful of layers, training stalled. The culprit is what happens to the gradient on its way back through the network. [[cs/deep-learning/backpropagation|Backpropagation]] computes each weight's gradient by multiplying together the local derivatives of every layer between that weight and the loss. Multiply many numbers smaller than one and [[cs/standards/ieee-754-floating-point|the product heads toward zero]]; multiply many numbers larger than one and it explodes. Either way, the layers far from the output get a gradient that is useless, and the network cannot learn. This note is about why that happens and the small set of ideas that fixed it, the content of Géron's Chapter 11 and the training half of the CSCE 479/879 course.

@@ -6,16 +6,9 @@ comments: true
 tags:
   - cs
   - ethics
-  - philosophy
-  - ai
 date: 2026-06-30
 updated:
-aliases:
-  - artificial moral advisor
-  - moral deference
-  - Google Morals
-  - iSAGE
-  - digital ethical twin
+aliases: []
 ---
 
 Suppose you could hand a hard moral decision to a machine and get an answer you trusted. Not a search result about what other people think, but a verdict: given everything at stake, here is what you ought to do. The appeal is obvious, because human moral judgment is visibly bad at exactly the step where the machine would help. We hold too many considerations at once, our mood and fatigue warp the verdict without our noticing, and we decide the same case differently on different days. An advisor that fixed those defects would be a real gift. And yet a lot of people flinch at the idea, and the interesting question is whether the flinch is wisdom or squeamishness. Three papers stake out the terrain: one builds the advisor, one argues that using it damages you even when it is right, and one abandons the advisor for a mirror.

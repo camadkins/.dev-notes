@@ -1,5 +1,5 @@
 ---
-title: B+ Tree - Balanced Index for Database and Filesystem Storage  
+title: B+ Tree
 description: Extension of B-trees optimized for range queries and disk-based indexing; all keys stored in leaves with linked leaf chaining.  
 draft: false
 comments: true

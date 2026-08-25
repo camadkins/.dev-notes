@@ -8,9 +8,7 @@ tags:
   - history
 date: 2026-03-05
 updated:
-aliases:
-  - deep learning
-  - AlexNet
+aliases: []
 ---
 
 Artificial intelligence had promised and underdelivered for decades. In 2012 a single result changed that. A deep neural network called AlexNet won a major image-recognition contest by an enormous margin, and the modern era of AI began.

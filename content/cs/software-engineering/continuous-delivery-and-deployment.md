@@ -8,12 +8,7 @@ tags:
   - software-engineering
 date: 2026-03-11
 updated:
-aliases:
-  - Continuous Delivery
-  - Continuous Deployment
-  - Deployment Pipeline
-  - Blue-Green Deployment
-  - Canary Release
+aliases: []
 ---
 
 Fowler states the test as a thought experiment rather than a checklist: "a business sponsor could request that the current development version of the software can be deployed into production at a moment's notice - and nobody would bat an eyelid, let alone panic." Notice what that measures. Not whether you have a pipeline, not whether the build is green, but whether the room reacts calmly. Continuous delivery is a claim about the state of the software, and it is falsified by anyone flinching.

@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-07-28
 updated:
-aliases:
-  - APIT and RPIT
-  - Abstract Return Types
+aliases: []
 ---
 
 `fn foo(arg: impl Trait)` and `fn bar() -> impl Trait` look like the same feature used twice. They are closer to opposites. The reference names them separately for good reason: the first is an anonymous type parameter, the second is an abstract return type. In the argument, the caller chooses the concrete type and the function knows nothing about it. In the return, the function chooses and the caller knows nothing about it.

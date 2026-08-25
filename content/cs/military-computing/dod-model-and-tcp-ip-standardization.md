@@ -8,9 +8,7 @@ tags:
   - military
 date: 2026-01-05
 updated:
-aliases:
-  - DoD model
-  - TCP/IP flag day
+aliases: []
 ---
 
 A protocol is a contract. For two machines to communicate they must agree on the rules at every level, from the voltage on the wire to the meaning of a web request. Once Cerf and Kahn had shown that heterogeneous networks could interconnect, the open question was how to organize all those rules so that the pieces could be built and changed independently. The answer the Defense Department settled on was a layered model and a deadline.

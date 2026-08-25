@@ -1,6 +1,6 @@
 ---
 
-title: Linked Lists - Searching
+title: Linked List Search
 description: Search patterns on singly and doubly linked lists; trade-offs vs indexed arrays and when to switch structures.
 draft: false
 comments: true
@@ -10,7 +10,6 @@ tags:
 date: 2025-10-16
 updated: 2026-01-28
 aliases: []
-
 ---
 
 ## Overview

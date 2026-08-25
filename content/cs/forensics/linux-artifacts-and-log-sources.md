@@ -8,9 +8,7 @@ tags:
   - forensics
 date: 2026-08-06
 updated:
-aliases:
-  - journald Forensics
-  - Linux Log Analysis
+aliases: []
 ---
 
 Windows funnels its record-keeping through one auditing subsystem with a documented event catalog. Linux does nothing of the kind. What happened on a Linux system is scattered across a service journal, a set of fixed-format login accounting files, per-user shell history written by an unprivileged process, the kernel audit subsystem when someone configured it, and application logs in whatever format each application chose. The pieces have different owners, different write paths, and very different resistance to tampering.

@@ -8,10 +8,7 @@ tags:
   - software-engineering
 date: 2026-03-11
 updated:
-aliases:
-  - Dependency Injection
-  - Inversion of Control
-  - Constructor Injection
+aliases: []
 ---
 
 Dependency injection is "a programming technique in which an object or function receives other objects or functions that it requires, as opposed to creating them internally." That is the whole mechanism. A class that writes `new PostgresUserStore()` inside itself has answered a question ("which store?") that it was never in a position to answer, because the right answer depends on the deployment, and the class does not know which deployment it is in. Injection takes the answer away from the class and gives it to an external assembler.

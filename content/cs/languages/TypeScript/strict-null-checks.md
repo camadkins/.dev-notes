@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-06-13
 updated:
-aliases:
-  - strictNullChecks
-  - Null Safety in TypeScript
+aliases: []
 ---
 
 For the first four years of the language, a `string` was not a string. "The type checker previously considered null and undefined assignable to anything. Effectively, null and undefined were valid values of every type and it wasn't possible to specifically exclude them (and therefore not possible to detect erroneous use of them)." Every annotation you wrote carried two silent extra inhabitants, and every dereference was a bet.

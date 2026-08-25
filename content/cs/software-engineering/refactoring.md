@@ -8,10 +8,7 @@ tags:
   - software-engineering
 date: 2026-06-03
 updated:
-aliases:
-  - Refactor
-  - Behavior-Preserving Transformation
-  - Refactoring Catalog
+aliases: []
 ---
 
 Most people use "refactoring" to mean "changing code without adding features." Martin Fowler, who documented the technique and wrote its catalog, spends a fair amount of effort arguing that this usage is wrong, and the argument is worth following because the precision is where the technique's value comes from.

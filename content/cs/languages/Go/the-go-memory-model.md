@@ -9,9 +9,7 @@ tags:
   - concurrency
 date: 2026-08-11
 updated:
-aliases:
-  - Go Memory Model
-  - DRF-SC in Go
+aliases: []
 ---
 
 Most language specifications hide their memory model behind a wall of formalism and hope you never need it. Go's version, dated June 6, 2022, opens by telling you not to read it. The Advice section is four short paragraphs, and the last two are: "If you must read the rest of this document to understand the behavior of your program, you are being too clever." Then, alone on its own line, "Don't be clever."

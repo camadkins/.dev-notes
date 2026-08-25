@@ -1,5 +1,5 @@
 ---
-title: Graph Traversals - BFS & DFS
+title: Graph Traversals
 description: Systematic exploration of graphs using queues (BFS) and stacks/recursion (DFS); includes discovery/finish times, edge classification, and classic applications.
 draft: false
 comments: true

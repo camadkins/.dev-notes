@@ -10,7 +10,6 @@ date: 2026-03-11
 updated:
 aliases:
   - security-level
-  - ASA security level
   - same-security-traffic
 ---
 

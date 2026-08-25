@@ -10,9 +10,7 @@ tags:
   - web
 date: 2026-01-19
 updated:
-aliases:
-  - SQL injection
-  - SQLi
+aliases: []
 ---
 
 The bug looks like a string problem, so people reach for a string solution: strip the quotes, escape the semicolons, blacklist the word `DROP`. Every one of those defenses is a patch over the actual mistake, and every one of them has been bypassed. SQL injection is not fundamentally about dangerous characters. It is about a category confusion, where data the user typed gets promoted into [[cs/history/relational-model-and-sql|the language the database executes]].

@@ -6,7 +6,6 @@ comments: true
 tags:
   - cs
   - math
-  - discrete-math
   - formal-methods
 date: 2026-02-18
 updated:

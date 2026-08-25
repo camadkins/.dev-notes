@@ -8,9 +8,7 @@ tags:
   - history
 date: 2026-04-25
 updated:
-aliases:
-  - Fortran
-  - high-level language
+aliases: []
 ---
 
 In the 1950s, [[cs/pl/levels-of-artificial-languages|programming meant assembly language]]: writing the processor's own instructions by hand. Fortran changed that. It proved [[cs/pl/compilation-vs-interpretation|a compiler could turn human-readable code into machine code]] efficient enough that even the assembly programmers would accept it.

@@ -8,8 +8,6 @@ tags:
   - deep-learning
 date: 2026-07-13
 aliases:
-  - learning to learn
-  - few-shot learning
   - MAML
 ---
 

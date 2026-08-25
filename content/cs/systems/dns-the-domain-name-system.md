@@ -1,5 +1,5 @@
 ---
-title: DNS - The Domain Name System
+title: DNS
 description: How the internet turns names into addresses through a hierarchical, cached, distributed lookup - one of the first planet-scale distributed databases, and a control point states fight over.
 draft: false
 comments: true
@@ -8,9 +8,7 @@ tags:
   - systems
 date: 2026-06-22
 updated:
-aliases:
-  - DNS
-  - Domain Name System
+aliases: []
 ---
 
 People remember `example.com`; routers only move packets toward `93.184.216.34`. Something has to translate one into the other billions of times a day, for every name on Earth, fast enough that you never notice the wait. That something is DNS, and the surprising part is that no single machine holds the answer. The map is split across the whole internet and stitched back together one query at a time.

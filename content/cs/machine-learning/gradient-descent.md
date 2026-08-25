@@ -8,7 +8,6 @@ tags:
   - machine-learning
 date: 2026-07-13
 aliases:
-  - sgd
   - stochastic-gradient-descent
 ---
 

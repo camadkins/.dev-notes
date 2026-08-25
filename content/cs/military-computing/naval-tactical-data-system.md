@@ -10,7 +10,6 @@ date: 2026-03-21
 updated:
 aliases:
   - NTDS
-  - Naval Tactical Data System
 ---
 
 [[cs/military-computing/sage-and-real-time-systems|SAGE]] put air defense on a computer ashore, in a building that never moved. The Navy needed the same capability at sea, on a pitching ship, fusing many sensors into one picture fast enough to act on. The Naval Tactical Data System was the answer, and it was the Navy's first step into digital combat systems.

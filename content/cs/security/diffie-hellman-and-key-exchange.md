@@ -10,9 +10,6 @@ tags:
 date: 2026-04-08
 updated:
 aliases:
-  - Diffie-Hellman
-  - key exchange
-  - forward secrecy
   - DHE
 ---
 

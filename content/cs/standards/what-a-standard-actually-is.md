@@ -8,9 +8,7 @@ tags:
   - standards
 date: 2026-06-21
 updated:
-aliases:
-  - Technical Standard
-  - De Jure vs De Facto
+aliases: []
 ---
 
 Two vendors sell switches. Each would prefer the other's boxes did not work on the same wire, because a customer who has already bought one port of your gear and cannot mix it is a customer who buys the next port from you too. Interoperability is a cost to the incumbent and a gift to the challenger. And yet both vendors send engineers to the same meetings, argue for months over a field width, and sign a document that makes their products substitutable. That tension is the whole subject. A standard is not a tutorial written by a benevolent authority. It is a treaty, and like a treaty it records what the parties conceded rather than what any one of them wanted.

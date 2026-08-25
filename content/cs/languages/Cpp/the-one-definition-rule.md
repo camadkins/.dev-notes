@@ -10,8 +10,6 @@ date: 2026-07-24
 updated:
 aliases:
   - ODR
-  - C++ ODR
-  - Ill-Formed No Diagnostic Required
 ---
 
 Two source files each define `struct S`. One says it has an `int x`. The other says it has an `int y`. Both compile. They link. The program runs, and one of the two files is now reading and writing a member that, by its own reckoning, is not there. cppreference states the outcome without softening it: "the behavior of the program that links them together is undefined."

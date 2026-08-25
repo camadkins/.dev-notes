@@ -8,10 +8,7 @@ tags:
   - networking
 date: 2026-05-03
 updated:
-aliases:
-  - layer 4 vs layer 7 load balancing
-  - L4 vs L7
-  - server load balancing
+aliases: []
 ---
 
 One server can only answer so many requests before it saturates. The standard answer is to put many identical servers behind one address and spread the work, but "spread the work" hides a real decision: which server gets the next request, and how much does the thing making that decision get to know about the request before it chooses. That question is what separates the two kinds of load balancer, and it maps cleanly onto how far up the protocol stack the balancer bothers to read.

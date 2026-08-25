@@ -6,14 +6,9 @@ comments: true
 tags:
   - cs
   - ethics
-  - philosophy
-  - ai
 date: 2026-06-29
 updated:
 aliases:
-  - LLM consciousness
-  - could a large language model be conscious
-  - stochastic parrot
   - LLM+
 ---
 

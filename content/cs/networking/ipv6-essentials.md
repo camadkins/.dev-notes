@@ -9,7 +9,6 @@ tags:
 date: 2026-07-14
 updated:
 aliases:
-  - IPv6
   - SLAAC
   - dual-stack
 ---

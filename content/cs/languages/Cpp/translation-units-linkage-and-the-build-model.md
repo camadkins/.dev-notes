@@ -9,10 +9,7 @@ tags:
   - build-systems
 date: 2026-08-04
 updated:
-aliases:
-  - C++ Translation Units
-  - Internal vs External Linkage
-  - C++ Build Model
+aliases: []
 ---
 
 The unit C++ compiles is not a file and not a program. cppreference names the input and the output separately: "The text of a C++ program is kept in units called source" files, and those source files undergo translation to become a translation unit. The distinction sounds pedantic until you count the work. A source file is a few hundred lines you wrote. A translation unit is that file with every header it names pasted in, transitively, and it can run to hundreds of thousands of lines before the compiler proper has looked at a single declaration.

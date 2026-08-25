@@ -9,10 +9,7 @@ tags:
   - memory
 date: 2026-01-19
 updated:
-aliases:
-  - format string attack
-  - uncontrolled format string
-  - printf vulnerability
+aliases: []
 ---
 
 The whole vulnerability fits in one careless line: a programmer writes `printf(buffer)` when they meant `printf("%s", buffer)`. Both print the string in most cases, so the mistake survives testing. The difference only surfaces when `buffer` contains a percent sign. In the safe version `buffer` is data, printed literally. In the buggy version `buffer` is the format string, and every `%` in it is now a command that `printf` will obey. The attacker who controls that buffer is no longer supplying text. They are supplying a small program that the C library will execute against its own stack.

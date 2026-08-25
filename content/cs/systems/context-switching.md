@@ -9,8 +9,7 @@ tags:
   - computer-architecture
 date: 2026-01-22
 updated:
-aliases:
-  - Context Switch
+aliases: []
 ---
 
 Every time the OS takes the CPU away from one process and hands it to another, it has to perform an act of near-perfect memory: freeze everything the outgoing process was in the middle of, tuck it away, and later restore it so exactly that the process never notices it was paused. That act is the context switch, and it is what makes one CPU look like many.

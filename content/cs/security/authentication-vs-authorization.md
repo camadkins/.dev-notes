@@ -8,9 +8,7 @@ tags:
   - security
 date: 2026-02-11
 updated:
-aliases:
-  - authN vs authZ
-  - authentication and authorization
+aliases: []
 ---
 
 The two words sound alike, get abbreviated to the same three letters minus a suffix, and sit next to each other in every login flow, so they blur together in most people's heads into one thing called "logging in." They are not one thing. They are two questions asked in sequence, about two different subjects, and answered by two different mechanisms. Keeping them apart is not pedantry. The moment you treat a passed identity check as if it were a passed permission check, you have written the most common access-control bug there is.

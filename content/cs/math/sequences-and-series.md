@@ -10,10 +10,8 @@ tags:
 date: 2026-05-02
 updated:
 aliases:
-  - series
   - infinite-series
   - geometric-series
-  - convergence
 ---
 
 ## A List, Then Its Running Total

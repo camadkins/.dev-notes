@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-04-06
 updated:
-aliases:
-  - Python Decorators
-  - functools.wraps
+aliases: []
 ---
 
 Before Python 2.4 you wrote the transformation after the function body:

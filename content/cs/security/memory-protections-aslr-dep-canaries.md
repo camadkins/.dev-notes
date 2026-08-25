@@ -12,8 +12,6 @@ updated:
 aliases:
   - ASLR
   - DEP
-  - NX bit
-  - stack canaries
 ---
 
 None of the three standard memory protections fixes the underlying bug. A [[cs/security/buffer-overflows|buffer overflow]] is still a buffer overflow with all of them enabled. What they do instead is break specific links in the chain that turns a memory-corruption bug into running code, and they aim at different links, which is why deploying all three is worth far more than any one. Read together they tell a story about how exploitation was forced to evolve.

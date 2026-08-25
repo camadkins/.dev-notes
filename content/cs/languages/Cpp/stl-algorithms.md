@@ -9,10 +9,7 @@ tags:
   - algorithms
 date: 2026-05-14
 updated:
-aliases:
-  - "<algorithm>"
-  - C++ Algorithms
-  - erase-remove idiom
+aliases: []
 ---
 
 The algorithms library defines functions for a variety of purposes (searching, sorting, counting, manipulating) that operate on ranges of elements. Not on containers. On ranges. Most of the standard library's algorithmic templates that operate on data structures have interfaces that use ranges, and a range is expressed in iterators, so `std::sort` has never known whether it was handed a `vector`, an array, or something you wrote yourself. It only knows the operations its iterators support.

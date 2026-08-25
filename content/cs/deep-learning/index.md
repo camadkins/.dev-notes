@@ -9,9 +9,7 @@ tags:
 date: 2026-07-13
 updated: 2026-07-13
 aliases:
-  - Deep Learning
   - DL
-  - neural networks
 ---
 
 Deep learning, built from the University of Nebraska CSCE 479/879 course. Where the [[cs/machine-learning/index|machine learning]] section covers learning from data in general, this section is about neural networks with depth, the model class that learns its own [[cs/machine-learning/features-and-representations|representations]] instead of relying on hand-engineered features. Each note links back to the machine-learning fundamental it stands on. The history of how these models took over is in [[cs/history/deep-learning-revolution|The Deep Learning Revolution]].

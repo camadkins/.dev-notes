@@ -8,10 +8,7 @@ tags:
   - networking
 date: 2026-02-23
 updated:
-aliases:
-  - maximum transmission unit
-  - path MTU discovery
-  - IP fragmentation
+aliases: []
 ---
 
 Every physical link has a ceiling on how big a chunk it will carry in one go. [[cs/standards/ieee-802-3-ethernet|Ethernet]] will not move a frame larger than a fixed size; a slower serial link caps it lower. An IP packet, meanwhile, can be far larger than any single link along its path. When an oversized packet meets a link too narrow to carry it, something has to give: either the packet is cut into pieces that fit, or it is dropped and the sender is told to send smaller. Both answers exist, and which one the internet prefers has shifted decisively over the decades.

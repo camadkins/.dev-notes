@@ -9,11 +9,7 @@ tags:
   - data-structures
 date: 2026-03-18
 updated:
-aliases:
-  - std::vector
-  - std::deque
-  - std::unordered_map
-  - C++ Containers
+aliases: []
 ---
 
 Picking a container looks like a performance question and mostly is not. The complexity numbers are published and small in count, so the real decision is usually about what happens to the iterators and pointers you are already holding when the container changes underneath them. That part is also published, and it is the part people skip.

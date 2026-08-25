@@ -9,10 +9,7 @@ tags:
   - type-theory
 date: 2026-07-19
 updated:
-aliases:
-  - Typed Racket
-  - typed/racket
-  - Sound Gradual Typing
+aliases: []
 ---
 
 Most gradual type systems answer one question: does this program pass the checker? Typed Racket answers a second one that the first does not imply: if the checker said yes, is the running program allowed to violate what it proved? In `#lang typed/racket` the answer is no, and the machinery that makes it no is where the language stops resembling every other optional type layer bolted onto a dynamic language.

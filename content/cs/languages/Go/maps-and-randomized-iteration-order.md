@@ -9,9 +9,7 @@ tags:
   - data-structures
 date: 2026-07-02
 updated:
-aliases:
-  - Go Map Iteration Order
-  - Go Swiss Table Maps
+aliases: []
 ---
 
 Print the contents of a Go map twice in the same process and the lines come out in different orders. The usual first guess is that something concurrent leaked in, or that the hash function is doing something clever. Neither. Two calls to `rand()` at the top of every map iteration put the disorder there deliberately, and the runtime pays for them on every `range` over every map.

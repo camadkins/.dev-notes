@@ -11,7 +11,6 @@ date: 2026-01-28
 updated:
 aliases:
   - CI
-  - Trunk-Based Development
   - CI/CD
 ---
 

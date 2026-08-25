@@ -6,14 +6,10 @@ comments: true
 tags:
   - cs
   - deep-learning
-  - training
   - optimization
 date: 2026-07-23
 updated:
-aliases:
-  - Faster Optimizers
-  - Adam Optimizer
-  - Learning Rate Scheduling
+aliases: []
 ---
 
 [[cs/machine-learning/gradient-descent|Gradient descent]] introduces the optimizer family at a glance: momentum, AdaGrad, RMSProp, Adam, each a tweak to how the step is taken. This note is the level Géron's Chapter 11 and the CSCE 479/879 lectures actually work at, the update rules written out, because for deep networks the choice of optimizer and the schedule of its learning rate are among the highest-leverage decisions you make. Plain stochastic gradient descent trains a deep net eventually; the right optimizer trains it in a fraction of the steps.

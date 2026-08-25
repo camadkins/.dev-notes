@@ -9,8 +9,6 @@ tags:
 date: 2026-06-07
 updated:
 aliases:
-  - slow start
-  - congestion avoidance
   - AIMD
 ---
 

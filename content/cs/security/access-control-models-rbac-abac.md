@@ -11,9 +11,6 @@ updated:
 aliases:
   - RBAC
   - ABAC
-  - Role-Based Access Control
-  - Attribute-Based Access Control
-  - Access Control Models
 ---
 
 Authorization has one job: given a request to do something to some resource, return yes or no. The naive implementation is an access control list, one entry per user per object, and it collapses the moment an organization has thousands of users and millions of objects. Every model past the ACL is an attempt to move the decision up a level of abstraction so the yes-or-no stops being hand-maintained per pair. Roles were the first big lift. Attributes were the next.

@@ -10,8 +10,6 @@ date: 2026-07-02
 updated:
 aliases:
   - PAR
-  - IEEE Balloting
-  - Project Authorization Request
 ---
 
 Read enough IEEE standards and a pattern shows up that no technical rationale explains. The contested feature is always optional. Two mechanisms that do the same job both ship, each in its own clause, each conformant. A parameter that could have been fixed at one value is instead a configurable range with a recommended default. None of that is engineering judgment. It falls out of how the document is approved.

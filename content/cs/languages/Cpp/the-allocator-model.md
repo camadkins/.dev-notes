@@ -10,9 +10,7 @@ tags:
 date: 2026-06-13
 updated:
 aliases:
-  - C++ Allocators
   - PMR
-  - polymorphic_allocator
 ---
 
 `std::vector<int>` has two template parameters. Almost nobody writes the second one, and that is the tell: a design choice that everyone accepts the default of, but which is baked into the type of every container in the program whether they wanted it or not.

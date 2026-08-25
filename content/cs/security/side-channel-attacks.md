@@ -10,11 +10,7 @@ tags:
   - cryptography
 date: 2026-07-15
 updated:
-aliases:
-  - side-channel attack
-  - timing attack
-  - Spectre
-  - Meltdown
+aliases: []
 ---
 
 Most attacks on a cipher go through the front door: they attack the math, searching the keyspace or the algorithm's structure. A side-channel attack ignores the math entirely and listens to the machine. How long did that operation take? How much power did it draw? What did [[cs/systems/memory-hierarchy-and-caching|the cache]] look like afterward? The algorithm can be provably sound and the implementation still betray the key, because the key influenced something the algorithm's specification never mentioned: the physical behavior of the hardware running it.

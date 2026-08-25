@@ -10,9 +10,7 @@ tags:
 date: 2026-05-07
 updated:
 aliases:
-  - Subresource Integrity
   - SRI
-  - integrity attribute
 ---
 
 A modern web page is assembled from other people's servers: a framework from one [[cs/networking/cdn-and-edge-caching|CDN]], a font from another, an analytics script from a third. Every one of those is code running with your page's full privileges. The transport-security stack, TLS plus [[cs/security/hsts-and-http-security-headers|HSTS]] plus [[cs/security/certificate-pinning|key pinning]], does an excellent job of one thing and a poor job of another. As the SRI specification puts it, these mechanisms "authenticate only the server, not the content." You can be certain you are really talking to the CDN. You have no assurance the CDN is sending what you expect.

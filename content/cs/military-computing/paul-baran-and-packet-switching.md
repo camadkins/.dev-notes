@@ -8,9 +8,7 @@ tags:
   - military
 date: 2026-04-22
 updated:
-aliases:
-  - Packet Switching
-  - Distributed Adaptive Message Block Switching
+aliases: []
 ---
 
 In 1960 the United States had a communications problem with a very specific shape. Its command system depended on long-distance links that funneled through a small number of central switching points. A single nuclear strike on those points could leave the leadership unable to reach its own forces, and a leadership that cannot communicate cannot order a response. The entire logic of deterrence rested on a network that was, physically, easy to behead.

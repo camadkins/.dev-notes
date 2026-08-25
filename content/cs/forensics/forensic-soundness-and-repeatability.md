@@ -8,10 +8,7 @@ tags:
   - forensics
 date: 2026-08-04
 updated:
-aliases:
-  - Forensically Sound
-  - Repeatability
-  - Reproducibility in Forensics
+aliases: []
 ---
 
 "Forensically sound" gets used as though it meant "did not touch anything," which is both impossible and beside the point. Every acquisition touches something. Reading memory allocates memory. Powering a device on runs firmware. Even a perfect hardware-blocked disk image spins the platters and warms the drive. The term is doing different work.

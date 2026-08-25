@@ -9,8 +9,6 @@ tags:
 date: 2026-04-21
 aliases:
   - GNN
-  - message passing
-  - graph convolutional network
 ---
 
 A [[cs/deep-learning/convolutional-neural-networks|convolutional network]] assumes a grid. A [[cs/deep-learning/recurrent-neural-networks|recurrent network]] assumes a line. Both architectures get their power from an assumption about how the input is laid out, and both break when the input is a molecule, a citation network, or [[cs/dsa/dijkstras-algorithm|a road system]]. Graph neural networks are artificial neural networks designed for tasks whose inputs are [[cs/dsa/graphs|graphs]], where the layout is the data.

@@ -8,10 +8,7 @@ tags:
   - languages
 date: 2026-08-11
 updated:
-aliases:
-  - Parameter Packs
-  - Fold Expressions
-  - Pack Expansion
+aliases: []
 ---
 
 `sizeof...(args)` gives you the number of elements. `args[0]` does not give you the first one. You cannot assign a pack to a variable, pass it around, iterate it with a loop, or ask for its third element without reaching for machinery. Every one of those restrictions comes from the same fact, and the fact explains the shape of every variadic idiom written between 2011 and 2017.

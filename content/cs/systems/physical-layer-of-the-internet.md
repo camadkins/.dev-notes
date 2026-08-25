@@ -9,8 +9,6 @@ tags:
 date: 2026-06-28
 updated:
 aliases:
-  - undersea cables
-  - submarine cables
   - IXP
 ---
 

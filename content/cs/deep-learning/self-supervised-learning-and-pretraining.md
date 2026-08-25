@@ -9,11 +9,7 @@ tags:
   - unsupervised-learning
 date: 2026-06-14
 aliases:
-  - self-supervised learning
   - SSL
-  - pretraining
-  - masked language modeling
-  - contrastive learning
 ---
 
 Labels are the expensive part of [[cs/machine-learning/supervised-learning|supervised learning]]. Text, images, audio, and video exist in effectively unlimited quantity; annotated text, images, audio, and video do not. Self-supervised learning is the move that makes the unlabeled pile usable: train the model on a task whose answers are already inside the data, then keep the representation and throw the task away.

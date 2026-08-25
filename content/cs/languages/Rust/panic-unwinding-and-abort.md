@@ -9,9 +9,7 @@ tags:
   - error-handling
 date: 2026-08-11
 updated:
-aliases:
-  - Unwinding
-  - catch_unwind
+aliases: []
 ---
 
 Rust has two error mechanisms and the distinction between them is a claim about the error, not about ergonomics. `Result` is for a failure the caller is expected to handle. Panic is the other one: a mechanism to prevent a function from returning normally, in response to an error condition that is typically not expected to be recoverable within the context in which the error is encountered. Recoverable errors and the `?` operator are covered in [[cs/languages/Rust/error-handling-result-and-question-mark|error handling]]; this note is about what happens after the decision to stop.

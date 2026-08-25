@@ -10,9 +10,7 @@ tags:
 date: 2026-07-23
 updated:
 aliases:
-  - Java Wildcards
   - PECS
-  - Upper and Lower Bounded Wildcards
 ---
 
 `List<Integer>` is not a `List<Number>`. That surprises everyone once, because an `Integer` is a `Number` and the containers feel like they should follow. They do not follow, and the wildcard is the language's way of letting you opt back into the flexibility you gave up, one usage at a time, in whichever direction is actually safe.

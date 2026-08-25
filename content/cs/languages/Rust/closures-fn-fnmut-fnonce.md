@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-05-19
 updated:
-aliases:
-  - Rust Closures
-  - Fn Traits
+aliases: []
 ---
 
 A closure expression produces a closure value with a unique, anonymous type that cannot be written out. That is the sentence to hang everything else on. You cannot name the type, so you can only refer to it through a trait bound, which means the entire design question becomes: which trait does this particular closure get, and who decided?

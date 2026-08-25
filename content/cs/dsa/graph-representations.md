@@ -1,5 +1,5 @@
 ---
-title: Graph Representations - Adjacency List vs Matrix
+title: Graph Representations
 description: When to store a graph as adjacency lists or as an adjacency matrix, with space/time costs, examples, and practical guidance for sparse vs dense graphs.
 draft: false
 comments: true

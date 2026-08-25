@@ -8,9 +8,7 @@ tags:
   - military
 date: 2026-04-04
 updated:
-aliases:
-  - Morris worm
-  - buffer overflow
+aliases: []
 ---
 
 On the night of November 2, 1988, a program written by a graduate student spread across the early internet and brought a large part of it to a standstill. The Morris worm was [[cs/security/malware-classes|the first internet worm]] to cause serious disruption, and the flaw it rode is, decades later, still one of the most exploited classes of bug in all of computing.

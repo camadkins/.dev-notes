@@ -9,10 +9,7 @@ tags:
   - cryptography
 date: 2026-01-22
 updated:
-aliases:
-  - hash function
-  - collision resistance
-  - preimage resistance
+aliases: []
 ---
 
 Ask what a cryptographic hash "is secure against" and the honest answer is: against which of three different things? The properties are not one guarantee stated three ways. They are separate, they fail separately, and a hash that is catastrophically broken for one job can stay perfectly serviceable for another.

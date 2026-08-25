@@ -8,10 +8,7 @@ tags:
   - law
 date: 2026-07-24
 updated:
-aliases:
-  - Title III
-  - 18 USC 2511
-  - Omnibus Crime Control Act Title III
+aliases: []
 ---
 
 Congress passed Title III of the Omnibus Crime Control and Safe Streets Act in 1968 to do two things at once: prohibit wiretapping generally, and create a narrow, heavily conditioned path by which the government could do it anyway. The prohibition is in 18 U.S.C. 2511. The path is in 18 U.S.C. 2518. Between them sits the definitions section, 18 U.S.C. 2510, which is where most of the interesting engineering lives, because a statute that regulates acquisition of communications has to define what a communication is and what part of it counts.

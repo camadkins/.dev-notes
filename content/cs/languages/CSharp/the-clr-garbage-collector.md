@@ -9,10 +9,7 @@ tags:
   - memory
 date: 2026-06-28
 updated:
-aliases:
-  - .NET Garbage Collection
-  - The Large Object Heap
-  - Workstation vs Server GC
+aliases: []
 ---
 
 The theory of generational collection is short enough to fit in a sentence and is covered elsewhere in this garden: most objects die young, so collect the young ones often and the old ones rarely. What is worth studying in the CLR is not that idea but its implementation, because the CLR makes specific commitments about where objects physically live, when a collection is triggered, and which threads run it, and every counterintuitive production symptom traces to one of those commitments rather than to the theory.

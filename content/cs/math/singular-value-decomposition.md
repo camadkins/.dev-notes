@@ -6,11 +6,9 @@ comments: true
 tags:
   - cs
   - math
-  - linear-algebra
 date: 2026-02-17
 updated:
 aliases:
-  - svd
   - singular-values
   - low-rank-approximation
 ---

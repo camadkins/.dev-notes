@@ -9,9 +9,7 @@ tags:
 date: 2026-07-20
 updated: 2026-07-23
 maturity: seed
-aliases:
-  - geron catch-up
-  - hands-on ml study guide
+aliases: []
 ---
 
 You are behind and the three chapters feel like three different subjects. They are not. This note exists to give you the one idea that ties Chapter 1 (the landscape), Chapter 4 (training models), and Chapter 10 (neural nets with Keras) into a single story, then walks each chapter's role in that story. Read the spine first. If nothing else sticks, that does.

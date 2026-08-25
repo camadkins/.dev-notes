@@ -10,7 +10,6 @@ date: 2026-06-28
 updated:
 aliases:
   - BGP
-  - internet routing
 ---
 
 There is no master map of the internet. No central office decides that traffic for a Tokyo bank should leave New York heading west across the Pacific rather than east through Europe. Instead the path is stitched together hop by hop from claims that thousands of independent networks make to each other, in real time, about which addresses they can reach. The protocol that carries those claims is the [[cs/cisco/bgp-fundamentals|Border Gateway Protocol]], and it is the closest thing the internet has to a global nervous system. What makes it remarkable, and dangerous, is that it works almost entirely on trust: when a network announces a route, its neighbors believe it.

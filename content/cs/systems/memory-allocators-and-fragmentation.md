@@ -9,9 +9,7 @@ tags:
   - memory
 date: 2026-05-03
 updated:
-aliases:
-  - Internal and External Fragmentation
-  - Heap Allocators
+aliases: []
 ---
 
 A program asks for 29 bytes. It gets 32. Later it frees a block in the middle of three, and the resulting hole is real free memory that no sufficiently large request can ever use. Those two sentences are the entire subject: an allocator wastes memory either inside the blocks it hands out or in the gaps between them, and almost every design decision in a heap allocator is a choice about which of those two wastes to prefer.

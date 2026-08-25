@@ -6,11 +6,9 @@ comments: true
 tags:
   - cs
   - math
-  - discrete-math
 date: 2026-01-22
 updated:
-aliases:
-  - sets
+aliases: []
 ---
 
 ## The Container Every Other Structure Sits In

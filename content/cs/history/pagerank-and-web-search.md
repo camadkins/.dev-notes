@@ -8,9 +8,7 @@ tags:
   - history
 date: 2026-02-21
 updated:
-aliases:
-  - PageRank
-  - web search
+aliases: []
 ---
 
 By the late 1990s the [[cs/history/world-wide-web|Web]] had more pages than anyone could index by hand, and matching keywords returned mostly junk. Larry Page and Sergey Brin, at Stanford, had an insight that became Google: the Web's link structure is itself data you can rank.

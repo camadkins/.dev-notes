@@ -8,9 +8,7 @@ tags:
   - military
 date: 2026-05-31
 updated:
-aliases:
-  - information theory
-  - Shannon entropy
+aliases: []
 ---
 
 Before 1948, information was a loose idea. You could have more or less of it, but no one could say how much. [[cs/history/shannon-boolean-algebra-switching|Claude Shannon]], working at Bell Labs in the years around the Second World War, turned information into a quantity you could measure in numbers, and the paper that did it founded an entire field.

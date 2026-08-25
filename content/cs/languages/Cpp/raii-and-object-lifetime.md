@@ -11,7 +11,6 @@ date: 2026-02-17
 updated:
 aliases:
   - RAII
-  - Scope-Bound Resource Management
   - SBRM
 ---
 

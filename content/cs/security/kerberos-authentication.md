@@ -10,9 +10,7 @@ tags:
 date: 2026-02-14
 updated:
 aliases:
-  - Kerberos
   - KDC
-  - ticket-granting ticket
 ---
 
 Type your password once in the morning and, for the rest of the day, file shares, mail, and internal apps just let you in. That is single sign-on, and inside most enterprise networks the machinery underneath it is Kerberos. The interesting part is what does *not* happen: after that first login, your password is never sent anywhere, not to the file server, not to the mail server, not even back to the login service. The whole protocol is built to authenticate you to machines you have never contacted while keeping the secret that proves your identity on your own device.

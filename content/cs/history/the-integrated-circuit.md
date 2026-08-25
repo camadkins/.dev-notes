@@ -8,9 +8,7 @@ tags:
   - history
 date: 2026-02-07
 updated:
-aliases:
-  - integrated circuit
-  - microchip
+aliases: []
 ---
 
 A [[cs/history/the-transistor|transistor]] is one switch. A useful computer needs millions of them, plus the wiring between them, and soldering those by hand does not scale. The integrated circuit solved that by building the whole circuit, components and connections together, on a single piece of silicon.

@@ -9,9 +9,7 @@ tags:
   - memory
 date: 2026-07-27
 updated:
-aliases:
-  - Go GC
-  - GOGC and the Pacer
+aliases: []
 ---
 
 Go's collector is unusual in what it does not do. It does not move objects. It does not have generations. It does not have a nursery, a survivor space, or a tuning matrix of a dozen collectors. It has one algorithm and one dial, and it is slower on throughput than several collectors it could have been.

@@ -11,8 +11,6 @@ updated:
 aliases:
   - STP
   - RSTP
-  - root bridge
-  - spanning-tree vlan root primary
 ---
 
 An IP packet caught in a routing loop dies when its TTL hits zero. [[cs/standards/ieee-802-3-ethernet|An Ethernet frame]] has no TTL. That single missing field is why a layer-2 loop is a different category of problem from a layer-3 one, and why an entire protocol exists to prevent physical redundancy from turning into an outage.

@@ -6,13 +6,11 @@ comments: true
 tags:
   - cs
   - math
-  - discrete-math
   - formal-methods
 date: 2026-04-03
 updated:
 aliases:
   - first-order-logic
-  - quantifiers
 ---
 
 ## Where Propositions Run Out

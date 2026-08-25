@@ -8,10 +8,7 @@ tags:
   - law
 date: 2026-08-11
 updated:
-aliases:
-  - Pen Register Statute
-  - 18 USC 3121
-  - Trap and Trace
+aliases: []
 ---
 
 Chapter 206 of title 18 is four pages long and governs the prospective collection of everything about a communication except what it says. It was enacted in 1986 alongside the two chapters that handle contents in transit and contents at rest, and it completes the design: contents get the demanding process, addressing gets this. What makes the chapter distinctive is not the low standard by itself. It is that the judge's role is defined as verification that a certification was made rather than evaluation of whether the certification is warranted.

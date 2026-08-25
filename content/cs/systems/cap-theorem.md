@@ -11,7 +11,6 @@ date: 2026-02-18
 updated:
 aliases:
   - CAP
-  - Brewer's theorem
   - PACELC
 ---
 

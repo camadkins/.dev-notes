@@ -8,8 +8,7 @@ tags:
   - languages
 date: 2026-07-22
 updated: 2026-07-26
-aliases:
-  - Cross-Language Concerns
+aliases: []
 ---
 
 Every language that runs on a real machine has to answer the same short list of questions. Who frees the memory? What happens when an operation has no defined meaning? How does a value cross the boundary into code compiled from another language? How does a structure become a sequence of bytes on a wire? The answers differ sharply, and each answer buys something and costs something else.

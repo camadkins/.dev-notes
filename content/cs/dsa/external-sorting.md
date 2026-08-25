@@ -1,5 +1,5 @@
 ---
-title: External Sorting - Scaling Sorts Beyond Main Memory  
+title: External Sorting
 description: Techniques for sorting data that does not fit in RAM by staging work between disk and memory using runs, multiway merging, and I/O-aware algorithms.  
 draft: false  
 comments: true

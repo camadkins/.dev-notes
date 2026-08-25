@@ -11,9 +11,6 @@ updated:
 aliases:
   - HSRP
   - VRRP
-  - first hop redundancy
-  - standby preempt
-  - virtual MAC
 ---
 
 Build a network with two of everything and a host still has exactly one way off its own subnet. RFC 5798 states the problem without hedging: the use of a statically configured default route is quite popular, it minimizes configuration and processing overhead on the end-host, and is supported by virtually every IPv4 implementation. Then the cost. However, this creates a single point of failure. Loss of the default router results in a catastrophic event, isolating all end-hosts that are unable to detect any alternate path that may be available.

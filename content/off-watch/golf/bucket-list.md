@@ -7,13 +7,9 @@ maturity: working
 tags:
   - off-watch
   - golf
-  - courses
 date: 2026-06-28
 updated: 2026-06-29
-aliases:
-  - Golf Bucket List
-  - Bucket List
-  - USA Golf Bucket List
+aliases: []
 ---
 
 The plan is simple. Play one course worth remembering in every state, then start on the rest of the world. This page is two things at once: the wishlist of where I still want to play, and the index of the rounds I have already written up.

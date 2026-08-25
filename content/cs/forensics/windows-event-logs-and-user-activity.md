@@ -10,7 +10,6 @@ date: 2026-06-24
 updated:
 aliases:
   - EVTX
-  - Windows Security Log
 ---
 
 An event record is a structured object, not a line of text. Each one names the provider that emitted it, an event identifier, a channel it belongs to, a precise creation time, the process and thread that wrote it, and a payload of named fields. The security channel of a Windows machine, when auditing is configured, holds a per-event record of authentication, process creation, privilege use, object access, and administrative changes, each stamped to sub-second precision by the component that observed it.

@@ -9,8 +9,6 @@ tags:
 date: 2026-03-29
 updated:
 aliases:
-  - Douglas Engelbart
-  - Mother of All Demos
   - NLS
 ---
 

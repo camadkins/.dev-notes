@@ -11,9 +11,6 @@ date: 2026-05-29
 updated:
 aliases:
   - WAF
-  - web application firewall
-  - OWASP CRS
-  - paranoia level
 ---
 
 A network [[cs/security/firewalls|firewall]] makes clean decisions because it asks clean questions: which port, which address, which direction. Those have crisp answers, so the rule is a crisp allow or deny. A web application firewall lives one layer up, where the questions stop being crisp. It reads the HTTP request itself, and there the only question that matters, "is this input an attack?", has no clean answer, because a malicious payload and a legitimate one are both just strings a user typed. That shift, from routing metadata to application content, is what makes a WAF powerful and what makes it perpetually imperfect.

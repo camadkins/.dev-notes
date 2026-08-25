@@ -8,9 +8,7 @@ tags:
   - military
 date: 2026-03-14
 updated:
-aliases:
-  - software crisis
-  - NATO Software Engineering Conferences
+aliases: []
 ---
 
 By the late 1960s, hardware was racing ahead of the software meant to run on it. Machines kept getting more powerful, and the programs they needed kept getting larger and more tangled, faster than anyone knew how to write them well. Projects ran over budget and behind schedule and shipped late and unreliable. The gap between what computers could do and what their software could be trusted to do had become its own emergency, and in 1968 NATO called a meeting to confront it.

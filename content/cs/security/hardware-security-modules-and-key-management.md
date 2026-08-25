@@ -10,10 +10,7 @@ tags:
 date: 2026-02-18
 updated:
 aliases:
-  - Hardware Security Modules and Key Management
   - HSM
-  - Hardware Security Module
-  - Key Management
 ---
 
 Every cryptosystem eventually reduces to one question: where does the private key live, and who can read it? Strong algorithms do not save you here. NIST puts it bluntly in [[cs/standards/what-a-standard-actually-is|SP 800-57]]: "Poor key management may easily compromise strong algorithms." A [[cs/security/digital-signatures|signing key]] sitting in a process's memory, [[cs/forensics/the-page-file-and-hibernation-artifacts|swappable to disk]], readable by any code that compromises the host, is a single `memcpy` away from total failure no matter how good the math is. The hardware security module exists to remove that failure mode by making the key impossible to read, rather than merely hard to guess.

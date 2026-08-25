@@ -9,10 +9,7 @@ tags:
   - testing
 date: 2026-01-29
 updated:
-aliases:
-  - Code Coverage
-  - Test Coverage
-  - Branch Coverage
+aliases: []
 ---
 
 Code coverage is "a percentage measure of the degree to which the source code of a program is executed when a particular test suite is run." The instrument is old, older than most of the practices built on it: "code coverage was among the first methods invented for systematic software testing. The first published reference was by Miller and Maloney in Communications of the ACM, in 1963."

@@ -9,8 +9,6 @@ tags:
 date: 2026-01-19
 updated:
 aliases:
-  - port number
-  - network socket
   - five-tuple
 ---
 

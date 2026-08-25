@@ -1,11 +1,11 @@
 ---
 
-title: Binary Heap - Priority Queue Backed by Array-Based Tree  
+title: Binary Heap
 description: Complete binary tree supporting O(log n) insertion and deletion through array-based parent-child relationships and heap-order property.  
 draft: false
 comments: true
 updated: 2025-10-29  
-aliases: []  
+aliases: []
 tags:
   - cs
   - dsa

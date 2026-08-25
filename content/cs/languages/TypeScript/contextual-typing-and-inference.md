@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-07-08
 updated:
-aliases:
-  - TypeScript Contextual Typing
-  - Best Common Type
+aliases: []
 ---
 
 Nothing in this snippet is annotated, and it still produces a precise error:

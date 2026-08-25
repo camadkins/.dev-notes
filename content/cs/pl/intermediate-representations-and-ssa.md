@@ -12,9 +12,6 @@ date: 2026-06-24
 updated:
 aliases:
   - SSA
-  - Static Single Assignment
-  - Phi Function
-  - Intermediate Representation
 ---
 
 A compiler with `m` source languages and `n` targets would need `m * n` translators if each went straight from one to the other. Routing everything through a shared middle language turns that into `m + n`. That is the practical argument for an intermediate representation, and it is the smaller half of the story.

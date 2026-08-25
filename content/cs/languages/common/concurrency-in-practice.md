@@ -10,9 +10,7 @@ tags:
 date: 2026-07-22
 updated:
 aliases:
-  - Concurrency in Practice
   - GIL
-  - Send and Sync
 ---
 
 The taxonomy of concurrency, threads and locks, actors, communicating sequential processes, lives in [[cs/pl/concurrency-models-threads-locks-and-actors|concurrency models]], and the operating system's side, how threads get scheduled and switched, is in [[cs/systems/processes-and-threads|processes and threads]]. This note sits between them, at the level where a working programmer actually meets concurrency: not "what is an actor" but "why can't my Python threads use all my cores," and "why does the Rust compiler reject this code that looks fine." The answers reveal a design decision each language made about the one hard problem underneath all concurrency, the data race.

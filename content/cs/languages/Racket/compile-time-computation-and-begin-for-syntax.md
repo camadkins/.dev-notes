@@ -11,7 +11,6 @@ date: 2026-08-15
 updated:
 aliases:
   - begin-for-syntax
-  - Phase Levels
   - define-for-syntax
 ---
 

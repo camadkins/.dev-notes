@@ -8,9 +8,7 @@ tags:
   - systems
 date: 2026-02-18
 updated:
-aliases:
-  - CPU Scheduling
-  - Scheduling Algorithms
+aliases: []
 ---
 
 ## Picking the Next Runner

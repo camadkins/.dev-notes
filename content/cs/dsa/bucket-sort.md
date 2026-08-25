@@ -1,5 +1,5 @@
 ---
-title: Bucket Sort - Distribution Sorting with Quantile-Friendly Buckets
+title: Bucket Sort
 description: Distribute elements into ordered ranges, sort inside each bucket, then concatenate; linear-time expected on well-spread inputs.
 draft: false
 comments: true

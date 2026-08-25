@@ -9,9 +9,7 @@ tags:
 permalink: /media/
 date: 2026-06-20
 updated: 2026-06-20
-aliases:
-  - Dolphin Lounge
-  - Film and TV
+aliases: []
 ---
 
 <img src="off-watch/media/assets/dolphins.png" alt="U.S. Navy submarine warfare insignia, the dolphins" style="display:block; margin:1.5rem auto; width:340px; max-width:85%;">

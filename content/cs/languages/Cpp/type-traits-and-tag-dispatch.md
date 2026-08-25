@@ -9,10 +9,7 @@ tags:
   - type-theory
 date: 2026-06-30
 updated:
-aliases:
-  - Tag Dispatch
-  - Iterator Category Tags
-  - Compile-Time Type Queries
+aliases: []
 ---
 
 cppreference describes the `<type_traits>` header in one line: it provides compile-time template-based interfaces to query the properties of types. That is a modest description of something unusual. A trait is a function whose argument is a type, whose body is a template specialization, and whose return value exists before the program runs.

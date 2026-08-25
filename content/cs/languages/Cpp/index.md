@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-07-22
 updated:
-aliases:
-  - Cpp
-  - C++
+aliases: []
 ---
 
 C++ gives the programmer manual control over memory and machine representation, then hands back safety through library and language conventions rather than a checker: RAII ties resource lifetime to scope, smart pointers encode ownership in the type, and templates generate specialized code at compile time. The cost of that control is a large surface of undefined behavior, where the standard declines to say what happens and the compiler is free to assume it never occurs.

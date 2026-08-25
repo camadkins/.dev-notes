@@ -8,10 +8,7 @@ tags:
   - forensics
 date: 2026-06-30
 updated:
-aliases:
-  - Memory Forensics
-  - Volatility
-  - Process Reconstruction
+aliases: []
 ---
 
 A memory image is a few gigabytes of undifferentiated bytes. Nothing in it is labeled. There is no file system, no directory, and no header saying where the process list begins. Yet a working analysis pulls out running processes, their parents, their command lines, their loaded modules, their open handles, and their network connections. The gap between those two descriptions is the whole subject.

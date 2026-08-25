@@ -9,10 +9,7 @@ tags:
   - type-theory
 date: 2026-06-24
 updated:
-aliases:
-  - parametric->/c
-  - Racket Parametric Contracts
-  - Polymorphic Contracts
+aliases: []
 ---
 
 Write `(-> A B (values B A))` in a typed language and the compiler will not let you return the arguments in the wrong order. Racket has no compiler doing that check, and yet:

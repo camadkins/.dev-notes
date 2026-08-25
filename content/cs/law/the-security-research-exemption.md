@@ -8,9 +8,7 @@ tags:
   - law
 date: 2026-07-09
 updated:
-aliases:
-  - 1201(j)
-  - Good-Faith Security Research Exemption
+aliases: []
 ---
 
 Ask a security researcher what the DMCA security research exemption protects and you will usually get one answer covering two different instruments that behave nothing alike. One was written by Congress in 1998 and sits in the statute permanently. The other is written by the Librarian of Congress every three years and expires on schedule. They have different scopes, different conditions, and different silences, and the differences are exactly where the risk lives.

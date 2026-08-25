@@ -10,7 +10,6 @@ date: 2026-04-25
 updated:
 aliases:
   - SOSUS
-  - Sound Surveillance System
 ---
 
 A submarine is quiet, but it is not silent. Its machinery makes faint, low-frequency sound that carries a long way through water. Hearing that sound across an ocean, and telling it apart from waves, whales, and merchant ships, is a signal-processing problem. The Cold War system that solved it, SOSUS, was a proving ground for the frequency-domain analysis at the heart of modern signal processing.

@@ -6,13 +6,8 @@ comments: true
 tags:
   - cs
   - deep-learning
-  - training
 date: 2026-02-09
-aliases:
-  - Xavier initialization
-  - Glorot initialization
-  - He initialization
-  - Kaiming initialization
+aliases: []
 ---
 
 Before the first forward pass, someone has to fill the weight matrices with numbers. The obvious answer, all zeros, fails immediately: identical weights make every neuron in a layer compute the same thing and receive the same gradient, so they stay identical forever. Zero initialization leads to symmetry in the network, causing all neurons to learn the same features. Biases can safely start at zero, and usually do. Weights cannot.

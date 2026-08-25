@@ -9,10 +9,7 @@ tags:
   - type-theory
 date: 2026-07-24
 updated:
-aliases:
-  - ParamSpec
-  - Concatenate
-  - Typing Decorators in Python
+aliases: []
 ---
 
 Here is a decorator that type-checks cleanly and then crashes.

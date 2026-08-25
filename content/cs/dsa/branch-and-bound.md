@@ -1,5 +1,5 @@
 ---
-title: Branch and Bound - Systematic Search with Pruning
+title: Branch and Bound
 description: Optimization framework that explores solution spaces through branching and bounds, pruning subproblems guaranteed not to improve the best solution.
 draft: false
 comments: true

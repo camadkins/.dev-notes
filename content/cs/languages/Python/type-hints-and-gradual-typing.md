@@ -9,10 +9,7 @@ tags:
   - type-theory
 date: 2026-05-29
 updated:
-aliases:
-  - Python Type Hints
-  - PEP 484
-  - Python Annotations
+aliases: []
 ---
 
 ```python

@@ -11,7 +11,6 @@ date: 2026-05-11
 updated:
 aliases:
   - SSRF
-  - server-side request forgery
 ---
 
 Most web vulnerabilities let an attacker do something to the application. SSRF lets an attacker do something *through* it. You hand the server a URL, expecting it to fetch a preview image or call a webhook, and it obliges by making a request to wherever you pointed it. The catch is where the server sits. It lives inside the network the firewall was built to protect, and every request it makes carries that inside position. So the attacker is no longer knocking on the front door from the internet. They are speaking from inside the building, in the server's voice.

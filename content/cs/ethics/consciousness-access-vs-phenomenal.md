@@ -6,15 +6,9 @@ comments: true
 tags:
   - cs
   - ethics
-  - philosophy
-  - ai
 date: 2026-06-29
 updated:
-aliases:
-  - access consciousness
-  - phenomenal consciousness
-  - what it is like
-  - the hard problem
+aliases: []
 ---
 
 Ask whether a system is conscious and the conversation usually collapses into two different questions wearing one word. One question is whether information inside the system is available to drive reasoning, speech, and action. The other is whether there is any felt quality to being that system at all, any inner view from the inside. [[cs/deep-learning/attention-and-transformers|A large language model]] can clearly do the first kind of thing: it takes information in, integrates it, and reports on it fluently. Whether anything it does is accompanied by an experience is a separate question entirely, and keeping the two apart is the move that makes the rest of the AI-consciousness debate possible to reason about.

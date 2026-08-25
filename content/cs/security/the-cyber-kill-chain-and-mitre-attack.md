@@ -8,11 +8,7 @@ tags:
   - security
 date: 2026-06-11
 updated:
-aliases:
-  - Cyber Kill Chain
-  - MITRE ATT&CK
-  - kill chain
-  - intrusion kill chain
+aliases: []
 ---
 
 Defenders were long stuck describing attacks as single events: a breach happened, data left. That framing offers nowhere to intervene, because by the time you name the event it is over. Both frameworks here exist to replace the event with a structure, so that "an attack" becomes a sequence of observable stages a defender can map, detect, and disrupt. They do it with opposite structural commitments, and the contrast is the point: one bets that attacks are strictly ordered, the other refuses to assume any order at all.

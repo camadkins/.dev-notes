@@ -9,9 +9,7 @@ tags:
   - memory
 date: 2026-01-28
 updated:
-aliases:
-  - Interior Mutability
-  - Rc and RefCell
+aliases: []
 ---
 
 Rust's ownership model, covered in [[cs/languages/Rust/ownership-and-moves|ownership and moves]], assumes each value has exactly one owner and that borrows can be checked by reading the source. Real programs contain cases where neither holds: a recursive type whose size is not computable, a graph node owned by every edge pointing at it, a mock object that must record what it saw while presenting an immutable interface. Each of these gets a library type rather than a language exception, and the differences between them are precise.

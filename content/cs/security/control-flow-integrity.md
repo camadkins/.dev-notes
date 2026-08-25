@@ -11,9 +11,6 @@ date: 2026-05-08
 updated:
 aliases:
   - CFI
-  - control flow integrity
-  - forward-edge CFI
-  - backward-edge CFI
 ---
 
 Every prior memory defense answered a question about storage. Stack canaries ask "was this saved value tampered with?" Non-executable memory asks "is this page allowed to run code?" [[cs/security/return-oriented-programming|Return-oriented programming]] walked around both by corrupting the return value the canary did not cover and reusing code the page permissions already blessed. Control-flow integrity changes the question entirely. It stops reasoning about bytes and permissions and starts reasoning about the program's [[cs/pl/intermediate-representations-and-ssa|control-flow graph]] directly: for every indirect branch, is this jump one the compiled program was ever supposed to be able to make?

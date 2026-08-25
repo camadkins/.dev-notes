@@ -8,10 +8,7 @@ tags:
   - languages
 date: 2026-07-27
 updated:
-aliases:
-  - Contract Generation
-  - require/typed Contracts
-  - Typed Racket Boundary Cost
+aliases: []
 ---
 
 A type annotation in Typed Racket has two careers. In typed code it is an input to the checker and disappears after compilation. At a boundary with untyped code it becomes something else: a contract, generated automatically, installed in the compiled module, and running on every value that crosses. Understanding the second career explains three things that otherwise look unrelated, which are certain type errors that mention contracts, blame messages naming an interface rather than a module, and programs that slow down when you add types to them.

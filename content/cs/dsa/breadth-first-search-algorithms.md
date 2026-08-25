@@ -1,5 +1,5 @@
 ---
-title: Breadth-First Search — Layered Exploration & Shortest Paths
+title: Breadth-First Search
 description: Level-order graph traversal using a queue; computes shortest paths in unweighted graphs and builds parent trees for reconstructions.
 draft: true
 tags:

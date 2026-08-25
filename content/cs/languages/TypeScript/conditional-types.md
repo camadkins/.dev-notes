@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-07-21
 updated:
-aliases:
-  - TypeScript Conditional Types
-  - extends Ternary
+aliases: []
 ---
 
 Before conditional types, a library that wanted its return type to depend on its argument type wrote overloads, and the handbook is direct about where that ends: "If a library has to make the same sort of choice over and over throughout its API, this becomes cumbersome," because "For every new type createLabel can handle, the number of overloads grows exponentially."

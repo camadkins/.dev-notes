@@ -10,8 +10,6 @@ tags:
 date: 2026-01-22
 updated:
 aliases:
-  - logarithms
-  - exponentials
   - natural-logarithm
   - change-of-base
 ---

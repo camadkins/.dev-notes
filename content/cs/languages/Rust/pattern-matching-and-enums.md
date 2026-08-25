@@ -9,10 +9,7 @@ tags:
   - type-theory
 date: 2026-01-28
 updated:
-aliases:
-  - Rust match
-  - Rust Enums and Patterns
-  - if let and let else
+aliases: []
 ---
 
 An enum variant is not required to look like its siblings. The Reference's example declares `Quit` with no data, `WriteString(String)` with one field, `Move { x: i32, y: i32 }` with named fields, and `ChangeColor(u8, u8, u8)` with three, all under one type. A `match` over that value then has to say something about every shape, and the compiler holds it to that. The theory this instantiates is in [[cs/pl/records-variants-and-pattern-matching|Records, Variants, and Pattern Matching]]; what follows is the Rust surface and the two mechanisms underneath it.

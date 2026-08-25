@@ -8,9 +8,7 @@ tags:
 permalink: /off-watch/
 date: 2026-06-28
 updated: 2026-06-28
-aliases:
-  - Off Watch
-  - Off Duty
+aliases: []
 ---
 
 On the boat, off watch is the time that is yours. You have stood your hours, the systems are someone else's problem for a while, and you get to do the things that keep you human: watch a movie, read, think about something other than the mission. This is the part of the garden for that.

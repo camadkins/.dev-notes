@@ -8,10 +8,7 @@ tags:
   - military
 date: 2026-04-11
 updated:
-aliases:
-  - cyber warfare
-  - fifth domain
-  - US Cyber Command
+aliases: []
 ---
 
 Land, sea, air, and space are the traditional domains of military operations. Modern doctrine added one more. The United States now treats [[cs/geopolitics/cyber-sovereignty|cyberspace as a domain of operations in its own right]], often called the fifth domain, and the discipline underneath it is, squarely, computer science.

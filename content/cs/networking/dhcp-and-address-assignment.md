@@ -11,7 +11,6 @@ updated:
 aliases:
   - DHCP
   - DORA
-  - dynamic host configuration protocol
 ---
 
 Plug a new laptop into a network and it works within a second: it has an address, knows its gateway, and can resolve names. Nobody typed any of that in. A protocol did it, in a short broadcast conversation that happens every time a device joins a network. Understanding that exchange explains how the modern internet stays plug-and-play despite every device needing a unique, correctly-configured [[cs/networking/ip-addressing-and-subnetting|IP address]].

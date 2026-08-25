@@ -8,9 +8,7 @@ tags:
   - military
 date: 2026-03-04
 updated:
-aliases:
-  - Ford rangekeeper
-  - Mark 1 Fire Control Computer
+aliases: []
 ---
 
 Long before the Navy had digital computers at sea, it had a computer that solved one of the hardest real-time problems in warfare: where to aim a gun on a moving, rolling ship to hit a moving target with a shell that takes most of a minute to arrive. The Ford Mark 1 Fire Control Computer did it with gears, cams, and shafts, and it is a clear window into what computation looked like before it went digital.

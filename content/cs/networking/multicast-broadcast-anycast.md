@@ -8,11 +8,7 @@ tags:
   - networking
 date: 2026-06-11
 updated:
-aliases:
-  - IP delivery modes
-  - anycast
-  - multicast
-  - broadcast vs multicast vs anycast
+aliases: []
 ---
 
 Almost everything you do online is one computer talking to one other computer: your laptop to a specific server, its reply back to you. That is one delivery mode out of four, and it is worth knowing the other three because each answers a different question about *who* a packet is for. The destination address stops being "this one machine" and starts meaning "everyone here," or "the members of this group," or "whichever copy is closest." The routing machinery changes underneath each answer.

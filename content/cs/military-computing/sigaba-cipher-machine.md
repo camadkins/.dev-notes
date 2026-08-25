@@ -10,7 +10,6 @@ date: 2026-02-24
 updated:
 aliases:
   - SIGABA
-  - ECM Mark II
 ---
 
 Rotor cipher machines were [[cs/security/symmetric-vs-asymmetric-cryptography|the strongest practical encryption]] of the Second World War, and most of them were broken. Enigma is the famous case. The principal American machine, SIGABA, was not broken, and the difference comes down to a single idea about how the machine moves.

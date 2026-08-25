@@ -11,7 +11,6 @@ date: 2026-06-11
 updated:
 aliases:
   - KDF
-  - key derivation function
   - HKDF
   - extract-then-expand
 ---

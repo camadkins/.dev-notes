@@ -8,9 +8,7 @@ tags:
   - forensics
 date: 2026-07-21
 updated:
-aliases:
-  - FSEvents
-  - macOS Forensics
+aliases: []
 ---
 
 Most operating systems record what applications choose to report. macOS also records something no application asked for: a running log of which directories changed, maintained by the system for its own indexing and backup machinery, kept on the volume where the changes happened. An examiner who finds a wiped user directory can still often see that the directory was written to, and roughly when, because the record of the change outlives the changed data.

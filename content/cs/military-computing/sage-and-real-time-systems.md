@@ -10,7 +10,6 @@ date: 2026-04-24
 updated:
 aliases:
   - SAGE
-  - Semi-Automatic Ground Environment
 ---
 
 After the Soviet Union tested an atomic bomb, the United States needed to detect incoming bombers and direct a response in the few minutes available. No [[cs/history/operating-system-concept-batch-to-interactive|batch-processing computer]] of the day could touch that problem. SAGE, the Semi-Automatic Ground Environment, was built to solve it, and in doing so it pioneered real-time, interactive, and networked computing a generation before any of those were ordinary.

@@ -9,10 +9,7 @@ tags:
   - computer-architecture
 date: 2026-04-03
 updated:
-aliases:
-  - Interrupts
-  - Traps and Exceptions
-  - Interrupt Handling
+aliases: []
 ---
 
 A CPU running a program is single-minded: it fetches the next instruction, executes it, repeats. Interrupts are the mechanism that lets the outside world, and the program's own mistakes, break into that loop. Without them the processor would have to poll every device in a busy wait to notice anything, wasting the cycles it spends asking "anything yet?"

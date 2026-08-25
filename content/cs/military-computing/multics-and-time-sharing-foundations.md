@@ -8,8 +8,7 @@ tags:
   - military
 date: 2026-06-01
 updated:
-aliases:
-  - Multics
+aliases: []
 ---
 
 Before Multics, a computer mostly did one job at a time, and a user waited for a turn. Multics set out to change what a computer was: a shared utility that many people could draw on at once, the way many homes draw on one power grid. It was a research operating system funded through ARPA's Project MAC and built by MIT together with General Electric and Bell Labs. Much of it was ambitious to a fault, but the ideas it engineered still structure operating systems today.

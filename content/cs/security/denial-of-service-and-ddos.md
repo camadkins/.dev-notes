@@ -8,11 +8,7 @@ tags:
   - security
 date: 2026-03-11
 updated:
-aliases:
-  - DoS
-  - DDoS
-  - SYN flood
-  - amplification attack
+aliases: []
 ---
 
 Most attacks try to get in. A denial-of-service attack does the opposite: it tries to keep everyone else out, without ever breaching anything. [[cs/standards/what-a-standard-actually-is|RFC 4732]] puts the goal plainly: "A Denial-of-Service (DoS) attack is an attack in which one or more machines target a victim and attempt to prevent the victim from doing useful work." Nothing is stolen and no boundary is crossed. The service simply stops answering. That makes DoS the one attack class where perfect confidentiality and integrity buy you nothing, and where the real contest is arithmetic.

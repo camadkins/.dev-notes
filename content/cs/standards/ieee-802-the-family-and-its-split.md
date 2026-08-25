@@ -9,9 +9,7 @@ tags:
 date: 2026-07-24
 updated:
 aliases:
-  - IEEE 802
   - LMSC
-  - 802 Working Groups
 ---
 
 The dotted numbers look like a taxonomy. 802.1, 802.3, 802.11, 802.15: surely someone drew a diagram and assigned each branch a slot. They did not. The family tree is a record of arguments, and the first branch point was a failure to agree that got institutionalized instead of resolved.

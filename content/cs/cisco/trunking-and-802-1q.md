@@ -9,9 +9,6 @@ tags:
 date: 2026-05-11
 updated:
 aliases:
-  - switchport mode trunk
-  - native VLAN mismatch
-  - switchport trunk allowed vlan
   - DTP
 ---
 

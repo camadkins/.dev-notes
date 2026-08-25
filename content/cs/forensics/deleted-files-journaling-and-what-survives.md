@@ -9,9 +9,7 @@ tags:
 date: 2026-08-15
 updated:
 aliases:
-  - File Deletion
   - TRIM
-  - USN Change Journal
 ---
 
 Recovering deleted files is the most familiar thing forensics does and the least well understood. The reason it works has never been that anything preserves the data. It is that nothing bothered to destroy it.

@@ -11,7 +11,6 @@ updated:
 aliases:
   - MFA
   - 2FA
-  - two-factor authentication
 ---
 
 A password is a single point of failure. Guess it, phish it, or breach the database that stores it, and the account is gone. Multi-factor authentication does not make any one factor stronger; it makes the *combination* strong by requiring the attacker to defeat two independent things at once. [[cs/standards/what-a-standard-actually-is|NIST SP 800-63B]] states the mechanism directly: "Multiple factors make successful attacks more difficult to accomplish. If an attacker needs to both steal a cryptographic authenticator and guess a memorized secret, then the work to discover both factors may be too high."

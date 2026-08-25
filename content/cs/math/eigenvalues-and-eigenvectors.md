@@ -6,13 +6,9 @@ comments: true
 tags:
   - cs
   - math
-  - linear-algebra
 date: 2026-05-20
 updated:
-aliases:
-  - eigenvector
-  - eigenvalue
-  - eigendecomposition
+aliases: []
 ---
 
 ## The Vectors a Transformation Cannot Rotate

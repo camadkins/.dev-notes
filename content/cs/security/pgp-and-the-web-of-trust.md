@@ -9,10 +9,7 @@ tags:
   - cryptography
 date: 2026-03-11
 updated:
-aliases:
-  - PGP and the Web of Trust
-  - Web of Trust
-  - OpenPGP trust model
+aliases: []
 ---
 
 In [[cs/security/pki-and-x509-certificates|X.509 PKI]] the question "is this key really theirs?" has one kind of answer: a certificate authority your software already trusts put its signature on it. Authority flows down a tree from a small set of roots. OpenPGP, the format PGP and GnuPG implement, answers the same question with no roots at all. Anyone can sign anyone's key, and validity is something your own keyring computes from the signatures it has collected. That inversion, from a delegated hierarchy to [[cs/math/graph-theory|a peer-signed graph]], is the web of trust.

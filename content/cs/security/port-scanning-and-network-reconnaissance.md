@@ -8,12 +8,7 @@ tags:
   - security
 date: 2026-06-27
 updated:
-aliases:
-  - port scanning
-  - SYN scan
-  - half-open scan
-  - reconnaissance
-  - nmap
+aliases: []
 ---
 
 Before anyone attacks a system, they have to find it, and find out what it runs. Reconnaissance is the unglamorous first phase: which hosts are alive, [[cs/networking/ports-and-sockets|which ports are open]], which services and versions sit behind them. The elegant part is that a target volunteers most of this. [[cs/networking/tcp-vs-udp|The TCP state machine]] answers a probe differently depending on a port's state, so an attacker (or a defender auditing their own exposure) can read the state straight off the reply without logging in to anything.

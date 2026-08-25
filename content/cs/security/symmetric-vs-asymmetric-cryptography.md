@@ -9,9 +9,7 @@ tags:
   - cryptography
 date: 2026-02-11
 updated:
-aliases:
-  - symmetric vs asymmetric
-  - hybrid cryptosystem
+aliases: []
 ---
 
 The hard part of encryption is not scrambling a message. It is agreeing on the secret that scrambles it. Two families of cryptography answer that question in opposite ways, and the interesting fact is that no serious system picks just one.

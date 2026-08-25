@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-07-08
 updated:
-aliases:
-  - TypeScript Decorators
-  - experimentalDecorators
+aliases: []
 ---
 
 TypeScript has had decorators since 2015 and shipped decorators in 2023. Both statements are true, and the gap between them is the whole story.

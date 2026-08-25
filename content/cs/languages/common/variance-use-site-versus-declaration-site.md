@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-08-02
 updated:
-aliases:
-  - Use-Site vs Declaration-Site Variance
-  - Wildcards vs in and out
+aliases: []
 ---
 
 `Dog` is a subtype of `Animal`. Is `List<Dog>` a subtype of `List<Animal>`? The safe answer is no, and every statically typed language with generics gives that answer by default, because a `List<Animal>` reference to a `List<Dog>` would let you insert a cat. The safe answer is useless for read-only work, so each language builds an escape hatch, and the hatches differ in one respect that shows up in every signature: who has to say the words.

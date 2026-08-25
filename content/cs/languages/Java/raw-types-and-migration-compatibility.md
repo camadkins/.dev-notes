@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-07-02
 updated:
-aliases:
-  - Java Raw Types
-  - Unchecked Conversion
+aliases: []
 ---
 
 A raw type is a generic class or interface used without type arguments. `Box` is the raw type of `Box<T>`. The language accepts it, the compiler warns about it, and every style guide says avoid it. The interesting question is why a feature everyone agrees is bad was designed in on purpose.

@@ -8,10 +8,7 @@ tags:
   - languages
 date: 2026-06-17
 updated:
-aliases:
-  - Python C API
-  - Stable ABI
-  - Limited API
+aliases: []
 ---
 
 NumPy, SciPy, lxml, cryptography, and every database driver that matters are C or C++ underneath. The interface they use is not an FFI in the usual sense, where a foreign function is called across a boundary. It is the interpreter's own internals, exposed. An extension module manipulates the same `PyObject` pointers the eval loop does, adjusts the same reference counts, and can reach into structures the interpreter uses to run your program. That is why Python's numerical ecosystem exists, and it is also why the interpreter cannot easily change.

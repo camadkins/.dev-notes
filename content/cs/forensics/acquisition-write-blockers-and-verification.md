@@ -9,10 +9,7 @@ tags:
 date: 2026-07-17
 updated:
 aliases:
-  - Write Blocker
-  - Hardware Write Blocker
   - HWB
-  - Forensic Acquisition
 ---
 
 Attaching a suspect drive to a running computer is an act of writing. The operating system will mount it, journal-replay it if it is dirty, drop a volume identifier on it, index it if a search service is watching, and update timestamps as it goes. None of that requires a user to touch anything. NIST notes the mundane version of this in a footnote: services or processes running on the system might be writing to a system's hard drive even if no person is currently using the computer.

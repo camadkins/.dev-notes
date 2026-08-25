@@ -8,10 +8,7 @@ tags:
   - standards
 date: 2026-06-30
 updated:
-aliases:
-  - ISO 42010
-  - IEEE 1471
-  - Architecture Description
+aliases: []
 ---
 
 Open any serious architecture document and you will find the same four words carrying the structure: stakeholders, concerns, viewpoints, views. They come from one standard, and almost none of the documents that use them cite it. That is not plagiarism so much as absorption. The vocabulary turned out to be more useful than the requirements attached to it, so the vocabulary escaped and the requirements stayed behind. Reading what stayed behind is the interesting exercise, because two of those requirements are exactly the ones a borrowed vocabulary cannot enforce.

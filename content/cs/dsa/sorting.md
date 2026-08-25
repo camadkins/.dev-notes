@@ -1,5 +1,5 @@
 ---
-title: Sorting - Overview
+title: Sorting
 description: Taxonomy of comparison vs counting-based methods with stability and in-place trade-offs for practical selection.
 draft: false
 comments: true
@@ -9,7 +9,6 @@ tags:
 date: 2025-10-16
 updated: 2026-01-23
 aliases: []
-
 ---
 
 ## Overview

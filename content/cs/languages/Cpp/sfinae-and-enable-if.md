@@ -9,10 +9,7 @@ tags:
   - type-theory
 date: 2026-08-05
 updated:
-aliases:
-  - Substitution Failure Is Not An Error
-  - enable_if
-  - Expression SFINAE
+aliases: []
 ---
 
 The name is a rule, not a feature. cppreference states it in one sentence: during overload resolution of function templates, when substituting the explicitly specified or deduced type for the template parameter fails, the specialization is discarded from the overload set instead of causing a compile error. Then it adds the sentence that the next twenty years of C++ library design hung on: this feature is used in template metaprogramming.

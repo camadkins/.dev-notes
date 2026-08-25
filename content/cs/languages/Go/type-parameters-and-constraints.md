@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-06-24
 updated:
-aliases:
-  - Go Type Parameters
-  - Go Type Parameter List
+aliases: []
 ---
 
 The smallest generic function in Go is three characters longer than the non-generic one it replaces:

@@ -9,9 +9,7 @@ tags:
 date: 2026-04-22
 updated:
 aliases:
-  - ASA access rules
   - access-group
-  - ASA ACL order
 ---
 
 An ACL on an ASA looks like an ACL on a router, and that resemblance causes most of the trouble. The list syntax is familiar, the [[cs/security/firewalls|first-match-wins evaluation]] is familiar, and then two ASA-specific behaviors, an implicit permit you did not write and address matching that ignores your NAT, produce results the router mental model cannot explain.

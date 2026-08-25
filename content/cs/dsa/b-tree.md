@@ -1,5 +1,5 @@
 ---
-title: B-Trees — Balanced Multiway Search Structures
+title: B-Trees
 description: Generalized search trees that maintain logarithmic height by storing multiple keys per node and balancing via split/merge operations.
 draft: true
 tags:

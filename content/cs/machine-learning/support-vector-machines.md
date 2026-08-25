@@ -11,8 +11,6 @@ date: 2026-06-04
 updated:
 aliases:
   - SVM
-  - Maximum Margin Classifier
-  - Kernel Trick
 ---
 
 Fit a linear classifier to two separable classes and you immediately have a problem of embarrassment: there are many hyperplanes that classify the data, and nothing in the training error distinguishes them. The support vector machine resolves the tie with a geometric principle. Wikipedia states the choice and the reason: pick the hyperplane representing the largest separation, or margin, between the two classes, because "in general the larger the margin, the lower the generalization error of the classifier." A lower generalization error means the implementer is less likely to experience [[cs/machine-learning/generalization-vs-memorization|overfitting]].

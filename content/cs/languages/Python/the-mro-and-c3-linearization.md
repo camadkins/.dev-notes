@@ -8,10 +8,7 @@ tags:
   - languages
 date: 2026-06-24
 updated:
-aliases:
-  - Method Resolution Order
-  - C3 Linearization
-  - Python MRO
+aliases: []
 ---
 
 Single inheritance makes attribute lookup trivial. Walk up the parent chain until something matches. Multiple inheritance destroys that, because there is no chain, only a directed acyclic graph, and a lookup has to visit its nodes in *some* order. Python's answer since 2.3 is to flatten the graph once at class creation and store the result. As the HOWTO defines it, the list of the ancestors of a class C, including the class itself, ordered from the nearest ancestor to the furthest, is called the class precedence list or the linearization of C, and the Method Resolution Order is the set of rules that construct the linearization.

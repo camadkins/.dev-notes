@@ -8,10 +8,7 @@ tags:
   - history
 date: 2026-05-05
 updated:
-aliases:
-  - VisiCalc
-  - spreadsheet
-  - killer app
+aliases: []
 ---
 
 A computer needs a reason to buy it. For the early [[cs/history/altair-8800-and-personal-computing|personal computer]], that reason turned out to be the spreadsheet. VisiCalc, released in 1979, was so useful that people bought a whole computer just to run it, the first time software sold the hardware.

@@ -9,9 +9,7 @@ tags:
 date: 2026-06-24
 updated:
 aliases:
-  - EtherChannel
   - LACP
-  - PAgP
   - channel-group
   - port-channel
 ---

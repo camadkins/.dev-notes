@@ -8,10 +8,7 @@ tags:
   - forensics
 date: 2026-08-22
 updated:
-aliases:
-  - Forensics
-  - Digital Forensics
-  - Computer Forensics
+aliases: []
 ---
 
 Forensics is the only computing discipline whose output is judged by people outside computing. A compiler is graded by whether the program runs, a protocol by whether the packets arrive, a proof by whether the argument holds. A forensic finding is graded by a judge, a jury, a regulator, or an opposing expert, none of whom will read the source of the tool that produced it. That single fact reorganizes everything: an analysis that is technically correct and procedurally unsound is worthless, so the first arc here is process rather than tooling, and the last arc is testimony.

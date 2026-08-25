@@ -9,7 +9,6 @@ tags:
 date: 2026-07-13
 updated: 2026-07-13
 aliases:
-  - Machine Learning
   - ML
 ---
 

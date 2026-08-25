@@ -9,10 +9,7 @@ tags:
   - type-theory
 date: 2026-07-02
 updated:
-aliases:
-  - PEP 695
-  - Python 3.12 Generics Syntax
-  - type statement
+aliases: []
 ---
 
 Read the two spellings side by side and the change looks cosmetic.

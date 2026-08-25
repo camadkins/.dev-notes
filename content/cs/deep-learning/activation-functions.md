@@ -9,10 +9,6 @@ tags:
 date: 2026-07-13
 aliases:
   - activation-function
-  - sigmoid
-  - relu
-  - tanh
-  - nonlinearity
 ---
 
 Every unit in a network computes a weighted sum and then does one more thing: it passes that sum through an activation function. This small step is what earns a deep network its name. Without it, stacking layers is pointless, because [[cs/math/matrices-and-linear-transformations|a pile of linear maps is still just one linear map]], and a hundred layers would collapse into the power of a single line. The activation function is the nonlinearity that lets each layer bend the space a little, so that many layers together can bend it into whatever shape the data demands.

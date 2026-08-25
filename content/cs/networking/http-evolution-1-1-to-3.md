@@ -9,10 +9,7 @@ tags:
   - web
 date: 2026-06-28
 updated:
-aliases:
-  - HTTP/2 vs HTTP/3
-  - HTTP versions
-  - QUIC HTTP
+aliases: []
 ---
 
 Every version of [[cs/history/world-wide-web|HTTP]] asks the same thing: fetch a resource by name over a network. What changed across HTTP/1.1, HTTP/2, and HTTP/3 is not the request but the plumbing beneath it, and each jump was a response to the previous version's specific bottleneck. Read in order, the three versions are a running argument about how to move many small requests fast without tripping over the transport underneath.

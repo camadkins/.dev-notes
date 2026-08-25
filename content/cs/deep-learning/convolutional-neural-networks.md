@@ -9,8 +9,6 @@ tags:
 date: 2026-07-13
 aliases:
   - CNN
-  - convolutional neural network
-  - convnet
 ---
 
 A photograph is not a bag of independent pixels. A cat in the top-left corner is the same cat in the bottom-right, and the pixels that matter sit next to each other. A plain [[cs/deep-learning/artificial-neural-networks|fully connected network]] throws that away: it wires every pixel to every unit and has to relearn "an edge" separately for every position. Convolutional networks build the structure of images into the architecture, and that single design choice is what made deep vision work.

@@ -6,15 +6,9 @@ comments: true
 tags:
   - cs
   - ethics
-  - philosophy
-  - ai
 date: 2026-06-30
 updated:
-aliases:
-  - fairness as equal concern
-  - attitudinal account of algorithmic fairness
-  - algorithmic fairness and resentment
-  - unequal concern
+aliases: []
 ---
 
 Most of the algorithmic fairness debate argues about what a number means. Given [[cs/machine-learning/logistic-regression|a risk score that a model assigns to a loan applicant]] or a defendant, the statistical accounts ask whether that score carries the same meaning across groups, whether it is calibrated the same way, whether its errors fall evenly. Boris Babic and Zoë Johnson King ask a different question, one that skips the score entirely and goes to the person setting the policy: does the decision-maker care equally about the people in each group? Their claim is that unfairness lives not in the outcomes but in the unequal regard that produces them, and that outcomes are just the evidence we use to read that regard off the machine.

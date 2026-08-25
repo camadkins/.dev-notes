@@ -6,11 +6,9 @@ comments: true
 tags:
   - cs
   - deep-learning
-  - reinforcement-learning
 date: 2026-07-13
 aliases:
   - deep-rl
-  - dqn
   - deep-q-network
   - policy-gradient
 ---

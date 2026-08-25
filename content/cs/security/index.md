@@ -8,8 +8,7 @@ tags:
   - security
 date: 2026-07-18
 updated:
-aliases:
-  - Security
+aliases: []
 ---
 
 Security is the study of systems that keep working when someone is actively trying to break them. Everything else in engineering assumes a cooperative environment; this section drops that assumption. The notes are grouped so you can start at a foundation note and follow links down into specifics, or drop straight into whichever cluster you need.

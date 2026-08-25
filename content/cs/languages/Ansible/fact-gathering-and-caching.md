@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-08-14
 updated:
-aliases:
-  - gather_facts
-  - gather_subset
+aliases: []
 ---
 
 Fact gathering is the one step in an Ansible run that nobody writes. "By default, Ansible gathers facts at the beginning of each play," and the thing doing it is an ordinary module: `setup` "is automatically called by playbooks to gather useful variables about remote hosts that can be used in playbooks." What the facts are and how you read them is covered in [[cs/languages/Ansible/jinja2-templating-and-facts|Jinja2 templating and facts]]. What they cost, and what the caching options actually promise, is a separate question with a more interesting answer.

@@ -9,10 +9,7 @@ tags:
 date: 2026-07-08
 updated:
 aliases:
-  - software-defined networking
   - SDN
-  - OpenFlow
-  - control plane data plane separation
 ---
 
 A traditional switch or router is two machines fused into one box. There is a control plane that decides where traffic should go, running [[cs/networking/ospf-and-link-state-routing|routing protocols]], learning topology, and building forwarding tables. And there is a data plane that does the actual forwarding, matching each packet against those tables and pushing it out a port at wire speed. In conventional networking every device carries both, so every box makes its own local decisions, and configuring the network means logging into each one and coaxing its independent brain toward a coherent whole. Software-defined networking starts by prying those two planes apart.

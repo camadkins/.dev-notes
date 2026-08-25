@@ -8,10 +8,7 @@ tags:
   - military
 date: 2026-03-04
 updated:
-aliases:
-  - Whirlwind
-  - Whirlwind I
-  - magnetic-core memory
+aliases: []
 ---
 
 In the late 1940s the U.S. Navy's research lab asked MIT whether a computer could drive a flight simulator realistic enough to train bomber crews. A simulator has a hard requirement that most computers of the day could not meet: it has to respond to the pilot's controls as fast as the pilot moves them. Meeting that requirement produced Whirlwind, one of the first real-time digital computers, and along the way it produced the kind of memory that computers would rely on for the next two decades.

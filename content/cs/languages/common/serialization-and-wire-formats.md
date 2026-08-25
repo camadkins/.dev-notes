@@ -9,10 +9,7 @@ tags:
   - serialization
 date: 2026-07-22
 updated:
-aliases:
-  - Serialization
-  - Wire Formats
-  - Data Encoding
+aliases: []
 ---
 
 An in-memory structure is a layout private to one process on one machine: fields at offsets the compiler chose, integers in that CPU's byte order, pointers into that process's address space. A wire format is the opposite, a public agreement about a sequence of bytes that two programs, possibly written in different languages on different hardware, will both read the same way. Serialization is the translation between the two, and it is deceptively easy to get wrong, because the naive approach, copy the struct's bytes straight onto the wire, fails the moment the other end has a different byte order, a different alignment, or a pointer where you expected data.

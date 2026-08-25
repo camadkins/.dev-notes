@@ -6,15 +6,9 @@ comments: true
 tags:
   - cs
   - ethics
-  - philosophy
-  - ai
 date: 2026-06-29
 updated:
-aliases:
-  - functionalism
-  - multiple realizability
-  - computational functionalism
-  - the nature of mental states
+aliases: []
 ---
 
 A key opens a lock, and that is what makes it a key. It does not matter whether it is cut from brass, molded from plastic, or stored as a string of digits that a smart lock reads, because the thing that makes it a key is [[cs/languages/common/structural-versus-nominal-typing|the role it plays, not the stuff it is made of]]. Functionalism applies that same move to the mind. It says a mental state is whatever occupies a certain causal role: a particular pattern of what tends to cause it, what it tends to cause in turn, and how it connects to other mental states along the way. On this view, asking what a mind is made of is the wrong question, the way asking what metal a key "really" is misses that any metal will do as long as it turns the lock.

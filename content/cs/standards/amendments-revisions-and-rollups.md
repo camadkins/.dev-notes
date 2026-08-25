@@ -8,10 +8,7 @@ tags:
   - standards
 date: 2026-07-11
 updated:
-aliases:
-  - Standards Amendments
-  - Rollup Revision
-  - REVma
+aliases: []
 ---
 
 People say 802.11n and 802.11ac as though those documents sit on a shelf. They do not. Both were amendments, both were folded into a base standard, and citing them today is like citing a patch instead of the release that contains it. The letters are real, they were once separate documents, and the reason they behave this way is a maintenance policy with a clock attached.

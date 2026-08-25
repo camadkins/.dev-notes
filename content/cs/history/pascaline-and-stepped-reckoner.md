@@ -8,9 +8,7 @@ tags:
   - history
 date: 2026-04-19
 updated:
-aliases:
-  - Pascaline
-  - Stepped Reckoner
+aliases: []
 ---
 
 In the seventeenth century, two philosophers built machines that did arithmetic. They proved something that seems obvious now and was radical then: [[cs/pl/programming-paradigms-models-of-computation|calculation could be delegated to a deterministic mechanism]] that does not think, only turns.

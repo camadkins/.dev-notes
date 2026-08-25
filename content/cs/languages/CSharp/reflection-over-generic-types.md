@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-08-04
 updated:
-aliases:
-  - MakeGenericType
-  - Open Generic Types
+aliases: []
 ---
 
 `typeof(List<>)` is legal C#. The angle brackets are empty, the comma count in `typeof(Dictionary<,>)` is load-bearing, and no variable can ever have that type. The syntax looks like a hack and is instead the language admitting something precise: a generic type definition is a real entity in the runtime's type system, distinct from any of its instantiations, and there has to be some way to name it.

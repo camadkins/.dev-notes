@@ -8,9 +8,7 @@ tags:
   - forensics
 date: 2026-07-02
 updated:
-aliases:
-  - Registry Forensics
-  - Hive Analysis
+aliases: []
 ---
 
 Windows keeps most of what it knows about itself in [[cs/dsa/trees|one hierarchical database]]. Which programs start at logon, which devices have been attached, which network the machine last joined, which user account maps to which profile directory, which application was configured when. None of that was designed as an audit trail. It exists so the operating system can find its own settings quickly. The forensic value is a side effect of a configuration store that happens to be written by nearly every component in the system.

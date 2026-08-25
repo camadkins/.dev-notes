@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-07-27
 updated:
-aliases:
-  - Ansible Connection Plugins
-  - ansible_connection
+aliases: []
 ---
 
 Ansible is described as agentless and SSH-based, and both halves of that description are approximations. Connection plugins allow Ansible to connect to the target hosts so it can execute tasks on them, and Ansible ships with many, though only one can be used per host at a time. SSH is the default and the most common, not the mechanism.

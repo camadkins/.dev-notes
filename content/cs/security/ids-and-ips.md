@@ -12,8 +12,6 @@ aliases:
   - IDS
   - IPS
   - IDPS
-  - intrusion detection
-  - intrusion prevention
 ---
 
 A [[cs/security/firewalls|firewall]] enforces a policy about what *may* connect. It does not ask whether an allowed connection is carrying an attack. That gap, malicious activity riding inside permitted traffic, is what intrusion detection and prevention systems exist to close. They do not gate access; they watch behavior and reason about whether what they see is an attack in progress.

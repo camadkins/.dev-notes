@@ -11,9 +11,6 @@ updated:
 aliases:
   - EIGRP
   - DUAL
-  - feasible successor
-  - feasibility condition
-  - stuck in active
 ---
 
 Watch what [[cs/networking/ospf-and-link-state-routing|a classic distance-vector protocol]] does when a path dies. Cisco's own worked example with RIP: Router Two loses all connectivity with the destination until it times out the route of its routing table (three update periods, or 90 seconds), and Router Three re-advertises the route, which occurs every 30 seconds in RIP. Excluding hold-down, it takes between 90 and 120 seconds to switch to the surviving path that was there the whole time.

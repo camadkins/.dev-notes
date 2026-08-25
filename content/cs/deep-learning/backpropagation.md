@@ -8,7 +8,6 @@ tags:
   - deep-learning
 date: 2026-07-13
 aliases:
-  - backprop
   - back-propagation
   - reverse-mode-autodiff
 ---

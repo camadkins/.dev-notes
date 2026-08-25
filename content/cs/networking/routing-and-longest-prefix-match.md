@@ -8,10 +8,7 @@ tags:
   - networking
 date: 2026-04-18
 updated:
-aliases:
-  - longest prefix match
-  - routing table
-  - administrative distance
+aliases: []
 ---
 
 A packet arrives at a router carrying nothing but a destination address. The router has to answer one question fast, millions of times a second: out which interface, toward which neighbor, does this packet go next? It does not know the whole path to the destination and does not need to. It only needs the next hop. Everything about routing is machinery for answering that single question from a table of possibilities where several answers can all be correct at once.

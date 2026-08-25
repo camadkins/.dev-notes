@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-07-16
 updated:
-aliases:
-  - Java Bounded Types
-  - Multiple Bounds
+aliases: []
 ---
 
 An unbounded type parameter is almost useless inside the method that declares it. You can move a `T` around, store it, and return it, and that is the whole list. Calling anything on it beyond the methods of `Object` is a [[cs/pl/type-systems-goals-guarantees|compile error]], because the compiler has no evidence any particular method exists. A bound is how you supply that evidence.

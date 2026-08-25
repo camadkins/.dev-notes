@@ -8,9 +8,7 @@ tags:
   - military
 date: 2026-05-04
 updated:
-aliases:
-  - Monte Carlo method
-  - Monte Carlo simulation
+aliases: []
 ---
 
 Some problems are too tangled to solve with a clean formula, yet easy to answer by experiment, if only you could run the experiment enough times. The Monte Carlo method, born at Los Alamos in the design of nuclear weapons, turns that observation into a computational tool: answer a hard, exact problem by simulating it at random, many times over, and averaging the result.

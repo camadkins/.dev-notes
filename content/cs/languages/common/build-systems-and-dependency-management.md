@@ -9,10 +9,7 @@ tags:
   - build-systems
 date: 2026-07-22
 updated:
-aliases:
-  - Build Systems
-  - Dependency Management
-  - Package Managers
+aliases: []
 ---
 
 Between the source you write and the program that runs sits a step every language has to solve and none solves the same way: gather the right versions of every dependency, compile everything in the right order, and produce an artifact. The theory of turning many compilation units into one program is [[cs/pl/modules-signatures-and-separate-compilation|separate compilation and linking]]; a build system is the tool that automates it, and a package manager is the part that decides which code goes in. This note is about what those tools actually promise. It is deliberately the language-and-tooling half of the problem, what `cargo`, `pip`, and `CMake` guarantee about a build; the pipeline half, CI/CD and containers, belongs to [[cs/software-engineering/index|software engineering]].

@@ -8,11 +8,7 @@ tags:
   - cisco
 date: 2026-06-02
 updated:
-aliases:
-  - ASA NAT
-  - object NAT
-  - twice NAT
-  - manual NAT
+aliases: []
 ---
 
 Two NAT rules exist on the box, both look right, and traffic takes the wrong translation. Nothing in the configuration file explains why, because the file is not the evaluation order. The ASA sorts NAT rules into a table with its own precedence logic, and for one of the two rule types it sorts them for you, by criteria that have nothing to do with where you typed them.

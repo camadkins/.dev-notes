@@ -9,10 +9,7 @@ tags:
   - testing
 date: 2026-02-14
 updated:
-aliases:
-  - fuzz testing
-  - fuzzer
-  - coverage-guided fuzzing
+aliases: []
 ---
 
 Fuzzing began as a graduate class project that sounds too crude to work. In 1988, Barton Miller's students at Wisconsin fed random character streams to standard UNIX command-line utilities and watched what happened. What happened was that a quarter to a third of the programs crashed. No models of expected behavior, no crafted test cases, no specification of correctness. Just noise, poured in at high volume, and a single question asked of each program: did it fall over? That deliberately primitive setup is not a historical curiosity. It is the reason the technique scaled, and a version of it now runs continuously against much of the world's critical open-source code.

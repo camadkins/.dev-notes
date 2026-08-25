@@ -11,9 +11,6 @@ date: 2026-04-27
 updated:
 aliases:
   - CSPRNG
-  - secure randomness
-  - entropy
-  - random number generation
 ---
 
 Every key, every nonce, every [[cs/security/diffie-hellman-and-key-exchange|Diffie-Hellman]] secret starts as a random number. That makes the random number generator the quiet foundation the whole edifice sits on, and it is a foundation that fails silently. Predictable randomness does not throw an error. It just hands the attacker a shortcut nobody can see in the ciphertext.

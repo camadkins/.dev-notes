@@ -8,10 +8,7 @@ tags:
   - languages
 date: 2026-07-27
 updated:
-aliases:
-  - shift and reset
-  - Racket Prompts
-  - Prompt Tags
+aliases: []
 ---
 
 [[cs/languages/Racket/continuations-and-call-cc|Racket's `call/cc` is already delimited]], because every thread's continuation begins with a prompt. That note covers capture. This one covers the delimiter itself: what a prompt is, what a tag buys, and why the research literature contains four families of operators that all look like they do the same thing.

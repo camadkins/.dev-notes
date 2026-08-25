@@ -8,10 +8,7 @@ tags:
   - history
 date: 2026-02-15
 updated:
-aliases:
-  - blockchain
-  - Bitcoin
-  - Nakamoto consensus
+aliases: []
 ---
 
 Getting computers that do not trust each other to agree on a single shared record, with no central authority to settle disputes, is one of the hardest problems in distributed systems. In 2008 an author writing under the name Satoshi Nakamoto proposed a working answer and called it Bitcoin.

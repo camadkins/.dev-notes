@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-04-08
 updated:
-aliases:
-  - Rust Iterators
-  - Iterator Adapters
+aliases: []
 ---
 
 `v1.iter().map(|x| x + 1)` looks like it increments every element of a vector. It does nothing at all. The compiler even says so, warning that iterators are [[cs/pl/evaluation-order-and-strictness|lazy]] and do nothing unless consumed. Understanding why that expression is inert, and what turns it live, is most of what there is to know about iteration in Rust.

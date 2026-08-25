@@ -9,10 +9,7 @@ tags:
   - operating-systems
 date: 2026-05-03
 updated:
-aliases:
-  - Hypervisors
-  - Containers vs VMs
-  - Namespaces and cgroups
+aliases: []
 ---
 
 Running [[cs/history/cloud-computing-and-virtualization|many isolated workloads on one physical machine]] has two fundamentally different answers, and the difference comes down to what you duplicate. A virtual machine duplicates the whole computer, hardware and operating system and all, so each guest believes it owns a machine. A container duplicates almost nothing: it shares one kernel and just walls off what each workload can see. Both give you isolation on shared hardware, and the choice between them is the choice between a heavier boundary and a lighter one.

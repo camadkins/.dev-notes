@@ -6,13 +6,9 @@ comments: true
 tags:
   - cs
   - deep-learning
-  - training
 date: 2026-07-23
 updated:
-aliases:
-  - Transfer Learning
-  - Fine-Tuning
-  - Reusing Pretrained Layers
+aliases: []
 ---
 
 Training a deep network from scratch needs a large labeled dataset and [[cs/geopolitics/compute-as-a-governable-resource|a lot of compute]], and most problems have neither. Transfer learning is the way around that, and it is arguably the single most important practical technique in Géron's Chapter 11: instead of starting from random weights, start from a network already trained on a big related dataset, keep the [[cs/machine-learning/features-and-representations|features]] it learned, and retrain only the parts that are specific to your task. A model that would need a million images trained from zero can be adapted with a few thousand.

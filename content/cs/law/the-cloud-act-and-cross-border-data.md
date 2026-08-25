@@ -8,10 +8,7 @@ tags:
   - law
 date: 2026-08-08
 updated:
-aliases:
-  - CLOUD Act
-  - 18 USC 2713
-  - Microsoft Ireland
+aliases: []
 ---
 
 In December 2013 agents applied for a warrant requiring Microsoft to disclose the email of an account associated with a drug trafficking investigation. A magistrate found probable cause and issued it. Microsoft then discovered where the messages actually lived and refused, and the resulting fight took four and a half years, produced a Second Circuit opinion, reached the Supreme Court, and ended without a decision because Congress had changed the statute a few weeks before argument was to matter.

@@ -1,6 +1,6 @@
 ---
 
-title: Minimum Spanning Trees - Kruskal & Prim
+title: Minimum Spanning Trees
 description: MST fundamentals via cut/cycle properties and two classic workflows- Kruskal with Union-Find and Prim with a priority queue.
 draft: false
 comments: true
@@ -10,7 +10,6 @@ tags:
 date: 2025-10-16
 updated: 2026-01-03
 aliases: []
-
 ---
 
 ## Overview

@@ -8,9 +8,7 @@ tags:
   - forensics
 date: 2026-07-08
 updated:
-aliases:
-  - Anti-Forensics
-  - Timestomping
+aliases: []
 ---
 
 Anti-forensics is usually described as a list of tools: timestamp editors, wipers, log cleaners, encryption. The list is not the interesting part. What matters is a counting problem. A single act on a modern system is recorded independently in several places by components that do not know about each other, and a technique only works if it reaches all of them. Most reach one.

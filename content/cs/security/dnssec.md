@@ -9,10 +9,7 @@ tags:
   - cryptography
 date: 2026-04-02
 updated:
-aliases:
-  - DNSSEC
-  - DNS Security Extensions
-  - Domain Name System Security Extensions
+aliases: []
 ---
 
 The original [[cs/systems/dns-the-domain-name-system|Domain Name System]] had no way to tell a real answer from a forged one. A resolver asked "what is the address for example.com" and believed whatever came back, which is why cache poisoning worked: inject a plausible reply faster than the real server, and the resolver caches your lie. DNSSEC fixes this without encrypting anything. It signs the data itself, so a forged answer fails verification even if it arrives first.

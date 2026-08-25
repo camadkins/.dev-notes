@@ -6,15 +6,9 @@ comments: true
 tags:
   - cs
   - ethics
-  - philosophy
-  - ai
 date: 2026-06-29
 updated:
-aliases:
-  - biological substrate objection
-  - substrate matters
-  - meat machines
-  - Ned Block consciousness
+aliases: []
 ---
 
 Functionalism makes a clean promise: get the computation right and the mind comes along for free, no matter what the computation runs on. A pain is whatever state plays the pain role, so silicon that plays that role hurts exactly as neurons do. The promise is attractive because it makes machine minds a pure engineering problem. The biological-substrate objection refuses it. The worry is that the felt side of a mental state might depend not only on which computation is being performed but on what physical stuff is performing it, so that a system could reproduce every functional detail of a human in pure electronics and still have nothing it is like to be it. If that worry holds, then "right computation" is not enough, and the case for a conscious machine loses its footing.

@@ -7,12 +7,7 @@ tags:
   - cs
   - deep-learning
 date: 2026-07-13
-aliases:
-  - dropout
-  - weight decay
-  - batch normalization
-  - early stopping
-  - data augmentation
+aliases: []
 ---
 
 A deep network with enough parameters can drive its training loss to nearly zero by memorizing the training set, noise and all. That is [[cs/machine-learning/generalization-vs-memorization|overfitting]], and deep nets are unusually good at it because their hypothesis space is enormous relative to what most problems actually require. Regularization is the family of countermeasures: deliberate constraints on training that give up a little training accuracy in exchange for better performance on data the network has never seen.

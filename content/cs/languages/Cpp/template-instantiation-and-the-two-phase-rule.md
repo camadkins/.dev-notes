@@ -9,10 +9,7 @@ tags:
   - compilers
 date: 2026-06-24
 updated:
-aliases:
-  - Two-Phase Lookup
-  - Point of Instantiation
-  - Implicit and Explicit Instantiation
+aliases: []
 ---
 
 Compile a translation unit containing nothing but template definitions and the object file comes out empty. Not small. Empty. cppreference states the position plainly: a class template by itself is not a type, or an object, or any other entity, and no code is generated from a source file that contains only template definitions. In order for any code to appear, a template must be instantiated, meaning the template arguments must be provided so the compiler can generate an actual class or function. Until that happens the file holds a program for generating code, which is the sense in which templates belong to the [[cs/pl/macros-and-metaprogramming|metaprogramming]] family rather than to the type system.

@@ -12,8 +12,6 @@ aliases:
   - SPF
   - DKIM
   - DMARC
-  - email spoofing
-  - email authentication
 ---
 
 SMTP was designed to move mail, not to prove who sent it. [[cs/standards/what-a-standard-actually-is|RFC 7208]] states the hole precisely: "Email on the Internet can be forged in a number of ways. In particular, existing protocols place no restriction on what a sending host can use as the 'MAIL FROM' of a message or the domain given on the SMTP HELO/EHLO commands." A sender types whatever return address it likes and the protocol shrugs. Because rewriting the protocol was never realistic, sender authentication was added as three separate layers riding on [[cs/systems/dns-the-domain-name-system|DNS]]. The interesting part is not that each layer works, but that two of them check an identifier the recipient never sees, and the third exists to fix exactly that.

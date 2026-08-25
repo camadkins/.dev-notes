@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-08-11
 updated:
-aliases:
-  - Ansible Strategy Plugins
-  - serial and throttle
+aliases: []
 ---
 
 Ansible's default execution behavior is one sentence long: "by default, Ansible runs each task on all hosts affected by a play before starting the next task on any host, using 5 forks." Both halves of that are choices, both are replaceable, and neither is what a reader coming from shell scripting expects.

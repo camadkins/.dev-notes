@@ -1,5 +1,5 @@
 ---
-title: Traversal - Inorder
+title: Inorder Traversal
 description: Visit Left -> Root -> Right; yields sorted order precisely on binary search trees; includes recursive, iterative (stack), and Morris (O(1) space) variants.
 draft: false
 comments: true

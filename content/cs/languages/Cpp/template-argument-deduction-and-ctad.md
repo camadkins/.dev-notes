@@ -11,9 +11,6 @@ date: 2026-08-11
 updated:
 aliases:
   - CTAD
-  - Deduction Guides
-  - Non-Deduced Context
-  - Forwarding Reference
 ---
 
 Nobody writes `std::sort<std::vector<int>::iterator>(v.begin(), v.end())`. The arguments say what the type is and the compiler reads it off them. cppreference states the deal plainly: in order to instantiate a function template, every template argument must be known, but not every template argument has to be specified, and when possible the compiler will deduce the missing template arguments from the function arguments. The convenience is total enough that the rules only become visible when they fail.

@@ -9,9 +9,7 @@ tags:
 date: 2026-03-30
 updated:
 aliases:
-  - call/cc
   - call-with-current-continuation
-  - Racket Continuations
 ---
 
 Whenever a Scheme expression is evaluated there is a continuation wanting the result of the expression, and that continuation represents an entire default future for the computation. At the top level it might take the result, print it, prompt for the next input, evaluate that, and so on forever. R5RS makes the point that these continuations are ubiquitous and normally hidden behind the scenes, and that programmers do not think much about them. `call-with-current-continuation` is the procedure that hands one to you as an ordinary value.

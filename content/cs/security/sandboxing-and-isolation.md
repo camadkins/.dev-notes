@@ -9,10 +9,7 @@ tags:
   - operating-systems
 date: 2026-02-17
 updated:
-aliases:
-  - sandboxing
-  - process isolation
-  - seccomp
+aliases: []
 ---
 
 The instinct when you run code you do not trust is to watch it: log what it does, scan it for badness, alert when it misbehaves. Sandboxing takes the opposite stance. It assumes the code is already hostile, or soon will be, and asks a narrower question. When this process is fully compromised, what is it physically able to do to the rest of the machine? A good sandbox makes that answer small before a single instruction runs.

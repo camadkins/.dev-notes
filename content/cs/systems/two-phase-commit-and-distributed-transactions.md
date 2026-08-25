@@ -11,8 +11,6 @@ date: 2026-06-11
 updated:
 aliases:
   - 2PC
-  - Two-Phase Commit
-  - Distributed Transactions
 ---
 
 A single-machine transaction is atomic because one storage engine decides commit or abort and everyone downstream obeys. Spread the transaction across databases on different machines and there is no single decider. Each participant might succeed locally while another fails, and you need all of them to reach the *same* verdict, commit everywhere or abort everywhere, despite crashes and dropped messages in between. Two-phase commit is the classic protocol for forcing that unanimity.

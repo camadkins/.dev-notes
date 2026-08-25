@@ -1,5 +1,5 @@
 ---
-title: Searching - Overview
+title: Searching
 description: Patterns for linear scans and divide-and-conquer searches over ordered data; how to choose the right strategy and avoid common traps.
 draft: false
 comments: true

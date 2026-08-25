@@ -8,11 +8,7 @@ tags:
   - cisco
 date: 2026-03-11
 updated:
-aliases:
-  - administrative distance
-  - floating static route
-  - ip route
-  - AD values
+aliases: []
 ---
 
 You reach for a static route in two situations. Cisco names both: static routes are often used when there is no dynamic route to the destination IP address, or to override the dynamically learned route. The first is plumbing, a stub site or a default route out to a provider. The second is a deliberate act of policy, and it works because of a number that has nothing to do with how good the path is.

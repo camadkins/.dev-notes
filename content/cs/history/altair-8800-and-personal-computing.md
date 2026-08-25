@@ -8,9 +8,7 @@ tags:
   - history
 date: 2026-03-01
 updated:
-aliases:
-  - Altair 8800
-  - personal computer
+aliases: []
 ---
 
 In 1974 a small New Mexico company put a [[cs/history/the-microprocessor|microprocessor]] in a box, sold it as a kit, and accidentally started the personal computer industry. The Altair 8800 was the machine that put a real stored-program computer in individual hands.

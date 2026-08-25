@@ -12,8 +12,6 @@ updated:
 aliases:
   - TOCTOU
   - TOCTTOU
-  - time of check to time of use
-  - race condition
 ---
 
 Most vulnerability classes are a flaw in a single operation: this copy has no bounds check, this query is unsanitized. A time-of-check-to-time-of-use bug is different and more slippery, because both operations can be individually correct. The check correctly verifies a condition. The action correctly does its job. The defect lives in the space between them, in the assumption that nothing changed while the program moved from one line to the next.

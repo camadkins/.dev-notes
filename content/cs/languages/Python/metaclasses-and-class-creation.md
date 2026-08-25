@@ -8,10 +8,7 @@ tags:
   - languages
 date: 2026-07-11
 updated:
-aliases:
-  - Python Metaclasses
-  - __init_subclass__
-  - type as a Metaclass
+aliases: []
 ---
 
 A `class` statement looks like a declaration. It is not. It is a small program that runs, top to bottom, in a fresh namespace, and then hands the resulting dictionary to a callable that builds an object out of it. The Python reference states the mechanism without ceremony: by default, classes are constructed using `type()`, and the class body is executed in a new namespace and the class name is bound locally to the result of `type(name, bases, namespace)`. Every class in a Python program is the return value of a function call that the compiler emitted on your behalf.

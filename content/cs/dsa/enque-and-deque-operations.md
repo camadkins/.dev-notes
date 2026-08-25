@@ -1,5 +1,5 @@
 ---
-title: Queue - Enqueue & Dequeue
+title: Queue Operations
 description: Practical mechanics of pushing to and popping from a queue, with invariants, ring-buffer pseudocode, edge cases, and testing notes.
 draft: false
 comments: true

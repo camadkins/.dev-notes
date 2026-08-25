@@ -6,11 +6,8 @@ comments: true
 tags:
   - cs
   - deep-learning
-  - generative-models
 date: 2026-07-13
 aliases:
-  - gan
-  - gans
   - generator-discriminator
   - minimax-game
 ---

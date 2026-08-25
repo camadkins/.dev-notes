@@ -6,13 +6,9 @@ comments: true
 tags:
   - cs
   - software-engineering
-  - version-control
 date: 2026-06-24
 updated:
-aliases:
-  - Monorepo
-  - Polyrepo
-  - Multi-repo
+aliases: []
 ---
 
 A monorepo is "a software-development strategy in which the code for a number of projects is stored in the same repository." The alternative, splitting each project into its own repository, is the default most teams inherit without ever deciding on it. Neither is new: the monorepo practice "dates back to at least the early 2000s, when it was commonly called a shared codebase."

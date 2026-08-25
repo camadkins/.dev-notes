@@ -8,8 +8,7 @@ tags:
   - history
 date: 2026-01-17
 updated:
-aliases:
-  - George Boole
+aliases: []
 ---
 
 In 1854 a self-taught English mathematician published a book that turned logic into algebra. George Boole could not have known that [[cs/math/boolean-algebra|his two-valued system]] would become the mathematics of every digital circuit, since there were no such circuits for another eighty years.

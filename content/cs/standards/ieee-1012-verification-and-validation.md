@@ -9,9 +9,7 @@ tags:
   - testing
 date: 2026-08-11
 updated:
-aliases:
-  - IEEE 1012
-  - Verification and Validation
+aliases: []
 ---
 
 Verification and validation get taught as a pair of near-synonyms with a mnemonic attached: building the thing right versus building the right thing. The mnemonic is fine as far as it goes, but it hides the part that matters to anyone who has to plan the work, which is that the two questions are asked of different things, by different people, against different evidence. IEEE 1012 is the standard that writes the distinction down and then does something more useful with it.

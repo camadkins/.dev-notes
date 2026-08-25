@@ -1,5 +1,5 @@
 ---
-title: Bitwise Operations - Core Logic, Manipulation, and Low-Level Tricks
+title: Bitwise Operations
 description: Foundational binary operators (AND, OR, XOR, NOT, shifts) and bit manipulation techniques for optimization, masking, set representation, and data encoding.
 draft: false
 comments: true

@@ -8,10 +8,7 @@ tags:
   - software-engineering
 date: 2026-04-16
 updated:
-aliases:
-  - Twelve-Factor App
-  - 12 Factor
-  - Twelve Factors
+aliases: []
 ---
 
 The twelve-factor app is "a methodology for building software-as-a-service apps," written by Adam Wiggins and last updated in 2017. Its opening premise dates it precisely: "in the modern era, software is commonly delivered as a service: called web apps, or software-as-a-service." That sentence is doing the work of a scope statement. The document is not general software engineering advice, it is advice for one deployment shape, and reading it as universal is the most common way to misapply it.

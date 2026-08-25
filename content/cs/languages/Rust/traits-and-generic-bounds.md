@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-02-17
 updated:
-aliases:
-  - Rust Traits
-  - Trait Bounds and dyn
+aliases: []
 ---
 
 A trait defines the functionality a particular type has and can share with other types. The Book notes the resemblance to interfaces in other languages, with some differences, and the differences are where the interesting design sits. The type-theory ancestry (Haskell type classes, the dictionary-passing translation) is in [[cs/pl/type-classes-and-traits|Type Classes and Traits]]. This note is the Rust engineering: what a bound actually promises, what the orphan rule forbids and why, and what changes when you write `dyn`.

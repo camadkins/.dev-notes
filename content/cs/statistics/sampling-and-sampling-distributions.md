@@ -8,10 +8,7 @@ tags:
   - statistics
 date: 2026-05-27
 updated:
-aliases:
-  - Sampling Distribution
-  - Standard Error
-  - Stratified Sampling
+aliases: []
 ---
 
 Every statistic you compute is itself a [[cs/statistics/random-variable|random variable]]. Draw a different sample and you get a different sample mean. The whole apparatus of inference rests on characterizing *that* variation, not the variation of the individual observations, and the object holding it is the sampling distribution.

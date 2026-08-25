@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-06-24
 updated:
-aliases:
-  - TypeScript Structural Typing
-  - Assignability in TypeScript
+aliases: []
 ---
 
 A class in TypeScript can satisfy an interface it has never heard of. "Type compatibility in TypeScript is based on structural subtyping. Structural typing is a way of relating types based solely on their members. This is in contrast with nominal typing." Declare an interface with a `name: string`, write an unrelated class with a `name: string`, and an instance of the class is assignable to the interface variable. "In nominally-typed languages like C# or Java, the equivalent code would be an error because the Dog class does not explicitly describe itself as being an implementer of the Pet interface."

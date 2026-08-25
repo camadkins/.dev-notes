@@ -10,9 +10,7 @@ tags:
 date: 2026-01-22
 updated:
 aliases:
-  - Lloyd's Algorithm
   - k-means
-  - k-means++
 ---
 
 The objective is easy to state. Partition $n$ observations into $k$ clusters so that each observation belongs to the cluster with the nearest mean, which scikit-learn writes as minimizing the inertia or within-cluster sum-of-squares

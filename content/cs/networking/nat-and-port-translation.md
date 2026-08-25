@@ -9,7 +9,6 @@ tags:
 date: 2026-05-02
 updated:
 aliases:
-  - network address translation
   - PAT
   - NAPT
 ---

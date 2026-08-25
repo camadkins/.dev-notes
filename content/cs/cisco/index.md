@@ -8,8 +8,7 @@ tags:
   - cisco
 date: 2026-07-27
 updated:
-aliases:
-  - Cisco
+aliases: []
 ---
 
 Notes on running Cisco gear, written for the person who has to make the box work rather than for the person studying for a test. Each one leads with when you reach for the thing and why, names the gotcha that actually bites, and shows the command alongside what it does to the device.

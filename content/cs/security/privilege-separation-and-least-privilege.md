@@ -9,10 +9,7 @@ tags:
   - operating-systems
 date: 2026-04-08
 updated:
-aliases:
-  - least privilege
-  - privilege separation
-  - principle of least privilege
+aliases: []
 ---
 
 Most catastrophic compromises share a shape: a bug in one small, exposed piece of code hands the attacker the authority of the *whole* program. A parser flaw in [[cs/systems/processes-and-threads|a network daemon]] running as root becomes a root shell. The reason is not the bug alone; it is that the vulnerable code held far more privilege than its job required. Two ideas, one a principle and one an architecture, attack that surplus directly.

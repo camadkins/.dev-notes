@@ -11,9 +11,7 @@ date: 2026-03-14
 updated:
 aliases:
   - MAC
-  - message authentication code
   - HMAC
-  - keyed hash
 ---
 
 A plain [[cs/security/cryptographic-hash-functions|hash]] tells you whether data changed by accident. It says nothing about who produced it, because anyone can recompute the hash of anything. Add a secret key and the guarantee changes shape: now only someone who holds the key could have produced the tag. That is a message authentication code, and the way HMAC constructs one from an ordinary hash is more subtle than it looks.

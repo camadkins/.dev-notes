@@ -8,10 +8,7 @@ tags:
   - history
 date: 2026-05-02
 updated:
-aliases:
-  - Colossus
-  - Manchester Baby
-  - first electronic computers
+aliases: []
 ---
 
 The 1940s produced the first computers built from electronics rather than gears and relays. Within a few years those machines gained the one feature that defines a modern computer: the stored program, instructions held in memory rather than wired into the machine.

@@ -11,8 +11,6 @@ date: 2026-03-19
 updated:
 aliases:
   - AES
-  - block cipher modes
-  - mode of operation
 ---
 
 A block cipher is a strange primitive. On its own it does exactly one thing: it maps one fixed-size block of bits to another under a key. AES is the block cipher the world settled on, and the counterintuitive lesson of using it is that once the cipher is strong, almost every real-world break comes from how you chain it across many blocks, not from the cipher.

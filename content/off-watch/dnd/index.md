@@ -9,10 +9,7 @@ tags:
 permalink: /dnd/
 date: 2026-06-28
 updated: 2026-06-28
-aliases:
-  - DnD
-  - D&D
-  - Dungeons and Dragons
+aliases: []
 ---
 
 DnD is the one hobby that is already a wiki. A campaign is a web of people, places, and decisions that only makes sense when it is linked together, which is exactly what a digital garden is good at. This room is the table log: what happened, who it happened to, and the threads still hanging.

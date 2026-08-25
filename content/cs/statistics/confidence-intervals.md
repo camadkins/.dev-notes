@@ -8,9 +8,7 @@ tags:
   - statistics
 date: 2026-04-18
 updated:
-aliases:
-  - Interval Estimation
-  - Confidence Level
+aliases: []
 ---
 
 ## Intuition

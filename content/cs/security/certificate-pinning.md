@@ -10,10 +10,7 @@ tags:
 date: 2026-04-29
 updated:
 aliases:
-  - Certificate Pinning
-  - Public Key Pinning
   - HPKP
-  - Key Pinning
 ---
 
 The [[cs/security/pki-and-x509-certificates|X.509 trust model]] has a structural flaw: your browser trusts hundreds of certificate authorities, and *any one of them* can issue a valid certificate for *your* domain. A single compromised or coerced CA anywhere in that set can mint a certificate an attacker uses for a [[cs/security/man-in-the-middle-attacks|man-in-the-middle]] against your users, and TLS will accept it without complaint. Certificate pinning attacks that flaw from the other end: instead of trusting whatever certificate a trusted CA signs, the client remembers the *specific* key it expects and rejects everything else.

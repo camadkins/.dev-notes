@@ -8,10 +8,7 @@ tags:
   - software-engineering
 date: 2026-03-30
 updated:
-aliases:
-  - Peer Review
-  - Pull Request Review
-  - Fagan Inspection
+aliases: []
 ---
 
 The definition is narrower than the folklore. Code review is "a software quality assurance activity in which one or more people examine the source code of a computer program, either after implementation or during the development process," and it carries one structural requirement: "At least one reviewer must not be the code's author." That constraint is what separates review from the neighboring practices. Static analysis is automated, self-checks involve only the author, testing requires running the code, and pair programming happens continuously rather than as a separate step.

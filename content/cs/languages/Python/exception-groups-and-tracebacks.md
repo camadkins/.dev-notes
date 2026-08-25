@@ -9,10 +9,7 @@ tags:
   - error-handling
 date: 2026-07-06
 updated:
-aliases:
-  - ExceptionGroup
-  - except star
-  - Python Tracebacks
+aliases: []
 ---
 
 Python's exception machinery rests on an assumption so old that it stopped looking like an assumption: at any moment, one thing has gone wrong. Everything follows from that. There is one exception in flight, one traceback attached to it, one handler that catches it. PEP 654 states the limitation as a fact about the interpreter rather than about style. The interpreter is currently able to propagate at most one exception at a time.

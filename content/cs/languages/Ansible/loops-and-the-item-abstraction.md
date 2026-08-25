@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-07-11
 updated:
-aliases:
-  - Ansible Loops
-  - loop_control and loop_var
+aliases: []
 ---
 
 Ansible offers three keywords for running a task more than once, and the docs sort them the way a programmer would: `loop` and the `with_` family "run the task once per item in the list used as input, while `until` will rerun the task until a condition is met," which makes "the former 'for loops' and the latter a 'while/until loop'." `loop` arrived in 2.5 as the simpler option and is recommended for most cases, while the `with_` keywords remain valid for the foreseeable future.

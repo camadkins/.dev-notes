@@ -10,9 +10,6 @@ date: 2026-05-28
 updated:
 aliases:
   - OSPF
-  - link-state routing
-  - link-state advertisement
-  - Dijkstra SPF
 ---
 
 Two families of routing protocol answer the same question, "which way to everywhere," in opposite styles. A distance-vector router knows only what its neighbors tell it: each neighbor hands over its own routing table, its list of conclusions, and the router trusts those conclusions and adds itself in. A link-state router refuses to trust conclusions. It wants the raw facts, who connects to whom, and insists on drawing its own map and computing its own answers. OSPF is the dominant protocol built on that second philosophy, and the difference in what gets shared explains almost everything about how it behaves.

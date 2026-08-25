@@ -8,10 +8,7 @@ tags:
   - security
 date: 2026-02-27
 updated:
-aliases:
-  - firewall
-  - packet filter
-  - stateful inspection
+aliases: []
 ---
 
 A firewall is a policy made physical: a single point that all traffic between two zones must cross, where a rule decides what passes. [[cs/standards/what-a-standard-actually-is|NIST SP 800-41]] defines it functionally as devices or programs "that control the flow of network traffic between networks or hosts that employ differing security postures." That phrase, *differing security postures*, is the whole reason a firewall exists. It sits on the seam between a zone you trust less and one you trust more, and every capability and every limitation flows from that position.

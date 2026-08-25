@@ -11,7 +11,6 @@ date: 2026-07-02
 updated:
 aliases:
   - JMM
-  - Java Happens-Before
 ---
 
 Ask an average Java programmer what `volatile` does and you will hear something about the value not being cached. That answer is folklore. The specification never mentions caches, store buffers, or any other piece of hardware, because it cannot: the same class file has to run correctly on a strongly ordered x86 chip and on a weakly ordered ARM one, under a compiler free to hoist, sink, and delete reads. Chapter 17 of the Java Language Specification defines correctness in terms the hardware cannot see, and hands implementers the job of meeting it.

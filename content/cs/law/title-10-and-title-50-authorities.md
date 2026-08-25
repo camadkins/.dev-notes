@@ -8,9 +8,7 @@ tags:
   - law
 date: 2026-08-06
 updated:
-aliases:
-  - Title 10 vs Title 50
-  - Covert Action and Traditional Military Activity
+aliases: []
 ---
 
 In practitioner conversation "Title 10" and "Title 50" work as shorthand for two worlds: the armed forces on one side, the intelligence community on the other. The shorthand is useful and slightly misleading. In the United States Code they are two titles containing a great many unrelated provisions, and the boundary people mean is drawn in a small number of specific sections. Reading those sections shows that the boundary is not about who acts, and not about whether the action is secret. Both categories can be secret. The boundary is about which definition an activity falls into, and therefore which committees of Congress get told.

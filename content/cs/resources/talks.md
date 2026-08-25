@@ -9,8 +9,7 @@ tags:
   - resource/talk
 date: 2026-07-26
 updated:
-aliases:
-  - Talks
+aliases: []
 maturity: seed
 ---
 

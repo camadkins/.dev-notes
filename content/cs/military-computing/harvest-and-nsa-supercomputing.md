@@ -8,9 +8,7 @@ tags:
   - military
 date: 2026-03-30
 updated:
-aliases:
-  - IBM 7950 Harvest
-  - Harvest
+aliases: []
 ---
 
 [[cs/history/von-neumann-architecture|A general-purpose computer]] can do anything, which is exactly why it is rarely the fastest way to do any one thing. When the [[cs/military-computing/cryptography-codebreaking-and-the-nsa|National Security Agency]] needed to attack codes on an industrial scale, IBM did not hand it a faster general computer. It built a machine specialized for the work, and that machine, Harvest, is one of the earliest examples of a habit that now dominates computing: bolting purpose-built hardware onto a general processor to speed up a specific job.

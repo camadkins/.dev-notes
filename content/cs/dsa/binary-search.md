@@ -1,5 +1,5 @@
 ---
-title: Binary Search - Divide and Conquer on Sorted Sequences
+title: Binary Search
 description: Efficient search in sorted arrays using interval halving and loop invariants to guarantee correctness and logarithmic time complexity.
 draft: false
 comments: true

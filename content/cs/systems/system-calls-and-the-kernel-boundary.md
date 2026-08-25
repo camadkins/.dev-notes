@@ -8,10 +8,7 @@ tags:
   - systems
 date: 2026-06-11
 updated:
-aliases:
-  - System Calls
-  - Syscall
-  - User Mode and Kernel Mode
+aliases: []
 ---
 
 ## One Door In

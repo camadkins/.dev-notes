@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-06-21
 updated:
-aliases:
-  - Java Generic Restrictions
-  - Non-Reifiable Types
+aliases: []
 ---
 
 A reifiable type is one whose type information is fully available at runtime. `String` is reifiable. `String[]` is reifiable. `List<String>` is not, because [[cs/languages/Java/generics-and-type-erasure|erasure]] removed the type argument before the class file was written. Every restriction below is the compiler refusing to write code whose safety depends on information that will not exist when the code runs.

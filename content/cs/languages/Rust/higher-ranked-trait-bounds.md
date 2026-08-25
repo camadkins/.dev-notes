@@ -11,7 +11,6 @@ date: 2026-08-04
 updated:
 aliases:
   - HRTB
-  - for a Syntax
 ---
 
 Most bounds are statements about a type: `T: Clone` says this one type implements this one trait. A higher-ranked bound is a statement about infinitely many. Trait bounds may be higher ranked over lifetimes, and such bounds specify a bound that is true for all lifetimes. The syntax is `for<'a>`, and the Nomicon's reading of it is the right one: `for<'a>` can be read as "for all choices of `'a`", producing an infinite list of trait bounds that the type must satisfy.

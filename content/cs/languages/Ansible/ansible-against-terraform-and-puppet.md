@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-06-29
 updated:
-aliases:
-  - Ansible vs Terraform
-  - Ansible vs Puppet
+aliases: []
 ---
 
 The three tools get compared constantly and usually badly, because the comparison collapses several independent choices onto one axis and then declares a winner. Two axes actually matter, they are orthogonal, and each tool sits somewhere different on both.

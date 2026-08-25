@@ -8,9 +8,7 @@ tags:
   - military
 date: 2026-04-06
 updated:
-aliases:
-  - Venona
-  - Venona project
+aliases: []
 ---
 
 The one-time pad is provably unbreakable. The VENONA project read Soviet messages that were encrypted with one anyway. That contradiction is not a paradox, and resolving it gives one of the most durable lessons in all of cryptography.

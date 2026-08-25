@@ -9,9 +9,6 @@ tags:
 date: 2026-06-25
 updated:
 aliases:
-  - C++ Lambdas
-  - Closure type
-  - mutable lambda
   - init-capture
 ---
 

@@ -8,10 +8,7 @@ tags:
   - languages
 date: 2026-08-11
 updated:
-aliases:
-  - Racket Numeric Tower
-  - Exact and Inexact Numbers
-  - Bignums and Rationals
+aliases: []
 ---
 
 `(/ 1 3)` in Racket is `1/3`, not `0.3333333333333333` and not `0`. That single evaluation contains the whole design: Racket refuses to lose information it was not asked to lose, and it carries the resulting arbitrary-precision rational forward until something forces it to stop.

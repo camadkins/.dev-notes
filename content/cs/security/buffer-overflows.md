@@ -9,10 +9,7 @@ tags:
   - memory
 date: 2026-02-08
 updated:
-aliases:
-  - buffer overflow
-  - stack smashing
-  - stack buffer overflow
+aliases: []
 ---
 
 [[cs/military-computing/morris-worm-and-buffer-overflows|A buffer overflow]] starts as an unglamorous bug: a program writes more bytes into a fixed-size region than the region holds, and the extra bytes spill into whatever sits next in memory. What turns this from a crash into the most consequential exploit class in systems history is a detail of layout. On the stack, the thing sitting next to a local buffer is often the address the CPU will jump to when the current function returns. Overwrite that, and you are no longer corrupting data. You are choosing the program's next instruction.

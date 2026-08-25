@@ -6,15 +6,9 @@ comments: true
 tags:
   - cs
   - ethics
-  - philosophy
-  - ai
 date: 2026-06-29
 updated:
-aliases:
-  - physicalism
-  - materialism
-  - mind-body problem
-  - is the mind physical
+aliases: []
 ---
 
 Before you can ask whether a machine could be conscious, you have to settle a prior question about what a mind even is. If a mind is an immaterial soul, a substance of a different kind than anything in physics, then no arrangement of silicon could ever house one and the AI-consciousness debate ends before it starts. If instead a mind is just what a certain physical system does when it is organized the right way, the door is open, because there is no longer any kind of stuff a brain has that a machine in principle could not. That prior question is the territory of physicalism, and it is the metaphysical floor the entire debate stands on, even when nobody names it.

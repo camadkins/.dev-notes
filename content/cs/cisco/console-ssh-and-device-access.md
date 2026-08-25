@@ -8,11 +8,7 @@ tags:
   - cisco
 date: 2026-06-11
 updated:
-aliases:
-  - transport input ssh
-  - crypto key generate rsa
-  - VTY lines
-  - Cisco SSH configuration
+aliases: []
 ---
 
 A Cisco device does not have "a login." It has line types, and each type is a physically and logically different door with its own access controls. Getting device access right means knowing which door someone came through, because the answer changes what they can do and what stopped them.

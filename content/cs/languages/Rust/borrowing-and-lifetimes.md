@@ -9,9 +9,7 @@ tags:
   - memory
 date: 2026-05-02
 updated:
-aliases:
-  - The Borrow Checker
-  - Rust Lifetimes
+aliases: []
 ---
 
 If moving were the only way to hand a value to a function, every call would be a transfer of custody and every function that wanted to keep using its argument would have to hand it back. The Rust Book's own example of that pattern returns a tuple of the value and the answer, which it calls too much ceremony for a concept that should be common. References are the fix: the action of creating one is called borrowing, and the analogy is exact. If a person owns something, you can borrow it, and when you are done you have to give it back. You do not own it.

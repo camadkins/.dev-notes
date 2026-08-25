@@ -9,11 +9,7 @@ tags:
   - type-theory
 date: 2026-07-30
 updated:
-aliases:
-  - TypeGuard
-  - TypeIs
-  - Python Type Narrowing
-  - PEP 647
+aliases: []
 ---
 
 Static type checkers commonly employ a technique called type narrowing to determine a more precise type of an expression within a program's code flow. When it is applied within a block based on a conditional statement, the conditional expression is sometimes called a type guard. Python checkers already support several: `is None`, truthiness, `isinstance`, and comparison against a `Literal`.

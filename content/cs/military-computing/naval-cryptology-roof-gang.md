@@ -10,7 +10,6 @@ date: 2026-05-21
 updated:
 aliases:
   - OP-20-G
-  - On-the-Roof Gang
 ---
 
 Long before there was a [[cs/military-computing/cryptography-codebreaking-and-the-nsa|National Security Agency]], the U.S. Navy ran its own codebreaking, and the people who did the listening learned their trade on a rooftop. OP-20-G and its On-the-Roof Gang are the Navy's entry in the long story of treating enemy communications as a problem to be solved by analysis.

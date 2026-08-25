@@ -6,15 +6,9 @@ comments: true
 tags:
   - cs
   - ethics
-  - philosophy
-  - ai
 date: 2026-06-30
 updated:
-aliases:
-  - social categories and machine learning
-  - what's sex got to do with machine learning
-  - modularity in causal fairness
-  - Hu Kohler-Hausmann
+aliases: []
 ---
 
 Suppose [[cs/machine-learning/regression|a model's salary predictions]] track sex, and you want to know whether that is discrimination. The dominant technical move is to [[cs/math/graph-theory|draw a causal diagram]], sex points to job type, job type points to salary, and ask a counterfactual: if we changed this person's sex but held their job type fixed, would the predicted salary move? If it would, the effect that flows around job type is the "direct" effect of sex, the part that looks like bare discrimination, and the part that runs through job type is "indirect", arguably a legitimate consequence of a career choice. The math for this split is causal mediation analysis, and it is elegant. Hu and Kohler-Hausmann's argument is that the elegance hides a false assumption, and the assumption is exactly the one that makes the counterfactual sound coherent in the first place.

@@ -11,7 +11,6 @@ date: 2026-07-08
 updated:
 aliases:
   - NUMA
-  - Non-Uniform Memory Access
 ---
 
 Open a two-socket server and you see the architecture directly: two CPU sockets, each surrounded by its own bank of DIMM slots. That physical layout is the whole idea. The RAM next to socket 0 is not the same distance from socket 1, and on a NUMA machine the hardware does not pretend otherwise. "Non-uniform memory access (NUMA) is a computer memory design used in multiprocessing, where the memory access time depends on the memory location relative to the processor. Under NUMA, a processor can access its own local memory faster than non-local memory (memory local to another processor or memory shared between processors)."

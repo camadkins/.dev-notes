@@ -9,10 +9,7 @@ tags:
   - concurrency
 date: 2026-07-08
 updated:
-aliases:
-  - Python GIL
-  - Global Interpreter Lock
-  - Free-Threaded Python
+aliases: []
 ---
 
 The complaint is familiar: [[cs/systems/processes-and-threads|Python threads]] do not use your cores. The reason usually given, that CPython has a big lock, is true but shallow, because it does not explain why twenty-five years of smart people failed to remove it. The lock is not the hard part. The *guarantees the lock accidentally provides to every C extension ever written* are the hard part.

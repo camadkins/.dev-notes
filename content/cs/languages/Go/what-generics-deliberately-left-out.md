@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-08-18
 updated:
-aliases:
-  - Go Generics Omissions
-  - No Parameterized Methods
+aliases: []
 ---
 
 Most language proposals list what a feature does. The type parameters proposal has a section listing what it does not, introduced with an admission rather than a defence: "However, there are a number of programming constructs that are not supported." Ten items follow. Read together they describe a second design, the one Go could have had, and the reason each was declined is the same reason the whole feature took twelve years.

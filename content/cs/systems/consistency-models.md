@@ -9,10 +9,7 @@ tags:
   - distributed-systems
 date: 2026-04-09
 updated:
-aliases:
-  - Consistency Model
-  - Linearizability
-  - Eventual Consistency
+aliases: []
 ---
 
 "Consistent" sounds binary, either the replicas agree or they do not. In a distributed system it is a dial. A consistency model is a contract between the store and the programmer: obey these rules about what a read can return, and in exchange the store gets to reorder or delay work behind your back. Stronger contracts are easier to reason about and slower to satisfy. Weaker ones are fast and full of sharp edges.

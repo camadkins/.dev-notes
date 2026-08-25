@@ -8,10 +8,7 @@ tags:
   - statistics
 date: 2026-07-08
 updated:
-aliases:
-  - Bootstrapping
-  - Permutation Test
-  - Resampling
+aliases: []
 ---
 
 Classical inference gets a standard error by writing down a formula. That works for a mean and gets ugly fast for a median, a correlation coefficient, or a ratio of variances. Resampling replaces the formula with computation: perturb the data you already have, recompute the statistic, and read the spread off the resulting histogram.

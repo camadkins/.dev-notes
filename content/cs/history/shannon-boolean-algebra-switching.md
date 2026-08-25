@@ -8,9 +8,7 @@ tags:
   - history
 date: 2026-03-15
 updated:
-aliases:
-  - Shannon switching thesis
-  - relay logic
+aliases: []
 ---
 
 In 1937 a graduate student at MIT wrote what has often been called the most important master's thesis of the twentieth century. Claude Shannon, then twenty-one, showed that [[cs/history/boole-and-boolean-algebra|Boole's]] algebra of logic was exactly the mathematics of electrical switches.

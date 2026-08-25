@@ -10,9 +10,7 @@ tags:
 date: 2026-03-11
 updated:
 aliases:
-  - Hygienic Macros
   - syntax-rules
-  - Macro Expansion
 ---
 
 A macro is a rule or pattern specifying how a certain input should be mapped to a replacement output, and applying one is called macro expansion. That definition is deliberately broad, because macro systems disagree wildly about what the input and output actually *are*. They may be a sequence of characters, a sequence of lexical tokens, or a syntax tree.

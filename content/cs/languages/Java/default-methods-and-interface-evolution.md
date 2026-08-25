@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-08-04
 updated:
-aliases:
-  - Java Default Methods
-  - Virtual Extension Methods
+aliases: []
 ---
 
 Before Java 8, publishing an interface was a one-way door. Every method you declared became a permanent obligation on everyone who implemented it, and adding one broke them all. `Collection` had been public since 1998 with an unknown number of implementations in the wild, so `Collection.stream()` was, under the old rules, unshippable. Lambdas needed a place to be consumed, and the collections framework was the obvious place, and the collections framework was frozen.

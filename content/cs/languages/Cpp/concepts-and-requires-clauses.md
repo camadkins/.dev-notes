@@ -9,10 +9,7 @@ tags:
   - type-theory
 date: 2026-08-16
 updated:
-aliases:
-  - Subsumption
-  - requires Expression
-  - Constraint Normalization
+aliases: []
 ---
 
 The usual pitch for concepts is the error message. That pitch is true and it undersells the feature badly. [[cs/languages/Cpp/templates-and-generic-programming|Named requirement sets and the four ways to spell a constraint]] cover the declaration side. This note is about what the compiler does with two constrained declarations when both of them match, because that is the part that replaced [[cs/languages/Cpp/sfinae-and-enable-if|`enable_if`]], the part that made tag dispatch unnecessary, and the part that will bite you.

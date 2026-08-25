@@ -11,8 +11,6 @@ date: 2026-07-23
 updated:
 aliases:
   - PCA
-  - Principal Component Analysis
-  - Dimensionality Reduction
 ---
 
 Most of the model zoo so far has been supervised. Principal component analysis is the flagship of the [[cs/machine-learning/unsupervised-learning|unsupervised]] side: it takes unlabeled, high-dimensional data and finds the handful of directions that actually carry the variation, discarding the rest. High dimensionality is a genuine problem, distances lose meaning, models overfit, and nothing can be visualized past three axes, and PCA is the standard first tool against it. It is also, in a way worth seeing early, the linear special case of the [[cs/deep-learning/autoencoders|autoencoder]], which makes it a clean bridge from classical machine learning into deep representation learning.

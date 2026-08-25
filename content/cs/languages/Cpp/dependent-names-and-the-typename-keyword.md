@@ -8,10 +8,7 @@ tags:
   - languages
 date: 2026-07-02
 updated:
-aliases:
-  - Two-Phase Lookup Disambiguators
-  - The template Disambiguator
-  - Dependent Type Names
+aliases: []
 ---
 
 `T::x * p;` is either a declaration of a pointer named `p` or a multiplication whose result is thrown away. Which one it is depends entirely on whether `T::x` names a type, and inside a template `T` has not arrived yet. Every other language with generics ducks this by having a grammar that does not care. C++ cannot duck it, because the C declarator syntax it inherited makes the parse of a statement depend on the meaning of the names in it.

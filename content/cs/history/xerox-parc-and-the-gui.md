@@ -9,8 +9,6 @@ tags:
 date: 2026-01-20
 updated:
 aliases:
-  - Xerox Alto
-  - graphical user interface
   - GUI
 ---
 

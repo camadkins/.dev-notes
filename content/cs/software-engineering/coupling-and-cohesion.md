@@ -8,12 +8,7 @@ tags:
   - software-engineering
 date: 2026-05-06
 updated:
-aliases:
-  - Coupling
-  - Cohesion
-  - Loose Coupling
-  - High Cohesion
-  - Connascence
+aliases: []
 ---
 
 Draw a box around any piece of a system and two questions immediately follow. What is inside, and how much does it belong together? What crosses the boundary, and how strongly does it bind? Those are cohesion and coupling, and they were invented together for exactly that reason.

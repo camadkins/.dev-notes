@@ -6,16 +6,10 @@ comments: true
 tags:
   - cs
   - ethics
-  - philosophy
-  - ai
 date: 2026-06-30
 updated:
 aliases:
-  - impossibility of algorithmic fairness
   - COMPAS
-  - fairness impossibility theorem
-  - calibration vs error rate balance
-  - predictive parity
 ---
 
 Two people can look at the same risk-scoring algorithm, run the numbers honestly, and reach opposite verdicts on whether it is fair, with both of them right. That is not a rhetorical trick or a case of one side fudging the data. It is a mathematical fact about what happens when a predictor is scored against two groups that reoffend at different rates. The COMPAS case made it famous: journalists proved the tool was biased, the vendor proved it was not, and the uncomfortable resolution is that the two proofs measure different things that cannot both be equalized at once. Fairness, it turns out, is not a single property a system either has or lacks. It is a set of criteria that pull against each other, and the pulling is provable.

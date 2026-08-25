@@ -9,10 +9,7 @@ tags:
   - type-theory
 date: 2026-08-11
 updated:
-aliases:
-  - All in Typed Racket
-  - Typed Racket Polymorphism
-  - inst
+aliases: []
 ---
 
 Two functions, identical except for one word:

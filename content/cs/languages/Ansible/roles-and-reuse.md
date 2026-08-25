@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-01-19
 updated:
-aliases:
-  - Ansible Roles
-  - Role Directory Structure
+aliases: []
 ---
 
 Roles let you automatically load related vars, files, tasks, handlers, and other Ansible artifacts based on a known file structure. The operative word is *automatically*. A role has no manifest, no export list, and no import statements. Put a file in the right directory and it is loaded; put it elsewhere and it is not.

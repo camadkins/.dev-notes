@@ -10,7 +10,6 @@ date: 2026-06-23
 updated:
 aliases:
   - STRIDE
-  - threat modeling
 ---
 
 "What could go wrong?" is an unbounded question, and design reviews that ask it get unbounded, unrepeatable answers: whoever is in the room lists whatever they happen to fear that day. STRIDE fixes this by refusing to brainstorm. It hands you six categories and asks you to check each one against each part of the system. The genius is not the acronym, it is that the six categories are not an arbitrary list. They are the complete set of ways a security guarantee can fail.

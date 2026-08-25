@@ -11,8 +11,6 @@ date: 2026-06-09
 updated:
 aliases:
   - JWT
-  - JSON Web Token
-  - JSON Web Tokens
 ---
 
 Classic web sessions keep state on the server: the browser holds an opaque session ID, and the server looks it up in a store on every request. That store is a scaling and coordination cost, especially across many services. A JWT inverts the arrangement. It hands the *claims themselves* to the client, wrapped in a signature, so the server can trust a request by checking the signature instead of a database. The power and the danger both come from that single move.

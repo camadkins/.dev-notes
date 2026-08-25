@@ -9,9 +9,7 @@ tags:
   - concurrency
 date: 2026-06-24
 updated:
-aliases:
-  - Project Loom
-  - Java Virtual Threads
+aliases: []
 ---
 
 For twenty years the Java answer to "I have ten thousand concurrent requests" was a thread pool, and the cost was the thread-per-request style. Once a thread is an expensive OS object you have to share it, and once you share it you cannot block in it, and once you cannot block in it your request handler stops being a method that returns a value and becomes a chain of callbacks. JEP 444 undoes that trade by attacking its premise.

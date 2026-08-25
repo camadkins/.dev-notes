@@ -8,9 +8,7 @@ tags:
   - resources
 date: 2026-07-24
 updated: 2026-07-26
-aliases:
-  - Resources
-  - The Shelf
+aliases: []
 ---
 
 The reading list behind the garden. Everything here is free, open-source, or openly accessible: canonical texts, university courses, peer-reviewed papers, and open-source implementations.

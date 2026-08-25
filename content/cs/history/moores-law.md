@@ -8,8 +8,7 @@ tags:
   - history
 date: 2026-01-01
 updated:
-aliases:
-  - Moore's law
+aliases: []
 ---
 
 In 1965 Gordon Moore noticed a pattern in how fast chips were improving and wrote it down. His observation became the organizing forecast of an entire industry, the reason performance growth was assumed, planned around, and ultimately delivered for half a century.

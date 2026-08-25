@@ -8,9 +8,7 @@ tags:
   - forensics
 date: 2026-07-27
 updated:
-aliases:
-  - Forensic Report Writing
-  - Examiner Notes
+aliases: []
 ---
 
 Most technical writing assumes a cooperative reader. A design document persuades colleagues, [[cs/software-engineering/incident-postmortems-and-blameless-culture|a postmortem]] informs a team that wants the system fixed, a paper addresses reviewers who share the author's vocabulary. A forensic report assumes the opposite: at least one reader is looking for the sentence that overstates the evidence, and that reader will have access to the same artifacts.

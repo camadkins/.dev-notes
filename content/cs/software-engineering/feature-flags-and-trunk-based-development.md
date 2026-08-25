@@ -6,13 +6,9 @@ comments: true
 tags:
   - cs
   - software-engineering
-  - version-control
 date: 2026-05-08
 updated:
-aliases:
-  - Feature Flags
-  - Feature Toggles
-  - Trunk-Based Development
+aliases: []
 ---
 
 Two practices that are usually taught separately are actually one practice with a conditional in the middle. Trunk-based development wants every developer integrating to a shared branch constantly, which means half-finished work lands in the branch you deploy from. Feature flags are what make that survivable: they are "a powerful technique, allowing teams to modify system behavior without changing code," and the specific category built for this job, the release toggle, exists to "allow incomplete and un-tested codepaths to be shipped to production as latent code which may never be turned on."

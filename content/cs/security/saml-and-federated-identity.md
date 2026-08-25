@@ -11,8 +11,6 @@ date: 2026-02-17
 updated:
 aliases:
   - SAML
-  - Security Assertion Markup Language
-  - Federated Identity
 ---
 
 An enterprise runs a payroll app, a benefits portal, an expense tool, and a wiki, each from a different vendor. Nobody wants four passwords, and IT does not want four copies of the employee directory [[cs/systems/consistency-models|drifting out of sync]]. The fix is to let one system do the authenticating and let the others believe it. [[cs/standards/what-a-standard-actually-is|SAML is the standard]] that makes "believe it" precise enough to be safe.

@@ -8,11 +8,7 @@ tags:
   - software-engineering
 date: 2026-04-30
 updated:
-aliases:
-  - Postmortem
-  - Blameless Postmortem
-  - Postmortem Culture
-  - Learning from Failure
+aliases: []
 ---
 
 A postmortem is "a written record of an incident, its impact, [[cs/security/incident-response-lifecycle|the actions taken to mitigate or resolve it]], the root cause(s), and the follow-up actions to prevent the incident from recurring." The argument for writing one is stated as a recurrence argument rather than a documentation argument. Incidents are inevitable at scale, and "unless we have some formalized process of learning from these incidents in place, they may recur ad infinitum."

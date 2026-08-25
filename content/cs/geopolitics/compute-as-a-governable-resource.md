@@ -8,9 +8,7 @@ tags:
   - geopolitics
 date: 2026-06-28
 updated:
-aliases:
-  - compute governance
-  - FLOP threshold
+aliases: []
 ---
 
 A government that wants to govern artificial intelligence has to grab onto something it can actually see and count. The model's weights are a file that copies in seconds. The training data is scattered across the open web and private archives, diffuse and hard to define. But the third ingredient, the raw computation that turns data into a model, is different. A frontier training run needs a large, power-hungry cluster of advanced chips running for weeks, drawing megawatts, sitting in a building someone owns. That physical, expensive, hard-to-hide quality is why compute has become the lever regulators reach for first.

@@ -8,8 +8,7 @@ tags:
   - military
 date: 2026-01-22
 updated:
-aliases:
-  - Margaret Hamilton
+aliases: []
 ---
 
 The software that guided Apollo to the lunar surface had to work the first time it mattered, with astronauts' lives depending on it, running on a computer small enough to fail under load. Margaret Hamilton led the team that wrote it, and she argued, against the assumptions of the day, that producing software like this was an engineering discipline that deserved the name.

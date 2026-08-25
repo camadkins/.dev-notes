@@ -8,9 +8,7 @@ tags:
   - networking
 date: 2026-02-18
 updated:
-aliases:
-  - OSI model
-  - TCP/IP model
+aliases: []
 ---
 
 Two machines can only talk if they agree on the rules at every level, from [[cs/systems/physical-layer-of-the-internet|the voltage on the wire]] to the meaning of a web request. Rather than write one giant rulebook, network designers split the rules into layers, where each layer solves one problem and treats the layer below it as a service it does not have to understand. Two layering schemes get taught side by side. One is a formal reference model that names seven layers. The other is the four-layer family of protocols that carries real traffic.

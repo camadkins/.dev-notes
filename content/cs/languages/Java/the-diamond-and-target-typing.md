@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-08-04
 updated:
-aliases:
-  - Java Diamond Operator
-  - Target Type
+aliases: []
 ---
 
 `Map<String, List<String>> myMap = new HashMap<String, List<String>>();` writes the same type twice. The second one carries no information the first did not already fix. The diamond operator deletes it.

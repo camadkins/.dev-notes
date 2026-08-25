@@ -8,9 +8,7 @@ tags:
   - law
 date: 2026-07-02
 updated:
-aliases:
-  - Van Buren v. United States
-  - Gates Up or Down
+aliases: []
 ---
 
 A police sergeant in Georgia ran a license plate through a law enforcement database in exchange for cash. He was allowed to use the database. He was not allowed to use it for that. Every fact was undisputed, which made the case a clean instrument for a question the federal courts had been fighting over since 2001: when a person with legitimate access to a system uses it for an illegitimate purpose, has that person committed a federal crime?

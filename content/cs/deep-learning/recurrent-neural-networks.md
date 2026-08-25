@@ -11,7 +11,6 @@ aliases:
   - RNN
   - LSTM
   - GRU
-  - vanishing gradient problem
 ---
 
 A feedforward network eats a fixed-size input and is done. Text, audio, video, and biological sequences do not come in fixed sizes, and the meaning of step ten usually depends on steps one through nine. A recurrent neural network handles this with one structural trick: connections that point backward. The cell receives the current input plus its own output from the previous step, so it carries a running summary of everything it has seen.

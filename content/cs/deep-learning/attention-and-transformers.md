@@ -8,10 +8,7 @@ tags:
   - deep-learning
 date: 2026-07-23
 updated:
-aliases:
-  - Transformers
-  - Self-Attention
-  - Attention Mechanism
+aliases: []
 ---
 
 [[cs/deep-learning/recurrent-neural-networks|Recurrent networks]] read a sequence one step at a time, threading everything through a single hidden state. That design has two problems: it [[cs/military-computing/illiac-iv-and-parallel-processing|cannot be parallelized]] (step $t$ needs step $t-1$), and distant words interact only weakly, through a long chain of state updates that tends to forget. The Transformer, introduced in 2017, threw out recurrence altogether and replaced it with attention, letting every position in a sequence look directly at every other position, all at once. It is the architecture behind essentially every [[cs/ethics/could-an-llm-be-conscious|large language model]], and it is hackathon 6's destination after the LSTM.

@@ -9,9 +9,7 @@ tags:
   - concurrency
 date: 2026-04-18
 updated:
-aliases:
-  - Coffman Conditions
-  - Deadlock Handling
+aliases: []
 ---
 
 Two threads, two locks, acquired in the opposite order: thread A holds lock 1 and wants lock 2, thread B holds lock 2 and wants lock 1. Neither will ever let go, so neither will ever proceed. That is a deadlock, and the reason it deserves its own note rather than a footnote in [[cs/systems/concurrency-primitives|concurrency primitives]] is that the interesting content is not the failure itself but the surprisingly small, closed list of conditions that make it possible, and the four fundamentally different postures an operating system can take toward it.

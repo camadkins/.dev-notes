@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-08-09
 updated:
-aliases:
-  - RTTI Across Languages
-  - What Survives to Runtime
+aliases: []
 ---
 
 Ask a running program what type a value is. Six languages in this section give six different answers, ranging from a full constructed generic type with its arguments intact to nothing whatsoever, and the difference is not a detail of introspection APIs. It decides how serialization libraries are written, whether dependency injection is possible without code generation, and what a plugin system can look like.

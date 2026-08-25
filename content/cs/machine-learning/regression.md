@@ -6,12 +6,9 @@ comments: true
 tags:
   - cs
   - machine-learning
-  - regression
 date: 2026-07-23
 updated:
-aliases:
-  - Linear Regression
-  - Softmax Regression
+aliases: []
 ---
 
 Regression is where the machine-learning model zoo starts, and it is worth more attention than its simplicity suggests, because the three models in this note are the same model wearing three hats, and the last of them is the output layer of every neural-network classifier. Master the progression here and a large part of [[cs/deep-learning/artificial-neural-networks|deep learning]] reads as review. The [[cs/machine-learning/generalization-vs-memorization|generalization]] problem, the [[cs/machine-learning/loss-functions|loss]] that measures error, and the [[cs/machine-learning/gradient-descent|gradient descent]] that minimizes it are all assumed here; this note is about the models those tools are applied to.

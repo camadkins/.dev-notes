@@ -9,9 +9,7 @@ tags:
   - compilers
 date: 2026-06-24
 updated:
-aliases:
-  - Rust Code Bloat
-  - Monomorphization Cost
+aliases: []
 ---
 
 Assembly has no type parameters. Whatever a language does with generics, the machine eventually executes instructions that operate on a fixed layout at a fixed width, so every generic system has to decide when the parameter is discharged. Rust discharges it at compile time, in full, for every combination that the program actually uses. The compiler development guide states the choice plainly: Rust monomorphizes all generic types, meaning the compiler stamps out a different copy of the code of a generic function for each concrete type needed. Use a `Vec<u64>` and a `Vec<String>` and the generated binary contains two copies of the generated code for `Vec`.

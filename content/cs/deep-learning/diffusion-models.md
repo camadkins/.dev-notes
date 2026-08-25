@@ -9,7 +9,6 @@ tags:
 date: 2026-07-13
 aliases:
   - diffusion-model
-  - ddpm
   - denoising-diffusion
   - stable-diffusion
 ---

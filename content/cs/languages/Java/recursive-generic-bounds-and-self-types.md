@@ -9,10 +9,7 @@ tags:
   - type-theory
 date: 2026-07-29
 updated:
-aliases:
-  - F-Bounded Quantification in Java
-  - Curiously Recurring Generic Pattern
-  - Java Self Types
+aliases: []
 ---
 
 The first time you write a generic method that has to compare two things, the bound writes itself into a small circle. You need `T` to be comparable, so you bound it by `Comparable`. Then the compiler asks what `Comparable` is parameterized on, and the only sensible answer is `T`, the thing you were in the middle of declaring. The declaration turns back on itself and you get `<T extends Comparable<T>>`.

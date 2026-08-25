@@ -8,8 +8,7 @@ tags:
   - networking
 date: 2026-07-18
 updated:
-aliases:
-  - Networking
+aliases: []
 ---
 
 Networking is the study of getting bytes from one machine to another across equipment nobody controls end to end. The layered model is the organizing idea, so these notes are grouped roughly bottom-up. Read the model note first if you want the map before the territory.

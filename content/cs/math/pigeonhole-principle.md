@@ -6,11 +6,9 @@ comments: true
 tags:
   - cs
   - math
-  - discrete-math
 date: 2026-07-11
 updated:
-aliases:
-  - pigeonhole
+aliases: []
 ---
 
 ## Obvious, Then Not

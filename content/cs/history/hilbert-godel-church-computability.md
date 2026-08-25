@@ -8,9 +8,7 @@ tags:
   - history
 date: 2026-04-19
 updated:
-aliases:
-  - Entscheidungsproblem
-  - limits of computation
+aliases: []
 ---
 
 Before anyone built a computer, mathematicians worked out what computation could never do. The chain of results running from Hilbert to Gödel to Church and Turing defined the very idea of the computable, and it did so by first answering a question nobody had asked precisely: what is an algorithm?

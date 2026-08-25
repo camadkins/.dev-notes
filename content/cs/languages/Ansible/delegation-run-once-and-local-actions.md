@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-06-13
 updated:
-aliases:
-  - delegate_to
-  - local_action
+aliases: []
 ---
 
 "By default, Ansible gathers facts and executes all tasks on the machines that match the hosts line of your playbook." Delegation is the exception, and the motivating case in the documentation is the one everybody meets first: updating webservers requires removing each from a [[cs/networking/load-balancing-l4-and-l7|load-balanced pool]], and "you cannot perform this task on the webservers themselves. By delegating the task to localhost, you keep all the tasks within the same play."

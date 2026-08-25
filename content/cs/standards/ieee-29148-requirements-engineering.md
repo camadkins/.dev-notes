@@ -8,10 +8,7 @@ tags:
   - standards
 date: 2026-07-21
 updated:
-aliases:
-  - ISO 29148
-  - IEEE 29148
-  - Requirements Engineering Standard
+aliases: []
 ---
 
 For twenty-seven years the answer to "how do I write requirements" was a document template. IEEE 830 gave you an outline: purpose, overall description, external interfaces, performance, design constraints, and so on down the tree. Fill the sections, ship the specification. The standard that replaced it kept a template but moved the center of gravity somewhere else entirely, and the move is the interesting part.

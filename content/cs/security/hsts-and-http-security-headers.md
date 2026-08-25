@@ -10,10 +10,7 @@ tags:
 date: 2026-06-24
 updated:
 aliases:
-  - HSTS and HTTP Security Headers
   - HSTS
-  - HTTP Strict Transport Security
-  - Strict-Transport-Security
 ---
 
 TLS can encrypt a connection, but it cannot make a browser *choose* to use it. A user who types `example.com` sends a plaintext HTTP request first, and a bank that serves HTTPS still leaves that opening request naked on the wire. Worse, when a certificate warning appears, browsers historically let the user click through it, which as RFC 6797 notes turns a security control into "click-through insecurity." HTTP Strict Transport Security is the response to both gaps, and it works by handing enforcement authority to the browser instead of the human.

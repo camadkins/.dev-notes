@@ -10,9 +10,7 @@ tags:
 date: 2026-05-21
 updated:
 aliases:
-  - Certificate Transparency
   - CT
-  - CT logs
 ---
 
 The web's trust model has a single-point-of-failure baked in: any [[cs/security/pki-and-x509-certificates|certificate authority]] your browser trusts can issue a valid certificate for *any* domain, including yours, and you would never know. A compromised or coerced CA that issues `google.com` to an attacker produces a certificate that every browser accepts. Before Certificate Transparency, the domain owner had no way to even find out. CT does not remove the CA's power to mis-issue. It removes their ability to do it in secret.

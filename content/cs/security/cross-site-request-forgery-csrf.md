@@ -12,7 +12,6 @@ updated:
 aliases:
   - CSRF
   - XSRF
-  - cross-site request forgery
 ---
 
 CSRF exploits something the browser does to be helpful. When your bank sets a session cookie, the browser attaches it to every subsequent request to the bank, automatically, no matter which site caused the request. That convenience is the vulnerability. A page on an attacker's domain can cause your browser to fire a request at your bank, and the browser will dutifully include your cookie, so the request arrives fully authenticated as you. The attacker never touched your credentials. They borrowed your browser's habit of presenting them.

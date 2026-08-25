@@ -8,10 +8,7 @@ tags:
   - history
 date: 2026-05-15
 updated:
-aliases:
-  - Analytical Engine
-  - Ada Lovelace
-  - Note G
+aliases: []
 ---
 
 A full century before electronic computers, Charles Babbage designed a general-purpose programmable machine, and Ada Lovelace wrote the first program for it. Neither was ever built in their lifetimes, but the ideas were exactly right.

@@ -9,10 +9,7 @@ tags:
   - distributed-systems
 date: 2026-01-22
 updated:
-aliases:
-  - Lamport Timestamp
-  - Vector Clock
-  - Happens-Before
+aliases: []
 ---
 
 You cannot trust the [[cs/military-computing/gps-and-distributed-time|wall clocks]]. Two machines' quartz oscillators drift, [[cs/military-computing/ntp-distributed-clock-synchronization|NTP]] corrects them in jumps, and the moment you try to order two events by comparing timestamps across nodes you are building on sand. Leslie Lamport's insight in 1978 was that most of the time you do not need real time at all. You need to know which events *could have caused* which others, and that is a purely combinatorial fact about who sent messages to whom.

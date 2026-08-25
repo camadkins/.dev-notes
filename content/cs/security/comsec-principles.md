@@ -11,7 +11,6 @@ date: 2026-07-11
 updated:
 aliases:
   - COMSEC
-  - communications security
   - TRANSEC
   - EMSEC
 ---

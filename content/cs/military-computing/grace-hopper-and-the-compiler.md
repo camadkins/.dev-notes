@@ -9,8 +9,6 @@ tags:
 date: 2026-02-25
 updated:
 aliases:
-  - Grace Hopper
-  - A-0 System
   - FLOW-MATIC
 ---
 

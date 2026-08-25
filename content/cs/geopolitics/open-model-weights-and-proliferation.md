@@ -8,10 +8,7 @@ tags:
   - geopolitics
 date: 2026-06-28
 updated:
-aliases:
-  - open weights
-  - open-weight models
-  - model proliferation
+aliases: []
 ---
 
 A trained AI model is, in the end, a file. The weeks of computation and the mountains of data all collapse into one artifact: a large blob of numbers, the learned parameters, that you can copy with the same command you would use on a photo. That physical fact governs everything downstream. A file can be served behind an API, where you query it but never hold it, or it can be handed to you to download and run on your own machine. The moment a capable model is released in that second form, it stops being something anyone controls. It is mirrored, re-uploaded, and [[cs/deep-learning/transfer-learning|fine-tuned in countless places]] within days, and there is no command that pulls it back.

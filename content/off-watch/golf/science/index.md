@@ -6,11 +6,9 @@ comments: false
 tags:
   - off-watch
   - golf
-  - science
 date: 2026-06-28
 updated: 2026-06-28
-aliases:
-  - Science of Golf
+aliases: []
 ---
 
 Golf looks like feel and luck. Underneath it is physics you can measure: a ball with a fixed mass and a dimpled surface, a club delivering energy at a known speed and angle, and a body trying to repeat a motion. The more of that you understand, the less the game feels like superstition.

@@ -6,7 +6,6 @@ comments: true
 tags:
   - cs
   - math
-  - linear-algebra
 date: 2026-04-02
 updated:
 aliases:

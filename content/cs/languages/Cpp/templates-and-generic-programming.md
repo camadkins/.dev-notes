@@ -9,10 +9,7 @@ tags:
   - type-theory
 date: 2026-01-22
 updated:
-aliases:
-  - C++ Templates
-  - Concepts
-  - Generic Programming in C++
+aliases: []
 ---
 
 `std::vector<int>` and `std::vector<std::string>` are unrelated types that share no code at runtime and no source text at compile time other than the one definition they were both stamped from. That stamping is what a template is. The syntax looks like a generic type in the sense a Java or C# programmer means, and the compilation model underneath is closer to a [[cs/pl/macros-and-metaprogramming|macro expander]] with a type-aware front end.

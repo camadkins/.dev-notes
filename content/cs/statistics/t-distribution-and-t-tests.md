@@ -9,9 +9,7 @@ tags:
 date: 2026-06-14
 updated:
 aliases:
-  - Student's t-distribution
   - t-test
-  - Degrees of Freedom
 ---
 
 The [[cs/statistics/normal-distribution|normal]] machinery for testing a mean assumes you know $\sigma$. You almost never do. Substituting the sample standard deviation $s$ introduces a second source of randomness into the test statistic, and the resulting distribution is fatter in the tails than a normal. Student's $t$ is the exact accounting of that extra uncertainty.

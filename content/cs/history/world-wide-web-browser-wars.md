@@ -8,9 +8,7 @@ tags:
   - history
 date: 2026-03-29
 updated:
-aliases:
-  - browser wars
-  - rendering engine
+aliases: []
 ---
 
 Once the [[cs/history/world-wide-web|Web]] existed, the program you viewed it with became strategically valuable, and two companies fought over it. The browser wars of the 1990s turned the browser from a simple document viewer into a programmable platform, the runtime that an enormous share of software now targets.

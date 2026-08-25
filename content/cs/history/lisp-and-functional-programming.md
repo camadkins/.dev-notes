@@ -8,9 +8,7 @@ tags:
   - history
 date: 2026-01-03
 updated:
-aliases:
-  - Lisp
-  - functional programming
+aliases: []
 ---
 
 A year after [[cs/history/fortran-and-high-level-languages|Fortran]], John McCarthy designed a language built on entirely different instincts. Lisp treated computation as [[cs/languages/Racket/s-expressions-and-evaluation|the evaluation of expressions over lists]], and from that one idea came a remarkable number of concepts the rest of the field would take decades to adopt.

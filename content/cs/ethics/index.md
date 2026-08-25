@@ -6,8 +6,6 @@ comments: false
 tags:
   - cs
   - ethics
-  - philosophy
-  - ai
 date: 2026-06-29
 updated:
 aliases: []

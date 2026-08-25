@@ -8,9 +8,7 @@ tags:
   - military
 date: 2026-04-25
 updated:
-aliases:
-  - GPS control segment
-  - GPS ground segment
+aliases: []
 ---
 
 A GPS receiver works by trusting two things about every satellite it hears: that the satellite knows exactly where it is, and that its clock is exactly right. Neither is true on its own. Orbits drift under the tug of the moon and the sun, and [[cs/standards/ieee-1588-precision-time-protocol|atomic clocks]], for all their precision, wander. Position fixes good to a few meters depend on someone keeping those satellites honest, and that someone is on the ground. The part of GPS that does it is the control segment, and seen as a system it is a closed feedback loop wrapped around the planet.

@@ -10,7 +10,6 @@ date: 2026-02-19
 updated:
 aliases:
   - TCSEC
-  - Orange Book
 ---
 
 Claiming a system is secure is easy. Saying how secure, and backing it up, is the hard part. The Trusted Computer System Evaluation Criteria, known by the color of its cover as the Orange Book, was the United States government's attempt to replace the vague claim with a graded scale that a system could actually be measured against.

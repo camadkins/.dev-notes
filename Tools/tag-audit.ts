@@ -53,14 +53,27 @@ const SECTION_FOR = (relDir: string): string | null => {
 };
 
 const ALLOWLIST = new Set([
-  "ai", "security", "networking", "cryptography", "concurrency", "distributed-systems",
-  "operating-systems", "compilers", "type-theory", "formal-methods", "optimization",
-  "interpretability", "reinforcement-learning", "supervised-learning", "unsupervised-learning",
-  "generative-models", "computer-architecture", "memory", "serialization", "error-handling",
-  "build-systems", "testing", "version-control", "web", "databases", "algorithms",
-  "data-structures", "complexity", "discrete-math", "linear-algebra", "probability", "training",
-  // blessed from existing curation (cross-cutting or sub-section organizers)
-  "philosophy", "regression", "science", "courses",
+  "algorithms",
+  "build-systems",
+  "compilers",
+  "computer-architecture",
+  "concurrency",
+  "cryptography",
+  "data-structures",
+  "databases",
+  "distributed-systems",
+  "error-handling",
+  "formal-methods",
+  "golf",
+  "languages",
+  "memory",
+  "operating-systems",
+  "optimization",
+  "serialization",
+  "testing",
+  "type-theory",
+  "unsupervised-learning",
+  "web",
 ]);
 
 // non-canonical -> canonical (or "" to drop as section-internal / noise)

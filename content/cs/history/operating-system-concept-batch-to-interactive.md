@@ -9,9 +9,7 @@ tags:
 date: 2026-03-02
 updated:
 aliases:
-  - operating system
   - time-sharing
-  - batch processing
 ---
 
 Early computers ran one job at a time, fed in as a batch and collected later. The operating system grew out of the need to manage the machine automatically, and time-sharing turned it from a batch clerk into the interactive systems we use now.

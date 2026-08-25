@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-02-17
 updated:
-aliases:
-  - Racket S-Expressions
-  - The Racket Reader
+aliases: []
 ---
 
 `(+ 1 2)` looks like a function call, and it is one. It is also a three-element list whose first element is a symbol. Both descriptions are true at once, and the reason they are both true is that Racket parses source text in two passes that most languages fuse into one.

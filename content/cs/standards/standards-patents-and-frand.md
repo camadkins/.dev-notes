@@ -10,8 +10,6 @@ date: 2026-08-04
 updated:
 aliases:
   - FRAND
-  - Standard-Essential Patent
-  - Letters of Assurance
 ---
 
 A patent is a right to stop other people from doing something. A standard is a document telling everyone in an industry to do exactly one specific thing. Put those two instruments in the same room and the second one manufactures monopolies out of the first, because the moment a technique is written into a standard, everyone who wants to interoperate must practise it, whether or not somebody owns it.

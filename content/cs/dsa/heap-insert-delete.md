@@ -1,5 +1,5 @@
 ---
-title: Binary Heap - Insert & Delete
+title: Binary Heap Operations
 description: Maintain the heap-order and shape properties via sift-up (insert) and sift-down (delete/extract); includes edge cases, duplicates, and key-update variants.
 draft: false
 comments: true

@@ -9,9 +9,7 @@ tags:
   - web
 date: 2026-03-11
 updated:
-aliases:
-  - OWASP Top 10
-  - OWASP Top Ten
+aliases: []
 ---
 
 Read as a checklist, the OWASP Top 10 is a disappointment: ten items is nowhere near enough to secure a web application, and any team that treats "we handled all ten" as done has misunderstood the document. It works far better read the other way, as a map. Each entry marks a place where the same failure keeps reappearing across thousands of unrelated codebases, which tells you where to spend attention before you have found a single bug of your own.

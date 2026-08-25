@@ -8,10 +8,7 @@ tags:
   - military
 date: 2026-03-05
 updated:
-aliases:
-  - error-correcting codes
-  - Hamming code
-  - Reed-Solomon
+aliases: []
 ---
 
 Every real communication channel corrupts some of what crosses it. A bit flips on a long radio link, a scratch crosses a disk, cosmic noise garbles a signal from deep space. Error-correcting codes let the receiver do more than notice the damage. They let it repair the damage, reconstructing the original message from a corrupted copy, with no second transmission. The need to communicate reliably over hostile and distant channels is what drove their invention.

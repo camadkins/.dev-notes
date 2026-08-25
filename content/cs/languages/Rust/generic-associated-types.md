@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-07-14
 updated:
-aliases:
-  - GATs
-  - Lending Iterator
+aliases: []
 ---
 
 An ordinary associated type is a single type chosen by the implementor. `Vec<T>` iterates and its `Item` is `T`, fixed for that implementation, and nothing about the caller can change it. That is exactly the property that makes `Iterator` pleasant, and it is also a ceiling. Some types want to hand out something whose type depends on how long the caller intends to hold it, and a fixed answer cannot express that.

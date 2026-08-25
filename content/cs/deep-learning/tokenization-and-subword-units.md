@@ -8,11 +8,7 @@ tags:
   - deep-learning
 date: 2026-05-27
 aliases:
-  - tokenization
   - BPE
-  - byte pair encoding
-  - WordPiece
-  - subword units
 ---
 
 A neural network consumes numbers. Text is [[cs/dsa/strings|a string]]. Something has to sit between them, chopping the string into units and mapping each unit to an index in a fixed vocabulary, and the design of that chopping step quietly constrains everything the model can do. The tokenizer decides what the model is even able to see.

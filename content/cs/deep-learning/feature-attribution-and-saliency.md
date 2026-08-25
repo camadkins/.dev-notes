@@ -6,14 +6,9 @@ comments: true
 tags:
   - cs
   - deep-learning
-  - interpretability
 date: 2026-07-23
 updated:
-aliases:
-  - Saliency Maps
-  - Integrated Gradients
-  - Feature Attribution
-  - Interpretability
+aliases: []
 ---
 
 A trained network predicts, but it does not explain. For a model deciding whether an image contains a tumor, or whether a signal is a threat, "the network says yes" is not enough; [[cs/ethics/the-responsibility-gap|you need to know why]], both to trust it and to catch it deciding for the wrong reason. Feature attribution is the interpretability tool that answers "which parts of the input drove this prediction," and for images the answer is a heatmap over the pixels. This is hackathon 9's subject, and it is the one interpretability pillar the garden did not yet have. It matters most exactly where models are used to make consequential, [[cs/law/gdpr-as-it-reaches-us-engineers|auditable decisions]].

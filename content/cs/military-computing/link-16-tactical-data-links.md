@@ -9,7 +9,6 @@ tags:
 date: 2026-05-23
 updated:
 aliases:
-  - Link 16
   - JTIDS
   - MIDS
 ---

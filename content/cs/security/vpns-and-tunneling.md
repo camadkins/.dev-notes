@@ -11,10 +11,6 @@ date: 2026-06-14
 updated:
 aliases:
   - VPN
-  - virtual private network
-  - tunneling
-  - WireGuard
-  - IPsec
 ---
 
 A tunnel is a simple trick with a large payoff: wrap each packet of a private conversation [[cs/networking/osi-and-tcp-ip-models|inside another packet]], encrypt the wrapper, and send it across a network you do not trust. To the untrusted network in between, you are shipping opaque blobs to one endpoint. To the two endpoints, once they unwrap and decrypt, it is as if a private wire ran directly between them. That is a VPN, and the interesting engineering question is not *that* it encrypts but *how it decides* which packets belong to which peer.

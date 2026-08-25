@@ -8,11 +8,7 @@ tags:
   - cisco
 date: 2026-07-08
 updated:
-aliases:
-  - ASA high availability
-  - active/standby failover
-  - active/active failover
-  - state link
+aliases: []
 ---
 
 A firewall pair is [[cs/systems/distributed-consensus|a distributed system]] with two nodes, a private control channel, and a hard requirement that exactly one of them own each IP address at any moment. Everything unpleasant about ASA failover follows from that framing: partition the control channel and you get a [[cs/systems/cap-theorem|split brain]], replicate the wrong state and connections drop on cutover.

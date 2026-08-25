@@ -9,7 +9,6 @@ tags:
 date: 2026-08-11
 updated:
 aliases:
-  - NetFlow Forensics
   - IPFIX
 ---
 

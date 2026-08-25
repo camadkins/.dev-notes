@@ -9,8 +9,6 @@ tags:
 date: 2026-07-22
 updated:
 aliases:
-  - C ABI
-  - Foreign Function Interface
   - FFI
 ---
 

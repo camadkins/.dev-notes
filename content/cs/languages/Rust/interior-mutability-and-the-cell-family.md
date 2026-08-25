@@ -9,9 +9,7 @@ tags:
   - memory
 date: 2026-07-02
 updated:
-aliases:
-  - UnsafeCell
-  - Cell vs RefCell
+aliases: []
 ---
 
 Rust's memory model rests on a rule with two branches. Given an object, you may have several shared references to it, or one exclusive reference to it, and never both at once. The compiler enforces the split, and enforcing it is what buys the language its aliasing guarantees. There are situations where the rule is not flexible enough, because sometimes it is required to have multiple references to an object and yet mutate it. The standard library's answer is a family of shareable mutable containers that exist to permit mutability in a controlled manner, even in the presence of aliasing.

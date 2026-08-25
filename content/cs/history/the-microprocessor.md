@@ -8,9 +8,7 @@ tags:
   - history
 date: 2026-02-08
 updated:
-aliases:
-  - microprocessor
-  - Intel 4004
+aliases: []
 ---
 
 By 1971 you could put many components on a chip. Intel's question was whether you could put a whole central processing unit on one. The answer, the Intel 4004, turned the computer from a cabinet of boards into a commodity part cheap enough to embed in almost anything.

@@ -10,10 +10,8 @@ tags:
 date: 2026-03-28
 updated:
 aliases:
-  - Certificate Revocation
   - CRL
   - OCSP
-  - Certificate Revocation List
 ---
 
 A [[cs/security/pki-and-x509-certificates|certificate]] carries an expiry date, and "when a certificate is issued, it is expected to be in use for its entire validity period." But keys leak. If a private key is compromised in month one of a two-year certificate, the certificate is still cryptographically valid for the remaining twenty-three months. Revocation is the only recourse: a way to say "ignore this certificate, it is dead" before its own clock runs out. The two standard mechanisms make opposite tradeoffs, and neither is clean.

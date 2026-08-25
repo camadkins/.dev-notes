@@ -9,10 +9,7 @@ tags:
 permalink: /books/
 date: 2026-06-28
 updated: 2026-06-28
-aliases:
-  - Books
-  - The Ship's Library
-  - Reading
+aliases: []
 ---
 
 Every boat has a small library, and you read more on patrol than you ever expect to. This is the log of what I have read and what it was worth: the take, the one lesson that stuck, and where it connects to everything else here.

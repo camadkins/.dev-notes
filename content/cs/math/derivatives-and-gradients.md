@@ -10,9 +10,7 @@ tags:
 date: 2026-06-15
 updated:
 aliases:
-  - gradient
   - partial-derivative
-  - derivative
 ---
 
 ## Slope, Made Precise

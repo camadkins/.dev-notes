@@ -9,9 +9,7 @@ tags:
   - concurrency
 date: 2026-05-27
 updated:
-aliases:
-  - Synchronization Primitives
-  - Mutex Semaphore Condition Variable Spinlock
+aliases: []
 ---
 
 Two threads sharing memory is the source of the worst class of bugs in systems code: [[cs/security/race-conditions-and-toctou|races]] that appear once a week under load and never in a debugger. Synchronization primitives are the small, sharp tools that make shared state safe. There are only a handful of them, and the mistake beginners make is treating them as interchangeable. They are not. Each answers a different question.

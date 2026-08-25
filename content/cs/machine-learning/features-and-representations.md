@@ -7,11 +7,7 @@ tags:
   - cs
   - machine-learning
 date: 2026-07-13
-aliases:
-  - features
-  - representations
-  - feature engineering
-  - representation learning
+aliases: []
 ---
 
 A learning algorithm never sees the world. It sees numbers you chose to describe the world, and those numbers decide most of the outcome. Two teams with the same algorithm and the same data can get very different results because one described the inputs well and the other did not. The description is called the feature representation, and understanding it is the difference between blaming your model and fixing your inputs.

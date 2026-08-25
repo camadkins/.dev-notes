@@ -6,8 +6,7 @@ comments: false
 tags:
   - cs
 permalink: /cs/
-aliases:
-  - Computer Science
+aliases: []
 date: 2025-10-16
 updated: 2026-07-26
 ---

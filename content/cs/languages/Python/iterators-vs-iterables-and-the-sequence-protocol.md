@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-07-08
 updated:
-aliases:
-  - The Sequence Protocol
-  - "__getitem__ iteration fallback"
+aliases: []
 ---
 
 Python supports a concept of iteration over containers, and this is implemented using two distinct methods. That sentence from the standard types documentation is doing more work than it looks. Two methods, not one, and they belong to two different objects playing two different roles.

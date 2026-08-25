@@ -9,7 +9,6 @@ tags:
 date: 2026-04-30
 updated:
 aliases:
-  - Apollo Guidance Computer
   - AGC
 ---
 

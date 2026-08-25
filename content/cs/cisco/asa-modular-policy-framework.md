@@ -10,7 +10,6 @@ date: 2026-02-17
 updated:
 aliases:
   - MPF
-  - service policy
   - class-map
   - policy-map
 ---

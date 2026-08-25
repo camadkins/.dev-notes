@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-08-05
 updated:
-aliases:
-  - Go Iterators
-  - iter.Seq
+aliases: []
 ---
 
 Before Go 1.23, every container package invented its own way to loop. The standard library alone offers `sync.Map.Range`, `flag.Visit`, and `filepath.Walk`, and the announcement is candid that "none of those three examples work quite the same way." The consequence was worse than inconsistency: "when you start using a new Go container package you may have to learn a new looping mechanism," and no adapter could be written that worked across containers.

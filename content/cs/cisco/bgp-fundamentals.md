@@ -9,9 +9,6 @@ tags:
 date: 2026-06-09
 updated:
 aliases:
-  - BGP on IOS
-  - AS path
-  - eBGP vs iBGP
   - next-hop-self
 ---
 

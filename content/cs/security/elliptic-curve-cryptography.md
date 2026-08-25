@@ -11,9 +11,7 @@ date: 2026-02-23
 updated:
 aliases:
   - ECC
-  - elliptic curve cryptography
   - ECDH
-  - Curve25519
 ---
 
 Public-key cryptography always trades key size for security. Push the security level up and the key gets bigger. What makes elliptic curves interesting is not that they are faster or cleverer, but that they buy the same security at a fraction of the key size, and the reason lives in the hard problem underneath, not in the code.

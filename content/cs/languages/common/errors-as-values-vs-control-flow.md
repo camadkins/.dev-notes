@@ -9,10 +9,7 @@ tags:
   - error-handling
 date: 2026-07-22
 updated:
-aliases:
-  - Error Handling in Practice
-  - Errors as Values
-  - Result vs Exceptions
+aliases: []
 ---
 
 Something will go wrong: a file will be missing, a network call will time out, a parse will fail. How a language lets you express that is one of its most opinionated choices, because it shapes every function signature and every call site. There are two broad answers. Either an error is a value the function returns, sitting in the type alongside the success case so the caller cannot ignore it, or an error is a control-flow event that unwinds the stack to a handler somewhere above. The theory of the second, stack unwinding and non-local control, lives in [[cs/pl/exceptions-handlers-and-non-local-control|exceptions and non-local control]]. This note is about the practical fork: which philosophy each language chose, and what it costs.

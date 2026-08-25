@@ -9,7 +9,6 @@ tags:
 date: 2026-01-28
 updated:
 aliases:
-  - Minuteman guidance computer
   - D-17B
 ---
 

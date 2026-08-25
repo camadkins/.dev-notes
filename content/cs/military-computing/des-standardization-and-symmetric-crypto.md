@@ -10,7 +10,6 @@ date: 2026-01-17
 updated:
 aliases:
   - DES
-  - Data Encryption Standard
 ---
 
 By the early 1970s, banks, agencies, and companies all needed to encrypt data, and they needed to do it the same way [[cs/standards/conformance-testing-and-plugfests|so their systems could talk]]. That called for a single standard cipher that anyone could use and everyone could trust. The Data Encryption Standard became that cipher, and the argument over it is the first time the public had to ask whether it could trust cryptography that the government helped design.

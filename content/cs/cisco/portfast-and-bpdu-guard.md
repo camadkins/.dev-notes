@@ -8,11 +8,7 @@ tags:
   - cisco
 date: 2026-03-21
 updated:
-aliases:
-  - spanning-tree portfast
-  - spanning-tree bpduguard enable
-  - errdisable recovery cause bpduguard
-  - edge port
+aliases: []
 ---
 
 Somebody reboots a workstation and it comes up with no address. The switch port is up. The cable is fine. [[cs/networking/dhcp-and-address-assignment|DHCP]] works everywhere else. What happened is that the port spent half a minute in [[cs/cisco/spanning-tree-protocol|spanning tree]] states that discard frames while the client's DHCP attempts expired into nothing.

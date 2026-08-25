@@ -1,5 +1,5 @@
 ---
-title: Traversal - Postorder
+title: Postorder Traversal
 description: Left–Right–Root visit order for trees; ideal for delete/free, structural evaluation, and bottom-up dynamic programming.
 draft: false
 comments: true

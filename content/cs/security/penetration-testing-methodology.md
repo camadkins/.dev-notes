@@ -8,10 +8,7 @@ tags:
   - security
 date: 2026-04-22
 updated:
-aliases:
-  - penetration testing
-  - pentest
-  - pen test
+aliases: []
 ---
 
 The word "hacking" suggests improvisation, but a professional penetration test is closer to the opposite. It is a phased, authorized, documented process whose value comes precisely from being repeatable, because a repeatable process produces a measurement you can compare across time and systems rather than a one-off war story. NIST's Technical Guide to Information Security Testing ([[cs/standards/what-a-standard-actually-is|SP 800-115]]) and the broader practice both organize that process into an ordered set of phases with one deliberate loop inside it.

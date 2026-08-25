@@ -8,11 +8,7 @@ tags:
   - networking
 date: 2026-06-14
 updated:
-aliases:
-  - proxy server
-  - forward proxy
-  - reverse proxy
-  - TLS termination proxy
+aliases: []
 ---
 
 A proxy is a middleman for requests: instead of a client connecting straight to a server, it hands the request to a proxy that carries it out on the client's behalf. That much is simple. What confuses people is that the same idea, an intermediary that relays requests, points in two opposite directions depending on whose side it is on. One kind stands in front of the clients and shields them. The other stands in front of the servers and shields them. Knowing which is which comes down to a single question: which end does it hide?

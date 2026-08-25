@@ -9,8 +9,6 @@ tags:
 date: 2026-07-08
 updated:
 aliases:
-  - limit
-  - continuity
   - epsilon-delta
 ---
 

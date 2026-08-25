@@ -8,9 +8,7 @@ tags:
   - deep-learning
 date: 2026-07-13
 aliases:
-  - autoencoder
   - variational-autoencoder
-  - vae
   - latent-space
 ---
 

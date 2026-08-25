@@ -10,8 +10,6 @@ date: 2026-06-27
 updated:
 aliases:
   - 802.1Q
-  - Dot1q Standard
-  - QinQ
 ---
 
 Most people meet 802.1Q as a four-byte tag and stop there. The document is considerably stranger than that. It is now the bridging standard for the whole family, having absorbed the standard that used to hold that title, and the tag itself is the smallest thing in it. How the tagged frame behaves on a switch belongs to [[cs/networking/vlans-and-802-1q-trunking|the VLAN note]]; this is about what the specification says and which of its clauses bite.

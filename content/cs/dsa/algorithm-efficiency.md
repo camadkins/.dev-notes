@@ -1,5 +1,5 @@
 ---
-title: Algorithm Efficiency - Bridging Theory and Practice
+title: Algorithm Efficiency
 description: Understanding how algorithmic complexity, constants, and hardware behavior interact to define real performance.
 draft: false
 comments: true

@@ -10,8 +10,6 @@ date: 2026-07-15
 updated:
 aliases:
   - hash-lang
-  - "#lang"
-  - Module Languages
 ---
 
 The claim that Racket lets you build a language rather than a library is [[cs/languages/Racket/language-design-from-core-to-surface-racket|the design philosophy of the system]]. This note is about the plumbing that makes the claim literally true, because the mechanism turns out to be smaller and stranger than the slogan suggests.

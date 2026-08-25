@@ -9,10 +9,7 @@ tags:
   - concurrency
 date: 2026-07-30
 updated:
-aliases:
-  - Async and Await in C#
-  - The C# Async State Machine
-  - Why Async Is Not a Thread
+aliases: []
 ---
 
 The single most common wrong model of `await` is that it waits. The keyword reads like a blocking call and behaves like the opposite of one. What it actually does is mark the seam where the compiler will cut the method into pieces, and the method surrenders the thread at that seam rather than holding it.

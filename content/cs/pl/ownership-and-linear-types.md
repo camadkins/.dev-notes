@@ -10,11 +10,7 @@ tags:
   - memory
 date: 2026-05-29
 updated:
-aliases:
-  - Linear Types
-  - Affine Types
-  - Substructural Type Systems
-  - Borrow Checker
+aliases: []
 ---
 
 Most type systems quietly assume you can use a variable as many times as you like, or not at all. Both assumptions are structural rules, borrowed from logic, and both are optional. Substructural type systems are the family that gets built by removing them.

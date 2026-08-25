@@ -9,9 +9,7 @@ tags:
   - cryptography
 date: 2026-07-21
 updated:
-aliases:
-  - Crypto Wars
-  - Cryptography as a Munition
+aliases: []
 ---
 
 For most of the second half of the twentieth century, a cipher was legally a weapon. Not by metaphor. Encryption products sat in Category XIII of the United States Munitions List alongside armor plate and guided munitions, licensed by the State Department under the Arms Export Control Act. The change from that arrangement to the current one, where a browser ships strong cryptography to anyone, happened in a period of about four years and is documented in ordinary government paperwork.

@@ -6,15 +6,9 @@ comments: true
 tags:
   - cs
   - ethics
-  - philosophy
-  - ai
 date: 2026-06-29
 updated:
 aliases:
-  - scientific theories of consciousness
-  - global workspace theory
-  - higher-order theory
-  - integrated information theory
   - GWT
   - HOT
   - IIT

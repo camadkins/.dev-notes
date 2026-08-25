@@ -9,8 +9,6 @@ tags:
 date: 2026-07-22
 updated:
 aliases:
-  - Software Supply Chain
-  - Provenance
   - SBOM
 ---
 

@@ -8,10 +8,7 @@ tags:
   - languages
 date: 2026-07-04
 updated:
-aliases:
-  - yield return in C#
-  - C# Iterator Methods
-  - Lazy Sequences in C#
+aliases: []
 ---
 
 Write a method with `yield return` in it and the shape of the code lies to you in a productive way. It reads like a method that runs top to bottom and produces a sequence. What the compiler actually builds is an object with a resume point, and the body you wrote gets executed in slices, each slice triggered by a consumer asking for one more element.

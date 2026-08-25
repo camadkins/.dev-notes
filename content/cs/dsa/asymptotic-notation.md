@@ -1,5 +1,5 @@
 ---
-title: Asymptotic Notation - Describing Growth Rates
+title: Asymptotic Notation
 description: Landau symbols O, Θ, and Ω for bounding algorithm efficiency and reasoning about limiting behavior.
 draft: false
 comments: true

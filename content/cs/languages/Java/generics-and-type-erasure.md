@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-06-14
 updated:
-aliases:
-  - Java Type Erasure
-  - Erasure in Java
+aliases: []
 ---
 
 Java generics look like a [[cs/pl/type-systems-goals-guarantees|type-system feature]] and behave like a compiler feature. `List<String>` and `List<Integer>` are different types to `javac` and the same class to the JVM. Everything strange about generics in this language, and there is a lot of it, comes from that gap. This note is the mechanism. The restrictions it produces get their own notes.

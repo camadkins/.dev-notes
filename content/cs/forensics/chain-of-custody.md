@@ -8,9 +8,7 @@ tags:
   - forensics
 date: 2026-06-27
 updated:
-aliases:
-  - Custody Chain
-  - Evidence Handling
+aliases: []
 ---
 
 Nothing about a disk image tells you where it came from. A file of bytes with a matching hash proves only that those bytes hash to that value, and an examiner who produces one has proved a mathematical fact about a file, not a historical fact about a machine. The gap between those two things is where chain of custody lives.

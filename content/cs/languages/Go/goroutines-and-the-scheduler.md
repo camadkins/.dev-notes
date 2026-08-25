@@ -9,9 +9,7 @@ tags:
   - concurrency
 date: 2026-08-04
 updated:
-aliases:
-  - Go Scheduler
-  - GMP Model
+aliases: []
 ---
 
 Spawning a hundred thousand OS threads is not a thing you do. Each one wants a stack sized for the worst case, the kernel wants a scheduling entity for each, and the [[cs/systems/context-switching|context switch]] between two of them crosses a privilege boundary. Go's FAQ is direct about why goroutines are not that: "It is practical to create hundreds of thousands of goroutines in the same address space. If goroutines were just threads, system resources would run out at a much smaller number."

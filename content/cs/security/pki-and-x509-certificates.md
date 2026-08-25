@@ -12,8 +12,6 @@ updated:
 aliases:
   - PKI
   - X.509
-  - certificate authority
-  - chain of trust
 ---
 
 A [[cs/security/digital-signatures|digital signature]] can prove a message came from whoever holds a particular private key. It cannot tell you whose key that is. Public-key infrastructure is the machinery built to answer that second question at internet scale, and its answer is [[cs/dsa/recursion|quietly recursive]]: trust a key because a key you already trust vouched for it.

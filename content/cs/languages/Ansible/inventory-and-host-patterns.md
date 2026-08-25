@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-05-06
 updated:
-aliases:
-  - Ansible Inventory
-  - Host Patterns
+aliases: []
 ---
 
 Ansible automates tasks on managed nodes by using a list or group of lists known as inventory, composed from one or more inventory sources. The `hosts:` line of a play is a pattern evaluated against that inventory. Two separate mechanisms, then: something that builds a set of named hosts, and something that selects a subset of them.

@@ -12,7 +12,6 @@ aliases:
   - 802.11
   - WLAN
   - CSMA/CA
-  - hidden node problem
 ---
 
 [[cs/standards/ieee-802-3-ethernet|Wired Ethernet]] detects collisions. A station transmits while listening, and if it hears its own signal garbled by someone else's, it knows two frames overlapped and both need resending. A radio cannot do this. Its own transmission is so much louder than any distant signal that listening while sending is pointless, so the wireless world had to invent a different strategy: not detect collisions after they happen, but avoid them before they start. Everything distinctive about Wi-Fi follows from that one physical constraint.

@@ -9,10 +9,7 @@ tags:
   - distributed-systems
 date: 2026-05-03
 updated:
-aliases:
-  - Replication
-  - Quorum
-  - Read/Write Quorum
+aliases: []
 ---
 
 Replication is keeping more than one copy of the same data so the system survives a lost machine, serves reads from nearby, and [[cs/networking/load-balancing-l4-and-l7|spreads load]]. The copies are the easy part. The hard part is that the moment two clients can write, the copies can disagree, and you need a rule that decides whose write wins and which reads are allowed to see it. Quorums are the arithmetic that makes that rule provable rather than hopeful.

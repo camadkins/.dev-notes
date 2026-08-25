@@ -9,9 +9,7 @@ tags:
   - memory
 date: 2026-06-14
 updated:
-aliases:
-  - Belady's Anomaly
-  - Clock Algorithm
+aliases: []
 ---
 
 Physical memory is full, a process touches a page that is not resident, and the operating system has to throw something out to make room. Which one? Every answer to that question is a guess about the future made from evidence about the past, and the quality of the guess is measured in wall-clock time, since "when the page that was selected for replacement and paged out is referenced again it has to be paged in (read in from disk), and this involves waiting for I/O completion. This determines the *quality* of the page replacement algorithm: the less time waiting for page-ins, the better the algorithm."

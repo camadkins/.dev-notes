@@ -9,10 +9,7 @@ tags:
   - memory
 date: 2026-08-04
 updated:
-aliases:
-  - allows ref struct
-  - Stack-Only Types in C#
-  - Span as a ref struct
+aliases: []
 ---
 
 Most type-system features tell you what a type can do. `ref struct` is the opposite: it is a list of things a type is forbidden to do, accepted voluntarily, in exchange for one guarantee the runtime can then rely on absolutely.

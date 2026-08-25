@@ -8,11 +8,7 @@ tags:
   - security
 date: 2026-07-03
 updated:
-aliases:
-  - phishing
-  - social engineering
-  - verifier impersonation
-  - phishing-resistant MFA
+aliases: []
 ---
 
 You can build an unbreakable lock and still lose the house if someone talks the owner into handing over the key. Social engineering attacks the operator rather than the algorithm, and phishing is its dominant form: convince a person to authenticate to a site that looks like the real one, and every guarantee of the real one's cryptography becomes irrelevant, because the victim performed the login for you. The important technical question is not "how do we stop people being fooled," which is mostly unsolvable, but "how do we make a credential that is useless even when it is fooled out of someone."

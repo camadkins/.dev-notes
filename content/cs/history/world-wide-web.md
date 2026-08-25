@@ -8,9 +8,7 @@ tags:
   - history
 date: 2026-03-26
 updated:
-aliases:
-  - World Wide Web
-  - the Web
+aliases: []
 ---
 
 The internet moves packets between machines. The World Wide Web is something built on top of it: a global space of documents linked by hyperlinks, which Tim Berners-Lee invented at CERN around 1990. Keeping the two straight matters, because confusing the Web with the internet is one of the most common misunderstandings about how computing works.

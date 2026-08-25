@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-06-24
 updated:
-aliases:
-  - ansible-playbook --check
-  - Ansible Dry Run
+aliases: []
 ---
 
 Ansible ships two validation modes that can be used separately or together. "In check mode, Ansible runs without making any changes on remote systems," and "in diff mode, Ansible provides before-and-after comparisons." A dry run is a first-class execution mode rather than a linting pass, which is unusual and genuinely useful. It is also weaker than most people assume, and the weakness is structural rather than a set of bugs.

@@ -9,11 +9,7 @@ tags:
   - optimization
 date: 2026-04-15
 updated:
-aliases:
-  - Ridge Regression
-  - Lasso
-  - L1 and L2 Regularization
-  - Elastic Net
+aliases: []
 ---
 
 An unconstrained least-squares fit will use every coefficient it is given, however large, to shave a little more error off the training data. Regularization prices that freedom. Both classic penalties do the same structural thing, add a term to the objective that grows with the size of the coefficient vector, and yet they produce qualitatively different models. Ridge gives you a dense model with small weights. Lasso gives you a sparse model with some weights at exactly zero. That is a difference in kind, not degree, and it comes from the shape of a norm.

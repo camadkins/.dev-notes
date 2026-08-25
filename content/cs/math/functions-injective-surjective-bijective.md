@@ -6,7 +6,6 @@ comments: true
 tags:
   - cs
   - math
-  - discrete-math
 date: 2026-06-17
 updated:
 aliases:

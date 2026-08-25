@@ -10,9 +10,6 @@ date: 2026-02-19
 updated:
 aliases:
   - SIEM
-  - security logging
-  - log management
-  - security information and event management
 ---
 
 A real intrusion rarely announces itself in one place. A failed login on a workstation, a new service account in the directory, an outbound connection from a database host, each is unremarkable on its own log, sitting on its own machine. The attack is the relationship between them, and that relationship is only visible if the logs live somewhere they can be compared. This is the premise of security information and event management: the detection problem is often not sensitivity on any one source but the fact that the sources are scattered.

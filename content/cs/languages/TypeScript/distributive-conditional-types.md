@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-07-25
 updated:
-aliases:
-  - Conditional Type Distribution
-  - Naked Type Parameter
+aliases: []
 ---
 
 Read this and predict the answer:

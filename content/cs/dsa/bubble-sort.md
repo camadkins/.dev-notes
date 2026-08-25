@@ -1,5 +1,5 @@
 ---
-title: Bubble Sort - Adjacent Swaps and Stability
+title: Bubble Sort
 description: Elementary comparison-based sort using repeated passes and adjacent swaps; simple, stable, but inefficient for large arrays.
 draft: false
 comments: true

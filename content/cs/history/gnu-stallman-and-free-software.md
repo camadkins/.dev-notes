@@ -10,8 +10,6 @@ date: 2026-02-23
 updated:
 aliases:
   - GNU
-  - free software
-  - copyleft
 ---
 
 [[cs/law/dmca-1201-and-anticircumvention|As software became a product to be sold and locked down]], Richard Stallman made the opposite bet. In 1983 he set out to build a complete free operating system, and to keep it free he invented a legal mechanism, copyleft, as clever in its way as any program.

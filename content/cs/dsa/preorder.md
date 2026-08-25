@@ -1,5 +1,5 @@
 ---
-title: Traversal - Preorder
+title: Preorder Traversal
 description: Root–Left–Right visit order for trees; useful for serialization, cloning, and prefix expression generation.
 draft: false
 comments: true

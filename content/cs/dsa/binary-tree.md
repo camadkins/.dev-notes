@@ -1,5 +1,5 @@
 ---
-title: Binary Tree - Foundational Two-Child Hierarchy
+title: Binary Tree
 description: Hierarchical structure where each node has up to two children; basis for BSTs, Heaps, and Tree Traversals.
 draft: false
 comments: true

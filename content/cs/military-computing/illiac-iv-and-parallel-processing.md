@@ -9,7 +9,6 @@ tags:
 date: 2026-03-01
 updated:
 aliases:
-  - ILLIAC IV
   - SIMD
 ---
 

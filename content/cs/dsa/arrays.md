@@ -1,5 +1,5 @@
 ---
-title: Arrays - Fixed-Size Contiguous Storage
+title: Arrays
 description: Linear data structure offering constant-time random access; foundation for static and dynamic sequences.
 draft: false
 comments: true

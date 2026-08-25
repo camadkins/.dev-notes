@@ -9,7 +9,6 @@ tags:
 date: 2026-02-09
 updated:
 aliases:
-  - Network Time Protocol
   - NTP
 ---
 

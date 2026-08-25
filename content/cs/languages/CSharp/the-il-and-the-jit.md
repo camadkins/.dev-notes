@@ -9,10 +9,7 @@ tags:
   - compilers
 date: 2026-06-22
 updated:
-aliases:
-  - CIL and the .NET JIT
-  - Tiered Compilation in .NET
-  - What Is Inside a .NET Assembly
+aliases: []
 ---
 
 Build a C# project and you get a `.dll`, which looks like every other `.dll` on the machine and is not one. The processor cannot execute a byte of it. What the file holds is common intermediate language and a full description of every type declared in it, and the translation into instructions your CPU understands happens later, on the machine that runs the program, one method at a time.

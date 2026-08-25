@@ -9,9 +9,7 @@ tags:
 date: 2026-05-19
 updated:
 aliases:
-  - zero trust
   - ZTA
-  - never trust always verify
 ---
 
 The old network security model was a castle: a hard perimeter of [[cs/security/firewalls|firewalls]] and VPN gateways, and inside, a soft trusted zone where being *on the LAN* was itself a credential. That model fails the moment anything inside is compromised, because an attacker who breaches one internal host inherits the network's implicit trust and [[cs/forensics/flow-records-and-log-based-investigation|moves laterally]] at will. Zero trust throws out the premise that location implies trust.

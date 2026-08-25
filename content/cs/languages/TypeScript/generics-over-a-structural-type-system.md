@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-06-27
 updated:
-aliases:
-  - TypeScript Generics
-  - Structural Generics
+aliases: []
 ---
 
 Two classes, no relationship between them, and an assignment that compiles:

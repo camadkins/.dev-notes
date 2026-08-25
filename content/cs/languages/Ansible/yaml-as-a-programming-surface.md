@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-08-17
 updated:
-aliases:
-  - Ansible YAML Gotchas
-  - Why Ansible Uses YAML
+aliases: []
 ---
 
 The reason given for the choice is one sentence: "we use YAML because it is easier for humans to read and write than other common data formats like XML or JSON. Further, there are libraries available in most programming languages for working with YAML." Note the frame. The comparison set is XML and JSON, not Python or Ruby or a purpose-built DSL. The question being answered was which data format to write configuration in, and the answer to that question was correct.

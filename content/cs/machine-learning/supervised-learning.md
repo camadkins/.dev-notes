@@ -6,11 +6,8 @@ comments: true
 tags:
   - cs
   - machine-learning
-  - supervised-learning
 date: 2026-07-13
-aliases:
-  - supervised learning
-  - labeled learning
+aliases: []
 ---
 
 Most of the machine learning that reaches production is supervised. You collect examples that already carry the answer, show them to a learning algorithm, and get back a function that fills in the answer for new cases. The whole method rests on one bet: that a pattern which held across the examples you labeled will keep holding on the examples you did not.

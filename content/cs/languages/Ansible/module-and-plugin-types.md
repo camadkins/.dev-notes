@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-06-16
 updated:
-aliases:
-  - Ansible Plugins
-  - Ansible Plugin Types
+aliases: []
 ---
 
 Eighteen plugin types is a lot of vocabulary to hold, and the list Ansible publishes is alphabetical, which is the worst possible order for learning it. Sorted by where the code executes, the same list becomes almost self-explanatory, and several apparently unrelated rules turn out to be one rule.

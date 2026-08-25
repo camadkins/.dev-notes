@@ -9,9 +9,7 @@ tags:
   - error-handling
 date: 2026-07-24
 updated:
-aliases:
-  - Go Error Wrapping
-  - errors.Is and errors.As
+aliases: []
 ---
 
 The entire language-level surface of Go error handling fits in four lines. The spec defines the predeclared type as an interface with one method, `Error() string`, and calls it "the conventional interface for representing an error condition, with the nil value representing no error." That is the whole of it. No `throw`, no `catch`, no annotation on a function signature, no unwinding.

@@ -8,10 +8,7 @@ tags:
   - software-engineering
 date: 2026-02-17
 updated:
-aliases:
-  - Tech Debt
-  - Technical Debt Quadrant
-  - Debt Metaphor
+aliases: []
 ---
 
 Ward Cunningham coined the term in 1992, and the origin story matters more than it usually gets credit for. He had just read *Metaphors We Live By*, and he needed a way to explain to his boss why the financial product they were building needed refactoring. The metaphor was invented as a communication device, aimed at someone holding the budget:

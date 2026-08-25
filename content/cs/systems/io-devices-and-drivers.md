@@ -9,9 +9,7 @@ tags:
   - computer-architecture
 date: 2026-01-19
 updated:
-aliases:
-  - Device Drivers
-  - Direct Memory Access
+aliases: []
 ---
 
 Devices are slow, and the CPU is not. Every mechanism in this note exists because of that gap, and each one is a different answer to the same question: who does the waiting, and what do they do while they wait? Polling says the CPU waits and does nothing. Interrupts say the CPU leaves and comes back when summoned. DMA says the CPU does not participate in the transfer at all. Those three form a progression, and each step buys CPU time by adding hardware and complexity.

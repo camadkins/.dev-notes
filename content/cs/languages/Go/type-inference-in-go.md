@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-06-18
 updated:
-aliases:
-  - Function Argument Type Inference
-  - Constraint Type Inference
+aliases: []
 ---
 
 Generic code that requires you to spell out type arguments at every call site is generic code nobody uses. `Map[int, string](s, strconv.Itoa)` is worse than the duplicated helper it replaced. So every language with type parameters ships inference, and the design question is not whether to have it but how far to let it reach.

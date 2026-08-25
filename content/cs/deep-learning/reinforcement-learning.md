@@ -6,13 +6,10 @@ comments: true
 tags:
   - cs
   - deep-learning
-  - reinforcement-learning
 date: 2026-07-13
 aliases:
-  - rl
   - q-learning
   - markov-decision-process
-  - mdp
 ---
 
 A supervised learner gets told the right answer for every training example. A reinforcement learner never does. It takes an action, the world changes, and a number comes back saying how well things went, often long after the action that actually mattered. From that thin signal (no labels, no correct outputs, just reward) the agent has to work out which actions were good. This is the setup behind programs that taught themselves backgammon, Atari, and Go: play, observe, adjust, repeat.

@@ -10,7 +10,6 @@ date: 2026-02-02
 updated:
 aliases:
   - ENIAC
-  - ballistics tables
 ---
 
 Every artillery piece needs a firing table: for a given gun, shell, and charge, what elevation lands the round on target, under the conditions of the day. Each table demanded [[cs/math/integrals-and-the-fundamental-theorem|thousands of trajectory calculations]], and in the Second World War they were worked out by hand. That backlog is what produced ENIAC, the first general-purpose programmable electronic computer.

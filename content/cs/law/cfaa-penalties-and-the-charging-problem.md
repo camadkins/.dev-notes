@@ -8,9 +8,7 @@ tags:
   - law
 date: 2026-07-18
 updated:
-aliases:
-  - CFAA Sentencing
-  - CFAA Charging Policy
+aliases: []
 ---
 
 Most of the argument about [[cs/law/the-computer-fraud-and-abuse-act|the CFAA]] happens in subsection (a), where the offenses live. The pressure is in subsection (c), where the numbers live. Subsection (a) says what counts as a violation. Subsection (c) says what a violation costs, and it does so through a lattice of conditions that can move the same access from a fine to a decade of exposure without any change in the underlying facts about what the defendant did to the machine.

@@ -8,11 +8,7 @@ tags:
   - machine-learning
 date: 2026-07-23
 updated:
-aliases:
-  - Decision Trees
-  - Random Forests
-  - Gradient Boosting
-  - Ensembles
+aliases: []
 ---
 
 Decision trees are the other main branch of the model zoo from [[cs/machine-learning/regression|regression]], and they answer a different question: instead of fitting a smooth weighted sum, they carve the feature space into boxes with a sequence of yes/no rules. A single tree is the most interpretable model in machine learning and one of the most prone to overfitting, and the resolution of that tension, combining many trees into an ensemble, produces the models that still win most competitions on tabular data, often beating deep networks there.

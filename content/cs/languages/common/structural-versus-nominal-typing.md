@@ -9,10 +9,7 @@ tags:
   - type-theory
 date: 2026-07-25
 updated:
-aliases:
-  - Structural Typing
-  - Nominal Typing
-  - Duck Typing and Its Static Cousins
+aliases: []
 ---
 
 Two questions look the same and are not. "Does this value have the members I need?" and "Did somebody declare that this type satisfies this contract?" [[cs/pl/type-systems-goals-guarantees|A type system]] answers one or the other, and the answer decides who can extend your library, whether two identical-looking types can be told apart, and whether the compiler can help at all once a value is behind an abstraction.

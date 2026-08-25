@@ -9,9 +9,7 @@ tags:
   - compilers
 date: 2026-06-18
 updated:
-aliases:
-  - macro_rules
-  - Procedural Macros
+aliases: []
 ---
 
 Rust has two macro systems that share a name and almost nothing else. One is a pattern-matching rewriter with its own miniature grammar, run by the compiler over your syntax. The other is an arbitrary Rust program that the compiler loads and calls during your build. They solve overlapping problems and they fail in opposite ways, which is the useful thing to know about them.

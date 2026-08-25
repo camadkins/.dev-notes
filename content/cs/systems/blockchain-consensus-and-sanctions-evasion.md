@@ -8,10 +8,7 @@ tags:
   - systems
 date: 2026-06-28
 updated:
-aliases:
-  - blockchain
-  - distributed ledger
-  - consensus
+aliases: []
 ---
 
 Money has always needed a referee. When you pay someone, a bank or a card network confirms the money was yours and is now theirs, and stops you from spending the same dollar twice. That referee is a single trusted party, and a single trusted party is also a single point of control: it can freeze your account, reverse your payment, or be ordered by a state to do both. A blockchain asks a stranger question. Can a crowd of machines that do not trust each other, with no referee, still agree on who owns what? When the answer is yes, you get money that no one can freeze, which is the whole story of why blockchains matter politically.

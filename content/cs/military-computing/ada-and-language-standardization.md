@@ -8,9 +8,7 @@ tags:
   - military
 date: 2026-05-30
 updated:
-aliases:
-  - Ada
-  - MIL-STD-1815
+aliases: []
 ---
 
 By the mid 1970s the Defense Department had a software sprawl problem. Hundreds of programming languages were in use across its projects. Every language meant its own [[cs/pl/compilation-vs-interpretation|compilers]], its own training, and its own tooling, and code written in one could not be shared with another. The fix the DoD chose was unusual and characteristically direct: design a single language well enough to cover the work, then require it.

@@ -6,15 +6,9 @@ comments: true
 tags:
   - cs
   - ethics
-  - philosophy
-  - ai
 date: 2026-06-30
 updated:
-aliases:
-  - responsibility gap
-  - killer robots
-  - Sparrow responsibility gap
-  - autonomous weapons responsibility
+aliases: []
 ---
 
 Picture an autonomous weapon that decides, on its own, to bomb a column of soldiers who have laid down their arms and clearly surrendered. There was no targeting error, no glitch. The machine had reasons of a kind, weighed the situation, and killed anyway. Had a human done this [[cs/law/cyber-operations-and-the-law-of-armed-conflict|it would be a war crime]] and we would know exactly whose door to knock on. But the machine chose its own target, [[cs/deep-learning/reinforcement-learning|learned its own behavior from experience]], and diverged from anything its programmers wrote. So who committed the crime? The coder who never anticipated it, the officer who could not predict it, or the machine, which cannot be jailed or made to suffer? The uncomfortable answer Robert Sparrow presses is that harm occurred, someone should answer for it, and no one can be justly held to account. That hole where the blame should sit is the responsibility gap.

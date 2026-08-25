@@ -10,10 +10,7 @@ tags:
   - memory
 date: 2026-06-11
 updated:
-aliases:
-  - Memory Hierarchy
-  - Cache Line
-  - Locality of Reference
+aliases: []
 ---
 
 There is no single kind of memory in a computer, and the reason is economic before it is technical. Fast memory is small and expensive; large memory is cheap and slow. You cannot buy a terabyte of register-speed storage, and you would not want to run a program out of a [[cs/history/magnetic-disk-storage|hard drive]]. So machines stack several kinds of memory into a ladder and try to keep the data you are about to use near the top. That ladder is the memory hierarchy, and caching is the machinery that decides what lives where.

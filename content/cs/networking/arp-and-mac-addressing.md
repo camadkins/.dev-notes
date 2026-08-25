@@ -10,8 +10,6 @@ date: 2026-04-15
 updated:
 aliases:
   - ARP
-  - MAC address
-  - address resolution protocol
 ---
 
 An IP address tells the internet where to route a packet across networks. It says nothing about how to hand that packet to the actual network card sitting three feet away on the same wire. Inside one local segment, [[cs/standards/ieee-802-3-ethernet|Ethernet]] does not deliver to IP addresses at all; it delivers to hardware addresses burned into each interface. Something has to bridge the address the network layer knows and the address the link layer uses, and on every LAN that something is ARP.

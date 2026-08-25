@@ -8,10 +8,7 @@ tags:
   - forensics
 date: 2026-06-21
 updated:
-aliases:
-  - File Carving
-  - Data Carving
-  - Unallocated Space
+aliases: []
 ---
 
 Deleting a file usually destroys the pointer, not the payload. The directory entry or the [[cs/forensics/ntfs-artifacts-and-the-mft|MFT record]] is marked free, and the clusters holding the content sit untouched until something claims them. At that moment the content still exists and nothing on the volume says where it starts or how long it is. Carving is what you do about that.

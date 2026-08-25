@@ -8,9 +8,7 @@ tags:
   - law
 date: 2026-08-13
 updated:
-aliases:
-  - Breach Notification
-  - Data Breach Notification Laws
+aliases: []
 ---
 
 Congress never passed a general data breach notification statute. The states did, one legislature at a time, over roughly two decades, and the result is that an American company holding consumer records is subject to a stack of parallel obligations that all describe the same event in slightly different words. The National Conference of State Legislatures counts the coverage as complete: "All 50 states, the District of Columbia, Guam, Puerto Rico and the Virgin Islands have laws requiring private businesses, and in most states, governmental entities as well, to notify individuals of security breaches of information involving personally identifiable information."

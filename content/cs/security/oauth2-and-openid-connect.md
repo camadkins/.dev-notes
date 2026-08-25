@@ -10,9 +10,6 @@ tags:
 date: 2026-03-11
 updated:
 aliases:
-  - OAuth
-  - OAuth 2.0
-  - OpenID Connect
   - OIDC
 ---
 

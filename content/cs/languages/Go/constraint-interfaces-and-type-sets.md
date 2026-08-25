@@ -9,10 +9,7 @@ tags:
   - type-theory
 date: 2026-07-15
 updated:
-aliases:
-  - Go Type Sets
-  - Approximation Element
-  - Union Constraint Element
+aliases: []
 ---
 
 Write a generic function that returns the smaller of two values and you hit the wall at once. The body wants to evaluate `x < y`. A constraint is an interface, an interface is a list of methods, and the less-than operator is not a method. Every language adding generics on top of operators meets this, and the usual answer is to invent something: concepts in C++, traits in Rust, a fresh construct with fresh syntax.

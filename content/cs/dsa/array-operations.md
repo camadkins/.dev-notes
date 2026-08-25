@@ -1,5 +1,5 @@
 ---
-title: Array Operations - Canonical Patterns and Costs
+title: Array Operations
 description: Indexing, iteration, insertion/deletion with shifts, and searching on contiguous fixed-stride arrays with practical tips and pitfalls.
 draft: false
 comments: true

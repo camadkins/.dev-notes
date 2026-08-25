@@ -10,7 +10,6 @@ date: 2026-02-09
 updated:
 aliases:
   - IPC
-  - Pipes and Sockets
 ---
 
 [[cs/systems/virtual-memory|Virtual memory]] exists to keep processes from touching each other's memory. That isolation is the whole point, and it is also a problem: real systems are built from many processes that need to cooperate. A shell pipes one program's output into another; a database server hands a query result back to a client; a daemon tells a worker to reload its config. None of that can happen through raw shared pointers, because there are no shared pointers across the isolation boundary. Inter-process communication is the set of controlled channels the kernel opens through that boundary.

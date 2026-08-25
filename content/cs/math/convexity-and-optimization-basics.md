@@ -10,7 +10,6 @@ tags:
 date: 2026-06-28
 updated:
 aliases:
-  - convexity
   - convex-set
   - convex-function
   - convex-optimization

@@ -8,10 +8,7 @@ tags:
   - languages
 date: 2026-06-18
 updated:
-aliases:
-  - C++ Value Categories
-  - lvalue vs rvalue
-  - prvalue
+aliases: []
 ---
 
 Every C++ expression carries two labels. One is its type, which is what people mean when they say what an expression is. The other is its value category, which is what the compiler actually consults when deciding whether the expression can be assigned to, whether its address can be taken, and, most consequentially, which of two overloads gets called. cppreference puts the two on equal footing: each expression "is characterized by two independent properties: a type and a value category."

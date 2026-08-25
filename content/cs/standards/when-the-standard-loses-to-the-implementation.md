@@ -8,9 +8,7 @@ tags:
   - standards
 date: 2026-08-11
 updated:
-aliases:
-  - De Facto Beats De Jure
-  - When Standards Lose
+aliases: []
 ---
 
 Nothing in a standards document reaches out and stops a vendor. The committee can write `shall`, ballot it, publish it, and sell it, and a shipping product that ignores the clause keeps shipping. What actually enforces a standard is money: a procurement office that will not buy noncompliant gear, a certification mark a customer looks for, a peer implementation that refuses to talk to you. When none of those pressures apply, or when the installed base is large enough that correcting it costs more than tolerating it, the document loses. The interesting part is what losing looks like, because it is rarely a repudiation. Usually the standard quietly changes to match what was already on the wire.

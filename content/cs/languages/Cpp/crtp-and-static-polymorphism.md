@@ -8,10 +8,7 @@ tags:
   - languages
 date: 2026-07-18
 updated:
-aliases:
-  - Curiously Recurring Template Pattern
-  - Static Polymorphism
-  - Compile-Time Polymorphism
+aliases: []
 ---
 
 ```cpp

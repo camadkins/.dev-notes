@@ -10,11 +10,6 @@ date: 2026-02-19
 updated:
 aliases:
   - SOLID
-  - Single Responsibility Principle
-  - Open-Closed Principle
-  - Liskov Substitution Principle
-  - Interface Segregation Principle
-  - Dependency Inversion Principle
 ---
 
 SOLID is a mnemonic acronym for five principles "intended to make source code more understandable, flexible, and maintainable." The five did not arrive as a set. Robert C. Martin "introduced the basic principles of SOLID design in his 2000 paper *Design Principles and Design Patterns* about software rot," and the acronym itself "was coined around 2004 by Michael Feathers." Two different people, four years apart. That the letters spell a word is a teaching artifact bolted onto principles that already existed independently, and one of the five, the L, comes from a 1987 keynote by someone with no connection to the acronym at all.

@@ -7,11 +7,7 @@ tags:
   - cs
   - deep-learning
 date: 2026-07-13
-aliases:
-  - pooling
-  - max pooling
-  - CNN architectures
-  - ResNet
+aliases: []
 ---
 
 A [[cs/deep-learning/convolutional-neural-networks|convolutional network]] that only ever convolved would carry full-resolution feature maps through every layer, which is wasteful and brittle. Two ideas fix that. Pooling shrinks the maps between convolutions, and better architectures figured out how to stack many layers without training falling apart. The history of image models is mostly the history of making networks deeper without breaking them.

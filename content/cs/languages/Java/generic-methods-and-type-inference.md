@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-07-30
 updated:
-aliases:
-  - Java Generic Methods
-  - Type Witness
+aliases: []
 ---
 
 A generic class parameterizes every one of its members at once. A generic method parameterizes a single call. The distinction matters because most [[cs/pl/parametric-polymorphism-adts|polymorphic code]] in a real Java codebase is the second kind: static utilities, converters, and helpers whose type relationship holds for one invocation and has nothing to do with the enclosing class.

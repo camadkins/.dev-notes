@@ -8,9 +8,7 @@ tags:
   - history
 date: 2026-03-11
 updated:
-aliases:
-  - al-Khwarizmi
-  - algorithm origin
+aliases: []
 ---
 
 The central object of computer science, the algorithm, is named after a person. Muhammad ibn Musa al-Khwarizmi was a mathematician who worked in Baghdad around the year 820, and both the word "algorithm" and the word "algebra" trace back to him.

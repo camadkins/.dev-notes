@@ -8,8 +8,7 @@ tags:
   - history
 date: 2026-05-09
 updated:
-aliases:
-  - transistor
+aliases: []
 ---
 
 In December 1947, three physicists at Bell Labs made a sliver of germanium amplify a signal, and the direction of electronics changed. The transistor would replace the vacuum tube and become the physical atom of all digital computing.

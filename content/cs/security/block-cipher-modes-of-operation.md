@@ -10,10 +10,8 @@ tags:
 date: 2026-01-19
 updated:
 aliases:
-  - block cipher mode
   - ECB
   - CBC
-  - CTR mode
 ---
 
 [[cs/security/aes-and-block-ciphers|AES]] encrypts exactly 128 bits at a time. Real data is almost never exactly 128 bits. The gap between "encrypts one block" and "encrypts a message" is filled by a mode of operation, and the choice of mode matters far more than most people assume, because the simplest one leaks the very patterns encryption is supposed to hide.

@@ -7,11 +7,7 @@ tags:
   - cs
   - deep-learning
 date: 2026-07-13
-aliases:
-  - word embeddings
-  - word2vec
-  - embedding space
-  - vector semantics
+aliases: []
 ---
 
 A neural network cannot read the word "apricot." It needs numbers. The obvious encoding, a one-hot vector with a single 1 in a vocabulary of a hundred thousand words, has two fatal flaws: the vectors are enormous, and every pair of them is orthogonal, so "car" and "automobile" look exactly as unrelated as "car" and "jam." An embedding replaces that with a short dense vector, learned from data, where words used in similar contexts end up near each other. Distance in the space becomes a stand-in for similarity of meaning.

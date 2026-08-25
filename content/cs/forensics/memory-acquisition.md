@@ -8,10 +8,7 @@ tags:
   - forensics
 date: 2026-08-08
 updated:
-aliases:
-  - RAM Acquisition
-  - Memory Dump
-  - Page Smear
+aliases: []
 ---
 
 There is one artifact class that a second visit cannot recover. Disks keep their contents through a power cycle and a shipping label. Volatile memory does not, and everything that exists only in memory, which today includes decrypted keys, injected code, unwritten buffers, and entire malware families, exists exactly as long as the machine stays powered.

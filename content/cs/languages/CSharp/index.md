@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-08-21
 updated:
-aliases:
-  - CSharp
-  - C Sharp
+aliases: []
 ---
 
 C# shipped generics in 2005, one year after Java, and made the opposite trade. The CLR was changed to carry type arguments into the runtime, so `List<int>` is a real type with a real identity, its own static fields, and its own native code. The list of things erasure forbids is not a list here. What reification costs instead is a runtime that has to know about generics, a JIT that specializes value types and shares reference types, and a dictionary lookup at the seam between those two populations.

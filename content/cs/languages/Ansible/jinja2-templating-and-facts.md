@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-06-18
 updated:
-aliases:
-  - Ansible Facts
-  - Jinja2 Templating
+aliases: []
 ---
 
 Ansible uses Jinja2 templating to enable dynamic expressions and access to variables and facts. A template is a configuration file with holes in it; facts are data about the remote systems that fill the holes. Both halves are ordinary enough. The load-bearing detail is *where* the filling happens.

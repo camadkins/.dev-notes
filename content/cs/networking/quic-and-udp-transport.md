@@ -10,8 +10,6 @@ date: 2026-07-08
 updated:
 aliases:
   - QUIC
-  - QUIC transport
-  - QUIC protocol
 ---
 
 For thirty years the reliable-transport slot on the internet belonged to TCP, and anything that wanted ordered, loss-recovered delivery inherited TCP's whole model: one byte stream, one handshake before the first byte, one connection bolted to one pair of IP addresses. QUIC keeps the guarantees and throws out the packaging. It runs on [[cs/networking/tcp-vs-udp|UDP]], the protocol that promises nothing, and rebuilds reliability on top in a way TCP could not because TCP's design was [[cs/standards/when-the-standard-loses-to-the-implementation|frozen into operating-system kernels and middleboxes]] decades ago.

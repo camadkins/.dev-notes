@@ -10,8 +10,6 @@ date: 2026-01-22
 updated:
 aliases:
   - MITM
-  - on-path attack
-  - active attacker
 ---
 
 A man-in-the-middle attacker sits between two parties who believe they are talking directly to each other, and relays every message. If that is all they did, it would be harmless. The danger is that a relay can also read and rewrite what passes through it. The uncomfortable insight most people miss is that encrypting the traffic does not, by itself, stop this. If the attacker is the one you performed the key exchange *with*, they hold the keys, and the ciphertext is theirs to read.

@@ -10,7 +10,6 @@ date: 2026-05-03
 updated:
 aliases:
   - RSA
-  - public-key cryptography
 ---
 
 Until the mid 1970s, secret communication had a chicken-and-egg problem. To send an encrypted message you and the recipient had to already share a secret key, and the only fully secure way to share a key was the impractical one that [[cs/military-computing/perfect-secrecy-and-the-one-time-pad|perfect secrecy]] demands. RSA broke the cycle. It lets two people who have never met exchange secret messages [[cs/security/diffie-hellman-and-key-exchange|without ever sharing a secret in advance]], and it does so by leaning on a problem mathematicians believe is genuinely hard.

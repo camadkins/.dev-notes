@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-07-16
 updated:
-aliases:
-  - Ansible Handlers
-  - notify and listen
+aliases: []
 ---
 
 The pitch for handlers is narrow and convincing: restart the service only if the configuration actually changed. A task carries `notify`, the handler runs at the end of the play, and ten tasks touching one config file bounce the daemon once. That much appears in every tutorial and is developed alongside the play structure in [[cs/languages/Ansible/playbooks-plays-and-tasks|playbooks, plays, and tasks]]. The parts that bite come from what a handler actually is.

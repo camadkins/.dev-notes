@@ -9,10 +9,7 @@ tags:
   - compilers
 date: 2026-07-22
 updated:
-aliases:
-  - GC Shape Stenciling
-  - gcshape
-  - Go Generics Implementation
+aliases: []
 ---
 
 Every implementation of generics answers one question: how many copies of the machine code are there? A copy per type argument gives optimal code and a compiler that repeats itself endlessly. One copy treating every type argument as an opaque pointer gives a small binary and an indirection on every operation. C++ and Rust take the first road, Java the second, and the FAQ describes Go's position as a choice the compiler is free to make: "The compiler can choose whether to compile each instantiation separately or whether to compile similar instantiations as a single implementation."

@@ -9,11 +9,7 @@ tags:
   - cryptography
 date: 2026-02-27
 updated:
-aliases:
-  - password hashing
-  - salting
-  - bcrypt
-  - Argon2
+aliases: []
 ---
 
 The instinct is to reach for a good [[cs/security/cryptographic-hash-functions|cryptographic hash]] like SHA-256 and call the password stored. That instinct is exactly wrong, and understanding why turns password storage from a one-liner into a two-part defense where each part blocks a different attack.

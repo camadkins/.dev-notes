@@ -8,10 +8,7 @@ tags:
   - forensics
 date: 2026-07-02
 updated:
-aliases:
-  - Order of Volatility
-  - RFC 3227
-  - Volatile Data Collection
+aliases: []
 ---
 
 A running machine is a set of nested clocks, each erasing itself at its own speed. CPU registers turn over in nanoseconds. The ARP cache ages out in minutes. A temporary filesystem survives until reboot. A disk survives until someone overwrites the sectors. Archival media survives until the tape degrades. When an examiner touches that machine, the touch itself consumes some of the fastest clocks, and there is no way to touch nothing. The only available choice is what to spend first.

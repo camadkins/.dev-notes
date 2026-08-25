@@ -8,9 +8,7 @@ tags:
   - networking
 date: 2026-05-09
 updated:
-aliases:
-  - subnetting
-  - CIDR notation
+aliases: []
 ---
 
 An IP address is the label the internet layer uses to route a packet toward a destination. The clever part is that a single address encodes two things at once: which network the host lives on, and which host it is inside that network. Routers care about the first part, local delivery cares about the second, and the boundary between them is not fixed by the address itself. Subnetting is the practice of choosing where that boundary falls.

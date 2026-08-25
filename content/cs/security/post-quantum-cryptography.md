@@ -11,9 +11,7 @@ date: 2026-03-11
 updated:
 aliases:
   - PQC
-  - post-quantum cryptography
   - ML-KEM
-  - quantum-resistant cryptography
 ---
 
 The public-key cryptography holding the internet together rests on a bet: that factoring a large number and [[cs/math/number-theory-and-modular-arithmetic|computing a discrete logarithm]] are hard. That bet is safe against every classical computer we know how to build. It is not safe against a large quantum one, and the gap is not a constant factor you can outrun with bigger keys. It is [[cs/dsa/time-complexity-analysis|a change in complexity class]].

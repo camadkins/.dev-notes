@@ -9,11 +9,7 @@ tags:
   - memory
 date: 2026-06-11
 updated:
-aliases:
-  - unique_ptr
-  - shared_ptr
-  - weak_ptr
-  - C++ Smart Pointers
+aliases: []
 ---
 
 A `T*` parameter tells you almost nothing. It might be an object you must delete, an object someone else deletes, the first element of an array, or nothing at all. Every one of those readings compiles. The smart pointer types exist so that the ownership question, which used to live in a comment or a naming convention, moves into the type where the compiler and the reader both see it.

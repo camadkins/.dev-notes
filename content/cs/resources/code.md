@@ -9,8 +9,7 @@ tags:
   - resource/code
 date: 2026-07-26
 updated:
-aliases:
-  - Code
+aliases: []
 ---
 
 Open-source projects whose code or official documentation notes here cite directly. The pattern worth noticing: for most concepts the clearest available description is written by the people who had to implement it, because an implementer cannot leave the hard part vague.

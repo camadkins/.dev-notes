@@ -8,10 +8,7 @@ tags:
   - law
 date: 2026-08-19
 updated:
-aliases:
-  - Cyber and LOAC
-  - Cyber Operations and IHL
-  - Tallinn Manual
+aliases: []
 ---
 
 Two separate bodies of law govern armed conflict, and conflating them is the most common error in this subject. One asks whether resort to force was lawful at all, and it is a question about the United Nations Charter. The other asks how hostilities may be conducted once a conflict exists, and it is a question about the Geneva Conventions and their Additional Protocols. A cyber operation raises both, separately, and the answers do not depend on each other.

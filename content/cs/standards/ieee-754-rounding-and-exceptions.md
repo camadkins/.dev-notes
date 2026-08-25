@@ -9,9 +9,7 @@ tags:
   - error-handling
 date: 2026-07-14
 updated:
-aliases:
-  - IEEE 754 Rounding and Exceptions
-  - Floating-Point Status Flags
+aliases: []
 ---
 
 An arithmetic standard has to answer two questions that ordinary mathematics never asks. When the true answer is not representable, which representable value do you return? And when there is no sensible answer at all, what happens to the program? IEEE 754 answers both in a way that looks unremarkable until you notice what it implies: the arithmetic never stops, and the record of everything that went wrong is written to a place almost nobody reads.

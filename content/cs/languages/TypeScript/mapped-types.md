@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-06-19
 updated:
-aliases:
-  - TypeScript Mapped Types
-  - Key Remapping
+aliases: []
 ---
 
 The syntax arrived by generalizing something that already existed. "Mapped types build on the syntax for index signatures, which are used to declare the types of properties which have not been declared ahead of time." An index signature says every key of some kind maps to some value type. A mapped type says the same thing about a specific, computed set of keys.

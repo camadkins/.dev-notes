@@ -1,5 +1,5 @@
 ---
-title: Stack - Push & Pop
+title: Stack Operations
 description: Implement and reason about push/pop operations and invariants for array- and list-backed stacks.
 draft: false
 comments: true

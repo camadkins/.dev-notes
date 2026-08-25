@@ -8,8 +8,7 @@ tags:
   - software-engineering
 date: 2026-03-12
 updated:
-aliases:
-  - Software Engineering
+aliases: []
 ---
 
 Software engineering is where computer science meets craft - the discipline of turning ideas into reliable, maintainable systems. These notes cover the recurring patterns, architectural decisions, testing strategies, and tooling that shape professional software development.

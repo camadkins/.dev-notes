@@ -9,9 +9,7 @@ tags:
   - concurrency
 date: 2026-08-04
 updated:
-aliases:
-  - Pin and Unpin
-  - Futures in Rust
+aliases: []
 ---
 
 Async Rust looks like a runtime feature and is almost entirely a type-system feature. There is no built-in executor, no green threads, no scheduler in the standard library. What the language ships is a trait with one method, a marker type that constrains where a value may live, and a compiler transform that turns an `async fn` body into a struct. The awkward parts of the API all trace back to a single fact about that struct.

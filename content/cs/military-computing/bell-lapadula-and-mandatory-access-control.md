@@ -8,10 +8,7 @@ tags:
   - military
 date: 2026-01-03
 updated:
-aliases:
-  - Bell-LaPadula model
-  - mandatory access control
-  - multilevel security
+aliases: []
 ---
 
 A military computer often holds data at several classification levels at once, and one rule governs all of it: a secret must never reach someone not cleared for it. Stating the rule is easy. Enforcing it on a shared machine, against mistakes and malicious code alike, is not. The Bell-LaPadula model, developed for the Defense Department, turned that rule into a formal mathematical model that a system can be built and checked against.

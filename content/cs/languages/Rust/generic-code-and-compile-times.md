@@ -10,9 +10,7 @@ tags:
   - build-systems
 date: 2026-07-02
 updated:
-aliases:
-  - Rust Compile Times
-  - Why Rust Builds Are Slow
+aliases: []
 ---
 
 Rust's reputation for slow builds is usually blamed on the borrow checker, which is the wrong suspect. Borrow checking runs on a function body once, in terms of regions, and it does not multiply. The multiplication happens after type checking, in the backend, and it is driven by how many distinct concrete types flow through generic code. A crate with one generic function used at forty types is closer, in backend work, to a crate with forty functions than to a crate with one.

@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-08-11
 updated:
-aliases:
-  - TypeScript Template Literal Types
-  - Type-Level Strings
+aliases: []
 ---
 
 A string literal type used to be a point with no interior. `"top"` was a single inhabitant and the only thing you could do with it was compare it to another one. TypeScript 4.1 gave it structure.

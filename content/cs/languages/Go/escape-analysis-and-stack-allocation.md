@@ -9,9 +9,7 @@ tags:
   - memory
 date: 2026-08-11
 updated:
-aliases:
-  - Go Escape Analysis
-  - Does This Escape to the Heap
+aliases: []
 ---
 
 Ask a C programmer where a variable lives and the answer is in the declaration. `int x` is on the stack, `malloc` returns heap. Ask a Go programmer and the honest answer is that the compiler decided, the decision is not in the specification, and it may change when you upgrade your toolchain.

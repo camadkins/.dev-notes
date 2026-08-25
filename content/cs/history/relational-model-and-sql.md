@@ -9,9 +9,7 @@ tags:
 date: 2026-03-15
 updated:
 aliases:
-  - relational model
   - SQL
-  - Codd
 ---
 
 Before 1970, programs reached their data by following pointers through a specific storage layout, so changing the layout broke the programs that used it. Edgar Codd's relational model swept that away with a simple, mathematical idea: store data as tables, and ask for what you want rather than spelling out how to fetch it.

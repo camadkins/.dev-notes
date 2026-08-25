@@ -9,10 +9,7 @@ tags:
   - memory
 date: 2026-05-06
 updated:
-aliases:
-  - C++ Move Semantics
-  - Rvalue References
-  - std::move
+aliases: []
 ---
 
 Returning a `std::vector` with a million elements by value used to mean copying a million elements, because the compiler had no way to tell "this vector is about to be destroyed anyway" from "this vector is still in use." C++11 gave the language a way to say it. The mechanism is not a new operation on objects; it is a new distinction between expressions, plus an overload that fires on one side of the distinction.

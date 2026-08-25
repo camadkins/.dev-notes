@@ -12,8 +12,6 @@ date: 2026-07-02
 updated:
 aliases:
   - MESI
-  - False Sharing
-  - Coherence Protocol
 ---
 
 A single core with a [[cs/systems/memory-hierarchy-and-caching|cache]] has no coherence problem: its cache is simply a fast copy of memory, and it is the only party writing. Add a second core with its own private cache and the picture breaks. Both cores can pull the same 64-byte line into their local caches, and the moment one of them writes, the other is holding a stale copy that still claims to be current. Cache coherence is the hardware discipline that stops the two copies from silently disagreeing.

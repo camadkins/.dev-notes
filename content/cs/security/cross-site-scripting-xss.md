@@ -11,7 +11,6 @@ date: 2026-05-02
 updated:
 aliases:
   - XSS
-  - cross-site scripting
 ---
 
 XSS is the browser's version of the same mistake [[cs/security/sql-injection|SQL injection]] makes against a database: untrusted data crosses the line from content into code. Here [[cs/pl/compilation-vs-interpretation|the interpreter]] is the victim's browser, and the code runs inside the victim's session, with their cookies, their logged-in identity, their same-origin permissions. The three-way taxonomy everyone memorizes, stored, reflected, DOM-based, is not trivia. It is a classification by where the attacker's data enters the page, and that entry point dictates the defense.

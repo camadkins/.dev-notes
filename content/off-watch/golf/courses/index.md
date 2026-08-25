@@ -6,11 +6,9 @@ comments: false
 tags:
   - off-watch
   - golf
-  - courses
 date: 2026-06-28
 updated: 2026-06-28
-aliases:
-  - Course Reviews
+aliases: []
 ---
 
 One note per course. Each one holds the whole story of the round: a short readable review, my rating, how I actually played, what gave me trouble, and a photo of the scorecard. Written to be read, so any of these could become a blog post later.

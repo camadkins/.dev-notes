@@ -7,9 +7,7 @@ tags:
   - cs
   - machine-learning
 date: 2026-07-13
-aliases:
-  - overfitting
-  - underfitting
+aliases: []
 ---
 
 A model can be wrong in two opposite ways. It can be too rigid to capture the real pattern, so it misses systematically no matter what data you show it. Or it can be so flexible that it molds itself to every quirk of the particular training set it saw, quirks that will not be there next time. The first failure is bias, the second is variance, and reducing one tends to feed the other. Every decision about model complexity is a negotiation between them, which makes this the theory behind [[cs/machine-learning/generalization-vs-memorization]].

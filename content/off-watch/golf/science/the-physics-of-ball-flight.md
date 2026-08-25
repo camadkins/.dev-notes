@@ -7,10 +7,8 @@ maturity: seed
 tags:
   - off-watch
   - golf
-  - science
 date: 2026-06-28
-aliases:
-  - Ball Flight
+aliases: []
 ---
 
 > [!note] Seed

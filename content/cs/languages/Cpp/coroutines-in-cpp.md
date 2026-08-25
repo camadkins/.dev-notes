@@ -9,10 +9,7 @@ tags:
   - concurrency
 date: 2026-07-30
 updated:
-aliases:
-  - C++ Coroutines
-  - co_await
-  - Promise Type
+aliases: []
 ---
 
 C++20 added three keywords, one header, and no coroutine. `<coroutine>` gives you a handle type, two trivial awaiter types, and a traits template. There is no `task`, no `future`-style awaitable, and until C++23 no `generator`. Writing `co_await` in a function makes it a coroutine and then requires you to have already supplied a type describing what that means. Most languages ship async as a package; C++ shipped a compiler transformation and a set of names it will call, and left the semantics to whoever writes the return type.

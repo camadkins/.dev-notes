@@ -11,9 +11,7 @@ date: 2026-05-02
 updated:
 aliases:
   - AEAD
-  - authenticated encryption
   - AES-GCM
-  - ChaCha20-Poly1305
 ---
 
 For years the standard advice was: encrypt for secrecy, then MAC for integrity, and be very careful how you bolt the two together. The care was the problem. Encrypt-then-MAC, MAC-then-encrypt, which key for which, what exactly the MAC covers, all of it was a minefield that produced a long line of real vulnerabilities. AEAD removes the minefield by making both properties one operation.

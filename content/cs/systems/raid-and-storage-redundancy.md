@@ -10,7 +10,6 @@ date: 2026-04-06
 updated:
 aliases:
   - RAID
-  - RAID Levels
 ---
 
 The premise of RAID is a bit of arbitrage. Cheap disks are individually unreliable, expensive disks are individually reliable, and you can beat the expensive disk with a pile of cheap ones if you spend some of the capacity on redundancy. That is the whole argument, and it was made precisely: at Berkeley in 1987, Patterson, Gibson, and Katz "argued that the disk drives of the top-performing mainframe computers of the time could be outperformed by an array of the (comparatively inexpensive) disk drives that were manufactured for the growing [[cs/history/altair-8800-and-personal-computing|personal computer market]]." The catch they named up front is the one this note keeps circling back to: "although incidence of hard disk drive failure rises in proportion to the number of drives in use, the reliability of an array could far exceed that of any single, high-capacity drive if one built redundancy into the computer storage system by configuring it to write data to more than one disk automatically."

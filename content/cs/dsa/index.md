@@ -8,8 +8,7 @@ tags:
   - dsa
 date: 2025-10-16
 updated: 2026-03-12
-aliases:
-  - Data Structures & Algorithms
+aliases: []
 ---
 
 DS&A studies how to represent data and design algorithms that scale. The notes below are grouped by concept cluster - start with an overview note where one exists, then follow links into specifics. The full file list follows automatically below.

@@ -10,7 +10,6 @@ date: 2026-05-07
 updated:
 aliases:
   - GPS
-  - Global Positioning System
 ---
 
 GPS quietly turns one question into another. It answers "where am I" by answering "what time is it, exactly, according to several clocks in space." Built by the Defense Department for navigation, it is one of the most successful distributed systems ever fielded, and it runs on [[cs/standards/ieee-1588-precision-time-protocol|precise, synchronized time]].

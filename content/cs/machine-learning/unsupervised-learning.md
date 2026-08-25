@@ -8,9 +8,7 @@ tags:
   - machine-learning
   - unsupervised-learning
 date: 2026-07-13
-aliases:
-  - unsupervised learning
-  - clustering
+aliases: []
 ---
 
 Labels are expensive, and most data in the world arrives without them. Unsupervised learning is what you do when nobody has told you the right answer: you look for structure that is already latent in the data itself. There is no teacher, so success is judged by whether the structure the model finds is useful, not by accuracy against a known key.

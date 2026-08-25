@@ -8,11 +8,7 @@ tags:
   - cisco
 date: 2026-04-02
 updated:
-aliases:
-  - conditional debugging
-  - debug condition
-  - logging buffered
-  - undebug all
+aliases: []
 ---
 
 New engineers treat `show` and `debug` as two points on one spectrum of detail. They are not. `show` reads state that the device already maintains. `debug` asks the device to narrate its own work in real time, on the same CPU that is forwarding traffic, and the narration is not rate limited by anything except how busy the box is. That asymmetry is why a habit that costs nothing in a lab can take down a production router.

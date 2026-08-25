@@ -9,9 +9,7 @@ tags:
 date: 2026-06-28
 updated:
 aliases:
-  - end-to-end encryption
   - E2EE
-  - going dark
 ---
 
 When you encrypt a message in transit, you are trusting a chain of machines to handle it: your device, the network, and usually a service provider's servers in the middle. Ordinary transport encryption protects each hop, but the provider still sees the plaintext as it passes through. End-to-end encryption removes that middle. The message is locked on the sender's device and can only be opened on the recipient's, so the keys never live anywhere except the two ends. Everyone in between, including the company running the service, carries sealed boxes they cannot open. That single design choice is what makes the recurring demand for a "lawful access" door so hard, because the door has to go somewhere, and there is no somewhere that does not weaken the whole system.

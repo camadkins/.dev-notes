@@ -6,13 +6,10 @@ comments: true
 tags:
   - cs
   - statistics
-  - probability
 date: 2026-02-09
 updated:
 aliases:
   - LLN
-  - Weak Law of Large Numbers
-  - Strong Law of Large Numbers
 ---
 
 Roll one six-sided die and the outcome tells you almost nothing. Roll it ten thousand times and the running average settles near 3.5, which is the [[cs/statistics/expected-value|expected value]] $(1+2+\cdots+6)/6$. The law of large numbers is the theorem that licenses this, and it is what makes every simulation, [[cs/software-engineering/feature-flags-and-trunk-based-development|every A/B test]], and every [[cs/military-computing/monte-carlo-method-and-the-bomb|Monte Carlo estimator]] work.

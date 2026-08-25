@@ -9,12 +9,7 @@ tags:
   - distributed-systems
 date: 2026-06-24
 updated:
-aliases:
-  - Observability
-  - Three Pillars
-  - Distributed Tracing
-  - Four Golden Signals
-  - Structured Logging
+aliases: []
 ---
 
 The two words get used interchangeably and their definitions do not overlap. Google's SRE book defines monitoring as "collecting, processing, aggregating, and displaying real-time quantitative data about a system, such as query counts and types, error counts and types, processing times, and server lifetimes." That is a description of a pipeline, and it presumes you already decided what to collect.

@@ -9,10 +9,7 @@ tags:
   - type-theory
 date: 2026-06-17
 updated:
-aliases:
-  - NRT in C#
-  - The Null-Forgiving Operator
-  - Null-State Analysis
+aliases: []
 ---
 
 C# 8 added a question mark to reference type declarations and produced years of confusion about what it means, because the syntax borrows from nullable value types where it does something real. `int?` is `Nullable<int>`, a different type with different storage. `string?` is `System.String`. So is `string`. The compiler enforces distinctions between them that the runtime knows nothing about.

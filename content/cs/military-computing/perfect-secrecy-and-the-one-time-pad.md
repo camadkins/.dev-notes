@@ -8,9 +8,7 @@ tags:
   - military
 date: 2026-01-23
 updated:
-aliases:
-  - one-time pad
-  - perfect secrecy
+aliases: []
 ---
 
 Almost all encryption is breakable in principle. Given enough computing time, the ciphertext gives the plaintext up. The one-time pad is the exception. Used correctly it cannot be broken at all, not with any amount of computing, and Claude Shannon proved both why it works and what it costs.

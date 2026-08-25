@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-02-17
 updated:
-aliases:
-  - Integer Overflow Semantics
-  - Fixed-Width Integers and Floats
+aliases: []
 ---
 
 `x + 1` looks like the safest expression in programming. It is one of the more dangerous ones, because the machine's integers are finite and the mathematical ones are not. A `u8` holds 0 to 255, so 255 + 1 has no representable answer, and every language has to say something about what happens next. The answers are not variations on a theme. They are four genuinely different contracts, and one of them is "the compiler may assume this never happens."

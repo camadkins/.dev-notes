@@ -9,9 +9,7 @@ tags:
   - memory
 date: 2026-07-09
 updated:
-aliases:
-  - Fat Pointers
-  - Vec Capacity
+aliases: []
 ---
 
 Most languages give you one growable sequence type and one way to talk about a piece of it. Rust splits the job in two, and the split shows up in every function signature you write. `Vec<T>` owns a heap buffer. `&[T]` borrows a run of elements without owning anything. Nearly all library code takes the second, because in Rust it is more common to pass slices as arguments rather than vectors when you just want to provide read access.

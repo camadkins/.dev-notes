@@ -8,10 +8,7 @@ tags:
   - history
 date: 2026-05-24
 updated:
-aliases:
-  - cloud computing
-  - virtualization
-  - hypervisor
+aliases: []
 ---
 
 For most of computing history, to run programs at scale you bought and racked the machines. Cloud computing replaced that with something stranger: rent exactly the computing you need, by the hour, from a pool you never see. The idea that makes it possible is virtualization.

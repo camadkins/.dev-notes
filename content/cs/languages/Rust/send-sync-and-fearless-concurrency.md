@@ -9,9 +9,7 @@ tags:
   - concurrency
 date: 2026-06-24
 updated:
-aliases:
-  - Send and Sync
-  - Rust Thread Safety Traits
+aliases: []
 ---
 
 Most of what Rust offers for concurrency is library code. [[cs/systems/concurrency-primitives|Channels]], `Mutex<T>`, and `Arc<T>` all live in the standard library, and the Book is explicit that almost every concurrency feature in the chapter is part of the standard library rather than the language. Two things are not. `Send` and `Sync` are `std::marker` traits embedded in the language, and they are the reason the library types can be trusted.

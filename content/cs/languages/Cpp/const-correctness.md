@@ -10,10 +10,7 @@ tags:
 date: 2026-02-11
 updated:
 aliases:
-  - const
   - cv-qualifiers
-  - const member functions
-  - mutable
 ---
 
 Two lines of C++ that look identical differ in whether they are legal:

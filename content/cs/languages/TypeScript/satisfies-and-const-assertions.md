@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-08-11
 updated:
-aliases:
-  - The satisfies Operator
-  - as const in TypeScript
+aliases: []
 ---
 
 An annotation does two jobs at once and most of the time you only wanted one of them. Writing `const palette: Record<Colors, string | RGB> = { ... }` checks the object against the type, which is what you asked for, and it also declares that the variable has that type, which throws away everything specific the compiler had worked out about the literal you just wrote.

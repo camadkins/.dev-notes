@@ -7,10 +7,7 @@ tags:
   - cs
   - machine-learning
 date: 2026-07-13
-aliases:
-  - generalization
-  - memorization
-  - generalization gap
+aliases: []
 ---
 
 The whole point of machine learning is to do well on data you have not seen yet. A model that scores perfectly on its training examples has proven almost nothing, because storing answers is trivial for a computer. The interesting quantity is not training performance, it is the drop between training performance and performance on fresh data. Keeping that drop small is what "learning" actually means.

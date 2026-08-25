@@ -9,9 +9,7 @@ tags:
   - build-systems
 date: 2026-06-24
 updated:
-aliases:
-  - Imports and Namespacing
-  - How Imports Resolve
+aliases: []
 ---
 
 Two libraries both define `Config`. Somebody has to decide which one you meant, and every language answers with a namespace mechanism plus a resolution rule. The mechanisms look like syntax trivia (`use`, `#include`, `import`) and they are not: the resolution rule determines whether a name collision is a compile error or a runtime surprise, whether your build takes a minute or twenty, and whether two versions of the same library can coexist in one program.

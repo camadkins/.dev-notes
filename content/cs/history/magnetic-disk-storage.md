@@ -10,8 +10,6 @@ date: 2026-02-01
 updated:
 aliases:
   - RAMAC
-  - hard disk
-  - random access
 ---
 
 Before 1956, business data lived on punched cards and magnetic tape, and tape you read in order, from the beginning. The IBM RAMAC changed that. It gave a computer a way to jump straight to any record, and that one capability reshaped how data is stored and structured.

@@ -9,11 +9,7 @@ tags:
 date: 2026-02-19
 updated:
 aliases:
-  - quality of service
-  - DiffServ
   - DSCP
-  - traffic shaping
-  - policing vs shaping
 ---
 
 Plain IP is best-effort. Every packet is treated the same, and while the link has spare capacity that is invisible and harmless. The moment a link saturates, queuing delay climbs for everything at once, and that is where the equality becomes a problem. A file download that slows by 30 percent is fine; a voice call that gains 200 milliseconds of jitter is ruined. The two flows want opposite things from the network, and best-effort has no way to tell them apart. Quality of service is the collection of mechanisms that lets a network tell them apart and act on the difference.

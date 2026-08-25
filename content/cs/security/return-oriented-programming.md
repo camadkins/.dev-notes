@@ -11,9 +11,6 @@ date: 2026-03-22
 updated:
 aliases:
   - ROP
-  - return oriented programming
-  - ROP chain
-  - code reuse attack
 ---
 
 For most of the 1990s the exploit recipe was fixed: overflow a buffer, write your own machine code onto [[cs/dsa/stack|the stack]], and overwrite the return address to point at it. Defenders eventually cut that off at the hardware level by marking writable memory as non-executable, so bytes an attacker plants can be written but never run. That should have ended the game. It did not. Return-oriented programming is the answer to a sharp question: if you cannot bring your own code, can you compose an equivalent program entirely out of code that is already there and already executable?

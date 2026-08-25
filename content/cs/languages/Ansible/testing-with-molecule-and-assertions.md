@@ -9,9 +9,7 @@ tags:
   - testing
 date: 2026-08-15
 updated:
-aliases:
-  - Molecule
-  - Ansible assert
+aliases: []
 ---
 
 Testing a program usually means running it on inputs and comparing outputs. A playbook has no return value and its output is a machine, so the ordinary shape does not transfer. Ansible's answer arrives at two levels, and the smaller one is more revealing than it first appears.

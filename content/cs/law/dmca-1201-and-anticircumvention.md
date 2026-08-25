@@ -8,9 +8,7 @@ tags:
   - law
 date: 2026-07-02
 updated:
-aliases:
-  - Anticircumvention
-  - 17 USC 1201
+aliases: []
 ---
 
 Copyright law, for most of its history, regulated what a person did with a work. Copy it, distribute it, perform it in public, and the statute had something to say. Section 1201, added to title 17 by the Digital Millennium Copyright Act in 1998, regulates something that happens before any of that. It regulates the act of getting to the work. The text is short enough to read in ten minutes and it is worth reading, because its internal structure is the part everyone gets wrong.
