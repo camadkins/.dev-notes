@@ -20,7 +20,7 @@ One note per game. Each holds the rules I play by (house rules included), the st
 
 - [[off-watch/games/cribbage|Cribbage]] - the classic two-hand peg race. A genuine submarine tradition.
 
-New game? Copy the [[off-watch/games/_template|game template]], rename it (`catan.md`), and fill it in.
+New game? Copy the `game template`, rename it (`catan.md`), and fill it in.
 
 ### How a game gets logged
 

@@ -25,7 +25,7 @@ It starts as notes and grows on the next round. Some of this could become a blog
 
 ### How a round gets logged
 
-Every course gets one note that holds the whole story: the review, my rating, how I played, what gave me trouble, and a photo of the scorecard. The shape of that note lives in the [[off-watch/golf/courses/_template|course template]], so a new round drops in clean.
+Every course gets one note that holds the whole story: the review, my rating, how I played, what gave me trouble, and a photo of the scorecard. The shape of that note lives in the `course template`, so a new round drops in clean.
 
 ---
 

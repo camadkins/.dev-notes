@@ -18,8 +18,8 @@ DnD is the one hobby that is already a wiki. A campaign is a web of people, plac
 
 One folder per campaign. Inside a campaign, the pieces cross-link:
 
-- **Session logs** - one note per session, what actually happened at the table. Start from the [[off-watch/dnd/_session-template|session template]].
-- **Characters** - the party and the major NPCs, one note each. Start from the [[off-watch/dnd/_character-template|character template]].
+- **Session logs** - one note per session, what actually happened at the table. Start from the `session template`.
+- **Characters** - the party and the major NPCs, one note each. Start from the `character template`.
 - **Places and lore** - towns, factions, the big mysteries. Plain notes, linked from wherever they come up.
 
 A session log names the characters and places it touches, those notes link back, and the campaign index ties them together. That web is the point.

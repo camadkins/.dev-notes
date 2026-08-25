@@ -29,7 +29,7 @@ Nothing logged yet. The first book review lands here.
 
 ### How a book gets logged
 
-Copy the [[off-watch/books/_template|book template]], rename it to the book (`the-pragmatic-programmer.md`), and fill it out while it is fresh. Move it from the [[off-watch/books/reading-list|reading list]] to shelved when done.
+Copy the `book template`, rename it to the book (`the-pragmatic-programmer.md`), and fill it out while it is fresh. Move it from the [[off-watch/books/reading-list|reading list]] to shelved when done.
 
 ### Connections
 

@@ -13,7 +13,7 @@ aliases: []
 
 One note per course. Each one holds the whole story of the round: a short readable review, my rating, how I actually played, what gave me trouble, and a photo of the scorecard. Written to be read, so any of these could become a blog post later.
 
-New course? Copy the [[off-watch/golf/courses/_template|course template]], rename it to the course (`pebble-beach.md`), drop in the photos, and fill it out while the round is fresh.
+New course? Copy the `course template`, rename it to the course (`pebble-beach.md`), drop in the photos, and fill it out while the round is fresh.
 
 ### Played
 
