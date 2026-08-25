@@ -10,13 +10,10 @@ tags:
 date: 2026-02-18
 updated:
 aliases:
-  - Hardware Security Modules and Key Management
   - HSM
-  - Hardware Security Module
-  - Key Management
 ---
 
-Every cryptosystem eventually reduces to one question: where does the private key live, and who can read it? Strong algorithms do not save you here. NIST puts it bluntly in [[cs/standards/what-a-standard-actually-is|SP 800-57]]: "Poor key management may easily compromise strong algorithms." A [[digital-signatures|signing key]] sitting in a process's memory, [[cs/forensics/the-page-file-and-hibernation-artifacts|swappable to disk]], readable by any code that compromises the host, is a single `memcpy` away from total failure no matter how good the math is. The hardware security module exists to remove that failure mode by making the key impossible to read, rather than merely hard to guess.
+Every cryptosystem eventually reduces to one question: where does the private key live, and who can read it? Strong algorithms do not save you here. NIST puts it bluntly in [[cs/standards/what-a-standard-actually-is|SP 800-57]]: "Poor key management may easily compromise strong algorithms." A [[cs/security/digital-signatures|signing key]] sitting in a process's memory, [[cs/forensics/the-page-file-and-hibernation-artifacts|swappable to disk]], readable by any code that compromises the host, is a single `memcpy` away from total failure no matter how good the math is. The hardware security module exists to remove that failure mode by making the key impossible to read, rather than merely hard to guess.
 
 > [!note] The idea
 > An HSM is a cryptographic module that holds keys inside a defined physical boundary and performs operations (sign, decrypt, derive) *on behalf of* the caller without ever emitting the key in plaintext. The security argument is not mathematical, it is physical: FIPS 140-2 defines a "cryptographic boundary" as "an explicitly defined continuous perimeter that establishes the physical bounds" of the module, and its higher assurance levels back that perimeter with hardware that destroys the keys if the perimeter is breached. The key-secrecy problem is converted into a tamper-resistance problem.
@@ -38,11 +35,11 @@ That lifecycle framing is the discipline the hardware serves. A key moves throug
 
 ## Related Notes
 
-- [[digital-signatures|Digital Signatures]] - the operation an HSM performs without releasing the key
-- [[key-derivation-functions|Key Derivation Functions]] - deriving keys, one of the lifecycle functions an HSM can contain
-- [[secure-boot-and-the-chain-of-trust|Secure Boot and the Chain of Trust]] - hardware roots of trust that anchor keys the same way
-- [[cryptographically-secure-randomness|Cryptographically Secure Randomness]] - the generation phase an HSM depends on being done right
-- [[pki-and-x509-certificates|PKI and X.509 Certificates]] - CA private keys are the canonical HSM use case
+- [[cs/security/digital-signatures|Digital Signatures]] - the operation an HSM performs without releasing the key
+- [[cs/security/key-derivation-functions|Key Derivation Functions]] - deriving keys, one of the lifecycle functions an HSM can contain
+- [[cs/security/secure-boot-and-the-chain-of-trust|Secure Boot and the Chain of Trust]] - hardware roots of trust that anchor keys the same way
+- [[cs/security/cryptographically-secure-randomness|Cryptographically Secure Randomness]] - the generation phase an HSM depends on being done right
+- [[cs/security/pki-and-x509-certificates|PKI and X.509 Certificates]] - CA private keys are the canonical HSM use case
 
 ## Sources
 

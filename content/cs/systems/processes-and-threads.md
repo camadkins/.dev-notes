@@ -22,7 +22,7 @@ Think of processes as separate apartments in a building: isolated, can't see eac
 ## Processes
 
 Created by `fork` (POSIX) or `CreateProcess` (Windows). Each process gets:
-- Its own [[virtual-memory|virtual address space]]
+- Its own [[cs/systems/virtual-memory|virtual address space]]
 - Its own file descriptor table
 - Its own security context
 
@@ -127,9 +127,9 @@ The fork model is safer (one crash doesn't take down others) but uses more memor
 
 ## Related Notes
 
-- [[concurrency-models-threads-locks-and-actors|Concurrency Models - Threads, Locks & Actors]] - higher-level abstractions built on OS threads
-- [[virtual-memory|Virtual Memory]] - the address-space isolation that makes processes safe
-- [[file-systems|File Systems]] - another OS abstraction processes depend on
+- [[cs/pl/concurrency-models-threads-locks-and-actors|Concurrency Models - Threads, Locks & Actors]] - higher-level abstractions built on OS threads
+- [[cs/systems/virtual-memory|Virtual Memory]] - the address-space isolation that makes processes safe
+- [[cs/systems/file-systems|File Systems]] - another OS abstraction processes depend on
 
 ## Sources
 

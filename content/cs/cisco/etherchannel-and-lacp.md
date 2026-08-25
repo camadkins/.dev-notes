@@ -9,14 +9,12 @@ tags:
 date: 2026-06-24
 updated:
 aliases:
-  - EtherChannel
   - LACP
-  - PAgP
   - channel-group
   - port-channel
 ---
 
-Two switches, two cables between them, and only one is carrying traffic. That is [[spanning-tree-protocol|spanning tree]] doing its job: a second path between the same two bridges is a loop, so one port gets blocked. You bought twice the fiber and got one link's worth of throughput plus a standby.
+Two switches, two cables between them, and only one is carrying traffic. That is [[cs/cisco/spanning-tree-protocol|spanning tree]] doing its job: a second path between the same two bridges is a loop, so one port gets blocked. You bought twice the fiber and got one link's worth of throughput plus a standby.
 
 EtherChannel is the answer to that specific frustration. Multiple physical links combine into a single logical channel, which allows [[cs/networking/load-balancing-l4-and-l7|load sharing of traffic among the links]] in the channel as well as redundancy in the event that one or more links in the channel fail.
 
@@ -63,7 +61,7 @@ This is where bundles fail silently. Cisco's guidance opens with the failure mod
 
 Configure all ports in an EtherChannel to operate at the same speeds and duplex modes. For Layer 2 EtherChannels specifically, assign all ports in the EtherChannel to the same VLAN or configure them as trunks, and note that ports with different native VLANs cannot form an EtherChannel. If you build the channel from trunk ports, verify that the trunking mode is the same on all the trunks, since inconsistent trunk modes on EtherChannel ports can have unexpected results.
 
-The allowed VLAN list is the one that catches people mid-change. An EtherChannel supports the same allowed range of VLANs on all the ports in a trunking Layer 2 EtherChannel, and if the allowed range of VLANs is not the same, the ports do not form an EtherChannel even when PAgP is set to the auto or desirable mode. Prune the [[trunking-and-802-1q|allowed VLAN list]] on one member and forget the other and you have not restricted the channel, you have dissolved it.
+The allowed VLAN list is the one that catches people mid-change. An EtherChannel supports the same allowed range of VLANs on all the ports in a trunking Layer 2 EtherChannel, and if the allowed range of VLANs is not the same, the ports do not form an EtherChannel even when PAgP is set to the auto or desirable mode. Prune the [[cs/cisco/trunking-and-802-1q|allowed VLAN list]] on one member and forget the other and you have not restricted the channel, you have dissolved it.
 
 One parameter that does *not* have to match, which is worth knowing because people assume the opposite: ports with different spanning-tree path costs can form an EtherChannel if they are otherwise compatibly configured, and setting different spanning-tree path costs does not, by itself, make ports incompatible for the formation of an EtherChannel.
 
@@ -92,12 +90,12 @@ Changing that lever is not always free. Cisco flags that `port-channel load-bala
 
 ## Related Notes
 
-- [[spanning-tree-protocol|Spanning Tree Protocol]] - the blocking behavior EtherChannel exists to sidestep
-- [[trunking-and-802-1q|Trunking and 802.1Q]] - the allowed VLAN list and native VLAN that must match across members
-- [[vlans-and-vlan-design|VLANs and VLAN Design]] - access-mode members must share one VLAN
-- [[load-balancing-l4-and-l7|Load Balancing L4 and L7]] - the same per-flow hashing idea, several layers up
-- [[ios-cli-modes|IOS CLI Modes]] - `interface range` and `(config-if-range)`
-- [[show-and-debug-methodology|Show and Debug Methodology]] - reading `show etherchannel summary` against what you meant to build
+- [[cs/cisco/spanning-tree-protocol|Spanning Tree Protocol]] - the blocking behavior EtherChannel exists to sidestep
+- [[cs/cisco/trunking-and-802-1q|Trunking and 802.1Q]] - the allowed VLAN list and native VLAN that must match across members
+- [[cs/cisco/vlans-and-vlan-design|VLANs and VLAN Design]] - access-mode members must share one VLAN
+- [[cs/networking/load-balancing-l4-and-l7|Load Balancing L4 and L7]] - the same per-flow hashing idea, several layers up
+- [[cs/cisco/ios-cli-modes|IOS CLI Modes]] - `interface range` and `(config-if-range)`
+- [[cs/cisco/show-and-debug-methodology|Show and Debug Methodology]] - reading `show etherchannel summary` against what you meant to build
 
 ## Sources
 

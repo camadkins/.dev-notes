@@ -9,7 +9,6 @@ tags:
 date: 2025-10-16
 updated: 2025-12-31
 aliases: []
-
 ---
 
 ## Overview
@@ -70,7 +69,7 @@ Imagine a server that frequently creates small request objects (24–128 bytes) 
 
 - **Lifetimes drive policy**: long-lived objects favor general heap with coalescing; **phase-oriented** workloads favor arenas/regions; **uniform small objects** favor slabs.
 
-- **Locality begets speed**: allocators that keep related objects near each other boost cache hit rate; see [[dynamic-arrays|Dynamic Arrays]] and [[hash-tables|Hash Tables]] for layout impacts.
+- **Locality begets speed**: allocators that keep related objects near each other boost cache hit rate; see [[cs/dsa/dynamic-arrays|Dynamic Arrays]] and [[cs/dsa/hash-tables|Hash Tables]] for layout impacts.
 
 - **Concurrency**: per-thread arenas reduce **contention** and **[[cs/systems/cache-coherence|false sharing]]**.
 
@@ -188,7 +187,7 @@ function arena_destroy(A): return all memory to OS
 - **Move** to a new block and copy.
 
 
-**Growth factors**: dynamic arrays typically grow by `×1.5–×2`. Too small → many copies; too big → memory blow-up. See [[dynamic-arrays|Dynamic Arrays]].
+**Growth factors**: dynamic arrays typically grow by `×1.5–×2`. Too small → many copies; too big → memory blow-up. See [[cs/dsa/dynamic-arrays|Dynamic Arrays]].
 
 ### 7) Alignment & Padding
 
@@ -297,10 +296,10 @@ Memory allocation connects OS pages to application objects through policies that
 
 ## Related Notes
 
-- [[dynamic-memory-allocation|Dynamic Memory Allocation]]
+- [[cs/dsa/dynamic-memory-allocation|Dynamic Memory Allocation]]
 
-- [[dynamic-arrays|Dynamic Arrays]]
+- [[cs/dsa/dynamic-arrays|Dynamic Arrays]]
 
-- [[hash-tables|Hash Tables]]
+- [[cs/dsa/hash-tables|Hash Tables]]
 
-- [[algorithm-efficiency|Algorithm Efficiency]]
+- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]

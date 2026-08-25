@@ -10,9 +10,7 @@ tags:
 date: 2026-02-14
 updated:
 aliases:
-  - Kerberos
   - KDC
-  - ticket-granting ticket
 ---
 
 Type your password once in the morning and, for the rest of the day, file shares, mail, and internal apps just let you in. That is single sign-on, and inside most enterprise networks the machinery underneath it is Kerberos. The interesting part is what does *not* happen: after that first login, your password is never sent anywhere, not to the file server, not to the mail server, not even back to the login service. The whole protocol is built to authenticate you to machines you have never contacted while keeping the secret that proves your identity on your own device.
@@ -53,8 +51,8 @@ The cost is that Kerberos assumes reasonably synchronized clocks. A machine whos
 
 ## Related Notes
 
-- [[multi-factor-authentication|Multi-Factor Authentication]] - what backs the single password that bootstraps the whole Kerberos day
-- [[oauth2-and-openid-connect|OAuth 2.0 and OpenID Connect]] - the web's token-based analogue to Kerberos tickets
+- [[cs/security/multi-factor-authentication|Multi-Factor Authentication]] - what backs the single password that bootstraps the whole Kerberos day
+- [[cs/security/oauth2-and-openid-connect|OAuth 2.0 and OpenID Connect]] - the web's token-based analogue to Kerberos tickets
 - [[cs/military-computing/rsa-and-computational-hardness|RSA and Computational Hardness]] - the public-key alternative to Kerberos's shared-secret model
 - [[cs/military-computing/ntp-distributed-clock-synchronization|NTP and Distributed Clocks]] - the clock synchronization Kerberos timestamps depend on
 - [[cs/military-computing/perfect-secrecy-and-the-one-time-pad|Perfect Secrecy and the One-Time Pad]] - proving identity by decryption rests on symmetric secrets

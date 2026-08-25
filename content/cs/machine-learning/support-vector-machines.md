@@ -11,11 +11,9 @@ date: 2026-06-04
 updated:
 aliases:
   - SVM
-  - Maximum Margin Classifier
-  - Kernel Trick
 ---
 
-Fit a linear classifier to two separable classes and you immediately have a problem of embarrassment: there are many hyperplanes that classify the data, and nothing in the training error distinguishes them. The support vector machine resolves the tie with a geometric principle. Wikipedia states the choice and the reason: pick the hyperplane representing the largest separation, or margin, between the two classes, because "in general the larger the margin, the lower the generalization error of the classifier." A lower generalization error means the implementer is less likely to experience [[generalization-vs-memorization|overfitting]].
+Fit a linear classifier to two separable classes and you immediately have a problem of embarrassment: there are many hyperplanes that classify the data, and nothing in the training error distinguishes them. The support vector machine resolves the tie with a geometric principle. Wikipedia states the choice and the reason: pick the hyperplane representing the largest separation, or margin, between the two classes, because "in general the larger the margin, the lower the generalization error of the classifier." A lower generalization error means the implementer is less likely to experience [[cs/machine-learning/generalization-vs-memorization|overfitting]].
 
 > [!note] The idea
 > Two independent ideas got fused into one model, and separating them is the key to understanding SVMs. The first is the **maximum-margin criterion**, a tie-breaking rule that turns classification into a constrained optimization problem whose answer depends on only a handful of training points. The second is the **kernel trick**, a computational identity that lets any algorithm written purely in terms of dot products operate in a high-dimensional feature space it never actually constructs. The margin idea came first; Wikipedia records that Boser, Guyon, and Vapnik suggested applying the kernel trick to maximum-margin hyperplanes in 1992, and that the soft-margin version used in software packages was proposed by Corinna Cortes and Vapnik in 1993 and published in 1995. The trick is not specific to SVMs, it just found its most famous home there.
@@ -26,7 +24,7 @@ Treat each data point as a $p$-dimensional vector and ask whether a $(p-1)$-dime
 
 The consequence is the model's most distinctive property. Wikipedia states it directly: the max-margin hyperplane "is completely determined by those $\mathbf{x}_i$ that lie nearest to it," and those points are called support vectors. Every training point sitting comfortably on the correct side of the margin contributes nothing to the boundary's position. Delete it and the fitted model is unchanged. scikit-learn lists the practical payoff among the method's advantages: an SVM "uses a subset of training points in the decision function (called support vectors), so it is also memory efficient."
 
-This is a sharp contrast with [[logistic-regression|logistic regression]], where every training example contributes a gradient term forever, and with [[k-nearest-neighbors|kNN]], which keeps the entire training set. The SVM keeps only the points on the frontier.
+This is a sharp contrast with [[cs/machine-learning/logistic-regression|logistic regression]], where every training example contributes a gradient term forever, and with [[cs/machine-learning/k-nearest-neighbors|kNN]], which keeps the entire training set. The SVM keeps only the points on the frontier.
 
 ## Soft margin: what to do when no gap exists
 
@@ -40,7 +38,7 @@ $$\lVert\mathbf{w}\rVert^2 + C\left[\frac{1}{n}\sum_{i=1}^{n}\max\left(0, 1 - y_
 
 where $C > 0$ "determines the trade-off between increasing the margin size and ensuring that the $\mathbf{x}_i$ lie on the correct side of the margin." scikit-learn gives the same parameter an operational reading: $C$ "trades off misclassification of training examples against simplicity of the decision surface. A low C makes the decision surface smooth, while a high C aims at classifying all training examples correctly." Its guidance for noisy data is to decrease $C$, since "decreasing C corresponds to more regularization."
 
-Read that objective again and it is a familiar shape: a penalty on $\lVert\mathbf{w}\rVert^2$ plus a data-fitting loss. Wikipedia makes the connection explicit, noting the SVM technique is equivalent to empirical risk minimization with Tikhonov regularization where the loss function is the hinge loss. The margin term is an [[regularization-ridge-and-lasso|L2 regularizer]] in disguise, which is why $C$ behaves exactly like an inverse regularization strength.
+Read that objective again and it is a familiar shape: a penalty on $\lVert\mathbf{w}\rVert^2$ plus a data-fitting loss. Wikipedia makes the connection explicit, noting the SVM technique is equivalent to empirical risk minimization with Tikhonov regularization where the loss function is the hinge loss. The margin term is an [[cs/machine-learning/regularization-ridge-and-lasso|L2 regularizer]] in disguise, which is why $C$ behaves exactly like an inverse regularization strength.
 
 ## The kernel trick
 
@@ -52,7 +50,7 @@ What makes this a trick rather than a definition is that $\varphi$ is never eval
 > scikit-learn describes what $C$ and $\gamma$ each control on an RBF kernel. $C$ is common to all kernels and governs the misclassification-versus-smoothness trade. $\gamma$ "defines how much influence a single training example has. The larger gamma is, the closer other examples must be to be affected." A large $\gamma$ makes each support vector's influence local and the boundary wiggly; a small one makes it broad and the boundary smooth. Because the two interact, scikit-learn advises a grid search "with C and gamma spaced exponentially far apart to choose good values," which is a rare case of documentation naming the log-scale search directly.
 
 > [!warning] Scale your features first
-> scikit-learn is explicit that "Support Vector Machine algorithms are not scale invariant, so it is highly recommended to scale your data," suggesting each attribute be scaled to $[0,1]$ or $[-1,+1]$, or standardized to mean 0 and variance 1, with the identical scaling applied to test vectors. The reason is structural rather than numerical: the margin is a geometric distance, and the RBF kernel measures $\lVert x - x'\rVert$, so changing a feature's units changes the shape of the problem. This is the same failure mode [[k-nearest-neighbors|kNN]] has, and it is easy to miss because the model still trains and reports a score.
+> scikit-learn is explicit that "Support Vector Machine algorithms are not scale invariant, so it is highly recommended to scale your data," suggesting each attribute be scaled to $[0,1]$ or $[-1,+1]$, or standardized to mean 0 and variance 1, with the identical scaling applied to test vectors. The reason is structural rather than numerical: the margin is a geometric distance, and the RBF kernel measures $\lVert x - x'\rVert$, so changing a feature's units changes the shape of the problem. This is the same failure mode [[cs/machine-learning/k-nearest-neighbors|kNN]] has, and it is easy to miss because the model still trains and reports a score.
 
 ## Where SVMs are strong and where they are not
 
@@ -62,14 +60,14 @@ That last one is the practical difference from logistic regression that decides 
 
 ## Related Notes
 
-- [[logistic-regression|Logistic Regression]] - the probabilistic linear classifier SVMs are usually compared against
-- [[loss-functions|Loss Functions]] - hinge loss alongside cross-entropy and squared error
-- [[regularization-ridge-and-lasso|Regularization: Ridge and Lasso]] - the L2 penalty that the margin term turns out to be
-- [[k-nearest-neighbors|k-Nearest Neighbors]] - the other method that stores training points, though it stores all of them
-- [[bias-variance-tradeoff|Bias-Variance Tradeoff]] - what C and gamma move along
-- [[features-and-representations|Features and Representations]] - the kernel as an implicit feature map
-- [[vectors-and-dot-products|Vectors and Dot Products]] - the operation the kernel trick substitutes for
-- [[generalization-vs-memorization|Generalization vs Memorization]] - the margin argument for why a wider gap generalizes better
+- [[cs/machine-learning/logistic-regression|Logistic Regression]] - the probabilistic linear classifier SVMs are usually compared against
+- [[cs/machine-learning/loss-functions|Loss Functions]] - hinge loss alongside cross-entropy and squared error
+- [[cs/machine-learning/regularization-ridge-and-lasso|Regularization: Ridge and Lasso]] - the L2 penalty that the margin term turns out to be
+- [[cs/machine-learning/k-nearest-neighbors|k-Nearest Neighbors]] - the other method that stores training points, though it stores all of them
+- [[cs/machine-learning/bias-variance-tradeoff|Bias-Variance Tradeoff]] - what C and gamma move along
+- [[cs/machine-learning/features-and-representations|Features and Representations]] - the kernel as an implicit feature map
+- [[cs/math/vectors-and-dot-products|Vectors and Dot Products]] - the operation the kernel trick substitutes for
+- [[cs/machine-learning/generalization-vs-memorization|Generalization vs Memorization]] - the margin argument for why a wider gap generalizes better
 
 ## Sources
 

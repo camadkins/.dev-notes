@@ -10,11 +10,7 @@ tags:
   - cryptography
 date: 2026-07-15
 updated:
-aliases:
-  - side-channel attack
-  - timing attack
-  - Spectre
-  - Meltdown
+aliases: []
 ---
 
 Most attacks on a cipher go through the front door: they attack the math, searching the keyspace or the algorithm's structure. A side-channel attack ignores the math entirely and listens to the machine. How long did that operation take? How much power did it draw? What did [[cs/systems/memory-hierarchy-and-caching|the cache]] look like afterward? The algorithm can be provably sound and the implementation still betray the key, because the key influenced something the algorithm's specification never mentioned: the physical behavior of the hardware running it.
@@ -43,10 +39,10 @@ The channel is speculative and out-of-order execution, features CPUs use to run 
 
 ## Related Notes
 
-- [[buffer-overflows|Buffer Overflows]], a memory attack on the software model rather than the hardware beneath it
-- [[aes-and-block-ciphers|AES and Block Ciphers]], the kind of algorithm whose implementation timing side channels target
-- [[symmetric-vs-asymmetric-cryptography|Symmetric vs Asymmetric Cryptography]], where the mathematically-secure keys a side channel bypasses live
-- [[memory-protections-aslr-dep-canaries|Memory Protections: ASLR, DEP, and Stack Canaries]], mitigations that likewise fight the gap between model and machine
+- [[cs/security/buffer-overflows|Buffer Overflows]], a memory attack on the software model rather than the hardware beneath it
+- [[cs/security/aes-and-block-ciphers|AES and Block Ciphers]], the kind of algorithm whose implementation timing side channels target
+- [[cs/security/symmetric-vs-asymmetric-cryptography|Symmetric vs Asymmetric Cryptography]], where the mathematically-secure keys a side channel bypasses live
+- [[cs/security/memory-protections-aslr-dep-canaries|Memory Protections: ASLR, DEP, and Stack Canaries]], mitigations that likewise fight the gap between model and machine
 
 ## Sources
 

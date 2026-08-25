@@ -8,11 +8,7 @@ tags:
   - security
 date: 2026-03-11
 updated:
-aliases:
-  - DoS
-  - DDoS
-  - SYN flood
-  - amplification attack
+aliases: []
 ---
 
 Most attacks try to get in. A denial-of-service attack does the opposite: it tries to keep everyone else out, without ever breaching anything. [[cs/standards/what-a-standard-actually-is|RFC 4732]] puts the goal plainly: "A Denial-of-Service (DoS) attack is an attack in which one or more machines target a victim and attempt to prevent the victim from doing useful work." Nothing is stolen and no boundary is crossed. The service simply stops answering. That makes DoS the one attack class where perfect confidentiality and integrity buy you nothing, and where the real contest is arithmetic.
@@ -30,20 +26,20 @@ The defense follows directly from naming the resource. SYN cookies remove the st
 
 ## Distribution and amplification break the arithmetic
 
-A single attacker is limited by their own uplink, so the attack scales by borrowing other people's. RFC 4732 describes how "sufficient scale can be achieved by compromising enough end-hosts (typically using a virus or worm) or routers, and using those compromised hosts to perpetrate the attack. Such an attack is known as a Distributed Denial-of-Service (DDoS) attack." A botnet of compromised machines (see [[malware-classes|malware classes]]) turns one attacker's small link into the summed capacity of thousands, defeating any defense that assumes it can outrun a single source.
+A single attacker is limited by their own uplink, so the attack scales by borrowing other people's. RFC 4732 describes how "sufficient scale can be achieved by compromising enough end-hosts (typically using a virus or worm) or routers, and using those compromised hosts to perpetrate the attack. Such an attack is known as a Distributed Denial-of-Service (DDoS) attack." A botnet of compromised machines (see [[cs/security/malware-classes|malware classes]]) turns one attacker's small link into the summed capacity of thousands, defeating any defense that assumes it can outrun a single source.
 
-Amplification is the second multiplier, and it is the more elegant one. The attacker spoofs the victim's address as the source of a request, then picks a service whose reply dwarfs the query. RFC 4732 gives the canonical example with DNS: "An attacker sends a DNS request to a DNS server ... The request is carefully chosen so that the size of the response is significantly greater than the size of the request, thereby providing the amplification." A tiny query becomes a large answer aimed at the victim, so the attacker spends a fraction of the bandwidth the victim receives. This is why spoofed-source reflection off [[dns-the-domain-name-system|open DNS resolvers]] and similar services is so effective, and why source-address validation upstream matters as much as any filter at the target.
+Amplification is the second multiplier, and it is the more elegant one. The attacker spoofs the victim's address as the source of a request, then picks a service whose reply dwarfs the query. RFC 4732 gives the canonical example with DNS: "An attacker sends a DNS request to a DNS server ... The request is carefully chosen so that the size of the response is significantly greater than the size of the request, thereby providing the amplification." A tiny query becomes a large answer aimed at the victim, so the attacker spends a fraction of the bandwidth the victim receives. This is why spoofed-source reflection off [[cs/systems/dns-the-domain-name-system|open DNS resolvers]] and similar services is so effective, and why source-address validation upstream matters as much as any filter at the target.
 
 > [!warning] You cannot patch your way out of pure volume
 > State-exhaustion attacks have clean fixes because they target a design flaw you can remove. Volumetric DDoS has no such fix at the endpoint: once the flood exceeds your ingress capacity, no code change downstream helps, because the damage is done before your server sees a packet. Defense moves upstream to the network, to providers who can absorb or scrub traffic at a scale the individual target cannot. DoS is the security problem you most often solve by buying capacity rather than writing code.
 
 ## Related Notes
 
-- [[malware-classes|Malware Classes]] - the worms and bots that assemble the distributed source of a DDoS
-- [[dns-the-domain-name-system|DNS: The Domain Name System]] - the reflector of choice for amplification attacks
-- [[firewalls|Firewalls]] - the chokepoint that filters some floods but cannot outrun volumetric ones
-- [[network-protocols|Network Protocols]] - the TCP handshake whose half-open state the SYN flood exploits
-- [[ids-and-ips|IDS and IPS]] - the behavioral monitors that flag flood patterns a static rule misses
+- [[cs/security/malware-classes|Malware Classes]] - the worms and bots that assemble the distributed source of a DDoS
+- [[cs/systems/dns-the-domain-name-system|DNS: The Domain Name System]] - the reflector of choice for amplification attacks
+- [[cs/security/firewalls|Firewalls]] - the chokepoint that filters some floods but cannot outrun volumetric ones
+- [[cs/systems/network-protocols|Network Protocols]] - the TCP handshake whose half-open state the SYN flood exploits
+- [[cs/security/ids-and-ips|IDS and IPS]] - the behavioral monitors that flag flood patterns a static rule misses
 
 ## Sources
 

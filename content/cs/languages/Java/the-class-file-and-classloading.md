@@ -9,10 +9,7 @@ tags:
   - compilers
 date: 2026-06-27
 updated:
-aliases:
-  - Java Class File Format
-  - Class Loader Delegation
-  - Method Descriptors
+aliases: []
 ---
 
 `javac` does not produce a program. It produces one file per class, each one a self-contained, mostly symbolic description of a type: its name, its supertype, its members, and a table of every name it needs from somewhere else. Nothing is resolved. The linking that a C toolchain does before the program starts, the JVM does while the program runs.

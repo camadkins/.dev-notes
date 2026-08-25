@@ -9,9 +9,7 @@ tags:
 date: 2026-08-11
 updated:
 aliases:
-  - Master File Table
   - MFT
-  - NTFS Forensics
 ---
 
 Most [[cs/systems/file-systems|file system]] structures are indirection: a directory entry points at an inode, the inode points at blocks, the blocks hold the data. NTFS collapses part of that chain. Microsoft's description of the Master File Table is unusually direct about it. There is at least one entry in the MFT for every file on an NTFS volume, including the MFT itself, and all information about a file, including its size, time and date stamps, permissions, and data content, is stored either in MFT entries or in space outside the MFT that is described by MFT entries.

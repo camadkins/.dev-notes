@@ -8,10 +8,7 @@ tags:
   - languages
 date: 2026-07-02
 updated:
-aliases:
-  - Python Descriptors
-  - Data and Non-Data Descriptors
-  - __set_name__
+aliases: []
 ---
 
 Ask why `self` appears as the first parameter of a Python method and the usual answer is "because Python is explicit about it." That is a style claim, not a mechanism. The mechanism is that a function stored in a class body is an object with a `__get__` method, and the dot operator calls it. `d.f` does not fetch a function and hand you a closure over `d`; it finds the function in the class dictionary, notices that it can intercept its own retrieval, and lets it return a bound method instead. Nothing about method binding is built into the language grammar. It is a protocol, and you can implement it yourself.

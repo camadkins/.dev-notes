@@ -9,16 +9,14 @@ tags:
 date: 2026-07-13
 aliases:
   - CNN
-  - convolutional neural network
-  - convnet
 ---
 
-A photograph is not a bag of independent pixels. A cat in the top-left corner is the same cat in the bottom-right, and the pixels that matter sit next to each other. A plain [[artificial-neural-networks|fully connected network]] throws that away: it wires every pixel to every unit and has to relearn "an edge" separately for every position. Convolutional networks build the structure of images into the architecture, and that single design choice is what made deep vision work.
+A photograph is not a bag of independent pixels. A cat in the top-left corner is the same cat in the bottom-right, and the pixels that matter sit next to each other. A plain [[cs/deep-learning/artificial-neural-networks|fully connected network]] throws that away: it wires every pixel to every unit and has to relearn "an edge" separately for every position. Convolutional networks build the structure of images into the architecture, and that single design choice is what made deep vision work.
 
 > [!note] The idea
 > A convolutional neural network slides small learnable filters across the input, so the same feature detector is applied at every location. This weight sharing plus local connectivity gives translation equivariance and cuts parameters by orders of magnitude, letting the network learn spatial [[cs/machine-learning/features-and-representations|features]] from edges up to objects.
 
-![A 3 by 3 kernel slides over a 5 by 5 input grid, and each local patch produces one value of the output feature map.](assets/convolution-sliding-kernel.svg)
+![A 3 by 3 kernel slides over a 5 by 5 input grid, and each local patch produces one value of the output feature map.](cs/deep-learning/assets/convolution-sliding-kernel.svg)
 
 ## Convolution: local, shared weights
 
@@ -35,17 +33,17 @@ Sliding the filter one step at a time is stride one; larger strides skip positio
 
 ## How it learns
 
-A CNN is trained like any other supervised network: a [[cs/machine-learning/loss-functions|loss]] scores its predictions, and [[backpropagation|backpropagation]] with [[cs/machine-learning/gradient-descent|gradient descent]] adjusts the filter weights. The filters are not designed, they are learned from data, which is the whole break from the hand-engineered feature detectors that came before.
+A CNN is trained like any other supervised network: a [[cs/machine-learning/loss-functions|loss]] scores its predictions, and [[cs/deep-learning/backpropagation|backpropagation]] with [[cs/machine-learning/gradient-descent|gradient descent]] adjusts the filter weights. The filters are not designed, they are learned from data, which is the whole break from the hand-engineered feature detectors that came before.
 
 > [!example] Why AlexNet mattered
-> The [[cs/history/deep-learning-revolution|2012 AlexNet result]] was a deep CNN that won ImageNet by more than ten percentage points over hand-engineered approaches. It learned better image features than decades of human feature engineering, and it ran because the [[cs/math/linear-algebra-fundamentals|matrix arithmetic]] of convolution maps perfectly onto GPUs. Downsampling and the deeper-network arc are covered in [[pooling-and-cnn-architectures|pooling and CNN architectures]].
+> The [[cs/history/deep-learning-revolution|2012 AlexNet result]] was a deep CNN that won ImageNet by more than ten percentage points over hand-engineered approaches. It learned better image features than decades of human feature engineering, and it ran because the [[cs/math/linear-algebra-fundamentals|matrix arithmetic]] of convolution maps perfectly onto GPUs. Downsampling and the deeper-network arc are covered in [[cs/deep-learning/pooling-and-cnn-architectures|pooling and CNN architectures]].
 
 ## Related Notes
 
-- [[artificial-neural-networks|Artificial Neural Networks]], the fully connected baseline a CNN improves on
-- [[pooling-and-cnn-architectures|Pooling and CNN Architectures]], downsampling and the LeNet to ResNet arc
+- [[cs/deep-learning/artificial-neural-networks|Artificial Neural Networks]], the fully connected baseline a CNN improves on
+- [[cs/deep-learning/pooling-and-cnn-architectures|Pooling and CNN Architectures]], downsampling and the LeNet to ResNet arc
 - [[cs/machine-learning/features-and-representations|Features and Representations]], the layered features a CNN learns
-- [[backpropagation|Backpropagation]] and [[cs/machine-learning/gradient-descent|Gradient Descent]], how the filters are trained
+- [[cs/deep-learning/backpropagation|Backpropagation]] and [[cs/machine-learning/gradient-descent|Gradient Descent]], how the filters are trained
 - [[cs/history/deep-learning-revolution|The Deep Learning Revolution]], AlexNet and the GPU turning point
 - [[cs/machine-learning/ai-vs-ml-vs-dl|AI vs ML vs DL]], why learned features are the deep learning claim
 

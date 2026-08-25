@@ -10,7 +10,6 @@ date: 2026-06-12
 updated:
 aliases:
   - FISMA
-  - Federal Information Security Modernization Act
 ---
 
 Search the Federal Information Security Modernization Act for a required password length, an encryption algorithm, or a logging retention period and you will find none of them. The statute contains no technical control at all. What it contains is an org chart, a program requirement, and a set of pointers to documents written elsewhere, and understanding that shape explains why federal security compliance feels the way it does.

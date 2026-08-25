@@ -13,7 +13,7 @@ aliases: []
 
 ## Intuition
 
-The normal distribution is the symmetric **bell curve** that shows up whenever many small, independent effects add together. Heights, measurement errors, exam scores - all tend to cluster around a central value with symmetric tails. The curve is entirely described by two numbers: where it is centered and how wide it spreads. This simplicity, combined with the [[central-limit-theorem|Central Limit Theorem]], makes it the single most important distribution in statistics.
+The normal distribution is the symmetric **bell curve** that shows up whenever many small, independent effects add together. Heights, measurement errors, exam scores - all tend to cluster around a central value with symmetric tails. The curve is entirely described by two numbers: where it is centered and how wide it spreads. This simplicity, combined with the [[cs/statistics/central-limit-theorem|Central Limit Theorem]], makes it the single most important distribution in statistics.
 
 ## Definition
 
@@ -43,7 +43,7 @@ This lets you look up probabilities in a single $Z$-table or use a single CDF $\
 | $\mu \pm 2\sigma$ | $\approx 95.4\%$ |
 | $\mu \pm 3\sigma$ | $\approx 99.7\%$ |
 
-![Bell curve showing 68-95-99.7 rule with shaded sigma regions](assets/normal-68-95-997.svg)
+![Bell curve showing 68-95-99.7 rule with shaded sigma regions](cs/statistics/assets/normal-68-95-997.svg)
 
 **Moment-generating function:**
 
@@ -78,7 +78,7 @@ In ML, the normal shows up constantly. [[cs/deep-learning/weight-initialization|
 
 ## Related Notes
 
-- [[central-limit-theorem|Central Limit Theorem]] - explains *why* the normal distribution appears so often
-- [[probability-distributions|Probability Distributions]] - the normal in context with other distribution families
-- [[regression-fundamentals|Regression Fundamentals]] - normality assumption on residuals
-- [[bayesian-inference|Bayesian Inference]] - normal priors and conjugate updating
+- [[cs/statistics/central-limit-theorem|Central Limit Theorem]] - explains *why* the normal distribution appears so often
+- [[cs/statistics/probability-distributions|Probability Distributions]] - the normal in context with other distribution families
+- [[cs/statistics/regression-fundamentals|Regression Fundamentals]] - normality assumption on residuals
+- [[cs/statistics/bayesian-inference|Bayesian Inference]] - normal priors and conjugate updating

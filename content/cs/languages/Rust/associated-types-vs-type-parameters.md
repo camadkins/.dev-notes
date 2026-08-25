@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-06-17
 updated:
-aliases:
-  - Iterator Item vs Iterator T
-  - Rust Associated Types
+aliases: []
 ---
 
 Both features put a type placeholder in a trait, and both compile away. The question of which to reach for looks like style until you notice that they answer different questions. A type parameter asks the caller to choose. An associated type asks the implementor to choose, once, and then tells everyone else what the answer was.

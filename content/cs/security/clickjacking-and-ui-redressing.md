@@ -24,18 +24,18 @@ MDN describes the same mechanism structurally: "the attacker creates a decoy sit
 
 ## Why a token cannot save you here
 
-This is the part worth internalizing, because it separates clickjacking from [[cross-site-request-forgery-csrf|CSRF]]. CSRF is defeated by a secret token because the attacker can send a request but cannot read the page to learn the token. Clickjacking breaks that assumption: the attacker is not sending the request at all. The *victim's own browser* is, from inside the framed page, which means it already has the session cookie and any anti-CSRF token that page legitimately contains. The forged request and the framed request are indistinguishable to the server because the framed request is real. A token proves the click came from the genuine page, and here it did.
+This is the part worth internalizing, because it separates clickjacking from [[cs/security/cross-site-request-forgery-csrf|CSRF]]. CSRF is defeated by a secret token because the attacker can send a request but cannot read the page to learn the token. Clickjacking breaks that assumption: the attacker is not sending the request at all. The *victim's own browser* is, from inside the framed page, which means it already has the session cookie and any anti-CSRF token that page legitimately contains. The forged request and the framed request are indistinguishable to the server because the framed request is real. A token proves the click came from the genuine page, and here it did.
 
-So the defense has to move earlier, to the decision of whether the page may be placed in a frame owned by another origin. OWASP: prevent "the browser from loading the page in frame using the X-Frame-Options or Content Security Policy (frame-ancestors) [[cs/networking/http-evolution-1-1-to-3|HTTP headers]]." Both headers, as OWASP puts it, "indicate whether or not a browser should be allowed to render a page in a `<frame>` or `<iframe>`." Deny the framing and the whole overlay technique collapses, because there is nothing invisible to click through. `frame-ancestors` is the modern form, part of the same [[content-security-policy|Content Security Policy]] header that governs script, and it supersedes the older `X-Frame-Options`.
+So the defense has to move earlier, to the decision of whether the page may be placed in a frame owned by another origin. OWASP: prevent "the browser from loading the page in frame using the X-Frame-Options or Content Security Policy (frame-ancestors) [[cs/networking/http-evolution-1-1-to-3|HTTP headers]]." Both headers, as OWASP puts it, "indicate whether or not a browser should be allowed to render a page in a `<frame>` or `<iframe>`." Deny the framing and the whole overlay technique collapses, because there is nothing invisible to click through. `frame-ancestors` is the modern form, part of the same [[cs/security/content-security-policy|Content Security Policy]] header that governs script, and it supersedes the older `X-Frame-Options`.
 
 > [!warning] JavaScript frame-busting is not a substitute for the header
 > Historically sites tried to break out of frames with JavaScript. Those scripts have well-known bypasses (sandboxed iframes, double framing, event cancellation), and they run only after the page has loaded, leaving a window to exploit. The header-based controls decide before the frame renders, which is why OWASP treats them as the primary defense and script frame-busting as legacy.
 
 ## Related Notes
 
-- [[content-security-policy|Content Security Policy]], whose `frame-ancestors` directive is the modern anti-framing control
-- [[cross-site-request-forgery-csrf|Cross-Site Request Forgery (CSRF)]], the neighbor whose token defense clickjacking specifically evades
-- [[same-origin-policy-and-cors|Same-Origin Policy and CORS]], the surrounding model of what one origin may do with another
+- [[cs/security/content-security-policy|Content Security Policy]], whose `frame-ancestors` directive is the modern anti-framing control
+- [[cs/security/cross-site-request-forgery-csrf|Cross-Site Request Forgery (CSRF)]], the neighbor whose token defense clickjacking specifically evades
+- [[cs/security/same-origin-policy-and-cors|Same-Origin Policy and CORS]], the surrounding model of what one origin may do with another
 
 ## Sources
 

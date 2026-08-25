@@ -31,9 +31,9 @@ When a domain's needs do not fit the general languages of the day, the domain gr
 
 ## Related Notes
 
-- [[history-genealogy-of-languages|History and Genealogy of Languages]], where JOVIAL sits in the family
-- [[sage-and-real-time-systems|SAGE and Real-Time Systems]], the kind of command-and-control work this served
-- [[compilation-vs-interpretation|Compilation vs Interpretation]], how a high-order language reaches the machine
+- [[cs/pl/history-genealogy-of-languages|History and Genealogy of Languages]], where JOVIAL sits in the family
+- [[cs/military-computing/sage-and-real-time-systems|SAGE and Real-Time Systems]], the kind of command-and-control work this served
+- [[cs/pl/compilation-vs-interpretation|Compilation vs Interpretation]], how a high-order language reaches the machine
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

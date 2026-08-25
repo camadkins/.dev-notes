@@ -9,10 +9,7 @@ tags:
   - concurrency
 date: 2026-07-15
 updated:
-aliases:
-  - C++ Memory Model
-  - memory_order
-  - seq_cst
+aliases: []
 ---
 
 Every rule in this note is marked in the standard as arriving with C++11, which is the revision that gave the language multi-threaded executions and a definition of what they mean. The shape of that definition is worth noticing: rather than specifying what hardware does, the standard defines an ordering relation over operations, declares certain programs to have no meaning at all, and hands you a small vocabulary for buying back exactly as much ordering as you need.

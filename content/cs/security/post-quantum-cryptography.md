@@ -11,9 +11,7 @@ date: 2026-03-11
 updated:
 aliases:
   - PQC
-  - post-quantum cryptography
   - ML-KEM
-  - quantum-resistant cryptography
 ---
 
 The public-key cryptography holding the internet together rests on a bet: that factoring a large number and [[cs/math/number-theory-and-modular-arithmetic|computing a discrete logarithm]] are hard. That bet is safe against every classical computer we know how to build. It is not safe against a large quantum one, and the gap is not a constant factor you can outrun with bigger keys. It is [[cs/dsa/time-complexity-analysis|a change in complexity class]].
@@ -23,7 +21,7 @@ The public-key cryptography holding the internet together rests on a bet: that f
 
 ## Why bigger keys do not save you
 
-The instinct when a cipher weakens is to lengthen the key. That works against a threat that only chips away at the margin. It does not work here, because Shor's algorithm is not a faster search. "Shor's algorithm is a quantum algorithm for finding the prime factors of an integer," and on a quantum computer "to factor an integer N, Shor's algorithm runs in polynomial time, meaning the time taken is polynomial in log N." Polynomial in the number of digits is the same growth rate the honest user pays to *use* the key. Doubling the modulus roughly doubles the attacker's work too, so you can never open a durable gap. Developed "in 1994 by the American mathematician Peter Shor," the algorithm targets the whole family at once: it "could be used to break public-key cryptography schemes, such as the RSA scheme," along with "the finite-field Diffie-Hellman key exchange" and "the elliptic-curve Diffie-Hellman key exchange." That single sweep is why [[elliptic-curve-cryptography|ECC]], the compact modern default, is no safer here than RSA despite its smaller keys.
+The instinct when a cipher weakens is to lengthen the key. That works against a threat that only chips away at the margin. It does not work here, because Shor's algorithm is not a faster search. "Shor's algorithm is a quantum algorithm for finding the prime factors of an integer," and on a quantum computer "to factor an integer N, Shor's algorithm runs in polynomial time, meaning the time taken is polynomial in log N." Polynomial in the number of digits is the same growth rate the honest user pays to *use* the key. Doubling the modulus roughly doubles the attacker's work too, so you can never open a durable gap. Developed "in 1994 by the American mathematician Peter Shor," the algorithm targets the whole family at once: it "could be used to break public-key cryptography schemes, such as the RSA scheme," along with "the finite-field Diffie-Hellman key exchange" and "the elliptic-curve Diffie-Hellman key exchange." That single sweep is why [[cs/security/elliptic-curve-cryptography|ECC]], the compact modern default, is no safer here than RSA despite its smaller keys.
 
 ## Changing the hard problem, not the key size
 
@@ -31,18 +29,18 @@ Post-quantum cryptography does not patch RSA. It moves to problems whose difficu
 
 ## The standards are already here
 
-The migration is not hypothetical. On "August 13, 2024" NIST approved three standards, "FIPS 203, Module-Lattice-Based Key-Encapsulation Mechanism Standard," "FIPS 204, Module-Lattice-Based Digital Signature Standard," and "FIPS 205, Stateless Hash-Based Digital Signature Standard." These "specify key establishment and digital signature schemes that are designed to resist future attacks by quantum computers, which threaten the security of current standards." FIPS 203 replaces the key exchange, FIPS 204 and 205 replace [[digital-signatures|signatures]], and together they cover the asymmetric jobs a real protocol needs done.
+The migration is not hypothetical. On "August 13, 2024" NIST approved three standards, "FIPS 203, Module-Lattice-Based Key-Encapsulation Mechanism Standard," "FIPS 204, Module-Lattice-Based Digital Signature Standard," and "FIPS 205, Stateless Hash-Based Digital Signature Standard." These "specify key establishment and digital signature schemes that are designed to resist future attacks by quantum computers, which threaten the security of current standards." FIPS 203 replaces the key exchange, FIPS 204 and 205 replace [[cs/security/digital-signatures|signatures]], and together they cover the asymmetric jobs a real protocol needs done.
 
 > [!warning] The threat is retroactive
-> A large quantum computer may be years away, but the risk to today's traffic is not. An adversary can record encrypted sessions now and decrypt them once the hardware arrives, so any secret that must stay confidential past that horizon is already exposed. This is the same "harvest now, decrypt later" logic that motivates [[perfect-forward-secrecy|forward secrecy]], and it is why the standards shipped before the machine that breaks the old ones exists.
+> A large quantum computer may be years away, but the risk to today's traffic is not. An adversary can record encrypted sessions now and decrypt them once the hardware arrives, so any secret that must stay confidential past that horizon is already exposed. This is the same "harvest now, decrypt later" logic that motivates [[cs/security/perfect-forward-secrecy|forward secrecy]], and it is why the standards shipped before the machine that breaks the old ones exists.
 
 ## Related Notes
 
-- [[elliptic-curve-cryptography|Elliptic-Curve Cryptography]], a primary casualty of Shor's algorithm despite its small keys
-- [[diffie-hellman-and-key-exchange|Diffie-Hellman and Key Exchange]], whose discrete-log hardness Shor also breaks
-- [[digital-signatures|Digital Signatures]], the job FIPS 204 and 205 re-home on quantum-safe problems
-- [[symmetric-vs-asymmetric-cryptography|Symmetric vs. Asymmetric Cryptography]], and why the symmetric half is far less affected
-- [[perfect-forward-secrecy|Perfect Forward Secrecy]], the other answer to record-now-decrypt-later
+- [[cs/security/elliptic-curve-cryptography|Elliptic-Curve Cryptography]], a primary casualty of Shor's algorithm despite its small keys
+- [[cs/security/diffie-hellman-and-key-exchange|Diffie-Hellman and Key Exchange]], whose discrete-log hardness Shor also breaks
+- [[cs/security/digital-signatures|Digital Signatures]], the job FIPS 204 and 205 re-home on quantum-safe problems
+- [[cs/security/symmetric-vs-asymmetric-cryptography|Symmetric vs. Asymmetric Cryptography]], and why the symmetric half is far less affected
+- [[cs/security/perfect-forward-secrecy|Perfect Forward Secrecy]], the other answer to record-now-decrypt-later
 
 ## Sources
 

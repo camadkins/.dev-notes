@@ -9,9 +9,7 @@ tags:
   - memory
 date: 2026-03-11
 updated:
-aliases:
-  - Rust Ownership
-  - Move Semantics in Rust
+aliases: []
 ---
 
 A `String` in Rust is three words on the stack (a pointer, a length, a capacity) plus a buffer on the heap. Copy the three stack words into a second variable and you have two things that believe they own the same buffer. When both go out of scope, both run the code that returns that buffer to [[cs/systems/memory-allocators-and-fragmentation|the allocator]], and the allocator's bookkeeping is now corrupt. Rust's whole ownership system exists to make that arrangement unrepresentable rather than merely discouraged.

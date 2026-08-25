@@ -10,9 +10,7 @@ tags:
   - build-systems
 date: 2026-06-13
 updated:
-aliases:
-  - Generics and Build Time
-  - Instantiation Cost
+aliases: []
 ---
 
 Nobody chooses a language by its build times, and then everybody complains about them. The single largest lever on how long a large codebase takes to compile is usually not the optimizer settings. It is the decision, made once at language design time, about what happens to a generic definition when a concrete type shows up.

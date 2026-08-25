@@ -291,7 +291,7 @@ Modern languages extend it in several directions:
 
 ---
 
-![Algorithm W tree traversal with constraint, unification, and substitution flow](assets/hm-inference-flow.svg)
+![Algorithm W tree traversal with constraint, unification, and substitution flow](cs/pl/assets/hm-inference-flow.svg)
 
 ---
 

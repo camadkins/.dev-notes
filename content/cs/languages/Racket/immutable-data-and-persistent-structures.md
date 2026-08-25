@@ -8,10 +8,7 @@ tags:
   - languages
 date: 2026-07-09
 updated:
-aliases:
-  - Racket Immutable Data
-  - Persistent Hash Tables
-  - Structural Sharing
+aliases: []
 ---
 
 Racket broke with its own family here. Pairs are immutable, contrary to Lisp tradition, and `pair?` and `list?` recognize immutable pairs and lists only. `set-car!` is not deprecated in Racket; it does not exist. Mutable pairs are a separate type made by `mcons`, with their own predicate, their own accessors, and their own printed form using braces.

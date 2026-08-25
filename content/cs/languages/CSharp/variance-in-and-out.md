@@ -9,10 +9,7 @@ tags:
   - type-theory
 date: 2026-07-02
 updated:
-aliases:
-  - C# Declaration-Site Variance
-  - out and in Generic Modifiers
-  - Covariant and Contravariant Type Parameters
+aliases: []
 ---
 
 Two languages can agree that `IEnumerable<string>` ought to be usable where `IEnumerable<object>` is expected, and still disagree completely about who gets to say so. Java hands the decision to whoever writes the parameter list, one site at a time. C# hands it to whoever wrote the interface, once, and then never asks again.

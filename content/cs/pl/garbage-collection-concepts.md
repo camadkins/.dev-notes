@@ -125,7 +125,7 @@ Different applications optimize differently:
 
 ---
 
-![Root set → live objects → unreachable garbage swept](assets/gc-reachability.svg)
+![Root set → live objects → unreachable garbage swept](cs/pl/assets/gc-reachability.svg)
 
 ---
 
@@ -162,7 +162,7 @@ The choice isn’t just about automation; it defines how developers think about 
 
 ## See also
 - [[cs/pl/gc-algorithms-mark-sweep-copying-generational|GC Algorithms: Mark-Sweep, Copying, and Generational]]
-- [[abstract-machines-cek-secd|Abstract Machines: CEK and SECD]]
+- [[cs/pl/abstract-machines-cek-secd|Abstract Machines: CEK and SECD]]
 - [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus: Syntax & Substitution]]
 
 ## Sources

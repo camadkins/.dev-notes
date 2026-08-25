@@ -9,10 +9,7 @@ tags:
   - type-theory
 date: 2026-06-30
 updated:
-aliases:
-  - typing.Protocol
-  - PEP 544
-  - Static Duck Typing
+aliases: []
 ---
 
 PEP 484 only specifies the semantics of nominal subtyping. That one sentence explains why annotating idiomatic Python was awkward for four years: the language's runtime had always been structural, and its type system was not.

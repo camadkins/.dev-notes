@@ -8,10 +8,7 @@ tags:
   - languages
 date: 2026-08-15
 updated:
-aliases:
-  - Racket Futures
-  - Racket Places
-  - Racket Parallelism
+aliases: []
 ---
 
 Racket threads are coroutines. They give concurrency and no parallelism, which surprises people who arrive from a language where `Thread` means a hardware thread. For actual parallel execution Racket provides three forms of parallelism: parallel threads, futures, and places. The three exist because a single design cannot satisfy both halves of what Racket promises, and understanding the split is more useful than memorizing the APIs.

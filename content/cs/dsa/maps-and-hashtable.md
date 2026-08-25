@@ -10,7 +10,6 @@ tags:
 date: 2025-10-16
 updated: 2025-11-06
 aliases: []
-
 ---
 
 ## Overview
@@ -276,10 +275,10 @@ Maps provide the **dictionary** abstraction; hash tables realize it with **expec
 
 ## Related Notes
 
-- [[hash-tables|Hash Tables]]
+- [[cs/dsa/hash-tables|Hash Tables]]
 
-- [[linked-list|Linked List]]
+- [[cs/dsa/linked-list|Linked List]]
 
-- [[dynamic-arrays|Dynamic Arrays]]
+- [[cs/dsa/dynamic-arrays|Dynamic Arrays]]
 
-- [[algorithm-efficiency|Algorithm Efficiency]]
+- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]

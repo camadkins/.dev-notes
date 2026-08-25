@@ -8,9 +8,7 @@ tags:
   - books
 date: 2026-06-28
 updated: 2026-06-28
-aliases:
-  - Reading List
-  - To Read
+aliases: []
 ---
 
 What is on deck and what is done. When a book gets finished, it moves to **Finished**, the status flips, and it earns a write-up in [[off-watch/books/index|The Ship's Library]].

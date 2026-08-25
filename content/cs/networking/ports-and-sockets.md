@@ -9,8 +9,6 @@ tags:
 date: 2026-01-19
 updated:
 aliases:
-  - port number
-  - network socket
   - five-tuple
 ---
 
@@ -27,7 +25,7 @@ This is what makes multiplexing possible. Ports provide a multiplexing service f
 
 ## Well-known versus ephemeral ports
 
-Not all port numbers are used the same way. Port numbers lower than 1024 identify the historically most commonly used services and are called the well-known port numbers: 443 for HTTPS, 22 for [[cs/security/secure-shell-ssh|SSH]], 53 for [[dns-the-domain-name-system|DNS]]. A server listens on a fixed well-known port so clients know where to reach a service without being told.
+Not all port numbers are used the same way. Port numbers lower than 1024 identify the historically most commonly used services and are called the well-known port numbers: 443 for HTTPS, 22 for [[cs/security/secure-shell-ssh|SSH]], 53 for [[cs/systems/dns-the-domain-name-system|DNS]]. A server listens on a fixed well-known port so clients know where to reach a service without being told.
 
 The client side is different. An ephemeral port is a transport-layer endpoint used for only a short period, for the duration of a communication session, allocated automatically within a predefined range by the operating system's IP stack. TCP, UDP, and SCTP typically use an ephemeral port for the client end of a client-server exchange. RFC 6335 and IANA suggest the range 49152 to 65535 for these dynamic ports, though many Linux kernels use 32768 to 60999. When the session ends the port is released and its number becomes available again. A server's port is a published address; a client's port is a disposable ticket.
 
@@ -39,17 +37,17 @@ A socket is externally identified to other hosts by its socket address, the tria
 
 ## The 5-tuple: what identifies one connection
 
-A listening socket has only a local address. Once it accepts a connection it also gains a remote socket address, and the connection is now pinned by both ends at once. Two clients connecting to the same server port do not collide, because they have different socket-pair tuples: the remote address or remote port differs. Combine the shared protocol with both endpoints and a connection is uniquely identified by five values, commonly called the 5-tuple: protocol, source IP, source port, destination IP, destination port. This is exactly the information [[nat-and-port-translation|NAT]] rewrites and the kernel keys its connection table on.
+A listening socket has only a local address. Once it accepts a connection it also gains a remote socket address, and the connection is now pinned by both ends at once. Two clients connecting to the same server port do not collide, because they have different socket-pair tuples: the remote address or remote port differs. Combine the shared protocol with both endpoints and a connection is uniquely identified by five values, commonly called the 5-tuple: protocol, source IP, source port, destination IP, destination port. This is exactly the information [[cs/networking/nat-and-port-translation|NAT]] rewrites and the kernel keys its connection table on.
 
 > [!example] Two tabs, one server
 > A browser opens two connections to `93.184.216.34:443`. The kernel gives each its own ephemeral source port, say 51000 and 51001. Connection one is `(TCP, 192.0.2.7, 51000, 93.184.216.34, 443)`; connection two is `(TCP, 192.0.2.7, 51001, 93.184.216.34, 443)`. Same destination, same protocol, same source address: the source port alone makes the 5-tuples distinct, so replies never go to the wrong tab.
 
 ## Related Notes
 
-- [[tcp-vs-udp|TCP vs UDP]] - the two transport protocols that carry port numbers
-- [[nat-and-port-translation|NAT and Port Translation]] - rewriting ports so many hosts share one address
-- [[tcp-three-way-handshake|The TCP Three-Way Handshake]] - what binds a client ephemeral port to a server's listening port
-- [[ip-addressing-and-subnetting|IP Addressing and Subnetting]] - the address half of every socket
+- [[cs/networking/tcp-vs-udp|TCP vs UDP]] - the two transport protocols that carry port numbers
+- [[cs/networking/nat-and-port-translation|NAT and Port Translation]] - rewriting ports so many hosts share one address
+- [[cs/networking/tcp-three-way-handshake|The TCP Three-Way Handshake]] - what binds a client ephemeral port to a server's listening port
+- [[cs/networking/ip-addressing-and-subnetting|IP Addressing and Subnetting]] - the address half of every socket
 
 ## Sources
 

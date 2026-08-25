@@ -9,10 +9,7 @@ tags:
   - type-theory
 date: 2026-06-14
 updated:
-aliases:
-  - TypeScript keyof
-  - typeof Type Operator
-  - Indexed Access Types
+aliases: []
 ---
 
 TypeScript keeps two namespaces, and the compiler will tell you so:

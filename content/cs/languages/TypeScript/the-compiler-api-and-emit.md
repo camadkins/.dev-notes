@@ -9,9 +9,7 @@ tags:
   - compilers
 date: 2026-08-02
 updated:
-aliases:
-  - TypeScript Compiler API
-  - ts.createProgram
+aliases: []
 ---
 
 The TypeScript compiler is shipped as a library, and the shape of that library explains more about the ecosystem than any feature does. Editors, linters, bundlers, documentation generators, and codemods all reach for the same package, and they all reach for it in the same order.

@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-07-24
 updated:
-aliases:
-  - Java Unchecked Warning
-  - SuppressWarnings unchecked
+aliases: []
 ---
 
 Most compiler warnings say you probably made a mistake. An unchecked warning says something narrower and stranger: the compiler has stopped checking. Nothing at the marked line is wrong yet. The code compiles, links, and may run correctly for the life of the program. What changed at that expression is who owns [[cs/pl/type-soundness-progress-preservation|the proof of type safety]], and the compiler is filing a record of the handover.

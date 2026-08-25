@@ -9,10 +9,7 @@ tags:
   - cryptography
 date: 2026-05-09
 updated:
-aliases:
-  - secure boot
-  - chain of trust
-  - measured boot
+aliases: []
 ---
 
 Antivirus, sandboxes, and access controls all assume the operating system underneath them is honest. If malware installs itself below the OS, in the firmware or the bootloader, it comes up first, and every defense that loads afterward is running on a compromised foundation without knowing it. The classic bootkit hides exactly there. Secure boot answers a prior question than "is this program safe": is the code that is about to run even the code the machine was supposed to run?
@@ -44,7 +41,7 @@ The payoff is that measurement defers the trust decision to someone else and som
 - [[cs/military-computing/rsa-and-computational-hardness|RSA and Computational Hardness]], the signature math each stage checks
 - [[cs/systems/tls-and-the-https-handshake|TLS and the HTTPS Handshake]], the same chain-of-trust idea for network identity
 - [[cs/military-computing/tcsec-and-graded-assurance|The Orange Book and Graded Assurance]], early formal assurance evaluation
-- [[sandboxing-and-isolation|Sandboxing and Isolation]], a defense that assumes the OS beneath it booted honestly
+- [[cs/security/sandboxing-and-isolation|Sandboxing and Isolation]], a defense that assumes the OS beneath it booted honestly
 
 ## Sources
 

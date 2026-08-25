@@ -9,9 +9,7 @@ tags:
 date: 2026-04-22
 updated:
 aliases:
-  - ASA access rules
   - access-group
-  - ASA ACL order
 ---
 
 An ACL on an ASA looks like an ACL on a router, and that resemblance causes most of the trouble. The list syntax is familiar, the [[cs/security/firewalls|first-match-wins evaluation]] is familiar, and then two ASA-specific behaviors, an implicit permit you did not write and address matching that ignores your NAT, produce results the router mental model cannot explain.
@@ -66,7 +64,7 @@ Bridge groups reverse their internal order depending on direction, which is easy
 
 The implicit deny is the familiar one. "ACLs have an implicit deny at the end of the list, so unless you explicitly permit it, traffic cannot pass." With a global rule configured, "the implicit deny comes after the global rule is processed."
 
-The implicit permit is the ASA-specific one, and it comes from [[asa-security-levels|the security levels]] rather than from any list: "Unicast IPv4 and IPv6 traffic from a higher security interface to a lower security interface is allowed through by default." No rule was written. No rule matched. The traffic passes.
+The implicit permit is the ASA-specific one, and it comes from [[cs/cisco/asa-security-levels|the security levels]] rather than from any list: "Unicast IPv4 and IPv6 traffic from a higher security interface to a lower security interface is allowed through by default." No rule was written. No rule matched. The traffic passes.
 
 There are two documented exceptions to the implicit-deny rule that are worth memorizing because they change troubleshooting:
 
@@ -74,7 +72,7 @@ There are two documented exceptions to the implicit-deny rule that are worth mem
 - **EtherType ACL implicit deny does not reach IP.** "If you allow EtherType 8037, the implicit deny at the end of the ACL does not now block any IP traffic that you previously allowed with an extended ACL." But an explicit deny-all EtherType rule does reach IP: "if you explicitly deny all traffic with an EtherType rule, then IP and ARP traffic is denied; only physical protocol traffic, such as auto-negotiation, is still allowed."
 
 > [!warning] Rules match real addresses, not translated ones
-> "Access rules always use the real IP addresses when determining an access rule match, even if you configure NAT." The documented example: with an inside server at 10.1.1.5 translated to 209.165.201.5 on the outside, "the access rule to allow the outside traffic to access the inside server needs to reference the server's real IP address (10.1.1.5), and not the mapped address (209.165.201.5)." This is the single most common ASA rule bug, and it is invisible on inspection because the rule referencing the public address reads perfectly sensibly. See [[asa-nat|NAT on the ASA]].
+> "Access rules always use the real IP addresses when determining an access rule match, even if you configure NAT." The documented example: with an inside server at 10.1.1.5 translated to 209.165.201.5 on the outside, "the access rule to allow the outside traffic to access the inside server needs to reference the server's real IP address (10.1.1.5), and not the mapped address (209.165.201.5)." This is the single most common ASA rule bug, and it is invisible on inspection because the rule referencing the public address reads perfectly sensibly. See [[cs/cisco/asa-nat|NAT on the ASA]].
 
 ## Return traffic
 
@@ -107,12 +105,12 @@ Two documented levers. Object group search "does not expand network or service o
 
 ## Related Notes
 
-- [[asa-security-levels|ASA Security Levels]] - the check that runs before any access rule
-- [[asa-nat|NAT on the ASA]] - why rules reference real addresses
-- [[asa-modular-policy-framework|ASA Modular Policy Framework]] - where inspection engines like ICMP inspection are turned on
-- [[firewalls|Firewalls]] - stateful inspection and the return-traffic model
-- [[ids-and-ips|IDS and IPS]] - what sits beyond permit/deny
-- [[siem-and-security-logging|SIEM and Security Logging]] - where ACL hit logging should land
+- [[cs/cisco/asa-security-levels|ASA Security Levels]] - the check that runs before any access rule
+- [[cs/cisco/asa-nat|NAT on the ASA]] - why rules reference real addresses
+- [[cs/cisco/asa-modular-policy-framework|ASA Modular Policy Framework]] - where inspection engines like ICMP inspection are turned on
+- [[cs/security/firewalls|Firewalls]] - stateful inspection and the return-traffic model
+- [[cs/security/ids-and-ips|IDS and IPS]] - what sits beyond permit/deny
+- [[cs/security/siem-and-security-logging|SIEM and Security Logging]] - where ACL hit logging should land
 
 ## Sources
 

@@ -8,9 +8,7 @@ tags:
   - forensics
 date: 2026-08-18
 updated:
-aliases:
-  - Daubert
-  - Federal Rule of Evidence 702
+aliases: []
 ---
 
 The evidence in a digital investigation reaches a decision-maker through a person: an examiner who states what an artifact means. That transfer is governed not by anything in computing but by a rule of evidence and a line of cases interpreting it, and those documents ask questions about method that most technical practitioners never have to answer in their own field.

@@ -8,9 +8,7 @@ tags:
   - military
 date: 2026-05-31
 updated:
-aliases:
-  - Strategic Computing Initiative
-  - DARPA AI funding
+aliases: []
 ---
 
 Artificial intelligence did not grow in a vacuum, and for most of its history it was not funded by industry. For decades the largest patron of AI research in the United States was the military, through DARPA, and the shape of the field, what got tried, what got overpromised, and what got abandoned, tracked the flow of that money closely.
@@ -20,7 +18,7 @@ Artificial intelligence did not grow in a vacuum, and for most of its history it
 
 ## The Strategic Computing Initiative
 
-From 1983 to 1993, DARPA's Strategic Computing Initiative funded research into [[cs/machine-learning/ai-vs-ml-vs-dl|advanced computer hardware and artificial intelligence]], directed by the Information Processing Technology Office. It set out to develop machine intelligence within a prescribed ten-year window, and it spanned the whole stack, from [[semiconductor-supply-chains|chip design and manufacture]] through [[cs/history/von-neumann-architecture|computer architecture]] up to artificial intelligence software.
+From 1983 to 1993, DARPA's Strategic Computing Initiative funded research into [[cs/machine-learning/ai-vs-ml-vs-dl|advanced computer hardware and artificial intelligence]], directed by the Information Processing Technology Office. It set out to develop machine intelligence within a prescribed ten-year window, and it spanned the whole stack, from [[cs/geopolitics/semiconductor-supply-chains|chip design and manufacture]] through [[cs/history/von-neumann-architecture|computer architecture]] up to artificial intelligence software.
 
 ## What it paid for
 
@@ -32,15 +30,15 @@ The money was substantial. By 1985 the initiative had spent 100 million dollars 
 
 ## Why it matters
 
-[[cs/history/deep-learning-revolution|The artificial intelligence in use today]] descends in part from work the military paid for when no one else would. The field's long history of soaring ambition followed by disappointment, the so-called AI winters, is in large measure the history of that funding rising and falling. Understanding where AI came from means following the money, and for a long time the money was DARPA's. The questions that raises about who steers the technology are the subject of [[ai-governance|AI governance]].
+[[cs/history/deep-learning-revolution|The artificial intelligence in use today]] descends in part from work the military paid for when no one else would. The field's long history of soaring ambition followed by disappointment, the so-called AI winters, is in large measure the history of that funding rising and falling. Understanding where AI came from means following the money, and for a long time the money was DARPA's. The questions that raises about who steers the technology are the subject of [[cs/geopolitics/ai-governance|AI governance]].
 
 ## Related Notes
 
-- [[ai-governance|AI Governance]], the modern politics of who directs AI
-- [[could-an-llm-be-conscious|Could an LLM Be Conscious?]], the philosophical question hanging over the field DARPA set in motion
-- [[turing-and-computability|Turing and Computability]], the theory under the field DARPA funded
-- [[semiconductor-supply-chains|Semiconductor Supply Chains]], the hardware the initiative also funded
-- [[illiac-iv-and-parallel-processing|ILLIAC IV and Parallel Processing]], an earlier ARPA computing bet
+- [[cs/geopolitics/ai-governance|AI Governance]], the modern politics of who directs AI
+- [[cs/ethics/could-an-llm-be-conscious|Could an LLM Be Conscious?]], the philosophical question hanging over the field DARPA set in motion
+- [[cs/history/turing-and-computability|Turing and Computability]], the theory under the field DARPA funded
+- [[cs/geopolitics/semiconductor-supply-chains|Semiconductor Supply Chains]], the hardware the initiative also funded
+- [[cs/military-computing/illiac-iv-and-parallel-processing|ILLIAC IV and Parallel Processing]], an earlier ARPA computing bet
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

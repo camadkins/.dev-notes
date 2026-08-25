@@ -9,10 +9,7 @@ tags:
   - memory
 date: 2026-08-14
 updated:
-aliases:
-  - Pointers in C#
-  - Pinning in .NET
-  - The unsafe Keyword
+aliases: []
 ---
 
 The name is the most misleading thing about the feature. Unsafe code is not necessarily dangerous; it is code whose safety cannot be verified by .NET tools. Most C# is verifiably safe, meaning the tooling can prove it does not directly access memory through pointers and does not allocate raw memory, and creates managed objects instead. The `unsafe` keyword withdraws the proof, not the safety, and the honest question when you write it is whether you can supply by hand what the verifier was supplying automatically.

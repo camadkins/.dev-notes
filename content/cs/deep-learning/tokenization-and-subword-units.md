@@ -8,11 +8,7 @@ tags:
   - deep-learning
 date: 2026-05-27
 aliases:
-  - tokenization
   - BPE
-  - byte pair encoding
-  - WordPiece
-  - subword units
 ---
 
 A neural network consumes numbers. Text is [[cs/dsa/strings|a string]]. Something has to sit between them, chopping the string into units and mapping each unit to an index in a fixed vocabulary, and the design of that chopping step quietly constrains everything the model can do. The tokenizer decides what the model is even able to see.
@@ -22,9 +18,9 @@ A neural network consumes numbers. Text is [[cs/dsa/strings|a string]]. Somethin
 
 ## The two bad answers at the ends
 
-Word-level tokenization splits on spaces, punctuation, or language-specific rules, so `"Don't you love 🤗 Transformers?"` becomes something like `["Do", "n't", "you", "love", "🤗", "Transformers", "?"]`. Every unique word needs its own vocabulary entry, and every inflection counts separately: `love`, `loving`, `loved`, and `lovingly` are four unrelated indices. The vocabulary becomes extremely large, the [[embeddings|embedding]] matrix grows with it, and memory and compute go up accordingly. Worse, anything absent from the vocabulary maps to a single `<unk>` token, so the model simply cannot handle new words.
+Word-level tokenization splits on spaces, punctuation, or language-specific rules, so `"Don't you love 🤗 Transformers?"` becomes something like `["Do", "n't", "you", "love", "🤗", "Transformers", "?"]`. Every unique word needs its own vocabulary entry, and every inflection counts separately: `love`, `loving`, `loved`, and `lovingly` are four unrelated indices. The vocabulary becomes extremely large, the [[cs/deep-learning/embeddings|embedding]] matrix grows with it, and memory and compute go up accordingly. Worse, anything absent from the vocabulary maps to a single `<unk>` token, so the model simply cannot handle new words.
 
-Character-level tokenization inverts every property. The vocabulary is tiny, every word is representable, and there is no unknown-token problem at all. The cost is that sequences become much longer, and a character like `l` carries far less meaning than the word `love`, so performance suffers. For a [[attention-and-transformers|transformer]] whose attention cost grows quadratically in sequence length, longer sequences are not a small price.
+Character-level tokenization inverts every property. The vocabulary is tiny, every word is representable, and there is no unknown-token problem at all. The cost is that sequences become much longer, and a character like `l` carries far less meaning than the word `love`, so performance suffers. For a [[cs/deep-learning/attention-and-transformers|transformer]] whose attention cost grows quadratically in sequence length, longer sequences are not a small price.
 
 ## Subword units, learned from frequency
 
@@ -62,11 +58,11 @@ The denominator is the giveaway. A pair of individually common tokens has to co-
 
 ## Related Notes
 
-- [[embeddings]], what each token index gets looked up into
-- [[attention-and-transformers]], the architecture whose sequence-length cost makes token granularity matter
-- [[self-supervised-learning-and-pretraining]], where the token vocabulary becomes the prediction target
-- [[recurrent-neural-networks]], the earlier sequence models that faced the same vocabulary problem
-- [[features-and-representations]], tokenization as the first representation choice in the pipeline
+- [[cs/deep-learning/embeddings]], what each token index gets looked up into
+- [[cs/deep-learning/attention-and-transformers]], the architecture whose sequence-length cost makes token granularity matter
+- [[cs/deep-learning/self-supervised-learning-and-pretraining]], where the token vocabulary becomes the prediction target
+- [[cs/deep-learning/recurrent-neural-networks]], the earlier sequence models that faced the same vocabulary problem
+- [[cs/machine-learning/features-and-representations]], tokenization as the first representation choice in the pipeline
 
 ## Sources
 

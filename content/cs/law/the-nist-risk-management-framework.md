@@ -10,8 +10,6 @@ date: 2026-07-14
 updated:
 aliases:
   - RMF
-  - SP 800-37
-  - SP 800-53
 ---
 
 The Risk Management Framework is usually met as a compliance obligation, which obscures what it actually is: a pair of documents published by a standards body, one describing a process and the other supplying a catalog. Neither is a law. Both become binding only when something else cites them, which is the arrangement described in [[cs/standards/what-a-standard-actually-is|what a standard actually is]] and in the [[cs/law/fisma-and-the-federal-baseline|federal information security statute]] that points at them.

@@ -6,13 +6,11 @@ comments: true
 tags:
   - cs
   - math
-  - discrete-math
   - cryptography
 date: 2026-02-14
 updated:
 aliases:
   - modular-arithmetic
-  - congruences
 ---
 
 ## Arithmetic That Wraps
@@ -30,7 +28,7 @@ Euclid's algorithm computes the gcd without factoring either number, using one s
 
 ## Congruence
 
-$a \equiv b \pmod{m}$ means $m$ divides $a - b$, that is, $a$ and $b$ leave the same remainder on division by $m$. Congruence is a [[relations-and-equivalence|equivalence relation]]: it is reflexive, symmetric, and transitive, so it carves the integers into $m$ disjoint residue classes $\{0, 1, \dots, m-1\}$. Addition and multiplication respect these classes, so you can reduce at any point in a computation and get the same answer, which is what keeps modular exponentiation from ever handling astronomically large intermediate values.
+$a \equiv b \pmod{m}$ means $m$ divides $a - b$, that is, $a$ and $b$ leave the same remainder on division by $m$. Congruence is a [[cs/math/relations-and-equivalence|equivalence relation]]: it is reflexive, symmetric, and transitive, so it carves the integers into $m$ disjoint residue classes $\{0, 1, \dots, m-1\}$. Addition and multiplication respect these classes, so you can reduce at any point in a computation and get the same answer, which is what keeps modular exponentiation from ever handling astronomically large intermediate values.
 
 ## Primes
 
@@ -53,8 +51,8 @@ Modular arithmetic "directly underpins public key systems such as RSA and Diffie
 - [[cs/dsa/euclidean-algorithms|Euclidean Algorithms]] - the GCD algorithm and its extended, inverse-finding form
 - [[cs/dsa/prime-numbers-algorithms|Prime Number Algorithms]] - primality testing and sieves
 - [[cs/dsa/hcf-and-lcm-algorithms|HCF and LCM Algorithms]] - GCD and least common multiple in practice
-- [[relations-and-equivalence|Relations and Equivalence]] - congruence as an equivalence relation partitioning the integers
-- [[set-theory-basics|Set Theory Basics]] - residue classes are a partition of the integer set
+- [[cs/math/relations-and-equivalence|Relations and Equivalence]] - congruence as an equivalence relation partitioning the integers
+- [[cs/math/set-theory-basics|Set Theory Basics]] - residue classes are a partition of the integer set
 
 ## Sources
 

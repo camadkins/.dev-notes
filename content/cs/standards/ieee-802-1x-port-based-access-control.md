@@ -11,7 +11,6 @@ updated:
 aliases:
   - 802.1X
   - EAPOL
-  - Port-Based Network Access Control
 ---
 
 Every access-control system faces the same bootstrap problem. To decide whether to let something in, you have to talk to it, and talking to it is already letting it in a little. 802.1X answers that with a piece of specification design worth stealing: it splits one physical port into two logical ones and gives the unauthenticated device exactly one channel, wide enough to authenticate on and nothing else.

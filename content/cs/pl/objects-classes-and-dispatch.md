@@ -48,7 +48,7 @@ class Circle extends Shape {
 
 `Circle` inherits `area()` from `Shape` but overrides it with a specialized implementation.
 
-![Class hierarchy showing Shape, Circle, and ColoredCircle with subtype arrows and member listings](assets/oop-class-hierarchy.svg)
+![Class hierarchy showing Shape, Circle, and ColoredCircle with subtype arrows and member listings](cs/pl/assets/oop-class-hierarchy.svg)
 
 > [!tip]  
 > In OOP terms: `Shape` defines an _interface_; `Circle` provides a _concrete realization_.
@@ -85,7 +85,7 @@ class FlyingFish extends Animal, Swimmer, Flyer
 
 - **Composition** models a “has-a” relationship (`Car` _has an_ `Engine`).
 
-![Composition vs inheritance: is-a with upward extends arrow vs has-a with containment diamond](assets/oop-composition-vs-inheritance.svg)
+![Composition vs inheritance: is-a with upward extends arrow vs has-a with containment diamond](cs/pl/assets/oop-composition-vs-inheritance.svg)
 
 ---
 
@@ -142,7 +142,7 @@ Implementation detail:
 - Method calls lookup entries in that table.
     
 
-![Static vs dynamic dispatch: compile-time resolution vs runtime vtable lookup](assets/oop-dispatch.svg)
+![Static vs dynamic dispatch: compile-time resolution vs runtime vtable lookup](cs/pl/assets/oop-dispatch.svg)
 
 ---
 

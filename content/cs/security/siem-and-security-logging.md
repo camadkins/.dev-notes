@@ -10,9 +10,6 @@ date: 2026-02-19
 updated:
 aliases:
   - SIEM
-  - security logging
-  - log management
-  - security information and event management
 ---
 
 A real intrusion rarely announces itself in one place. A failed login on a workstation, a new service account in the directory, an outbound connection from a database host, each is unremarkable on its own log, sitting on its own machine. The attack is the relationship between them, and that relationship is only visible if the logs live somewhere they can be compared. This is the premise of security information and event management: the detection problem is often not sensitivity on any one source but the fact that the sources are scattered.
@@ -37,9 +34,9 @@ The uncomfortable implication is that a SIEM is only as good as the telemetry fe
 
 ## Related Notes
 
-- [[ids-and-ips|IDS and IPS]], the sensors whose alerts are among a SIEM's most important inputs
-- [[incident-response-lifecycle|The Incident Response Lifecycle]], whose detection and analysis phase runs on this correlated telemetry
-- [[the-cyber-kill-chain-and-mitre-attack|The Cyber Kill Chain and MITRE ATT&CK]], the frameworks that name the multi-step activity correlation is trying to reconstruct
+- [[cs/security/ids-and-ips|IDS and IPS]], the sensors whose alerts are among a SIEM's most important inputs
+- [[cs/security/incident-response-lifecycle|The Incident Response Lifecycle]], whose detection and analysis phase runs on this correlated telemetry
+- [[cs/security/the-cyber-kill-chain-and-mitre-attack|The Cyber Kill Chain and MITRE ATT&CK]], the frameworks that name the multi-step activity correlation is trying to reconstruct
 
 ## Sources
 

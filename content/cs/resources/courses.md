@@ -9,8 +9,7 @@ tags:
   - resource/course
 date: 2026-07-26
 updated:
-aliases:
-  - Courses
+aliases: []
 ---
 
 Open course notes and teaching material that notes here actually draw on. This is a short shelf on purpose: a course earns a place by being cited, not by being famous.

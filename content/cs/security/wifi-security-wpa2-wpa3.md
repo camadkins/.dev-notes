@@ -13,8 +13,6 @@ aliases:
   - WPA2
   - WPA3
   - SAE
-  - 802.11 security
-  - four-way handshake
 ---
 
 A wired network gives you a small physical secret: to read the traffic, you have to touch the cable. Wi-Fi throws that away. [[cs/standards/ieee-802-11-wireless-lan|An 802.11 radio]] broadcasts to everyone in range, so an attacker never has to get on the wire; they only have to be nearby with an antenna. Every byte of confidentiality and authentication therefore has to be manufactured by cryptography, and specifically by the handshake that turns a shared password into fresh session keys. When that handshake has a flaw, the whole link has a flaw.
@@ -35,15 +33,15 @@ WPA3's headline change is replacing WPA2's pre-shared-key exchange with SAE, bui
 Offline resistance is the subtle, important part. Against WPA2-PSK, an attacker could capture the handshake and then guess passwords against it forever on their own hardware, no further contact with the network required. Dragonfly forecloses that. RFC 7664 states that "any advantage an adversary can gain must be directly related to the number of interactions she makes with an honest protocol participant and not through computation," and that "the adversary will not be able to obtain any information about the password except whether a single guess from a protocol run is correct or incorrect." Each guess now costs one live, detectable interaction with the access point instead of one cheap offline hash. That turns an unlimited offline search into a rate-limited online one, which is the difference between a weak password falling in minutes and it standing up to lockout.
 
 > [!tip] The shared medium concentrates all trust in one exchange
-> Both stories are the same lesson from opposite ends. Because anyone in range receives the ciphertext, the attacker's whole job reduces to attacking the key negotiation: reuse a nonce (KRACK) or grind the password offline (WPA2-PSK). WPA3 hardens exactly those two points. It is a clean example of why, on a broadcast channel, you spend your security budget on the handshake and the [[symmetric-vs-asymmetric-cryptography|key material]] it produces, not on the link itself.
+> Both stories are the same lesson from opposite ends. Because anyone in range receives the ciphertext, the attacker's whole job reduces to attacking the key negotiation: reuse a nonce (KRACK) or grind the password offline (WPA2-PSK). WPA3 hardens exactly those two points. It is a clean example of why, on a broadcast channel, you spend your security budget on the handshake and the [[cs/security/symmetric-vs-asymmetric-cryptography|key material]] it produces, not on the link itself.
 
 ## Related Notes
 
-- [[diffie-hellman-and-key-exchange|Diffie-Hellman and Key Exchange]] - the discrete-log key agreement SAE authenticates with a password
-- [[password-hashing-and-salting|Password Hashing and Salting]] - the other front in the fight against offline password guessing
-- [[symmetric-vs-asymmetric-cryptography|Symmetric vs Asymmetric Cryptography]] - the session keys the handshake installs for bulk encryption
-- [[arp-spoofing-and-lan-attacks|ARP Spoofing and LAN Attacks]] - the wired analog of a shared medium an attacker can join
-- [[man-in-the-middle-attacks|Man-in-the-Middle Attacks]] - what a rogue access point becomes once it sits between client and network
+- [[cs/security/diffie-hellman-and-key-exchange|Diffie-Hellman and Key Exchange]] - the discrete-log key agreement SAE authenticates with a password
+- [[cs/security/password-hashing-and-salting|Password Hashing and Salting]] - the other front in the fight against offline password guessing
+- [[cs/security/symmetric-vs-asymmetric-cryptography|Symmetric vs Asymmetric Cryptography]] - the session keys the handshake installs for bulk encryption
+- [[cs/security/arp-spoofing-and-lan-attacks|ARP Spoofing and LAN Attacks]] - the wired analog of a shared medium an attacker can join
+- [[cs/security/man-in-the-middle-attacks|Man-in-the-Middle Attacks]] - what a rogue access point becomes once it sits between client and network
 
 ## Sources
 

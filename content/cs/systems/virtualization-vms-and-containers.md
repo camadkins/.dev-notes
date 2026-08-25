@@ -9,10 +9,7 @@ tags:
   - operating-systems
 date: 2026-05-03
 updated:
-aliases:
-  - Hypervisors
-  - Containers vs VMs
-  - Namespaces and cgroups
+aliases: []
 ---
 
 Running [[cs/history/cloud-computing-and-virtualization|many isolated workloads on one physical machine]] has two fundamentally different answers, and the difference comes down to what you duplicate. A virtual machine duplicates the whole computer, hardware and operating system and all, so each guest believes it owns a machine. A container duplicates almost nothing: it shares one kernel and just walls off what each workload can see. Both give you isolation on shared hardware, and the choice between them is the choice between a heavier boundary and a lighter one.
@@ -62,9 +59,9 @@ The rule that falls out: reach for a VM when you need a different OS, a hard sec
 
 ## Related Notes
 
-- [[processes-and-threads|Processes & Threads]] - a container is essentially a process group with a private view, drawn by namespaces
-- [[system-calls-and-the-kernel-boundary|System Calls and the Kernel Boundary]] - the shared kernel that containers isolate against and VMs replace
-- [[virtual-memory|Virtual Memory]] - the same isolation instinct one level down, per process rather than per machine
+- [[cs/systems/processes-and-threads|Processes & Threads]] - a container is essentially a process group with a private view, drawn by namespaces
+- [[cs/systems/system-calls-and-the-kernel-boundary|System Calls and the Kernel Boundary]] - the shared kernel that containers isolate against and VMs replace
+- [[cs/systems/virtual-memory|Virtual Memory]] - the same isolation instinct one level down, per process rather than per machine
 
 ## Sources
 

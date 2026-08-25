@@ -26,7 +26,7 @@ A **compressed trie** (radix/Patricia variant) is a prefix tree that **compresse
 - **Compression invariant:** No node has exactly one child unless it is marked `is_key`; otherwise the chain is stored in the incoming edge label.
     
 
-![Compressed trie with multi-character edge labels for {bear, bell, bid, bull, buy, sell, stock, stop}](assets/ctrie-edge-labels.svg)
+![Compressed trie with multi-character edge labels for {bear, bell, bid, bull, buy, sell, stock, stop}](cs/dsa/assets/ctrie-edge-labels.svg)
 
 ## Core Operations
 
@@ -76,7 +76,7 @@ function INSERT(root, key):
     return INSERTED_NEW
 ```
 
-![Edge split: inserting "belt" splits edge "ll" at shared prefix "l", creating a mid-node](assets/ctrie-edge-split.svg)
+![Edge split: inserting "belt" splits edge "ll" at shared prefix "l", creating a mid-node](cs/dsa/assets/ctrie-edge-split.svg)
 
 ### Delete(key)
 
@@ -106,7 +106,7 @@ function DELETE(root, key):
 - A longest-prefix query for `"stu"` follows `"s" → "t"` and stops before `"sto"`; completions live under the `"st"` locus.
     
 
-![Standard trie vs compressed trie for {bear, bell, bid}: 9 nodes height 5 vs 6 nodes height 4](assets/ctrie-vs-standard.svg)
+![Standard trie vs compressed trie for {bear, bell, bid}: 9 nodes height 5 vs 6 nodes height 4](cs/dsa/assets/ctrie-vs-standard.svg)
 
 ## Complexity Analysis
 
@@ -160,10 +160,10 @@ Compressed tries **collapse single-child paths into edge labels**, giving shorte
 
 ## Related Notes
 
-- [[standard-trie|Standard Trie]]
+- [[cs/dsa/standard-trie|Standard Trie]]
     
-- [[ternary-search|Ternary Search]]
+- [[cs/dsa/ternary-search|Ternary Search]]
     
-- [[hash-tables|Hash Tables]]
+- [[cs/dsa/hash-tables|Hash Tables]]
     
-- [[strings|Strings]]
+- [[cs/dsa/strings|Strings]]

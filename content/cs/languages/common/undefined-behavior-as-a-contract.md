@@ -9,9 +9,7 @@ tags:
 date: 2026-07-22
 updated:
 aliases:
-  - Undefined Behavior
   - UB
-  - The Compiler Contract
 ---
 
 New systems programmers meet undefined behavior as a list of things not to do: do not overflow a signed integer, do not read past the end of an array, do not dereference a freed pointer. Read that way it looks like a set of bugs. It is something sharper. Undefined behavior is a term of art in the language standard with a precise meaning, and that meaning is a contract between the programmer and the compiler. The programmer promises never to do these things; in exchange, the compiler is allowed to assume they never happen and to optimize on that assumption. Understanding UB as a contract, rather than a list of hazards, is what turns baffling optimizer behavior into something predictable.

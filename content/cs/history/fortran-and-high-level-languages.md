@@ -8,9 +8,7 @@ tags:
   - history
 date: 2026-04-25
 updated:
-aliases:
-  - Fortran
-  - high-level language
+aliases: []
 ---
 
 In the 1950s, [[cs/pl/levels-of-artificial-languages|programming meant assembly language]]: writing the processor's own instructions by hand. Fortran changed that. It proved [[cs/pl/compilation-vs-interpretation|a compiler could turn human-readable code into machine code]] efficient enough that even the assembly programmers would accept it.
@@ -28,14 +26,14 @@ The open question of the day was whether a compiler could generate code good eno
 
 ## The lineage
 
-Fortran built on the idea [[grace-hopper-and-the-compiler|Grace Hopper]] had championed, that the machine should do the translating. It opened the door to every language that followed, the family traced in [[history-genealogy-of-languages|the genealogy of languages]], beginning with its near contemporary, [[lisp-and-functional-programming|Lisp]].
+Fortran built on the idea [[cs/military-computing/grace-hopper-and-the-compiler|Grace Hopper]] had championed, that the machine should do the translating. It opened the door to every language that followed, the family traced in [[cs/pl/history-genealogy-of-languages|the genealogy of languages]], beginning with its near contemporary, [[cs/history/lisp-and-functional-programming|Lisp]].
 
 ## Related Notes
 
-- [[grace-hopper-and-the-compiler|Grace Hopper and the Compiler]], the idea Fortran proved at scale
-- [[lisp-and-functional-programming|Lisp and Functional Programming]], its very different sibling
-- [[compilation-vs-interpretation|Compilation vs Interpretation]], the mechanism underneath
-- [[history-genealogy-of-languages|History and Genealogy of Languages]], where Fortran sits
+- [[cs/military-computing/grace-hopper-and-the-compiler|Grace Hopper and the Compiler]], the idea Fortran proved at scale
+- [[cs/history/lisp-and-functional-programming|Lisp and Functional Programming]], its very different sibling
+- [[cs/pl/compilation-vs-interpretation|Compilation vs Interpretation]], the mechanism underneath
+- [[cs/pl/history-genealogy-of-languages|History and Genealogy of Languages]], where Fortran sits
 - [[cs/history/index|History of Computing]], the section index
 
 ## Sources

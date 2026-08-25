@@ -150,10 +150,10 @@ Euclid's algorithm reduces the gcd problem to a short loop of **modulo** operati
 
 ## Related Notes
 
-- [[hcf-and-lcm-algorithms|HCF and LCM Algorithms]]
+- [[cs/dsa/hcf-and-lcm-algorithms|HCF and LCM Algorithms]]
 
-- [[prime-numbers-algorithms|Prime Numbers Algorithms]]
+- [[cs/dsa/prime-numbers-algorithms|Prime Numbers Algorithms]]
 
-- [[recursion|Recursion]]
+- [[cs/dsa/recursion|Recursion]]
 
-- [[algorithm-efficiency|Algorithm Efficiency]]
+- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]

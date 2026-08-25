@@ -9,9 +9,7 @@ tags:
   - memory
 date: 2026-06-27
 updated:
-aliases:
-  - Shared Generics
-  - Generic Dictionaries
+aliases: []
 ---
 
 `List<int>` and `List<string>` are distinct types with distinct identities. They are not distinct compiled code. One of them got its own native method bodies with the integer representation baked in; the other is running a canonical body that has no idea which reference type it is holding and looks the answer up when it needs to. The CLR made that split deliberately, and the line it drew is not between generic and non-generic, or between library and user code. It is between things that fit in a machine word the same way and things that do not.

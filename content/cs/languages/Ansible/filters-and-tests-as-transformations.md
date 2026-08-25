@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-08-04
 updated:
-aliases:
-  - Ansible Filters
-  - Jinja2 Tests in Ansible
+aliases: []
 ---
 
 If a playbook needs to reshape a value before handing it to a module, the reshaping happens in a filter. Filters "let you transform JSON data into YAML data, split a URL to extract the hostname, get the SHA1 hash of a string, add or multiply integers, and much more," and you can use the Ansible-specific ones, any standard Jinja2 filter, or Python methods on the value. That inventory is the function library of a language that has no functions, and reading the catalogue tells you what the language expects you to need: type coercion, dictionary and list surgery, set operations, path manipulation, IP address arithmetic, hashing, and date formatting.

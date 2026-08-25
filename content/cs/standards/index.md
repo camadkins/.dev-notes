@@ -8,9 +8,7 @@ tags:
   - standards
 date: 2026-08-14
 updated:
-aliases:
-  - Standards
-  - IEEE Standards
+aliases: []
 ---
 
 Everywhere else, this garden documents technologies. This section documents the documents. A standard is a negotiated contract between vendors who would rather not interoperate, and reading one tells you things the technology's own manual never will: what was contested, what was left optional, and whose interest the compromise served. Every note here links back to the technology it standardizes, because a standards note that does not connect to the rest of the garden has no reason to exist.

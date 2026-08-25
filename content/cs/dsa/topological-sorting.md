@@ -203,10 +203,10 @@ Topological sorting linearizes a DAG's precedence constraints. **Kahn's algorith
 
 ## Related Notes
 
-- [[graph-traversals-bfs-dfs|Graph Traversals - BFS & DFS]]
+- [[cs/dsa/graph-traversals-bfs-dfs|Graph Traversals - BFS & DFS]]
 
-- [[graph-representations|Graph Representations]]
+- [[cs/dsa/graph-representations|Graph Representations]]
 
-- [[dijkstras-algorithm|Dijkstra's Algorithm]]
+- [[cs/dsa/dijkstras-algorithm|Dijkstra's Algorithm]]
 
-- [[dynamic-programming|Dynamic Programming]]
+- [[cs/dsa/dynamic-programming|Dynamic Programming]]

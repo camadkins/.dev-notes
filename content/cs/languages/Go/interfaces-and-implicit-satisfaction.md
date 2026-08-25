@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-06-24
 updated:
-aliases:
-  - Go Interfaces
-  - Structural Typing in Go
+aliases: []
 ---
 
 In most statically typed object languages, the relationship between a concrete type and an abstract one is a thing you write down. A Java class carries an `implements` clause, a C# class lists its interfaces after a colon, and the compiler checks the claim you made. Go has no such clause. You declare the interface in one file, the type in another, and if the methods line up, the relationship already exists. Nobody declared it, and nobody had to be told.

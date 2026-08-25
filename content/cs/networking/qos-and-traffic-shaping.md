@@ -9,11 +9,7 @@ tags:
 date: 2026-02-19
 updated:
 aliases:
-  - quality of service
-  - DiffServ
   - DSCP
-  - traffic shaping
-  - policing vs shaping
 ---
 
 Plain IP is best-effort. Every packet is treated the same, and while the link has spare capacity that is invisible and harmless. The moment a link saturates, queuing delay climbs for everything at once, and that is where the equality becomes a problem. A file download that slows by 30 percent is fine; a voice call that gains 200 milliseconds of jitter is ruined. The two flows want opposite things from the network, and best-effort has no way to tell them apart. Quality of service is the collection of mechanisms that lets a network tell them apart and act on the difference.
@@ -39,17 +35,17 @@ Both policing and shaping enforce a traffic contract, an agreed rate a flow must
 
 Traffic shaping is a bandwidth-management technique that delays some or all datagrams to bring them into compliance with a desired traffic profile. It is always achieved by delaying packets: excess traffic is buffered and released later at the target rate, smoothing bursts. Traffic policing is the distinct but related practice of packet dropping and packet marking. It monitors traffic for compliance and, where traffic exceeds the contract, may discard the excess immediately, mark it as non-compliant, or leave it, per policy. Shaping buffers and waits; policing drops and moves on.
 
-The choice interacts with [[tcp-congestion-control|TCP]]. Because policing drops packets, a TCP sender treats the loss as congestion and backs off, so policing pushes congestion control to do the rate limiting, at the cost of retransmissions and jitter. Shaping instead holds packets in a buffer, which avoids the drops but adds delay and needs memory. A source that shapes its own output to the contract will not be policed downstream, which is why the two are often deployed as a pair: the sender shapes, the network polices what slips through.
+The choice interacts with [[cs/networking/tcp-congestion-control|TCP]]. Because policing drops packets, a TCP sender treats the loss as congestion and backs off, so policing pushes congestion control to do the rate limiting, at the cost of retransmissions and jitter. Shaping instead holds packets in a buffer, which avoids the drops but adds delay and needs memory. A source that shapes its own output to the contract will not be policed downstream, which is why the two are often deployed as a pair: the sender shapes, the network polices what slips through.
 
 > [!tip] Real-time traffic needs QoS because it cannot wait and cannot resend
 > A bulk download tolerates delay and recovers from loss by retransmission. A voice or video stream can do neither: a packet that arrives late is as useless as one that never arrives, and there is no time to ask for it again. That is the whole case for QoS. When a link congests, giving delay-sensitive classes priority in the queue is the only thing that keeps them usable, and over-provisioning aside, marking plus per-hop behavior is how a network delivers that priority.
 
 ## Related Notes
 
-- [[tcp-congestion-control|TCP Congestion Control]] - the endpoint feedback loop that policing's drops and shaping's delays both drive
-- [[quic-and-udp-transport|QUIC and UDP Transport]] - the transport real-time media favors precisely to escape head-of-line delay
-- [[load-balancing-l4-and-l7|Load Balancing, L4 and L7]] - another place classification decides how a packet is treated
-- [[routing-and-longest-prefix-match|Routing and Longest Prefix Match]] - the forwarding decision QoS layers priority on top of
+- [[cs/networking/tcp-congestion-control|TCP Congestion Control]] - the endpoint feedback loop that policing's drops and shaping's delays both drive
+- [[cs/networking/quic-and-udp-transport|QUIC and UDP Transport]] - the transport real-time media favors precisely to escape head-of-line delay
+- [[cs/networking/load-balancing-l4-and-l7|Load Balancing, L4 and L7]] - another place classification decides how a packet is treated
+- [[cs/networking/routing-and-longest-prefix-match|Routing and Longest Prefix Match]] - the forwarding decision QoS layers priority on top of
 
 ## Sources
 

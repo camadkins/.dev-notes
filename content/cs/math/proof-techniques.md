@@ -6,7 +6,6 @@ comments: true
 tags:
   - cs
   - math
-  - discrete-math
 date: 2026-05-27
 updated:
 aliases:
@@ -60,14 +59,14 @@ To disprove a universal claim you do not need a general argument, only one failu
 > *Contrapositive* is cleanest: prove "if $n$ is even then $n^2$ is even," which is $n = 2m \Rightarrow n^2 = 2(2m^2)$. Done in one line. Picking the technique that matches the statement's shape saved the most work.
 
 > [!tip]
-> For statements about all natural numbers with a recursive or cumulative structure, none of these is the right first tool. That is the job of [[mathematical-induction|induction]], which deserves its own treatment.
+> For statements about all natural numbers with a recursive or cumulative structure, none of these is the right first tool. That is the job of [[cs/math/mathematical-induction|induction]], which deserves its own treatment.
 
 ## Related Notes
 
-- [[mathematical-induction|Mathematical Induction]] - the technique for "for all n" statements over the naturals
-- [[propositional-logic|Propositional Logic]] - equivalences like contraposition come straight from truth tables
-- [[predicate-logic-and-quantifiers|Predicate Logic and Quantifiers]] - the quantifier shape of a claim tells you which proof to try
-- [[recursion|Recursion]] - correctness of recursive code is typically an inductive proof
+- [[cs/math/mathematical-induction|Mathematical Induction]] - the technique for "for all n" statements over the naturals
+- [[cs/math/propositional-logic|Propositional Logic]] - equivalences like contraposition come straight from truth tables
+- [[cs/math/predicate-logic-and-quantifiers|Predicate Logic and Quantifiers]] - the quantifier shape of a claim tells you which proof to try
+- [[cs/dsa/recursion|Recursion]] - correctness of recursive code is typically an inductive proof
 
 ## Sources
 

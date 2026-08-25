@@ -8,10 +8,7 @@ tags:
   - military
 date: 2026-03-28
 updated:
-aliases:
-  - ALOHAnet
-  - pure ALOHA
-  - slotted ALOHA
+aliases: []
 ---
 
 The University of Hawaii had a practical problem in the late 1960s. Its campuses sat on different islands, wired connections between them were impractical, and many terminals needed to reach a central computer over radio. They all had to share one channel. If two stations transmitted at the same instant, their signals collided and both messages were lost. The work that began in September 1968 under Norman Abramson, and went operational in June 1971 as ALOHAnet, answered that problem with a scheme so simple it sounds reckless, and that scheme is the root of how [[cs/standards/ieee-802-3-ethernet|Ethernet]] and [[cs/networking/wifi-and-802-11|Wi-Fi]] share a channel today.
@@ -33,10 +30,10 @@ The pure ALOHA idea, transmit freely and recover from collisions, became the bas
 
 ## Related Notes
 
-- [[link-16-tactical-data-links|Link 16 and Time-Slotted Tactical Data]], the opposite approach, where slots are assigned rather than contended
-- [[network-protocols|Network Protocols]], where channel access fits in the stack
-- [[distributed-consensus|Distributed Consensus]], another problem of coordination without a central authority
-- [[paul-baran-and-packet-switching|Paul Baran and the Birth of Packet Switching]], the packet idea ALOHAnet carried over radio
+- [[cs/military-computing/link-16-tactical-data-links|Link 16 and Time-Slotted Tactical Data]], the opposite approach, where slots are assigned rather than contended
+- [[cs/systems/network-protocols|Network Protocols]], where channel access fits in the stack
+- [[cs/systems/distributed-consensus|Distributed Consensus]], another problem of coordination without a central authority
+- [[cs/military-computing/paul-baran-and-packet-switching|Paul Baran and the Birth of Packet Switching]], the packet idea ALOHAnet carried over radio
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

@@ -9,10 +9,7 @@ tags:
   - operating-systems
 date: 2026-02-17
 updated:
-aliases:
-  - sandboxing
-  - process isolation
-  - seccomp
+aliases: []
 ---
 
 The instinct when you run code you do not trust is to watch it: log what it does, scan it for badness, alert when it misbehaves. Sandboxing takes the opposite stance. It assumes the code is already hostile, or soon will be, and asks a narrower question. When this process is fully compromised, what is it physically able to do to the rest of the machine? A good sandbox makes that answer small before a single instruction runs.
@@ -52,7 +49,7 @@ Each mechanism closes a different escape route, so an attacker has to defeat all
 - [[cs/systems/processes-and-threads|Processes and Threads]], the subjects being confined
 - [[cs/military-computing/bell-lapadula-and-mandatory-access-control|Bell-LaPadula and Mandatory Access Control]], policy the system enforces rather than the user
 - [[cs/military-computing/multics-and-time-sharing-foundations|Multics and Time-Sharing Foundations]], where protection rings began
-- [[stride-threat-modeling|STRIDE Threat Modeling]], for naming the elevation-of-privilege threat a sandbox contains
+- [[cs/security/stride-threat-modeling|STRIDE Threat Modeling]], for naming the elevation-of-privilege threat a sandbox contains
 
 ## Sources
 

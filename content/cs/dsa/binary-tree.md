@@ -1,5 +1,5 @@
 ---
-title: Binary Tree - Foundational Two-Child Hierarchy
+title: Binary Tree
 description: Hierarchical structure where each node has up to two children; basis for BSTs, Heaps, and Tree Traversals.
 draft: false
 comments: true
@@ -170,12 +170,12 @@ function height(node):
 
 ## Related Notes
 
-- [[bst|Binary Search Tree]]
+- [[cs/dsa/bst|Binary Search Tree]]
 
-- [[binary-heap|Binary Heap]]
+- [[cs/dsa/binary-heap|Binary Heap]]
 
-- [[tree-traversal|Tree Traversals]]
+- [[cs/dsa/tree-traversal|Tree Traversals]]
 
-- [[recursion|Recursion]]
+- [[cs/dsa/recursion|Recursion]]
 
-- [[graph-representations|Graph Representations]]
+- [[cs/dsa/graph-representations|Graph Representations]]

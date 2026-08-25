@@ -9,9 +9,7 @@ tags:
   - error-handling
 date: 2026-06-24
 updated:
-aliases:
-  - The Question Mark Operator
-  - Result and Option in Rust
+aliases: []
 ---
 
 Rust has no [[cs/pl/exceptions-handlers-and-non-local-control|exceptions]]. A function that can fail says so in its return type, and a caller that ignores the failure does not compile. The comparative case for that design, against exceptions and against error codes, is in [[cs/languages/common/errors-as-values-vs-control-flow|Errors as Values vs Control Flow]]. What follows is the Rust machinery: the two enums, the operator that makes them bearable, and the criteria the Book gives for choosing panic over propagation.

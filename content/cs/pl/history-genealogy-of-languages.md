@@ -232,7 +232,7 @@ Across seven decades, language design priorities have cycled through recurring t
 
 ---
 
-![Language genealogy timeline 1950s–2020s with family branches and influence edges](assets/lang-genealogy.svg)
+![Language genealogy timeline 1950s–2020s with family branches and influence edges](cs/pl/assets/lang-genealogy.svg)
 
 ---
 

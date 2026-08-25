@@ -11,7 +11,6 @@ date: 2026-08-05
 updated:
 aliases:
   - PTP
-  - Precision Time Protocol
 ---
 
 The algorithm at the heart of the Precision Time Protocol is not clever. A reference clock announces the time, a follower notes when the announcement arrived, and the two exchange a second pair of messages to estimate how long the network took. That is the same round-trip estimate [[cs/military-computing/ntp-distributed-clock-synchronization|NTP]] has used since the 1980s, and on paper there is no reason it should be a thousand times more accurate. The gap between the two protocols is almost entirely a matter of what the standard requires of everything the message touches on its way through.

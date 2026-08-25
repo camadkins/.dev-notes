@@ -9,9 +9,7 @@ tags:
   - error-handling
 date: 2026-06-24
 updated:
-aliases:
-  - Go defer
-  - Go panic and recover
+aliases: []
 ---
 
 Most people meet `defer` as a cleanup convenience and `recover` as Go's version of `catch`. The first reading is close enough to be useful. The second is wrong in a way that produces real bugs, and the fix is to stop thinking about scopes and start thinking about a list.

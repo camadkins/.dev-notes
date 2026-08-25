@@ -12,7 +12,6 @@ updated:
 aliases:
   - CSRF
   - XSRF
-  - cross-site request forgery
 ---
 
 CSRF exploits something the browser does to be helpful. When your bank sets a session cookie, the browser attaches it to every subsequent request to the bank, automatically, no matter which site caused the request. That convenience is the vulnerability. A page on an attacker's domain can cause your browser to fire a request at your bank, and the browser will dutifully include your cookie, so the request arrives fully authenticated as you. The attacker never touched your credentials. They borrowed your browser's habit of presenting them.
@@ -43,9 +42,9 @@ Modern browsers add a structural control. The `SameSite` cookie attribute tells 
 
 ## Related Notes
 
-- [[cross-site-scripting-xss|Cross-Site Scripting (XSS)]], the sibling web attack, and the one that can steal a CSRF token when both are present
-- [[owasp-top-10|The OWASP Top 10]], for where web risks like this rank across real applications
-- [[stride-threat-modeling|STRIDE Threat Modeling]], which names the spoofing and tampering threats CSRF realizes
+- [[cs/security/cross-site-scripting-xss|Cross-Site Scripting (XSS)]], the sibling web attack, and the one that can steal a CSRF token when both are present
+- [[cs/security/owasp-top-10|The OWASP Top 10]], for where web risks like this rank across real applications
+- [[cs/security/stride-threat-modeling|STRIDE Threat Modeling]], which names the spoofing and tampering threats CSRF realizes
 
 ## Sources
 

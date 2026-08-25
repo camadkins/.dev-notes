@@ -9,9 +9,7 @@ tags:
   - operating-systems
 date: 2026-06-24
 updated:
-aliases:
-  - IEEE 1003
-  - POSIX as a Standard
+aliases: []
 ---
 
 "POSIX-compliant" appears in more READMEs than almost any other standards claim in software, and it is usually doing the work of an adjective rather than a citation. The underlying document is real, currently published, and specific about what it covers. Reading it as a standard rather than as a vibe changes what the phrase in the README means, and it explains an oddity that surprises people the first time they meet it: the operating system that the overwhelming majority of POSIX code runs on has never been certified as conforming.

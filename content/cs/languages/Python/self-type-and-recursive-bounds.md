@@ -9,10 +9,7 @@ tags:
   - type-theory
 date: 2026-07-15
 updated:
-aliases:
-  - typing.Self
-  - PEP 673
-  - Python Self type
+aliases: []
 ---
 
 A method that returns `self` is the most common shape in fluent APIs, and annotating it correctly used to require knowing a trick.

@@ -9,7 +9,6 @@ tags:
 date: 2025-10-16
 updated: 2025-10-24
 aliases: []
-
 ---
 
 ## Overview
@@ -234,10 +233,10 @@ Merge sort guarantees **`Θ(n log n)`** time regardless of input, is **stable**,
 
 ## Related Notes
 
-- [[insertion-sort|Insertion Sort]]
+- [[cs/dsa/insertion-sort|Insertion Sort]]
 
-- [[quick-sort|Quick Sort]]
+- [[cs/dsa/quick-sort|Quick Sort]]
 
-- [[heapsort|Heapsort]]
+- [[cs/dsa/heapsort|Heapsort]]
 
-- [[divide-and-conquer|Divide and Conquer]]
+- [[cs/dsa/divide-and-conquer|Divide and Conquer]]

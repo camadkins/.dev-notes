@@ -9,13 +9,10 @@ tags:
   - cryptography
 date: 2026-03-11
 updated:
-aliases:
-  - PGP and the Web of Trust
-  - Web of Trust
-  - OpenPGP trust model
+aliases: []
 ---
 
-In [[pki-and-x509-certificates|X.509 PKI]] the question "is this key really theirs?" has one kind of answer: a certificate authority your software already trusts put its signature on it. Authority flows down a tree from a small set of roots. OpenPGP, the format PGP and GnuPG implement, answers the same question with no roots at all. Anyone can sign anyone's key, and validity is something your own keyring computes from the signatures it has collected. That inversion, from a delegated hierarchy to [[cs/math/graph-theory|a peer-signed graph]], is the web of trust.
+In [[cs/security/pki-and-x509-certificates|X.509 PKI]] the question "is this key really theirs?" has one kind of answer: a certificate authority your software already trusts put its signature on it. Authority flows down a tree from a small set of roots. OpenPGP, the format PGP and GnuPG implement, answers the same question with no roots at all. Anyone can sign anyone's key, and validity is something your own keyring computes from the signatures it has collected. That inversion, from a delegated hierarchy to [[cs/math/graph-theory|a peer-signed graph]], is the web of trust.
 
 > [!note] The idea
 > A PGP key's binding to an identity is asserted not by an authority but by other users who signed it, and each signature carries a graded claim about how carefully the signer checked. OpenPGP goes further and lets you sign a key as a *trusted introducer*, delegating your judgment about that person's future signatures. Trust becomes a quantity that flows through a graph you assemble yourself, rather than a yes/no verdict handed down from a root.
@@ -34,7 +31,7 @@ This is delegation without a central authority. If you mark Carol as a trusted i
 
 ## What you gain, and the wall it hits
 
-The gain is the removal of a single point of failure. There is no [[certificate-transparency|CA whose compromise forges any identity]]; an attacker must instead insinuate a bad key into enough of your trusted introducers' judgments, which is far harder to do quietly. The trust is also yours: you decide who introduces whom, at what strength.
+The gain is the removal of a single point of failure. There is no [[cs/security/certificate-transparency|CA whose compromise forges any identity]]; an attacker must instead insinuate a bad key into enough of your trusted introducers' judgments, which is far harder to do quietly. The trust is also yours: you decide who introduces whom, at what strength.
 
 The cost is scale. Every edge in the graph is a human act of verification, ideally an in-person key-fingerprint check. The grading that would make weak edges visible is mostly unused. Trust does not transit cleanly across social distance, and a newcomer with no signatures is invisible to everyone. The web of trust is [[cs/history/blockchain-and-nakamoto-consensus|genuinely decentralized]] and genuinely hard to bootstrap, which is why the centralized PKI it critiques still runs the public web.
 
@@ -43,11 +40,11 @@ The cost is scale. Every edge in the graph is a human act of verification, ideal
 
 ## Related Notes
 
-- [[pki-and-x509-certificates|PKI and X.509 Certificates]] - the hierarchical CA model the web of trust rejects
-- [[digital-signatures|Digital Signatures]] - the primitive every certification and trust signature is built from
-- [[cryptographic-hash-functions|Cryptographic Hash Functions]] - what a key fingerprint actually is
-- [[symmetric-vs-asymmetric-cryptography|Symmetric vs Asymmetric Cryptography]] - why a public key needs its identity bound at all
-- [[certificate-transparency|Certificate Transparency]] - a different fix for the same CA trust problem
+- [[cs/security/pki-and-x509-certificates|PKI and X.509 Certificates]] - the hierarchical CA model the web of trust rejects
+- [[cs/security/digital-signatures|Digital Signatures]] - the primitive every certification and trust signature is built from
+- [[cs/security/cryptographic-hash-functions|Cryptographic Hash Functions]] - what a key fingerprint actually is
+- [[cs/security/symmetric-vs-asymmetric-cryptography|Symmetric vs Asymmetric Cryptography]] - why a public key needs its identity bound at all
+- [[cs/security/certificate-transparency|Certificate Transparency]] - a different fix for the same CA trust problem
 
 ## Sources
 

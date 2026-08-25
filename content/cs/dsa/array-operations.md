@@ -1,5 +1,5 @@
 ---
-title: Array Operations - Canonical Patterns and Costs
+title: Array Operations
 description: Indexing, iteration, insertion/deletion with shifts, and searching on contiguous fixed-stride arrays with practical tips and pitfalls.
 draft: false
 comments: true
@@ -12,7 +12,7 @@ aliases: []
 ---
 
 ## Overview
-Arrays provide **O(1) indexed access** via fixed-stride addressing, making them the default substrate for many algorithms and data structures. This note gathers the **canonical operations** on arrays - **index, iterate, insert/delete (with shifts), and search** - with their **standard costs**, **safe idioms**, and **gotchas**. It complements the structural properties in [[arrays|Arrays - Fixed-Size Contiguous Storage]] and focuses on *how to do the work correctly and efficiently*.
+Arrays provide **O(1) indexed access** via fixed-stride addressing, making them the default substrate for many algorithms and data structures. This note gathers the **canonical operations** on arrays - **index, iterate, insert/delete (with shifts), and search** - with their **standard costs**, **safe idioms**, and **gotchas**. It complements the structural properties in [[cs/dsa/arrays|Arrays - Fixed-Size Contiguous Storage]] and focuses on *how to do the work correctly and efficiently*.
 
 > [!note] Mental model
 > For fixed-size elements:
@@ -51,7 +51,7 @@ Let `A` be a contiguous array with logical length `n` (`0 ≤ n ≤ capacity`). 
 | Linear search           | Θ(n)        | No order assumption                    |
 | Binary search (sorted)  | Θ(log n)    | Requires monotone comparator          |
 
-\* In **dynamic arrays**, appends are amortized O(1); see [[dynamic-arrays|Dynamic Arrays]] and [[amortized-analysis-methods|Amortized Analysis]].
+\* In **dynamic arrays**, appends are amortized O(1); see [[cs/dsa/dynamic-arrays|Dynamic Arrays]] and [[cs/dsa/amortized-analysis-methods|Amortized Analysis]].
 
 ---
 ### **Index**
@@ -202,9 +202,9 @@ After deletion:
 
 ### Searching patterns
 
-- **Unsorted**: use **linear search** (Θ(n)). Optionally place a **sentinel** at `A[n]` to eliminate a bound check in languages that allow it (requires extra capacity and careful restoration). See [[linear-search|Linear Search]].
+- **Unsorted**: use **linear search** (Θ(n)). Optionally place a **sentinel** at `A[n]` to eliminate a bound check in languages that allow it (requires extra capacity and careful restoration). See [[cs/dsa/linear-search|Linear Search]].
     
-- **Sorted**: use **binary search** (Θ(log n)) and consider **galloping (exponential) search** if likely near a probe point. See [[binary-search|Binary Search]].
+- **Sorted**: use **binary search** (Θ(log n)) and consider **galloping (exponential) search** if likely near a probe point. See [[cs/dsa/binary-search|Binary Search]].
     
 
 > [!note] Sentinel sketch (unsafe in bounds-checked languages)
@@ -221,7 +221,7 @@ After deletion:
 
 ### Interaction with dynamic arrays
 
-Insert/delete in the **middle** remains Θ(n) even if appends are amortized O(1). Growth policy affects constants; see [[dynamic-arrays|Dynamic Arrays]] and [[amortized-analysis-methods|Amortized Analysis]].
+Insert/delete in the **middle** remains Θ(n) even if appends are amortized O(1). Growth policy affects constants; see [[cs/dsa/dynamic-arrays|Dynamic Arrays]] and [[cs/dsa/amortized-analysis-methods|Amortized Analysis]].
 
 ### Multidimensional arrays and layout
 
@@ -233,7 +233,7 @@ for (int i = 0; i < R; ++i)
     use(A[i][j]); // contiguous in memory
 ```
 
-Column-major languages (Fortran/Julia) invert the preferred nesting; see [[multidimensional-arrays|Multidimensional Arrays]].
+Column-major languages (Fortran/Julia) invert the preferred nesting; see [[cs/dsa/multidimensional-arrays|Multidimensional Arrays]].
 
 ---
 
@@ -325,12 +325,12 @@ for (int i = 0; i < n; ++i) if (A[i] == x) { idx = i; break; }
 
 ## Related Notes
 
-- [[arrays|Arrays - Fixed-Size Contiguous Storage]]
+- [[cs/dsa/arrays|Arrays - Fixed-Size Contiguous Storage]]
     
-- [[dynamic-arrays|Dynamic Arrays]]
+- [[cs/dsa/dynamic-arrays|Dynamic Arrays]]
     
-- [[multidimensional-arrays|Multidimensional Arrays]]
+- [[cs/dsa/multidimensional-arrays|Multidimensional Arrays]]
     
-- [[linear-search|Linear Search]]
+- [[cs/dsa/linear-search|Linear Search]]
     
-- [[binary-search|Binary Search]]
+- [[cs/dsa/binary-search|Binary Search]]

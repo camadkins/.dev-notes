@@ -8,9 +8,7 @@ tags:
   - law
 date: 2026-06-19
 updated:
-aliases:
-  - Sectoral Privacy
-  - HIPAA GLBA FERPA
+aliases: []
 ---
 
 The United States has no general privacy statute. It has a health one, a financial one, an education one, a children's online one, a video rental one, and several dozen state laws, and an engineer building a system that handles more than one kind of record has to satisfy more than one regime with incompatible vocabulary. That is usually described as a coverage problem, gaps between the sectors. The more interesting fact is structural.

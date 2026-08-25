@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-07-14
 updated:
-aliases:
-  - TypeScript Generic Constraints
-  - Default Type Arguments
+aliases: []
 ---
 
 The error that motivates the whole feature is this one:

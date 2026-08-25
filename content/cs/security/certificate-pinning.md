@@ -10,13 +10,10 @@ tags:
 date: 2026-04-29
 updated:
 aliases:
-  - Certificate Pinning
-  - Public Key Pinning
   - HPKP
-  - Key Pinning
 ---
 
-The [[pki-and-x509-certificates|X.509 trust model]] has a structural flaw: your browser trusts hundreds of certificate authorities, and *any one of them* can issue a valid certificate for *your* domain. A single compromised or coerced CA anywhere in that set can mint a certificate an attacker uses for a [[man-in-the-middle-attacks|man-in-the-middle]] against your users, and TLS will accept it without complaint. Certificate pinning attacks that flaw from the other end: instead of trusting whatever certificate a trusted CA signs, the client remembers the *specific* key it expects and rejects everything else.
+The [[cs/security/pki-and-x509-certificates|X.509 trust model]] has a structural flaw: your browser trusts hundreds of certificate authorities, and *any one of them* can issue a valid certificate for *your* domain. A single compromised or coerced CA anywhere in that set can mint a certificate an attacker uses for a [[cs/security/man-in-the-middle-attacks|man-in-the-middle]] against your users, and TLS will accept it without complaint. Certificate pinning attacks that flaw from the other end: instead of trusting whatever certificate a trusted CA signs, the client remembers the *specific* key it expects and rejects everything else.
 
 > [!note] The idea
 > Pinning binds a hostname to a small set of expected public keys. RFC 7469's HTTP Public Key Pinning made the server tell the browser, over a header, which Subject Public Key Info fingerprints to expect, and then "will require that the host presents a certificate chain including at least one Subject Public Key Info structure whose fingerprint matches one of the pinned fingerprints for that host." The security win is stated precisely: "By effectively reducing the number of trusted authorities who can authenticate the domain during the lifetime of the pin, pinning may reduce the incidence of man-in-the-middle attacks due to compromised Certification Authorities." You are not adding trust, you are subtracting it.
@@ -44,11 +41,11 @@ The mandated cushion is the Backup Pin: a fingerprint for a secondary, not-yet-d
 
 ## Related Notes
 
-- [[pki-and-x509-certificates|PKI and X.509 Certificates]] - the "any CA can sign for anyone" flaw pinning narrows
-- [[man-in-the-middle-attacks|Man-in-the-Middle Attacks]] - the attack pinning is aimed at
-- [[certificate-transparency|Certificate Transparency]] - a detection-based alternative to pinning's prevention
-- [[hsts-and-http-security-headers|HSTS and HTTP Security Headers]] - the sibling header-driven policy, sharing the same trust-on-first-use gap
-- [[cryptographic-hash-functions|Cryptographic Hash Functions]] - what an SPKI fingerprint is
+- [[cs/security/pki-and-x509-certificates|PKI and X.509 Certificates]] - the "any CA can sign for anyone" flaw pinning narrows
+- [[cs/security/man-in-the-middle-attacks|Man-in-the-Middle Attacks]] - the attack pinning is aimed at
+- [[cs/security/certificate-transparency|Certificate Transparency]] - a detection-based alternative to pinning's prevention
+- [[cs/security/hsts-and-http-security-headers|HSTS and HTTP Security Headers]] - the sibling header-driven policy, sharing the same trust-on-first-use gap
+- [[cs/security/cryptographic-hash-functions|Cryptographic Hash Functions]] - what an SPKI fingerprint is
 
 ## Sources
 

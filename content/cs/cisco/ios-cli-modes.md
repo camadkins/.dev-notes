@@ -8,11 +8,7 @@ tags:
   - cisco
 date: 2026-03-08
 updated:
-aliases:
-  - Cisco IOS command modes
-  - Privileged EXEC
-  - configure terminal
-  - IOS modes
+aliases: []
 ---
 
 The first thing to read on a Cisco box is not the banner, it is the prompt. `Switch>` and `Switch#` differ by one character and by everything you are permitted to do. A command that "does not exist" on a device almost always exists fine, one mode up. Learning the mode ladder is the difference between fighting the parser and driving the box.
@@ -51,7 +47,7 @@ From global config, more specific modes open beneath it, each one advertised by 
 | `Router(config-router)#` | routing process configuration | a routing process command |
 | `Switch(config-vlan)#` | VLAN configuration | `vlan` plus a VLAN ID |
 
-Interface configuration commands modify the operation of one interface, and they always follow a global configuration command that defines the interface type. That ordering is the whole logic of the hierarchy: a command lives in the mode that supplies its missing context. `switchport mode trunk` means nothing without an interface selected, so it lives one level below the command that selects one. See [[vlans-and-802-1q-trunking|VLANs and 802.1Q trunking]] for what those interface-level commands are actually doing to frames.
+Interface configuration commands modify the operation of one interface, and they always follow a global configuration command that defines the interface type. That ordering is the whole logic of the hierarchy: a command lives in the mode that supplies its missing context. `switchport mode trunk` means nothing without an interface selected, so it lives one level below the command that selects one. See [[cs/networking/vlans-and-802-1q-trunking|VLANs and 802.1Q trunking]] for what those interface-level commands are actually doing to frames.
 
 ## Moving back up: exit is not end
 
@@ -75,15 +71,15 @@ So `exit` is a single step up the ladder and `end` is a jump to the top. When yo
 > Four prompts, four command namespaces. `exit` stepped back to `(config)`, and `end` from `(config-line)` skipped the intermediate level entirely.
 
 > [!warning] The console password can hand out privileged access
-> If no `enable secret` is set and a password is configured for the console tty line, the console password can be used to receive privileged access, even from a remote virtual tty (vty) session. That is almost certainly unwanted, and it is a good reason to always configure an `enable secret`. Cisco is explicit that `enable secret` must be used rather than the older `enable password`, which uses a weak encryption algorithm. On the authorization side, keep the number of users with privilege level 15 to a minimum, since level 15 is the full privileged command set. See [[privilege-separation-and-least-privilege|privilege separation]] for the general principle this is an instance of.
+> If no `enable secret` is set and a password is configured for the console tty line, the console password can be used to receive privileged access, even from a remote virtual tty (vty) session. That is almost certainly unwanted, and it is a good reason to always configure an `enable secret`. Cisco is explicit that `enable secret` must be used rather than the older `enable password`, which uses a weak encryption algorithm. On the authorization side, keep the number of users with privilege level 15 to a minimum, since level 15 is the full privileged command set. See [[cs/security/privilege-separation-and-least-privilege|privilege separation]] for the general principle this is an instance of.
 
 ## Related Notes
 
-- [[running-vs-startup-config|Running vs Startup Config]] - what the config mode you just left actually changed, and why it can vanish
-- [[console-ssh-and-device-access|Console, SSH, and Device Access]] - the lines you configure from `(config-line)` mode
-- [[show-and-debug-methodology|show and debug Methodology]] - the privileged EXEC tools for looking at a live box
-- [[privilege-separation-and-least-privilege|Privilege Separation and Least Privilege]] - the security model behind two EXEC levels
-- [[authentication-vs-authorization|Authentication vs Authorization]] - proving who you are versus what you may run
+- [[cs/cisco/running-vs-startup-config|Running vs Startup Config]] - what the config mode you just left actually changed, and why it can vanish
+- [[cs/cisco/console-ssh-and-device-access|Console, SSH, and Device Access]] - the lines you configure from `(config-line)` mode
+- [[cs/cisco/show-and-debug-methodology|show and debug Methodology]] - the privileged EXEC tools for looking at a live box
+- [[cs/security/privilege-separation-and-least-privilege|Privilege Separation and Least Privilege]] - the security model behind two EXEC levels
+- [[cs/security/authentication-vs-authorization|Authentication vs Authorization]] - proving who you are versus what you may run
 
 ## Sources
 

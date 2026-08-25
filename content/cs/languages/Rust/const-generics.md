@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-06-30
 updated:
-aliases:
-  - Rust Const Generics
-  - Generic Over Array Length
+aliases: []
 ---
 
 Rust had one const generic type from the beginning and did not let anyone else have one. The array type `[T; N]` is parameterized by a type and by a length, and the length is part of the type: `[u8; 4]` and `[u8; 5]` are as different as `u8` and `String`. Until 1.51 that ability was reserved for the language itself. There was no way to abstract over arrays of an arbitrary size, so implementing a trait for arrays of any size meant doing it manually for each possible value.

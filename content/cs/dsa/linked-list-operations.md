@@ -1,5 +1,5 @@
 ---
-title: Linked Lists - Insertion, Deletion, Traversal
+title: Linked List Operations
 description: Singly linked list operations with pointer rewiring invariants, edge cases, and testable pseudocode for head, tail, and middle updates.
 draft: false
 comments: true
@@ -323,7 +323,7 @@ Create a small, deterministic suite:
 
 - **Adjacency lists:** Store neighbors as SLL nodes when memory is tight and insertions are frequent.
 
-- **Hash table chaining:** Buckets can be SLLs when constant-factor overhead should be minimal (see [[hash-tables|Hash Tables]]).
+- **Hash table chaining:** Buckets can be SLLs when constant-factor overhead should be minimal (see [[cs/dsa/hash-tables|Hash Tables]]).
 
 
 ## Summary
@@ -332,10 +332,10 @@ Singly linked lists enable **O(1)** local updates when the predecessor is known 
 
 ## Related Notes
 
-- [[linked-list|Linked List]]
+- [[cs/dsa/linked-list|Linked List]]
 
-- [[doubly-linked-list|Doubly Linked List]]
+- [[cs/dsa/doubly-linked-list|Doubly Linked List]]
 
-- [[circular-linked-list|Circular Linked List]]
+- [[cs/dsa/circular-linked-list|Circular Linked List]]
 
-- [[dynamic-memory-allocation|Dynamic Memory Allocation]]
+- [[cs/dsa/dynamic-memory-allocation|Dynamic Memory Allocation]]

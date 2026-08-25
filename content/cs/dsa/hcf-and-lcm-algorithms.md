@@ -69,7 +69,7 @@ function GCD(a, b):
     return a
 ```
 
-See also [[euclidean-algorithms|Euclidean Algorithms]] for extended GCD and binary GCD variants.
+See also [[cs/dsa/euclidean-algorithms|Euclidean Algorithms]] for extended GCD and binary GCD variants.
 
 ### Overflow-Safe LCM (pairwise)
 
@@ -146,7 +146,7 @@ function LCM_ARRAY(A):
 
 ## Implementation Notes or Trade-offs
 
-- **Extended GCD:** If you need modular inverses or to solve `ax+by=c`, call the extended version and reuse `g, x, y` (see [[euclidean-algorithms|Euclidean Algorithms]]).
+- **Extended GCD:** If you need modular inverses or to solve `ax+by=c`, call the extended version and reuse `g, x, y` (see [[cs/dsa/euclidean-algorithms|Euclidean Algorithms]]).
 
 - **Binary GCD (Stein).** Good when divisions are expensive; uses shifts/subtractions only.
 
@@ -161,10 +161,10 @@ Compute `gcd` with **Euclid**; compute `lcm` via the identity `|a·b| = gcd·lcm
 
 ## Related Notes
 
-- [[euclidean-algorithms|Euclidean Algorithms]]
+- [[cs/dsa/euclidean-algorithms|Euclidean Algorithms]]
 
-- [[prime-numbers-algorithms|Prime Numbers Algorithms]]
+- [[cs/dsa/prime-numbers-algorithms|Prime Numbers Algorithms]]
 
-- [[maths|Maths]]
+- [[cs/dsa/maths|Maths]]
 
-- [[algorithm-efficiency|Algorithm Efficiency]]
+- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]

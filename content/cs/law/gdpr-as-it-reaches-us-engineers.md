@@ -10,8 +10,6 @@ date: 2026-08-17
 updated:
 aliases:
   - GDPR
-  - Regulation 2016/679
-  - General Data Protection Regulation
 ---
 
 An American engineer's first encounter with the General Data Protection Regulation usually arrives as a compliance ticket with no explanation attached, and the natural reaction is to assume it is a European problem that legal will handle. The regulation's own text says otherwise, and it says so early. Article 3 is titled "Territorial scope," and it never mentions where the controller is incorporated or where the processing hardware lives.

@@ -8,10 +8,7 @@ tags:
   - military
 date: 2026-04-11
 updated:
-aliases:
-  - cyber warfare
-  - fifth domain
-  - US Cyber Command
+aliases: []
 ---
 
 Land, sea, air, and space are the traditional domains of military operations. Modern doctrine added one more. The United States now treats [[cs/geopolitics/cyber-sovereignty|cyberspace as a domain of operations in its own right]], often called the fifth domain, and the discipline underneath it is, squarely, computer science.
@@ -29,22 +26,22 @@ Doctrine needs an organization to carry it. United States Cyber Command, one of 
 
 ## The turning point
 
-The clearest proof that this domain is real came from [[stuxnet-and-cyber-physical-exploitation|Stuxnet]], the malware that crossed an air gap and physically destroyed centrifuges. It showed that code can produce kinetic effect, which is exactly what makes cyberspace a place where wars can be fought rather than merely a medium for espionage.
+The clearest proof that this domain is real came from [[cs/military-computing/stuxnet-and-cyber-physical-exploitation|Stuxnet]], the malware that crossed an air gap and physically destroyed centrifuges. It showed that code can produce kinetic effect, which is exactly what makes cyberspace a place where wars can be fought rather than merely a medium for espionage.
 
 ## The computer science underneath
 
-Strip away the doctrine and what remains is familiar from the rest of this cluster: vulnerability classes like [[cs/security/buffer-overflows|the buffer overflow]] that powered the [[morris-worm-and-buffer-overflows|Morris worm]], the exploitation chains of Stuxnet, and the defensive models like [[bell-lapadula-and-mandatory-access-control|Bell-LaPadula]] and the graded assurance of the [[tcsec-and-graded-assurance|Orange Book]]. The fifth domain is built on the security computer science that the earlier notes describe.
+Strip away the doctrine and what remains is familiar from the rest of this cluster: vulnerability classes like [[cs/security/buffer-overflows|the buffer overflow]] that powered the [[cs/military-computing/morris-worm-and-buffer-overflows|Morris worm]], the exploitation chains of Stuxnet, and the defensive models like [[cs/military-computing/bell-lapadula-and-mandatory-access-control|Bell-LaPadula]] and the graded assurance of the [[cs/military-computing/tcsec-and-graded-assurance|Orange Book]]. The fifth domain is built on the security computer science that the earlier notes describe.
 
 > [!warning] Scope
 > This note stays on published, historical, doctrinal material. No operational detail and nothing about current capabilities.
 
 ## Related Notes
 
-- [[stuxnet-and-cyber-physical-exploitation|Stuxnet]], the weapon that proved the domain real
-- [[morris-worm-and-buffer-overflows|The Morris Worm]], the vulnerability class underneath
-- [[tcsec-and-graded-assurance|The Orange Book]] and [[bell-lapadula-and-mandatory-access-control|Bell-LaPadula]], the defensive lineage
-- [[cyber-sovereignty|Cyber Sovereignty]], how states contest the domain
-- [[the-responsibility-gap|The Responsibility Gap]], who answers when an autonomous weapon in this domain commits an atrocity
+- [[cs/military-computing/stuxnet-and-cyber-physical-exploitation|Stuxnet]], the weapon that proved the domain real
+- [[cs/military-computing/morris-worm-and-buffer-overflows|The Morris Worm]], the vulnerability class underneath
+- [[cs/military-computing/tcsec-and-graded-assurance|The Orange Book]] and [[cs/military-computing/bell-lapadula-and-mandatory-access-control|Bell-LaPadula]], the defensive lineage
+- [[cs/geopolitics/cyber-sovereignty|Cyber Sovereignty]], how states contest the domain
+- [[cs/ethics/the-responsibility-gap|The Responsibility Gap]], who answers when an autonomous weapon in this domain commits an atrocity
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

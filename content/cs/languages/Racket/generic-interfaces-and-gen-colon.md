@@ -10,8 +10,6 @@ date: 2026-07-02
 updated:
 aliases:
   - define-generics
-  - Racket Generic Interfaces
-  - "gen:printable"
 ---
 
 Racket has classes. `racket/class` is a full object system with inheritance, mixins, and interfaces. Almost nobody reaches for it when defining a protocol that several data types should satisfy. They write this instead:

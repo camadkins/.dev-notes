@@ -8,10 +8,7 @@ tags:
   - law
 date: 2026-08-16
 updated:
-aliases:
-  - Riley v. California
-  - Carpenter v. United States
-  - Get a Warrant
+aliases: []
 ---
 
 For most of the twentieth century, Fourth Amendment law worked by analogy to physical things. A pocket is like a container. A record held by a company is like a ledger. Digital systems break the analogies in one specific way: they change the quantity of information a single object holds and the span of time a single record set covers. Two Supreme Court decisions, in 2014 and 2018, address exactly that break, and both end with the same four words.

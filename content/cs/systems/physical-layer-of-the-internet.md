@@ -9,8 +9,6 @@ tags:
 date: 2026-06-28
 updated:
 aliases:
-  - undersea cables
-  - submarine cables
   - IXP
 ---
 
@@ -29,11 +27,11 @@ What matters structurally is where the cable touches land. Each end terminates a
 
 A submarine cable carries one network's traffic to a coast, but the internet is a network of networks, and they have to hand traffic to each other somewhere. That somewhere is usually an internet exchange point. An IXP is a physical thing: one or more network switches, typically sitting in a datacenter that already has connections to many distinct networks, to which participating internet service providers plug in and exchange data destined for each other.
 
-The economics are the point. Without an IXP, two networks in the same city might have to send traffic to each other by way of an upstream transit provider, who bills for it, possibly routing the bits through another city or continent and back. By meeting directly at an exchange, the networks peer: traffic passing through is typically unbilled, latency drops because the data never leaves town, and each network reduces the share of its traffic it must pay a transit provider to carry. Public peering happens at the shared IXP fabric; private peering is a direct link between two networks. Either way, interconnection is a physical act in a specific building, which is why the map of major IXPs is also a map of where the internet's traffic is densest and most concentrated. This is the layer beneath the abstractions in [[network-protocols|network protocols]]: routing decisions about which path a packet takes are constrained by which networks have physically chosen to meet, and where.
+The economics are the point. Without an IXP, two networks in the same city might have to send traffic to each other by way of an upstream transit provider, who bills for it, possibly routing the bits through another city or continent and back. By meeting directly at an exchange, the networks peer: traffic passing through is typically unbilled, latency drops because the data never leaves town, and each network reduces the share of its traffic it must pay a transit provider to carry. Public peering happens at the shared IXP fabric; private peering is a direct link between two networks. Either way, interconnection is a physical act in a specific building, which is why the map of major IXPs is also a map of where the internet's traffic is densest and most concentrated. This is the layer beneath the abstractions in [[cs/systems/network-protocols|network protocols]]: routing decisions about which path a packet takes are constrained by which networks have physically chosen to meet, and where.
 
 ## Names from anywhere: root servers and anycast
 
-The same pattern, logical control mapped onto distributed physical hardware, governs how names become addresses. Every recursive [[dns-the-domain-name-system|DNS]] resolution can begin at the root of the name hierarchy, and the root is served by thirteen logical root servers, named `a` through `m`. That number is not arbitrary: it was fixed by the practical size of an early DNS response that had to fit in a single unfragmented UDP packet.
+The same pattern, logical control mapped onto distributed physical hardware, governs how names become addresses. Every recursive [[cs/systems/dns-the-domain-name-system|DNS]] resolution can begin at the root of the name hierarchy, and the root is served by thirteen logical root servers, named `a` through `m`. That number is not arbitrary: it was fixed by the practical size of an early DNS response that had to fit in a single unfragmented UDP packet.
 
 Thirteen logical servers would be a dangerous concentration if it meant thirteen machines. It does not. Through a routing technique called anycast, each logical root server is announced from many physical instances scattered across the world (well over a thousand in total), and the network simply delivers your query to the nearest one. You ask `k.root-servers.net` and get an answer from a box that might be at an exchange point down the road, without ever learning which one. Anycast turns a tiny, centralized-looking namespace into a geographically resilient one, and it is also a quiet instrument of cyber-sovereignty: a country that hosts root server instances inside its own borders keeps name resolution working even if its external links are degraded, which is why root-instance distribution is a live concern in [[cs/geopolitics/cyber-sovereignty|cyber sovereignty]].
 
@@ -44,7 +42,7 @@ Concentration buys efficiency and pays for it in exposure. The same scarcity tha
 Surveillance lives here. Upstream collection taps the cable or its terminal equipment directly, copying traffic in bulk before it ever reaches an application, which is why so much of the [[cs/geopolitics/surveillance-and-privacy|surveillance and privacy]] debate is really about who controls the wire. Submarine cables can be tapped by specialized submarines and unmanned underwater vehicles, and intelligence services have historically targeted landing stations and the network management systems behind them. Sabotage lives here too: an anchor dragged across a cable, or a strike on a landing station, can sever a region's connectivity, and the open ocean is hard to police. End-to-end encryption blunts the listening (you cannot read what you cannot decrypt), but it does nothing against the cutting. The substrate remains finite, mappable, and reachable, which is the whole reason the cloud has a body worth defending.
 
 > [!example] A packet crossing an ocean
-> 1. Your browser resolves a hostname; the lookup may walk up to a [[dns-the-domain-name-system|root server]] instance reached by anycast, likely a box at a nearby exchange point.
+> 1. Your browser resolves a hostname; the lookup may walk up to a [[cs/systems/dns-the-domain-name-system|root server]] instance reached by anycast, likely a box at a nearby exchange point.
 > 2. The packet leaves your ISP and reaches an internet exchange point, where your ISP peers with the network that can carry it toward the destination.
 > 3. To cross the ocean it enters a submarine cable at a coastal landing station, where terminal equipment turns it into light.
 > 4. It travels thousands of kilometers as photons through glass, boosted by repeaters on the seabed, possibly passing equipment a state would very much like to tap.
@@ -54,8 +52,8 @@ Surveillance lives here. Upstream collection taps the cable or its terminal equi
 ## Related Notes
 
 - [[cs/history/history-of-the-internet|History of the Internet]] - how today's cable map descends from nineteenth-century telegraph lines across the same oceans
-- [[network-protocols|Network Protocols]] - the logical routing layer whose choices are constrained by where networks physically peer
-- [[dns-the-domain-name-system|DNS]] - the name system that bootstraps from the thirteen root servers described here
+- [[cs/systems/network-protocols|Network Protocols]] - the logical routing layer whose choices are constrained by where networks physically peer
+- [[cs/systems/dns-the-domain-name-system|DNS]] - the name system that bootstraps from the thirteen root servers described here
 - [[cs/geopolitics/cyber-sovereignty|Cyber Sovereignty]] - why states care about hosting root-server instances and controlling landing stations
 - [[cs/geopolitics/surveillance-and-privacy|Surveillance & Privacy]] - upstream cable tapping as the physical-layer face of mass surveillance
 - [[cs/military-computing/sosus-undersea-signal-processing|SOSUS]] - the precedent for treating the seabed as an instrumented, listenable space

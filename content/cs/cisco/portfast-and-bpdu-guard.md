@@ -8,14 +8,10 @@ tags:
   - cisco
 date: 2026-03-21
 updated:
-aliases:
-  - spanning-tree portfast
-  - spanning-tree bpduguard enable
-  - errdisable recovery cause bpduguard
-  - edge port
+aliases: []
 ---
 
-Somebody reboots a workstation and it comes up with no address. The switch port is up. The cable is fine. [[cs/networking/dhcp-and-address-assignment|DHCP]] works everywhere else. What happened is that the port spent half a minute in [[spanning-tree-protocol|spanning tree]] states that discard frames while the client's DHCP attempts expired into nothing.
+Somebody reboots a workstation and it comes up with no address. The switch port is up. The cable is fine. [[cs/networking/dhcp-and-address-assignment|DHCP]] works everywhere else. What happened is that the port spent half a minute in [[cs/cisco/spanning-tree-protocol|spanning tree]] states that discard frames while the client's DHCP attempts expired into nothing.
 
 Cisco's framing of the tradeoff: every port that comes up normally walks through the STP states, listening, learning, and finally forwarding, before it passes user traffic, and that convergence delay, roughly 30 seconds with [[cs/standards/ieee-802-1d-and-spanning-tree|traditional 802.1D]], is appropriate for switch-to-switch links but unnecessary for ports connected to end hosts such as PCs, servers, or printers, which cannot create a switching loop on their own.
 
@@ -28,7 +24,7 @@ PortFast immediately transitions an access or trunk port from the blocking state
 
 The scope condition is explicit and narrow. Because the purpose of Port Fast is to minimize the time interfaces must wait for spanning tree to converge, it is effective only when used on interfaces connected to end stations, and if you enable Port Fast on an interface connecting to another switch, you risk creating a spanning-tree loop. It is important for hosts that expect immediate network access, for example workstations using DHCP at boot.
 
-Under [[spanning-tree-protocol|RSTP]] this is not a Cisco extension bolted onto the standard, it is the standard. The edge port concept basically corresponds to the PortFast feature: all ports directly connected to end stations cannot create bridge loops in the network, so the edge port directly transitions to the forwarding state and skips the listening and learning stages. Cisco kept the keyword deliberately, maintaining that the PortFast keyword be used for edge port configuration to make the transition to RSTP simpler.
+Under [[cs/cisco/spanning-tree-protocol|RSTP]] this is not a Cisco extension bolted onto the standard, it is the standard. The edge port concept basically corresponds to the PortFast feature: all ports directly connected to end stations cannot create bridge loops in the network, so the edge port directly transitions to the forwarding state and skips the listening and learning stages. Cisco kept the keyword deliberately, maintaining that the PortFast keyword be used for edge port configuration to make the transition to RSTP simpler.
 
 RSTP adds a self-defense that classic PortFast lacks: an edge port that receives a BPDU immediately loses edge port status and becomes a normal spanning tree port. That is degradation, not enforcement. It protects the topology; it does nothing to tell you a rogue switch appeared, and it leaves the offending device on the network.
 
@@ -105,16 +101,16 @@ There is a middle option for the blast radius, if not the recovery. `errdisable 
 > UplinkFast is disabled
 > BackboneFast is disabled
 > ```
-> That first line is a bonus check. `Root bridge for: none` on an access switch is correct and reassuring. If an access switch reports that it is root bridge for some VLAN, either your [[spanning-tree-protocol|root election]] was never configured or something has already won an election it should not have.
+> That first line is a bonus check. `Root bridge for: none` on an access switch is correct and reassuring. If an access switch reports that it is root bridge for some VLAN, either your [[cs/cisco/spanning-tree-protocol|root election]] was never configured or something has already won an election it should not have.
 
 ## Related Notes
 
-- [[spanning-tree-protocol|Spanning Tree Protocol]] - the port states PortFast skips and the root election BPDU guard defends
-- [[vlans-and-vlan-design|VLANs and VLAN Design]] - the access ports these commands belong on
-- [[trunking-and-802-1q|Trunking and 802.1Q]] - and the trunk ports where the plain command silently does nothing
-- [[arp-spoofing-and-lan-attacks|ARP Spoofing and LAN Attacks]] - the wider class of "attacker has an access port" problems
-- [[show-and-debug-methodology|Show and Debug Methodology]] - reading `show spanning-tree` output with intent
-- [[denial-of-service-and-ddos|Denial of Service and DDoS]] - a rogue root bridge is a denial of service with no packets sent at the victim
+- [[cs/cisco/spanning-tree-protocol|Spanning Tree Protocol]] - the port states PortFast skips and the root election BPDU guard defends
+- [[cs/cisco/vlans-and-vlan-design|VLANs and VLAN Design]] - the access ports these commands belong on
+- [[cs/cisco/trunking-and-802-1q|Trunking and 802.1Q]] - and the trunk ports where the plain command silently does nothing
+- [[cs/security/arp-spoofing-and-lan-attacks|ARP Spoofing and LAN Attacks]] - the wider class of "attacker has an access port" problems
+- [[cs/cisco/show-and-debug-methodology|Show and Debug Methodology]] - reading `show spanning-tree` output with intent
+- [[cs/security/denial-of-service-and-ddos|Denial of Service and DDoS]] - a rogue root bridge is a denial of service with no packets sent at the victim
 
 ## Sources
 

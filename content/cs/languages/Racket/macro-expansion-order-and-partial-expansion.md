@@ -11,8 +11,6 @@ date: 2026-07-06
 updated:
 aliases:
   - local-expand
-  - Racket Expander
-  - Partial Expansion
 ---
 
 Ask what `5` expands to in Racket and the answer is not "itself." It expands to `(#%datum . 5)`. Ask what `(f x)` expands to when `f` is a variable and the answer is `(#%app f x)`. The expander does not have a case for "this is just a literal" or "this is just a function call". It has a case for "look up the binding of the leading identifier", and it manufactures a leading identifier when the term does not already have one.

@@ -8,10 +8,7 @@ tags:
   - standards
 date: 2026-06-17
 updated:
-aliases:
-  - ISO 12207
-  - IEEE 12207
-  - Software Life Cycle Processes
+aliases: []
 ---
 
 Most people meet 12207 as a line in a contract or a box on a compliance matrix, and reasonably assume it prescribes a development methodology. It does the opposite, and the refusal is deliberate enough that the standard says so in its own text: it "does not prescribe a specific software life cycle model, development methodology, method, modelling approach, or technique." A waterfall shop and a team deploying forty times a day can both conform. Understanding how that is possible is understanding what kind of document this is.

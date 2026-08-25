@@ -8,11 +8,7 @@ tags:
   - software-engineering
 date: 2026-04-30
 updated:
-aliases:
-  - Postmortem
-  - Blameless Postmortem
-  - Postmortem Culture
-  - Learning from Failure
+aliases: []
 ---
 
 A postmortem is "a written record of an incident, its impact, [[cs/security/incident-response-lifecycle|the actions taken to mitigate or resolve it]], the root cause(s), and the follow-up actions to prevent the incident from recurring." The argument for writing one is stated as a recurrence argument rather than a documentation argument. Incidents are inevitable at scale, and "unless we have some formalized process of learning from these incidents in place, they may recur ad infinitum."
@@ -91,17 +87,17 @@ The culture degrades in recognizable ways, and the workbook names them:
 
 **Lacking time to write them.** Overloaded teams write worse postmortems, and "subpar postmortems with incomplete action items make a recurrence far more likely." The line that reframes the whole exercise: "postmortems are letters you write to future team members: it's very important to keep a consistent quality bar, lest you accidentally teach future teammates a bad lesson."
 
-**Repeating incidents.** Failures mirroring previous ones are the signal to stop treating each as an instance. Ask whether action items are taking too long to close, whether "feature velocity is trumping reliability fixes," whether "the right action items are being captured in the first place," whether the service is overdue for a [[refactoring|refactor]], and whether "people are putting Band-Aids on a more serious problem."
+**Repeating incidents.** Failures mirroring previous ones are the signal to stop treating each as an instance. Ask whether action items are taking too long to close, whether "feature velocity is trumping reliability fixes," whether "the right action items are being captured in the first place," whether the service is overdue for a [[cs/software-engineering/refactoring|refactor]], and whether "people are putting Band-Aids on a more serious problem."
 
 One structural note for anyone running this process: "it can be easy to overlook key contributing factors to an outage when the postmortem is written in isolation or by a single team," so all incident participants should be in the authoring. And on root causes, the SRE book is careful that the singular is misleading. A root cause is "a defect in a software or human system that, if repaired, instills confidence that this event won't happen again in the same way," and "a given incident might have multiple root causes," each of which "should be repaired."
 
 ## Related Notes
 
-- [[observability-logging-metrics-tracing|Observability, Logging, Metrics, and Tracing]] - the telemetry a postmortem reconstructs the timeline from
-- [[continuous-delivery-and-deployment|Continuous Delivery and Deployment]] - smaller deploys and fast rollback shrink what a postmortem has to explain
-- [[technical-debt|Technical Debt]] - repeating incidents are usually debt reporting itself through the pager
-- [[code-review|Code Review]] - the other practice whose value collapses when it becomes a search for someone to blame
-- [[refactoring|Refactoring]] - the answer when the same service keeps producing the same postmortem
+- [[cs/software-engineering/observability-logging-metrics-tracing|Observability, Logging, Metrics, and Tracing]] - the telemetry a postmortem reconstructs the timeline from
+- [[cs/software-engineering/continuous-delivery-and-deployment|Continuous Delivery and Deployment]] - smaller deploys and fast rollback shrink what a postmortem has to explain
+- [[cs/software-engineering/technical-debt|Technical Debt]] - repeating incidents are usually debt reporting itself through the pager
+- [[cs/software-engineering/code-review|Code Review]] - the other practice whose value collapses when it becomes a search for someone to blame
+- [[cs/software-engineering/refactoring|Refactoring]] - the answer when the same service keeps producing the same postmortem
 - [[cs/security/incident-response-lifecycle|Incident Response Lifecycle]] - the security-side process, with its own lessons-learned phase
 
 ## Sources

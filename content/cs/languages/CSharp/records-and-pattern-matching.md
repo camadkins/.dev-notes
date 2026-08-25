@@ -8,10 +8,7 @@ tags:
   - languages
 date: 2026-08-02
 updated:
-aliases:
-  - C# Records
-  - with Expressions
-  - Pattern Matching in C#
+aliases: []
 ---
 
 The `record` modifier looks like a small convenience and behaves like a change of semantics. A `class` gets reference equality, a `struct` gets memberwise equality by reflection, and a record gets memberwise equality generated at compile time against a runtime type check. That last combination does not exist anywhere else in the language, and it is what makes records suitable for some jobs and disqualifying for others.

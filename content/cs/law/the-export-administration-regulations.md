@@ -10,8 +10,6 @@ date: 2026-06-16
 updated:
 aliases:
   - EAR
-  - Commerce Control List
-  - Deemed Export
 ---
 
 Export control sounds like a shipping problem. Something goes in a crate, the crate crosses a border, someone checks a form. The Export Administration Regulations do cover that, and then they define export in a way that has nothing to do with crates or borders, and that second definition is the one that reaches into an engineering organization.

@@ -11,11 +11,9 @@ date: 2026-07-23
 updated:
 aliases:
   - PCA
-  - Principal Component Analysis
-  - Dimensionality Reduction
 ---
 
-Most of the model zoo so far has been supervised. Principal component analysis is the flagship of the [[unsupervised-learning|unsupervised]] side: it takes unlabeled, high-dimensional data and finds the handful of directions that actually carry the variation, discarding the rest. High dimensionality is a genuine problem, distances lose meaning, models overfit, and nothing can be visualized past three axes, and PCA is the standard first tool against it. It is also, in a way worth seeing early, the linear special case of the [[cs/deep-learning/autoencoders|autoencoder]], which makes it a clean bridge from classical machine learning into deep representation learning.
+Most of the model zoo so far has been supervised. Principal component analysis is the flagship of the [[cs/machine-learning/unsupervised-learning|unsupervised]] side: it takes unlabeled, high-dimensional data and finds the handful of directions that actually carry the variation, discarding the rest. High dimensionality is a genuine problem, distances lose meaning, models overfit, and nothing can be visualized past three axes, and PCA is the standard first tool against it. It is also, in a way worth seeing early, the linear special case of the [[cs/deep-learning/autoencoders|autoencoder]], which makes it a clean bridge from classical machine learning into deep representation learning.
 
 > [!note] The idea
 > Data with many features usually varies mostly along a few directions and barely along the rest. PCA finds those directions, the principal components, as the orthogonal axes of maximum variance in the data, and re-expresses each point in terms of them. Keep the top few components and you have projected the data into far fewer dimensions while preserving most of its spread. It is a rotation onto the axes that matter, followed by dropping the axes that do not.
@@ -35,12 +33,12 @@ PCA is a geometric name for an idea from statistics: the principal components ar
 
 ## Related Notes
 
-- [[unsupervised-learning|Unsupervised Learning]] - the label-free setting PCA is a flagship method of
+- [[cs/machine-learning/unsupervised-learning|Unsupervised Learning]] - the label-free setting PCA is a flagship method of
 - [[cs/deep-learning/autoencoders|Autoencoders]] - the nonlinear neural generalization of PCA
 - [[cs/deep-learning/embeddings|Embeddings]] - learned low-dimensional representations, the deep-learning descendant of a PCA projection
-- [[features-and-representations|Features and Representations]] - PCA as a way to build compact features from raw ones
+- [[cs/machine-learning/features-and-representations|Features and Representations]] - PCA as a way to build compact features from raw ones
 - [[cs/statistics/variance-and-covariance|Variance and Covariance]] - the covariance matrix whose eigenvectors are the principal components
-- [[bias-variance-tradeoff|Bias-Variance Tradeoff]] - reducing dimensionality as a lever against overfitting
+- [[cs/machine-learning/bias-variance-tradeoff|Bias-Variance Tradeoff]] - reducing dimensionality as a lever against overfitting
 
 ## Sources
 

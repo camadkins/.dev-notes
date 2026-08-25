@@ -11,7 +11,6 @@ date: 2026-05-11
 updated:
 aliases:
   - SSRF
-  - server-side request forgery
 ---
 
 Most web vulnerabilities let an attacker do something to the application. SSRF lets an attacker do something *through* it. You hand the server a URL, expecting it to fetch a preview image or call a webhook, and it obliges by making a request to wherever you pointed it. The catch is where the server sits. It lives inside the network the firewall was built to protect, and every request it makes carries that inside position. So the attacker is no longer knocking on the front door from the internet. They are speaking from inside the building, in the server's voice.
@@ -40,9 +39,9 @@ Because the payload is a legitimate URL, filtering out bad destinations is a los
 
 ## Related Notes
 
-- [[zero-trust-architecture|Zero Trust Architecture]], whose whole premise is that the network position SSRF abuses should never have implied trust
-- [[firewalls|Firewalls]], the perimeter control SSRF routes around by originating requests from the inside
-- [[owasp-top-10|The OWASP Top 10]], where SSRF is its own category A10
+- [[cs/security/zero-trust-architecture|Zero Trust Architecture]], whose whole premise is that the network position SSRF abuses should never have implied trust
+- [[cs/security/firewalls|Firewalls]], the perimeter control SSRF routes around by originating requests from the inside
+- [[cs/security/owasp-top-10|The OWASP Top 10]], where SSRF is its own category A10
 
 ## Sources
 

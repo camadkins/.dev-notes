@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-07-03
 updated:
-aliases:
-  - Ansible and Generics
-  - Ansible Has No Type Parameters
+aliases: []
 ---
 
 Every other folder in this section answers a version of the same question: how does this language let you write one piece of code that works for many types, and what does it pay for the privilege? Java erases, C++ instantiates, Go stencils by GC shape, Rust monomorphizes. Ansible has no answer, because it never asks. It has no type parameters, no type annotations in the playbook language, no functions to parameterize, and no compile step at which any of that could be resolved. Saying so plainly is more useful than inventing a stand-in.

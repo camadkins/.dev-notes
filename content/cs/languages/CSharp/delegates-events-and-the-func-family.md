@@ -8,10 +8,7 @@ tags:
   - languages
 date: 2026-07-15
 updated:
-aliases:
-  - C# Delegates
-  - Events and the Publisher Subscriber Pattern
-  - Func and Action Variance
+aliases: []
 ---
 
 C programmers meeting C# usually file the delegate under "function pointer with better syntax" and get most things right by accident for a while. The model breaks the first time an instance method is assigned. A raw pointer holds an address. A delegate has to hold an address plus the object that address will run against, and once the type carries a target it stops being a pointer and starts being a small object with its own dispatch.

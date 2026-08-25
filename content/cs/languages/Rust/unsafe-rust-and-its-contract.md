@@ -9,9 +9,7 @@ tags:
   - memory
 date: 2026-07-02
 updated:
-aliases:
-  - unsafe Rust
-  - The unsafe Keyword
+aliases: []
 ---
 
 The most common misreading of `unsafe` is that it switches something off. It does not. `unsafe` does not turn off the borrow checker or disable any of Rust's other safety checks; use a reference inside an `unsafe` block and it is still checked. What the keyword grants is access to five specific features that the compiler then does not check for memory safety, and everything else about the language stays exactly as it was.

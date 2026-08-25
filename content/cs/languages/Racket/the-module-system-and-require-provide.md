@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-07-02
 updated:
-aliases:
-  - Racket Modules
-  - require and provide
+aliases: []
 ---
 
 Each Racket module typically resides in its own file, and a file that starts with `#lang racket` is one module with a name derived from the filename. That much looks like every other language with files and imports. The interesting part is what Racket refuses to let you do afterward, and what it gets in exchange.

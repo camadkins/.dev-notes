@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-06-24
 updated:
-aliases:
-  - Generic Constraints Across Languages
-  - Bounds, Concepts, and Type Sets
+aliases: []
 ---
 
 An unconstrained type parameter is nearly useless. C# states the consequence bluntly: without any constraints, the type argument could be any type, and the compiler can only assume the members of `System.Object`. So every language with generics ships a mechanism for saying what `T` must be able to do, and that is where the real design differences live. The generic syntax across these languages is nearly interchangeable. The constraint syntax is not.

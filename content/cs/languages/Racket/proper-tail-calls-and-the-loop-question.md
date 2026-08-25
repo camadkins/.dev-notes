@@ -8,10 +8,7 @@ tags:
   - languages
 date: 2026-06-17
 updated:
-aliases:
-  - Tail Call Optimization in Racket
-  - Proper Tail Recursion
-  - Racket Tail Position
+aliases: []
 ---
 
 Racket ships `for`, `for/list`, `for/fold`, and a dozen relatives, and none of them are primitives. Every one expands into a recursive local function. That is not a stylistic preference from the Lisp tradition; it is the direct consequence of a space guarantee written into the language standard, and it changes what a programmer is allowed to worry about.

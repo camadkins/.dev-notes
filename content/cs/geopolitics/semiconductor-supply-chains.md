@@ -76,9 +76,9 @@ The episode demonstrated a structural truth: in the semiconductor supply chain, 
 
 ## Related Notes
 
-- [[cyber-sovereignty|Cyber Sovereignty]] - export controls are one instrument of the broader digital sovereignty toolkit
-- [[ai-governance|AI Governance]] - compute access is a prerequisite for training frontier AI models, linking chip policy to AI policy
-- [[surveillance-and-privacy|Surveillance & Privacy]] - hardware backdoors and supply-chain integrity are surveillance concerns
+- [[cs/geopolitics/cyber-sovereignty|Cyber Sovereignty]] - export controls are one instrument of the broader digital sovereignty toolkit
+- [[cs/geopolitics/ai-governance|AI Governance]] - compute access is a prerequisite for training frontier AI models, linking chip policy to AI policy
+- [[cs/geopolitics/surveillance-and-privacy|Surveillance & Privacy]] - hardware backdoors and supply-chain integrity are surveillance concerns
 - [[cs/history/the-transistor|The Transistor]] - the switch every advanced chip is built from
 - [[cs/history/the-integrated-circuit|The Integrated Circuit]] - the monolithic chip the foundry model manufactures
 - [[cs/history/smartphone-computing-and-arm|Smartphone Computing and ARM]] - the architecture most leading-edge designs license

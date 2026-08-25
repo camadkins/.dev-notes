@@ -9,10 +9,7 @@ tags:
   - type-theory
 date: 2026-08-11
 updated:
-aliases:
-  - Java Records
-  - Sealed Classes in Java
-  - Pattern Matching for switch
+aliases: []
 ---
 
 Three features landed in Java across four releases and they only make sense together. A record fixes a type's data. `sealed` fixes a hierarchy's membership. Pattern matching in `switch` consumes both, and the compiler can finally tell you when you have missed a case.

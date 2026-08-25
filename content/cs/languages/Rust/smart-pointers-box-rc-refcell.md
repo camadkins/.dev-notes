@@ -9,9 +9,7 @@ tags:
   - memory
 date: 2026-01-28
 updated:
-aliases:
-  - Interior Mutability
-  - Rc and RefCell
+aliases: []
 ---
 
 Rust's ownership model, covered in [[cs/languages/Rust/ownership-and-moves|ownership and moves]], assumes each value has exactly one owner and that borrows can be checked by reading the source. Real programs contain cases where neither holds: a recursive type whose size is not computable, a graph node owned by every edge pointing at it, a mock object that must record what it saw while presenting an immutable interface. Each of these gets a library type rather than a language exception, and the differences between them are precise.
@@ -65,7 +63,7 @@ Violating that gives a panic rather than a compile error, and the message is `al
 
 A common way to use `RefCell<T>` is in combination with `Rc<T>`. The layering is the point: `Rc` supplies multiple owners but only immutable access, `RefCell` supplies mutability but only single ownership, and nesting one in the other yields multiple owners of mutable data.
 
-![Three nested layers wrapping a mutable value, Rc outside and RefCell inside](assets/rc-refcell-layers.svg)
+![Three nested layers wrapping a mutable value, Rc outside and RefCell inside](cs/languages/Rust/assets/rc-refcell-layers.svg)
 
 > [!example] Mutating a shared cons list
 > With `List` defined as `Cons(Rc<RefCell<i32>>, Rc<List>)`, three lists can share one value. Calling `borrow_mut` on the shared `value` dereferences the `Rc` to the inner `RefCell` automatically, returns a `RefMut<T>`, and lets you add to the inner number through the dereference operator. Printing afterward shows the shared element as 15 in all three lists while their private elements stay 3 and 4. The `List` values are outwardly immutable; the mutation happens through the `RefCell` methods.

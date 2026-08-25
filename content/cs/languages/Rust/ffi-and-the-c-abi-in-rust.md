@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-08-14
 updated:
-aliases:
-  - extern C in Rust
-  - repr(C)
+aliases: []
 ---
 
 Rust's guarantees end at the edge of the crate graph. Past that edge is a symbol in a shared object with a calling convention, a memory layout, and a set of preconditions that exist only in a header file and a paragraph of documentation. Interoperating means describing that symbol in Rust and then being right, because nothing downstream will check.

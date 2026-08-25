@@ -10,7 +10,6 @@ tags:
 date: 2025-10-16
 updated: 2025-10-30
 aliases: []
-
 ---
 
 ## Overview
@@ -277,10 +276,10 @@ For `n−1 = d·2^s`, example `n=561` (Carmichael):
 
 ## Related Notes
 
-- [[euclidean-algorithms|Euclidean Algorithms]]
+- [[cs/dsa/euclidean-algorithms|Euclidean Algorithms]]
 
-- [[hcf-and-lcm-algorithms|HCF and LCM Algorithms]]
+- [[cs/dsa/hcf-and-lcm-algorithms|HCF and LCM Algorithms]]
 
-- [[counting-sort|Counting Sort]]
+- [[cs/dsa/counting-sort|Counting Sort]]
 
-- [[logarithmic-functions|Logarithmic Functions]]
+- [[cs/dsa/logarithmic-functions|Logarithmic Functions]]

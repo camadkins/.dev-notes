@@ -78,7 +78,7 @@ id 3     : int
 id true  : bool
 ```
 
-![Polymorphic function instantiated across types](assets/poly-universality.svg)
+![Polymorphic function instantiated across types](cs/pl/assets/poly-universality.svg)
 
 ---
 
@@ -111,7 +111,7 @@ datatype option = None | Some of int
 |**Product**|“and”|`Person = Name × Age`|
 |**Sum**|“or”|`Option A = None + Some A`|
 
-![Product and sum type structures](assets/poly-adt-product-sum.svg)
+![Product and sum type structures](cs/pl/assets/poly-adt-product-sum.svg)
 
 ---
 
@@ -162,7 +162,7 @@ fun count t =
 > [!tip]  
 > Pattern matching is a **semantic inverse** of data construction: it unpacks the structure guaranteed by the type.
 
-![Pattern matching: exhaustive vs partial coverage](assets/poly-pattern-matching.svg)
+![Pattern matching: exhaustive vs partial coverage](cs/pl/assets/poly-pattern-matching.svg)
 
 ---
 

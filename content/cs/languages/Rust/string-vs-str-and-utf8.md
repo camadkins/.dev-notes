@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-06-30
 updated:
-aliases:
-  - String and str
-  - String Slices
+aliases: []
 ---
 
 Every newcomer to Rust asks the same question in the first week: why are there two string types, and which one do I write in a signature? The short answer is that `String` and `str` stand in exactly the relationship that `Vec<T>` and `[T]` do, and the same reasoning applies. The long answer involves a decision about Unicode that Rust made early and has never softened.

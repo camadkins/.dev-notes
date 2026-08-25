@@ -9,9 +9,7 @@ tags:
   - memory
 date: 2026-08-11
 updated:
-aliases:
-  - __slots__
-  - Python Instance Layout
+aliases: []
 ---
 
 The default Python object is a hash table with a type pointer attached. Set `self.x = 1` in `__init__` and you have not written to a field at a known offset; you have inserted a string key into a per-instance dictionary. Every instance of that class carries its own dictionary, and every one of those dictionaries stores the same handful of keys. For one object this is a rounding error. For a million rows read out of a database it is the dominant cost of the program.

@@ -9,10 +9,7 @@ tags:
   - operating-systems
 date: 2026-04-08
 updated:
-aliases:
-  - least privilege
-  - privilege separation
-  - principle of least privilege
+aliases: []
 ---
 
 Most catastrophic compromises share a shape: a bug in one small, exposed piece of code hands the attacker the authority of the *whole* program. A parser flaw in [[cs/systems/processes-and-threads|a network daemon]] running as root becomes a root shell. The reason is not the bug alone; it is that the vulnerable code held far more privilege than its job required. Two ideas, one a principle and one an architecture, attack that surplus directly.
@@ -32,22 +29,22 @@ A principle you can violate silently is only advice. Privilege separation makes 
 
 Their fix is to divide the program. Privilege separation is "a generic approach that lets parts of an application run with different levels of privilege," so that "programming errors occurring in the unprivileged parts can no longer be abused to gain unauthorized privileges." Architecturally they name the halves: "We call the privileged part [[cs/military-computing/tcsec-and-graded-assurance|the monitor]] and the unprivileged parts the slaves." The rule that makes it a barrier is the mediation: "A slave must ask the monitor to perform any operation that requires privileges. Before serving a request from the slave, the monitor first validates it."
 
-The exposed code, the part that touches the network and untrusted input, runs as a slave with almost no authority. When it needs something privileged, it asks the monitor, which checks the request against a fixed policy. An attacker who fully owns the slave inherits only the slave's privileges, which by design are nearly nothing. This is the same containment logic behind [[sandboxing-and-isolation|sandboxing]], applied inside a single program rather than around it.
+The exposed code, the part that touches the network and untrusted input, runs as a slave with almost no authority. When it needs something privileged, it asks the monitor, which checks the request against a fixed policy. An attacker who fully owns the slave inherits only the slave's privileges, which by design are nearly nothing. This is the same containment logic behind [[cs/security/sandboxing-and-isolation|sandboxing]], applied inside a single program rather than around it.
 
 > [!example] OpenSSH, the canonical case
-> The Provos work grew out of hardening OpenSSH. The process that speaks the SSH protocol to an unauthenticated remote peer, the most exposed code in the system, runs unprivileged in a restricted environment. Only after authentication succeeds does a small, audited privileged monitor perform the acts that actually require root (like creating the user's session). A memory-corruption bug in the pre-authentication code, the exact class handled by [[buffer-overflows|buffer overflows]] and blunted by [[memory-protections-aslr-dep-canaries|ASLR and DEP]], lands the attacker in a box with no privileges to escalate.
+> The Provos work grew out of hardening OpenSSH. The process that speaks the SSH protocol to an unauthenticated remote peer, the most exposed code in the system, runs unprivileged in a restricted environment. Only after authentication succeeds does a small, audited privileged monitor perform the acts that actually require root (like creating the user's session). A memory-corruption bug in the pre-authentication code, the exact class handled by [[cs/security/buffer-overflows|buffer overflows]] and blunted by [[cs/security/memory-protections-aslr-dep-canaries|ASLR and DEP]], lands the attacker in a box with no privileges to escalate.
 
 ## Why both ideas are needed
 
-Least privilege without separation is aspirational: a monolithic root process can *intend* to use few privileges, but a bug still runs with all of them. Separation without least privilege is pointless: splitting a program helps nothing if every part still runs as root. Together they compose. Least privilege sets the target (each part holds the minimum), and separation enforces it by putting a validated mediation boundary between the part that will get compromised and the part that holds the authority worth stealing. This is the structural core of [[zero-trust-architecture|zero-trust]] thinking applied at the process level.
+Least privilege without separation is aspirational: a monolithic root process can *intend* to use few privileges, but a bug still runs with all of them. Separation without least privilege is pointless: splitting a program helps nothing if every part still runs as root. Together they compose. Least privilege sets the target (each part holds the minimum), and separation enforces it by putting a validated mediation boundary between the part that will get compromised and the part that holds the authority worth stealing. This is the structural core of [[cs/security/zero-trust-architecture|zero-trust]] thinking applied at the process level.
 
 ## Related Notes
 
-- [[sandboxing-and-isolation|Sandboxing and Isolation]] - the containment boundary privilege separation draws inside one program
-- [[buffer-overflows|Buffer Overflows]] - the bug class that turns surplus privilege into full compromise
-- [[memory-protections-aslr-dep-canaries|Memory Protections]] - defenses that make exploiting the exposed part harder in the first place
-- [[stride-threat-modeling|STRIDE Threat Modeling]] - Elevation of Privilege is the STRIDE category these ideas directly counter
-- [[zero-trust-architecture|Zero-Trust Architecture]] - least privilege scaled up from a process to a whole enterprise
+- [[cs/security/sandboxing-and-isolation|Sandboxing and Isolation]] - the containment boundary privilege separation draws inside one program
+- [[cs/security/buffer-overflows|Buffer Overflows]] - the bug class that turns surplus privilege into full compromise
+- [[cs/security/memory-protections-aslr-dep-canaries|Memory Protections]] - defenses that make exploiting the exposed part harder in the first place
+- [[cs/security/stride-threat-modeling|STRIDE Threat Modeling]] - Elevation of Privilege is the STRIDE category these ideas directly counter
+- [[cs/security/zero-trust-architecture|Zero-Trust Architecture]] - least privilege scaled up from a process to a whole enterprise
 
 ## Sources
 

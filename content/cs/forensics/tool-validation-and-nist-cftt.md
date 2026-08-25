@@ -10,7 +10,6 @@ date: 2026-08-02
 updated:
 aliases:
   - CFTT
-  - Forensic Tool Testing
 ---
 
 An examiner runs a tool, the tool prints a result, and that result becomes a claim in a document that someone will attack. The obvious question follows: why should anyone believe the tool? The vendor says it works. The examiner says it has always worked before. Neither statement has any structure a court can examine.

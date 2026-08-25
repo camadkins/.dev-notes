@@ -8,9 +8,7 @@ tags:
   - law
 date: 2026-08-11
 updated:
-aliases:
-  - Intrusion Software Controls
-  - Wassenaar 2013
+aliases: []
 ---
 
 Export control lists are usually written about things: a machine tool with a certain positioning accuracy, a chip above a throughput threshold. In December 2013 a multilateral body tried to write one about a technique, and the attempt produced the clearest documented case of a control text that could not tell an attack tool from a defensive one. The whole episode is on the record in two Federal Register documents, six years apart.

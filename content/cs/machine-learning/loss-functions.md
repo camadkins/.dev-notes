@@ -12,7 +12,7 @@ aliases:
   - error-function
 ---
 
-A learning algorithm cannot act on "the model seems wrong here." It needs wrongness as a number, one it can compute, compare, and reduce. A loss function does exactly that: given a true label $y$ and a prediction $\hat{y}$, it returns $J(y, \hat{y})$, a non-negative score where zero means perfect and bigger means worse. Once the loss exists, all of [[supervised-learning]] collapses into an optimization problem: find the parameters that make the total loss small. This framing is what lets [[gradient-descent]] do the actual work.
+A learning algorithm cannot act on "the model seems wrong here." It needs wrongness as a number, one it can compute, compare, and reduce. A loss function does exactly that: given a true label $y$ and a prediction $\hat{y}$, it returns $J(y, \hat{y})$, a non-negative score where zero means perfect and bigger means worse. Once the loss exists, all of [[cs/machine-learning/supervised-learning]] collapses into an optimization problem: find the parameters that make the total loss small. This framing is what lets [[cs/machine-learning/gradient-descent]] do the actual work.
 
 > [!note] The idea
 > A loss function $J(y, \hat{y})$ maps each (true label, prediction) pair to a non-negative penalty. Training a model means choosing parameters that minimize the sum of these penalties over the training set, while what we actually care about is the expected penalty on new data.
@@ -27,13 +27,13 @@ where $y_x$ is the true label and $\hat{y}_x$ is the model's prediction. But min
 
 $$\text{error}_{\mathcal{D}}(h) = \mathbb{E}_{x \sim \mathcal{D}}\left[J(y_x, \hat{y}_x)\right]$$
 
-Those two quantities can diverge badly. A flexible model can drive training loss to zero while expected loss climbs, which is the whole subject of [[generalization-vs-memorization]] and the [[bias-variance-tradeoff]].
+Those two quantities can diverge badly. A flexible model can drive training loss to zero while expected loss climbs, which is the whole subject of [[cs/machine-learning/generalization-vs-memorization]] and the [[cs/machine-learning/bias-variance-tradeoff]].
 
 ## The Losses You Actually Meet
 
-**0-1 loss** is the bluntest instrument: $J(y, \hat{y}) = 1$ if $y \neq \hat{y}$, else $0$. Averaged over a test set it is just the error rate, the complement of accuracy in [[evaluation-metrics]]. It matches how classifiers are judged, but it is flat almost everywhere and jumps at decision boundaries, so it offers no gradient to follow. Training uses smoother stand-ins.
+**0-1 loss** is the bluntest instrument: $J(y, \hat{y}) = 1$ if $y \neq \hat{y}$, else $0$. Averaged over a test set it is just the error rate, the complement of accuracy in [[cs/machine-learning/evaluation-metrics]]. It matches how classifiers are judged, but it is flat almost everywhere and jumps at decision boundaries, so it offers no gradient to follow. Training uses smoother stand-ins.
 
-**Square loss**, $J(y, \hat{y}) = (y - \hat{y})^2$, is the default for regression (see [[regression-fundamentals]] and [[simple-linear-regression]]). It penalizes big misses quadratically, and it has a clean probabilistic reading: minimizing square loss corresponds to [[maximum-likelihood-estimation]] when the labels are corrupted by [[cs/statistics/normal-distribution|Gaussian]] noise.
+**Square loss**, $J(y, \hat{y}) = (y - \hat{y})^2$, is the default for regression (see [[cs/statistics/regression-fundamentals]] and [[cs/statistics/simple-linear-regression]]). It penalizes big misses quadratically, and it has a clean probabilistic reading: minimizing square loss corresponds to [[cs/statistics/maximum-likelihood-estimation]] when the labels are corrupted by [[cs/statistics/normal-distribution|Gaussian]] noise.
 
 **Cross-entropy loss** is the workhorse for classification when the model outputs probabilities. For a binary label,
 
@@ -45,20 +45,20 @@ and for $k$ classes with a one-hot label vector it reduces to $-\ln \hat{y}_{i^*
 
 ## Why the Choice Matters
 
-The loss function is where you encode what "wrong" means for your problem. Square loss says large errors are disproportionately bad. Cross-entropy says confident wrong probabilities are catastrophic (the loss goes to infinity as $\hat{y}_{i^*} \to 0$). Hinge loss says only margin violations matter at all. The optimizer will exploit whatever definition you hand it, so the loss must be differentiable enough for [[gradient-descent]] and honest enough that minimizing it produces the behavior you actually want.
+The loss function is where you encode what "wrong" means for your problem. Square loss says large errors are disproportionately bad. Cross-entropy says confident wrong probabilities are catastrophic (the loss goes to infinity as $\hat{y}_{i^*} \to 0$). Hinge loss says only margin violations matter at all. The optimizer will exploit whatever definition you hand it, so the loss must be differentiable enough for [[cs/machine-learning/gradient-descent]] and honest enough that minimizing it produces the behavior you actually want.
 
 > [!example]
 > A binary classifier sees an example with true label $y = 1$ and predicts $\hat{y} = 0.9$. Square loss charges $(1 - 0.9)^2 = 0.01$. Cross-entropy charges $-\ln 0.9 \approx 0.105$. Now the model predicts $\hat{y} = 0.1$ on the same example: square loss is $(1 - 0.1)^2 = 0.81$, but cross-entropy explodes to $-\ln 0.1 \approx 2.303$. Cross-entropy is far angrier about confident mistakes, which is exactly why it trains probability-outputting classifiers so well.
 
 ## Related Notes
 
-- [[supervised-learning]] turns into optimization only once a loss is chosen
-- [[gradient-descent]] is the algorithm that actually minimizes the loss
-- [[maximum-likelihood-estimation]] shows why square loss and cross-entropy are principled, not arbitrary
-- [[bias-variance-tradeoff]] explains why zero training loss is not the goal
-- [[evaluation-metrics]] covers what to report after training, which is rarely the raw loss
-- [[generalization-vs-memorization]] on the gap between training loss and expected loss
-- [[ai-vs-ml-vs-dl]] for where this sits in the bigger picture
+- [[cs/machine-learning/supervised-learning]] turns into optimization only once a loss is chosen
+- [[cs/machine-learning/gradient-descent]] is the algorithm that actually minimizes the loss
+- [[cs/statistics/maximum-likelihood-estimation]] shows why square loss and cross-entropy are principled, not arbitrary
+- [[cs/machine-learning/bias-variance-tradeoff]] explains why zero training loss is not the goal
+- [[cs/machine-learning/evaluation-metrics]] covers what to report after training, which is rarely the raw loss
+- [[cs/machine-learning/generalization-vs-memorization]] on the gap between training loss and expected loss
+- [[cs/machine-learning/ai-vs-ml-vs-dl]] for where this sits in the bigger picture
 
 ## Sources
 

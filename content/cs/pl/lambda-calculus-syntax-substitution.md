@@ -33,7 +33,7 @@ M, N ::= x (variable)
 
 Parentheses associate as usual. The λ binds most tightly: `λx. M N` means `λx. (M N)`.
 
-![Abstract syntax tree for (λx. x y) z showing variable, abstraction, and application nodes with binding scope shaded](assets/lambda-syntax-overview.svg)
+![Abstract syntax tree for (λx. x y) z showing variable, abstraction, and application nodes with binding scope shaded](cs/pl/assets/lambda-syntax-overview.svg)
 
 ---
 
@@ -104,7 +104,7 @@ Rename the binder first:
 ```
 Now the `y` in the result is free (as intended). No capture.
 
-![Naive substitution vs capture-avoiding substitution with alpha-renaming](assets/lambda-capture-avoidance.svg)
+![Naive substitution vs capture-avoiding substitution with alpha-renaming](cs/pl/assets/lambda-capture-avoidance.svg)
 
 ---
 
@@ -234,7 +234,7 @@ Here the result is the same, but only after α-renaming to avoid capture.
 
 ```
 
-![Beta-reduction trace for nested abstraction reaching normal form](assets/lambda-beta-reduction.svg)
+![Beta-reduction trace for nested abstraction reaching normal form](cs/pl/assets/lambda-beta-reduction.svg)
 
 ---
 
@@ -301,7 +301,7 @@ Following this discipline avoids capture and keeps reductions valid.
 
 ## See also
 - [[cs/pl/lambda-calculus-evaluation-strategies|Lambda Calculus: Evaluation Strategies]]
-- [[abstract-machines-cek-secd|Abstract Machines: CEK and SECD]]
+- [[cs/pl/abstract-machines-cek-secd|Abstract Machines: CEK and SECD]]
 - [[cs/pl/continuations-cps|Continuations & CPS]]
 - [[cs/pl/evaluation-order-and-strictness|Evaluation Order & Strictness]]
 

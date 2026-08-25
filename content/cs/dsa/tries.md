@@ -1,7 +1,7 @@
 ---
-title: Tries — Overview
+title: Tries
 description: Prefix trees for fast string lookup; trades memory for predictable time and prefix-aware features.
-draft: true
+draft: false
 tags:
   - cs
   - dsa
@@ -137,7 +137,7 @@ Now:
 - `LIST_WITH_PREFIX("te")` yields `["tea","ted","ten"]` (lexicographic if child iteration is ordered).
     
 
-![Trie for the set {to, tea, ted, ten, in, inn} showing shared prefix paths and terminal markers at word-end nodes](assets/trie-branching.svg)
+![Trie for the set {to, tea, ted, ten, in, inn} showing shared prefix paths and terminal markers at word-end nodes](cs/dsa/assets/trie-branching.svg)
 
 ## Complexity and Performance
 
@@ -188,7 +188,7 @@ Let `L` be key length, `σ = |Σ|` the alphabet size, and `n` the number of keys
         
     - Cons: extra arithmetic per step; more complex code.
 
-![Node representations: fixed array, sparse map, bitset+vector](assets/memory-vs-childset.svg)
+![Node representations: fixed array, sparse map, bitset+vector](cs/dsa/assets/memory-vs-childset.svg)
 
 ### Memory engineering
 

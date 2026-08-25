@@ -11,7 +11,6 @@ updated:
 aliases:
   - 802.15.4
   - LR-WPAN
-  - Low-Rate Wireless PAN
 ---
 
 Two devices can both conform fully to IEEE 802.15.4, sit on the same channel in the same band, hear each other perfectly, and be completely unable to do anything together. That is not a defect. It is the design intent, stated in the standard's scope, and it makes 802.15.4 the clearest example in the 802 family of a document written to be built on rather than deployed.

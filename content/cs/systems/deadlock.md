@@ -9,12 +9,10 @@ tags:
   - concurrency
 date: 2026-04-18
 updated:
-aliases:
-  - Coffman Conditions
-  - Deadlock Handling
+aliases: []
 ---
 
-Two threads, two locks, acquired in the opposite order: thread A holds lock 1 and wants lock 2, thread B holds lock 2 and wants lock 1. Neither will ever let go, so neither will ever proceed. That is a deadlock, and the reason it deserves its own note rather than a footnote in [[concurrency-primitives|concurrency primitives]] is that the interesting content is not the failure itself but the surprisingly small, closed list of conditions that make it possible, and the four fundamentally different postures an operating system can take toward it.
+Two threads, two locks, acquired in the opposite order: thread A holds lock 1 and wants lock 2, thread B holds lock 2 and wants lock 1. Neither will ever let go, so neither will ever proceed. That is a deadlock, and the reason it deserves its own note rather than a footnote in [[cs/systems/concurrency-primitives|concurrency primitives]] is that the interesting content is not the failure itself but the surprisingly small, closed list of conditions that make it possible, and the four fundamentally different postures an operating system can take toward it.
 
 The Wikipedia definition is precise: "deadlock is any situation in which no member of some group of entities can proceed because each waits for another member, including itself, to take action, such as sending a message or, more commonly, releasing a lock."
 
@@ -70,9 +68,9 @@ The four handlers line up on a spectrum of pessimism. Prevention is the most pes
 
 ## Related Notes
 
-- [[concurrency-primitives|Concurrency Primitives]] - the locks whose misordered acquisition creates the classic deadlock
-- [[process-scheduling-algorithms|Process Scheduling Algorithms]] - the scheduler is what strands the blocked processes
-- [[processes-and-threads|Processes & Threads]] - the entities that hold and wait on resources
+- [[cs/systems/concurrency-primitives|Concurrency Primitives]] - the locks whose misordered acquisition creates the classic deadlock
+- [[cs/systems/process-scheduling-algorithms|Process Scheduling Algorithms]] - the scheduler is what strands the blocked processes
+- [[cs/systems/processes-and-threads|Processes & Threads]] - the entities that hold and wait on resources
 
 ## Sources
 

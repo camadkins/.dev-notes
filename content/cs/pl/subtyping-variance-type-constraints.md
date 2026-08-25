@@ -92,7 +92,7 @@ Because:
 - `Child` is narrower than `Object` (covariant on output).
     
 
-![Function subtyping: contravariant inputs, covariant outputs](assets/subtyping-function-variance.svg)
+![Function subtyping: contravariant inputs, covariant outputs](cs/pl/assets/subtyping-function-variance.svg)
 
 ---
 
@@ -139,7 +139,7 @@ Covariance, invariance, and contravariance form a conceptual ladder of generalit
 |Invariant|`0`|No subtyping|`Array[T]`|
 |Contravariant|`-`|Reverses subtyping|`Func[-T]`|
 
-![Variance ladder: covariant, invariant, contravariant](assets/subtyping-variance-ladder.svg)
+![Variance ladder: covariant, invariant, contravariant](cs/pl/assets/subtyping-variance-ladder.svg)
 
 ---
 
@@ -170,7 +170,7 @@ These enable _safe reuse_ across hierarchies:
 - Lower bounds restrict inputs.
     
 
-![Bounded type parameters with upper and lower constraints](assets/subtyping-bounded-types.svg)
+![Bounded type parameters with upper and lower constraints](cs/pl/assets/subtyping-bounded-types.svg)
 
 ---
 

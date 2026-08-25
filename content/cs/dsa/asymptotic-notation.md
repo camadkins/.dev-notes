@@ -1,5 +1,5 @@
 ---
-title: Asymptotic Notation - Describing Growth Rates
+title: Asymptotic Notation
 description: Landau symbols O, Θ, and Ω for bounding algorithm efficiency and reasoning about limiting behavior.
 draft: false
 comments: true
@@ -174,9 +174,9 @@ Merge Sort, Heap Sort, and Quick Sort (average case) achieve `O(n log n)`, hence
 ---
 
 ## Related Notes
-- [[algorithm-efficiency|Algorithm Efficiency]]
-- [[amortized-analysis-methods|Amortized Analysis]]
-- [[best-worst-average-cases|Best/Worst/Average Cases]]
-- [[time-complexity-analysis|Time Complexity Analysis]]
-- [[logarithmic-functions|Logarithmic Functions]]
-- [[recurrence-relations|Recurrence Relations]]
+- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]
+- [[cs/dsa/amortized-analysis-methods|Amortized Analysis]]
+- [[cs/dsa/best-worst-average-cases|Best/Worst/Average Cases]]
+- [[cs/dsa/time-complexity-analysis|Time Complexity Analysis]]
+- [[cs/dsa/logarithmic-functions|Logarithmic Functions]]
+- [[cs/dsa/recurrence-relations|Recurrence Relations]]

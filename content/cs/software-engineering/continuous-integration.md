@@ -11,7 +11,6 @@ date: 2026-01-28
 updated:
 aliases:
   - CI
-  - Trunk-Based Development
   - CI/CD
 ---
 
@@ -68,11 +67,11 @@ Continuous Deployment is the automation of the last step. Every commit pushed to
 
 ## Related Notes
 
-- [[version-control-fundamentals|Version Control Fundamentals]] - the mainline, branching models, and the atomic commits CI requires
-- [[testing-strategies|Testing Strategies]] - the self-testing build is what makes daily integration safe
-- [[code-review|Code Review]] - the practice whose latency CI is most in tension with
-- [[refactoring|Refactoring]] - a low-friction integration process is what makes continuous restructuring affordable
-- [[technical-debt|Technical Debt]] - painful integration discourages cleanup and lets cruft accumulate
+- [[cs/software-engineering/version-control-fundamentals|Version Control Fundamentals]] - the mainline, branching models, and the atomic commits CI requires
+- [[cs/software-engineering/testing-strategies|Testing Strategies]] - the self-testing build is what makes daily integration safe
+- [[cs/software-engineering/code-review|Code Review]] - the practice whose latency CI is most in tension with
+- [[cs/software-engineering/refactoring|Refactoring]] - a low-friction integration process is what makes continuous restructuring affordable
+- [[cs/software-engineering/technical-debt|Technical Debt]] - painful integration discourages cleanup and lets cruft accumulate
 - [[cs/languages/common/build-systems-and-dependency-management|Build Systems and Dependency Management]] - the automated build CI triggers on every push
 
 ## Sources

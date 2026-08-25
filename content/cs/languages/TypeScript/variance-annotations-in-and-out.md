@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-08-05
 updated:
-aliases:
-  - TypeScript Variance Annotations
-  - in and out Modifiers
+aliases: []
 ---
 
 Every language with generics eventually has to answer whether `Box<Dog>` may stand in for `Box<Animal>`. C# and Java answered by making you say so at the declaration. TypeScript had generics for years and no way to say it at all, until version 4.7, whose implementing pull request landed in March 2022. When the answer arrived it was optional and, by its own designers' account, unnecessary.

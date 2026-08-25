@@ -8,12 +8,10 @@ tags:
   - military
 date: 2026-03-30
 updated:
-aliases:
-  - IBM 7950 Harvest
-  - Harvest
+aliases: []
 ---
 
-[[cs/history/von-neumann-architecture|A general-purpose computer]] can do anything, which is exactly why it is rarely the fastest way to do any one thing. When the [[cryptography-codebreaking-and-the-nsa|National Security Agency]] needed to attack codes on an industrial scale, IBM did not hand it a faster general computer. It built a machine specialized for the work, and that machine, Harvest, is one of the earliest examples of a habit that now dominates computing: bolting purpose-built hardware onto a general processor to speed up a specific job.
+[[cs/history/von-neumann-architecture|A general-purpose computer]] can do anything, which is exactly why it is rarely the fastest way to do any one thing. When the [[cs/military-computing/cryptography-codebreaking-and-the-nsa|National Security Agency]] needed to attack codes on an industrial scale, IBM did not hand it a faster general computer. It built a machine specialized for the work, and that machine, Harvest, is one of the earliest examples of a habit that now dominates computing: bolting purpose-built hardware onto a general processor to speed up a specific job.
 
 > [!note] The idea
 > Special-purpose hardware acceleration: when a workload matters enough, build hardware shaped like the workload rather than making a general computer grind through it instruction by instruction.
@@ -32,9 +30,9 @@ Harvest was delivered in 1962 and ran at the NSA until 1976, fourteen years of s
 
 ## Related Notes
 
-- [[cryptography-codebreaking-and-the-nsa|Cryptography, Codebreaking, and the NSA]], the mission Harvest served
-- [[von-neumann-architecture|Von Neumann Architecture]], the general model Harvest accelerated past
-- [[surveillance-and-privacy|Surveillance and Privacy]], the policy weight of NSA computing power
+- [[cs/military-computing/cryptography-codebreaking-and-the-nsa|Cryptography, Codebreaking, and the NSA]], the mission Harvest served
+- [[cs/history/von-neumann-architecture|Von Neumann Architecture]], the general model Harvest accelerated past
+- [[cs/geopolitics/surveillance-and-privacy|Surveillance and Privacy]], the policy weight of NSA computing power
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

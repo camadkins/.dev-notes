@@ -6,11 +6,9 @@ comments: true
 tags:
   - cs
   - deep-learning
-  - reinforcement-learning
 date: 2026-07-13
 aliases:
   - deep-rl
-  - dqn
   - deep-q-network
   - policy-gradient
 ---
@@ -18,17 +16,17 @@ aliases:
 Tabular Q-learning stores one number for every state-action pair, and its convergence guarantee assumes every pair gets visited again and again. That works in a grid world. It cannot work when the state is a screen of pixels, where the number of possible states is too large to enumerate, let alone revisit. Deep reinforcement learning makes the same move the rest of deep learning made: stop tabulating the function and approximate it with a network trained by gradient descent.
 
 > [!note] The idea
-> Swap the Q-table for a parameterized function. A neural network $Q_\theta$ takes the state and outputs an estimated value for every action, and learning becomes [[gradient-descent]] on a loss built from the reward signal. The same trick applies one level up: policy gradient methods skip values entirely and train the policy itself.
+> Swap the Q-table for a parameterized function. A neural network $Q_\theta$ takes the state and outputs an estimated value for every action, and learning becomes [[cs/machine-learning/gradient-descent]] on a loss built from the reward signal. The same trick applies one level up: policy gradient methods skip values entirely and train the policy itself.
 
 ## From Table to Function Approximator
 
-The machinery already exists. [[artificial-neural-networks]] approximate functions from labeled samples, so treat each interaction as a training sample. After experiencing $(s, a, r, s')$, build the label
+The machinery already exists. [[cs/deep-learning/artificial-neural-networks]] approximate functions from labeled samples, so treat each interaction as a training sample. After experiencing $(s, a, r, s')$, build the label
 
 $$y = r + \gamma \max_{a'} Q_\theta(s', a')$$
 
-and take a gradient step on the squared difference between $y$ and $Q_\theta(s, a)$, an ordinary regression [[loss-functions|loss]]. The tabular convergence proofs no longer apply, but in exchange the method scales to enormous state spaces, and states the agent never saw can still get sensible values because the network generalizes.
+and take a gradient step on the squared difference between $y$ and $Q_\theta(s, a)$, an ordinary regression [[cs/machine-learning/loss-functions|loss]]. The tabular convergence proofs no longer apply, but in exchange the method scales to enormous state spaces, and states the agent never saw can still get sensible values because the network generalizes.
 
-This looks like [[supervised-learning]], but two things are off. The labels are bootstrapped, computed from the network's own current estimates rather than from ground truth. And the data distribution shifts as the policy improves, because the agent's actions determine what it experiences next. Both differences matter, and both bite (more below).
+This looks like [[cs/machine-learning/supervised-learning]], but two things are off. The labels are bootstrapped, computed from the network's own current estimates rather than from ground truth. And the data distribution shifts as the policy improves, because the agent's actions determine what it experiences next. Both differences matter, and both bite (more below).
 
 The idea predates the deep learning era. Gerald Tesauro's TD-Gammon, built at IBM's Watson Research Center in the early 1990s, trained a neural network by temporal-difference learning through self-play and by 1993 played backgammon just slightly below the level of the top human players.
 
@@ -38,7 +36,7 @@ The result that put deep RL on the map was the deep Q-network (DQN). In 2013, Mn
 
 The engineering is worth reading closely. Frames are converted to grayscale and cropped to 84 by 84, and the last four are stacked so the input carries motion information. Rather than feeding the network a state and an action, the network takes only the state and outputs one Q estimate per action, so a single forward pass scores every option. Actions are chosen $\varepsilon$-greedily during training. And because score scales vary wildly across games, rewards are clipped to +1 and -1, which lets one set of hyperparameters work everywhere at the cost of blinding the agent to reward magnitudes.
 
-![DQN training loop: emulator frames flow through the convolutional network to epsilon-greedy action selection, while transitions accumulate in replay memory and minibatches drive gradient steps against a frozen target network](assets/dqn-training-loop.svg)
+![DQN training loop: emulator frames flow through the convolutional network to epsilon-greedy action selection, while transitions accumulate in replay memory and minibatches drive gradient steps against a frozen target network](cs/deep-learning/assets/dqn-training-loop.svg)
 
 ## Why the Naive Version Diverges
 
@@ -62,16 +60,16 @@ Raw returns make a noisy training signal, so a baseline is subtracted from the r
 
 The showcase for policy gradients is AlphaGo (Silver et al., 2016, *Nature*). Its policy network was first trained by supervised learning on human expert games, then improved by policy-gradient reinforcement learning through self-play, and finally combined with a value network inside [[cs/military-computing/monte-carlo-method-and-the-bomb|Monte Carlo tree search]]. The full system achieved a 99.8 percent win rate against other Go programs and defeated the human European Go champion five games to zero, the first time a program beat a professional at full-size Go.
 
-For the foundations these methods build on, start at [[reinforcement-learning]]; for where all of this sits in the larger picture, see [[ai-vs-ml-vs-dl]].
+For the foundations these methods build on, start at [[cs/deep-learning/reinforcement-learning]]; for where all of this sits in the larger picture, see [[cs/machine-learning/ai-vs-ml-vs-dl]].
 
 ## Related Notes
 
-- [[reinforcement-learning]]
-- [[artificial-neural-networks]]
-- [[gradient-descent]]
-- [[loss-functions]]
-- [[supervised-learning]]
-- [[ai-vs-ml-vs-dl]]
+- [[cs/deep-learning/reinforcement-learning]]
+- [[cs/deep-learning/artificial-neural-networks]]
+- [[cs/machine-learning/gradient-descent]]
+- [[cs/machine-learning/loss-functions]]
+- [[cs/machine-learning/supervised-learning]]
+- [[cs/machine-learning/ai-vs-ml-vs-dl]]
 
 ## Sources
 

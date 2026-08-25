@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-06-27
 updated:
-aliases:
-  - Ansible Role Argument Validation
-  - defaults vs vars
+aliases: []
 ---
 
 A role is the only thing in Ansible that accepts named parameters and has an official place to write down what it accepts. That makes it the closest the language comes to a declared interface, and the gap between "closest" and "actual" is where the useful detail lives.

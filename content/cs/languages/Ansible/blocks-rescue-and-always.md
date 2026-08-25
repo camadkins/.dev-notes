@@ -9,9 +9,7 @@ tags:
   - error-handling
 date: 2026-06-24
 updated:
-aliases:
-  - Ansible Blocks
-  - Ansible rescue
+aliases: []
 ---
 
 The Ansible docs make the comparison themselves. Blocks create logical groups of tasks, and blocks also offer ways to handle task errors, similar to exception handling in many programming languages. The similarity is real enough to be useful and misleading enough to be worth taking apart carefully, because four of the properties you rely on in `try`/`catch` are absent.

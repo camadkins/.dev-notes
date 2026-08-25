@@ -11,12 +11,9 @@ date: 2026-04-27
 updated:
 aliases:
   - CSPRNG
-  - secure randomness
-  - entropy
-  - random number generation
 ---
 
-Every key, every nonce, every [[diffie-hellman-and-key-exchange|Diffie-Hellman]] secret starts as a random number. That makes the random number generator the quiet foundation the whole edifice sits on, and it is a foundation that fails silently. Predictable randomness does not throw an error. It just hands the attacker a shortcut nobody can see in the ciphertext.
+Every key, every nonce, every [[cs/security/diffie-hellman-and-key-exchange|Diffie-Hellman]] secret starts as a random number. That makes the random number generator the quiet foundation the whole edifice sits on, and it is a foundation that fails silently. Predictable randomness does not throw an error. It just hands the attacker a shortcut nobody can see in the ciphertext.
 
 > [!note] The idea
 > "At the heart of all cryptographic systems is the generation of secret, unguessable (i.e., random) numbers." An ordinary PRNG that passes statistical randomness tests is not enough, because statistics do not measure guessability by an adversary. The security ceiling of a generated key is the entropy of what seeded it, not the number of bits it prints out. A 128-bit key drawn from a weakly seeded generator has 128 bits of length and far less than 128 bits of security.
@@ -34,11 +31,11 @@ The trap is thinking a generator is fine because its output looks random. RFC 40
 
 ## Related Notes
 
-- [[diffie-hellman-and-key-exchange|Diffie-Hellman and Key Exchange]], which needs a fresh unpredictable secret each session
-- [[block-cipher-modes-of-operation|Block Cipher Modes of Operation]], where a reused or predictable IV breaks the mode
-- [[authenticated-encryption-aead|Authenticated Encryption and AEAD]], whose nonce discipline depends on this
-- [[elliptic-curve-cryptography|Elliptic-Curve Cryptography]], recalling the Dual_EC_DRBG episode where a rigged generator undermined ECC
-- [[password-hashing-and-salting|Password Hashing and Salting]], where the salt must come from a secure source
+- [[cs/security/diffie-hellman-and-key-exchange|Diffie-Hellman and Key Exchange]], which needs a fresh unpredictable secret each session
+- [[cs/security/block-cipher-modes-of-operation|Block Cipher Modes of Operation]], where a reused or predictable IV breaks the mode
+- [[cs/security/authenticated-encryption-aead|Authenticated Encryption and AEAD]], whose nonce discipline depends on this
+- [[cs/security/elliptic-curve-cryptography|Elliptic-Curve Cryptography]], recalling the Dual_EC_DRBG episode where a rigged generator undermined ECC
+- [[cs/security/password-hashing-and-salting|Password Hashing and Salting]], where the salt must come from a secure source
 
 ## Sources
 

@@ -9,10 +9,7 @@ tags:
   - type-theory
 date: 2026-06-21
 updated:
-aliases:
-  - Covariant IEnumerable
-  - Array Covariance in C#
-  - ArrayTypeMismatchException
+aliases: []
 ---
 
 The line that trips people up is short:

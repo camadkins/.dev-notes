@@ -8,8 +8,7 @@ tags:
   - history
 date: 2026-01-01
 updated:
-aliases:
-  - Moore's law
+aliases: []
 ---
 
 In 1965 Gordon Moore noticed a pattern in how fast chips were improving and wrote it down. His observation became the organizing forecast of an entire industry, the reason performance growth was assumed, planned around, and ultimately delivered for half a century.
@@ -21,7 +20,7 @@ In 1965 Gordon Moore noticed a pattern in how fast chips were improving and wrot
 
 Moore, a co-founder of Intel, projected in 1965 that the number of components on a chip would keep doubling, and he revised the rate to roughly every two years in 1975. Despite the name, Moore's law describes an empirical relationship rather than a scientific law; it held because the industry organized itself around keeping it true.
 
-![Transistors per chip on a logarithmic scale climb in a straight line: a doubling roughly every two years.](assets/moores-law-curve.svg)
+![Transistors per chip on a logarithmic scale climb in a straight line: a doubling roughly every two years.](cs/history/assets/moores-law-curve.svg)
 
 ## Why it mattered
 
@@ -29,14 +28,14 @@ Doubling density every two years meant [[cs/math/logarithms-and-exponentials|exp
 
 ## Connected
 
-Moore's law is the macro-scale consequence of shrinking [[the-mosfet|MOSFETs]] and packing more of them onto each [[the-integrated-circuit|integrated circuit]]. When straightforward shrinking began to falter, the industry turned to [[cs/systems/numa-and-multiprocessor-memory|multicore processors]] and specialized chips to keep the gains coming, which is why [[semiconductor-supply-chains|who can fabricate the smallest transistors]] became a matter of national strategy.
+Moore's law is the macro-scale consequence of shrinking [[cs/history/the-mosfet|MOSFETs]] and packing more of them onto each [[cs/history/the-integrated-circuit|integrated circuit]]. When straightforward shrinking began to falter, the industry turned to [[cs/systems/numa-and-multiprocessor-memory|multicore processors]] and specialized chips to keep the gains coming, which is why [[cs/geopolitics/semiconductor-supply-chains|who can fabricate the smallest transistors]] became a matter of national strategy.
 
 ## Related Notes
 
-- [[the-integrated-circuit|The Integrated Circuit]], the thing whose density doubles
-- [[the-mosfet|The MOSFET]], the device being shrunk
-- [[the-microprocessor|The Microprocessor]], the product that rode the curve
-- [[semiconductor-supply-chains|Semiconductor Supply Chains]], the geopolitics of the frontier
+- [[cs/history/the-integrated-circuit|The Integrated Circuit]], the thing whose density doubles
+- [[cs/history/the-mosfet|The MOSFET]], the device being shrunk
+- [[cs/history/the-microprocessor|The Microprocessor]], the product that rode the curve
+- [[cs/geopolitics/semiconductor-supply-chains|Semiconductor Supply Chains]], the geopolitics of the frontier
 - [[cs/history/index|History of Computing]], the section index
 
 ## Sources

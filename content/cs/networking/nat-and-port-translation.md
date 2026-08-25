@@ -9,7 +9,6 @@ tags:
 date: 2026-05-02
 updated:
 aliases:
-  - network address translation
   - PAT
   - NAPT
 ---
@@ -21,7 +20,7 @@ There are only about four billion IPv4 addresses, and the internet ran out of ne
 
 ## Private addresses and why they can be reused
 
-The whole scheme starts with [[ip-addressing-and-subnetting|private address space]]: ranges of IP addresses reserved for use inside a network and never routed on the public internet. Because those addresses are not globally unique, the same block can be reused by any other private network. A single large private block could be used by many separate networks at once, and it routinely is: nearly every home router hands out addresses from the same `192.168.x.x` range with no conflict, because those addresses never leave the local network intact.
+The whole scheme starts with [[cs/networking/ip-addressing-and-subnetting|private address space]]: ranges of IP addresses reserved for use inside a network and never routed on the public internet. Because those addresses are not globally unique, the same block can be reused by any other private network. A single large private block could be used by many separate networks at once, and it routinely is: nearly every home router hands out addresses from the same `192.168.x.x` range with no conflict, because those addresses never leave the local network intact.
 
 NAT is what connects such a realm of private addresses to an external realm with globally unique registered addresses. At the exit point between the two, the NAT device rewrites the private source address on outbound packets to its own public address, and reverses the rewrite on the replies.
 
@@ -41,15 +40,15 @@ The same rewriting broke a founding assumption. In traditional NAT, sessions are
 > Host A (`192.168.1.10`) and host B (`192.168.1.11`) both browse the web through a gateway whose public address is `203.0.113.5`. The gateway rewrites A's packets to `203.0.113.5:40001` and B's to `203.0.113.5:40002`, storing both mappings. Return traffic to `:40001` goes back to A, to `:40002` goes back to B. The outside world sees one address; inside, two hosts never collide.
 
 > [!warning] NAT is not a firewall
-> NAT hides internal addresses as a side effect, and that is often mistaken for security. It blocks unsolicited inbound connections only because it has no mapping for them, not because it inspects intent. Real access control is the job of a [[firewalls|firewall]]; leaning on NAT for protection is leaning on an accident.
+> NAT hides internal addresses as a side effect, and that is often mistaken for security. It blocks unsolicited inbound connections only because it has no mapping for them, not because it inspects intent. Real access control is the job of a [[cs/security/firewalls|firewall]]; leaning on NAT for protection is leaning on an accident.
 
 ## Related Notes
 
-- [[ip-addressing-and-subnetting|IP Addressing and Subnetting]] - private address ranges and why IPv4 ran short
-- [[dhcp-and-address-assignment|DHCP and Address Assignment]] - how hosts get the private addresses NAT rewrites
-- [[tcp-vs-udp|TCP vs UDP]] - the port numbers NAPT uses to keep conversations apart
-- [[firewalls|Firewalls]] - the actual access-control layer NAT is often confused with
-- [[vpns-and-tunneling|VPNs and Tunneling]] - one way to restore reachability through NAT
+- [[cs/networking/ip-addressing-and-subnetting|IP Addressing and Subnetting]] - private address ranges and why IPv4 ran short
+- [[cs/networking/dhcp-and-address-assignment|DHCP and Address Assignment]] - how hosts get the private addresses NAT rewrites
+- [[cs/networking/tcp-vs-udp|TCP vs UDP]] - the port numbers NAPT uses to keep conversations apart
+- [[cs/security/firewalls|Firewalls]] - the actual access-control layer NAT is often confused with
+- [[cs/security/vpns-and-tunneling|VPNs and Tunneling]] - one way to restore reachability through NAT
 
 ## Sources
 

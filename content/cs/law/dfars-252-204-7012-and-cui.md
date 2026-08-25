@@ -8,9 +8,7 @@ tags:
   - law
 date: 2026-08-02
 updated:
-aliases:
-  - DFARS 7012
-  - Covered Defense Information
+aliases: []
 ---
 
 Most of the security obligations a defense contractor carries do not arrive as law. They arrive as a paragraph inserted into a contract, and the paragraph most likely to change how an engineering organization operates is numbered 252.204-7012. It is four pages of ordinary contract language, and everything consequential about it is in the definitions.

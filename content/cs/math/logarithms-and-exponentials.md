@@ -10,8 +10,6 @@ tags:
 date: 2026-01-22
 updated:
 aliases:
-  - logarithms
-  - exponentials
   - natural-logarithm
   - change-of-base
 ---
@@ -91,7 +89,7 @@ The consequence is a hard bound rather than a heuristic. "The concept of informa
 - [[cs/dsa/divide-and-conquer|Divide and Conquer]] - the self-similar decomposition that logarithms describe
 - [[cs/military-computing/shannon-and-information-theory|Shannon and Information Theory]] - entropy, source coding, and the bit as a unit
 - [[cs/dsa/huffman-coding|Huffman Coding]] - one of the codes that approaches the entropy bound
-- [[derivatives-and-gradients|Derivatives and Gradients]] - the derivative property that defines the exponential function
+- [[cs/math/derivatives-and-gradients|Derivatives and Gradients]] - the derivative property that defines the exponential function
 
 ## Sources
 

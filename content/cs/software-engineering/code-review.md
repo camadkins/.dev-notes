@@ -8,10 +8,7 @@ tags:
   - software-engineering
 date: 2026-03-30
 updated:
-aliases:
-  - Peer Review
-  - Pull Request Review
-  - Fagan Inspection
+aliases: []
 ---
 
 The definition is narrower than the folklore. Code review is "a software quality assurance activity in which one or more people examine the source code of a computer program, either after implementation or during the development process," and it carries one structural requirement: "At least one reviewer must not be the code's author." That constraint is what separates review from the neighboring practices. Static analysis is automated, self-checks involve only the author, testing requires running the code, and pair programming happens continuously rather than as a separate step.
@@ -72,12 +69,12 @@ That last piece is the quiet part. The PR is not only a discussion thread, it is
 
 ## Related Notes
 
-- [[continuous-integration|Continuous Integration]] - the automated checks a pull request gates on, and the practice review latency is in tension with
-- [[testing-strategies|Testing Strategies]] - the automated half of verification that review deliberately does not duplicate
-- [[refactoring|Refactoring]] - named transformations make a large diff reviewable, and slow review discourages cleanup
-- [[technical-debt|Technical Debt]] - review is where inadvertent debt is cheapest to catch
-- [[version-control-fundamentals|Version Control Fundamentals]] - branches and merges are what a pull request wraps
-- [[api-design|API Design]] - reviewing a public interface change is the highest-leverage review a team does
+- [[cs/software-engineering/continuous-integration|Continuous Integration]] - the automated checks a pull request gates on, and the practice review latency is in tension with
+- [[cs/software-engineering/testing-strategies|Testing Strategies]] - the automated half of verification that review deliberately does not duplicate
+- [[cs/software-engineering/refactoring|Refactoring]] - named transformations make a large diff reviewable, and slow review discourages cleanup
+- [[cs/software-engineering/technical-debt|Technical Debt]] - review is where inadvertent debt is cheapest to catch
+- [[cs/software-engineering/version-control-fundamentals|Version Control Fundamentals]] - branches and merges are what a pull request wraps
+- [[cs/software-engineering/api-design|API Design]] - reviewing a public interface change is the highest-leverage review a team does
 
 ## Sources
 

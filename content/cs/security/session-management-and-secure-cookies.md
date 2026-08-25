@@ -28,18 +28,18 @@ The flags line up one-to-one with distinct attacks, which is the useful way to r
 
 `Secure` closes the network. OWASP: "The Secure cookie attribute instructs web browsers to only send the cookie through an encrypted HTTPS (SSL/TLS) connection. This session protection mechanism is mandatory to prevent the disclosure of the session ID through MitM (Man-in-the-Middle) attacks." Without it, the cookie can ride an unencrypted request and be [[cs/forensics/network-forensics-and-packet-capture|read off the wire]].
 
-`HttpOnly` closes the script. OWASP: "The HttpOnly cookie attribute instructs web browsers not to allow scripts (e.g. JavaScript or VBscript) an ability to access the cookies via the DOM document.cookie object. This session ID protection is mandatory to prevent session ID stealing through XSS attacks." This is the direct link to [[cross-site-scripting-xss|XSS]]: if an attacker runs script in your page, `HttpOnly` is what stops that script from simply reading the cookie and exfiltrating it.
+`HttpOnly` closes the script. OWASP: "The HttpOnly cookie attribute instructs web browsers not to allow scripts (e.g. JavaScript or VBscript) an ability to access the cookies via the DOM document.cookie object. This session ID protection is mandatory to prevent session ID stealing through XSS attacks." This is the direct link to [[cs/security/cross-site-scripting-xss|XSS]]: if an attacker runs script in your page, `HttpOnly` is what stops that script from simply reading the cookie and exfiltrating it.
 
-`SameSite` closes the cross-site ride-along. OWASP: "The SameSite attribute prevents the browser from sending the cookie on cross-site requests, mitigating cross-origin leakage and providing CSRF defense." This is the [[cross-site-request-forgery-csrf|CSRF]] connection: the cookie is not stolen so much as *misused* when the browser attaches it to a request another site triggered, and `SameSite` tells the browser to withhold it there.
+`SameSite` closes the cross-site ride-along. OWASP: "The SameSite attribute prevents the browser from sending the cookie on cross-site requests, mitigating cross-origin leakage and providing CSRF defense." This is the [[cs/security/cross-site-request-forgery-csrf|CSRF]] connection: the cookie is not stolen so much as *misused* when the browser attaches it to a request another site triggered, and `SameSite` tells the browser to withhold it there.
 
 > [!tip] The flags do not overlap, so you need all three
 > Because each attribute answers a different attacker, none substitutes for another. `Secure` does nothing against XSS; `HttpOnly` does nothing against a plaintext connection; `SameSite` does nothing if the token is read out of the DOM. A session cookie that is worth as much as the password should carry all three, and be short-lived and rotated on privilege change on top of that.
 
 ## Related Notes
 
-- [[cross-site-scripting-xss|Cross-Site Scripting (XSS)]], the attack `HttpOnly` is meant to blunt by hiding the cookie from script
-- [[cross-site-request-forgery-csrf|Cross-Site Request Forgery (CSRF)]], the misuse `SameSite` defends against by withholding the cookie cross-site
-- [[oauth2-and-openid-connect|OAuth 2.0 and OpenID Connect]], for how identity is delegated once a session is established
+- [[cs/security/cross-site-scripting-xss|Cross-Site Scripting (XSS)]], the attack `HttpOnly` is meant to blunt by hiding the cookie from script
+- [[cs/security/cross-site-request-forgery-csrf|Cross-Site Request Forgery (CSRF)]], the misuse `SameSite` defends against by withholding the cookie cross-site
+- [[cs/security/oauth2-and-openid-connect|OAuth 2.0 and OpenID Connect]], for how identity is delegated once a session is established
 
 ## Sources
 

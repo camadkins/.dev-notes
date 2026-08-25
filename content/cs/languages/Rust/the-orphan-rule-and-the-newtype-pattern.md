@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-08-11
 updated:
-aliases:
-  - Coherence in Rust
-  - Newtype Wrapper
+aliases: []
 ---
 
 The rule everyone learns is that you may implement a trait only if the trait or the type is yours. The rule as written is longer, and the extra length is where the interesting behavior lives. Given `impl<P1..=Pn> Trait<T1..=Tn> for T0`, the implementation is valid if `Trait` is local, or if at least one of `T0..=Tn` is a local type and, taking `Ti` as the first such type, no uncovered type parameters `P1..=Pn` appear in `T0..Ti`.

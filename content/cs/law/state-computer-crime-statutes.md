@@ -8,9 +8,7 @@ tags:
   - law
 date: 2026-06-27
 updated:
-aliases:
-  - Computer Trespass Statutes
-  - California Penal Code 502
+aliases: []
 ---
 
 The federal computer crime statute gets the attention because it produces the famous prosecutions and the Supreme Court opinions. It is not the statute most computer crime is charged under. According to the National Conference of State Legislatures, "all 50 states, Puerto Rico and the Virgin Islands have computer crime laws; most address unauthorized access or computer trespass." Fifty-two separate legislatures wrote fifty-two separate definitions of what a computer is and what doing something bad to one means, and they did not coordinate.

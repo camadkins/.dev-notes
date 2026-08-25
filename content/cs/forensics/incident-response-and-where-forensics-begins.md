@@ -8,9 +8,7 @@ tags:
   - forensics
 date: 2026-06-12
 updated:
-aliases:
-  - IR and Forensics
-  - Containment vs Preservation
+aliases: []
 ---
 
 Both disciplines start the same way. Something is wrong on a machine, someone has to find out what, and the answers come from logs, memory, disks, and network records. The divergence is in what counts as success. Response succeeds when the harm stops and the business runs again. Forensics succeeds when a reconstruction of events survives an adversarial reading months later. Those goals overlap for most of the work and point in opposite directions at a few specific moments.

@@ -8,10 +8,7 @@ tags:
   - languages
 date: 2026-07-25
 updated:
-aliases:
-  - CPython Bytecode
-  - The Eval Loop
-  - Specializing Adaptive Interpreter
+aliases: []
 ---
 
 Python is compiled. Not to machine code, and not ahead of time in any way you have to think about, but the path from source text to execution runs through a real compiler that emits a real instruction set. The `dis` module exists to show you that instruction set, and its documentation opens with a disclaimer worth taking seriously: bytecode is an implementation detail of the CPython interpreter, no guarantees are made that bytecode will not be added, removed, or changed between versions of Python, and use of this module should not be considered to work across Python VMs or Python releases.

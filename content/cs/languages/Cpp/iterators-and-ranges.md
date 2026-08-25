@@ -8,11 +8,7 @@ tags:
   - languages
 date: 2026-04-09
 updated:
-aliases:
-  - C++ Iterators
-  - Iterator Categories
-  - std::ranges
-  - Half-open ranges
+aliases: []
 ---
 
 An iterator is not an interface a container implements. cppreference is precise about this: instead of being defined by specific types, each category of iterator is defined by the operations that can be performed on it, and any type that supports the necessary operations can be used as an iterator. A raw pointer supports all of the operations required by `LegacyRandomAccessIterator`, so a pointer can be used anywhere a `LegacyRandomAccessIterator` is expected. The category is a checklist, not a base class.

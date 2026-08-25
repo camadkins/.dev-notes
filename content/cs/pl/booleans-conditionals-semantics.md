@@ -56,7 +56,7 @@ These express that:
 - In `and`, if the left operand is `false`, evaluation halts immediately.  
 - In `or`, if the left operand is `true`, no further computation is needed.
 
-![Short-circuit evaluation trees for conjunction](assets/bool-short-circuit.svg)
+![Short-circuit evaluation trees for conjunction](cs/pl/assets/bool-short-circuit.svg)
 
 Short-circuiting reduces unnecessary computation and supports side-effect control, one reason Boolean semantics is often the first topic in operational semantics courses.
 
@@ -113,7 +113,7 @@ if (3 < 2) || (4 = 4) then 10 else 0
 
 Each step corresponds to a transition in small-step semantics, showing how truth determines evaluation order.
 
-![Small-step reduction of a conditional expression](assets/bool-conditional-reduction.svg)
+![Small-step reduction of a conditional expression](cs/pl/assets/bool-conditional-reduction.svg)
 
 ---
 
@@ -144,7 +144,7 @@ E ⊢ ⊥ ∨ e → e
 > [!warning]  
 > Undefined truth can propagate: a single `⊥` may halt evaluation entirely unless language rules specify continuation.
 
-![Two-valued vs three-valued Boolean domains](assets/bool-truth-domains.svg)
+![Two-valued vs three-valued Boolean domains](cs/pl/assets/bool-truth-domains.svg)
 
 ---
 
@@ -214,7 +214,7 @@ This explicit environment + continuation form is crucial for modeling control co
 
 - [[cs/pl/operational-semantics-big-step-small-step|Operational Semantics: Big-Step & Small-Step]]
     
-- [[abstract-machines-cek-secd|Abstract Machines: CEK and SECD]]
+- [[cs/pl/abstract-machines-cek-secd|Abstract Machines: CEK and SECD]]
     
 - [[cs/pl/evaluation-order-and-strictness|Evaluation Order & Strictness]]
 

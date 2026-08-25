@@ -12,11 +12,9 @@ aliases:
   - IDS
   - IPS
   - IDPS
-  - intrusion detection
-  - intrusion prevention
 ---
 
-A [[firewalls|firewall]] enforces a policy about what *may* connect. It does not ask whether an allowed connection is carrying an attack. That gap, malicious activity riding inside permitted traffic, is what intrusion detection and prevention systems exist to close. They do not gate access; they watch behavior and reason about whether what they see is an attack in progress.
+A [[cs/security/firewalls|firewall]] enforces a policy about what *may* connect. It does not ask whether an allowed connection is carrying an attack. That gap, malicious activity riding inside permitted traffic, is what intrusion detection and prevention systems exist to close. They do not gate access; they watch behavior and reason about whether what they see is an attack in progress.
 
 > [!note] The idea
 > An IDPS is defined by two independent choices. The first is what it does when it sees something bad: an IDS only detects and alerts, while an IPS additionally tries to stop it. The second is how it decides something is bad: signature-based matching catches known attacks precisely, anomaly-based detection flags deviations from normal and so can catch novel ones. Every real system is a point in that two-by-two, and the false-positive tradeoff is the price of the second axis.
@@ -46,10 +44,10 @@ That is the governing tension of the entire field. Tune the system to catch more
 
 ## Related Notes
 
-- [[firewalls|Firewalls]] - the access-control chokepoint an IDPS complements by inspecting what the firewall admits
-- [[malware-classes|Malware Classes]] - the threats an IDPS's signatures and anomaly profiles are trying to catch
-- [[stride-threat-modeling|STRIDE Threat Modeling]] - a framework for the threats detection systems are tuned against
-- [[side-channel-attacks|Side-Channel Attacks]] - a reminder that some intrusions leave no signature at all
+- [[cs/security/firewalls|Firewalls]] - the access-control chokepoint an IDPS complements by inspecting what the firewall admits
+- [[cs/security/malware-classes|Malware Classes]] - the threats an IDPS's signatures and anomaly profiles are trying to catch
+- [[cs/security/stride-threat-modeling|STRIDE Threat Modeling]] - a framework for the threats detection systems are tuned against
+- [[cs/security/side-channel-attacks|Side-Channel Attacks]] - a reminder that some intrusions leave no signature at all
 
 ## Sources
 

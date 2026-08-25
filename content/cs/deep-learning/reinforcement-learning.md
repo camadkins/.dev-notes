@@ -6,27 +6,24 @@ comments: true
 tags:
   - cs
   - deep-learning
-  - reinforcement-learning
 date: 2026-07-13
 aliases:
-  - rl
   - q-learning
   - markov-decision-process
-  - mdp
 ---
 
 A supervised learner gets told the right answer for every training example. A reinforcement learner never does. It takes an action, the world changes, and a number comes back saying how well things went, often long after the action that actually mattered. From that thin signal (no labels, no correct outputs, just reward) the agent has to work out which actions were good. This is the setup behind programs that taught themselves backgammon, Atari, and Go: play, observe, adjust, repeat.
 
 > [!note] The idea
-> Reinforcement learning is one of the three basic machine learning paradigms, alongside [[supervised-learning]] and [[unsupervised-learning]]. An agent interacts with an environment over discrete time steps: it observes a state, chooses an action, and receives a reward plus the next state. The goal is a policy, a mapping from states to actions, that maximizes expected discounted cumulative reward.
+> Reinforcement learning is one of the three basic machine learning paradigms, alongside [[cs/machine-learning/supervised-learning]] and [[cs/machine-learning/unsupervised-learning]]. An agent interacts with an environment over discrete time steps: it observes a state, chooses an action, and receives a reward plus the next state. The goal is a policy, a mapping from states to actions, that maximizes expected discounted cumulative reward.
 
 ## The Agent-Environment Loop
 
 Everything in RL happens inside one loop. At time $t$ the agent observes state $s_t$, picks action $a_t$, and the environment responds with a reward $r_t$ and a new state $s_{t+1}$. Then the loop runs again.
 
-![The reinforcement learning loop: the agent sends actions to the environment, which returns states and rewards](assets/rl-agent-environment-loop.svg)
+![The reinforcement learning loop: the agent sends actions to the environment, which returns states and rewards](cs/deep-learning/assets/rl-agent-environment-loop.svg)
 
-Where [[supervised-learning]] trains on labeled pairs (input, correct output) and [[unsupervised-learning]] hunts for structure in unlabeled data, here the training experience has the form $\langle (s, a), r \rangle$: this action in this state earned this reward. Nobody says what the best action was, and nobody reveals what the other actions would have earned. Three consequences follow.
+Where [[cs/machine-learning/supervised-learning]] trains on labeled pairs (input, correct output) and [[cs/machine-learning/unsupervised-learning]] hunts for structure in unlabeled data, here the training experience has the form $\langle (s, a), r \rangle$: this action in this state earned this reward. Nobody says what the best action was, and nobody reveals what the other actions would have earned. Three consequences follow.
 
 First, reward is delayed. The move that lost the game may have happened forty turns before the final score arrives, so the learner faces a credit assignment problem: figuring out which earlier decision deserves blame or praise for a reward that shows up late.
 
@@ -71,14 +68,14 @@ where $\alpha$ is a learning rate. In a deterministic world $\alpha = 1$ suffice
 >
 > No reward arrived on this step, yet the estimate rose to 90 because the move led somewhere valuable. Value propagates backward from the goal, one update at a time, until every square knows its distance-discounted worth.
 
-The tabular version has a hard limit: the table needs one entry per state-action pair, and the convergence guarantee assumes every pair is visited again and again. That is fine for grids and hopeless for pixels, which is exactly where [[deep-reinforcement-learning]] picks up. For where RL sits in the broader hierarchy, see [[ai-vs-ml-vs-dl]].
+The tabular version has a hard limit: the table needs one entry per state-action pair, and the convergence guarantee assumes every pair is visited again and again. That is fine for grids and hopeless for pixels, which is exactly where [[cs/deep-learning/deep-reinforcement-learning]] picks up. For where RL sits in the broader hierarchy, see [[cs/machine-learning/ai-vs-ml-vs-dl]].
 
 ## Related Notes
 
-- [[supervised-learning]]
-- [[unsupervised-learning]]
-- [[ai-vs-ml-vs-dl]]
-- [[deep-reinforcement-learning]]
+- [[cs/machine-learning/supervised-learning]]
+- [[cs/machine-learning/unsupervised-learning]]
+- [[cs/machine-learning/ai-vs-ml-vs-dl]]
+- [[cs/deep-learning/deep-reinforcement-learning]]
 
 ## Sources
 

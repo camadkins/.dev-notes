@@ -8,8 +8,7 @@ tags:
   - military
 date: 2026-01-22
 updated:
-aliases:
-  - Margaret Hamilton
+aliases: []
 ---
 
 The software that guided Apollo to the lunar surface had to work the first time it mattered, with astronauts' lives depending on it, running on a computer small enough to fail under load. Margaret Hamilton led the team that wrote it, and she argued, against the assumptions of the day, that producing software like this was an engineering discipline that deserved the name.
@@ -35,10 +34,10 @@ The lesson underneath it is the one that defines reliable real-time software: as
 
 ## Related Notes
 
-- [[apollo-guidance-computer-and-embedded-systems|The Apollo Guidance Computer]], the machine her software ran on
-- [[nato-conferences-and-software-engineering|The NATO Conferences and the Software Crisis]], where the field formalized the term she used
-- [[testing-strategies|Testing Strategies]], the discipline of proving software works
-- [[processes-and-threads|Processes and Threads]], the scheduling and priority her design relied on
+- [[cs/military-computing/apollo-guidance-computer-and-embedded-systems|The Apollo Guidance Computer]], the machine her software ran on
+- [[cs/military-computing/nato-conferences-and-software-engineering|The NATO Conferences and the Software Crisis]], where the field formalized the term she used
+- [[cs/software-engineering/testing-strategies|Testing Strategies]], the discipline of proving software works
+- [[cs/systems/processes-and-threads|Processes and Threads]], the scheduling and priority her design relied on
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

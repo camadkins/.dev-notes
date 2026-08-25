@@ -8,9 +8,7 @@ tags:
   - military
 date: 2026-05-04
 updated:
-aliases:
-  - Monte Carlo method
-  - Monte Carlo simulation
+aliases: []
 ---
 
 Some problems are too tangled to solve with a clean formula, yet easy to answer by experiment, if only you could run the experiment enough times. The Monte Carlo method, born at Los Alamos in the design of nuclear weapons, turns that observation into a computational tool: answer a hard, exact problem by simulating it at random, many times over, and averaging the result.
@@ -28,9 +26,9 @@ Stanislaw Ulam, working on the weapons project, saw a way around the equations. 
 
 ## On ENIAC
 
-![Scatter random points over a shape; the fraction that land inside estimates its area. More points, better estimate.](assets/monte-carlo-sampling.svg)
+![Scatter random points over a shape; the fraction that land inside estimates its area. More points, better estimate.](cs/military-computing/assets/monte-carlo-sampling.svg)
 
-Von Neumann, Nicholas Metropolis, and others programmed [[ballistics-tables-and-eniac|ENIAC]] to perform the first fully automated Monte Carlo calculations, of a fission weapon core, in the spring of 1948. The machine built to compute artillery tables was now running statistical experiments on the behavior of a bomb.
+Von Neumann, Nicholas Metropolis, and others programmed [[cs/military-computing/ballistics-tables-and-eniac|ENIAC]] to perform the first fully automated Monte Carlo calculations, of a fission weapon core, in the spring of 1948. The machine built to compute artillery tables was now running statistical experiments on the behavior of a bomb.
 
 ## Why it matters
 
@@ -38,11 +36,11 @@ Monte Carlo is now used wherever randomness can stand in for [[cs/math/integrals
 
 ## Related Notes
 
-- [[ballistics-tables-and-eniac|Ballistics Tables and ENIAC]], the same machine put to a different mathematical use
-- [[eniac-programmers-and-the-first-software|The ENIAC Programmers]], who made that machine run
-- [[discrete-probability|Discrete Probability]], the mathematics Monte Carlo samples from
-- [[random-variable|Random Variable]], the formal object being sampled
-- [[expected-value|Expected Value]], the average a Monte Carlo estimate converges to
+- [[cs/military-computing/ballistics-tables-and-eniac|Ballistics Tables and ENIAC]], the same machine put to a different mathematical use
+- [[cs/military-computing/eniac-programmers-and-the-first-software|The ENIAC Programmers]], who made that machine run
+- [[cs/math/discrete-probability|Discrete Probability]], the mathematics Monte Carlo samples from
+- [[cs/statistics/random-variable|Random Variable]], the formal object being sampled
+- [[cs/statistics/expected-value|Expected Value]], the average a Monte Carlo estimate converges to
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

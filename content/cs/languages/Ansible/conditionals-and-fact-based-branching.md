@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-07-02
 updated:
-aliases:
-  - Ansible when
-  - Ansible Conditionals
+aliases: []
 ---
 
 Every language that runs on more than one machine has to answer a question about where the branch lives. Does the program decide once and send different programs to different machines, or does it send one program everywhere and let each machine decide locally? Ansible picks the second, and `when` is the entire mechanism.

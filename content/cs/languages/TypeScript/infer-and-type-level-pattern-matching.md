@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-08-01
 updated:
-aliases:
-  - TypeScript infer Keyword
-  - Type-Level Destructuring
+aliases: []
 ---
 
 Here is the same type written twice. The first version knows how to reach into an array type. The second version does not, and is better.

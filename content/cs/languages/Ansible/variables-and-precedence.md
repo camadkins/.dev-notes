@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-02-02
 updated:
-aliases:
-  - Ansible Variables
-  - Variable Precedence
+aliases: []
 ---
 
 You can define variables in inventory, in playbooks, in reusable files, in roles, and at the command line. Ansible loads every possible variable it finds, then chooses the variable to apply based on variable precedence rules. Read that sentence twice, because it is doing more work than it looks like it is.

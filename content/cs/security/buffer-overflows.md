@@ -9,10 +9,7 @@ tags:
   - memory
 date: 2026-02-08
 updated:
-aliases:
-  - buffer overflow
-  - stack smashing
-  - stack buffer overflow
+aliases: []
 ---
 
 [[cs/military-computing/morris-worm-and-buffer-overflows|A buffer overflow]] starts as an unglamorous bug: a program writes more bytes into a fixed-size region than the region holds, and the extra bytes spill into whatever sits next in memory. What turns this from a crash into the most consequential exploit class in systems history is a detail of layout. On the stack, the thing sitting next to a local buffer is often the address the CPU will jump to when the current function returns. Overwrite that, and you are no longer corrupting data. You are choosing the program's next instruction.
@@ -39,10 +36,10 @@ Stringing those two facts together is the classic attack, and it has a name: a d
 
 ## Related Notes
 
-- [[memory-protections-aslr-dep-canaries|Memory Protections: ASLR, DEP, and Stack Canaries]], the defenses built specifically to break this chain
-- [[virtual-memory|Virtual Memory]], the address space the overflow corrupts and the layout randomization scrambles
-- [[side-channel-attacks|Side-Channel Attacks]], a different route to a secret that also exploits how hardware really behaves
-- [[stride-threat-modeling|STRIDE Threat Modeling]], for naming the elevation-of-privilege threat a code-execution bug realizes
+- [[cs/security/memory-protections-aslr-dep-canaries|Memory Protections: ASLR, DEP, and Stack Canaries]], the defenses built specifically to break this chain
+- [[cs/systems/virtual-memory|Virtual Memory]], the address space the overflow corrupts and the layout randomization scrambles
+- [[cs/security/side-channel-attacks|Side-Channel Attacks]], a different route to a secret that also exploits how hardware really behaves
+- [[cs/security/stride-threat-modeling|STRIDE Threat Modeling]], for naming the elevation-of-privilege threat a code-execution bug realizes
 
 ## Sources
 

@@ -8,10 +8,7 @@ tags:
   - law
 date: 2026-08-11
 updated:
-aliases:
-  - State Responsibility
-  - ILC Articles on State Responsibility
-  - Effective Control and Overall Control
+aliases: []
 ---
 
 Two professions use the word attribution and mean different things by it. In an incident report, attribution is the claim that a particular group, operating particular infrastructure, using particular tooling, conducted the intrusion. In international law, attribution is the claim that some conduct counts as an act of a state. The first is a statement about people and machines. The second is a statement about a legal relationship, and the strongest possible version of the first does not by itself establish the second.

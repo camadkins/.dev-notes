@@ -9,10 +9,7 @@ tags:
   - error-handling
 date: 2026-08-04
 updated:
-aliases:
-  - Java throws Clause
-  - Catch or Specify
-  - Checked Exceptions
+aliases: []
 ---
 
 Most languages let a function fail without saying so. Java made saying so mandatory for one category of failure, and the compiler enforces it. A method that can throw `IOException` must declare `throws IOException`, and every caller must then either handle it or repeat the declaration. Failure became part of the signature.

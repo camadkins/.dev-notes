@@ -1,5 +1,5 @@
 ---
-title: Traversal - Inorder
+title: Inorder Traversal
 description: Visit Left -> Root -> Right; yields sorted order precisely on binary search trees; includes recursive, iterative (stack), and Morris (O(1) space) variants.
 draft: false
 comments: true
@@ -200,10 +200,10 @@ Inorder traversal is the canonical **Left -> Root -> Right** visit order. It run
 
 ## Related Notes
 
-- [[binary-tree|Binary Tree]]
+- [[cs/dsa/binary-tree|Binary Tree]]
 
-- [[bst|Binary Search Tree]]
+- [[cs/dsa/bst|Binary Search Tree]]
 
-- [[preorder|Traversal - Preorder]]
+- [[cs/dsa/preorder|Traversal - Preorder]]
 
-- [[postorder|Traversal - Postorder]]
+- [[cs/dsa/postorder|Traversal - Postorder]]

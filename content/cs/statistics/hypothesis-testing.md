@@ -58,7 +58,7 @@ Choose a **significance level** $\alpha$ (commonly 0.05) *before* seeing the dat
 - **Type II error** (false negative): failing to reject $H_0$ when it is false. Probability denoted $\beta$.
 - **Power** $= 1 - \beta$: the probability of correctly rejecting a false $H_0$.
 
-![Two overlapping normal curves under H0 and H1 showing alpha (Type I) and beta (Type II) error regions, critical value, and power = 1-beta](assets/hypothesis-error-regions.svg)
+![Two overlapping normal curves under H0 and H1 showing alpha (Type I) and beta (Type II) error regions, critical value, and power = 1-beta](cs/statistics/assets/hypothesis-error-regions.svg)
 
 ### Power and sample size
 
@@ -93,7 +93,7 @@ For a two-sided test at $\alpha = 0.05$, the critical value is $z_{0.025} = 1.96
 
 ## Related Notes
 
-- [[probability-distributions|Probability Distributions]] - test statistics follow known distributions under $H_0$
-- [[regression-fundamentals|Regression Fundamentals]] - hypothesis tests on regression coefficients
-- [[bayesian-inference|Bayesian Inference]] - an alternative framework that quantifies $P(H_0 \mid \text{data})$ directly
-- [[the-impossibility-of-algorithmic-fairness|The Impossibility of Algorithmic Fairness]] - false-positive and false-negative rates are the same error types that fairness criteria try, and fail, to equalize across groups
+- [[cs/statistics/probability-distributions|Probability Distributions]] - test statistics follow known distributions under $H_0$
+- [[cs/statistics/regression-fundamentals|Regression Fundamentals]] - hypothesis tests on regression coefficients
+- [[cs/statistics/bayesian-inference|Bayesian Inference]] - an alternative framework that quantifies $P(H_0 \mid \text{data})$ directly
+- [[cs/ethics/the-impossibility-of-algorithmic-fairness|The Impossibility of Algorithmic Fairness]] - false-positive and false-negative rates are the same error types that fairness criteria try, and fail, to equalize across groups

@@ -9,9 +9,7 @@ tags:
   - concurrency
 date: 2026-07-17
 updated:
-aliases:
-  - Go Channels
-  - Go select Statement
+aliases: []
 ---
 
 The usual first description of a channel is a thread-safe queue. That description survives contact with buffered channels and falls apart immediately on unbuffered ones, where nothing is ever stored. It also gets the emphasis backwards. The spec introduces the channel as "a mechanism for concurrently executing functions to communicate," and the memory model calls channel communication "the main method of synchronization between goroutines." The data transfer is the visible part. The ordering edge is the product.

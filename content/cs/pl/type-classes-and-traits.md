@@ -9,11 +9,7 @@ tags:
   - type-theory
 date: 2026-02-16
 updated:
-aliases:
-  - Type Classes
-  - Traits
-  - Dictionary Passing
-  - Ad Hoc Polymorphism
+aliases: []
 ---
 
 `length :: [a] -> Int` works for every list because it never looks inside an element. `elem` cannot make that promise. Comparing two elements requires knowing how to compare *that* type, so `elem` needs something between "works for exactly one type" and "works for every type."

@@ -7,12 +7,9 @@ maturity: working
 tags:
   - off-watch
   - golf
-  - formats
 date: 2026-08-01
 updated: 2026-08-01
-aliases:
-  - Nebraska Scramble
-  - Harvest Scramble
+aliases: []
 ---
 
 ## Overview

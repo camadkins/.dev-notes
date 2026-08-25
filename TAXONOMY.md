@@ -69,7 +69,7 @@ Rules:
 
 **Allowlist (controlled vocabulary):**
 
-`ai` · `security` · `networking` · `cryptography` · `concurrency` · `distributed-systems` · `operating-systems` · `compilers` · `type-theory` · `formal-methods` · `optimization` · `interpretability` · `reinforcement-learning` · `supervised-learning` · `unsupervised-learning` · `generative-models` · `computer-architecture` · `memory` · `serialization` · `error-handling` · `build-systems` · `testing` · `version-control` · `web` · `databases` · `algorithms` · `data-structures` · `complexity` · `discrete-math` · `linear-algebra` · `probability` · `training` · `philosophy` · `regression` · `science` · `courses`
+`algorithms` · `build-systems` · `compilers` · `computer-architecture` · `concurrency` · `cryptography` · `data-structures` · `databases` · `distributed-systems` · `error-handling` · `formal-methods` · `golf` · `languages` · `memory` · `operating-systems` · `optimization` · `serialization` · `testing` · `type-theory` · `unsupervised-learning` · `web`
 
 `philosophy` is a Tier-3 tag (not a folder) carried by the ethics/philosophy notes that live under `cs/ethics/`. `science` and `courses` are the golf sub-section organizers under `off-watch/golf/`.
 
@@ -108,3 +108,25 @@ The governing principle (from a systems read of the drift): tags are a **closed 
 - **Promotion gate.** A new Tier-3 tag must be added to the allowlist in this file *first*, then used. Frictionless unchecked adds become deliberate, governed acts.
 
 `Tools/tag-audit.ts` checks every note under `content/` for: (a) exactly one root tag valid for its path; (b) exactly one section tag equal to `folder -> section`; (c) every remaining tag is an allowlisted Tier-3 tag or a `resource/*` tag on a resource note; (d) alias normalization — flags a non-canonical form (e.g. `unsupervised`) and names its canonical target; (e) folder-shadow — flags a concept tag that merely restates a section/folder name; (f) singleton report — Tier-3 tags used on exactly one note, as candidates for removal or promotion. It prints violations grouped by file, exits non-zero if any (a-c) violation exists, and with `--fix` auto-corrects root/section from the path and applies the alias map. Wired into the gate. See the script header for usage.
+
+
+## Titles (adopted 2026-08-25)
+
+A note's title is the **bare concept name**. No em-dash or hyphen subtitle, because the `description` field already carries the explanation and it is the description that search and previews show. "Binary Search Tree", not "Binary Search Tree — Ordered Data via Hierarchical Partitioning".
+
+Where two notes would collide under bare names, the title names the narrower thing rather than reintroducing a subtitle: `Stack` and `Stack Operations`, `Tries` and `Types of Tries`, `Preorder Traversal` rather than `Traversal - Preorder`. Titles are unique across the garden; a duplicate is a defect.
+
+## Aliases (adopted 2026-08-25)
+
+An alias exists for exactly two reasons:
+
+1. **A real acronym or initialism** a reader would actually type: `TLS`, `DAG`, `802.1Q`, `AES-GCM`, `2FA`.
+2. **A rename redirect** preserving inbound links and external bookmarks after a slug changes, written in slug form (`back-propagation`).
+
+Everything else goes. A synonym, a pluralisation, a rephrasing of the title, or the title itself restated is noise: it inflates the frontmatter, emits a redirect page per entry, and helps no one. The 2026-08-25 pass cut 1,604 of 1,926 aliases on this rule with zero change to resolved link count.
+
+**Ordering rule:** aliases are the mechanism that lets a slug change without orphaning its referrers. Cull aliases only after inbound links are normalized, never before.
+
+## Tier-3 tags, restated (2026-08-25)
+
+A Tier-3 tag must group notes across **two or more sections**. If every note carrying it lives in one folder, the folder already does that job and the tag is redundant. Fourteen single-section tags were removed on this rule (`philosophy`, `discrete-math`, `ai`, `training`, `version-control`, and others); a cut tag may return the moment it genuinely spans, and `version-control` is expected to when the git cluster lands across `software-engineering` and `dsa`.

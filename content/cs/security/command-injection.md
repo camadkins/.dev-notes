@@ -25,20 +25,20 @@ That phrase, *to a system shell*, is where the danger concentrates. A shell is [
 
 The cleanest way to understand command injection is by contrast, and OWASP draws it directly: "This attack differs from Code Injection, in that code injection allows the attacker to add their own code that is then executed by the application. In Command Injection, the attacker extends the default functionality of the application, which execute system commands, without the necessity of injecting code."
 
-This distinction is not pedantry. It tells you where the authority comes from. The attacker writes no code and needs no foothold in the application's own logic. They only need the application to already be in the business of calling out to the operating system, and then they append to that call. The privileges are the application's. OWASP notes the commands "are usually executed with the privileges of the vulnerable application," which is why a web service running as a broad account turns a small injection into a system compromise. It is the same reason [[privilege-separation-and-least-privilege|least privilege]] matters so much: it caps what the borrowed authority can do.
+This distinction is not pedantry. It tells you where the authority comes from. The attacker writes no code and needs no foothold in the application's own logic. They only need the application to already be in the business of calling out to the operating system, and then they append to that call. The privileges are the application's. OWASP notes the commands "are usually executed with the privileges of the vulnerable application," which is why a web service running as a broad account turns a small injection into a system compromise. It is the same reason [[cs/security/privilege-separation-and-least-privilege|least privilege]] matters so much: it caps what the borrowed authority can do.
 
 ## Why the fix is to avoid the shell, not to clean the string
 
-The reflex is to scrub metacharacters. This fails for the same reason it fails in [[sql-injection|SQL injection]]: you are trying to out-parse an interpreter with many escaping contexts, from the outside. The structural fix removes the interpreter from the path. Use the language's API that takes a program name and an argument list as separate values, so [[cs/systems/system-calls-and-the-kernel-boundary|the operating system executes the named binary]] with the arguments passed as inert data, and no shell ever parses a combined string. The `; rm -rf /` is then just a strange filename that does not exist, exactly as parameterized queries turn `' OR '1'='1` into a username nobody has.
+The reflex is to scrub metacharacters. This fails for the same reason it fails in [[cs/security/sql-injection|SQL injection]]: you are trying to out-parse an interpreter with many escaping contexts, from the outside. The structural fix removes the interpreter from the path. Use the language's API that takes a program name and an argument list as separate values, so [[cs/systems/system-calls-and-the-kernel-boundary|the operating system executes the named binary]] with the arguments passed as inert data, and no shell ever parses a combined string. The `; rm -rf /` is then just a strange filename that does not exist, exactly as parameterized queries turn `' OR '1'='1` into a username nobody has.
 
 > [!warning] "Just quote the input" is not the same as removing the shell
 > Adding quotes around a shell argument still leaves a shell parsing the line, and quoting rules are subtle enough that bypasses exist. The reliable move is to not invoke a shell at all: pass an argument vector to the exec-family call so there is no command line to parse in the first place.
 
 ## Related Notes
 
-- [[sql-injection|SQL Injection]], the same code-versus-data confusion aimed at a database interpreter instead of a shell
-- [[privilege-separation-and-least-privilege|Privilege Separation and Least Privilege]], which bounds the damage when the borrowed authority is used
-- [[owasp-top-10|The OWASP Top 10]], where command injection lives inside the A03 Injection class
+- [[cs/security/sql-injection|SQL Injection]], the same code-versus-data confusion aimed at a database interpreter instead of a shell
+- [[cs/security/privilege-separation-and-least-privilege|Privilege Separation and Least Privilege]], which bounds the damage when the borrowed authority is used
+- [[cs/security/owasp-top-10|The OWASP Top 10]], where command injection lives inside the A03 Injection class
 
 ## Sources
 

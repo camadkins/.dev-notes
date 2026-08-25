@@ -10,7 +10,6 @@ date: 2026-06-30
 updated:
 aliases:
   - ITAR
-  - US Munitions List
   - USML
 ---
 

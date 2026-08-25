@@ -11,7 +11,6 @@ updated:
 aliases:
   - 802.1D
   - 802.1w
-  - MAC Bridges
 ---
 
 There is a standard everyone cites, whose headline protocol was deleted from it in 2004, and which as a separate document no longer exists at all. Vendor documentation still says 802.1D on every page. The gap between what people cite and what is currently normative is unusually wide here, and the reasons are instructive about how standards bodies handle a protocol that has been superseded but cannot be turned off.

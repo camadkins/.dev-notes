@@ -8,9 +8,7 @@ tags:
   - forensics
 date: 2026-08-15
 updated:
-aliases:
-  - Cloud Forensics
-  - Provider Logs
+aliases: []
 ---
 
 Every acquisition method in this section assumes a thing you can hold still: a disk, a phone, a running kernel, a network segment. Cloud services violate that assumption at the root. The storage is pooled across tenants, the compute exists only while it is billed, and the machine that ran the workload may have been destroyed before anyone noticed the incident. There is no object to image and no moment at which it stops changing.

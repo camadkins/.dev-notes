@@ -9,8 +9,7 @@ tags:
   - resource/paper
 date: 2026-07-26
 updated:
-aliases:
-  - Papers
+aliases: []
 ---
 
 Every paper below is cited by at least one note in this garden, and the back-links say which. Titles, author lists, and years were read off each publisher's own page rather than from memory, so the citations here match the record. Where a note leans on a paper for a specific claim, that note's own `## Sources` section says which claim.

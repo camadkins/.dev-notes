@@ -11,7 +11,6 @@ updated:
 aliases:
   - MFA
   - 2FA
-  - two-factor authentication
 ---
 
 A password is a single point of failure. Guess it, phish it, or breach the database that stores it, and the account is gone. Multi-factor authentication does not make any one factor stronger; it makes the *combination* strong by requiring the attacker to defeat two independent things at once. [[cs/standards/what-a-standard-actually-is|NIST SP 800-63B]] states the mechanism directly: "Multiple factors make successful attacks more difficult to accomplish. If an attacker needs to both steal a cryptographic authenticator and guess a memorized secret, then the work to discover both factors may be too high."
@@ -42,10 +41,10 @@ The deeper rule generalizes the concern: "Methods that do not prove possession o
 
 ## Related Notes
 
-- [[kerberos-authentication|Kerberos Authentication]] - the single password MFA hardens is what bootstraps a whole single-sign-on day
-- [[oauth2-and-openid-connect|OAuth 2.0 and OpenID Connect]] - MFA runs at the authorization server before any token is minted
-- [[cryptographic-hash-functions|Cryptographic Hash Functions]] - how the knowledge factor is stored so a database breach does not hand over the password
-- [[side-channel-attacks|Side-Channel Attacks]] - a reminder that even a possessed secret can leak through an unintended path
+- [[cs/security/kerberos-authentication|Kerberos Authentication]] - the single password MFA hardens is what bootstraps a whole single-sign-on day
+- [[cs/security/oauth2-and-openid-connect|OAuth 2.0 and OpenID Connect]] - MFA runs at the authorization server before any token is minted
+- [[cs/security/cryptographic-hash-functions|Cryptographic Hash Functions]] - how the knowledge factor is stored so a database breach does not hand over the password
+- [[cs/security/side-channel-attacks|Side-Channel Attacks]] - a reminder that even a possessed secret can leak through an unintended path
 
 ## Sources
 

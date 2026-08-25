@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-08-11
 updated:
-aliases:
-  - default(T)
-  - Nullable Type Parameters
+aliases: []
 ---
 
 Write a generic method that has to return something when it finds nothing. You cannot write `return null`, because `T` might be `int`. You cannot write `return 0`, because `T` might be `string`. There is exactly one expression that works, and the fact that the language needed to invent it says something about where the value and reference type worlds meet.

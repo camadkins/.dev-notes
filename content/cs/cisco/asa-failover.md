@@ -8,11 +8,7 @@ tags:
   - cisco
 date: 2026-07-08
 updated:
-aliases:
-  - ASA high availability
-  - active/standby failover
-  - active/active failover
-  - state link
+aliases: []
 ---
 
 A firewall pair is [[cs/systems/distributed-consensus|a distributed system]] with two nodes, a private control channel, and a hard requirement that exactly one of them own each IP address at any moment. Everything unpleasant about ASA failover follows from that framing: partition the control channel and you get a [[cs/systems/cap-theorem|split brain]], replicate the wrong state and connections drop on cutover.
@@ -46,7 +42,7 @@ It cannot be shared with data. "You can use an unused data interface (physical, 
 The **state link** is what makes failover stateful. "To use Stateful Failover, you must configure a Stateful Failover link (also known as the state link) to pass connection state information." For long-distance pairs there is a documented latency budget: "the state link latency should be less than 10 milliseconds but no more than 250 milliseconds. If latency exceeds 10 milliseconds, performance might degrade due to retransmission of failover messages."
 
 > [!warning] Clear text by default
-> "All information sent over the failover and state links is sent in clear text unless you secure the communication with an IPsec tunnel or a failover key. If the ASA is used to terminate VPN tunnels, this information includes any usernames, passwords and preshared keys used for establishing the tunnels." Cisco's recommendation is explicit for VPN-terminating boxes: secure it with an IPsec tunnel or a failover key. See [[man-in-the-middle-attacks|man-in-the-middle attacks]] for what an attacker on that segment gets for free.
+> "All information sent over the failover and state links is sent in clear text unless you secure the communication with an IPsec tunnel or a failover key. If the ASA is used to terminate VPN tunnels, this information includes any usernames, passwords and preshared keys used for establishing the tunnels." Cisco's recommendation is explicit for VPN-terminating boxes: secure it with an IPsec tunnel or a failover key. See [[cs/security/man-in-the-middle-attacks|man-in-the-middle attacks]] for what an attacker on that segment gets for free.
 
 ## Topology, and the split brain
 
@@ -104,7 +100,7 @@ The case that breaks it, and the reason virtual MAC addresses exist:
 
 > "If the secondary unit boots without detecting the primary unit, then the secondary unit becomes the active unit and uses its own MAC addresses, because it does not know the primary unit MAC addresses. When the primary unit becomes available, the secondary (active) unit changes the MAC addresses to those of the primary unit, which can cause an interruption in your network traffic."
 
-Hence: "We recommend that you configure the virtual MAC address on both the primary and secondary units to ensure that the secondary unit uses the correct MAC addresses when it is the active unit, even if it comes online before the primary unit. If you do not configure virtual MAC addresses, you might need to clear the ARP tables on connected routers to restore traffic flow." One sharp edge in that recovery: "The ASA does not send gratuitous ARPs for static NAT addresses when the MAC address changes, so connected routers do not learn of the MAC address change for these addresses." See [[asa-nat|NAT on the ASA]] and [[arp-and-mac-addressing|ARP and MAC addressing]].
+Hence: "We recommend that you configure the virtual MAC address on both the primary and secondary units to ensure that the secondary unit uses the correct MAC addresses when it is the active unit, even if it comes online before the primary unit. If you do not configure virtual MAC addresses, you might need to clear the ARP tables on connected routers to restore traffic flow." One sharp edge in that recovery: "The ASA does not send gratuitous ARPs for static NAT addresses when the MAC address changes, so connected routers do not learn of the MAC address change for these addresses." See [[cs/cisco/asa-nat|NAT on the ASA]] and [[cs/networking/arp-and-mac-addressing|ARP and MAC addressing]].
 
 The standby IP address is technically optional and practically not: "Without a standby IP address, the active unit cannot perform network tests to check the standby interface health; it can only track the link state. You also cannot connect to the standby unit on that interface for management purposes."
 
@@ -138,18 +134,18 @@ After startup, "commands that you enter on the active unit are immediately repli
 Some things replication never covers, and these are the ones that bite during a VPN cutover: "Configuration syncing does not replicate the following files and configuration components, so you must copy these files manually so they match: AnyConnect Client images, CSD images, AnyConnect Client profiles, Local Certificate Authorities (CAs), ASA images, ASDM images."
 
 > [!example] Bridge groups and the STP blackhole
-> A bridge-group pair fails over cleanly and traffic still stops for half a minute. Cisco documents the mechanism: "When the active unit fails over to the standby unit, the connected switch port running Spanning Tree Protocol (STP) can go into a blocking state for 30 to 50 seconds when it senses the topology change." The two documented fixes depend on switch port mode. On an access port, enable PortFast on the switch (`spanning-tree portfast` under the interface), which "immediately transitions the port into STP forwarding mode upon linkup." On a trunk port, block BPDUs on the ASA with an EtherType access rule (`access-list id ethertype deny bpdu`, applied inbound on both member interfaces), with the warning attached: "Blocking BPDUs disables STP on the switch. Be sure not to have any loops involving the ASA in your network layout." See [[portfast-and-bpdu-guard|PortFast and BPDU Guard]] and [[spanning-tree-protocol|Spanning Tree Protocol]].
+> A bridge-group pair fails over cleanly and traffic still stops for half a minute. Cisco documents the mechanism: "When the active unit fails over to the standby unit, the connected switch port running Spanning Tree Protocol (STP) can go into a blocking state for 30 to 50 seconds when it senses the topology change." The two documented fixes depend on switch port mode. On an access port, enable PortFast on the switch (`spanning-tree portfast` under the interface), which "immediately transitions the port into STP forwarding mode upon linkup." On a trunk port, block BPDUs on the ASA with an EtherType access rule (`access-list id ethertype deny bpdu`, applied inbound on both member interfaces), with the warning attached: "Blocking BPDUs disables STP on the switch. Be sure not to have any loops involving the ASA in your network layout." See [[cs/cisco/portfast-and-bpdu-guard|PortFast and BPDU Guard]] and [[cs/cisco/spanning-tree-protocol|Spanning Tree Protocol]].
 
 ## Related Notes
 
-- [[asa-security-levels|ASA Security Levels]] - the interface model both units share
-- [[asa-nat|NAT on the ASA]] - the translation table that rides the state link, and the static-NAT gratuitous-ARP gap
-- [[asa-modular-policy-framework|ASA Modular Policy Framework]] - connection state that service policies create
-- [[spanning-tree-protocol|Spanning Tree Protocol]] - the convergence delay a bridge-group failover triggers
-- [[portfast-and-bpdu-guard|PortFast and BPDU Guard]] - the documented access-port workaround
-- [[arp-and-mac-addressing|ARP and MAC Addressing]] - why MAC continuity is what makes cutover invisible
-- [[ospf-and-link-state-routing|OSPF and Link-State Routing]] - the protocol whose RIB is re-converged after failover
-- [[man-in-the-middle-attacks|Man-in-the-Middle Attacks]] - the threat against a clear-text failover link
+- [[cs/cisco/asa-security-levels|ASA Security Levels]] - the interface model both units share
+- [[cs/cisco/asa-nat|NAT on the ASA]] - the translation table that rides the state link, and the static-NAT gratuitous-ARP gap
+- [[cs/cisco/asa-modular-policy-framework|ASA Modular Policy Framework]] - connection state that service policies create
+- [[cs/cisco/spanning-tree-protocol|Spanning Tree Protocol]] - the convergence delay a bridge-group failover triggers
+- [[cs/cisco/portfast-and-bpdu-guard|PortFast and BPDU Guard]] - the documented access-port workaround
+- [[cs/networking/arp-and-mac-addressing|ARP and MAC Addressing]] - why MAC continuity is what makes cutover invisible
+- [[cs/networking/ospf-and-link-state-routing|OSPF and Link-State Routing]] - the protocol whose RIB is re-converged after failover
+- [[cs/security/man-in-the-middle-attacks|Man-in-the-Middle Attacks]] - the threat against a clear-text failover link
 
 ## Sources
 

@@ -215,10 +215,10 @@ Dynamic programming converts recursive formulations with **overlapping subproble
 
 ## Related Notes
 
-- [[greedy-algorithms|Greedy Algorithms]]
+- [[cs/dsa/greedy-algorithms|Greedy Algorithms]]
 
-- [[divide-and-conquer|Divide and Conquer]]
+- [[cs/dsa/divide-and-conquer|Divide and Conquer]]
 
-- [[algorithm-efficiency|Algorithm Efficiency]]
+- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]
 
-- [[recursion|Recursion]]
+- [[cs/dsa/recursion|Recursion]]

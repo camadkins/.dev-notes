@@ -10,9 +10,7 @@ tags:
   - type-theory
 date: 2026-07-16
 updated:
-aliases:
-  - Compile-Time Computation
-  - When a Type System Becomes a Language
+aliases: []
 ---
 
 There is a moment in the life of a type system when it stops describing values and starts computing, which moves work across [[cs/pl/compilation-vs-interpretation|the line between compiling and running]]. Somebody writes a type that inspects another type and produces a third, and the compiler is now an interpreter for a language nobody designed on purpose. Four languages in this section crossed that line by different routes, and the interesting comparison is not which one computes the most. It is which one admits what it has built and gives you tools for it.

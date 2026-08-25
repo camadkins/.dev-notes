@@ -9,10 +9,7 @@ tags:
   - type-theory
 date: 2026-08-04
 updated:
-aliases:
-  - Occurrence Typing
-  - Typed Racket Propositions
-  - Type Narrowing in Racket
+aliases: []
 ---
 
 Racket programmers dispatch on predicates. That is the idiom, it predates the type system by decades, and any type checker retrofitted onto the language has to make it work or be useless:

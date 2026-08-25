@@ -6,7 +6,6 @@ comments: true
 tags:
   - cs
   - math
-  - linear-algebra
 date: 2026-02-09
 updated:
 aliases:
@@ -43,7 +42,7 @@ The scalar projection of $\mathbf{a}$ onto $\mathbf{b}$ answers "how far does $\
 
 $$\text{proj length} = \frac{\mathbf{a} \cdot \mathbf{b}}{\|\mathbf{b}\|}$$
 
-Projection is the shadow $\mathbf{a}$ casts on the line through $\mathbf{b}$. It is the mechanism behind [[cs/statistics/simple-linear-regression|least-squares fitting]], where you project a target vector onto the space your model can reach, and behind [[pca-and-dimensionality-reduction|PCA]], where you project data onto the directions that carry the most variance.
+Projection is the shadow $\mathbf{a}$ casts on the line through $\mathbf{b}$. It is the mechanism behind [[cs/statistics/simple-linear-regression|least-squares fitting]], where you project a target vector onto the space your model can reach, and behind [[cs/machine-learning/pca-and-dimensionality-reduction|PCA]], where you project data onto the directions that carry the most variance.
 
 ## Cosine Similarity: The ML Payoff
 
@@ -51,7 +50,7 @@ Drop the magnitudes and keep only the angle and you get cosine similarity, "the 
 
 $$\cos\theta = \frac{\mathbf{a} \cdot \mathbf{b}}{\|\mathbf{a}\|\,\|\mathbf{b}\|}$$
 
-The load-bearing property: "the cosine similarity does not depend on the magnitudes of the vectors, but only on their angle." Two proportional vectors score $+1$, two orthogonal vectors score $0$, two opposite vectors score $-1$. That scale-invariance is precisely why it dominates text and [[embeddings|embedding]] search. Represent a document as a vector of word counts and "cosine similarity then gives a useful measure of how similar two documents are likely to be, in terms of their subject matter, and independently of the length of the documents." A long article and a short note on the same topic point the same way even though one arrow is far longer; cosine ignores the length gap and keeps the topical agreement.
+The load-bearing property: "the cosine similarity does not depend on the magnitudes of the vectors, but only on their angle." Two proportional vectors score $+1$, two orthogonal vectors score $0$, two opposite vectors score $-1$. That scale-invariance is precisely why it dominates text and [[cs/deep-learning/embeddings|embedding]] search. Represent a document as a vector of word counts and "cosine similarity then gives a useful measure of how similar two documents are likely to be, in terms of their subject matter, and independently of the length of the documents." A long article and a short note on the same topic point the same way even though one arrow is far longer; cosine ignores the length gap and keeps the topical agreement.
 
 > [!example]
 > Take $\mathbf{a} = (1, 2, 2)$ and $\mathbf{b} = (2, 0, 1)$.
@@ -64,10 +63,10 @@ The load-bearing property: "the cosine similarity does not depend on the magnitu
 
 ## Related Notes
 
-- [[linear-algebra-fundamentals|Linear Algebra Fundamentals]] - the broader survey of vectors, spaces, and bases this note drills into
-- [[matrices-and-linear-transformations|Matrices and Linear Transformations]] - a matrix-vector product is a stack of dot products, one per output row
-- [[embeddings|Embeddings]] - learned vectors whose geometry cosine similarity reads for search and retrieval
-- [[pca-and-dimensionality-reduction|PCA and Dimensionality Reduction]] - projection onto high-variance directions, built from the same dot product
+- [[cs/math/linear-algebra-fundamentals|Linear Algebra Fundamentals]] - the broader survey of vectors, spaces, and bases this note drills into
+- [[cs/math/matrices-and-linear-transformations|Matrices and Linear Transformations]] - a matrix-vector product is a stack of dot products, one per output row
+- [[cs/deep-learning/embeddings|Embeddings]] - learned vectors whose geometry cosine similarity reads for search and retrieval
+- [[cs/machine-learning/pca-and-dimensionality-reduction|PCA and Dimensionality Reduction]] - projection onto high-variance directions, built from the same dot product
 
 ## Sources
 

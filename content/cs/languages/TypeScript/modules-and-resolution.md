@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-08-16
 updated:
-aliases:
-  - moduleResolution
-  - TypeScript Module Resolution
+aliases: []
 ---
 
 Two lines of code, and the compiler cannot check either one without answering a question that has nothing to do with types:

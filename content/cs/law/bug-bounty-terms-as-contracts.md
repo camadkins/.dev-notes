@@ -8,9 +8,7 @@ tags:
   - law
 date: 2026-08-05
 updated:
-aliases:
-  - Program Terms and Scope
-  - Bug Bounty Scope
+aliases: []
 ---
 
 A bug bounty program's terms page looks like documentation. It has headings, a list of targets, a payout table, and a section on what not to do. Read it as an instrument instead and it turns out to be doing three separable jobs at once, only one of which has any reach into a statute, and one of which the publisher may not have had the authority to promise.

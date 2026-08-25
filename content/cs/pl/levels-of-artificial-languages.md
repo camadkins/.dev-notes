@@ -89,7 +89,7 @@ ADD EAX, EBX
 - Poor portability.
     
 
-![Language levels tower: machine code at base through meta-languages at top, with abstraction increasing upward and hardware control increasing downward](assets/lang-levels-tower.svg)
+![Language levels tower: machine code at base through meta-languages at top, with abstraction increasing upward and hardware control increasing downward](cs/pl/assets/lang-levels-tower.svg)
 
 ---
 
@@ -153,7 +153,7 @@ Source → **Interpreter** → Execute step-by-step.
 - Enables dynamic features, REPLs, and portability.
     
 
-![Compilation vs interpretation pipeline: source through lexer, AST, type checker, IR, optimizer to machine code; interpreter branch executes directly](assets/lang-levels-compilation.svg)
+![Compilation vs interpretation pipeline: source through lexer, AST, type checker, IR, optimizer to machine code; interpreter branch executes directly](cs/pl/assets/lang-levels-compilation.svg)
 
 ---
 
@@ -272,7 +272,7 @@ Each step up the hierarchy increases abstraction and decreases hardware control.
 |DSL|Varies|Very High|Domain-specific|
 |Meta-Language|Low|Abstract|Toolchain-dependent|
 
-![Abstraction vs control 2D plot: machine code at high control / low abstraction through SQL at high abstraction / low control](assets/lang-levels-abstraction.svg)
+![Abstraction vs control 2D plot: machine code at high control / low abstraction through SQL at high abstraction / low control](cs/pl/assets/lang-levels-abstraction.svg)
 
 ---
 

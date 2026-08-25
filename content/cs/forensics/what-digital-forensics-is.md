@@ -8,10 +8,7 @@ tags:
   - forensics
 date: 2026-06-14
 updated:
-aliases:
-  - Digital Forensics
-  - Computer Forensics
-  - Forensic Process Phases
+aliases: []
 ---
 
 Every other computing discipline is graded by machines or by peers. A compiler is right when the program runs. A protocol implementation is right when it interoperates. A security control is right when the attack fails. Digital forensics is the exception. Its output is a claim about the past, delivered to people who cannot read a hex dump, evaluated under rules written centuries before the artifacts existed, and attacked by an opponent whose only job is to make the claim collapse.

@@ -441,7 +441,7 @@ Each builds upon simpler encodings: Boolean control enables pairing; pairing ena
 
 ---
 
-![Three parallel Church encoding branches: Booleans, Pairs, Numerals with reduction arrows](assets/lambda-encodings.svg)
+![Three parallel Church encoding branches: Booleans, Pairs, Numerals with reduction arrows](cs/pl/assets/lambda-encodings.svg)
 
 ---
 

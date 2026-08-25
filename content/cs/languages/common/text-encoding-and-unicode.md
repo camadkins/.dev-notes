@@ -8,10 +8,7 @@ tags:
   - languages
 date: 2026-04-11
 updated:
-aliases:
-  - Unicode in Practice
-  - UTF-8 and String Types
-  - Bytes vs Code Points
+aliases: []
 ---
 
 Ask a program for the length of a piece of text and you are asking a question that has at least three defensible answers. The Hindi word नमस्ते is 18 bytes on disk, 6 Unicode scalar values in memory, and 4 letters to a person reading it. None of those numbers is wrong. They answer different questions, and the reason [[cs/dsa/strings|string handling]] feels slippery across languages is that each language has quietly decided which of the three its string type is going to be about.

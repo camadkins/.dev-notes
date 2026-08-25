@@ -52,7 +52,7 @@ C was not designed in isolation - it was designed **for Unix**, and Unix was rew
 - C's simplicity and portability made Unix portable.
 - Unix's success made C the dominant systems language for decades.
 
-See [[compilation-vs-interpretation|Compilation vs Interpretation]] for how C's compiled model contrasts with interpreted languages, and [[history-genealogy-of-languages|History & Genealogy of Languages]] for C's influence on C++, Java, Go, and Rust.
+See [[cs/pl/compilation-vs-interpretation|Compilation vs Interpretation]] for how C's compiled model contrasts with interpreted languages, and [[cs/pl/history-genealogy-of-languages|History & Genealogy of Languages]] for C's influence on C++, Java, Go, and Rust.
 
 ### The BSD Fork and the AT&T Split
 
@@ -102,17 +102,17 @@ This pipeline:
 
 Seven small programs, none of which knows about the others, composed via pipes to answer a specific question. No single monolithic tool needed. This is the Unix philosophy at work - and it is why Unix-descended systems dominate server infrastructure decades later.
 
-![A Unix pipeline: grep, sort, uniq and sort each do one job, composed left to right by pipes into a query no single tool implements.](assets/unix-pipeline.svg)
+![A Unix pipeline: grep, sort, uniq and sort each do one job, composed left to right by pipes into a query no single tool implements.](cs/history/assets/unix-pipeline.svg)
 
 ---
 
 ## Related Notes
 
-- [[compilation-vs-interpretation|Compilation vs Interpretation]] - C's compiled model and its role in Unix's performance
-- [[history-genealogy-of-languages|History & Genealogy of Languages]] - C's descendants and Unix's influence on language design
-- [[von-neumann-architecture|Von Neumann Architecture]] - the hardware model Unix was built to manage
-- [[turing-and-computability|Turing & Computability]] - the theoretical universality that makes portable OSes possible
-- [[history-of-the-internet|History of the Internet]] - BSD's TCP/IP stack became the internet's foundation
+- [[cs/pl/compilation-vs-interpretation|Compilation vs Interpretation]] - C's compiled model and its role in Unix's performance
+- [[cs/pl/history-genealogy-of-languages|History & Genealogy of Languages]] - C's descendants and Unix's influence on language design
+- [[cs/history/von-neumann-architecture|Von Neumann Architecture]] - the hardware model Unix was built to manage
+- [[cs/history/turing-and-computability|Turing & Computability]] - the theoretical universality that makes portable OSes possible
+- [[cs/history/history-of-the-internet|History of the Internet]] - BSD's TCP/IP stack became the internet's foundation
 
 ## Sources
 

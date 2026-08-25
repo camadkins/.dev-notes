@@ -9,7 +9,6 @@ tags:
 date: 2026-01-28
 updated:
 aliases:
-  - Minuteman guidance computer
   - D-17B
 ---
 
@@ -24,7 +23,7 @@ A ballistic missile has to compute its own course in flight, inside a package th
 
 ## The demand that built an industry
 
-Two programs, Minuteman and [[apollo-guidance-computer-and-embedded-systems|Apollo]], needed exactly that, and they bought integrated circuits in volume when no one else would. NASA's Apollo program was the largest single consumer of integrated circuits between 1961 and 1965. The Minuteman missile program, together with U.S. Navy programs, accounted for essentially the entire integrated-circuit market of 4 million dollars in 1962.
+Two programs, Minuteman and [[cs/military-computing/apollo-guidance-computer-and-embedded-systems|Apollo]], needed exactly that, and they bought integrated circuits in volume when no one else would. NASA's Apollo program was the largest single consumer of integrated circuits between 1961 and 1965. The Minuteman missile program, together with U.S. Navy programs, accounted for essentially the entire integrated-circuit market of 4 million dollars in 1962.
 
 ## The price collapse
 
@@ -32,9 +31,9 @@ Two programs, Minuteman and [[apollo-guidance-computer-and-embedded-systems|Apol
 
 ## Related Notes
 
-- [[apollo-guidance-computer-and-embedded-systems|The Apollo Guidance Computer]], the other program that drove early integrated circuits
-- [[semiconductor-supply-chains|Semiconductor Supply Chains]], the modern shape of the industry this demand seeded
-- [[von-neumann-architecture|Von Neumann Architecture]], the machine these parts build
+- [[cs/military-computing/apollo-guidance-computer-and-embedded-systems|The Apollo Guidance Computer]], the other program that drove early integrated circuits
+- [[cs/geopolitics/semiconductor-supply-chains|Semiconductor Supply Chains]], the modern shape of the industry this demand seeded
+- [[cs/history/von-neumann-architecture|Von Neumann Architecture]], the machine these parts build
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

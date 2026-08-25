@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-03-11
 updated:
-aliases:
-  - Ansible Playbooks
-  - Plays and Tasks
+aliases: []
 ---
 
 An Ansible playbook has exactly three structural levels and nothing else. A playbook is one or more plays in an ordered list, each play runs one or more tasks, and each task calls an Ansible module. The terms are sports analogies, and the analogy holds up: the playbook is the game plan, each play executes part of the overall goal, and the tasks are the individual movements.

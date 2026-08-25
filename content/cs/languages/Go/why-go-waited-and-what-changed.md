@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-07-02
 updated:
-aliases:
-  - Go Generics History
-  - Why Go Had No Generics
+aliases: []
 ---
 
 Go became a public open source project on November 10, 2009. The request for generics arrived the same day. Ian Lance Taylor, writing a decade later, dates it precisely: "Less than 24 hours later we saw the first comment about generics." The feature that answered that comment, type parameters, landed in Go 1.18, which the design document expected "in the Go 1.18 release in early 2022." A little over twelve years passed between the question and the answer, and for most of that time the Go team's position was not that generics were bad but that nobody had yet produced a version worth what it cost.

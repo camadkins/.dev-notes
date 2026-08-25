@@ -72,7 +72,7 @@ main = square (print 3)
 
 ---
 
-![Side-by-side strict vs non-strict eval trees](assets/eval-order-comparison.svg)
+![Side-by-side strict vs non-strict eval trees](cs/pl/assets/eval-order-comparison.svg)
 
 ---
 

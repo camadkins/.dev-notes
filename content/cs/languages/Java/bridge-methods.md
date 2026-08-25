@@ -9,9 +9,7 @@ tags:
   - compilers
 date: 2026-07-09
 updated:
-aliases:
-  - Java Bridge Method
-  - Synthetic Bridge
+aliases: []
 ---
 
 Override a generic method with a more specific parameter type and something has to give. The subclass method has a different erased signature from the superclass method it is supposed to override, so by the JVM's rules it does not override anything. The compiler solves this by writing a method you never asked for.

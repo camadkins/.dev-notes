@@ -8,9 +8,7 @@ tags:
   - statistics
 date: 2026-04-18
 updated:
-aliases:
-  - Interval Estimation
-  - Confidence Level
+aliases: []
 ---
 
 ## Intuition
@@ -20,11 +18,11 @@ A point estimate throws away the one thing you most want to know: how much you s
 The subtle part is what the confidence level attaches to. It is a property of the *recipe*, not of the numbers the recipe produced on your one sample.
 
 > [!note] The idea
-> A 95% confidence level is a guarantee about the long-run behavior of the interval-construction procedure, not a probability statement about the specific interval you computed. Under [[hypothesis-testing|frequentist]] assumptions the true parameter is a fixed constant and the interval endpoints are the random quantities, so once you plug your data in, the realized interval either covers the parameter or it does not. There is no probability left to assign.
+> A 95% confidence level is a guarantee about the long-run behavior of the interval-construction procedure, not a probability statement about the specific interval you computed. Under [[cs/statistics/hypothesis-testing|frequentist]] assumptions the true parameter is a fixed constant and the interval endpoints are the random quantities, so once you plug your data in, the realized interval either covers the parameter or it does not. There is no probability left to assign.
 
 ## Definition
 
-Let $X$ be a random sample from a distribution with parameter $\theta$ to be estimated. A confidence interval for $\theta$ with confidence level $\gamma$ is an interval $(u(X), v(X))$ determined by [[random-variable|random variables]] $u(X)$ and $v(X)$ satisfying
+Let $X$ be a random sample from a distribution with parameter $\theta$ to be estimated. A confidence interval for $\theta$ with confidence level $\gamma$ is an interval $(u(X), v(X))$ determined by [[cs/statistics/random-variable|random variables]] $u(X)$ and $v(X)$ satisfying
 
 $$P(u(X) < \theta < v(X)) = \gamma$$
 
@@ -34,11 +32,11 @@ Some authors relax the equality to $P(u(X) < \theta < v(X)) \ge \gamma$, describ
 
 ## Constructing one
 
-Two widely applicable routes are [[central-limit-theorem|the central limit theorem]] and [[bootstrap-and-resampling|bootstrapping]]. The CLT route works only for large samples, since it leans on the asymptotic normality of
+Two widely applicable routes are [[cs/statistics/central-limit-theorem|the central limit theorem]] and [[cs/statistics/bootstrap-and-resampling|bootstrapping]]. The CLT route works only for large samples, since it leans on the asymptotic normality of
 
 $$\frac{\bar{X} - \mu}{S / \sqrt{n}}.$$
 
-For a normal population with unknown variance, that same quantity has an exact [[t-distribution-and-t-tests|Student's $t$ distribution]] with $n - 1$ degrees of freedom, which makes it a **pivotal quantity**: its distribution does not depend on the unobservable $\mu$ and $\sigma^2$. Pivoting the inequality $P(-c \le T \le c) = 0.95$ around $\mu$ produces the familiar form
+For a normal population with unknown variance, that same quantity has an exact [[cs/statistics/t-distribution-and-t-tests|Student's $t$ distribution]] with $n - 1$ degrees of freedom, which makes it a **pivotal quantity**: its distribution does not depend on the unobservable $\mu$ and $\sigma^2$. Pivoting the inequality $P(-c \le T \le c) = 0.95$ around $\mu$ produces the familiar form
 
 $$\left[\bar{x} - \frac{cs}{\sqrt{n}},\; \bar{x} + \frac{cs}{\sqrt{n}}\right],$$
 
@@ -69,7 +67,7 @@ When $|X_1 - X_2| \ge 1/2$, intervals from this procedure are *guaranteed* to co
 
 A **prediction interval** covers a future individual observation rather than a parameter. For a single roll of a fair six-sided die no exact 95% prediction interval exists, while for a twenty-sided die $[1, 19]$ works, since 95% of rolls land at 19 or below. Confidence intervals quantify uncertainty about parameters; prediction intervals quantify uncertainty about future observations.
 
-A **credible interval** is the [[bayesian-inference|Bayesian]] object that genuinely does carry "95% probability the parameter is in here". In common settings such as estimating a normal mean with known variance, the two coincide under non-informative priors, which is exactly why the misinterpretation so often survives contact with reality.
+A **credible interval** is the [[cs/statistics/bayesian-inference|Bayesian]] object that genuinely does carry "95% probability the parameter is in here". In common settings such as estimating a normal mean with known variance, the two coincide under non-informative priors, which is exactly why the misinterpretation so often survives contact with reality.
 
 > [!example]
 > NIST's worked case on the ZARR13 data set: $N = 195$, mean 9.261460, standard deviation 0.022789, and $t_{1-0.025,\,194} = 1.9723$. The limits are $9.261460 \pm 1.9723 \times 0.022789/\sqrt{195}$, giving a 95% interval of $(9.258242, 9.264679)$. The same machinery converts to a one-sample $t$-test: against $H_0\colon \mu = 5$ the statistic is $T = 2611.284$ with 194 degrees of freedom, far outside the critical region $|T| > 1.9723$.
@@ -82,12 +80,12 @@ Adoption in medicine lagged the theory badly. Confidence intervals were promoted
 
 ## Related Notes
 
-- [[hypothesis-testing|Hypothesis Testing]] - an interval and a two-sided test at the same $\alpha$ are two views of one calculation
-- [[central-limit-theorem|Central Limit Theorem]] - supplies the large-sample normal approximation most intervals rest on
-- [[t-distribution-and-t-tests|t-Distribution and t-Tests]] - the exact pivotal quantity when $\sigma$ is unknown
-- [[bootstrap-and-resampling|Bootstrap and Resampling]] - builds intervals without a closed-form sampling distribution
-- [[bayesian-inference|Bayesian Inference]] - credible intervals are the object people think confidence intervals are
-- [[sampling-and-sampling-distributions|Sampling and Sampling Distributions]] - the sampling distribution is what coverage is defined over
+- [[cs/statistics/hypothesis-testing|Hypothesis Testing]] - an interval and a two-sided test at the same $\alpha$ are two views of one calculation
+- [[cs/statistics/central-limit-theorem|Central Limit Theorem]] - supplies the large-sample normal approximation most intervals rest on
+- [[cs/statistics/t-distribution-and-t-tests|t-Distribution and t-Tests]] - the exact pivotal quantity when $\sigma$ is unknown
+- [[cs/statistics/bootstrap-and-resampling|Bootstrap and Resampling]] - builds intervals without a closed-form sampling distribution
+- [[cs/statistics/bayesian-inference|Bayesian Inference]] - credible intervals are the object people think confidence intervals are
+- [[cs/statistics/sampling-and-sampling-distributions|Sampling and Sampling Distributions]] - the sampling distribution is what coverage is defined over
 
 ## Sources
 

@@ -13,7 +13,7 @@ aliases: []
 
 ## Intuition
 
-Given a scatter plot of two variables, simple linear regression draws the **single best straight line** through the points. "Best" means the line that [[cs/machine-learning/loss-functions|minimizes the total squared vertical distance]] from each point to the line. One predictor, one response, one line. It's the most elementary form of regression and the natural starting point before moving to the multiple-predictor case in [[regression-fundamentals|Regression Fundamentals]].
+Given a scatter plot of two variables, simple linear regression draws the **single best straight line** through the points. "Best" means the line that [[cs/machine-learning/loss-functions|minimizes the total squared vertical distance]] from each point to the line. One predictor, one response, one line. It's the most elementary form of regression and the natural starting point before moving to the multiple-predictor case in [[cs/statistics/regression-fundamentals|Regression Fundamentals]].
 
 ## Definition
 
@@ -52,7 +52,7 @@ $$s^2 = \frac{\text{RSS}}{n - 2} = \frac{\sum_{i=1}^n (Y_i - \hat{y}_i)^2}{n - 2
 The denominator is $n - 2$ because two parameters ($b_0$, $b_1$) are estimated.
 
 > [!note]
-> For the full OLS derivation, multiple regression extension, residual diagnostics, and $R^2$ interpretation, see [[regression-fundamentals|Regression Fundamentals]].
+> For the full OLS derivation, multiple regression extension, residual diagnostics, and $R^2$ interpretation, see [[cs/statistics/regression-fundamentals|Regression Fundamentals]].
 
 ## Example
 
@@ -68,7 +68,7 @@ $$\hat{y} = 42.0 + 0.30(120) = 78.0$$
 
 The predicted chemistry grade is 78. The same technique applies to predicting final animal weight from feed consumed - any scenario where one continuous variable drives another.
 
-![Scatter plot of intelligence scores vs chemistry grades with the fitted line y-hat = 42.0 + 0.30x](assets/simple-regression-fit.svg)
+![Scatter plot of intelligence scores vs chemistry grades with the fitted line y-hat = 42.0 + 0.30x](cs/statistics/assets/simple-regression-fit.svg)
 
 ## Why It Matters in CS
 
@@ -81,7 +81,7 @@ One underrated use: **[[cs/dsa/algorithm-efficiency|empirical complexity analysi
 
 ## Related Notes
 
-- [[regression-fundamentals|Regression Fundamentals]] - extends to multiple predictors, OLS in matrix form, residual diagnostics, and $R^2$
-- [[maximum-likelihood-estimation|Maximum Likelihood Estimation]] - under normality, MLE of regression coefficients equals OLS
-- [[normal-distribution|Normal Distribution]] - the error distribution assumption $\varepsilon \sim \mathcal{N}(0, \sigma^2)$
-- [[hypothesis-testing|Hypothesis Testing]] - $t$-tests on $b_1$ to assess whether the slope differs from zero
+- [[cs/statistics/regression-fundamentals|Regression Fundamentals]] - extends to multiple predictors, OLS in matrix form, residual diagnostics, and $R^2$
+- [[cs/statistics/maximum-likelihood-estimation|Maximum Likelihood Estimation]] - under normality, MLE of regression coefficients equals OLS
+- [[cs/statistics/normal-distribution|Normal Distribution]] - the error distribution assumption $\varepsilon \sim \mathcal{N}(0, \sigma^2)$
+- [[cs/statistics/hypothesis-testing|Hypothesis Testing]] - $t$-tests on $b_1$ to assess whether the slope differs from zero

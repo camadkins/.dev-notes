@@ -10,9 +10,7 @@ tags:
   - web
 date: 2026-01-19
 updated:
-aliases:
-  - SQL injection
-  - SQLi
+aliases: []
 ---
 
 The bug looks like a string problem, so people reach for a string solution: strip the quotes, escape the semicolons, blacklist the word `DROP`. Every one of those defenses is a patch over the actual mistake, and every one of them has been bypassed. SQL injection is not fundamentally about dangerous characters. It is about a category confusion, where data the user typed gets promoted into [[cs/history/relational-model-and-sql|the language the database executes]].
@@ -40,9 +38,9 @@ That is the whole trick, and it is structural rather than lexical. The dangerous
 
 ## Related Notes
 
-- [[cross-site-scripting-xss|Cross-Site Scripting (XSS)]], the same code-versus-data confusion aimed at the browser instead of the database
-- [[owasp-top-10|The OWASP Top 10]], where SQL injection sits inside the broader A03 Injection class
-- [[stride-threat-modeling|STRIDE Threat Modeling]], for naming the tampering and disclosure threats injection realizes
+- [[cs/security/cross-site-scripting-xss|Cross-Site Scripting (XSS)]], the same code-versus-data confusion aimed at the browser instead of the database
+- [[cs/security/owasp-top-10|The OWASP Top 10]], where SQL injection sits inside the broader A03 Injection class
+- [[cs/security/stride-threat-modeling|STRIDE Threat Modeling]], for naming the tampering and disclosure threats injection realizes
 
 ## Sources
 

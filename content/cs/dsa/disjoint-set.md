@@ -1,7 +1,7 @@
 ---
 title: Disjoint Set (Union–Find)
 description: Maintain dynamic connectivity via find/union with path compression and union by rank/size; supports near-constant-time operations.
-draft: true
+draft: false
 tags:
   - cs
   - dsa
@@ -14,7 +14,7 @@ aliases:
 ## Overview
 A **disjoint set** (Union–Find) maintains a partition of elements into **disjoint components** under two operations: `FIND(x)` returns the component’s **representative** (root) of `x`, and `UNION(x,y)` merges the components containing `x` and `y`. With **path compression** (during `FIND`) and **union by rank/size**, both operations run in **amortized almost-constant time**: $O(\alpha(n))$, where $\alpha$ is the inverse Ackermann function.
 
-![Union-Find forest before and after FIND(3): path compression flattens parent pointers so nodes point directly to the root](assets/uf-parent-pointers.svg)
+![Union-Find forest before and after FIND(3): path compression flattens parent pointers so nodes point directly to the root](cs/dsa/assets/uf-parent-pointers.svg)
 
 ## Structure Definition
 - **Universe:** elements indexed `0..n-1`.
@@ -77,7 +77,7 @@ Start with elements `{0,1,2,3,4,5}` as singletons.
 4. `FIND(3)` after prior unions compresses path so `parent[3]=0` directly.
     
 
-![Kruskal's MST via Union-Find: edges sorted by weight, each tested with FIND to accept (UNION) or reject (cycle)](assets/uf-kruskal-trace.svg)
+![Kruskal's MST via Union-Find: edges sorted by weight, each tested with FIND to accept (UNION) or reject (cycle)](cs/dsa/assets/uf-kruskal-trace.svg)
 
 ## Complexity and Performance
 

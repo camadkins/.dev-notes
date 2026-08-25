@@ -1,7 +1,7 @@
 ---
-title: B-Trees — Balanced Multiway Search Structures
+title: B-Trees
 description: Generalized search trees that maintain logarithmic height by storing multiple keys per node and balancing via split/merge operations.
-draft: true
+draft: false
 tags:
   - cs
   - dsa
@@ -50,7 +50,7 @@ All leaves appear at the same depth.
 5. **Root rules**:
 The root can have fewer keys (≥1) and fewer children.
 
-![Order-3 B-tree showing keys grouped in nodes with hierarchical child ranges](assets/btree-structure.svg)
+![Order-3 B-tree showing keys grouped in nodes with hierarchical child ranges](cs/dsa/assets/btree-structure.svg)
 
 ---
 
@@ -91,7 +91,7 @@ If a node exceeds `(m − 1)` keys:
 - Promote the **middle key** to the parent.
 - If parent overflows, recursively split upward (possibly creating a new root).
 
-![B-tree insertion: overflow triggers split and middle key promotion](assets/btree-split-merge.svg)
+![B-tree insertion: overflow triggers split and middle key promotion](cs/dsa/assets/btree-split-merge.svg)
 
 ### Pseudocode
 ```pseudo
@@ -170,7 +170,7 @@ function insertNonFull(x, k):
 - Example: **HFS+, NTFS, ext4**.
     
 
-![Each B-tree node sits on one disk page, so one read compares many keys](assets/btree-disk-blocks.svg)
+![Each B-tree node sits on one disk page, so one read compares many keys](cs/dsa/assets/btree-disk-blocks.svg)
 
 ---
 
@@ -215,7 +215,7 @@ function insertNonFull(x, k):
 
 ## See also
 
-- [[bst|Binary Search Tree]]
+- [[cs/dsa/bst|Binary Search Tree]]
     
 - [[cs/dsa/avl-tree|AVL Tree]]
     

@@ -8,10 +8,7 @@ tags:
   - languages
 date: 2026-06-30
 updated:
-aliases:
-  - parameterize
-  - Racket Parameters
-  - Dynamic Binding in Racket
+aliases: []
 ---
 
 Dynamic scope has a bad reputation earned in Lisps that made it the default. Racket makes it opt-in, gives it a first-class representation, and then uses it for most of the settings the runtime itself needs: the current output port, the current readtable, the print width in error messages. Understanding why those settings are parameters rather than globals is the fastest route into what dynamic binding is actually for.

@@ -81,7 +81,7 @@ The **Catalan numbers** $C_n = \frac{1}{n+1}\binom{2n}{n}$ count an absurd numbe
 $$C_0 = 1, \quad C_{n+1} = \sum_{i=0}^{n} C_i \cdot C_{n-i}$$
 
 > [!note]
-> The Catalan numbers show up in [[dynamic-programming|Dynamic Programming]] directly. The number of distinct binary trees with $n$ internal nodes is $C_n$, which is the same as the number of ways to fully parenthesize a product of $n+1$ factors. This is exactly the structure behind matrix chain multiplication.
+> The Catalan numbers show up in [[cs/dsa/dynamic-programming|Dynamic Programming]] directly. The number of distinct binary trees with $n$ internal nodes is $C_n$, which is the same as the number of ways to fully parenthesize a product of $n+1$ factors. This is exactly the structure behind matrix chain multiplication.
 
 ## Counting in Algorithm Analysis
 
@@ -96,8 +96,8 @@ $$C_0 = 1, \quad C_{n+1} = \sum_{i=0}^{n} C_i \cdot C_{n-i}$$
 
 ## Related Notes
 
-- [[dynamic-programming|Dynamic Programming]] - many DP problems count combinatorial objects or optimize over them
-- [[backtracking-algorithms|Backtracking]] - systematically enumerates combinatorial structures with pruning
-- [[discrete-probability|Discrete Probability]] - probability computations require counting favorable outcomes
-- [[mathematical-induction|Mathematical Induction]] - induction proves combinatorial identities like the binomial theorem
-- [[graph-theory|Graph Theory]] - graph enumeration and coloring rely on combinatorial arguments
+- [[cs/dsa/dynamic-programming|Dynamic Programming]] - many DP problems count combinatorial objects or optimize over them
+- [[cs/dsa/backtracking-algorithms|Backtracking]] - systematically enumerates combinatorial structures with pruning
+- [[cs/math/discrete-probability|Discrete Probability]] - probability computations require counting favorable outcomes
+- [[cs/math/mathematical-induction|Mathematical Induction]] - induction proves combinatorial identities like the binomial theorem
+- [[cs/math/graph-theory|Graph Theory]] - graph enumeration and coloring rely on combinatorial arguments

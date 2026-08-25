@@ -11,7 +11,6 @@ updated:
 aliases:
   - 802.11i
   - WPA2
-  - Robust Security Network
 ---
 
 The security amendment to 802.11 is the best case study in the family of a standard and a brand doing different jobs. IEEE wrote a specification. A trade association took a subset of the unfinished draft, gave it a name, and shipped it into products. Then when the real thing was ratified, the same association gave it a second name, and that name is the one everybody uses. Almost nobody outside the working group says 802.11i.

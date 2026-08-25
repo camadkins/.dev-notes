@@ -8,10 +8,7 @@ tags:
   - law
 date: 2026-08-20
 updated:
-aliases:
-  - Law
-  - Cyber Law
-  - Computer Law
+aliases: []
 ---
 
 Everywhere else this garden explains how systems work, and since the standards section, how they are specified. This section covers what the law permits, forbids, and compels when those systems are attacked, defended, searched, or exported. It is US-centric by design, because that is the jurisdiction most of these notes describe. Three of them leave it: one for a European regulation that reaches American companies anyway, and two for the international law of armed conflict and state responsibility.

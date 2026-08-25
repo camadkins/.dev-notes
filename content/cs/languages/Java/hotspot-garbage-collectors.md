@@ -12,7 +12,6 @@ updated:
 aliases:
   - G1GC
   - ZGC
-  - Java Garbage Collection
 ---
 
 The textbook account of garbage collection ends where the engineering starts. Mark-sweep, copying, and generational collection are covered in [[cs/pl/gc-algorithms-mark-sweep-copying-generational|the algorithms note]], the reachability and root-set machinery underneath them in [[cs/pl/garbage-collection-concepts|the concepts note]]. None of that tells you why a JVM tuned for a 4 GB heap and one tuned for a 4 TB heap run different collectors, or what you give up by switching. HotSpot ships several collectors because the theory does not pick one.

@@ -1,5 +1,5 @@
 ---
-title: Trees - Overview
+title: Trees
 description: Hierarchical structures of nodes and edges; terminology (size, height, degree), variants, and core representations.
 draft: false
 comments: true
@@ -9,7 +9,6 @@ tags:
 date: 2025-10-16
 updated:
 aliases: []
-
 ---
 
 ## Overview
@@ -41,7 +40,7 @@ Let `T = (V, E)` be a finite, connected, acyclic undirected graph.
 - **Subtree rooted at `u`**: `u` and all its descendants.
 - **Ordered vs unordered**: in an **ordered** tree, the children of each node are in a fixed left-to-right order (affects traversal sequences). In an **unordered** tree, children are a set.
 
-![Ordered vs unordered tree: fixed child positions vs children as a set](assets/tree-ordered-vs-unordered.svg)
+![Ordered vs unordered tree: fixed child positions vs children as a set](cs/dsa/assets/tree-ordered-vs-unordered.svg)
 
 > [!tip]
 > Keep a consistent convention: **depth(root) = 0** and **height(leaf) = 0**. This avoids common off-by-ones when proving relations like `n = Σ_u 1` and `Σ_u outDegree(u) = n − 1`.
@@ -55,7 +54,7 @@ A **binary tree** restricts each node to **left** and **right** child pointers (
 
 Relations (binary, perfect): with height `h`, `n = 2^{h+1} − 1` and leaves `= 2^h`.
 
-![Binary tree forms: perfect, complete, full, and degenerate with n and h annotated](assets/tree-binary-forms.svg)
+![Binary tree forms: perfect, complete, full, and degenerate with n and h annotated](cs/dsa/assets/tree-binary-forms.svg)
 
 ## Example
 Consider the undirected tree:
@@ -71,7 +70,7 @@ Unrooted, it is simply acyclic and connected. Rooting at `3` yields:
 - Depths: depth(3)=0; depth(2)=depth(4)=depth(5)=1; depth(1)=2
 - Height(tree) = 2 (longest path 3→2→1)
 
-![Rooted vs unrooted: same tree shown as undirected graph and rooted at node 3 with depth labels](assets/tree-rooted-vs-unrooted.svg)
+![Rooted vs unrooted: same tree shown as undirected graph and rooted at node 3 with depth labels](cs/dsa/assets/tree-rooted-vs-unrooted.svg)
 
 ## Properties and Relationships
 - **Edge count**: An undirected tree with `n` nodes has exactly `n − 1` edges (prove by induction or by acyclicity + connectivity).
@@ -104,11 +103,11 @@ function HEIGHT(u):
 
 ### Traversals (binary trees)
 
-See [[tree-traversal|Tree Traversal - Overview]] for detailed recursive and iterative patterns:
+See [[cs/dsa/tree-traversal|Tree Traversal - Overview]] for detailed recursive and iterative patterns:
 
 - **Preorder** (Root, Left, Right)
     
-- **Inorder** (Left, Root, Right) - meaningful for [[bst|Binary Search Tree]]
+- **Inorder** (Left, Root, Right) - meaningful for [[cs/dsa/bst|Binary Search Tree]]
     
 - **Postorder** (Left, Right, Root)
     
@@ -173,7 +172,7 @@ parent[0..n-1], where parent[root] = -1
 - **Cons**: poor for sparse or highly unbalanced shapes (wasted slots).
     
 
-![Tree representations: pointer nodes, parent array, children arrays, LCRS, and heap array compared](assets/tree-representations.svg)
+![Tree representations: pointer nodes, parent array, children arrays, LCRS, and heap array compared](cs/dsa/assets/tree-representations.svg)
 
 ## Implementation or Practical Context
 
@@ -207,7 +206,7 @@ parent[0..n-1], where parent[root] = -1
 > **Using heap indexing on non-complete trees.** The `2i+1`/`2i+2` formulas assume a complete binary layout. Sparse shapes waste space and break invariants.
 
 > [!warning]  
-> **Multiple parents / cycles.** A DAG is **not** a tree. Trees have exactly one simple path between any two nodes. If multiple parents are needed, you’re in DAG territory - use [[graph-representations|Graph Representations]] and [[topological-sorting|Topological Sorting]].
+> **Multiple parents / cycles.** A DAG is **not** a tree. Trees have exactly one simple path between any two nodes. If multiple parents are needed, you’re in DAG territory - use [[cs/dsa/graph-representations|Graph Representations]] and [[cs/dsa/topological-sorting|Topological Sorting]].
 
 > [!warning]  
 > **Overflowing recursion stacks.** Deep or skewed trees can exceed recursion limits. Prefer iterative traversals with explicit stacks or tail-recursion elimination.
@@ -227,10 +226,10 @@ Trees encode hierarchical relations with clean recursive structure. Key choices 
 
 ## Related Notes
 
-- [[binary-tree|Binary Tree]]
+- [[cs/dsa/binary-tree|Binary Tree]]
     
-- [[tree-traversal|Tree Traversal - Overview]]
+- [[cs/dsa/tree-traversal|Tree Traversal - Overview]]
     
-- [[heaps|Heaps - Overview]]
+- [[cs/dsa/heaps|Heaps - Overview]]
     
-- [[graph-representations|Graph Representations]]
+- [[cs/dsa/graph-representations|Graph Representations]]

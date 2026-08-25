@@ -8,10 +8,7 @@ tags:
   - languages
 date: 2026-08-04
 updated:
-aliases:
-  - Racket Readtables
-  - "#reader"
-  - Racket Reader Extension
+aliases: []
 ---
 
 Macros operate on data that the reader has already produced, so every macro-based extension inherits parentheses, identifiers, and the rest of [[cs/languages/Racket/s-expressions-and-evaluation|Racket's lexical conventions]]. Reader extension is what you reach for when the notation itself has to change: infix arithmetic, a regexp-like literal, a whole file of prose. It is a different layer with a different protocol, and the protocol is unusually small.

@@ -182,7 +182,7 @@ Choose an adjacency matrix when:
     
 - You need frequent **O(1) membership** checks.
     
-- Algorithms benefit from random access and dense math (e.g., [[floyd-warshall|Floyd–Warshall]] or [[cs/math/matrices-and-linear-transformations|algebraic methods]]).
+- Algorithms benefit from random access and dense math (e.g., [[cs/dsa/floyd-warshall|Floyd–Warshall]] or [[cs/math/matrices-and-linear-transformations|algebraic methods]]).
     
 - The graph is relatively **static** (few vertex insertions), or you can **pre-allocate** to the maximum size.
     
@@ -191,8 +191,8 @@ Choose an adjacency matrix when:
 
 ## Related Notes
 
-- [[graph-representations|Graph Representations]]
+- [[cs/dsa/graph-representations|Graph Representations]]
     
-- [[adjacency-list|Adjacency List]]
+- [[cs/dsa/adjacency-list|Adjacency List]]
     
-- [[floyd-warshall|Floyd–Warshall]]
+- [[cs/dsa/floyd-warshall|Floyd–Warshall]]

@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-07-02
 updated:
-aliases:
-  - TypeScript Unions and Intersections
-  - Intersection Types in TypeScript
+aliases: []
 ---
 
 Two ways to build a type out of other types, written with a vertical bar and an ampersand, and both of them are easier to reason about once you stop thinking about syntax and start thinking about which values each one admits.

@@ -9,8 +9,7 @@ tags:
   - games
 date: 2026-06-28
 updated: 2026-06-28
-aliases:
-  - Crib
+aliases: []
 # --- game facts ---
 players: "2 (also 3-4)"
 type: "card game"

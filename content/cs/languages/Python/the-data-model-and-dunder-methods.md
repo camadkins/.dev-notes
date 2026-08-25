@@ -9,10 +9,7 @@ tags:
   - type-theory
 date: 2026-06-12
 updated:
-aliases:
-  - Python Data Model
-  - Dunder Methods
-  - Special Methods
+aliases: []
 ---
 
 Every piece of Python syntax that looks like a built-in feature is a method call in disguise. `x[i]`, `len(x)`, `a + b`, `for y in x`, `with r:`, `f(...)`, `repr(x)`, `x < y`: none of these check what type you have. Each one is defined as an invocation of a specially named method on the object's type. That is what "the data model" means, and it is the single design decision most of the rest of Python descends from.

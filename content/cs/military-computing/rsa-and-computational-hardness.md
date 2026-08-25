@@ -10,10 +10,9 @@ date: 2026-05-03
 updated:
 aliases:
   - RSA
-  - public-key cryptography
 ---
 
-Until the mid 1970s, secret communication had a chicken-and-egg problem. To send an encrypted message you and the recipient had to already share a secret key, and the only fully secure way to share a key was the impractical one that [[perfect-secrecy-and-the-one-time-pad|perfect secrecy]] demands. RSA broke the cycle. It lets two people who have never met exchange secret messages [[cs/security/diffie-hellman-and-key-exchange|without ever sharing a secret in advance]], and it does so by leaning on a problem mathematicians believe is genuinely hard.
+Until the mid 1970s, secret communication had a chicken-and-egg problem. To send an encrypted message you and the recipient had to already share a secret key, and the only fully secure way to share a key was the impractical one that [[cs/military-computing/perfect-secrecy-and-the-one-time-pad|perfect secrecy]] demands. RSA broke the cycle. It lets two people who have never met exchange secret messages [[cs/security/diffie-hellman-and-key-exchange|without ever sharing a secret in advance]], and it does so by leaning on a problem mathematicians believe is genuinely hard.
 
 > [!note] The idea
 > Split the key in two. A public half, which anyone may use to encrypt a message to you, and a private half, which only you hold and which alone can decrypt. Security rests not on hiding a shared key but on a computation that is easy in one direction and infeasible to reverse.
@@ -32,10 +31,10 @@ RSA is not unbreakable in the way a one-time pad is. It is computationally secur
 
 ## Related Notes
 
-- [[perfect-secrecy-and-the-one-time-pad|Perfect Secrecy and the One-Time Pad]], the unconditional guarantee RSA trades away
-- [[des-standardization-and-symmetric-crypto|DES and the Politics of a Standard Cipher]], the symmetric standard of the same era
-- [[turing-and-computability|Turing and Computability]], the theory of what is feasible to compute
-- [[combinatorics|Combinatorics]], the mathematics of primes and counting behind it
+- [[cs/military-computing/perfect-secrecy-and-the-one-time-pad|Perfect Secrecy and the One-Time Pad]], the unconditional guarantee RSA trades away
+- [[cs/military-computing/des-standardization-and-symmetric-crypto|DES and the Politics of a Standard Cipher]], the symmetric standard of the same era
+- [[cs/history/turing-and-computability|Turing and Computability]], the theory of what is feasible to compute
+- [[cs/math/combinatorics|Combinatorics]], the mathematics of primes and counting behind it
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

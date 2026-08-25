@@ -6,11 +6,9 @@ comments: true
 tags:
   - cs
   - math
-  - linear-algebra
 date: 2026-02-17
 updated:
 aliases:
-  - svd
   - singular-values
   - low-rank-approximation
 ---
@@ -36,7 +34,7 @@ The geometric reading is the one worth keeping. Take the unit sphere $S$ in $\ma
 
 The paired vector sets name those directions. "The columns of $\mathbf{U}$ and the columns of $\mathbf{V}$ are called left-singular vectors and right-singular vectors" of $\mathbf{M}$. Each $\sigma_j$ comes with an input direction $\mathbf{v}_j$ and an output direction $\mathbf{u}_j$.
 
-This is the connection to [[eigenvalues-and-eigenvectors|eigenvalues]], and also the departure from them. Eigendecomposition needs a square matrix with a suitable eigenbasis; the SVD needs nothing, which is why it is the workhorse for the rectangular, rank-deficient, noisy matrices that data actually produces.
+This is the connection to [[cs/math/eigenvalues-and-eigenvectors|eigenvalues]], and also the departure from them. Eigendecomposition needs a square matrix with a suitable eigenbasis; the SVD needs nothing, which is why it is the workhorse for the rectangular, rank-deficient, noisy matrices that data actually produces.
 
 ## Truncation Is Optimal
 
@@ -61,18 +59,18 @@ The result "is referred to as the matrix approximation lemma or Eckart-Young-Mir
 
 The rank, range, and null space entries are worth pausing on, because in [[cs/standards/ieee-754-floating-point|floating point]] those are otherwise ill-posed questions. Counting nonzero singular values gives a numerically meaningful rank in a way that row-reduction does not, since you can threshold small singular values instead of testing exact zeros.
 
-The list of relatives explains why the same idea keeps reappearing under different names. Low-rank approximation "is closely related to numerous other techniques, including principal component analysis, factor analysis, total least squares, latent semantic analysis, orthogonal regression, and dynamic mode decomposition." Latent semantic analysis in information retrieval and [[pca-and-dimensionality-reduction|principal component analysis]] in machine learning are, structurally, this one factorization applied to different matrices.
+The list of relatives explains why the same idea keeps reappearing under different names. Low-rank approximation "is closely related to numerous other techniques, including principal component analysis, factor analysis, total least squares, latent semantic analysis, orthogonal regression, and dynamic mode decomposition." Latent semantic analysis in information retrieval and [[cs/machine-learning/pca-and-dimensionality-reduction|principal component analysis]] in machine learning are, structurally, this one factorization applied to different matrices.
 
 > [!warning]
 > The compression guarantee is about a specific error measure, not about perceptual or semantic quality. Eckart-Young minimizes the Frobenius norm of the residual, so the retained content is whatever carries the most squared magnitude. On images the practical task "becomes finding an approximation that balances retaining perceptual fidelity with the number of vectors required to reconstruct the image," which is a judgment the theorem does not make for you. Optimal in norm is not the same as optimal for the application.
 
 ## Related Notes
 
-- [[eigenvalues-and-eigenvectors|Eigenvalues and Eigenvectors]] - the decomposition SVD generalizes to non-square matrices
-- [[matrices-and-linear-transformations|Matrices and Linear Transformations]] - the rotate, scale, rotate reading of a matrix
-- [[linear-algebra-fundamentals|Linear Algebra Fundamentals]] - rank, range, and null space, which singular values expose
-- [[pca-and-dimensionality-reduction|PCA and Dimensionality Reduction]] - the statistical face of the same truncation
-- [[vectors-and-dot-products|Vectors and Dot Products]] - orthonormality is what makes the outer factors distortion-free
+- [[cs/math/eigenvalues-and-eigenvectors|Eigenvalues and Eigenvectors]] - the decomposition SVD generalizes to non-square matrices
+- [[cs/math/matrices-and-linear-transformations|Matrices and Linear Transformations]] - the rotate, scale, rotate reading of a matrix
+- [[cs/math/linear-algebra-fundamentals|Linear Algebra Fundamentals]] - rank, range, and null space, which singular values expose
+- [[cs/machine-learning/pca-and-dimensionality-reduction|PCA and Dimensionality Reduction]] - the statistical face of the same truncation
+- [[cs/math/vectors-and-dot-products|Vectors and Dot Products]] - orthonormality is what makes the outer factors distortion-free
 
 ## Sources
 

@@ -8,10 +8,7 @@ tags:
   - languages
 date: 2026-07-08
 updated:
-aliases:
-  - Racket struct
-  - Racket match
-  - struct transparent
+aliases: []
 ---
 
 `(struct posn (x y))` is one line that binds four things. It is worth naming them before anything else, because almost every later design decision in Racket's struct system is a consequence of what this form does and does not create.

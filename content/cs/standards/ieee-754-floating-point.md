@@ -9,9 +9,7 @@ tags:
   - computer-architecture
 date: 2026-07-02
 updated:
-aliases:
-  - IEEE 754
-  - The Floating-Point Standard
+aliases: []
 ---
 
 Almost every programmer has met floating point through a surprise: a sum that ends in `.30000000000000004`, a comparison that fails on values that print identically, a total that drifts by a cent over a million rows. That behavior belongs to the arithmetic, and the garden documents it where it bites, in [[cs/languages/common/numeric-types-and-overflow-semantics|numeric types and overflow semantics]]. This note is about the document instead. IEEE 754 is a specification that tells an implementer what to build, and reading it as a specification answers a question the arithmetic never does: given that everyone claims to follow the same standard, why do two conforming systems disagree?

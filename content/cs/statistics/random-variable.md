@@ -34,7 +34,7 @@ Each outcome $s \in S$ maps to a real number $X(s)$. The randomness comes from t
 
 For a discrete random variable, probabilities are assigned to individual values: $P(X = x)$. For a continuous random variable, probability is defined over intervals: $P(a \le X \le b) = \int_a^b f(x)\, dx$, and $P(X = x) = 0$ for any single point.
 
-![Random variable as a function mapping sample space to real numbers](assets/random-variable-mapping.svg)
+![Random variable as a function mapping sample space to real numbers](cs/statistics/assets/random-variable-mapping.svg)
 
 ## Key Formulas
 
@@ -79,9 +79,9 @@ The random variable $X$ lets us move from "packets might get dropped" to precise
 
 ## Related Notes
 
-- [[expected-value|Expected Value]] - the mean of a random variable
-- [[variance-and-covariance|Variance and Covariance]] - measures spread and co-movement of random variables
-- [[probability-distributions|Probability Distributions]] - the families that random variables follow
-- [[binomial-distribution|Binomial Distribution]] - a discrete random variable counting successes
-- [[normal-distribution|Normal Distribution]] - the most common continuous random variable model
-- [[poisson-distribution|Poisson Distribution]] - a discrete random variable for event counts
+- [[cs/statistics/expected-value|Expected Value]] - the mean of a random variable
+- [[cs/statistics/variance-and-covariance|Variance and Covariance]] - measures spread and co-movement of random variables
+- [[cs/statistics/probability-distributions|Probability Distributions]] - the families that random variables follow
+- [[cs/statistics/binomial-distribution|Binomial Distribution]] - a discrete random variable counting successes
+- [[cs/statistics/normal-distribution|Normal Distribution]] - the most common continuous random variable model
+- [[cs/statistics/poisson-distribution|Poisson Distribution]] - a discrete random variable for event counts

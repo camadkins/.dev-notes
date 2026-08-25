@@ -13,7 +13,7 @@ aliases: []
 
 ## Intuition
 
-The [[expected-value|expected value]] tells you where a distribution is centered, but not how spread out it is. **Variance** fills that gap: it measures the average squared distance from the mean. A low variance means outcomes cluster tightly; a high variance means they are dispersed.
+The [[cs/statistics/expected-value|expected value]] tells you where a distribution is centered, but not how spread out it is. **Variance** fills that gap: it measures the average squared distance from the mean. A low variance means outcomes cluster tightly; a high variance means they are dispersed.
 
 **Covariance** extends this idea to pairs of variables. It answers: when $X$ is above its mean, does $Y$ tend to be above its mean too (positive covariance), below it (negative), or neither (zero)? Covariance is the raw material for correlation, regression, and dimensionality reduction.
 
@@ -75,7 +75,7 @@ $$\rho_{XY} = \frac{\sigma_{XY}}{\sigma_X \, \sigma_Y}$$
 
 $|\rho| = 1$ indicates a perfect linear relationship; $\rho = 0$ means no linear association.
 
-![Three scatter plots showing positive, zero, and negative correlation](assets/covariance-scatter.svg)
+![Three scatter plots showing positive, zero, and negative correlation](cs/statistics/assets/covariance-scatter.svg)
 
 ## Example
 
@@ -96,13 +96,13 @@ A moderately strong positive linear association - more study hours correlate wit
 
 ## Why It Matters in CS
 
-- **PCA and dimensionality reduction.** [[pca-and-dimensionality-reduction|Principal Component Analysis]] finds directions of maximum variance by computing eigenvectors of the **covariance matrix**. Features with high covariance are collapsed into single components, reducing dimensionality while preserving information.
+- **PCA and dimensionality reduction.** [[cs/machine-learning/pca-and-dimensionality-reduction|Principal Component Analysis]] finds directions of maximum variance by computing eigenvectors of the **covariance matrix**. Features with high covariance are collapsed into single components, reducing dimensionality while preserving information.
 - **Stability of randomized algorithms.** Low variance in a [[cs/dsa/best-worst-average-cases|randomized algorithm's runtime]] means its performance is predictable. Chebyshev's inequality bounds tail probabilities using variance: $P(|X - \mu| \geq k\sigma) \leq 1/k^2$.
 - **Sensor fusion and robotics.** [[cs/military-computing/sins-polaris-inertial-navigation|Kalman filters]] propagate **covariance matrices** to track how uncertainty evolves over time. Sensor measurements with lower variance receive more weight in the fused estimate.
 - **Portfolio and resource optimization.** In distributed systems, covariance between server loads determines whether [[cs/networking/load-balancing-l4-and-l7|load-balancing]] reduces total variance or not - negatively correlated loads are ideal.
 
 ## Related Notes
 
-- [[expected-value|Expected Value]] - variance measures spread around the expected value
-- [[probability-distributions|Probability Distributions]] - each distribution has characteristic variance formulas
-- [[regression-fundamentals|Regression Fundamentals]] - regression coefficients are ratios of covariance to variance
+- [[cs/statistics/expected-value|Expected Value]] - variance measures spread around the expected value
+- [[cs/statistics/probability-distributions|Probability Distributions]] - each distribution has characteristic variance formulas
+- [[cs/statistics/regression-fundamentals|Regression Fundamentals]] - regression coefficients are ratios of covariance to variance

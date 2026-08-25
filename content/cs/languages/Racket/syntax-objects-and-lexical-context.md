@@ -9,10 +9,7 @@ tags:
   - compilers
 date: 2026-06-16
 updated:
-aliases:
-  - Syntax Objects
-  - datum->syntax
-  - Lexical Context in Racket
+aliases: []
 ---
 
 `'(+ 1 2)` and `#'(+ 1 2)` print differently for a reason:

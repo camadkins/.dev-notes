@@ -8,10 +8,7 @@ tags:
   - languages
 date: 2026-08-18
 updated:
-aliases:
-  - Racket CS
-  - Racket BC
-  - Racket on Chez Scheme
+aliases: []
 ---
 
 Racket started in 1995 as a fusion of two off-the-shelf C/C++ libraries, a Scheme interpreter and a cross-platform GUI toolkit, assembled to host a pedagogical programming environment. Twenty-some years later the environment had become DrRacket and the interpreter mash-up had become the Racket core, and the team replaced the whole bottom of it. Racket 8.0 shipped Chez Scheme underneath, and the old implementation acquired a retronym.

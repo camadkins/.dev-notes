@@ -9,10 +9,7 @@ tags:
   - databases
 date: 2026-08-11
 updated:
-aliases:
-  - Deferred Execution in LINQ
-  - IEnumerable vs IQueryable
-  - How LINQ Becomes SQL
+aliases: []
 ---
 
 Two queries can be character-for-character identical and compile into artifacts with nothing in common. Written against an array, the lambda in a `where` clause becomes a compiled method the runtime invokes per element. Written against a database table, the same lambda becomes an object graph that no one invokes at all, which a provider walks and translates into SQL. Nothing in the syntax marks the difference. The static type of the source decides it.

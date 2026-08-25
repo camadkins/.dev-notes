@@ -11,9 +11,6 @@ updated:
 aliases:
   - HSRP
   - VRRP
-  - first hop redundancy
-  - standby preempt
-  - virtual MAC
 ---
 
 Build a network with two of everything and a host still has exactly one way off its own subnet. RFC 5798 states the problem without hedging: the use of a statically configured default route is quite popular, it minimizes configuration and processing overhead on the end-host, and is supported by virtually every IPv4 implementation. Then the cost. However, this creates a single point of failure. Loss of the default router results in a catastrophic event, isolating all end-hosts that are unable to detect any alternate path that may be available.
@@ -119,12 +116,12 @@ What it does not buy is protection against anything past the first hop. Everythi
 
 ## Related Notes
 
-- [[arp-and-mac-addressing|ARP and MAC Addressing]] - the cached gateway MAC that makes the virtual MAC necessary
-- [[static-routing-and-administrative-distance|Static Routing and Administrative Distance]] - the host-side static default route this protocol protects
-- [[ospf-fundamentals|OSPF Fundamentals]] - the routing protocol that handles everything past the first hop
-- [[spanning-tree-protocol|Spanning Tree Protocol]] - the other place where an election with a bad default puts the wrong box in charge
-- [[vlans-and-vlan-design|VLANs and VLAN Design]] - one HSRP or VRRP group per SVI, which is where group numbering discipline starts
-- [[dhcp-and-address-assignment|DHCP and Address Assignment]] - how the virtual IP reaches the hosts as their default gateway
+- [[cs/networking/arp-and-mac-addressing|ARP and MAC Addressing]] - the cached gateway MAC that makes the virtual MAC necessary
+- [[cs/cisco/static-routing-and-administrative-distance|Static Routing and Administrative Distance]] - the host-side static default route this protocol protects
+- [[cs/cisco/ospf-fundamentals|OSPF Fundamentals]] - the routing protocol that handles everything past the first hop
+- [[cs/cisco/spanning-tree-protocol|Spanning Tree Protocol]] - the other place where an election with a bad default puts the wrong box in charge
+- [[cs/cisco/vlans-and-vlan-design|VLANs and VLAN Design]] - one HSRP or VRRP group per SVI, which is where group numbering discipline starts
+- [[cs/networking/dhcp-and-address-assignment|DHCP and Address Assignment]] - how the virtual IP reaches the hosts as their default gateway
 
 ## Sources
 

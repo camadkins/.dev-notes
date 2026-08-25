@@ -9,11 +9,7 @@ tags:
   - type-theory
 date: 2026-08-11
 updated:
-aliases:
-  - typing.overload
-  - Python Stub Files
-  - typeshed
-  - pyi
+aliases: []
 ---
 
 `bytes.__getitem__` returns an `int` for an index and a `bytes` for a slice. A union cannot say that.

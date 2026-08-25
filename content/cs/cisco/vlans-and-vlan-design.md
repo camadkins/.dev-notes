@@ -8,11 +8,7 @@ tags:
   - cisco
 date: 2026-04-02
 updated:
-aliases:
-  - Cisco VLANs
-  - switchport access vlan
-  - VLAN 1
-  - vlan.dat
+aliases: []
 ---
 
 You reach for a VLAN when two groups of devices share a switch but should not share a broadcast domain. Cameras and workstations in the same closet. A vendor's test bench and the production LAN. The trigger is almost never "we ran out of ports," it is "these things should not be able to see each other's frames without passing something that can enforce policy."
@@ -24,9 +20,9 @@ Cisco's own definition is worth reading slowly, because it is a design statement
 
 ## The flooding boundary is the whole product
 
-A switch with no VLANs [[cs/networking/multicast-broadcast-anycast|floods unknown unicast, broadcast, and multicast out every port]]. Add VLANs and that flood is scoped. Each VLAN is considered a logical network, and it contains its own bridge MIB information and can support its own implementation of spanning tree. So a VLAN is not a filter bolted onto a flat network, it is a separate bridged network that happens to run on shared hardware, with its own [[spanning-tree-protocol|spanning tree instance]] and its own address learning.
+A switch with no VLANs [[cs/networking/multicast-broadcast-anycast|floods unknown unicast, broadcast, and multicast out every port]]. Add VLANs and that flood is scoped. Each VLAN is considered a logical network, and it contains its own bridge MIB information and can support its own implementation of spanning tree. So a VLAN is not a filter bolted onto a flat network, it is a separate bridged network that happens to run on shared hardware, with its own [[cs/cisco/spanning-tree-protocol|spanning tree instance]] and its own address learning.
 
-VLANs are often associated with IP subnetworks. All the end stations in a particular IP subnet belong to the same VLAN, which is why VLAN design and [[ip-addressing-and-subnetting|subnet design]] are one exercise rather than two. If you find yourself with two subnets in one VLAN or one subnet split across two VLANs, something upstream in the design went sideways.
+VLANs are often associated with IP subnetworks. All the end stations in a particular IP subnet belong to the same VLAN, which is why VLAN design and [[cs/networking/ip-addressing-and-subnetting|subnet design]] are one exercise rather than two. If you find yourself with two subnets in one VLAN or one subnet split across two VLANs, something upstream in the design went sideways.
 
 [[cs/standards/ieee-802-1q-vlan-tagging|VLANs are identified by a number from 1 to 4094]], and VLAN IDs 1002 through 1005 are reserved for Token Ring and FDDI VLANs. Those four reserved IDs are automatically created and cannot be removed, which is why `show vlan` on a factory-fresh switch is never empty.
 
@@ -42,7 +38,7 @@ Switch(config-if)# switchport access vlan 2
 Switch(config-if)# end
 ```
 
-`switchport mode access` puts the interface into permanent nontrunking mode and negotiates to convert the link into a nontrunk link, and the interface becomes a nontrunk interface regardless of whether or not the neighboring interface is a trunk interface. That "regardless" is the point of typing it: it takes [[trunking-and-802-1q|DTP negotiation]] off the table for that port.
+`switchport mode access` puts the interface into permanent nontrunking mode and negotiates to convert the link into a nontrunk link, and the interface becomes a nontrunk interface regardless of whether or not the neighboring interface is a trunk interface. That "regardless" is the point of typing it: it takes [[cs/cisco/trunking-and-802-1q|DTP negotiation]] off the table for that port.
 
 > [!warning] `switchport access vlan` will invent a VLAN for you
 > Cisco states it plainly: if you assign an interface to a VLAN that does not exist, the new VLAN is created. Typing `switchport access vlan 210` when you meant `21` does not throw an error and does not leave the port in VLAN 21. It silently creates VLAN 210, moves the port into it, and hands you a port that is up, up, and completely alone in a broadcast domain of one. The symptom reads like a cabling or DHCP fault. The fix is `show vlan`, where the phantom VLAN will be sitting there with exactly one member port.
@@ -60,7 +56,7 @@ If no name is entered for the VLAN, the default is to append the vlan-id with le
 
 ## Where VLAN configuration actually lives
 
-This one surprises people who have internalized [[running-vs-startup-config|running config versus startup config]] and assume it covers everything. Configurations for VLAN IDs 1 to 1005 are written to the file `vlan.dat`, the VLAN database, and you display them by entering the `show vlan` privileged EXEC command. The `vlan.dat` file is stored in flash memory, separate from the startup configuration.
+This one surprises people who have internalized [[cs/cisco/running-vs-startup-config|running config versus startup config]] and assume it covers everything. Configurations for VLAN IDs 1 to 1005 are written to the file `vlan.dat`, the VLAN database, and you display them by entering the `show vlan` privileged EXEC command. The `vlan.dat` file is stored in flash memory, separate from the startup configuration.
 
 So a config backup that captures only `show running-config` does not capture your normal-range VLAN definitions. The port-to-VLAN assignments are in the running config, because you use interface configuration mode to define the port membership mode and to add and remove ports from VLANs, and the results of those commands are written to the running-configuration file. The VLAN *definitions* are somewhere else. Restoring a switch from a text config alone can therefore leave you with `switchport access vlan 30` on forty ports and no VLAN 30.
 
@@ -97,13 +93,13 @@ Second, take VLAN 1 off the trunks that do not need it. Cisco calls this VLAN 1 
 
 ## Related Notes
 
-- [[trunking-and-802-1q|Trunking and 802.1Q]] - how these VLANs get from one switch to the next
-- [[spanning-tree-protocol|Spanning Tree Protocol]] - the per-VLAN loop-prevention instance each VLAN carries
-- [[vlans-and-802-1q-trunking|VLANs and 802.1Q Trunking]] - the vendor-neutral protocol note, tag format and all
-- [[running-vs-startup-config|Running vs Startup Config]] - and why the VLAN database is not covered by either
-- [[ios-cli-modes|IOS CLI Modes]] - the `(config-vlan)` and `(config-if)` modes these commands live in
-- [[ip-addressing-and-subnetting|IP Addressing and Subnetting]] - the layer-3 half of the same design decision
-- [[arp-spoofing-and-lan-attacks|ARP Spoofing and LAN Attacks]] - what an attacker does inside a broadcast domain you left too large
+- [[cs/cisco/trunking-and-802-1q|Trunking and 802.1Q]] - how these VLANs get from one switch to the next
+- [[cs/cisco/spanning-tree-protocol|Spanning Tree Protocol]] - the per-VLAN loop-prevention instance each VLAN carries
+- [[cs/networking/vlans-and-802-1q-trunking|VLANs and 802.1Q Trunking]] - the vendor-neutral protocol note, tag format and all
+- [[cs/cisco/running-vs-startup-config|Running vs Startup Config]] - and why the VLAN database is not covered by either
+- [[cs/cisco/ios-cli-modes|IOS CLI Modes]] - the `(config-vlan)` and `(config-if)` modes these commands live in
+- [[cs/networking/ip-addressing-and-subnetting|IP Addressing and Subnetting]] - the layer-3 half of the same design decision
+- [[cs/security/arp-spoofing-and-lan-attacks|ARP Spoofing and LAN Attacks]] - what an attacker does inside a broadcast domain you left too large
 
 ## Sources
 

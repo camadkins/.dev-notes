@@ -10,10 +10,7 @@ tags:
 date: 2026-06-24
 updated:
 aliases:
-  - HSTS and HTTP Security Headers
   - HSTS
-  - HTTP Strict Transport Security
-  - Strict-Transport-Security
 ---
 
 TLS can encrypt a connection, but it cannot make a browser *choose* to use it. A user who types `example.com` sends a plaintext HTTP request first, and a bank that serves HTTPS still leaves that opening request naked on the wire. Worse, when a certificate warning appears, browsers historically let the user click through it, which as RFC 6797 notes turns a security control into "click-through insecurity." HTTP Strict Transport Security is the response to both gaps, and it works by handing enforcement authority to the browser instead of the human.
@@ -41,20 +38,20 @@ The second half is the harder cultural change. HSTS mandates that failing secure
 
 HSTS has one structural hole, and the spec names it: the Bootstrap MITM Vulnerability. The policy only exists in a browser *after* the browser has seen the header, which requires at least one successful connection. If a user "manually enters, or follows a link, to an unknown HSTS Host using an 'http' URI," that very first interaction "uses an insecure channel" and "is vulnerable to various attacks." An attacker present on that first contact can prevent the HSTS header from ever being delivered.
 
-This is the same trust-on-first-use gap that [[certificate-pinning|certificate pinning]] has, and the industry patched it the same way: HSTS preload lists, shipped inside the browser, seed the policy for major sites before the user ever connects, so there is no unprotected first request to exploit.
+This is the same trust-on-first-use gap that [[cs/security/certificate-pinning|certificate pinning]] has, and the industry patched it the same way: HSTS preload lists, shipped inside the browser, seed the policy for major sites before the user ever connects, so there is no unprotected first request to exploit.
 
-HSTS is also the clearest member of a broader family: [[cs/networking/http-evolution-1-1-to-3|response headers]] that let a server configure browser-side defenses TLS cannot provide. [[content-security-policy|Content-Security-Policy]] constrains which resources a page may load, [[same-origin-policy-and-cors|CORS]] headers govern cross-origin access, and cookie attributes like `Secure` and `HttpOnly` harden [[session-management-and-secure-cookies|session cookies]]. Each shares HSTS's shape: the server states a policy, the browser enforces it, and the user is taken out of the loop.
+HSTS is also the clearest member of a broader family: [[cs/networking/http-evolution-1-1-to-3|response headers]] that let a server configure browser-side defenses TLS cannot provide. [[cs/security/content-security-policy|Content-Security-Policy]] constrains which resources a page may load, [[cs/security/same-origin-policy-and-cors|CORS]] headers govern cross-origin access, and cookie attributes like `Secure` and `HttpOnly` harden [[cs/security/session-management-and-secure-cookies|session cookies]]. Each shares HSTS's shape: the server states a policy, the browser enforces it, and the user is taken out of the loop.
 
 > [!warning] HSTS protects the transport, not the user
 > RFC 6797 is careful that HSTS "is explicitly not a remedy for two other classes of threats: phishing and malware." It guarantees you are talking to the real server over a secure channel; it says nothing about whether the real server, or the site you were socially engineered into visiting, is trustworthy.
 
 ## Related Notes
 
-- [[content-security-policy|Content Security Policy]] - the header that restricts resource loading, HSTS's sibling in the same family
-- [[same-origin-policy-and-cors|Same-Origin Policy and CORS]] - another browser-enforced, header-driven boundary
-- [[certificate-pinning|Certificate Pinning]] - shares the trust-on-first-use gap and the preload fix
-- [[man-in-the-middle-attacks|Man-in-the-Middle Attacks]] - the SSL-stripping downgrade HSTS closes
-- [[session-management-and-secure-cookies|Session Management and Secure Cookies]] - cookie hardening headers in the same defensive family
+- [[cs/security/content-security-policy|Content Security Policy]] - the header that restricts resource loading, HSTS's sibling in the same family
+- [[cs/security/same-origin-policy-and-cors|Same-Origin Policy and CORS]] - another browser-enforced, header-driven boundary
+- [[cs/security/certificate-pinning|Certificate Pinning]] - shares the trust-on-first-use gap and the preload fix
+- [[cs/security/man-in-the-middle-attacks|Man-in-the-Middle Attacks]] - the SSL-stripping downgrade HSTS closes
+- [[cs/security/session-management-and-secure-cookies|Session Management and Secure Cookies]] - cookie hardening headers in the same defensive family
 
 ## Sources
 

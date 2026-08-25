@@ -8,8 +8,7 @@ tags:
   - military
 date: 2026-02-06
 updated:
-aliases:
-  - ENIAC programmers
+aliases: []
 ---
 
 When ENIAC was finished in the mid 1940s it could calculate an artillery trajectory faster than any machine before it. It could also do nothing at all until someone worked out, in complete detail, how to make it. There was [[cs/history/fortran-and-high-level-languages|no programming language]], [[cs/history/operating-system-concept-batch-to-interactive|no operating system]], and no manual. The people who figured it out were six women, and in doing so they turned a pile of switchable hardware into a computer and invented programming as a distinct kind of work.
@@ -35,9 +34,9 @@ Their real invention was conceptual. [[cs/history/von-neumann-architecture|They 
 
 ## Related Notes
 
-- [[ballistics-tables-and-eniac|Ballistics Tables and ENIAC]], the machine and the firing-table problem it served
-- [[von-neumann-architecture|Von Neumann Architecture]], the stored-program idea that would replace plugboard setup
-- [[programming-paradigms-models-of-computation|Programming Paradigms]], the later vocabulary for what they were doing by hand
+- [[cs/military-computing/ballistics-tables-and-eniac|Ballistics Tables and ENIAC]], the machine and the firing-table problem it served
+- [[cs/history/von-neumann-architecture|Von Neumann Architecture]], the stored-program idea that would replace plugboard setup
+- [[cs/pl/programming-paradigms-models-of-computation|Programming Paradigms]], the later vocabulary for what they were doing by hand
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

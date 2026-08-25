@@ -10,7 +10,6 @@ date: 2026-08-11
 updated:
 aliases:
   - 802.3
-  - Standard for Ethernet
 ---
 
 The document has a strange property: its own title used to name a technology that most conforming equipment does not implement. The IEEE standard for Ethernet is built around carrier-sense multiple access with collision detection, and on a modern switched full-duplex link there is no carrier sense, no collision, and no detection. The mechanism survives in the text because the text is a contract with forty years of continuity obligations, not a description of current practice.

@@ -8,10 +8,7 @@ tags:
   - languages
 date: 2026-03-11
 updated:
-aliases:
-  - List Comprehensions
-  - Dict Comprehensions
-  - Python Displays
+aliases: []
 ---
 
 Python calls the bracket-and-brace syntax for building a container a **display**, and the language reference gives each display two flavors: either the container contents are listed explicitly, or they are computed via a set of looping and filtering instructions, called a comprehension. That word choice matters more than it looks. A comprehension is not a special kind of loop bolted onto a literal. It is the second way to write the same literal.

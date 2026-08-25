@@ -8,10 +8,7 @@ tags:
   - geopolitics
 date: 2026-06-28
 updated:
-aliases:
-  - open weights
-  - open-weight models
-  - model proliferation
+aliases: []
 ---
 
 A trained AI model is, in the end, a file. The weeks of computation and the mountains of data all collapse into one artifact: a large blob of numbers, the learned parameters, that you can copy with the same command you would use on a photo. That physical fact governs everything downstream. A file can be served behind an API, where you query it but never hold it, or it can be handed to you to download and run on your own machine. The moment a capable model is released in that second form, it stops being something anyone controls. It is mirrored, re-uploaded, and [[cs/deep-learning/transfer-learning|fine-tuned in countless places]] within days, and there is no command that pulls it back.
@@ -23,7 +20,7 @@ A trained AI model is, in the end, a file. The weeks of computation and the moun
 
 The cleanest way to see the governance problem is to look at how foundation models are actually shipped. The two most common forms of release are through an API and through a direct model download. With an API release, you send the provider a prompt and get a response, but you never touch the weights; they sit on the provider's servers, and the provider can revoke your key, throttle you, log you, or change the model under you. With a download, the weights themselves are the deliverable, and once they are on your disk they are yours to run, copy, and modify offline.
 
-That difference is the whole ballgame. A service is a relationship the provider can end. A file is an object that, once duplicated, [[cs/languages/common/software-supply-chain-and-provenance|exists independently of whoever made it]]. This is why the same property that makes [[compute-as-a-governable-resource|compute a governable resource]] runs in reverse for weights. Compute is concentrated, expensive, and physically conspicuous, so a government can audit a data center or restrict a chip sale. A released weight file is none of those things. You cannot audit every copy of a file that already lives on thousands of machines.
+That difference is the whole ballgame. A service is a relationship the provider can end. A file is an object that, once duplicated, [[cs/languages/common/software-supply-chain-and-provenance|exists independently of whoever made it]]. This is why the same property that makes [[cs/geopolitics/compute-as-a-governable-resource|compute a governable resource]] runs in reverse for weights. Compute is concentrated, expensive, and physically conspicuous, so a government can audit a data center or restrict a chip sale. A released weight file is none of those things. You cannot audit every copy of a file that already lives on thousands of machines.
 
 ## Open-weight versus closed, and the tradeoffs
 
@@ -41,16 +38,16 @@ This is what makes the release decision the pivotal governance moment rather tha
 
 Set the two artifacts side by side and a clean division of labor appears. Of the inputs to a frontier model, compute is concentrated and chokeable while weights are diffusible and uncontrollable once out. So the leverage points are the two stages where the artifact is still pinned down: the compute used to produce it, and the decision to release it. Gate the compute, and you constrain who can build a frontier model in the first place. Govern the release, and you act at the last instant the weights are still in one place. Trying to control the weight file after an open release is the policy equivalent of recalling spilled water.
 
-That is why [[ai-governance|AI governance]] keeps returning to those two surfaces. The compute lever leans on [[semiconductor-supply-chains|semiconductor supply chains]] and the scarcity of advanced chips, while the release lever leans on the developers who still hold the file before it ships. Both exist because the alternative, regulating the diffused artifact, is not available. The deep capability of these models, the product of [[cs/history/deep-learning-revolution|the deep learning revolution]], rides entirely inside a file that copies for free, so governance has to grab the model while it is still expensive to make and still sitting in one place.
+That is why [[cs/geopolitics/ai-governance|AI governance]] keeps returning to those two surfaces. The compute lever leans on [[cs/geopolitics/semiconductor-supply-chains|semiconductor supply chains]] and the scarcity of advanced chips, while the release lever leans on the developers who still hold the file before it ships. Both exist because the alternative, regulating the diffused artifact, is not available. The deep capability of these models, the product of [[cs/history/deep-learning-revolution|the deep learning revolution]], rides entirely inside a file that copies for free, so governance has to grab the model while it is still expensive to make and still sitting in one place.
 
 > [!example] Two paths for the same weights
 > Imagine a lab finishes training a capable model and faces the release decision. Path A: it exposes the model only through a metered API. Users can query it, but the lab keeps the weights, watches for abuse, revokes bad actors, and can take the whole thing offline tomorrow. Path B: it publishes the weight file for download. Within days the file is mirrored on dozens of hosts, fine-tuned variants appear with the original safety training removed, and copies sit on machines in jurisdictions the lab will never see. Path A stays reversible for the model's whole life. Path B was reversible for exactly as long as the download button stayed dark.
 
 ## Related Notes
 
-- [[compute-as-a-governable-resource|Compute as a Governable Resource]] - the mirror thesis, where the concentrated input is the one you can gate
-- [[ai-governance|AI Governance]] - the regulatory frame where release decisions and compute thresholds become the actual levers
-- [[semiconductor-supply-chains|Semiconductor Supply Chains]] - the chip chokepoints behind the compute lever that pairs with release governance
+- [[cs/geopolitics/compute-as-a-governable-resource|Compute as a Governable Resource]] - the mirror thesis, where the concentrated input is the one you can gate
+- [[cs/geopolitics/ai-governance|AI Governance]] - the regulatory frame where release decisions and compute thresholds become the actual levers
+- [[cs/geopolitics/semiconductor-supply-chains|Semiconductor Supply Chains]] - the chip chokepoints behind the compute lever that pairs with release governance
 - [[cs/history/deep-learning-revolution|The Deep Learning Revolution]] - why so much capability now rides inside a file that copies for free
 
 ## Sources

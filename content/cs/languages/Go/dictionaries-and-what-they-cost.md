@@ -9,10 +9,7 @@ tags:
   - compilers
 date: 2026-08-11
 updated:
-aliases:
-  - Go Generic Dictionaries
-  - Sub-dictionary
-  - Non-monomorphisable
+aliases: []
 ---
 
 A shape instantiation of a generic function runs the same machine code for every type sharing its memory layout. Sometimes that is enough. Often it is not: the body converts a value to `any` and needs a type descriptor, or calls a method through a constraint, or calls another generic function with its own type parameters. None of that can be baked into a body serving many types, so the caller supplies it. The Go 1.18 implementation document states the mechanism in one sentence: the compiler passes "a dictionary along with every call to a generic function/method," and the dictionary "provides relevant information about the type arguments that allows a single function instantiation to run correctly for many distinct type arguments."

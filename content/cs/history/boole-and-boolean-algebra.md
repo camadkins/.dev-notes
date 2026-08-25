@@ -8,8 +8,7 @@ tags:
   - history
 date: 2026-01-17
 updated:
-aliases:
-  - George Boole
+aliases: []
 ---
 
 In 1854 a self-taught English mathematician published a book that turned logic into algebra. George Boole could not have known that [[cs/math/boolean-algebra|his two-valued system]] would become the mathematics of every digital circuit, since there were no such circuits for another eighty years.
@@ -21,7 +20,7 @@ In 1854 a self-taught English mathematician published a book that turned logic i
 
 Boole developed his algebra of logic from 1847 and laid it out fully in An Investigation of the Laws of Thought, published in 1854. He recast logical statements as algebraic equations over just two values, so that [[cs/math/propositional-logic|deduction could be carried out by manipulating symbols according to fixed rules]].
 
-![Boolean operations: the truth tables for AND, OR, and NOT over the two values 0 and 1.](assets/boolean-truth-tables.svg)
+![Boolean operations: the truth tables for AND, OR, and NOT over the two values 0 and 1.](cs/history/assets/boolean-truth-tables.svg)
 
 ## Why two values
 
@@ -29,13 +28,13 @@ A two-valued algebra was an odd thing for a mathematician of the 1850s to pursue
 
 ## The bridge to hardware
 
-Boolean algebra became the foundation of [[cs/dsa/bitwise-operations|practical digital circuit design]], but that connection was not Boole's to make. It waited until [[shannon-boolean-algebra-switching|Shannon]] showed, in 1937, that switches obey exactly Boole's algebra. Boole's logic pairs naturally with [[leibniz-and-binary|binary]], two-valued logic over a two-symbol number system, and both feed into the limits-of-computation work of [[hilbert-godel-church-computability|Hilbert, Gödel, and Church]].
+Boolean algebra became the foundation of [[cs/dsa/bitwise-operations|practical digital circuit design]], but that connection was not Boole's to make. It waited until [[cs/history/shannon-boolean-algebra-switching|Shannon]] showed, in 1937, that switches obey exactly Boole's algebra. Boole's logic pairs naturally with [[cs/history/leibniz-and-binary|binary]], two-valued logic over a two-symbol number system, and both feed into the limits-of-computation work of [[cs/history/hilbert-godel-church-computability|Hilbert, Gödel, and Church]].
 
 ## Related Notes
 
-- [[shannon-boolean-algebra-switching|Shannon's Master's Thesis]], where Boolean algebra became circuits
-- [[leibniz-and-binary|Leibniz and Binary]], the matching two-symbol number system
-- [[hilbert-godel-church-computability|Hilbert, Gödel, Church, and the Limits of Computation]], logic taken to its edge
+- [[cs/history/shannon-boolean-algebra-switching|Shannon's Master's Thesis]], where Boolean algebra became circuits
+- [[cs/history/leibniz-and-binary|Leibniz and Binary]], the matching two-symbol number system
+- [[cs/history/hilbert-godel-church-computability|Hilbert, Gödel, Church, and the Limits of Computation]], logic taken to its edge
 - [[cs/history/index|History of Computing]], the section index
 
 ## Sources

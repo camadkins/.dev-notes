@@ -11,9 +11,6 @@ updated:
 aliases:
   - RBAC
   - ABAC
-  - Role-Based Access Control
-  - Attribute-Based Access Control
-  - Access Control Models
 ---
 
 Authorization has one job: given a request to do something to some resource, return yes or no. The naive implementation is an access control list, one entry per user per object, and it collapses the moment an organization has thousands of users and millions of objects. Every model past the ACL is an attempt to move the decision up a level of abstraction so the yes-or-no stops being hand-maintained per pair. Roles were the first big lift. Attributes were the next.
@@ -23,7 +20,7 @@ Authorization has one job: given a request to do something to some resource, ret
 
 ## RBAC: the indirection that tamed the ACL
 
-RBAC's win was inserting one layer between people and permissions. Instead of granting a user access to an object directly, you grant the *role* the access and grant the *user* the role. "At the point of an access request, the access control mechanism evaluates the role assigned to the subject requesting access and the set of operations this role is authorized to perform on the object." A new hire in accounting inherits the accounting role's permissions on day one; a departure drops them just as cleanly. [[cs/standards/what-a-standard-actually-is|NIST]] records the historical payoff bluntly: "As the RBAC specification gained popularity, it made central management of enterprise access control capabilities possible and reduced the need for ACLs." This is the same least-authority instinct behind [[privilege-separation-and-least-privilege|least privilege]], applied to administration rather than to processes.
+RBAC's win was inserting one layer between people and permissions. Instead of granting a user access to an object directly, you grant the *role* the access and grant the *user* the role. "At the point of an access request, the access control mechanism evaluates the role assigned to the subject requesting access and the set of operations this role is authorized to perform on the object." A new hire in accounting inherits the accounting role's permissions on day one; a departure drops them just as cleanly. [[cs/standards/what-a-standard-actually-is|NIST]] records the historical payoff bluntly: "As the RBAC specification gained popularity, it made central management of enterprise access control capabilities possible and reduced the need for ACLs." This is the same least-authority instinct behind [[cs/security/privilege-separation-and-least-privilege|least privilege]], applied to administration rather than to processes.
 
 ## Where roles run out: role explosion
 
@@ -33,18 +30,18 @@ The trouble is that a role is a single static label, and real authorization ques
 
 ABAC dissolves the [[cs/math/combinatorics|combinatorial]] problem by not enumerating combinations at all. It evaluates a Boolean policy over whatever attributes are available. "The key difference with ABAC is the concept of policies that express a complex Boolean rule set that can evaluate many different attributes." The nurse-practitioner rule becomes one policy: `role == nurse_practitioner AND department == cardiology AND location == on_site AND hipaa_training == current`. No new roles, and the decision tracks reality without administrative churn: "Under ABAC, access decisions can change between requests by simply changing attribute values, without the need to change the subject/object relationships defining underlying rule sets." Update the training-date attribute and access flips automatically at the next request.
 
-That dynamism is exactly what a [[zero-trust-architecture|zero-trust]] posture needs, where each request is evaluated on current context rather than a standing grant. The cost is real: ABAC needs a trustworthy attribute-management infrastructure and machine-enforceable policy, and a wrong or stale attribute silently changes an answer.
+That dynamism is exactly what a [[cs/security/zero-trust-architecture|zero-trust]] posture needs, where each request is evaluated on current context rather than a standing grant. The cost is real: ABAC needs a trustworthy attribute-management infrastructure and machine-enforceable policy, and a wrong or stale attribute silently changes an answer.
 
 > [!warning] Flexibility moves the risk, it does not remove it
 > Under RBAC the audit question is "who is in this role?" Under ABAC it becomes "what does this policy evaluate to across every attribute source it reads?", which is harder to reason about and harder to prove compliant. NIST notes that demonstrating requirements compliance with the coarser models "is difficult and costly," but ABAC trades that for a policy surface whose correctness depends on the integrity of every attribute feeding it.
 
 ## Related Notes
 
-- [[privilege-separation-and-least-privilege|Privilege Separation and Least Privilege]] - the principle both models exist to enforce at scale
-- [[zero-trust-architecture|Zero Trust Architecture]] - the per-request, context-driven posture that leans on attribute evaluation
-- [[kerberos-authentication|Kerberos Authentication]] - how a subject's identity is established before any role or attribute is checked
-- [[oauth2-and-openid-connect|OAuth 2.0 and OpenID Connect]] - scoped tokens as another way to bound what a client may do
-- [[stride-threat-modeling|STRIDE Threat Modeling]] - where elevation-of-privilege risks in an access model surface
+- [[cs/security/privilege-separation-and-least-privilege|Privilege Separation and Least Privilege]] - the principle both models exist to enforce at scale
+- [[cs/security/zero-trust-architecture|Zero Trust Architecture]] - the per-request, context-driven posture that leans on attribute evaluation
+- [[cs/security/kerberos-authentication|Kerberos Authentication]] - how a subject's identity is established before any role or attribute is checked
+- [[cs/security/oauth2-and-openid-connect|OAuth 2.0 and OpenID Connect]] - scoped tokens as another way to bound what a client may do
+- [[cs/security/stride-threat-modeling|STRIDE Threat Modeling]] - where elevation-of-privilege risks in an access model surface
 
 ## Sources
 

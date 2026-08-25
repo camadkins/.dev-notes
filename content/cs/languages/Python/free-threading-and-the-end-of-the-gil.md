@@ -10,8 +10,6 @@ tags:
 date: 2026-08-08
 updated:
 aliases:
-  - PEP 703
-  - Free-Threaded Python
   - disable-gil
 ---
 

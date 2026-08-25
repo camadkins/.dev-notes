@@ -9,9 +9,7 @@ tags:
 date: 2026-07-27
 updated:
 aliases:
-  - Project Jigsaw
   - JPMS
-  - Java Modules
 ---
 
 Java shipped with four access levels and one gap. `public` meant public to everyone forever, so any class a library shared between its own packages was also a class its users could call. The convention that grew around that gap was a package named `internal` or `impl` and a note saying please do not use this. People used it anyway, and the JDK was the biggest offender, with `sun.misc.Unsafe` as the monument.

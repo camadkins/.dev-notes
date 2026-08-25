@@ -11,17 +11,16 @@ updated:
 aliases:
   - DHCP
   - DORA
-  - dynamic host configuration protocol
 ---
 
-Plug a new laptop into a network and it works within a second: it has an address, knows its gateway, and can resolve names. Nobody typed any of that in. A protocol did it, in a short broadcast conversation that happens every time a device joins a network. Understanding that exchange explains how the modern internet stays plug-and-play despite every device needing a unique, correctly-configured [[ip-addressing-and-subnetting|IP address]].
+Plug a new laptop into a network and it works within a second: it has an address, knows its gateway, and can resolve names. Nobody typed any of that in. A protocol did it, in a short broadcast conversation that happens every time a device joins a network. Understanding that exchange explains how the modern internet stays plug-and-play despite every device needing a unique, correctly-configured [[cs/networking/ip-addressing-and-subnetting|IP address]].
 
 > [!note] The idea
 > DHCP is a client-server protocol that automatically hands a joining device an IP address and its supporting configuration. A new client and a server complete a four-message exchange, Discover, Offer, Request, Acknowledge, and the address comes as a time-limited lease rather than a permanent grant.
 
 ## What DHCP actually delivers
 
-The Dynamic Host Configuration Protocol has two jobs: allocating network addresses to hosts, and delivering host-specific configuration parameters from a server to a host. It runs on a client-server model, where designated DHCP servers allocate addresses and deliver configuration to clients. The address is only the headline. The same exchange also carries the options a host needs to function: the [[cs/cisco/hsrp-vrrp-and-first-hop-redundancy|default gateway]], the domain name, the [[dns-the-domain-name-system|name servers]], and time servers. That is why one automatic conversation is enough to make a device fully operational.
+The Dynamic Host Configuration Protocol has two jobs: allocating network addresses to hosts, and delivering host-specific configuration parameters from a server to a host. It runs on a client-server model, where designated DHCP servers allocate addresses and deliver configuration to clients. The address is only the headline. The same exchange also carries the options a host needs to function: the [[cs/cisco/hsrp-vrrp-and-first-hop-redundancy|default gateway]], the domain name, the [[cs/systems/dns-the-domain-name-system|name servers]], and time servers. That is why one automatic conversation is enough to make a device fully operational.
 
 ## The DORA lease cycle
 
@@ -44,15 +43,15 @@ Dynamic leasing is what lets a small pool of addresses serve a much larger, chur
 > The phone broadcasts `DHCPDISCOVER`. The shop's router offers `192.168.1.47` with a one-hour lease, the gateway, and a DNS server. The phone broadcasts `DHCPREQUEST` for that address, declining any other offer. The router sends `DHCPACK`, and the phone is online. Fifty minutes later it renews; leave and the lease lapses, freeing `.47` for the next customer.
 
 > [!warning] The first conversation is unauthenticated
-> Base DHCP has no built-in authentication of the server. A rogue DHCP server answering `DHCPDISCOVER` first can hand a victim a malicious gateway or DNS address, a foothold for a [[man-in-the-middle-attacks|man-in-the-middle]] position on the LAN. Defenses like DHCP snooping live in the switch, not the base protocol.
+> Base DHCP has no built-in authentication of the server. A rogue DHCP server answering `DHCPDISCOVER` first can hand a victim a malicious gateway or DNS address, a foothold for a [[cs/security/man-in-the-middle-attacks|man-in-the-middle]] position on the LAN. Defenses like DHCP snooping live in the switch, not the base protocol.
 
 ## Related Notes
 
-- [[ip-addressing-and-subnetting|IP Addressing and Subnetting]] - the addresses DHCP hands out
-- [[nat-and-port-translation|NAT and Port Translation]] - what the private addresses DHCP assigns run behind
-- [[dns-the-domain-name-system|DNS]] - the name-server address delivered as a DHCP option
-- [[arp-and-mac-addressing|ARP and MAC Addressing]] - how a freshly-leased address gets mapped to hardware
-- [[osi-and-tcp-ip-models|OSI and TCP/IP Models]] - where address configuration sits in the stack
+- [[cs/networking/ip-addressing-and-subnetting|IP Addressing and Subnetting]] - the addresses DHCP hands out
+- [[cs/networking/nat-and-port-translation|NAT and Port Translation]] - what the private addresses DHCP assigns run behind
+- [[cs/systems/dns-the-domain-name-system|DNS]] - the name-server address delivered as a DHCP option
+- [[cs/networking/arp-and-mac-addressing|ARP and MAC Addressing]] - how a freshly-leased address gets mapped to hardware
+- [[cs/networking/osi-and-tcp-ip-models|OSI and TCP/IP Models]] - where address configuration sits in the stack
 
 ## Sources
 

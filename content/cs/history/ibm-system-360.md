@@ -8,9 +8,7 @@ tags:
   - history
 date: 2026-02-19
 updated:
-aliases:
-  - IBM System/360
-  - instruction set architecture
+aliases: []
 ---
 
 Before 1964, buying a bigger computer usually meant [[cs/languages/common/portability-and-cross-compilation|rewriting your software for it]]. IBM's System/360 ended that, and in doing so it created one of the most important ideas in how processors are designed: the separation of architecture from implementation.
@@ -28,13 +26,13 @@ The design deliberately distinguished architecture, [[cs/software-engineering/ap
 
 ## Why it endures
 
-This idea, the instruction set as a stable contract, governs processor design to this day. It is why decades of software keep running on new chips, and why [[the-microprocessor|microprocessor]] families like x86 and ARM hold their instruction sets steady while reinventing the silicon beneath them generation after generation.
+This idea, the instruction set as a stable contract, governs processor design to this day. It is why decades of software keep running on new chips, and why [[cs/history/the-microprocessor|microprocessor]] families like x86 and ARM hold their instruction sets steady while reinventing the silicon beneath them generation after generation.
 
 ## Related Notes
 
-- [[the-microprocessor|The Microprocessor]], where the ISA-as-contract idea lives today
-- [[von-neumann-architecture|Von Neumann Architecture]], the underlying machine model
-- [[virtual-memory|Virtual Memory]], another abstraction the mainframe era refined
+- [[cs/history/the-microprocessor|The Microprocessor]], where the ISA-as-contract idea lives today
+- [[cs/history/von-neumann-architecture|Von Neumann Architecture]], the underlying machine model
+- [[cs/systems/virtual-memory|Virtual Memory]], another abstraction the mainframe era refined
 - [[cs/history/index|History of Computing]], the section index
 
 ## Sources

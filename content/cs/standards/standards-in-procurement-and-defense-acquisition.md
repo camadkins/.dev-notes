@@ -8,9 +8,7 @@ tags:
   - standards
 date: 2026-08-14
 updated:
-aliases:
-  - Standards in Procurement
-  - Defense Acquisition and Standards
+aliases: []
 ---
 
 A standard published by IEEE or ISO binds nobody. It is a private document written by a consortium, and no engineer is obliged to open it. What changes that is a citation: the moment a solicitation names the document, the standard stops being advice and becomes a term of the agreement, enforceable the same way a delivery date is. The mechanism by which that happens is written down, it is public, and it is more specific than most engineers expect.

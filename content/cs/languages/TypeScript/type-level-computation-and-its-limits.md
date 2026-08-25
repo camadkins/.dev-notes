@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-08-16
 updated:
-aliases:
-  - TypeScript Turing Complete
-  - Type Instantiation Depth
+aliases: []
 ---
 
 In March 2017, Henning Dieterichs opened issue 14833 against the TypeScript repository with a title and a disclaimer. The title: "TypeScripts Type System is Turing Complete". The disclaimer: "This is not really a bug report and I certainly don't want TypeScripts type system being restricted due to this issue. However, I noticed that the type system in its current form (version 2.2) is turing complete."

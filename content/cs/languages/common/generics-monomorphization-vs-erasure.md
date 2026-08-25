@@ -9,10 +9,7 @@ tags:
   - compilers
 date: 2026-05-29
 updated:
-aliases:
-  - Generics in Practice
-  - Monomorphization
-  - Type Erasure
+aliases: []
 ---
 
 Write `fn largest<T>(list: &[T]) -> &T` once and use it on integers and on characters. The source has one definition. The machine has no idea what a type parameter is. Somewhere between those two facts a compiler has to decide whether the running program contains one copy of that function or several, and that decision, made once at the language-design level, ripples out into binary size, compile time, inlining, and what your program can ask about its own types while it runs.

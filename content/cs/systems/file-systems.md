@@ -110,8 +110,8 @@ Walking through the steps ties everything together:
 
 - [[cs/dsa/b-tree|B-Trees]] - the data structure behind most file-system indexes
 - [[cs/dsa/bplus-tree|B+ Trees]] - the variant used in XFS, NTFS, and databases for range-friendly indexing
-- [[virtual-memory|Virtual Memory]] - memory-mapped files (`mmap`) bridge the file system and the VM subsystem
-- [[processes-and-threads|Processes & Threads]] - file descriptors are per-process resources managed by the OS
+- [[cs/systems/virtual-memory|Virtual Memory]] - memory-mapped files (`mmap`) bridge the file system and the VM subsystem
+- [[cs/systems/processes-and-threads|Processes & Threads]] - file descriptors are per-process resources managed by the OS
 
 ## Sources
 

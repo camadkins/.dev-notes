@@ -1,5 +1,5 @@
 ---
-title: AVL Tree - Height-Balanced Binary Search Tree
+title: AVL Tree
 description: Self-balancing BST that maintains O(log n) height via single and double rotations based on balance factors.
 draft: false
 comments: true
@@ -45,9 +45,9 @@ which is asymptotically `O(log n)`.
 **Search** proceeds like a standard BST. **Insert** and **delete** first modify the BST structure, then **rebalance** on the path back to the root using rotations that preserve the in-order sequence.
 
 > [!tip] Rotation triggers (high level)
-> Insertions and deletions that cause \(|bf(x)| > 1\) on the search path require a local rotation (see [[avl-rotations|AVL Rotations]]).
+> Insertions and deletions that cause \(|bf(x)| > 1\) on the search path require a local rotation (see [[cs/dsa/avl-rotations|AVL Rotations]]).
 
-*(Detailed LL/LR/RL/RR rotation sequences and rotation pseudocode live in [[avl-rotations|AVL Rotations]] to keep this note focused on the data structure itself.)*
+*(Detailed LL/LR/RL/RR rotation sequences and rotation pseudocode live in [[cs/dsa/avl-rotations|AVL Rotations]] to keep this note focused on the data structure itself.)*
 
 ## Complexity
 | Operation | Time | Space | Notes |
@@ -103,7 +103,7 @@ Insert sequence `[10, 20, 30, 25, 28]`:
 - After inserting `30`, an **RR**-type imbalance near the root triggers a **left rotation**.
 
 - Inserting `25` then `28` can produce **RL/LR**-type patterns; apply the appropriate **double rotation**.
-    See full step-by-step transformations in [[avl-rotations|AVL Rotations]].
+    See full step-by-step transformations in [[cs/dsa/avl-rotations|AVL Rotations]].
 
 ### Short delete narrative
 
@@ -137,12 +137,12 @@ Delete(10)
 
 ## Related Notes
 
-- [[bst|Binary Search Tree]]
+- [[cs/dsa/bst|Binary Search Tree]]
 
-- [[avl-rotations|AVL Rotations]]
+- [[cs/dsa/avl-rotations|AVL Rotations]]
 
-- [[rb-tree | Red Black Tree]]
+- [[cs/dsa/rb-tree| Red Black Tree]]
 
-- [[tree-traversal|Tree Traversal]]
+- [[cs/dsa/tree-traversal|Tree Traversal]]
 
-- [[splay-tree|Splay Tree]]
+- [[cs/dsa/splay-tree|Splay Tree]]

@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-07-24
 updated:
-aliases:
-  - TypeScript Type Guards
-  - Assertion Functions in TypeScript
+aliases: []
 ---
 
 Delete every annotation from a TypeScript file and you have the JavaScript the compiler emits. That is not an implementation detail that happened to work out; it is written down in the goals list as "Use a consistent, fully erasable, structural type system," sitting next to "Impose no runtime overhead on emitted programs" and "Emit clean, idiomatic, recognizable JavaScript code."

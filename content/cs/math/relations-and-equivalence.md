@@ -6,7 +6,6 @@ comments: true
 tags:
   - cs
   - math
-  - discrete-math
 date: 2026-05-09
 updated:
 aliases:
@@ -36,7 +35,7 @@ For a relation $R$ on a set $A$:
 
 An equivalence relation "is a binary relation that is reflexive, symmetric, and transitive." Its payoff is structural: it induces a "partition of the underlying set into disjoint equivalence classes." Every element lands in exactly one class, and two elements share a class precisely when the relation holds between them. The relation and the partition are two views of one object.
 
-Congruence modulo $m$ from [[number-theory-and-modular-arithmetic|modular arithmetic]] is the canonical example: it partitions the integers into $m$ residue classes. In code, the [[cs/dsa/disjoint-set|union-find structure]] is an equivalence relation made incremental, maintaining the current classes under merges so that "are these two in the same group?" is answered in near-constant time. Deduplication, connected components, and [[cs/pl/hindleymilner-type-inference|type unification]] all reduce to computing an equivalence relation's classes.
+Congruence modulo $m$ from [[cs/math/number-theory-and-modular-arithmetic|modular arithmetic]] is the canonical example: it partitions the integers into $m$ residue classes. In code, the [[cs/dsa/disjoint-set|union-find structure]] is an equivalence relation made incremental, maintaining the current classes under merges so that "are these two in the same group?" is answered in near-constant time. Deduplication, connected components, and [[cs/pl/hindleymilner-type-inference|type unification]] all reduce to computing an equivalence relation's classes.
 
 ## Partial Orders
 
@@ -50,13 +49,13 @@ That incomparability is exactly what [[cs/dsa/topological-sorting|topological so
 > $2$ and $3$ are incomparable: neither divides the other. A topological sort turns the order into a line such as $1, 2, 3, 6$, choosing a placement for $2$ versus $3$ that the divisibility order never fixed.
 
 > [!warning]
-> A relation is not a [[functions-injective-surjective-bijective|function]] unless every domain element relates to exactly one codomain element. Functions are the special case of relations with that single-output constraint; general relations allow zero, one, or many partners per element, which is why "many-to-many" database tables are relations and not functions.
+> A relation is not a [[cs/math/functions-injective-surjective-bijective|function]] unless every domain element relates to exactly one codomain element. Functions are the special case of relations with that single-output constraint; general relations allow zero, one, or many partners per element, which is why "many-to-many" database tables are relations and not functions.
 
 ## Related Notes
 
-- [[functions-injective-surjective-bijective|Functions: Injective, Surjective, Bijective]] - a function is a relation with a uniqueness constraint on outputs
-- [[set-theory-basics|Set Theory Basics]] - a relation is a subset of a Cartesian product; equivalence classes partition a set
-- [[number-theory-and-modular-arithmetic|Number Theory and Modular Arithmetic]] - congruence mod m as the canonical equivalence relation
+- [[cs/math/functions-injective-surjective-bijective|Functions: Injective, Surjective, Bijective]] - a function is a relation with a uniqueness constraint on outputs
+- [[cs/math/set-theory-basics|Set Theory Basics]] - a relation is a subset of a Cartesian product; equivalence classes partition a set
+- [[cs/math/number-theory-and-modular-arithmetic|Number Theory and Modular Arithmetic]] - congruence mod m as the canonical equivalence relation
 - [[cs/dsa/disjoint-set|Disjoint Set]] - union-find maintains equivalence classes incrementally
 - [[cs/dsa/topological-sorting|Topological Sorting]] - linearizing a partial order into a consistent total order
 

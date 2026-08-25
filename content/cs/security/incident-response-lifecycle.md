@@ -8,11 +8,7 @@ tags:
   - security
 date: 2026-06-18
 updated:
-aliases:
-  - incident response
-  - incident handling
-  - IR lifecycle
-  - NIST 800-61
+aliases: []
 ---
 
 An organization's worst moment to invent a process is during the incident. NIST's Computer Security Incident Handling Guide ([[cs/standards/what-a-standard-actually-is|SP 800-61 Rev. 2]]) exists to move that invention earlier, encoding response as a repeatable structure a team drills before it is needed. The structure is deliberately a loop rather than a line, and the two places where it loops back are where most of its value sits.
@@ -35,9 +31,9 @@ The second loop-back is the whole justification for the fourth phase. NIST is bl
 
 ## Related Notes
 
-- [[the-cyber-kill-chain-and-mitre-attack|The Cyber Kill Chain and MITRE ATT&CK]], the attacker-side models that detection and analysis map observations onto
-- [[siem-and-security-logging|SIEM and Security Logging]], the telemetry layer that makes the detection phase possible at all
-- [[stride-threat-modeling|STRIDE Threat Modeling]], a preparation-phase practice for anticipating the incidents you will later respond to
+- [[cs/security/the-cyber-kill-chain-and-mitre-attack|The Cyber Kill Chain and MITRE ATT&CK]], the attacker-side models that detection and analysis map observations onto
+- [[cs/security/siem-and-security-logging|SIEM and Security Logging]], the telemetry layer that makes the detection phase possible at all
+- [[cs/security/stride-threat-modeling|STRIDE Threat Modeling]], a preparation-phase practice for anticipating the incidents you will later respond to
 
 ## Sources
 

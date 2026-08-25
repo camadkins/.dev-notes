@@ -8,10 +8,7 @@ tags:
   - history
 date: 2026-05-24
 updated:
-aliases:
-  - cloud computing
-  - virtualization
-  - hypervisor
+aliases: []
 ---
 
 For most of computing history, to run programs at scale you bought and racked the machines. Cloud computing replaced that with something stranger: rent exactly the computing you need, by the hour, from a pool you never see. The idea that makes it possible is virtualization.
@@ -25,20 +22,20 @@ Cloud computing provides a scalable, elastic pool of computing resources with se
 
 ## The hypervisor
 
-![A hypervisor multiplexes one physical machine into several isolated virtual machines.](assets/hypervisor-vms.svg)
+![A hypervisor multiplexes one physical machine into several isolated virtual machines.](cs/history/assets/hypervisor-vms.svg)
 
 [[cs/systems/virtualization-vms-and-containers|A hypervisor runs virtual machines as guests]], and pools of hypervisors support large numbers of virtual machines that scale up and down with demand. This is the layer that decouples computation from any one physical box: a virtual machine can be created, moved, and destroyed in seconds, on hardware its user never touches.
 
 ## The commercial turn
 
-In 2006 Amazon released S3 for storage and EC2 for compute, [[cs/software-engineering/the-twelve-factor-app|letting developers build applications on rented infrastructure]] with no servers of their own. That moment turned virtualization from a data-center technique into the defining infrastructure of the modern era, the substrate under a large fraction of the [[history-of-the-internet|internet]] you use every day.
+In 2006 Amazon released S3 for storage and EC2 for compute, [[cs/software-engineering/the-twelve-factor-app|letting developers build applications on rented infrastructure]] with no servers of their own. That moment turned virtualization from a data-center technique into the defining infrastructure of the modern era, the substrate under a large fraction of the [[cs/history/history-of-the-internet|internet]] you use every day.
 
 ## Related Notes
 
-- [[distributed-consensus|Distributed Consensus]], keeping many cloud machines agreed
-- [[virtual-memory|Virtual Memory]], an older virtualization of one resource
-- [[network-protocols|Network Protocols]], how cloud services are reached
-- [[history-of-the-internet|History of the Internet]], the network cloud runs over
+- [[cs/systems/distributed-consensus|Distributed Consensus]], keeping many cloud machines agreed
+- [[cs/systems/virtual-memory|Virtual Memory]], an older virtualization of one resource
+- [[cs/systems/network-protocols|Network Protocols]], how cloud services are reached
+- [[cs/history/history-of-the-internet|History of the Internet]], the network cloud runs over
 - [[cs/history/index|History of Computing]], the section index
 
 ## Sources

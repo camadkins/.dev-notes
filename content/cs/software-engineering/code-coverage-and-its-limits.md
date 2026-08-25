@@ -9,10 +9,7 @@ tags:
   - testing
 date: 2026-01-29
 updated:
-aliases:
-  - Code Coverage
-  - Test Coverage
-  - Branch Coverage
+aliases: []
 ---
 
 Code coverage is "a percentage measure of the degree to which the source code of a program is executed when a particular test suite is run." The instrument is old, older than most of the practices built on it: "code coverage was among the first methods invented for systematic software testing. The first published reference was by Miller and Maloney in Communications of the ACM, in 1963."
@@ -58,7 +55,7 @@ Google reaches the same conclusion from an organization with a lot of data. "A h
 
 Fowler's answer to the "so what is it for" question is narrow and correct: "it helps you find which bits of your code aren't being tested. It's worth running coverage tools every so often and looking at these bits of untested code. Do they worry you that they aren't being tested?" He adds a footnote about audience that most coverage dashboards violate: "by 'you' here I mean the people writing the tests. Coverage is of little value to management since you need a technical background to understand whether the tests are good or whether the uncovered code is a problem."
 
-Google's operational advice lands in the same place while being more concrete about process. "More important than the percentage of lines covered is human judgment over the actual lines of code (and behaviors) that aren't being covered (analyzing the gaps in testing) and whether this risk is acceptable or not. What's not covered is more meaningful than what is covered." The delivery mechanism they recommend is [[code-review|code review]], because "embedding code coverage into your code review process makes code reviews faster and easier," and because when developers see "each covered line highlighted as part of the code review, they will make sure that the most important code is covered." The reason that works is a fact coverage numbers erase: "not all code is equally important, for example testing debug log lines is often not as important."
+Google's operational advice lands in the same place while being more concrete about process. "More important than the percentage of lines covered is human judgment over the actual lines of code (and behaviors) that aren't being covered (analyzing the gaps in testing) and whether this risk is acceptable or not. What's not covered is more meaningful than what is covered." The delivery mechanism they recommend is [[cs/software-engineering/code-review|code review]], because "embedding code coverage into your code review process makes code reviews faster and easier," and because when developers see "each covered line highlighted as part of the code review, they will make sure that the most important code is covered." The reason that works is a fact coverage numbers erase: "not all code is equally important, for example testing debug log lines is often not as important."
 
 They do publish numbers, and the framing around them is as important as the values. "There is no 'ideal code coverage number' that universally applies to all products," since the right level "should be a function of (a) business impact/criticality of the code; (b) how often you will need to touch/change the code; (c) how much longer you expect the code to live, its complexity, and domain variables." With that caveat stated, "at Google we offer the general guidelines of 60% as 'acceptable', 75% as 'commendable' and 90% as 'exemplary.' However we like to stay away from broad top-down mandates and encourage every team to select the value that makes sense for their business needs." The marginal-return shape explains where to spend: "we should not be obsessing on how to get from 90% code coverage to 95%. The gains of increasing code coverage beyond a certain point are logarithmic. But we should be taking concrete steps to get from 30% to 70%."
 
@@ -77,12 +74,12 @@ One more caveat sits underneath all of this. Coverage is measured under conditio
 
 ## Related Notes
 
-- [[testing-strategies|Testing Strategies]] - what the tests coverage measures are supposed to be doing
-- [[code-review|Code Review]] - where Google recommends coverage information be surfaced
-- [[continuous-integration|Continuous Integration]] - the pipeline stage a coverage gate would live in
-- [[technical-debt|Technical Debt]] - low-value tests written to hit a number become maintenance load
-- [[refactoring|Refactoring]] - "rarely hesitant to change code" is the sufficiency test coverage cannot measure
-- [[incident-postmortems-and-blameless-culture|Incident Postmortems and Blameless Culture]] - production escapes are the outcome measure that matters
+- [[cs/software-engineering/testing-strategies|Testing Strategies]] - what the tests coverage measures are supposed to be doing
+- [[cs/software-engineering/code-review|Code Review]] - where Google recommends coverage information be surfaced
+- [[cs/software-engineering/continuous-integration|Continuous Integration]] - the pipeline stage a coverage gate would live in
+- [[cs/software-engineering/technical-debt|Technical Debt]] - low-value tests written to hit a number become maintenance load
+- [[cs/software-engineering/refactoring|Refactoring]] - "rarely hesitant to change code" is the sufficiency test coverage cannot measure
+- [[cs/software-engineering/incident-postmortems-and-blameless-culture|Incident Postmortems and Blameless Culture]] - production escapes are the outcome measure that matters
 
 ## Sources
 

@@ -9,8 +9,7 @@ tags:
   - computer-architecture
 date: 2026-01-22
 updated:
-aliases:
-  - Context Switch
+aliases: []
 ---
 
 Every time the OS takes the CPU away from one process and hands it to another, it has to perform an act of near-perfect memory: freeze everything the outgoing process was in the middle of, tuck it away, and later restore it so exactly that the process never notices it was paused. That act is the context switch, and it is what makes one CPU look like many.
@@ -22,7 +21,7 @@ A context switch is "the process of storing the state of a process or thread, so
 
 ## What "context" means
 
-The context is the complete snapshot of a running process's CPU state. Concretely that is the general-purpose registers, the stack pointer, the program counter, and (if used) the floating-point and SIMD register file. On a full process switch the OS also changes the page-table base register, which is what gives the incoming process its own [[virtual-memory|virtual address space]].
+The context is the complete snapshot of a running process's CPU state. Concretely that is the general-purpose registers, the stack pointer, the program counter, and (if used) the floating-point and SIMD register file. On a full process switch the OS also changes the page-table base register, which is what gives the incoming process its own [[cs/systems/virtual-memory|virtual address space]].
 
 Where does the saved state live? In the process control block (PCB), also called the process descriptor, "a data structure used by a computer operating system to store all the information about a process." The kernel keeps PCBs in a process table. The PCB tracks the process state (new, ready, running, waiting, terminated), so it "plays a key role in context switching": saving a context means writing the outgoing process's registers into its PCB, and restoring means loading the incoming process's PCB back into the hardware.
 
@@ -35,7 +34,7 @@ The mechanical part is administration: saving and loading registers and memory m
 The larger cost does not show up in the switch routine at all. Two hardware caches get poisoned:
 
 - **The CPU cache.** The outgoing process left the cache full of its own data. The incoming process's data is not there, so its first accesses miss and pull from main memory until the cache warms up.
-- **The TLB.** On a full process switch the [[virtual-memory|TLB]] "must be flushed. This negatively affects performance because every memory reference to the TLB will be a miss because it is empty after most context switches." Every early memory access now pays a full page-table walk.
+- **The TLB.** On a full process switch the [[cs/systems/virtual-memory|TLB]] "must be flushed. This negatively affects performance because every memory reference to the TLB will be a miss because it is empty after most context switches." Every early memory access now pays a full page-table walk.
 
 This is why thread switches within one process are cheaper than switching between separate processes. Threads "share the same virtual memory maps, so a TLB flush is not necessary." Same reason [[cs/languages/Go/goroutines-and-the-scheduler|green-thread]] and user-level switches are lighter still: they save and restore minimal state and never touch the page tables.
 
@@ -44,9 +43,9 @@ This is why thread switches within one process are cheaper than switching betwee
 
 ## Related Notes
 
-- [[processes-and-threads|Processes & Threads]] - the execution units whose state gets saved and restored
-- [[virtual-memory|Virtual Memory]] - the TLB and page-table base register that make a process switch heavier than a thread switch
-- [[process-scheduling-algorithms|Process Scheduling Algorithms]] - the policies that decide when to pay this cost, and why quantum length is a trade-off
+- [[cs/systems/processes-and-threads|Processes & Threads]] - the execution units whose state gets saved and restored
+- [[cs/systems/virtual-memory|Virtual Memory]] - the TLB and page-table base register that make a process switch heavier than a thread switch
+- [[cs/systems/process-scheduling-algorithms|Process Scheduling Algorithms]] - the policies that decide when to pay this cost, and why quantum length is a trade-off
 
 ## Sources
 

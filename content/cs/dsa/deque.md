@@ -12,7 +12,7 @@ aliases: []
 ---
 
 ## Overview
-A **deque** (double-ended queue) is a sequence container that supports **insertion** and **removal** at **both the front and the back** in amortized or worst-case **O(1)** time, depending on the implementation. Deques generalize both [[queue|Queue]] and [[stack|Stack]]: a queue is a deque that uses only one end for insertion and the other for removal; a stack is a deque that uses the same end for both operations.
+A **deque** (double-ended queue) is a sequence container that supports **insertion** and **removal** at **both the front and the back** in amortized or worst-case **O(1)** time, depending on the implementation. Deques generalize both [[cs/dsa/queue|Queue]] and [[cs/dsa/stack|Stack]]: a queue is a deque that uses only one end for insertion and the other for removal; a stack is a deque that uses the same end for both operations.
 
 Two common implementations dominate:
 - **Array-backed ring buffer** (circular array with modular indices) offering compact storage, excellent [[cs/systems/memory-hierarchy-and-caching|cache locality]], and predictable timing.
@@ -169,7 +169,7 @@ Let `n` be the number of elements currently stored and `N` the capacity for fixe
 
 **Concurrency.**
 
-- **Single-producer/single-consumer rings** (one end per thread) can be written **lock-free** with [[cs/languages/Cpp/the-cpp-memory-model-and-atomics|acquire/release semantics]] (see [[circular-queue|Circular Queue]] for memory-ordering notes).
+- **Single-producer/single-consumer rings** (one end per thread) can be written **lock-free** with [[cs/languages/Cpp/the-cpp-memory-model-and-atomics|acquire/release semantics]] (see [[cs/dsa/circular-queue|Circular Queue]] for memory-ordering notes).
 
 - True multi-producer/multi-consumer deques require locks or specialized designs (e.g., work-stealing deques use split indices and memory fences).
 
@@ -235,10 +235,10 @@ A deque is a versatile, end-efficient container that unifies queue and stack beh
 
 ## Related Notes
 
-- [[circular-queue|Circular Queue]]
+- [[cs/dsa/circular-queue|Circular Queue]]
 
-- [[doubly-linked-list|Doubly Linked List]]
+- [[cs/dsa/doubly-linked-list|Doubly Linked List]]
 
-- [[queue|Queue]]
+- [[cs/dsa/queue|Queue]]
 
-- [[stack|Stack]]
+- [[cs/dsa/stack|Stack]]

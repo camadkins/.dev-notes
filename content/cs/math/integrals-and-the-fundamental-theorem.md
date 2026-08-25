@@ -9,7 +9,6 @@ tags:
 date: 2026-03-11
 updated:
 aliases:
-  - integral
   - definite-integral
   - fundamental-theorem-of-calculus
 ---
@@ -25,7 +24,7 @@ The concrete version is the definite integral, which "computes the signed area o
 
 ## Where the Definition Comes From
 
-Newton and Leibniz "thought of the area under a curve as an infinite sum of rectangles of infinitesimal width," which is the right intuition and the wrong level of rigor. The repair came later: "Bernhard Riemann later gave a rigorous definition of integrals, which is based on a limiting procedure that approximates the area of a curvilinear region by breaking the region into infinitesimally thin vertical slabs." That limiting procedure is why the integral, like the derivative, is built on [[limits-and-continuity|limits]].
+Newton and Leibniz "thought of the area under a curve as an infinite sum of rectangles of infinitesimal width," which is the right intuition and the wrong level of rigor. The repair came later: "Bernhard Riemann later gave a rigorous definition of integrals, which is based on a limiting procedure that approximates the area of a curvilinear region by breaking the region into infinitesimally thin vertical slabs." That limiting procedure is why the integral, like the derivative, is built on [[cs/math/limits-and-continuity|limits]].
 
 Riemann's construction is also the reason the definition transfers so cleanly into code. It is literally a sum over a partition, then a limit. Delete the limit and you have a loop.
 
@@ -67,10 +66,10 @@ Dimension breaks the whole family. "The computation of higher-dimensional integr
 
 ## Related Notes
 
-- [[limits-and-continuity|Limits and Continuity]] - the limiting procedure Riemann used to define the integral rigorously
-- [[derivatives-and-gradients|Derivatives and Gradients]] - the operation the fundamental theorem inverts
-- [[expected-value|Expected Value]] - a continuous expectation is an integral against a density
-- [[sequences-and-series|Sequences and Series]] - the discrete sibling of continuous accumulation
+- [[cs/math/limits-and-continuity|Limits and Continuity]] - the limiting procedure Riemann used to define the integral rigorously
+- [[cs/math/derivatives-and-gradients|Derivatives and Gradients]] - the operation the fundamental theorem inverts
+- [[cs/statistics/expected-value|Expected Value]] - a continuous expectation is an integral against a density
+- [[cs/math/sequences-and-series|Sequences and Series]] - the discrete sibling of continuous accumulation
 
 ## Sources
 

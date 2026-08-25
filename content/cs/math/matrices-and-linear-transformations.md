@@ -6,7 +6,6 @@ comments: true
 tags:
   - cs
   - math
-  - linear-algebra
 date: 2026-04-02
 updated:
 aliases:
@@ -16,14 +15,14 @@ aliases:
 
 ## A Grid of Numbers That Moves Space
 
-The single most useful sentence in linear algebra is that a matrix is a verb, not a noun. "Linear transformations can be represented by matrices," which means an $m \times n$ grid of numbers is a machine that takes a vector in $\mathbb{R}^n$ and returns one in $\mathbb{R}^m$. Rotation, scaling, shearing, projection: each is a linear transformation, and each collapses into one matrix. Multiply that matrix by a vector and you have applied the motion. The [[linear-algebra-fundamentals|standard survey]] states the same claim as "every matrix is a function"; this note follows that claim down into how the functions combine.
+The single most useful sentence in linear algebra is that a matrix is a verb, not a noun. "Linear transformations can be represented by matrices," which means an $m \times n$ grid of numbers is a machine that takes a vector in $\mathbb{R}^n$ and returns one in $\mathbb{R}^m$. Rotation, scaling, shearing, projection: each is a linear transformation, and each collapses into one matrix. Multiply that matrix by a vector and you have applied the motion. The [[cs/math/linear-algebra-fundamentals|standard survey]] states the same claim as "every matrix is a function"; this note follows that claim down into how the functions combine.
 
 > [!note] The idea
 > Matrix multiplication is not arithmetic that happens to be defined on grids. It exists "to represent the composition of linear maps that are represented by matrices." So $AB$ is the single matrix that does "$B$ first, then $A$," and the strange row-times-column rule is the only rule that makes that composition come out right. Once you read $AB$ as "do $B$, then $A$," the non-commutativity ($AB \neq BA$) stops being a quirk and becomes obvious: putting on socks then shoes is not the same as shoes then socks.
 
 ## The Matrix-Vector Product Is a Stack of Dot Products
 
-Applying a matrix to a vector is where the transformation happens. Each entry of the output is the [[vectors-and-dot-products|dot product]] of one row of the matrix with the input vector:
+Applying a matrix to a vector is where the transformation happens. Each entry of the output is the [[cs/math/vectors-and-dot-products|dot product]] of one row of the matrix with the input vector:
 
 $$(A\mathbf{x})_i = \sum_{j} A_{ij}\, x_j$$
 
@@ -60,10 +59,10 @@ An inverse exists only for a square, full-rank matrix. That is the same statemen
 
 ## Related Notes
 
-- [[linear-algebra-fundamentals|Linear Algebra Fundamentals]] - the survey that first states "every matrix is a function"
-- [[vectors-and-dot-products|Vectors and Dot Products]] - each output entry of a matrix-vector product is one dot product
-- [[eigenvalues-and-eigenvectors|Eigenvalues and Eigenvectors]] - the directions a square matrix scales without rotating
-- [[matrices|Matrices (data structure)]] - how the same grid is stored and indexed in memory
+- [[cs/math/linear-algebra-fundamentals|Linear Algebra Fundamentals]] - the survey that first states "every matrix is a function"
+- [[cs/math/vectors-and-dot-products|Vectors and Dot Products]] - each output entry of a matrix-vector product is one dot product
+- [[cs/math/eigenvalues-and-eigenvectors|Eigenvalues and Eigenvectors]] - the directions a square matrix scales without rotating
+- [[cs/dsa/matrices|Matrices (data structure)]] - how the same grid is stored and indexed in memory
 
 ## Sources
 

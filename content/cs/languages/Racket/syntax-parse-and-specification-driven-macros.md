@@ -12,7 +12,6 @@ updated:
 aliases:
   - syntax-parse
   - define-syntax-class
-  - Macro Error Messages
 ---
 
 Write `let` as a pattern macro and it works, right up until someone makes a mistake:

@@ -9,9 +9,7 @@ tags:
   - build-systems
 date: 2026-07-24
 updated:
-aliases:
-  - Crates and Modules
-  - Feature Unification
+aliases: []
 ---
 
 Rust's organizational vocabulary has four words that people use interchangeably and should not: package, crate, module, and path. Getting them apart is worth doing once, because two of them are compiler concepts and two are Cargo concepts, and almost every confusing build error lives on that seam.

@@ -10,10 +10,9 @@ date: 2026-05-21
 updated:
 aliases:
   - OP-20-G
-  - On-the-Roof Gang
 ---
 
-Long before there was a [[cryptography-codebreaking-and-the-nsa|National Security Agency]], the U.S. Navy ran its own codebreaking, and the people who did the listening learned their trade on a rooftop. OP-20-G and its On-the-Roof Gang are the Navy's entry in the long story of treating enemy communications as a problem to be solved by analysis.
+Long before there was a [[cs/military-computing/cryptography-codebreaking-and-the-nsa|National Security Agency]], the U.S. Navy ran its own codebreaking, and the people who did the listening learned their trade on a rooftop. OP-20-G and its On-the-Roof Gang are the Navy's entry in the long story of treating enemy communications as a problem to be solved by analysis.
 
 > [!note] The idea
 > Signals intelligence is applied information theory. Intercept a stream of enemy communication, and use pattern, frequency, and statistics to pull meaning out of what looks, at first, like noise.
@@ -28,14 +27,14 @@ Before you can break a message you have to catch it. The radiotelegraph operator
 
 ## Why it belongs here
 
-Codebreaking is one of the oldest drivers of computing power. The discipline OP-20-G practiced, intercept, analyze, exploit, is the human root of work that would later demand machines like [[harvest-and-nsa-supercomputing|Harvest]], and it sits in the same family as the cipher and cryptanalysis notes in this cluster. For anyone who has worn a [[cs/security/comsec-principles|Navy cryptologic rating]], it is also the start of a lineage that runs to the modern fleet.
+Codebreaking is one of the oldest drivers of computing power. The discipline OP-20-G practiced, intercept, analyze, exploit, is the human root of work that would later demand machines like [[cs/military-computing/harvest-and-nsa-supercomputing|Harvest]], and it sits in the same family as the cipher and cryptanalysis notes in this cluster. For anyone who has worn a [[cs/security/comsec-principles|Navy cryptologic rating]], it is also the start of a lineage that runs to the modern fleet.
 
 ## Related Notes
 
-- [[cryptography-codebreaking-and-the-nsa|Cryptography, Codebreaking, and the NSA]], the wider codebreaking story
-- [[sigaba-cipher-machine|SIGABA]], the machine that protected American traffic in the same war
-- [[harvest-and-nsa-supercomputing|IBM Harvest and NSA Supercomputing]], where this work later met the computer
-- [[shannon-and-information-theory|Shannon and Information Theory]], the mathematics under signals analysis
+- [[cs/military-computing/cryptography-codebreaking-and-the-nsa|Cryptography, Codebreaking, and the NSA]], the wider codebreaking story
+- [[cs/military-computing/sigaba-cipher-machine|SIGABA]], the machine that protected American traffic in the same war
+- [[cs/military-computing/harvest-and-nsa-supercomputing|IBM Harvest and NSA Supercomputing]], where this work later met the computer
+- [[cs/military-computing/shannon-and-information-theory|Shannon and Information Theory]], the mathematics under signals analysis
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

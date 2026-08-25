@@ -1,5 +1,5 @@
 ---
-title: Racket - From Core to Surface
+title: Racket Language Design
 description: Macro expansion and desugaring from surface language into a small core with precise semantics.
 draft: false
 comments: true

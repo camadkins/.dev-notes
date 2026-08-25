@@ -1,7 +1,7 @@
 ---
-title: Breadth-First Search — Layered Exploration & Shortest Paths
+title: Breadth-First Search
 description: Level-order graph traversal using a queue; computes shortest paths in unweighted graphs and builds parent trees for reconstructions.
-draft: true
+draft: false
 tags:
   - cs
   - dsa
@@ -70,7 +70,7 @@ function BFS(Adj, s):
 - On undirected graphs, edges are stored symmetrically; on directed graphs, only out-neighbors appear.
     
 
-![BFS frontier expansion: layers L0={A}, L1={B,C}, L2={D,E}, L3={F} with queue evolution at each dequeue step](assets/bfs-frontier-layers.svg)
+![BFS frontier expansion: layers L0={A}, L1={B,C}, L2={D,E}, L3={F} with queue evolution at each dequeue step](cs/dsa/assets/bfs-frontier-layers.svg)
 
 ---
 
@@ -110,7 +110,7 @@ function reconstructPath(parent, s, t):
 - For all reachable `t`, this path length equals `dist[t]`.
     
 
-![BFS shortest-path tree: parent pointers A->B, A->C, B->D, C->E, E->F with distance labels by layer](assets/bfs-parent-tree.svg)
+![BFS shortest-path tree: parent pointers A->B, A->C, B->D, C->E, E->F with distance labels by layer](cs/dsa/assets/bfs-parent-tree.svg)
 
 ---
 
@@ -128,7 +128,7 @@ With an **adjacency matrix**, scanning neighbors costs `Θ(n)` per vertex, so to
 > [!tip]  
 > Prefer **adjacency lists** for **sparse** graphs (`m ≪ n²`); matrices can be reasonable for dense graphs or when `hasEdge(u, v)` queries are frequent.
 
-![BFS work comparison: adjacency list scans O(n+m) actual neighbors vs adjacency matrix scans O(n squared) entire rows](assets/bfs-on-adjlist-vs-matrix.svg)
+![BFS work comparison: adjacency list scans O(n+m) actual neighbors vs adjacency matrix scans O(n squared) entire rows](cs/dsa/assets/bfs-on-adjlist-vs-matrix.svg)
 
 ---
 

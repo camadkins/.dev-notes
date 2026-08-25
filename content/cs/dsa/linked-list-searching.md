@@ -1,6 +1,6 @@
 ---
 
-title: Linked Lists - Searching
+title: Linked List Search
 description: Search patterns on singly and doubly linked lists; trade-offs vs indexed arrays and when to switch structures.
 draft: false
 comments: true
@@ -10,7 +10,6 @@ tags:
 date: 2025-10-16
 updated: 2026-01-28
 aliases: []
-
 ---
 
 ## Overview
@@ -142,7 +141,7 @@ function KTH(head, k):   // 0-based
     return cur   // NIL if out-of-bounds
 ```
 
-Still `Θ(k)`. For frequent random indexing, **use an array or dynamic array** (see [[dynamic-arrays|Dynamic Arrays]]).
+Still `Θ(k)`. For frequent random indexing, **use an array or dynamic array** (see [[cs/dsa/dynamic-arrays|Dynamic Arrays]]).
 
 #### 3) Find k-th from the end (two pointers)
 
@@ -220,11 +219,11 @@ Using **sentinel nodes** (head for SLL, head+tail for DLL) simplifies:
 
 ### When to choose arrays (or others) instead
 
-- **Frequent random access or binary search →** [[dynamic-arrays|Dynamic Arrays]] or static arrays.
+- **Frequent random access or binary search →** [[cs/dsa/dynamic-arrays|Dynamic Arrays]] or static arrays.
 
-- **Frequent lookups by key without order →** [[hash-tables|Hash Tables]].
+- **Frequent lookups by key without order →** [[cs/dsa/hash-tables|Hash Tables]].
 
-- **Ordered set/map with logarithmic search →** balanced trees (e.g., [[rb-tree|Red–Black Tree]], [[avl-tree|AVL Tree]]).
+- **Ordered set/map with logarithmic search →** balanced trees (e.g., [[cs/dsa/rb-tree|Red–Black Tree]], [[cs/dsa/avl-tree|AVL Tree]]).
 
 - **Ordered list with occasional mid-inserts but faster search →** consider **skip lists** (layered indexes) or a **vector + gap buffer** depending on edits.
 
@@ -263,10 +262,10 @@ Searching in linked lists is fundamentally **sequential**: you walk pointers unt
 
 ## Related Notes
 
-- [[linked-list|Linked Lists]]
+- [[cs/dsa/linked-list|Linked Lists]]
 
-- [[doubly-linked-list|Doubly Linked List]]
+- [[cs/dsa/doubly-linked-list|Doubly Linked List]]
 
-- [[linear-search|Linear Search]]
+- [[cs/dsa/linear-search|Linear Search]]
 
-- [[dynamic-arrays|Dynamic Arrays]]
+- [[cs/dsa/dynamic-arrays|Dynamic Arrays]]

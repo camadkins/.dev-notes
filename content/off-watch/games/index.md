@@ -9,10 +9,7 @@ tags:
 permalink: /games/
 date: 2026-06-28
 updated: 2026-06-28
-aliases:
-  - The Mess Table
-  - Board Games
-  - Card Games
+aliases: []
 ---
 
 On a submarine, the mess table is where the games happen. Off watch, the same table that fed the crew turns into a cribbage board, a card game, a place to kill the hours between watches. This is the log for that: the games I play, how they actually go, and what I have learned to do better.
@@ -23,7 +20,7 @@ One note per game. Each holds the rules I play by (house rules included), the st
 
 - [[off-watch/games/cribbage|Cribbage]] - the classic two-hand peg race. A genuine submarine tradition.
 
-New game? Copy the [[off-watch/games/_template|game template]], rename it (`catan.md`), and fill it in.
+New game? Copy the `game template`, rename it (`catan.md`), and fill it in.
 
 ### How a game gets logged
 

@@ -9,9 +9,7 @@ tags:
   - memory
 date: 2026-07-07
 updated:
-aliases:
-  - Fat Pointers in Rust
-  - dyn Representation
+aliases: []
 ---
 
 `&T` is one machine word. `&dyn Trait` is two. That single fact explains more about Rust's trait objects than any rule list, because the second word is where the erased type went, and everything the language refuses to let you do with `dyn` is something that would not fit in it.

@@ -9,10 +9,7 @@ tags:
   - type-theory
 date: 2026-06-17
 updated:
-aliases:
-  - Python Variance
-  - covariant and contravariant TypeVar
-  - infer_variance
+aliases: []
 ---
 
 Start with the question everyone gets wrong on instinct. A class `Employee` has a subclass `Manager`. A function takes an argument annotated `list[Employee]`. Should you be allowed to pass a `list[Manager]`?

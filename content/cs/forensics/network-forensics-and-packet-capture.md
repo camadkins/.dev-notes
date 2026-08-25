@@ -8,9 +8,7 @@ tags:
   - forensics
 date: 2026-07-14
 updated:
-aliases:
-  - Packet Capture Forensics
-  - PCAP Analysis
+aliases: []
 ---
 
 Almost every artifact in this section is a record that some component chose to write. A log entry exists because a developer called a logging function. A registry key exists because an installer set it. A packet capture is different in kind. It is the traffic, copied off the wire, including bytes nobody intended to preserve and often bytes nobody intended to send.

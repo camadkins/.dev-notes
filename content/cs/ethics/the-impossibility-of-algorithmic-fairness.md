@@ -6,16 +6,10 @@ comments: true
 tags:
   - cs
   - ethics
-  - philosophy
-  - ai
 date: 2026-06-30
 updated:
 aliases:
-  - impossibility of algorithmic fairness
   - COMPAS
-  - fairness impossibility theorem
-  - calibration vs error rate balance
-  - predictive parity
 ---
 
 Two people can look at the same risk-scoring algorithm, run the numbers honestly, and reach opposite verdicts on whether it is fair, with both of them right. That is not a rhetorical trick or a case of one side fudging the data. It is a mathematical fact about what happens when a predictor is scored against two groups that reoffend at different rates. The COMPAS case made it famous: journalists proved the tool was biased, the vendor proved it was not, and the uncomfortable resolution is that the two proofs measure different things that cannot both be equalized at once. Fairness, it turns out, is not a single property a system either has or lacks. It is a set of criteria that pull against each other, and the pulling is provable.
@@ -31,7 +25,7 @@ Northpointe, the company behind COMPAS, answered with a different statistic and 
 
 ## Why they cannot both hold
 
-The incompatibility is not a coincidence of this dataset. [[cs/machine-learning/evaluation-metrics|It falls straight out of the confusion matrix]] once the two groups reoffend at different underlying rates, which they did in the data. Read the two fairness demands carefully and they are constraints on different conditional probabilities, related by [[bayes-rule|Bayes' rule]] and pinned apart by the base rate. Calibration is a statement about the score's meaning: it fixes P(reoffends | score, group), demanding that a given score carry the same reoffense probability in each group. Error-rate balance is a statement about the score's mistakes: it fixes P(high-risk | did not reoffend, group) and its counterpart for those who did, demanding equal false-positive and false-negative rates across groups. These are different [[conditional-probability|conditional probabilities]], conditioned on different things, and the base rate P(reoffends | group) is the hinge that connects them.
+The incompatibility is not a coincidence of this dataset. [[cs/machine-learning/evaluation-metrics|It falls straight out of the confusion matrix]] once the two groups reoffend at different underlying rates, which they did in the data. Read the two fairness demands carefully and they are constraints on different conditional probabilities, related by [[cs/statistics/bayes-rule|Bayes' rule]] and pinned apart by the base rate. Calibration is a statement about the score's meaning: it fixes P(reoffends | score, group), demanding that a given score carry the same reoffense probability in each group. Error-rate balance is a statement about the score's mistakes: it fixes P(high-risk | did not reoffend, group) and its counterpart for those who did, demanding equal false-positive and false-negative rates across groups. These are different [[cs/statistics/conditional-probability|conditional probabilities]], conditioned on different things, and the base rate P(reoffends | group) is the hinge that connects them.
 
 Here is the mechanism. Suppose you have forced calibration, so a score means the same reoffense probability in both groups. Now let group A reoffend more often than group B overall. Because A has more genuine reoffenders to find, a calibrated score that correctly identifies reoffenders in A will also sweep up more of A's non-reoffenders into the high-risk bin along the way, simply because there is a denser population of true positives sitting near any given threshold. The false-positive rate among A's non-reoffenders comes out higher than among B's, not from malice in the model but from arithmetic: the same score threshold, applied to two populations with different proportions of reoffenders, produces different error rates on each side. The only ways out are the degenerate ones. If the predictor is perfect it makes no errors, so all error rates are zero and trivially equal. If the two base rates are identical there is no asymmetry for the error rates to inherit. Outside those corners, calibration and error-rate balance are mathematically exclusive.
 
@@ -39,7 +33,7 @@ That is exactly what the theorems say. Chouldechova's 2017 paper states it in on
 
 ## The normative layer: which unfairness is the unfair one
 
-The theorem tells you the criteria conflict. It does not tell you which one is the real measure of fairness, and that question is not mathematical. Two philosophers stake out opposite ends of it, and the argument connects this note to [[fairness-as-equal-concern|fairness as equal concern]] and the governance stakes in [[ai-governance|AI governance]].
+The theorem tells you the criteria conflict. It does not tell you which one is the real measure of fairness, and that question is not mathematical. Two philosophers stake out opposite ends of it, and the argument connects this note to [[cs/ethics/fairness-as-equal-concern|fairness as equal concern]] and the governance stakes in [[cs/geopolitics/ai-governance|AI governance]].
 
 Brian Hedden argues that calibration within groups is the one criterion genuinely necessary for fairness, and that the others, including equal false-positive rates, are not. His move is a thought experiment: he builds a case with [[cs/statistics/binomial-distribution|people flipping biased coins]] in two rooms, where the coins in one room cluster near 0 and 1 and the coins in the other cluster near 0.5, so the two groups have very different distributions even when their average is arranged to match. A single obviously fair and optimal predictor, applied to both rooms, violates most of the standard fairness metrics purely because the underlying distributions differ, while calibration survives. If a manifestly fair predictor can fail equal-FPR, then equal-FPR cannot be a necessary condition of fairness. Hedden's conclusion is that most group-fairness constraints in the machine-learning literature are not necessary conditions for the fairness of predictions, a claim he proves by exhibiting that special case.
 
@@ -54,12 +48,12 @@ Deborah Hellman pushes from the other direction, and reframes what the ProPublic
 
 ## Related Notes
 
-- [[bayes-rule|Bayes' Rule]], the identity that ties a score's meaning to its error rates through the base rate, which is why calibration and error-rate balance cannot move independently
-- [[conditional-probability|Conditional Probability]], the language in which the conflicting fairness criteria are actually stated
-- [[fairness-as-equal-concern|Fairness as Equal Concern]], the deeper normative question the theorem hands off to once the statistics run out
-- [[social-categories-and-machine-learning|Social Categories and Machine Learning]], where the base rates the model treats as ground truth may already encode prior injustice
-- [[ai-governance|AI Governance]], the policy problem of choosing which fairness criterion a deployed system is allowed to sacrifice
-- [[hypothesis-testing|Hypothesis Testing]], the same confusion-matrix machinery of false positives and false negatives, seen in its statistical home
+- [[cs/statistics/bayes-rule|Bayes' Rule]], the identity that ties a score's meaning to its error rates through the base rate, which is why calibration and error-rate balance cannot move independently
+- [[cs/statistics/conditional-probability|Conditional Probability]], the language in which the conflicting fairness criteria are actually stated
+- [[cs/ethics/fairness-as-equal-concern|Fairness as Equal Concern]], the deeper normative question the theorem hands off to once the statistics run out
+- [[cs/ethics/social-categories-and-machine-learning|Social Categories and Machine Learning]], where the base rates the model treats as ground truth may already encode prior injustice
+- [[cs/geopolitics/ai-governance|AI Governance]], the policy problem of choosing which fairness criterion a deployed system is allowed to sacrifice
+- [[cs/statistics/hypothesis-testing|Hypothesis Testing]], the same confusion-matrix machinery of false positives and false negatives, seen in its statistical home
 
 ## Sources
 

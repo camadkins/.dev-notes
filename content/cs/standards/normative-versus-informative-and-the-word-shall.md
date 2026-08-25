@@ -8,10 +8,7 @@ tags:
   - standards
 date: 2026-06-14
 updated:
-aliases:
-  - Shall vs Should
-  - Normative and Informative
-  - Requirement Levels
+aliases: []
 ---
 
 An engineer files a bug against a vendor: your box does not do what the standard says. The vendor reads the clause, notes that it says *should*, and closes the ticket. Both parties are correct, and the argument was never technical. It was about which sentences in a standards document create obligations and which ones do not.

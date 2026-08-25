@@ -10,9 +10,7 @@ tags:
 date: 2026-07-29
 updated:
 aliases:
-  - C# Type Argument Inference
   - CS0411
-  - Why C# Cannot Infer From the Return Type
 ---
 
 Write a generic method and call it, and most of the time the angle brackets vanish:

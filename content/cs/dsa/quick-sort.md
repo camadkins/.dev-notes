@@ -9,7 +9,6 @@ tags:
 date: 2025-10-16
 updated: 2026-01-04
 aliases: []
-
 ---
 
 ## Overview
@@ -121,7 +120,7 @@ function QUICKSORT_3WAY(A, l, r):
 ```
 
 > [!tip]
-> **Hybridization** is standard: switch to [[insertion-sort|Insertion Sort]] for tiny subarrays (e.g., length ≤ 16). It reduces overhead and improves cache behavior.
+> **Hybridization** is standard: switch to [[cs/dsa/insertion-sort|Insertion Sort]] for tiny subarrays (e.g., length ≤ 16). It reduces overhead and improves cache behavior.
 
 ## Example or Trace
 
@@ -161,7 +160,7 @@ Let `n = r − l + 1`.
 
     - **Recursion stack**: **O(log n)** expected with randomization/tail-recursion elimination; **O(n)** worst-case without safeguards.
 
-**Constants & locality**: Quick sort's sequential scans and minimal auxiliary state give it **lower constant factors** than [[merge-sort|Merge Sort]] in many real systems, despite both being `n log n` on average/balanced inputs.
+**Constants & locality**: Quick sort's sequential scans and minimal auxiliary state give it **lower constant factors** than [[cs/dsa/merge-sort|Merge Sort]] in many real systems, despite both being `n log n` on average/balanced inputs.
 
 > [!note]
 > Randomized pivot selection ensures that, **regardless of input order**, the _expected_ recursion depth is `O(log n)` and the _expected_ time is `O(n log n)`.
@@ -190,7 +189,7 @@ Always recurse into the **smaller** side and iterate on the other. This caps sta
 
 ### Introspective quick sort (introsort)
 
-Track recursion depth; when it exceeds `⌊2 log n⌋` (or similar threshold), **fallback** to [[heapsort|Heapsort]] to guarantee **O(n log n)** worst-case time. Used in many standard libraries.
+Track recursion depth; when it exceeds `⌊2 log n⌋` (or similar threshold), **fallback** to [[cs/dsa/heapsort|Heapsort]] to guarantee **O(n log n)** worst-case time. Used in many standard libraries.
 
 ### Partition scheme choice
 
@@ -211,11 +210,11 @@ Track recursion depth; when it exceeds `⌊2 log n⌋` (or similar threshold), *
 
 Quick sort complements:
 
-- [[merge-sort|Merge Sort]] for stable sorting or external sorting.
+- [[cs/dsa/merge-sort|Merge Sort]] for stable sorting or external sorting.
 
-- [[heapsort|Heapsort]] as a worst-case guard.
+- [[cs/dsa/heapsort|Heapsort]] as a worst-case guard.
 
-- [[insertion-sort|Insertion Sort]] as a tiny-tail accelerator.
+- [[cs/dsa/insertion-sort|Insertion Sort]] as a tiny-tail accelerator.
 
 ## Common Pitfalls or Edge Cases
 
@@ -255,10 +254,10 @@ Quick sort partitions an array around a pivot and sorts subarrays recursively. W
 
 ## Related Notes
 
-- [[merge-sort|Merge Sort]]
+- [[cs/dsa/merge-sort|Merge Sort]]
 
-- [[heapsort|Heapsort]]
+- [[cs/dsa/heapsort|Heapsort]]
 
-- [[insertion-sort|Insertion Sort]]
+- [[cs/dsa/insertion-sort|Insertion Sort]]
 
-- [[recurrences-master-theorem|Recurrences - Master Theorem]]
+- [[cs/dsa/recurrences-master-theorem|Recurrences - Master Theorem]]

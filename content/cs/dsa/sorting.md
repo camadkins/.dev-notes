@@ -1,5 +1,5 @@
 ---
-title: Sorting - Overview
+title: Sorting
 description: Taxonomy of comparison vs counting-based methods with stability and in-place trade-offs for practical selection.
 draft: false
 comments: true
@@ -9,7 +9,6 @@ tags:
 date: 2025-10-16
 updated: 2026-01-23
 aliases: []
-
 ---
 
 ## Overview
@@ -43,15 +42,15 @@ Let array `A[0..n−1]` and strict weak ordering `<`. A sorting algorithm permut
 
 |Algorithm|Family|Stable|In-place|Avg Time|Worst Time|Extra Space|Notes|
 |---|---|--:|--:|--:|--:|--:|---|
-|[[insertion-sort|Insertion Sort]]|Comparison|✓|✓|Θ(n²)|Θ(n²)|O(1)|
-|[[selection-sort|Selection Sort]]|Comparison|✗ (default)|✓|Θ(n²)|Θ(n²)|O(1)|
-|[[bubble-sort|Bubble Sort]]|Comparison|✓ (with stable swap)|✓|Θ(n²)|Θ(n²)|O(1)|
-|[[merge-sort|Merge Sort]]|Comparison|✓|✗ (array)|Θ(n log n)|Θ(n log n)|Θ(n)|
-|[[quick-sort|Quick Sort]]|Comparison|✗ (default)|✓|Θ(n log n)|Θ(n²)|O(log n) stack|
-|[[heapsort|Heapsort]]|Comparison|✗|✓|Θ(n log n)|Θ(n log n)|O(1)|
-|[[counting-sort|Counting Sort]]|Counting-based|✓|✗|Θ(n + k)|Θ(n + k)|Θ(n + k)|
-|[[radix-sort|Radix Sort]]|Counting-based|✓ (with stable pass)|✗|Θ(d·(n + b))|Θ(d·(n + b))|Θ(n + b)|
-|[[bucket-sort|Bucket Sort]]|Distribution|✓ (in-bucket stable)|✗/✓|Θ(n) expected|Θ(n²) worst|Θ(n + m)|
+|[[cs/dsa/insertion-sort|Insertion Sort]]|Comparison|✓|✓|Θ(n²)|Θ(n²)|O(1)|
+|[[cs/dsa/selection-sort|Selection Sort]]|Comparison|✗ (default)|✓|Θ(n²)|Θ(n²)|O(1)|
+|[[cs/dsa/bubble-sort|Bubble Sort]]|Comparison|✓ (with stable swap)|✓|Θ(n²)|Θ(n²)|O(1)|
+|[[cs/dsa/merge-sort|Merge Sort]]|Comparison|✓|✗ (array)|Θ(n log n)|Θ(n log n)|Θ(n)|
+|[[cs/dsa/quick-sort|Quick Sort]]|Comparison|✗ (default)|✓|Θ(n log n)|Θ(n²)|O(log n) stack|
+|[[cs/dsa/heapsort|Heapsort]]|Comparison|✗|✓|Θ(n log n)|Θ(n log n)|O(1)|
+|[[cs/dsa/counting-sort|Counting Sort]]|Counting-based|✓|✗|Θ(n + k)|Θ(n + k)|Θ(n + k)|
+|[[cs/dsa/radix-sort|Radix Sort]]|Counting-based|✓ (with stable pass)|✗|Θ(d·(n + b))|Θ(d·(n + b))|Θ(n + b)|
+|[[cs/dsa/bucket-sort|Bucket Sort]]|Distribution|✓ (in-bucket stable)|✗/✓|Θ(n) expected|Θ(n²) worst|Θ(n + m)|
 
 > [!tip]
 > Hybrid engines (production compilers, stdlibs) often use **introsort** (quicksort + heap fallback) and cut over to **insertion sort** for small partitions. This keeps `n log n` worst-case and small constants.
@@ -88,13 +87,13 @@ Stability lets you sort by **primary key** and then by **secondary key** without
 
 1. **Need stable order?**
 
-    - Yes → prefer [[merge-sort|Merge Sort]], TimSort-like, or counting/radix if key structure permits.
+    - Yes → prefer [[cs/dsa/merge-sort|Merge Sort]], TimSort-like, or counting/radix if key structure permits.
 
     - No → quicksort or heapsort; introsort for worst-case guard.
 
 2. **Key structure known?**
 
-    - Small integer range or fixed-width bytes → [[counting-sort|Counting Sort]] / [[radix-sort|Radix Sort]] / [[bucket-sort|Bucket Sort]].
+    - Small integer range or fixed-width bytes → [[cs/dsa/counting-sort|Counting Sort]] / [[cs/dsa/radix-sort|Radix Sort]] / [[cs/dsa/bucket-sort|Bucket Sort]].
 
     - Arbitrary comparator → comparison family only.
 
@@ -176,10 +175,10 @@ Sorting spans two worlds. **Comparison sorts** are general-purpose with a hard `
 
 ## Related Notes
 
-- [[merge-sort|Merge Sort]]
+- [[cs/dsa/merge-sort|Merge Sort]]
 
-- [[quick-sort|Quick Sort]]
+- [[cs/dsa/quick-sort|Quick Sort]]
 
-- [[counting-sort|Counting Sort]]
+- [[cs/dsa/counting-sort|Counting Sort]]
 
-- [[radix-sort|Radix Sort]]
+- [[cs/dsa/radix-sort|Radix Sort]]

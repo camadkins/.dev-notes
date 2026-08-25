@@ -13,7 +13,7 @@ aliases: []
 
 ## Overview
 
-**Counting sort** sorts `n` items whose keys are integers in a **small known range** `0..U` by counting how many times each key occurs and using those counts to place items directly into their **final positions**. It runs in **$O(n + U)$** time and **$O(n + U)$** space, and its **stable** form enables it to serve as the digit sorter inside [[radix-sort|Radix Sort]] and as an in-bucket sorter for [[bucket-sort|Bucket Sort]].
+**Counting sort** sorts `n` items whose keys are integers in a **small known range** `0..U` by counting how many times each key occurs and using those counts to place items directly into their **final positions**. It runs in **$O(n + U)$** time and **$O(n + U)$** space, and its **stable** form enables it to serve as the digit sorter inside [[cs/dsa/radix-sort|Radix Sort]] and as an in-bucket sorter for [[cs/dsa/bucket-sort|Bucket Sort]].
 
 ## Core Idea
 
@@ -55,7 +55,7 @@ function COUNTING_SORT(A, U):            // stable variant
 ```
 
 > [!tip]
-> To **count only**, skip the prefix-sum and placement phases when you just need a histogram (e.g., for selecting quantile cut points before [[bucket-sort|Bucket Sort]]).
+> To **count only**, skip the prefix-sum and placement phases when you just need a histogram (e.g., for selecting quantile cut points before [[cs/dsa/bucket-sort|Bucket Sort]]).
 
 ## Example or Trace
 
@@ -98,17 +98,17 @@ Consider records with keys `A = [2, 5, 3, 0, 2, 3, 0, 3]`, with `U = 5`.
 
 ## Applications
 
-- **Digit sorting** in [[radix-sort|Radix Sort]] (must be **stable**).
+- **Digit sorting** in [[cs/dsa/radix-sort|Radix Sort]] (must be **stable**).
 
 - **Small-range numeric data** (e.g., grades `0..100`, byte values).
 
-- **Histogram-based preprocessing** (bucketing/quantiles) before [[bucket-sort|Bucket Sort]] or other range partitioning.
+- **Histogram-based preprocessing** (bucketing/quantiles) before [[cs/dsa/bucket-sort|Bucket Sort]] or other range partitioning.
 
 
 ## Common Pitfalls or Edge Cases
 
 > [!warning]
-> **Range too large.** If `U` is much larger than `n`, the `C` array dominates memory/time. Prefer [[radix-sort|Radix Sort]] or a comparison sort.
+> **Range too large.** If `U` is much larger than `n`, the `C` array dominates memory/time. Prefer [[cs/dsa/radix-sort|Radix Sort]] or a comparison sort.
 
 > [!warning]
 > **Unknown or shifting range.** If `a..b` isn't known, compute `min/max` first; outliers can balloon `U`. Consider clipping or mapping rare outliers to a separate bucket.
@@ -129,12 +129,12 @@ Consider records with keys `A = [2, 5, 3, 0, 2, 3, 0, 3]`, with `U = 5`.
 
 ## Summary
 
-Counting sort achieves **$O(n + U)$** sorting by **counting frequencies**, computing **prefix sums**, and performing **stable placement**. It excels when the key range is **small and known**, and it is indispensable as the **stable digit pass** in [[radix-sort|Radix Sort]] and as a **local sorter** for small integer ranges.
+Counting sort achieves **$O(n + U)$** sorting by **counting frequencies**, computing **prefix sums**, and performing **stable placement**. It excels when the key range is **small and known**, and it is indispensable as the **stable digit pass** in [[cs/dsa/radix-sort|Radix Sort]] and as a **local sorter** for small integer ranges.
 
 ## Related Notes
 
-- [[radix-sort|Radix Sort]]
+- [[cs/dsa/radix-sort|Radix Sort]]
 
-- [[bucket-sort|Bucket Sort]]
+- [[cs/dsa/bucket-sort|Bucket Sort]]
 
-- [[algorithm-efficiency|Algorithm Efficiency]]
+- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]

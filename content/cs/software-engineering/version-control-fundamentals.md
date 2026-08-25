@@ -111,6 +111,6 @@ Each step maps to a DAG operation: branch creation (new pointer), commit (new no
 
 ## Related Notes
 
-- [[testing-strategies|Testing Strategies]] - CI pipelines run tests on every branch before merge
-- [[software-architecture|Software Architecture]] - repository structure reflects architectural boundaries
-- [[api-design|API Design]] - versioning APIs relates to release branching strategies
+- [[cs/software-engineering/testing-strategies|Testing Strategies]] - CI pipelines run tests on every branch before merge
+- [[cs/software-engineering/software-architecture|Software Architecture]] - repository structure reflects architectural boundaries
+- [[cs/software-engineering/api-design|API Design]] - versioning APIs relates to release branching strategies

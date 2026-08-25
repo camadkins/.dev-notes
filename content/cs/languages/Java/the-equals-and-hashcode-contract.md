@@ -9,9 +9,7 @@ tags:
   - data-structures
 date: 2026-06-18
 updated:
-aliases:
-  - Java equals hashCode
-  - Object equals Contract
+aliases: []
 ---
 
 Every Java object inherits an `equals` and a `hashCode` that answer a narrow question: is this the same object in memory. Override either one and you are redefining what "same" means for a whole type, and the standard library has already been written against the answer.

@@ -8,10 +8,7 @@ tags:
   - law
 date: 2026-06-19
 updated:
-aliases:
-  - Smith v. Maryland
-  - United States v. Miller
-  - Assumption of Risk Doctrine
+aliases: []
 ---
 
 The doctrine that governs most of what a network knows about you comes from two cases about paper and copper. In 1976 the Supreme Court held that a depositor had no Fourth Amendment interest in his bank's records of his checks. In 1979 it held that a telephone subscriber had no Fourth Amendment interest in the numbers he dialed. Neither case involved a computer, and together they supply the constitutional premise for nearly every statute in the surveillance chapters of title 18.

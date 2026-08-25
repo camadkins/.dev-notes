@@ -9,10 +9,7 @@ tags:
   - concurrency
 date: 2026-06-30
 updated:
-aliases:
-  - Python asyncio
-  - The Event Loop
-  - Coroutines and Tasks
+aliases: []
 ---
 
 The first surprise in asyncio is that a coroutine does not run when you call it. The documentation states it as a warning because everyone hits it: simply calling a coroutine will not schedule it to be executed. What comes back is a coroutine object, an inert value describing work that has not started. Calling it is closer to building a closure than to invoking a function.

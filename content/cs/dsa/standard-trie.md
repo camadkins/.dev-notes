@@ -1,7 +1,7 @@
 ---
 title: Standard Trie
 description: Prefix tree with per-character child pointers; fast lookups and natural prefix operations at the cost of memory.
-draft: true
+draft: false
 tags:
   - cs
   - dsa
@@ -99,7 +99,7 @@ function DELETE(root, s) -> bool:
 
 Depth-first iterate from the node reached by `prefix`, yielding all words under it in lexicographic order (if children are ordered).
 
-![Trie after inserting “art”, “arc”, “arm” with search path for “arc” highlighted](assets/trie-insert-search.svg)
+![Trie after inserting “art”, “arc”, “arm” with search path for “arc” highlighted](cs/dsa/assets/trie-insert-search.svg)
 
 ## Example (Stepwise)
 
@@ -207,7 +207,7 @@ Normalize input at insert/search time:
 - **Security/log analysis**: [[cs/security/ids-and-ips|blocklists/allowlists]] where early prefix mismatch yields immediate rejection.
     
 
-![Trie node structure: fixed array vs hash-map child representations, with terminal markers on completed words](assets/trie-node-and-branching.svg)
+![Trie node structure: fixed array vs hash-map child representations, with terminal markers on completed words](cs/dsa/assets/trie-node-and-branching.svg)
 
 ## Common Pitfalls or Edge Cases
 

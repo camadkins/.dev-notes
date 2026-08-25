@@ -8,9 +8,7 @@ tags:
   - military
 date: 2026-05-31
 updated:
-aliases:
-  - information theory
-  - Shannon entropy
+aliases: []
 ---
 
 Before 1948, information was a loose idea. You could have more or less of it, but no one could say how much. [[cs/history/shannon-boolean-algebra-switching|Claude Shannon]], working at Bell Labs in the years around the Second World War, turned information into a quantity you could measure in numbers, and the paper that did it founded an entire field.
@@ -32,14 +30,14 @@ The paper also introduced channel capacity and the noisy channel coding theorem:
 
 ## Why it matters here
 
-Information theory is the foundation under several notes in this cluster. It sets how much secrecy a key can buy, which is the heart of [[perfect-secrecy-and-the-one-time-pad|perfect secrecy]]. It underlies data compression, including [[huffman-coding|Huffman coding]]. And the same wartime concern with secret communication led Shannon to the cryptographic work that sits right next to this paper.
+Information theory is the foundation under several notes in this cluster. It sets how much secrecy a key can buy, which is the heart of [[cs/military-computing/perfect-secrecy-and-the-one-time-pad|perfect secrecy]]. It underlies data compression, including [[cs/dsa/huffman-coding|Huffman coding]]. And the same wartime concern with secret communication led Shannon to the cryptographic work that sits right next to this paper.
 
 ## Related Notes
 
-- [[perfect-secrecy-and-the-one-time-pad|Perfect Secrecy and the One-Time Pad]], Shannon's result applied to cryptography
-- [[huffman-coding|Huffman Coding]], compression resting on entropy
-- [[discrete-probability|Discrete Probability]], the mathematics entropy is built from
-- [[cryptography-codebreaking-and-the-nsa|Cryptography, Codebreaking, and the NSA]], the secrecy side of Shannon's work
+- [[cs/military-computing/perfect-secrecy-and-the-one-time-pad|Perfect Secrecy and the One-Time Pad]], Shannon's result applied to cryptography
+- [[cs/dsa/huffman-coding|Huffman Coding]], compression resting on entropy
+- [[cs/math/discrete-probability|Discrete Probability]], the mathematics entropy is built from
+- [[cs/military-computing/cryptography-codebreaking-and-the-nsa|Cryptography, Codebreaking, and the NSA]], the secrecy side of Shannon's work
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

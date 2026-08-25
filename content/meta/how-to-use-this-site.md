@@ -24,6 +24,6 @@ aliases: []
 ## Reading tips
 
 - **Index pages** exist at each folder level and act as maps of content (MOCs). Start there when exploring a new area.
-- **Wikilinks** like `[[linked page]]` connect related ideas across the garden. Follow them - that's how the garden is meant to be read.
+- **Wikilinks** like ``[[linked page]]`` connect related ideas across the garden. Follow them - that's how the garden is meant to be read.
 - **Tags** group notes by cross-cutting themes. Click any tag to see all pages sharing it.
 - Notes vary in completeness. See [[meta/note-types | Note Types]] for what to expect.

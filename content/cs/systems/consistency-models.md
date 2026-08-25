@@ -9,10 +9,7 @@ tags:
   - distributed-systems
 date: 2026-04-09
 updated:
-aliases:
-  - Consistency Model
-  - Linearizability
-  - Eventual Consistency
+aliases: []
 ---
 
 "Consistent" sounds binary, either the replicas agree or they do not. In a distributed system it is a dial. A consistency model is a contract between the store and the programmer: obey these rules about what a read can return, and in exchange the store gets to reorder or delay work behind your back. Stronger contracts are easier to reason about and slower to satisfy. Weaker ones are fast and full of sharp edges.
@@ -26,11 +23,11 @@ aliases:
 
 **[[cs/languages/Cpp/the-cpp-memory-model-and-atomics|Sequential consistency]]**, proposed by Lamport in 1979, weakens that. A write need not be seen instantaneously, but all processors must see writes in the *same* single order, and each processor's own operations appear in that order in the sequence its program specified. Lamport's own phrasing: the result of any execution is the same as if the operations of all processes were executed in some sequential order, with each process's operations in program order.
 
-**Linearizability**, also called atomic consistency, is sequential consistency plus a real-time constraint. Give every operation a begin time and an end time; an execution is linearizable if each operation appears to take effect at a single instant between its begin and end, and the resulting order still satisfies sequential consistency. This is the model the CAP "C" refers to, and the one a single-leader [[distributed-consensus|consensus]] system provides.
+**Linearizability**, also called atomic consistency, is sequential consistency plus a real-time constraint. Give every operation a begin time and an end time; an execution is linearizable if each operation appears to take effect at a single instant between its begin and end, and the resulting order still satisfies sequential consistency. This is the model the CAP "C" refers to, and the one a single-leader [[cs/systems/distributed-consensus|consensus]] system provides.
 
 ## The weaker, more scalable end
 
-**Causal consistency** (Hutto and Ahamad, 1990) drops the requirement that everyone agree on the order of *unrelated* writes. It splits events into those that are causally related and those that are not, then demands only that writes which are potentially causally related be seen in the same order by all processes. Concurrent, unrelated writes may be seen in different orders on different nodes. The [[logical-clocks-lamport-and-vector|happens-before relation]] is exactly the machinery that decides which writes are causally related.
+**Causal consistency** (Hutto and Ahamad, 1990) drops the requirement that everyone agree on the order of *unrelated* writes. It splits events into those that are causally related and those that are not, then demands only that writes which are potentially causally related be seen in the same order by all processes. Concurrent, unrelated writes may be seen in different orders on different nodes. The [[cs/systems/logical-clocks-lamport-and-vector|happens-before relation]] is exactly the machinery that decides which writes are causally related.
 
 **Eventual consistency** is the weak floor. If no new updates are made to an item, eventually all reads of that item return the last written value; a system that reaches this state is said to have converged. It is only a liveness guarantee, updates *will* be observed sometime, with no safety guarantee about what intermediate value a read sees before convergence. Most stronger models are trivially eventually consistent.
 
@@ -41,16 +38,16 @@ aliases:
 
 Eventually-consistent services are often described as BASE (basically available, soft state, eventually consistent), set against ACID. Soft state is the admission that a record can drift through transient values with no external trigger, so two queries for the same record can legitimately disagree until convergence.
 
-Getting to convergence takes real work. The system must exchange versions between replicas (anti-entropy) and then pick a final state when concurrent updates collided (reconciliation). A common reconciliation rule is last-writer-wins; [[logical-clocks-lamport-and-vector|vector clocks]] are often used to detect that two updates were concurrent in the first place. The repair can be scheduled at a read (read repair, which slows reads), at a write (write repair), or off the critical path (asynchronous repair).
+Getting to convergence takes real work. The system must exchange versions between replicas (anti-entropy) and then pick a final state when concurrent updates collided (reconciliation). A common reconciliation rule is last-writer-wins; [[cs/systems/logical-clocks-lamport-and-vector|vector clocks]] are often used to detect that two updates were concurrent in the first place. The repair can be scheduled at a read (read repair, which slows reads), at a write (write repair), or off the critical path (asynchronous repair).
 
 **Strong eventual consistency (SEC)** adds back a safety guarantee: any two nodes that have received the same unordered set of updates are in the same state. Conflict-free replicated data types (CRDTs) are the common way to get there, since their merge is defined so that order of receipt does not matter.
 
 ## Related Notes
 
-- [[cap-theorem|CAP Theorem]] is where the choice to sit at the weak end (AP) buys availability during a partition, and PACELC is where it buys latency in normal operation
-- [[logical-clocks-lamport-and-vector|Logical Clocks: Lamport and Vector]] provides the happens-before ordering that causal consistency is defined against
-- [[distributed-consensus|Distributed Consensus]] is how a system delivers the strong end, linearizable single-leader reads
-- [[cache-coherence|Cache Coherence]] is the same ordering question one level down, inside a single machine's memory system
+- [[cs/systems/cap-theorem|CAP Theorem]] is where the choice to sit at the weak end (AP) buys availability during a partition, and PACELC is where it buys latency in normal operation
+- [[cs/systems/logical-clocks-lamport-and-vector|Logical Clocks: Lamport and Vector]] provides the happens-before ordering that causal consistency is defined against
+- [[cs/systems/distributed-consensus|Distributed Consensus]] is how a system delivers the strong end, linearizable single-leader reads
+- [[cs/systems/cache-coherence|Cache Coherence]] is the same ordering question one level down, inside a single machine's memory system
 
 ## Sources
 

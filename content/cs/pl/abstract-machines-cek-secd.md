@@ -46,7 +46,7 @@ Rule sketch:
 ```
 
 > [!example] CEK state transitions for `(λx. x + 1) 4`
-> ![CEK state transitions](assets/machine-cek-transitions.svg)
+> ![CEK state transitions](cs/pl/assets/machine-cek-transitions.svg)
 
 ### SECD (Stack, Environment, Control, Dump)
 The **SECD Machine** predates CEK but expresses similar principles (Peter Landin, 1960s).
@@ -73,7 +73,7 @@ The **SECD Machine** predates CEK but expresses similar principles (Peter Landin
 | Influence | Denotational and CPS-based semantics | Early interpreter and compiler design |
 
 > [!example] CEK vs SECD component comparison
-> ![CEK vs SECD comparison](assets/machine-cek-vs-secd.svg)
+> ![CEK vs SECD comparison](cs/pl/assets/machine-cek-vs-secd.svg)
 
 ---
 
@@ -110,7 +110,7 @@ Each state captures **expression**, **environment**, and **continuation**; the m
 - **SECD** corresponds to a **stack-based CPS** execution style.
 
 A CPS transform explicitly passes continuations as functions, mirroring what CEK represents structurally.  
-CEK often bridges *theory* ([[lambda-calculus-syntax-substitution|λ-calculus]]) and *implementation* (interpreter loops).
+CEK often bridges *theory* ([[cs/pl/lambda-calculus-syntax-substitution|λ-calculus]]) and *implementation* (interpreter loops).
 
 ### Relation to Modern Runtimes (from original)
 - The **call stack** plays the role of `K` or `D`.  
@@ -159,8 +159,8 @@ Operand pushes to **S**, code in **C**, and call/return via **D**; mirrors a sta
 ---
 
 ## See also
-- [[operational-semantics-big-step-small-step|Operational Semantics]]
-- [[lambda-calculus-encodings-booleans-pairs-church-numerals|Lambda Calculus: Basics]]
+- [[cs/pl/operational-semantics-big-step-small-step|Operational Semantics]]
+- [[cs/pl/lambda-calculus-encodings-booleans-pairs-church-numerals|Lambda Calculus: Basics]]
 - [[cs/pl/continuations-cps|Continuations & CPS]]
 
 ## Sources

@@ -9,7 +9,6 @@ tags:
 date: 2025-10-16
 updated: 2026-01-08
 aliases: []
-
 ---
 
 ## Overview
@@ -23,7 +22,7 @@ A **matrix** is a rectangular array of numbers with **m rows** and **n columns**
 
 Matrices appear across DS&A and systems:
 
-- **Graph algorithms:** adjacency **matrix** vs [[adjacency-list|Adjacency List]] trade time for space.
+- **Graph algorithms:** adjacency **matrix** vs [[cs/dsa/adjacency-list|Adjacency List]] trade time for space.
 
 - **Dynamic programming:** table-filling is matrix-like; careful iteration order improves locality.
 
@@ -97,7 +96,7 @@ A^T = [[1,4],
 
 - **Sparsity pattern:** Many real matrices are **sparse** (mostly zeros). Storing only nonzeros reduces memory and speeds operations that skip zeros.
 
-- **Graph tie-in:** An **adjacency matrix** `Adj[u][v]` indicates edges; **row `u`** iteration is `O(n)` regardless of degree, contrasting with adjacency lists (see [[graph-representations|Graph Representations]]).
+- **Graph tie-in:** An **adjacency matrix** `Adj[u][v]` indicates edges; **row `u`** iteration is `O(n)` regardless of degree, contrasting with adjacency lists (see [[cs/dsa/graph-representations|Graph Representations]]).
 
 
 ## Implementation or Practical Context
@@ -248,7 +247,7 @@ function SPMV_CSR(y, A_csr, x):       // y = A*x
 
 - **Algorithm design:** Many DP and table algorithms are "matrix programs"; understanding strides and blocking yields large **constant-factor** speedups.
 
-- **Graphs:** Adjacency matrices enable **O(1)** edge queries but cost `Θ(n^2)` space; choose representation based on density and operation profile (see [[graph-representations|Graph Representations]]).
+- **Graphs:** Adjacency matrices enable **O(1)** edge queries but cost `Θ(n^2)` space; choose representation based on density and operation profile (see [[cs/dsa/graph-representations|Graph Representations]]).
 
 - **Numerics & stability:** Accumulation order matters for [[cs/standards/ieee-754-floating-point|floating-point]]; pairwise (tree) summation reduces roundoff error versus naive left-to-right.
 
@@ -261,10 +260,10 @@ Matrices combine **shape** rules, **indexing**, and **layout** realities. Know t
 
 ## Related Notes
 
-- [[arrays|Arrays]]
+- [[cs/dsa/arrays|Arrays]]
 
-- [[graph-representations|Graph Representations]]
+- [[cs/dsa/graph-representations|Graph Representations]]
 
-- [[algorithm-efficiency|Algorithm Efficiency]]
+- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]
 
-- [[logarithmic-functions|Logarithmic Functions]]
+- [[cs/dsa/logarithmic-functions|Logarithmic Functions]]

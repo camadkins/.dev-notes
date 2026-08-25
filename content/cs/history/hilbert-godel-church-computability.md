@@ -8,9 +8,7 @@ tags:
   - history
 date: 2026-04-19
 updated:
-aliases:
-  - Entscheidungsproblem
-  - limits of computation
+aliases: []
 ---
 
 Before anyone built a computer, mathematicians worked out what computation could never do. The chain of results running from Hilbert to Gödel to Church and Turing defined the very idea of the computable, and it did so by first answering a question nobody had asked precisely: what is an algorithm?
@@ -32,14 +30,14 @@ In 1936 Alonzo Church and Alan Turing, working independently, proved that no gen
 
 ## Why it matters
 
-This is the theoretical bedrock of computer science. [[turing-and-computability|Turing's machine]] and Church's [[lambda-calculus-syntax-substitution|lambda calculus]] are two faces of one idea of the computable, and the discovery that computation has hard limits is as foundational as anything that came after it.
+This is the theoretical bedrock of computer science. [[cs/history/turing-and-computability|Turing's machine]] and Church's [[cs/pl/lambda-calculus-syntax-substitution|lambda calculus]] are two faces of one idea of the computable, and the discovery that computation has hard limits is as foundational as anything that came after it.
 
 ## Related Notes
 
-- [[turing-and-computability|Turing and Computability]], one model of the computable
-- [[lambda-calculus-syntax-substitution|Lambda Calculus]], Church's equivalent model
-- [[boole-and-boolean-algebra|George Boole and the Algebra of Logic]], an earlier step in mathematizing reasoning
-- [[mathematical-induction|Mathematical Induction]], a core tool of the proofs involved
+- [[cs/history/turing-and-computability|Turing and Computability]], one model of the computable
+- [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus]], Church's equivalent model
+- [[cs/history/boole-and-boolean-algebra|George Boole and the Algebra of Logic]], an earlier step in mathematizing reasoning
+- [[cs/math/mathematical-induction|Mathematical Induction]], a core tool of the proofs involved
 - [[cs/history/index|History of Computing]], the section index
 
 ## Sources

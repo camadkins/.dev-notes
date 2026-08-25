@@ -9,11 +9,10 @@ tags:
 date: 2026-03-11
 updated:
 aliases:
-  - inertial navigation
   - SINS
 ---
 
-A submarine hiding underwater cannot look at the stars, take a [[gps-and-distributed-time|satellite fix]], or sight a landmark. To launch a ballistic missile accurately it still has to know exactly where it is. Inertial navigation answers that, computing position from nothing but the vehicle's own motion, and it is a clean physical example of what statisticians call [[maximum-likelihood-estimation|state estimation]].
+A submarine hiding underwater cannot look at the stars, take a [[cs/military-computing/gps-and-distributed-time|satellite fix]], or sight a landmark. To launch a ballistic missile accurately it still has to know exactly where it is. Inertial navigation answers that, computing position from nothing but the vehicle's own motion, and it is a clean physical example of what statisticians call [[cs/statistics/maximum-likelihood-estimation|state estimation]].
 
 > [!note] The idea
 > Dead reckoning from motion alone. Measure acceleration and rotation continuously, and integrate them over time to track velocity and position, with no reference to anything outside the vehicle.
@@ -24,7 +23,7 @@ An inertial navigation system uses [[cs/systems/io-devices-and-drivers|accelerom
 
 ## Integrating up to position
 
-![Integrating acceleration once gives velocity, and again gives position; small sensor errors integrate into growing drift.](assets/inertial-integration.svg)
+![Integrating acceleration once gives velocity, and again gives position; small sensor errors integrate into growing drift.](cs/military-computing/assets/inertial-integration.svg)
 
 The mathematics is [[cs/math/integrals-and-the-fundamental-theorem|integration]]. Acceleration integrated over time gives velocity. Velocity integrated over time gives position. The computer carries that forward moment by moment, turning a stream of motion measurements into a running estimate of location.
 
@@ -38,10 +37,10 @@ Inertial navigation is used in ballistic missiles and in submarines, and a balli
 
 ## Related Notes
 
-- [[gps-and-distributed-time|GPS and Distributed Time]], the outside fix that bounds inertial drift
-- [[gps-control-segment|The GPS Control Segment]], the system that keeps that fix honest
-- [[regression-fundamentals|Regression Fundamentals]], estimating a quantity from noisy measurements
-- [[maximum-likelihood-estimation|Maximum Likelihood Estimation]], the statistics of best estimates
+- [[cs/military-computing/gps-and-distributed-time|GPS and Distributed Time]], the outside fix that bounds inertial drift
+- [[cs/military-computing/gps-control-segment|The GPS Control Segment]], the system that keeps that fix honest
+- [[cs/statistics/regression-fundamentals|Regression Fundamentals]], estimating a quantity from noisy measurements
+- [[cs/statistics/maximum-likelihood-estimation|Maximum Likelihood Estimation]], the statistics of best estimates
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

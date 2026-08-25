@@ -9,10 +9,7 @@ tags:
   - memory
 date: 2026-08-11
 updated:
-aliases:
-  - Boxing in Generic Collections
-  - EqualityComparer Default
-  - Why List of int Beats ArrayList
+aliases: []
 ---
 
 The usual pitch for generic collections is type safety: you stop writing casts and the compiler catches your mistakes earlier. That is true and it is the smaller half. The larger half is that a collection which knows its element type at runtime can store the elements themselves rather than references to copies of them, and for value types that difference is an allocation per element.

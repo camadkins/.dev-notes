@@ -9,11 +9,7 @@ tags:
   - type-theory
 date: 2026-08-17
 updated:
-aliases:
-  - typing.Any
-  - typing.Never
-  - Python Bottom Type
-  - Consistency Relation
+aliases: []
 ---
 
 The usual summary is that `Any` turns off checking and `object` accepts everything. That is true enough to use and wrong about why. The specification's framing is sharper: `Any` represents an unknown static type, and it denotes some unknown set of runtime values.

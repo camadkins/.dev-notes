@@ -10,11 +10,6 @@ date: 2026-02-19
 updated:
 aliases:
   - SOLID
-  - Single Responsibility Principle
-  - Open-Closed Principle
-  - Liskov Substitution Principle
-  - Interface Segregation Principle
-  - Dependency Inversion Principle
 ---
 
 SOLID is a mnemonic acronym for five principles "intended to make source code more understandable, flexible, and maintainable." The five did not arrive as a set. Robert C. Martin "introduced the basic principles of SOLID design in his 2000 paper *Design Principles and Design Patterns* about software rot," and the acronym itself "was coined around 2004 by Michael Feathers." Two different people, four years apart. That the letters spell a word is a teaching artifact bolted onto principles that already existed independently, and one of the five, the L, comes from a 1987 keynote by someone with no connection to the acronym at all.
@@ -32,7 +27,7 @@ SOLID is a mnemonic acronym for five principles "intended to make source code mo
 | I | Interface segregation | "Clients should not be forced to depend upon interface methods that they do not use." |
 | D | Dependency inversion | "One should depend upon abstractions, not concretes." |
 
-The stated benefits cluster. SRP is credited with maintainability, testability, and flexibility, since "changes to one responsibility don't affect unrelated parts of the system." OCP buys extensibility and stability, reducing "the risk of introducing bugs when making changes." ISP is a decoupling move, cutting "dependencies between classes, making the code more modular and maintainable." DIP is explicitly about loose coupling. Four of the five, in other words, are [[coupling-and-cohesion|coupling and cohesion]] arguments wearing object-oriented clothes, which is not an accident of framing: Martin described SRP "as being based on the principle of cohesion, as described by Tom DeMarco in his book *Structured Analysis and System Specification*, and Meilir Page-Jones in *The Practical Guide to Structured Systems Design*."
+The stated benefits cluster. SRP is credited with maintainability, testability, and flexibility, since "changes to one responsibility don't affect unrelated parts of the system." OCP buys extensibility and stability, reducing "the risk of introducing bugs when making changes." ISP is a decoupling move, cutting "dependencies between classes, making the code more modular and maintainable." DIP is explicitly about loose coupling. Four of the five, in other words, are [[cs/software-engineering/coupling-and-cohesion|coupling and cohesion]] arguments wearing object-oriented clothes, which is not an accident of framing: Martin described SRP "as being based on the principle of cohesion, as described by Tom DeMarco in his book *Structured Analysis and System Specification*, and Meilir Page-Jones in *The Practical Guide to Structured Systems Design*."
 
 ## S: the word "responsibility" caused the trouble
 
@@ -77,15 +72,15 @@ So ISP is about splitting an abstraction that grew too wide, and DIP is about wh
 
 ## What holds them together
 
-SOLID is scoped to object-oriented and functional programming, and the principles "also form a core philosophy for methodologies such as agile software development and adaptive software development." The through line is the paper that started it: *software rot*. Each principle isolates one mechanism by which a working system becomes progressively harder to change, and each proposes a structural constraint that raises today's design cost to lower tomorrow's modification cost. That trade is the whole content. Applied where change is not actually coming, every one of the five is [[technical-debt|overhead]].
+SOLID is scoped to object-oriented and functional programming, and the principles "also form a core philosophy for methodologies such as agile software development and adaptive software development." The through line is the paper that started it: *software rot*. Each principle isolates one mechanism by which a working system becomes progressively harder to change, and each proposes a structural constraint that raises today's design cost to lower tomorrow's modification cost. That trade is the whole content. Applied where change is not actually coming, every one of the five is [[cs/software-engineering/technical-debt|overhead]].
 
 ## Related Notes
 
-- [[coupling-and-cohesion|Coupling and Cohesion]] - the older, more general framing that SRP was explicitly built on
-- [[design-patterns|Design Patterns]] - the catalog these principles are usually taught alongside
-- [[refactoring|Refactoring]] - the operation you perform when a principle is being violated
-- [[software-architecture|Software Architecture]] - dependency inversion is a layering decision before it is a class decision
-- [[technical-debt|Technical Debt]] - software rot is the failure mode all five are aimed at
+- [[cs/software-engineering/coupling-and-cohesion|Coupling and Cohesion]] - the older, more general framing that SRP was explicitly built on
+- [[cs/software-engineering/design-patterns|Design Patterns]] - the catalog these principles are usually taught alongside
+- [[cs/software-engineering/refactoring|Refactoring]] - the operation you perform when a principle is being violated
+- [[cs/software-engineering/software-architecture|Software Architecture]] - dependency inversion is a layering decision before it is a class decision
+- [[cs/software-engineering/technical-debt|Technical Debt]] - software rot is the failure mode all five are aimed at
 - [[cs/pl/subtyping-variance-type-constraints|Subtyping, Variance, and Type Constraints]] - the variance rules LSP strengthens
 - [[cs/pl/objects-classes-and-dispatch|Objects, Classes, and Dispatch]] - the inheritance machinery these principles constrain
 

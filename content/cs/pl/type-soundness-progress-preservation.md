@@ -108,7 +108,7 @@ Hence, preservation holds.
 
 > [!example]
 > **Preservation across beta-reduction**
-> ![Preservation: types survive beta-reduction](assets/soundness-preservation.svg)
+> ![Preservation: types survive beta-reduction](cs/pl/assets/soundness-preservation.svg)
 
 ---
 
@@ -168,7 +168,7 @@ Both progress and preservation can be proved by [[cs/math/mathematical-induction
 
 > [!example]
 > **Stuck state prevented by typing**
-> ![Stuck state: type system prevents runtime failure](assets/soundness-stuck-state.svg)
+> ![Stuck state: type system prevents runtime failure](cs/pl/assets/soundness-stuck-state.svg)
 
 ---
 

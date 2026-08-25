@@ -9,14 +9,10 @@ tags:
   - cryptography
 date: 2026-02-27
 updated:
-aliases:
-  - password hashing
-  - salting
-  - bcrypt
-  - Argon2
+aliases: []
 ---
 
-The instinct is to reach for a good [[cryptographic-hash-functions|cryptographic hash]] like SHA-256 and call the password stored. That instinct is exactly wrong, and understanding why turns password storage from a one-liner into a two-part defense where each part blocks a different attack.
+The instinct is to reach for a good [[cs/security/cryptographic-hash-functions|cryptographic hash]] like SHA-256 and call the password stored. That instinct is exactly wrong, and understanding why turns password storage from a one-liner into a two-part defense where each part blocks a different attack.
 
 > [!note] The idea
 > A stored password should be the output of a deliberately slow, memory-hard function such as Argon2, bcrypt, or scrypt, over a unique per-user salt. The salt and the slowness are not redundant. The salt defeats precomputation (rainbow tables), and the slowness defeats real-time guessing. A fast hash has neither property and hands an attacker with a stolen database billions of guesses per second.
@@ -42,9 +38,9 @@ The modern refinement targets the specific hardware attackers use. GPUs and ASIC
 
 ## Related Notes
 
-- [[cryptographic-hash-functions|Cryptographic Hash Functions]], the fast primitive that is deliberately wrong here
-- [[kerberos-authentication|Kerberos Authentication]], authentication that avoids sending a password at all
-- [[symmetric-vs-asymmetric-cryptography|Symmetric vs. Asymmetric Cryptography]], why passwords are hashed, not encrypted
+- [[cs/security/cryptographic-hash-functions|Cryptographic Hash Functions]], the fast primitive that is deliberately wrong here
+- [[cs/security/kerberos-authentication|Kerberos Authentication]], authentication that avoids sending a password at all
+- [[cs/security/symmetric-vs-asymmetric-cryptography|Symmetric vs. Asymmetric Cryptography]], why passwords are hashed, not encrypted
 
 ## Sources
 

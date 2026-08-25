@@ -10,8 +10,6 @@ date: 2026-08-04
 updated:
 aliases:
   - SCA
-  - 18 USC 2701
-  - ECPA Title II
 ---
 
 Title II of the Electronic Communications Privacy Act of 1986 sits in chapter 121 of title 18 and does three separate jobs. It creates a criminal offense for unauthorized access to a communications facility. It forbids providers from voluntarily handing over customer data, with a list of exceptions. And it tells the government what legal process it needs to compel each category of data. Those three jobs look unrelated until you notice that all of them depend on the same 1986 classification of what kind of service a company is providing.

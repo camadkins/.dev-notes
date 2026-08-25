@@ -9,10 +9,7 @@ tags:
   - cryptography
 date: 2026-04-02
 updated:
-aliases:
-  - DNSSEC
-  - DNS Security Extensions
-  - Domain Name System Security Extensions
+aliases: []
 ---
 
 The original [[cs/systems/dns-the-domain-name-system|Domain Name System]] had no way to tell a real answer from a forged one. A resolver asked "what is the address for example.com" and believed whatever came back, which is why cache poisoning worked: inject a plausible reply faster than the real server, and the resolver caches your lie. DNSSEC fixes this without encrypting anything. It signs the data itself, so a forged answer fails verification even if it arrives first.
@@ -30,7 +27,7 @@ Concretely, DNSSEC adds four record types. The RRSIG carries the digital signatu
 
 Verification is a walk down the tree. A resolver "authenticate[s] zone information by forming an authentication chain from a newly learned public key back to a previously known authentication public key." The typical chain the spec gives is `DNSKEY->[DS->DNSKEY]*->RRset`: the root's DNSKEY is trusted a priori, the root signs a DS record pointing at `.com`'s key, `.com` signs a DS pointing at `example.com`'s key, and `example.com` signs the actual address record.
 
-The DS record is the hinge that makes this work across organizational boundaries. It "resides at a delegation point in a parent zone and indicates the public key(s) corresponding to the private key(s) used to self-sign the DNSKEY RRset at the delegated child zone's apex." Each parent vouches only for its child's key, not for the child's data, so no single authority signs the whole namespace. This is the same delegated-trust shape as a [[pki-and-x509-certificates|certificate chain]], mapped onto the DNS hierarchy. Break any link, and everything below it fails to validate, which is by design.
+The DS record is the hinge that makes this work across organizational boundaries. It "resides at a delegation point in a parent zone and indicates the public key(s) corresponding to the private key(s) used to self-sign the DNSKEY RRset at the delegated child zone's apex." Each parent vouches only for its child's key, not for the child's data, so no single authority signs the whole namespace. This is the same delegated-trust shape as a [[cs/security/pki-and-x509-certificates|certificate chain]], mapped onto the DNS hierarchy. Break any link, and everything below it fails to validate, which is by design.
 
 ## Proving a name does not exist
 
@@ -42,10 +39,10 @@ Signing existing records is the easy half. The hard half is proving a *negative*
 ## Related Notes
 
 - [[cs/systems/dns-the-domain-name-system|DNS: The Domain Name System]] - the naming system whose original trust gap DNSSEC closes
-- [[digital-signatures|Digital Signatures]] - the RRSIG mechanism that makes a record set verifiable
-- [[pki-and-x509-certificates|PKI and X.509 Certificates]] - the same delegated-chain trust model, applied to certificates
-- [[cryptographic-hash-functions|Cryptographic Hash Functions]] - the digests underlying DS records and signatures
-- [[certificate-transparency|Certificate Transparency]] - another bolt-on that added auditable trust to an existing insecure system
+- [[cs/security/digital-signatures|Digital Signatures]] - the RRSIG mechanism that makes a record set verifiable
+- [[cs/security/pki-and-x509-certificates|PKI and X.509 Certificates]] - the same delegated-chain trust model, applied to certificates
+- [[cs/security/cryptographic-hash-functions|Cryptographic Hash Functions]] - the digests underlying DS records and signatures
+- [[cs/security/certificate-transparency|Certificate Transparency]] - another bolt-on that added auditable trust to an existing insecure system
 
 ## Sources
 

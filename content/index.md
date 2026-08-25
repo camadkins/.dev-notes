@@ -22,4 +22,4 @@ Every note here is a living document. Pages move through stages - from rough dra
 
 The **sidebar explorer** shows the full file tree. The **graph view** on each page reveals how topics connect. **Backlinks** at the bottom show what links here. Use **search** for anything specific.
 
-New here? [[how-to-use-this-site | Start with the guide]].
+New here? [[meta/how-to-use-this-site| Start with the guide]].

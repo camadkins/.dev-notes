@@ -8,16 +8,14 @@ tags:
   - systems
 date: 2026-02-18
 updated:
-aliases:
-  - CPU Scheduling
-  - Scheduling Algorithms
+aliases: []
 ---
 
 ## Picking the Next Runner
 
 At any instant a machine has more processes ready to run than it has cores. The scheduler is the OS module that answers one repeated question: of everything in the ready queue, which process gets the CPU next, and for how long? The answer is invisible when it works and painfully obvious when it fails, a laggy terminal, a batch job that never finishes, [[cs/military-computing/sage-and-real-time-systems|a real-time task that misses its deadline]].
 
-The [[processes-and-threads|processes and threads]] note surveys the OS execution units and touches scheduling in passing. This note goes into the policies themselves and the single tension they all negotiate.
+The [[cs/systems/processes-and-threads|processes and threads]] note surveys the OS execution units and touches scheduling in passing. This note goes into the policies themselves and the single tension they all negotiate.
 
 > [!note] The idea
 > There is no optimal scheduler, only optimal-for-a-goal. Throughput, wait time, response latency, and fairness pull against each other, so every real policy picks a compromise among them. The named algorithms (FCFS, SJF, round robin, priority, MLFQ) are named because each one privileges a different corner of that trade space.
@@ -32,7 +30,7 @@ Wikipedia's scheduling overview lists the standard aims: maximizing throughput, 
 
 **Shortest job first (SJF).** Run the waiting process with the smallest execution time. It "minimizes the average amount of time each process has to wait until its execution is complete," which is [[cs/dsa/greedy-algorithms|provably optimal]] for average wait among non-preemptive policies. Two costs come with that optimality: it "has the potential for process starvation" for long jobs when short ones keep arriving, and "the total execution time of a job must be known before execution," which in general you cannot know. Real systems estimate the next burst from past behavior.
 
-**Round robin (RR).** Assign "a fixed time unit per process" (the quantum) and cycle. A process that does not finish inside its quantum is preempted and sent to the back. Round robin is the fairness workhorse: no job starves, response time is bounded. The cost is overhead, a short quantum means frequent [[context-switching|context switches]], and each switch is wasted CPU time.
+**Round robin (RR).** Assign "a fixed time unit per process" (the quantum) and cycle. A process that does not finish inside its quantum is preempted and sent to the back. Round robin is the fairness workhorse: no job starves, response time is bounded. The cost is overhead, a short quantum means frequent [[cs/systems/context-switching|context switches]], and each switch is wasted CPU time.
 
 **Priority scheduling.** Assign every process a rank; the scheduler runs the highest-priority ready process. In the fixed-priority preemptive form, "lower-priority processes get interrupted by incoming higher-priority processes." Priority is expressive but reintroduces starvation: a stream of high-priority work can freeze a low-priority job forever. The standard remedy is aging, slowly raising a waiting job's priority so it eventually runs.
 
@@ -53,9 +51,9 @@ The design requirements Wikipedia records are: "Separate processes into multiple
 
 ## Related Notes
 
-- [[processes-and-threads|Processes & Threads]] - the execution units the scheduler multiplexes, with a shorter scheduling table
-- [[context-switching|Context Switching]] - the per-preemption cost that makes short quanta expensive
-- [[distributed-consensus|Distributed Consensus]] - scheduling's cross-machine cousin, ordering work across nodes rather than on one CPU
+- [[cs/systems/processes-and-threads|Processes & Threads]] - the execution units the scheduler multiplexes, with a shorter scheduling table
+- [[cs/systems/context-switching|Context Switching]] - the per-preemption cost that makes short quanta expensive
+- [[cs/systems/distributed-consensus|Distributed Consensus]] - scheduling's cross-machine cousin, ordering work across nodes rather than on one CPU
 
 ## Sources
 

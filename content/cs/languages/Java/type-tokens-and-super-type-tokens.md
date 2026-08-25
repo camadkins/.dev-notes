@@ -9,10 +9,7 @@ tags:
   - type-theory
 date: 2026-07-22
 updated:
-aliases:
-  - Java Type Token
-  - Super Type Token
-  - Class Literal as Type Token
+aliases: []
 ---
 
 Erasure deletes type arguments from the compiled program, so a method that needs to know its own `T` at runtime has to be told. The standard answer is to add a parameter whose value carries the type: the caller writes `String.class`, the method receives it, and the type that the compiler threw away comes back in through the front door as ordinary data.

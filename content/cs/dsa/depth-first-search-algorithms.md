@@ -1,7 +1,7 @@
 ---
 title: Depth-First Search (DFS)  
 description: Systematic graph exploration that timestamps discovery/finish times and classifies edges; foundation for cycle detection and topological order.  
-draft: true  
+draft: false
 tags:
   - cs
   - dsa
@@ -14,7 +14,7 @@ aliases: []
 
 **Depth-First Search (DFS)** explores a graph by recursing (or using an explicit stack) along each path as far as possible before backtracking. Classic DFS records **discovery** and **finish** timestamps for each vertex, yielding a **DFS forest** and enabling **edge classification** (tree, back, forward, cross). These artifacts power cycle detection, connectivity analyses, and [[cs/dsa/topological-sorting|Topological Sorting]].
 
-![DFS forest with discovery/finish timestamps on each vertex and edges colored by class](assets/dfs-forest-timestamps.svg)
+![DFS forest with discovery/finish timestamps on each vertex and edges colored by class](cs/dsa/assets/dfs-forest-timestamps.svg)
 
 ## Core Idea
 
@@ -79,7 +79,7 @@ Suppose `G` is directed with vertices `a..h`. Start from `a`; follow `a→c→d�
 
 Edges like `d→c` encountered while `c` is GRAY classify as **back**; an edge from `a` to already-finished `e` is **forward/cross** depending on timestamps.
 
-![Edge classification in directed vs undirected graphs: directed shows tree, back, forward, cross; undirected shows only tree and back](assets/dfs-edge-types.svg)
+![Edge classification in directed vs undirected graphs: directed shows tree, back, forward, cross; undirected shows only tree and back](cs/dsa/assets/dfs-edge-types.svg)
 
 ## Complexity Analysis
 

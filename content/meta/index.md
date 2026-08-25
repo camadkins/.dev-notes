@@ -6,8 +6,7 @@ comments: false
 tags:
   - meta
 date: 2026-03-12
-aliases:
-  - About This Site
+aliases: []
 ---
 
 This section explains how the garden works - for readers, for me, and for any tooling I use to help write notes.

@@ -10,11 +10,9 @@ date: 2026-07-08
 updated:
 aliases:
   - QUIC
-  - QUIC transport
-  - QUIC protocol
 ---
 
-For thirty years the reliable-transport slot on the internet belonged to TCP, and anything that wanted ordered, loss-recovered delivery inherited TCP's whole model: one byte stream, one handshake before the first byte, one connection bolted to one pair of IP addresses. QUIC keeps the guarantees and throws out the packaging. It runs on [[tcp-vs-udp|UDP]], the protocol that promises nothing, and rebuilds reliability on top in a way TCP could not because TCP's design was [[cs/standards/when-the-standard-loses-to-the-implementation|frozen into operating-system kernels and middleboxes]] decades ago.
+For thirty years the reliable-transport slot on the internet belonged to TCP, and anything that wanted ordered, loss-recovered delivery inherited TCP's whole model: one byte stream, one handshake before the first byte, one connection bolted to one pair of IP addresses. QUIC keeps the guarantees and throws out the packaging. It runs on [[cs/networking/tcp-vs-udp|UDP]], the protocol that promises nothing, and rebuilds reliability on top in a way TCP could not because TCP's design was [[cs/standards/when-the-standard-loses-to-the-implementation|frozen into operating-system kernels and middleboxes]] decades ago.
 
 > [!note] The idea
 > QUIC is a UDP-based, multiplexed, secure transport. Each stream recovers its own losses, so one dropped packet stalls only its stream and not the others; the transport and TLS handshakes are fused into a single low-latency exchange; a resumed connection can send application data in its very first packet (0-RTT); and a connection is named by an ID rather than an IP pair, so it survives the client moving networks.
@@ -23,11 +21,11 @@ For thirty years the reliable-transport slot on the internet belonged to TCP, an
 
 RFC 9000 titles the protocol plainly: "QUIC: A UDP-Based Multiplexed and Secure Transport." It provides applications with flow-controlled streams for structured communication, low-latency connection establishment, and network path migration. The word that matters is *streams*, plural, each independent.
 
-This is the fix for the failure mode described in [[tcp-vs-udp|TCP vs UDP]]. When [[http-evolution-1-1-to-3|HTTP/2]] multiplexes many requests over a single TCP connection, TCP still sees one byte stream, so a single lost packet blocks delivery of every multiplexed request until the retransmit lands. QUIC flow-controls each stream separately and retransmits lost data at the QUIC level, not the UDP level, so if an error occurs in one stream the protocol stack keeps servicing the others. The classic example: a dropped packet carrying a favicon no longer freezes the rest of the page. Because [[cs/security/authenticated-encryption-aead|packets are encrypted individually]] rather than as records inside one bytestream, a partial packet does not hold up decryption of the ones behind it either.
+This is the fix for the failure mode described in [[cs/networking/tcp-vs-udp|TCP vs UDP]]. When [[cs/networking/http-evolution-1-1-to-3|HTTP/2]] multiplexes many requests over a single TCP connection, TCP still sees one byte stream, so a single lost packet blocks delivery of every multiplexed request until the retransmit lands. QUIC flow-controls each stream separately and retransmits lost data at the QUIC level, not the UDP level, so if an error occurs in one stream the protocol stack keeps servicing the others. The classic example: a dropped packet carrying a favicon no longer freezes the rest of the page. Because [[cs/security/authenticated-encryption-aead|packets are encrypted individually]] rather than as records inside one bytestream, a partial packet does not hold up decryption of the ones behind it either.
 
 ## One handshake instead of two
 
-TCP with [[cs/systems/tls-and-the-https-handshake|TLS]] pays for its layering. TCP first opens a connection with its own [[tcp-three-way-handshake|handshake]], and only then does TLS negotiate keys on top, each round trip adding real delay over long distances. QUIC folds these together. When a client opens a connection, the setup exchange carries the TLS key material and protocol list as part of the initial handshake, eliminating the need to build an unencrypted pipe and then negotiate security as separate steps. Security is not an add-on here; QUIC always encrypts, using TLS 1.3 for the cryptographic handshake.
+TCP with [[cs/systems/tls-and-the-https-handshake|TLS]] pays for its layering. TCP first opens a connection with its own [[cs/networking/tcp-three-way-handshake|handshake]], and only then does TLS negotiate keys on top, each round trip adding real delay over long distances. QUIC folds these together. When a client opens a connection, the setup exchange carries the TLS key material and protocol list as part of the initial handshake, eliminating the need to build an unencrypted pipe and then negotiate security as separate steps. Security is not an add-on here; QUIC always encrypts, using TLS 1.3 for the cryptographic handshake.
 
 ## 0-RTT: data before the handshake finishes
 
@@ -45,11 +43,11 @@ TCP identifies a connection by the four-tuple of source and destination IP and p
 
 ## Related Notes
 
-- [[tcp-vs-udp|TCP vs UDP]] - the head-of-line trade-off QUIC escapes by owning loss recovery per stream
-- [[http-evolution-1-1-to-3|HTTP Evolution, 1.1 to 3]] - why HTTP/3 moved off TCP onto QUIC
-- [[tcp-three-way-handshake|The TCP Three-Way Handshake]] - the connection setup QUIC fuses with TLS
-- [[tls-and-the-https-handshake|TLS and the HTTPS Handshake]] - the TLS 1.3 handshake QUIC builds in
-- [[tcp-congestion-control|TCP Congestion Control]] - the loss-recovery discipline QUIC reimplements above UDP
+- [[cs/networking/tcp-vs-udp|TCP vs UDP]] - the head-of-line trade-off QUIC escapes by owning loss recovery per stream
+- [[cs/networking/http-evolution-1-1-to-3|HTTP Evolution, 1.1 to 3]] - why HTTP/3 moved off TCP onto QUIC
+- [[cs/networking/tcp-three-way-handshake|The TCP Three-Way Handshake]] - the connection setup QUIC fuses with TLS
+- [[cs/systems/tls-and-the-https-handshake|TLS and the HTTPS Handshake]] - the TLS 1.3 handshake QUIC builds in
+- [[cs/networking/tcp-congestion-control|TCP Congestion Control]] - the loss-recovery discipline QUIC reimplements above UDP
 
 ## Sources
 

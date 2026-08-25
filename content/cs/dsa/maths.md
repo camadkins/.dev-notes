@@ -257,10 +257,10 @@ Keep a compact toolkit:
 
 ## Related Notes
 
-- [[algorithm-efficiency|Algorithm Efficiency]]
+- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]
 
-- [[asymptotic-notation|Asymptotic Notation]]
+- [[cs/dsa/asymptotic-notation|Asymptotic Notation]]
 
-- [[recurrence-relations|Recurrence Relations]]
+- [[cs/dsa/recurrence-relations|Recurrence Relations]]
 
-- [[logarithmic-functions|Logarithmic Functions]]
+- [[cs/dsa/logarithmic-functions|Logarithmic Functions]]

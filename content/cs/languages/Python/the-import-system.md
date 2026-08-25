@@ -8,10 +8,7 @@ tags:
   - languages
 date: 2026-01-22
 updated:
-aliases:
-  - Python Imports
-  - sys.modules
-  - Relative Imports
+aliases: []
 ---
 
 The `import` statement combines two operations; it searches for the named module, then it binds the results of that search to a [[cs/pl/scoping-binding-and-closures|name in the local scope]]. Those two halves are separable in the machinery. The search operation is defined as a call to the `__import__()` function, and the return value of `__import__()` is used to perform the name binding operation. A direct call to `__import__()` performs only the module search and, if found, the module creation operation, and only the `import` statement performs a name binding operation.

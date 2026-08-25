@@ -8,9 +8,7 @@ tags:
   - networking
 date: 2026-03-11
 updated:
-aliases:
-  - TCP versus UDP
-  - transport protocol choice
+aliases: []
 ---
 
 Both TCP and UDP sit at the transport layer, both ride on IP, and both use port numbers to hand data to the right process. That is where the resemblance ends. One spends effort to hide the network's unreliability from you; the other hands you the network's raw behavior and gets out of the way. Choosing between them is choosing what you want the transport layer to do on your behalf, and what you would rather do yourself.
@@ -20,7 +18,7 @@ Both TCP and UDP sit at the transport layer, both ride on IP, and both use port 
 
 ## What TCP promises
 
-TCP is one of the main protocols of the internet suite, providing reliable, ordered, and error-checked delivery of a stream of octets between applications communicating over an IP network. To deliver on that, it first opens a connection with the [[tcp-three-way-handshake|three-way handshake]], numbers every byte, acknowledges what arrives, retransmits what does not, and reassembles segments into the exact order the sender wrote them. The application reads a clean, gap-free byte stream and never sees the losses and reorderings that happened underneath.
+TCP is one of the main protocols of the internet suite, providing reliable, ordered, and error-checked delivery of a stream of octets between applications communicating over an IP network. To deliver on that, it first opens a connection with the [[cs/networking/tcp-three-way-handshake|three-way handshake]], numbers every byte, acknowledges what arrives, retransmits what does not, and reassembles segments into the exact order the sender wrote them. The application reads a clean, gap-free byte stream and never sees the losses and reorderings that happened underneath.
 
 That contract is what [[cs/history/world-wide-web|the World Wide Web]], email, remote administration, and file transfer are built on. When correctness of the whole payload matters more than the latency of any one piece, TCP is the default.
 
@@ -34,7 +32,7 @@ That sounds like a defect until you notice what it removes: no handshake round t
 
 TCP's in-order delivery has a specific failure mode. Head-of-line blocking is a performance-limiting phenomenon that occurs when [[cs/dsa/queue|a queue of packets]] is held up by the first packet in the queue. Because TCP must hand bytes to the application in order, a single lost segment forces every segment that arrived after it to sit in a buffer, delivered by the network but withheld from the application, until the missing one is retransmitted and fills the gap.
 
-For one bulk transfer that is fine. For many independent things multiplexed over one connection, it means one lost packet stalls all of them. This is exactly the pressure that pushed [[http-evolution-1-1-to-3|HTTP/3]] off TCP and onto QUIC over UDP, where independent streams do not block each other.
+For one bulk transfer that is fine. For many independent things multiplexed over one connection, it means one lost packet stalls all of them. This is exactly the pressure that pushed [[cs/networking/http-evolution-1-1-to-3|HTTP/3]] off TCP and onto QUIC over UDP, where independent streams do not block each other.
 
 > [!example] Same loss, two outcomes
 > A packet carrying bytes 5,000 to 6,000 is dropped; bytes 6,000 to 10,000 arrive fine. Over TCP the receiving application sees nothing past byte 5,000 until the retransmission lands, even though later bytes are already in memory. Over UDP each datagram is independent, so the loss affects only its own datagram and the application decides whether to care.
@@ -44,11 +42,11 @@ For one bulk transfer that is fine. For many independent things multiplexed over
 
 ## Related Notes
 
-- [[tcp-three-way-handshake|The TCP Three-Way Handshake]] - the connection setup UDP skips entirely
-- [[network-protocols|Network Protocols]] - where TCP and UDP sit in the layered stack
-- [[osi-and-tcp-ip-models|OSI and TCP/IP Models]] - the transport layer that hosts both
-- [[http-evolution-1-1-to-3|HTTP Evolution]] - why HTTP/3 abandoned TCP to escape head-of-line blocking
-- [[dns-the-domain-name-system|DNS]] - a canonical UDP workload
+- [[cs/networking/tcp-three-way-handshake|The TCP Three-Way Handshake]] - the connection setup UDP skips entirely
+- [[cs/systems/network-protocols|Network Protocols]] - where TCP and UDP sit in the layered stack
+- [[cs/networking/osi-and-tcp-ip-models|OSI and TCP/IP Models]] - the transport layer that hosts both
+- [[cs/networking/http-evolution-1-1-to-3|HTTP Evolution]] - why HTTP/3 abandoned TCP to escape head-of-line blocking
+- [[cs/systems/dns-the-domain-name-system|DNS]] - a canonical UDP workload
 
 ## Sources
 

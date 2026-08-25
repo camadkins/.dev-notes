@@ -8,10 +8,7 @@ tags:
   - systems
 date: 2026-06-11
 updated:
-aliases:
-  - System Calls
-  - Syscall
-  - User Mode and Kernel Mode
+aliases: []
 ---
 
 ## One Door In
@@ -25,7 +22,7 @@ That restriction is not bureaucracy, it is the entire security model. If any pro
 
 ## Two worlds: user space and kernel space
 
-Modern operating systems use [[virtual-memory|virtual memory]] to split memory into two regions. "Kernel space is strictly reserved for running a privileged operating system kernel, kernel extensions, and most device drivers. In contrast, user space is the memory area where application software, daemons, and some drivers execute, typically with one address space per process." Each user process runs in its own space and, "unless explicitly allowed, cannot access the memory of other processes. This is the basis for memory protection."
+Modern operating systems use [[cs/systems/virtual-memory|virtual memory]] to split memory into two regions. "Kernel space is strictly reserved for running a privileged operating system kernel, kernel extensions, and most device drivers. In contrast, user space is the memory area where application software, daemons, and some drivers execute, typically with one address space per process." Each user process runs in its own space and, "unless explicitly allowed, cannot access the memory of other processes. This is the basis for memory protection."
 
 The hardware backs this with privilege levels. Most processors implement a [[cs/military-computing/multics-and-time-sharing-foundations|rings model]]: "hierarchical levels or layers of privilege," "arranged in a hierarchy from most privileged (most trusted, usually numbered zero) to least privileged." Ring 0 is the kernel and "interacts most directly with the physical hardware." Application code runs in an outer, untrusted ring where privileged instructions are simply not allowed to execute.
 
@@ -33,7 +30,7 @@ The hardware backs this with privilege levels. Most processors implement a [[cs/
 
 So how does an unprivileged program run privileged code safely? It does not get to jump wherever it likes. It raises a software interrupt, a trap. "An interrupt automatically puts the CPU into some elevated privilege level and then passes control to the kernel, which determines whether the calling program should be granted the requested service."
 
-The sequence is fixed and one-way in the sense that user code never chooses the destination: the program loads a register with the system-call number it wants, executes the trap instruction, and the hardware simultaneously raises privilege and jumps to the kernel's registered handler. As Wikipedia puts it, "Interrupts transfer control to the operating system kernel, so software simply needs to set up some register with the system call number needed, and execute the software interrupt." The kernel, now in ring 0, checks whether the request is allowed, performs it, and drops privilege back to user mode on return. The [[interrupts-and-traps|interrupt and trap]] machinery is the same mechanism that hardware devices use to get attention; a syscall is just a trap the program raises on purpose.
+The sequence is fixed and one-way in the sense that user code never chooses the destination: the program loads a register with the system-call number it wants, executes the trap instruction, and the hardware simultaneously raises privilege and jumps to the kernel's registered handler. As Wikipedia puts it, "Interrupts transfer control to the operating system kernel, so software simply needs to set up some register with the system call number needed, and execute the software interrupt." The kernel, now in ring 0, checks whether the request is allowed, performs it, and drops privilege back to user mode on return. The [[cs/systems/interrupts-and-traps|interrupt and trap]] machinery is the same mechanism that hardware devices use to get attention; a syscall is just a trap the program raises on purpose.
 
 ## The interface programs actually see
 
@@ -44,14 +41,14 @@ Almost no one writes the raw trap instruction by hand. Systems "provide a librar
 
 ## Why the narrow gate matters
 
-Funneling every privileged request through a small, numbered set of entry points is what makes the boundary defensible. The kernel validates every crossing, so a [[sandboxing-and-isolation|sandbox]] can restrict a process simply by filtering which system calls it is allowed to make. The syscall table is the complete list of things a program can ask the OS to do; controlling that list controls the program.
+Funneling every privileged request through a small, numbered set of entry points is what makes the boundary defensible. The kernel validates every crossing, so a [[cs/security/sandboxing-and-isolation|sandbox]] can restrict a process simply by filtering which system calls it is allowed to make. The syscall table is the complete list of things a program can ask the OS to do; controlling that list controls the program.
 
 ## Related Notes
 
-- [[interrupts-and-traps|Interrupts and Traps]] - the trap mechanism a syscall rides on, shared with hardware interrupts and exceptions
-- [[virtual-memory|Virtual Memory]] - the address-space split that separates user space from kernel space
-- [[processes-and-threads|Processes & Threads]] - processes are created and managed through system calls like fork and exec
-- [[sandboxing-and-isolation|Sandboxing and Isolation]] - restricting a process by filtering the system calls it may issue
+- [[cs/systems/interrupts-and-traps|Interrupts and Traps]] - the trap mechanism a syscall rides on, shared with hardware interrupts and exceptions
+- [[cs/systems/virtual-memory|Virtual Memory]] - the address-space split that separates user space from kernel space
+- [[cs/systems/processes-and-threads|Processes & Threads]] - processes are created and managed through system calls like fork and exec
+- [[cs/security/sandboxing-and-isolation|Sandboxing and Isolation]] - restricting a process by filtering the system calls it may issue
 
 ## Sources
 

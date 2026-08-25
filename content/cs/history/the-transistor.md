@@ -8,8 +8,7 @@ tags:
   - history
 date: 2026-05-09
 updated:
-aliases:
-  - transistor
+aliases: []
 ---
 
 In December 1947, three physicists at Bell Labs made a sliver of germanium amplify a signal, and the direction of electronics changed. The transistor would replace the vacuum tube and become the physical atom of all digital computing.
@@ -21,22 +20,22 @@ In December 1947, three physicists at Bell Labs made a sliver of germanium ampli
 
 John Bardeen and Walter Brattain, working under William Shockley at Bell Labs, observed transistor action between 17 November and 23 December 1947; the three shared the 1956 Nobel Prize in Physics. [[cs/geopolitics/semiconductor-supply-chains|A transistor is a semiconductor device]] that amplifies or switches electrical signals, and it is now considered one of the twentieth century's greatest inventions.
 
-![A transistor as a switch: a signal on the control terminal decides whether current flows, encoding a 1 or a 0.](assets/transistor-as-switch.svg)
+![A transistor as a switch: a signal on the control terminal decides whether current flows, encoding a 1 or a 0.](cs/history/assets/transistor-as-switch.svg)
 
 ## Why it beat the tube
 
-Compared with the vacuum tube, transistors are smaller, cheaper, and need far less power, and they do not burn out the way a heated filament does. The [[anfsq7-and-fault-tolerant-hardware|tube-based machines]] that needed heroic redundancy just to stay running gave way to solid-state reliability, and computers began their long shrink from buildings to pockets.
+Compared with the vacuum tube, transistors are smaller, cheaper, and need far less power, and they do not burn out the way a heated filament does. The [[cs/military-computing/anfsq7-and-fault-tolerant-hardware|tube-based machines]] that needed heroic redundancy just to stay running gave way to solid-state reliability, and computers began their long shrink from buildings to pockets.
 
 ## The building block
 
-The transistor is the key active component in practically all modern electronics. Everything above it is [[cs/dsa/bitwise-operations|built from transistors acting as switches]]: the [[boole-and-boolean-algebra|logic gates]] that [[shannon-boolean-algebra-switching|Shannon]] showed how to design, and from those gates, processors and memory.
+The transistor is the key active component in practically all modern electronics. Everything above it is [[cs/dsa/bitwise-operations|built from transistors acting as switches]]: the [[cs/history/boole-and-boolean-algebra|logic gates]] that [[cs/history/shannon-boolean-algebra-switching|Shannon]] showed how to design, and from those gates, processors and memory.
 
 ## Related Notes
 
-- [[the-mosfet|The MOSFET]], the transistor design that made chips buildable
-- [[the-integrated-circuit|The Integrated Circuit]], many transistors on one chip
-- [[shannon-boolean-algebra-switching|Shannon's Master's Thesis]], switches as logic
-- [[anfsq7-and-fault-tolerant-hardware|The AN/FSQ-7]], the tube era the transistor ended
+- [[cs/history/the-mosfet|The MOSFET]], the transistor design that made chips buildable
+- [[cs/history/the-integrated-circuit|The Integrated Circuit]], many transistors on one chip
+- [[cs/history/shannon-boolean-algebra-switching|Shannon's Master's Thesis]], switches as logic
+- [[cs/military-computing/anfsq7-and-fault-tolerant-hardware|The AN/FSQ-7]], the tube era the transistor ended
 - [[cs/history/index|History of Computing]], the section index
 
 ## Sources

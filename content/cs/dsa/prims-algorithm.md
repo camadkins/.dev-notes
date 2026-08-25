@@ -9,7 +9,6 @@ tags:
 date: 2025-10-16
 updated: 2026-01-08
 aliases: []
-
 ---
 
 ## Overview
@@ -212,10 +211,10 @@ Prim grows an MST from a seed by **repeatedly picking the lightest cut edge**, t
 
 ## Related Notes
 
-- [[kruskals-algorithm|Kruskal's Algorithm]]
+- [[cs/dsa/kruskals-algorithm|Kruskal's Algorithm]]
 
-- [[minimum-spanning-trees-kruskal-prim|Minimum Spanning Trees - Kruskal & Prim]]
+- [[cs/dsa/minimum-spanning-trees-kruskal-prim|Minimum Spanning Trees - Kruskal & Prim]]
 
-- [[graph-representations|Graph Representations]]
+- [[cs/dsa/graph-representations|Graph Representations]]
 
-- [[graphs|Graphs - Overview]]
+- [[cs/dsa/graphs|Graphs - Overview]]

@@ -10,7 +10,6 @@ date: 2026-04-06
 updated:
 aliases:
   - RAID
-  - RAID Levels
 ---
 
 The premise of RAID is a bit of arbitrage. Cheap disks are individually unreliable, expensive disks are individually reliable, and you can beat the expensive disk with a pile of cheap ones if you spend some of the capacity on redundancy. That is the whole argument, and it was made precisely: at Berkeley in 1987, Patterson, Gibson, and Katz "argued that the disk drives of the top-performing mainframe computers of the time could be outperformed by an array of the (comparatively inexpensive) disk drives that were manufactured for the growing [[cs/history/altair-8800-and-personal-computing|personal computer market]]." The catch they named up front is the one this note keeps circling back to: "although incidence of hard disk drive failure rises in proportion to the number of drives in use, the reliability of an array could far exceed that of any single, high-capacity drive if one built redundancy into the computer storage system by configuring it to write data to more than one disk automatically."
@@ -113,11 +112,11 @@ Two more failure classes sit outside the array's scope entirely. Physical: "an a
 
 ## Related Notes
 
-- [[file-systems|File Systems]] - the layer above, and where copy-on-write designs close the write hole
-- [[io-devices-and-drivers|I/O Devices and Drivers]] - the controllers and drivers an array depends on, and can be stranded by
-- [[replication-and-quorums|Replication and Quorums]] - the same redundancy argument across machines instead of drives
-- [[magnetic-disk-storage|Magnetic Disk Storage]] - the physical device whose failure characteristics drive all of this
-- [[memory-hierarchy-and-caching|Memory Hierarchy and Caching]] - write-back caching, which introduces its own durability gap
+- [[cs/systems/file-systems|File Systems]] - the layer above, and where copy-on-write designs close the write hole
+- [[cs/systems/io-devices-and-drivers|I/O Devices and Drivers]] - the controllers and drivers an array depends on, and can be stranded by
+- [[cs/systems/replication-and-quorums|Replication and Quorums]] - the same redundancy argument across machines instead of drives
+- [[cs/history/magnetic-disk-storage|Magnetic Disk Storage]] - the physical device whose failure characteristics drive all of this
+- [[cs/systems/memory-hierarchy-and-caching|Memory Hierarchy and Caching]] - write-back caching, which introduces its own durability gap
 
 ## Sources
 

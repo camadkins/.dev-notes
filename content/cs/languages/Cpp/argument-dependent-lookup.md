@@ -10,8 +10,6 @@ date: 2026-07-11
 updated:
 aliases:
   - ADL
-  - Koenig Lookup
-  - Customization Points in C++
 ---
 
 There is no `operator<<` in the global namespace, and yet `std::cout << "Test\n"` compiles. cppreference explains why in one line: argument-dependent lookup examines the `std` namespace because the left argument is in `std`, and finds `std::operator<<`. The same page notes that `std::cout << endl` does not compile, because that is not a function call to `endl()`, so ADL does not apply, while `endl(std::cout)` does compile for exactly the symmetric reason.

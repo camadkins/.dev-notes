@@ -1,5 +1,5 @@
 ---
-title: Arrays - Fixed-Size Contiguous Storage
+title: Arrays
 description: Linear data structure offering constant-time random access; foundation for static and dynamic sequences.
 draft: false
 comments: true
@@ -229,13 +229,13 @@ function reverse(A, n):
 
 ## Related Notes
 
-- [[dynamic-arrays|Dynamic Arrays]]
+- [[cs/dsa/dynamic-arrays|Dynamic Arrays]]
     
-- [[multidimensional-arrays|Multidimensional Arrays]]
+- [[cs/dsa/multidimensional-arrays|Multidimensional Arrays]]
     
-- [[linear-search|Linear Search]]
+- [[cs/dsa/linear-search|Linear Search]]
     
-- [[binary-search|Binary Search]]
+- [[cs/dsa/binary-search|Binary Search]]
     
-- [[array-operations|Array Operations]]
+- [[cs/dsa/array-operations|Array Operations]]
     

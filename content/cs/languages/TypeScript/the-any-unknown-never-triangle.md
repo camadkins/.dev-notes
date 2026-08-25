@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-08-05
 updated:
-aliases:
-  - any vs unknown vs never
-  - Top and Bottom Types in TypeScript
+aliases: []
 ---
 
 Put these three on a lattice and only two of them fit. `unknown` sits at the top, above every type. `never` sits at the bottom, below every type. `any` is not on the diagram, because it is not a position in the ordering. It is a hole in the ordering.

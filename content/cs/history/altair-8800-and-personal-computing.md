@@ -8,12 +8,10 @@ tags:
   - history
 date: 2026-03-01
 updated:
-aliases:
-  - Altair 8800
-  - personal computer
+aliases: []
 ---
 
-In 1974 a small New Mexico company put a [[the-microprocessor|microprocessor]] in a box, sold it as a kit, and accidentally started the personal computer industry. The Altair 8800 was the machine that put a real stored-program computer in individual hands.
+In 1974 a small New Mexico company put a [[cs/history/the-microprocessor|microprocessor]] in a box, sold it as a kit, and accidentally started the personal computer industry. The Altair 8800 was the machine that put a real stored-program computer in individual hands.
 
 > [!note] The idea
 > A microprocessor cheap enough for one person to own turns the computer from an institutional machine into a personal one. The hobbyist, not the corporation, becomes the user, and a mass market follows.
@@ -28,13 +26,13 @@ The Altair 8800 was introduced by MITS in 1974, built on [[cs/geopolitics/semico
 
 ## Why it matters
 
-The Altair proved there was a market for a computer an individual could own. Within a few years the [[xerox-parc-and-the-gui|graphical interface]] would make such a computer usable by anyone, and software like [[visicalc-and-the-killer-app|VisiCalc]] would give people a reason to buy one. Personal computing became the dominant form, and it started with a kit.
+The Altair proved there was a market for a computer an individual could own. Within a few years the [[cs/history/xerox-parc-and-the-gui|graphical interface]] would make such a computer usable by anyone, and software like [[cs/history/visicalc-and-the-killer-app|VisiCalc]] would give people a reason to buy one. Personal computing became the dominant form, and it started with a kit.
 
 ## Related Notes
 
-- [[the-microprocessor|The Microprocessor]], the chip that made it possible
-- [[xerox-parc-and-the-gui|Xerox PARC and the Graphical User Interface]], what made the PC usable
-- [[visicalc-and-the-killer-app|VisiCalc and the Killer App]], what made people buy one
+- [[cs/history/the-microprocessor|The Microprocessor]], the chip that made it possible
+- [[cs/history/xerox-parc-and-the-gui|Xerox PARC and the Graphical User Interface]], what made the PC usable
+- [[cs/history/visicalc-and-the-killer-app|VisiCalc and the Killer App]], what made people buy one
 - [[cs/history/index|History of Computing]], the section index
 
 ## Sources

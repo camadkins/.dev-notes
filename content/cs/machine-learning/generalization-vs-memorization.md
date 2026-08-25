@@ -7,10 +7,7 @@ tags:
   - cs
   - machine-learning
 date: 2026-07-13
-aliases:
-  - generalization
-  - memorization
-  - generalization gap
+aliases: []
 ---
 
 The whole point of machine learning is to do well on data you have not seen yet. A model that scores perfectly on its training examples has proven almost nothing, because storing answers is trivial for a computer. The interesting quantity is not training performance, it is the drop between training performance and performance on fresh data. Keeping that drop small is what "learning" actually means.
@@ -29,22 +26,22 @@ For a computer this matters more, not less, because memorizing is so easy. A mod
 Formally, training error is measured on the data the model fit, and generalization error is the [[cs/statistics/expected-value|expected error]] on new samples drawn from the same distribution. The gap between them is the generalization gap. A useful model keeps both low; a memorizing model has near-zero training error and a large gap.
 
 > [!warning] You cannot see generalization error directly
-> True generalization error is over the whole data distribution, which you never fully observe. You estimate it with a held-out [[train-validation-test|test set]] the model never trained on. The moment the test set leaks into training, the estimate is worthless, because you are back to measuring memorization.
+> True generalization error is over the whole data distribution, which you never fully observe. You estimate it with a held-out [[cs/machine-learning/train-validation-test|test set]] the model never trained on. The moment the test set leaks into training, the estimate is worthless, because you are back to measuring memorization.
 
 ## What controls the gap
 
-The gap is governed by the [[bias-variance-tradeoff|bias-variance tradeoff]]. Too little model capacity underfits, high error everywhere. Too much capacity overfits, low training error and a wide gap. The sweet spot has enough capacity to capture the real pattern and enough restraint to ignore the noise. Every regularization technique, from weight penalties to [[regularization-in-deep-learning|dropout and early stopping]], exists to push a model back toward that sweet spot when it starts to memorize.
+The gap is governed by the [[cs/machine-learning/bias-variance-tradeoff|bias-variance tradeoff]]. Too little model capacity underfits, high error everywhere. Too much capacity overfits, low training error and a wide gap. The sweet spot has enough capacity to capture the real pattern and enough restraint to ignore the noise. Every regularization technique, from weight penalties to [[cs/deep-learning/regularization-in-deep-learning|dropout and early stopping]], exists to push a model back toward that sweet spot when it starts to memorize.
 
 > [!example] The tell
 > Training accuracy 99 percent, test accuracy 71 percent is the signature of memorization: the model learned the training set, including its quirks, and did not learn the underlying pattern. Training accuracy 88 percent, test accuracy 85 percent is worse on paper but better in truth, because it generalized.
 
 ## Related Notes
 
-- [[supervised-learning|Supervised Learning]], where generalization is the goal
-- [[bias-variance-tradeoff|Bias-Variance Tradeoff]], what controls the gap
-- [[train-validation-test|Train, Validation, Test]], how the gap is estimated honestly
-- [[regularization-in-deep-learning|Regularization in Deep Learning]], how the gap is narrowed
-- [[ai-vs-ml-vs-dl|AI vs ML vs DL]], why "learned from data" is the ML claim
+- [[cs/machine-learning/supervised-learning|Supervised Learning]], where generalization is the goal
+- [[cs/machine-learning/bias-variance-tradeoff|Bias-Variance Tradeoff]], what controls the gap
+- [[cs/machine-learning/train-validation-test|Train, Validation, Test]], how the gap is estimated honestly
+- [[cs/deep-learning/regularization-in-deep-learning|Regularization in Deep Learning]], how the gap is narrowed
+- [[cs/machine-learning/ai-vs-ml-vs-dl|AI vs ML vs DL]], why "learned from data" is the ML claim
 
 ## Sources
 

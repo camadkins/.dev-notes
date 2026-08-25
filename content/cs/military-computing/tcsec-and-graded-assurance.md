@@ -10,7 +10,6 @@ date: 2026-02-19
 updated:
 aliases:
   - TCSEC
-  - Orange Book
 ---
 
 Claiming a system is secure is easy. Saying how secure, and backing it up, is the hard part. The Trusted Computer System Evaluation Criteria, known by the color of its cover as the Orange Book, was the United States government's attempt to replace the vague claim with a graded scale that a system could actually be measured against.
@@ -20,11 +19,11 @@ Claiming a system is secure is easy. Saying how secure, and backing it up, is th
 
 ## Who and when
 
-The Orange Book was issued in 1983 by the National Computer Security Center, a division of [[cryptography-codebreaking-and-the-nsa|the NSA]], and updated in 1985. It set the basic requirements for assessing how effective a computer system's [[cs/law/the-nist-risk-management-framework|security controls]] were.
+The Orange Book was issued in 1983 by the National Computer Security Center, a division of [[cs/military-computing/cryptography-codebreaking-and-the-nsa|the NSA]], and updated in 1985. It set the basic requirements for assessing how effective a computer system's [[cs/law/the-nist-risk-management-framework|security controls]] were.
 
 ## The ladder
 
-It defined four divisions, from D at the bottom to A at the top, and broke the upper divisions into classes: C1, C2, B1, B2, B3, and A1. Division D meant minimal protection. The C classes added [[cs/security/access-control-models-rbac-abac|discretionary controls]] and accountability. The B classes required mandatory access control, built on the [[bell-lapadula-and-mandatory-access-control|Bell-LaPadula model]], along with a clear security policy model. Each step up demanded more rigor in how the system was designed and argued, beyond simply adding features.
+It defined four divisions, from D at the bottom to A at the top, and broke the upper divisions into classes: C1, C2, B1, B2, B3, and A1. Division D meant minimal protection. The C classes added [[cs/security/access-control-models-rbac-abac|discretionary controls]] and accountability. The B classes required mandatory access control, built on the [[cs/military-computing/bell-lapadula-and-mandatory-access-control|Bell-LaPadula model]], along with a clear security policy model. Each step up demanded more rigor in how the system was designed and argued, beyond simply adding features.
 
 ## The top rung
 
@@ -36,9 +35,9 @@ The Orange Book is the ancestor of the evaluation schemes that followed it, incl
 
 ## Related Notes
 
-- [[bell-lapadula-and-mandatory-access-control|Bell-LaPadula and Mandatory Access Control]], the model the higher classes required
-- [[cyber-warfare-and-the-fifth-domain|Cyber Warfare and the Fifth Domain]], the modern security stakes
-- [[cryptography-codebreaking-and-the-nsa|Cryptography, Codebreaking, and the NSA]], the agency behind the standard
+- [[cs/military-computing/bell-lapadula-and-mandatory-access-control|Bell-LaPadula and Mandatory Access Control]], the model the higher classes required
+- [[cs/military-computing/cyber-warfare-and-the-fifth-domain|Cyber Warfare and the Fifth Domain]], the modern security stakes
+- [[cs/military-computing/cryptography-codebreaking-and-the-nsa|Cryptography, Codebreaking, and the NSA]], the agency behind the standard
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

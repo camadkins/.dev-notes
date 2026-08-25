@@ -11,8 +11,6 @@ updated:
 aliases:
   - STP
   - RSTP
-  - root bridge
-  - spanning-tree vlan root primary
 ---
 
 An IP packet caught in a routing loop dies when its TTL hits zero. [[cs/standards/ieee-802-3-ethernet|An Ethernet frame]] has no TTL. That single missing field is why a layer-2 loop is a different category of problem from a layer-3 one, and why an entire protocol exists to prevent physical redundancy from turning into an outage.
@@ -67,7 +65,7 @@ The transitions are gated by a timer, not by a handshake. While spanning tree wa
 
 The defaults are hello time 2 seconds, forward-delay time 15 seconds, and maximum-aging time 20 seconds. Two forward delays at 15 seconds each is where the familiar 30-second port startup comes from. RSTP's own documentation names the cost of that design: twice the forward delay must elapse before a new link ends up in the forwarding state, which means 30 seconds of disruption of traffic, because the 802.1D algorithm lacks a feedback mechanism to clearly advertise that the network converges in a matter of seconds.
 
-That delay is exactly what [[portfast-and-bpdu-guard|PortFast]] exists to skip on host-facing ports.
+That delay is exactly what [[cs/cisco/portfast-and-bpdu-guard|PortFast]] exists to skip on host-facing ports.
 
 ## RSTP: roles decoupled from states
 
@@ -116,12 +114,12 @@ Cisco's troubleshooting document is explicit that most STP failures relate to a 
 
 ## Related Notes
 
-- [[portfast-and-bpdu-guard|PortFast and BPDU Guard]] - skipping the 30-second wait on host ports, and the guard that makes it safe
-- [[trunking-and-802-1q|Trunking and 802.1Q]] - the native VLAN mismatch that produces spanning-tree loops
-- [[vlans-and-vlan-design|VLANs and VLAN Design]] - each VLAN carries its own spanning-tree instance
-- [[etherchannel-and-lacp|EtherChannel and LACP]] - bundling links so spanning tree sees one logical port instead of blocking one
-- [[show-and-debug-methodology|Show and Debug Methodology]] - the discipline behind the verification commands above
-- [[arp-and-mac-addressing|ARP and MAC Addressing]] - the address table a loop destabilizes
+- [[cs/cisco/portfast-and-bpdu-guard|PortFast and BPDU Guard]] - skipping the 30-second wait on host ports, and the guard that makes it safe
+- [[cs/cisco/trunking-and-802-1q|Trunking and 802.1Q]] - the native VLAN mismatch that produces spanning-tree loops
+- [[cs/cisco/vlans-and-vlan-design|VLANs and VLAN Design]] - each VLAN carries its own spanning-tree instance
+- [[cs/cisco/etherchannel-and-lacp|EtherChannel and LACP]] - bundling links so spanning tree sees one logical port instead of blocking one
+- [[cs/cisco/show-and-debug-methodology|Show and Debug Methodology]] - the discipline behind the verification commands above
+- [[cs/networking/arp-and-mac-addressing|ARP and MAC Addressing]] - the address table a loop destabilizes
 
 ## Sources
 

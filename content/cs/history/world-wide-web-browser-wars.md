@@ -8,12 +8,10 @@ tags:
   - history
 date: 2026-03-29
 updated:
-aliases:
-  - browser wars
-  - rendering engine
+aliases: []
 ---
 
-Once the [[world-wide-web|Web]] existed, the program you viewed it with became strategically valuable, and two companies fought over it. The browser wars of the 1990s turned the browser from a simple document viewer into a programmable platform, the runtime that an enormous share of software now targets.
+Once the [[cs/history/world-wide-web|Web]] existed, the program you viewed it with became strategically valuable, and two companies fought over it. The browser wars of the 1990s turned the browser from a simple document viewer into a programmable platform, the runtime that an enormous share of software now targets.
 
 > [!note] The idea
 > A browser is a client runtime. It parses HTML and CSS into a visual layout and runs JavaScript, so a web page is not a static document but a small program executing on your machine.
@@ -32,9 +30,9 @@ The rivalry, later renewed by Chrome and Firefox, drove the rapid feature develo
 
 ## Related Notes
 
-- [[world-wide-web|The World Wide Web]], the thing browsers display
-- [[network-protocols|Network Protocols]], how the browser fetches pages
-- [[history-of-the-internet|History of the Internet]], the wider arc
+- [[cs/history/world-wide-web|The World Wide Web]], the thing browsers display
+- [[cs/systems/network-protocols|Network Protocols]], how the browser fetches pages
+- [[cs/history/history-of-the-internet|History of the Internet]], the wider arc
 - [[cs/history/index|History of Computing]], the section index
 
 ## Sources

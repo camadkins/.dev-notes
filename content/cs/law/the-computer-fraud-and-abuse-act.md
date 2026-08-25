@@ -10,7 +10,6 @@ date: 2026-06-14
 updated:
 aliases:
   - CFAA
-  - 18 USC 1030
 ---
 
 Read the federal computer crime statute cold and the surprise is how little of it is about computers. Seven paragraphs describe conduct: obtaining national defense information, obtaining financial records, touching a government machine, defrauding, damaging, trafficking in passwords, extorting. Strip the word "computer" out and most of them read like ordinary theft, trespass, and extortion statutes from a century earlier. That is close to what they are. The federal government did not invent a new theory of wrongdoing in the 1980s. It re-enacted old ones with a jurisdictional hook attached, and then spent thirty-five years widening the hook.

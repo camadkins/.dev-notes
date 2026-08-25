@@ -8,10 +8,7 @@ tags:
   - systems
 date: 2026-06-28
 updated:
-aliases:
-  - blockchain
-  - distributed ledger
-  - consensus
+aliases: []
 ---
 
 Money has always needed a referee. When you pay someone, a bank or a card network confirms the money was yours and is now theirs, and stops you from spending the same dollar twice. That referee is a single trusted party, and a single trusted party is also a single point of control: it can freeze your account, reverse your payment, or be ordered by a state to do both. A blockchain asks a stranger question. Can a crowd of machines that do not trust each other, with no referee, still agree on who owns what? When the answer is yes, you get money that no one can freeze, which is the whole story of why blockchains matter politically.
@@ -23,7 +20,7 @@ Money has always needed a referee. When you pay someone, a bank or a card networ
 
 The hard part of digital money is not sending it, it is stopping someone from sending the same coin to two people at once. A physical coin solves this for free: handing it over means you no longer have it. A digital token is just data, copyable at no cost, so something has to enforce that a coin spent here cannot also be spent there. Banks solve it by being the one authority that keeps score. Take the authority away and you face a classic problem from distributed computing: reaching consensus, agreement on a single data value, while some of the participating machines may fail or actively lie.
 
-This is the Byzantine generals problem. A group of actors must agree on a common decision to avoid catastrophic failure, but some of them are unreliable in ways that make the honest ones disagree without realizing it. A system that stays correct despite such actors has Byzantine fault tolerance. A blockchain is a working answer at internet scale. Bitcoin's design reaches agreement through proof-of-work: machines compete to extend the ledger by spending real computation, and the chain that represents the most accumulated work is the one the network treats as true. Rewriting history then means out-computing everyone else, which is expensive enough to make tampering uneconomic. Other systems reach the same agreement by other means, such as staking value rather than burning energy, but the goal is identical: let mutually distrusting parties converge on one history without anyone in charge. This is the same family of problem that classical [[distributed-consensus|distributed consensus]] protocols solve inside a single trusted datacenter, pushed out to an open network full of anonymous strangers.
+This is the Byzantine generals problem. A group of actors must agree on a common decision to avoid catastrophic failure, but some of them are unreliable in ways that make the honest ones disagree without realizing it. A system that stays correct despite such actors has Byzantine fault tolerance. A blockchain is a working answer at internet scale. Bitcoin's design reaches agreement through proof-of-work: machines compete to extend the ledger by spending real computation, and the chain that represents the most accumulated work is the one the network treats as true. Rewriting history then means out-computing everyone else, which is expensive enough to make tampering uneconomic. Other systems reach the same agreement by other means, such as staking value rather than burning energy, but the goal is identical: let mutually distrusting parties converge on one history without anyone in charge. This is the same family of problem that classical [[cs/systems/distributed-consensus|distributed consensus]] protocols solve inside a single trusted datacenter, pushed out to an open network full of anonymous strangers.
 
 ## An append-only ledger with no one in charge
 
@@ -33,7 +30,7 @@ The ledger lives on a peer-to-peer network where nodes collectively follow the c
 
 ## Money outside the state
 
-Put those properties together and you have value that moves between people without passing through any institution a government can lean on. For someone living under capital controls, who is legally barred from moving savings out of a collapsing currency, a ledger that no central bank operates is an exit. For a sanctioned entity cut off from the banking system, the same ledger is a payment rail that does not ask permission. The technology does not distinguish the dissident moving money past a censoring regime from the sanctioned actor moving money past an embargo. The neutrality is structural, the same neutrality that makes [[onion-routing-and-anonymity-networks|onion routing]] shield both a journalist and a criminal.
+Put those properties together and you have value that moves between people without passing through any institution a government can lean on. For someone living under capital controls, who is legally barred from moving savings out of a collapsing currency, a ledger that no central bank operates is an exit. For a sanctioned entity cut off from the banking system, the same ledger is a payment rail that does not ask permission. The technology does not distinguish the dissident moving money past a censoring regime from the sanctioned actor moving money past an embargo. The neutrality is structural, the same neutrality that makes [[cs/systems/onion-routing-and-anonymity-networks|onion routing]] shield both a journalist and a criminal.
 
 This is why blockchains sit squarely inside debates over [[cs/geopolitics/cyber-sovereignty|cyber sovereignty]]. A state's monetary power rests partly on its control of the rails that money runs on. A settlement system that runs on volunteer machines spread across many jurisdictions weakens that control by design. States respond not by breaking the math, which they cannot, but by pressuring the on-ramps and off-ramps, the exchanges where digital tokens become spendable national currency.
 
@@ -52,9 +49,9 @@ So a blockchain offers a strange bargain. It gives you money no authority can fr
 
 ## Related Notes
 
-- [[distributed-consensus|Distributed Consensus]], the agreement problem blockchains solve in an open, untrusted network rather than a controlled datacenter
+- [[cs/systems/distributed-consensus|Distributed Consensus]], the agreement problem blockchains solve in an open, untrusted network rather than a controlled datacenter
 - [[cs/geopolitics/cyber-sovereignty|Cyber Sovereignty]], the contest between state control of money's rails and a settlement layer no state operates
-- [[onion-routing-and-anonymity-networks|Onion Routing]], the same dual-use neutrality that shields both the dissident and the criminal
+- [[cs/systems/onion-routing-and-anonymity-networks|Onion Routing]], the same dual-use neutrality that shields both the dissident and the criminal
 - [[cs/geopolitics/surveillance-and-privacy|Surveillance & Privacy]], pseudonymity versus chain analysis and the public permanent record
 
 ## Sources

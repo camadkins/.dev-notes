@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-06-30
 updated:
-aliases:
-  - d.ts Files
-  - Ambient Declarations in TypeScript
+aliases: []
 ---
 
 TypeScript was never going to rewrite the JavaScript ecosystem, and it did not try. The strategy was to describe what already existed, from the outside, in a file containing types and no code. That file is a `.d.ts`, and the entire adoption story of the language runs through it.

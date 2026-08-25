@@ -8,10 +8,7 @@ tags:
   - networking
 date: 2026-04-18
 updated:
-aliases:
-  - longest prefix match
-  - routing table
-  - administrative distance
+aliases: []
 ---
 
 A packet arrives at a router carrying nothing but a destination address. The router has to answer one question fast, millions of times a second: out which interface, toward which neighbor, does this packet go next? It does not know the whole path to the destination and does not need to. It only needs the next hop. Everything about routing is machinery for answering that single question from a table of possibilities where several answers can all be correct at once.
@@ -21,9 +18,9 @@ A packet arrives at a router carrying nothing but a destination address. The rou
 
 ## The routing table
 
-The routing table, also called the routing information base (RIB), is a data table stored in a router or a network host that lists the routes to particular network destinations, and in some cases the metrics associated with those routes. Each entry pairs a destination network, written as a [[ip-addressing-and-subnetting|CIDR prefix]], with the next hop and outgoing interface that move a packet toward it. The router does not store a route to every individual host on the internet; it stores routes to networks, and lets the prefix stand in for all the hosts inside.
+The routing table, also called the routing information base (RIB), is a data table stored in a router or a network host that lists the routes to particular network destinations, and in some cases the metrics associated with those routes. Each entry pairs a destination network, written as a [[cs/networking/ip-addressing-and-subnetting|CIDR prefix]], with the next hop and outgoing interface that move a packet toward it. The router does not store a route to every individual host on the internet; it stores routes to networks, and lets the prefix stand in for all the hosts inside.
 
-Where do the entries come from? Some are static, fixed by an administrator. Most are learned. The construction of routing tables is the primary goal of routing protocols like OSPF and [[bgp-and-internet-routing-as-control|BGP]], which flood or advertise reachability so each router can build a local picture of the topology around it. The table is the distilled result: a map compact enough to consult on every packet.
+Where do the entries come from? Some are static, fixed by an administrator. Most are learned. The construction of routing tables is the primary goal of routing protocols like OSPF and [[cs/systems/bgp-and-internet-routing-as-control|BGP]], which flood or advertise reachability so each router can build a local picture of the topology around it. The table is the distilled result: a map compact enough to consult on every packet.
 
 ## Longest prefix match
 
@@ -44,10 +41,10 @@ Administrative distance is a number of arbitrary units assigned to dynamic route
 
 ## Related Notes
 
-- [[ip-addressing-and-subnetting|IP Addressing and Subnetting]] - the CIDR prefixes that routing tables match against
-- [[bgp-and-internet-routing-as-control|BGP and Internet Routing]] - the protocol that fills tables with interdomain routes
-- [[network-protocols|Network Protocols]] - where routing sits among the layered protocols
-- [[osi-and-tcp-ip-models|OSI and TCP/IP Models]] - routing is the internet layer's core task
+- [[cs/networking/ip-addressing-and-subnetting|IP Addressing and Subnetting]] - the CIDR prefixes that routing tables match against
+- [[cs/systems/bgp-and-internet-routing-as-control|BGP and Internet Routing]] - the protocol that fills tables with interdomain routes
+- [[cs/systems/network-protocols|Network Protocols]] - where routing sits among the layered protocols
+- [[cs/networking/osi-and-tcp-ip-models|OSI and TCP/IP Models]] - routing is the internet layer's core task
 
 ## Sources
 

@@ -9,10 +9,7 @@ tags:
   - memory
 date: 2026-01-27
 updated:
-aliases:
-  - integer overflow
-  - integer wraparound
-  - integer wrap
+aliases: []
 ---
 
 [[cs/languages/common/numeric-types-and-overflow-semantics|Fixed-width integer arithmetic]] has a property that is easy to forget because it almost never bites: the result lives in a bounded space, and when a computation leaves that space the hardware does not stop. It wraps. `0xFFFFFFFF + 1` is not a runtime error on a 32-bit unsigned value; it is `0`. The CPU is behaving exactly as specified. The vulnerability is not in the arithmetic. It is in the code downstream that assumed the arithmetic could not lie.
@@ -37,9 +34,9 @@ Overflow does not only shrink values. "An integer overflow can cause the value t
 
 ## Related Notes
 
-- [[buffer-overflows|Buffer Overflows]], the memory corruption an undersized allocation feeds directly into
-- [[use-after-free-and-heap-exploitation|Use-After-Free and Heap Exploitation]], another route from an allocator-level mistake to attacker-controlled memory
-- [[fuzzing|Fuzzing]], the technique that finds these boundary-arithmetic bugs by hammering the edges of the input range
+- [[cs/security/buffer-overflows|Buffer Overflows]], the memory corruption an undersized allocation feeds directly into
+- [[cs/security/use-after-free-and-heap-exploitation|Use-After-Free and Heap Exploitation]], another route from an allocator-level mistake to attacker-controlled memory
+- [[cs/security/fuzzing|Fuzzing]], the technique that finds these boundary-arithmetic bugs by hammering the edges of the input range
 
 ## Sources
 

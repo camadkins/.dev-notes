@@ -19,7 +19,7 @@ Expected value does not have to be a value the random variable can actually take
 
 The power of expected value lies in its **linearity**: you can break complex quantities into simpler pieces, compute each expectation separately, and add them up - no independence required.
 
-![Probability distribution of a fair die with E[X] = 3.5 marked as the balance point](assets/expected-value-balance.svg)
+![Probability distribution of a fair die with E[X] = 3.5 marked as the balance point](cs/statistics/assets/expected-value-balance.svg)
 
 ## Definition
 
@@ -46,7 +46,7 @@ $$E[g(X)] = \sum_{x} g(x)\, f(x) \qquad \text{(discrete)}$$
 
 $$E[g(X)] = \int_{-\infty}^{\infty} g(x)\, f(x)\, dx \qquad \text{(continuous)}$$
 
-This is used constantly - for instance, setting $g(X) = X^2$ gives $E[X^2]$, which appears in the [[variance-and-covariance|variance]] formula.
+This is used constantly - for instance, setting $g(X) = X^2$ gives $E[X^2]$, which appears in the [[cs/statistics/variance-and-covariance|variance]] formula.
 
 ### Linearity of expectation
 
@@ -62,7 +62,7 @@ If $X$ and $Y$ are independent:
 
 $$E[XY] = E[X] \cdot E[Y]$$
 
-This does **not** hold in general. When $X$ and $Y$ are dependent, the difference $E[XY] - E[X]E[Y]$ is exactly the [[variance-and-covariance|covariance]].
+This does **not** hold in general. When $X$ and $Y$ are dependent, the difference $E[XY] - E[X]E[Y]$ is exactly the [[cs/statistics/variance-and-covariance|covariance]].
 
 ## Example
 
@@ -88,14 +88,14 @@ This directly informs maintenance scheduling and spare-parts inventory.
 
 ## Why It Matters in CS
 
-- **Average-case algorithm analysis.** The expected number of comparisons in randomized Quicksort is $E[C] = 2n \ln n \approx 1.39\, n \log_2 n$, derived using linearity of expectation over indicator random variables. See [[best-worst-average-cases|Best, Worst, and Average Cases]].
+- **Average-case algorithm analysis.** The expected number of comparisons in randomized Quicksort is $E[C] = 2n \ln n \approx 1.39\, n \log_2 n$, derived using linearity of expectation over indicator random variables. See [[cs/dsa/best-worst-average-cases|Best, Worst, and Average Cases]].
 - **Performance modeling.** [[cs/systems/process-scheduling-algorithms|Expected response time]], expected throughput, and expected queue length (via Little's Law: $E[L] = \lambda\, E[W]$) are the bread and butter of systems performance engineering.
 - **Network analysis.** [[cs/networking/qos-and-traffic-shaping|Expected packet delay]], expected number of retransmissions, and expected path latency guide protocol design and capacity planning.
 - **Machine learning.** [[cs/machine-learning/loss-functions|Loss functions]] are expectations: $E[\ell(h(X), Y)]$. Training minimizes empirical expected loss; generalization theory bounds the true expected loss.
 
 ## Related Notes
 
-- [[variance-and-covariance|Variance and Covariance]] - measures how far outcomes spread around the expected value
-- [[probability-distributions|Probability Distributions]] - each distribution has characteristic expected values
-- [[best-worst-average-cases|Best, Worst, and Average Cases]] - expected value defines the average case
-- [[quick-sort|Quick Sort]] - average-case $O(n \log n)$ derived via linearity of expectation
+- [[cs/statistics/variance-and-covariance|Variance and Covariance]] - measures how far outcomes spread around the expected value
+- [[cs/statistics/probability-distributions|Probability Distributions]] - each distribution has characteristic expected values
+- [[cs/dsa/best-worst-average-cases|Best, Worst, and Average Cases]] - expected value defines the average case
+- [[cs/dsa/quick-sort|Quick Sort]] - average-case $O(n \log n)$ derived via linearity of expectation

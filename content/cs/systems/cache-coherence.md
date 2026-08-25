@@ -12,11 +12,9 @@ date: 2026-07-02
 updated:
 aliases:
   - MESI
-  - False Sharing
-  - Coherence Protocol
 ---
 
-A single core with a [[memory-hierarchy-and-caching|cache]] has no coherence problem: its cache is simply a fast copy of memory, and it is the only party writing. Add a second core with its own private cache and the picture breaks. Both cores can pull the same 64-byte line into their local caches, and the moment one of them writes, the other is holding a stale copy that still claims to be current. Cache coherence is the hardware discipline that stops the two copies from silently disagreeing.
+A single core with a [[cs/systems/memory-hierarchy-and-caching|cache]] has no coherence problem: its cache is simply a fast copy of memory, and it is the only party writing. Add a second core with its own private cache and the picture breaks. Both cores can pull the same 64-byte line into their local caches, and the moment one of them writes, the other is holding a stale copy that still claims to be current. Cache coherence is the hardware discipline that stops the two copies from silently disagreeing.
 
 The failure is concrete: "if two clients have a cached copy of a particular memory block and one client changes the block, the other client's copy must be invalidated or updated. If it is not, the system is in an incoherent state: it contains two different records of the same memory block which both claim to be up-to-date."
 
@@ -58,9 +56,9 @@ The trap: two cores update two entirely separate variables, no logical sharing a
 
 ## Related Notes
 
-- [[memory-hierarchy-and-caching|Memory Hierarchy and Caching]] - the cache line, the unit coherence operates on
-- [[concurrency-primitives|Concurrency Primitives]] - coherence keeps copies uniform, but does not by itself order operations across addresses
-- [[processes-and-threads|Processes & Threads]] - the parallel threads whose caches must be kept coherent
+- [[cs/systems/memory-hierarchy-and-caching|Memory Hierarchy and Caching]] - the cache line, the unit coherence operates on
+- [[cs/systems/concurrency-primitives|Concurrency Primitives]] - coherence keeps copies uniform, but does not by itself order operations across addresses
+- [[cs/systems/processes-and-threads|Processes & Threads]] - the parallel threads whose caches must be kept coherent
 
 ## Sources
 

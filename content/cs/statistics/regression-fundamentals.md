@@ -58,7 +58,7 @@ The **residual** for observation $i$ is $e_i = Y_i - \hat{Y}_i$. Residuals are t
 - **Normal Q-Q plot**: residuals should fall on a straight line if the normality assumption holds.
 - **Scale-location plot**: checks for constant variance (homoscedasticity).
 
-![Scatter plot with OLS fitted line showing vertical residual distances, plus residuals-vs-fitted subplot](assets/regression-residuals.svg)
+![Scatter plot with OLS fitted line showing vertical residual distances, plus residuals-vs-fitted subplot](cs/statistics/assets/regression-residuals.svg)
 
 ### Key assumptions (LINE)
 
@@ -94,6 +94,6 @@ With $R^2 = 0.74$, square footage explains 74% of the variance in sale price. Th
 
 ## Related Notes
 
-- [[probability-distributions|Probability Distributions]] - OLS residuals are assumed normally distributed
-- [[hypothesis-testing|Hypothesis Testing]] - $t$-tests and $F$-tests assess coefficient significance
-- [[bayesian-inference|Bayesian Inference]] - Bayesian regression places priors on $\beta$
+- [[cs/statistics/probability-distributions|Probability Distributions]] - OLS residuals are assumed normally distributed
+- [[cs/statistics/hypothesis-testing|Hypothesis Testing]] - $t$-tests and $F$-tests assess coefficient significance
+- [[cs/statistics/bayesian-inference|Bayesian Inference]] - Bayesian regression places priors on $\beta$

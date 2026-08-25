@@ -9,9 +9,7 @@ tags:
   - memory
 date: 2026-06-30
 updated:
-aliases:
-  - Runtime Dispatch Layouts
-  - Fat Pointers vs Vtables
+aliases: []
 ---
 
 Somewhere in every polymorphic call there is an indirect jump, and something has to supply the address. Where that something lives is a layout decision made once per language, and it determines a surprising amount: whether an `int` can implement an interface, whether a library can add behavior to a type it did not define, and whether the object pays for a machine word it never uses.

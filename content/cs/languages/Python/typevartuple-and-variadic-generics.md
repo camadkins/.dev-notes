@@ -9,11 +9,7 @@ tags:
   - type-theory
 date: 2026-08-04
 updated:
-aliases:
-  - TypeVarTuple
-  - PEP 646
-  - Python Variadic Generics
-  - Unpack
+aliases: []
 ---
 
 ```python

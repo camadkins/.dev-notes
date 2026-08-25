@@ -9,9 +9,7 @@ tags:
   - memory
 date: 2026-06-14
 updated:
-aliases:
-  - Belady's Anomaly
-  - Clock Algorithm
+aliases: []
 ---
 
 Physical memory is full, a process touches a page that is not resident, and the operating system has to throw something out to make room. Which one? Every answer to that question is a guess about the future made from evidence about the past, and the quality of the guess is measured in wall-clock time, since "when the page that was selected for replacement and paged out is referenced again it has to be paged in (read in from disk), and this involves waiting for I/O completion. This determines the *quality* of the page replacement algorithm: the less time waiting for page-ins, the better the algorithm."
@@ -108,18 +106,18 @@ There is no bound. FIFO can be made arbitrarily worse by giving it more memory.
 
 Linux does not pick one row. Its "pages in the page cache are divided in an 'active' set and an 'inactive' set. Both sets keep a LRU list of pages. In the basic case, when a page is accessed by a user-space program it is put in the head of the inactive set. When it is accessed repeatedly, it is moved to the active list." Demotion is deliberate and two-staged: "when a page is moved to the inactive set it is removed from the page table of any process address space, without being paged out of physical memory," and only "when a page is removed from the inactive set, it is paged out of physical memory." That intermediate state is a free re-reference test, catching a page that still matters before it costs a disk write. The lists are observable in `/proc/meminfo` under "Active", "Inactive", and their anon and file variants.
 
-Worth noting that the modern kernel does not treat this as a [[virtual-memory|virtual memory]] problem in isolation. "Most modern OS kernels have unified virtual memory and file system caches, requiring the page replacement algorithm to select a page from among the pages of both user program virtual address spaces and cached files," so "page replacement in modern kernels (Linux, FreeBSD, and Solaris) tends to work at the level of a general purpose kernel memory allocator, rather than at the higher level of a virtual memory subsystem."
+Worth noting that the modern kernel does not treat this as a [[cs/systems/virtual-memory|virtual memory]] problem in isolation. "Most modern OS kernels have unified virtual memory and file system caches, requiring the page replacement algorithm to select a page from among the pages of both user program virtual address spaces and cached files," so "page replacement in modern kernels (Linux, FreeBSD, and Solaris) tends to work at the level of a general purpose kernel memory allocator, rather than at the higher level of a virtual memory subsystem."
 
 > [!tip]
 > The reason 1960s research on this quieted down and then restarted is instructive. It "mostly ended with the development of sophisticated LRU approximations and working set algorithms," but hardware moved: primary storage grew "by multiple orders of magnitude," so "algorithms that require a periodic check of each and every memory frame are becoming less and less practical," and software locality "has weakened," attributed partly to object-oriented styles favoring "large numbers of small functions," to trees and hash tables that "tend to result in chaotic memory reference patterns," and to garbage collection. An algorithm tuned to a 1975 machine is not tuned to yours.
 
 ## Related Notes
 
-- [[virtual-memory|Virtual Memory]] - the paging machinery whose eviction decision this note is about
-- [[memory-hierarchy-and-caching|Memory Hierarchy and Caching]] - the same replacement question one level up, in silicon
-- [[memory-allocators-and-fragmentation|Memory Allocators and Fragmentation]] - why modern kernels handle replacement at the allocator level
-- [[process-scheduling-algorithms|Process Scheduling Algorithms]] - the other classic OS policy problem with an unimplementable optimum
-- [[file-systems|File Systems]] - the file cache that modern kernels unified with the page cache
+- [[cs/systems/virtual-memory|Virtual Memory]] - the paging machinery whose eviction decision this note is about
+- [[cs/systems/memory-hierarchy-and-caching|Memory Hierarchy and Caching]] - the same replacement question one level up, in silicon
+- [[cs/systems/memory-allocators-and-fragmentation|Memory Allocators and Fragmentation]] - why modern kernels handle replacement at the allocator level
+- [[cs/systems/process-scheduling-algorithms|Process Scheduling Algorithms]] - the other classic OS policy problem with an unimplementable optimum
+- [[cs/systems/file-systems|File Systems]] - the file cache that modern kernels unified with the page cache
 
 ## Sources
 

@@ -9,11 +9,7 @@ tags:
   - concurrency
 date: 2026-07-08
 updated:
-aliases:
-  - Coroutines
-  - Generators
-  - "async/await"
-  - Stackful vs Stackless
+aliases: []
 ---
 
 A subroutine begins at the start, runs, and finishes. It returns exactly once and holds no state between invocations. Nearly every control abstraction people complain about writing by hand, iterators, state machines, event loops, pipelines, is a workaround for that one restriction.

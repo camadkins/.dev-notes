@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-07-29
 updated:
-aliases:
-  - ArrayStoreException
-  - Array Covariance in Java
+aliases: []
 ---
 
 Java ships two container-shaped abstractions with opposite [[cs/pl/subtyping-variance-type-constraints|subtyping rules]]. An `Integer[]` is usable anywhere a `Number[]` is expected. A `List<Integer>` is not usable anywhere a `List<Number>` is expected. Both containers hold references, both support reads and writes, and both were designed by the same people. The difference is not taste. It is a record of what each design could afford to check when the program actually ran.

@@ -7,7 +7,6 @@ maturity: working
 tags:
   - off-watch
   - golf
-  - courses
 date: 2026-06-28
 aliases: []
 # --- round facts (edit these) ---

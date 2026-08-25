@@ -9,10 +9,7 @@ tags:
   - type-theory
 date: 2026-07-09
 updated:
-aliases:
-  - runtime_checkable
-  - isinstance Protocol
-  - Data Protocol
+aliases: []
 ---
 
 `@runtime_checkable` looks like the bridge between the checker's world and the interpreter's. It is not a bridge. It is a second, weaker test that happens to share a name with the first.

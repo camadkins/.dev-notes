@@ -11,8 +11,6 @@ date: 2026-06-09
 updated:
 aliases:
   - JWT
-  - JSON Web Token
-  - JSON Web Tokens
 ---
 
 Classic web sessions keep state on the server: the browser holds an opaque session ID, and the server looks it up in a store on every request. That store is a scaling and coordination cost, especially across many services. A JWT inverts the arrangement. It hands the *claims themselves* to the client, wrapped in a signature, so the server can trust a request by checking the signature instead of a database. The power and the danger both come from that single move.
@@ -24,7 +22,7 @@ Classic web sessions keep state on the server: the browser holds an opaque sessi
 
 JWTs target tight spaces: "space constrained environments such as [[cs/networking/http-evolution-1-1-to-3|HTTP Authorization headers]] and URI query parameters." The [[cs/languages/common/serialization-and-wire-formats|serialization]] reflects that, three base64url segments joined by dots, header, payload, signature. The header names the algorithm, the payload carries the claims (issuer, expiry, subject, and whatever else), and the signature covers the first two.
 
-The self-contained structure is the whole appeal. A resource server that receives a JWT does not phone home. It recomputes the signature over the header and payload with the issuer's key and, if it matches, treats the claims as authentic. This is the same offline-verification property that lets an [[oauth2-and-openid-connect|OpenID Connect]] ID token or a [[kerberos-authentication|Kerberos]] ticket be checked without a callback, and it is exactly why JWTs became the default carrier for [[oauth2-and-openid-connect|OAuth]] access tokens and OIDC identity claims.
+The self-contained structure is the whole appeal. A resource server that receives a JWT does not phone home. It recomputes the signature over the header and payload with the issuer's key and, if it matches, treats the claims as authentic. This is the same offline-verification property that lets an [[cs/security/oauth2-and-openid-connect|OpenID Connect]] ID token or a [[cs/security/kerberos-authentication|Kerberos]] ticket be checked without a callback, and it is exactly why JWTs became the default carrier for [[cs/security/oauth2-and-openid-connect|OAuth]] access tokens and OIDC identity claims.
 
 ## alg:none, the mode that removes the lock
 
@@ -37,11 +35,11 @@ The token's own header declares which algorithm to verify with. A naive library 
 
 ## Related Notes
 
-- [[oauth2-and-openid-connect|OAuth 2.0 and OpenID Connect]] - the protocols where JWTs most often carry access and identity claims
-- [[digital-signatures|Digital Signatures]] - the signing scheme (JWS) that makes a JWT verifiable offline
-- [[cryptographic-hash-functions|Cryptographic Hash Functions]] - the HMAC and hash primitives behind common JWT signatures
-- [[kerberos-authentication|Kerberos Authentication]] - the older self-contained-ticket model JWTs echo on the web
-- [[multi-factor-authentication|Multi-Factor Authentication]] - what an issuer verifies before minting a claims token
+- [[cs/security/oauth2-and-openid-connect|OAuth 2.0 and OpenID Connect]] - the protocols where JWTs most often carry access and identity claims
+- [[cs/security/digital-signatures|Digital Signatures]] - the signing scheme (JWS) that makes a JWT verifiable offline
+- [[cs/security/cryptographic-hash-functions|Cryptographic Hash Functions]] - the HMAC and hash primitives behind common JWT signatures
+- [[cs/security/kerberos-authentication|Kerberos Authentication]] - the older self-contained-ticket model JWTs echo on the web
+- [[cs/security/multi-factor-authentication|Multi-Factor Authentication]] - what an issuer verifies before minting a claims token
 
 ## Sources
 

@@ -8,10 +8,7 @@ tags:
   - languages
 date: 2026-07-22
 updated:
-aliases:
-  - Declarative Models
-  - Idempotence
-  - Configuration as Code
+aliases: []
 ---
 
 Most of the languages in this cluster tell the machine what to do, step by step. Ansible tells it what the world should look like and lets the tool work out the steps. That inversion is why a configuration tool earns a place among languages: it is a working example of the declarative model, where you write the destination instead of the route. The paradigm distinction itself, imperative versus declarative, is covered abstractly in [[cs/pl/programming-paradigms-models-of-computation|programming paradigms]]; this note is what it looks like when the declarative model is the whole point of a real, widely deployed language.

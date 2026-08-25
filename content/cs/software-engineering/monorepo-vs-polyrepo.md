@@ -6,13 +6,9 @@ comments: true
 tags:
   - cs
   - software-engineering
-  - version-control
 date: 2026-06-24
 updated:
-aliases:
-  - Monorepo
-  - Polyrepo
-  - Multi-repo
+aliases: []
 ---
 
 A monorepo is "a software-development strategy in which the code for a number of projects is stored in the same repository." The alternative, splitting each project into its own repository, is the default most teams inherit without ever deciding on it. Neither is new: the monorepo practice "dates back to at least the early 2000s, when it was commonly called a shared codebase."
@@ -30,7 +26,7 @@ Code reuse gets simpler because "similar functionality or communication protocol
 
 The atomic commit is the load-bearing one. "When projects that work together are contained in separate repositories, releases need to sync which versions of one project work with the other," and at scale that version matrix becomes dependency hell. Landing a change across all affected projects in one commit makes the matrix go away.
 
-That property is what enables the fourth advantage, [[refactoring|large-scale refactoring]]: "since developers have access to the full codebase wherein a component is reused, individuals working on a refactor can ensure that every project utilizing a reused component continues to function after the code is restructured." The fifth is social. In a monorepo built on source dependencies, which are "dependencies that are compiled from source," "teams can improve projects being worked on by other teams," which "leads to flexible code ownership."
+That property is what enables the fourth advantage, [[cs/software-engineering/refactoring|large-scale refactoring]]: "since developers have access to the full codebase wherein a component is reused, individuals working on a refactor can ensure that every project utilizing a reused component continues to function after the code is restructured." The fifth is social. In a monorepo built on source dependencies, which are "dependencies that are compiled from source," "teams can improve projects being worked on by other teams," which "leads to flexible code ownership."
 
 Google's stated framing for its own repository is this last one generalized. Its "monolithic repository provides a common source of truth for tens of thousands of developers around the world."
 
@@ -38,7 +34,7 @@ Google's stated framing for its own repository is this last one generalized. Its
 
 The disadvantages are not minor, and two of them are governance rather than engineering.
 
-Versioning gets coarse. "Although not required, some monorepo builds use one version number across all projects in the repository. This leads to a loss of per-project [[semantic-versioning|semantic versioning]]." A repo-wide version number carries almost no information to a consumer.
+Versioning gets coarse. "Although not required, some monorepo builds use one version number across all projects in the repository. This leads to a loss of per-project [[cs/software-engineering/semantic-versioning|semantic versioning]]." A repo-wide version number carries almost no information to a consumer.
 
 Access control gets coarse too. "With split repositories, access to a repository can be granted based upon need. By default, a monorepo allows a contributor read access to all software in the project, which [[cs/security/privilege-separation-and-least-privilege|violates the principle of least privilege]] and can lead to security risks like source code leaks and supply-chain attacks." Wikipedia flags that this is not universal: "when Subversion is used, it's possible to download any part of the repo (even a single directory), and path-based authorization can be used to restrict access to certain parts of a repository."
 
@@ -53,7 +49,7 @@ Neither strategy is self-supporting past a certain size. The monorepo's bill arr
 
 Version control first. "As their codebases grew, many companies using existing version control software found that it could not efficiently handle the amount of data required for a large monorepo. Facebook and Microsoft chose to contribute to or fork existing version control software Mercurial and Git respectively, while Google eventually created their own version control system." The Google trajectory is documented in numbers: "for more than ten years, Google had relied on an instance of Perforce's pseudonymous version control software hosted on a single machine. In 2005, Google's build servers could get locked up to 10 minutes at a time," a figure Wikipedia records as improved to a range of 30 seconds to 1 minute by 2010, and "due to scaling issues, Google eventually developed its own in-house distributed version control system dubbed Piper." Facebook "ran into performance issues with the version control system Mercurial and made upstream contributions to the client, and in January 2014 made it faster than a competing solution in Git." Microsoft "announced that virtually all of its Windows engineers use a Git monorepo" in May 2017, having made "substantial upstream contributions to the Git client to remove unnecessary file access and improve handling of large files with Virtual File System for Git."
 
-Build systems second, and this is the constraint that bites earliest. "Few build tools work well in a monorepo, and flows where builds and continuous integration testing of the entire repository are performed upon check-in will cause performance problems." The fix is structural: "[[cs/dsa/topological-sorting|a build system that processes dependencies as a directed graph]] (such as Buck, Bazel, Please, or Pants) solves this by compartmentalizing each build or test to the active area of development." A naive [[continuous-integration|CI]] pipeline that rebuilds the world on every commit turns a monorepo into a queue.
+Build systems second, and this is the constraint that bites earliest. "Few build tools work well in a monorepo, and flows where builds and continuous integration testing of the entire repository are performed upon check-in will cause performance problems." The fix is structural: "[[cs/dsa/topological-sorting|a build system that processes dependencies as a directed graph]] (such as Buck, Bazel, Please, or Pants) solves this by compartmentalizing each build or test to the active area of development." A naive [[cs/software-engineering/continuous-integration|CI]] pipeline that rebuilds the world on every commit turns a monorepo into a queue.
 
 What such a build system has to know is the entire input set of every action. Bazel's own description of the property: it "knows exactly what input files each build command needs, avoiding unnecessary work by re-running only when the set of input files have changed between each build." Correctness follows from the same tracking, since "[[cs/security/sandboxing-and-isolation|Bazel actions run in individual sandboxes]] and Bazel tracks every input file of the build, only and always re-running build commands when it needs to," which "keeps your binaries up-to-date so that the same source code always results in the same binary, bit by bit." Determinism is what makes the cache trustworthy, and the cache is what makes the whole arrangement affordable. Bazel reports that at Google they "routinely achieve cache hit rates north of 99%."
 
@@ -73,11 +69,11 @@ Companies that adopt the layout without the tooling get the disadvantages immedi
 ## Related Notes
 
 - [[cs/languages/common/build-systems-and-dependency-management|Build Systems and Dependency Management]] - the graph-based build systems a monorepo requires
-- [[version-control-fundamentals|Version Control Fundamentals]] - the VCS scaling limits that forced Piper, VFS for Git, and the Mercurial work
-- [[semantic-versioning|Semantic Versioning]] - the per-project versioning a repo-wide version number erases
-- [[continuous-integration|Continuous Integration]] - why rebuilding the whole repo on check-in does not scale
-- [[refactoring|Refactoring]] - the cross-cutting change the atomic commit is meant to enable
-- [[software-architecture|Software Architecture]] - repository layout is not the same decision as deployment topology
+- [[cs/software-engineering/version-control-fundamentals|Version Control Fundamentals]] - the VCS scaling limits that forced Piper, VFS for Git, and the Mercurial work
+- [[cs/software-engineering/semantic-versioning|Semantic Versioning]] - the per-project versioning a repo-wide version number erases
+- [[cs/software-engineering/continuous-integration|Continuous Integration]] - why rebuilding the whole repo on check-in does not scale
+- [[cs/software-engineering/refactoring|Refactoring]] - the cross-cutting change the atomic commit is meant to enable
+- [[cs/software-engineering/software-architecture|Software Architecture]] - repository layout is not the same decision as deployment topology
 - [[cs/languages/common/software-supply-chain-and-provenance|Software Supply Chain and Provenance]] - the access-control and leak risk a shared checkout carries
 
 ## Sources

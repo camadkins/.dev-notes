@@ -15,7 +15,7 @@ aliases: []
 
 A probability distribution answers a simple question: **how likely is each possible outcome?** Roll a die and every face has probability $\frac{1}{6}$. Measure human heights and values cluster around a central peak. Distributions give us a precise language for these patterns - discrete distributions count outcomes, continuous distributions measure them.
 
-Understanding distributions matters because almost every statistical method (estimation, testing, regression) assumes the data follow *some* distribution. Choosing the right one shapes the analysis. In CS, distributions also underpin [[best-worst-average-cases|average-case analysis]]: the "average" is an expectation over an assumed input distribution.
+Understanding distributions matters because almost every statistical method (estimation, testing, regression) assumes the data follow *some* distribution. Choosing the right one shapes the analysis. In CS, distributions also underpin [[cs/dsa/best-worst-average-cases|average-case analysis]]: the "average" is an expectation over an assumed input distribution.
 
 ## Core Idea
 
@@ -72,7 +72,7 @@ The **CDF** $F(x) = P(X \le x)$ works for both discrete and continuous distribut
 | Normal | $(-\infty, \infty)$ | $\mu, \sigma^2$ | $\mu$ | $\sigma^2$ |
 | Exponential | $[0, \infty)$ | $\lambda$ | $1/\lambda$ | $1/\lambda^2$ |
 
-![Taxonomy tree of distributions: discrete branch (Bernoulli, Binomial, Poisson, Geometric) and continuous branch (Normal, Exponential) with approximation arrows](assets/distribution-family-tree.svg)
+![Taxonomy tree of distributions: discrete branch (Bernoulli, Binomial, Poisson, Geometric) and continuous branch (Normal, Exponential) with approximation arrows](cs/statistics/assets/distribution-family-tree.svg)
 
 ## Example
 
@@ -88,7 +88,7 @@ So there is roughly an 8% chance of waiting more than half a second between requ
 
 ## Related Notes
 
-- [[hypothesis-testing|Hypothesis Testing]] - tests assume a distribution under the null hypothesis
-- [[regression-fundamentals|Regression Fundamentals]] - residuals are assumed normally distributed
-- [[bayesian-inference|Bayesian Inference]] - distributions serve as priors and likelihoods
-- [[best-worst-average-cases|Best, Worst & Average Cases]] - average-case analysis requires a distribution over inputs
+- [[cs/statistics/hypothesis-testing|Hypothesis Testing]] - tests assume a distribution under the null hypothesis
+- [[cs/statistics/regression-fundamentals|Regression Fundamentals]] - residuals are assumed normally distributed
+- [[cs/statistics/bayesian-inference|Bayesian Inference]] - distributions serve as priors and likelihoods
+- [[cs/dsa/best-worst-average-cases|Best, Worst & Average Cases]] - average-case analysis requires a distribution over inputs

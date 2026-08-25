@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-07-09
 updated:
-aliases:
-  - When To Use Generics in Go
-  - Go Generics or Interfaces
+aliases: []
 ---
 
 Go had a mechanism for writing one function that serves many types long before it had type parameters. Interfaces do that, and they still do it well, so every generic function you write is competing with an interface that would also have worked. Ian Lance Taylor wrote a whole article on choosing between them a month after Go 1.18 shipped, and its most useful content is the advice about when *not* to reach for the new feature.

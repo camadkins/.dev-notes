@@ -9,9 +9,7 @@ tags:
   - concurrency
 date: 2026-05-27
 updated:
-aliases:
-  - Synchronization Primitives
-  - Mutex Semaphore Condition Variable Spinlock
+aliases: []
 ---
 
 Two threads sharing memory is the source of the worst class of bugs in systems code: [[cs/security/race-conditions-and-toctou|races]] that appear once a week under load and never in a debugger. Synchronization primitives are the small, sharp tools that make shared state safe. There are only a handful of them, and the mistake beginners make is treating them as interchangeable. They are not. Each answers a different question.
@@ -42,7 +40,7 @@ The condition variable is what lets a thread inside the monitor step aside and w
 
 ## Spinlock: don't sleep, spin
 
-Every primitive above puts a waiting thread to sleep, which means a [[context-switching|context switch]] out and back. That is the right call if the wait is long. If the wait is a few instructions, the switch costs more than the wait itself. The spinlock is the answer: "a lock that causes a thread trying to acquire it to simply wait in a loop ('spin') while repeatedly checking whether the lock is available." The thread stays on the CPU, burning cycles, a form of busy waiting.
+Every primitive above puts a waiting thread to sleep, which means a [[cs/systems/context-switching|context switch]] out and back. That is the right call if the wait is long. If the wait is a few instructions, the switch costs more than the wait itself. The spinlock is the answer: "a lock that causes a thread trying to acquire it to simply wait in a loop ('spin') while repeatedly checking whether the lock is available." The thread stays on the CPU, burning cycles, a form of busy waiting.
 
 The trade-off is explicit. "Because they avoid overhead from operating system process rescheduling or context switching, spinlocks are efficient if threads are likely to be blocked for only short periods. For this reason, operating-system kernels often use spinlocks." But hold one too long and it is pure waste: "spinlocks become wasteful if held for longer durations, as they may prevent other threads from running and require rescheduling."
 
@@ -62,7 +60,7 @@ The rule of thumb falls out of the table: use a mutex for exclusion, a semaphore
 - [[cs/pl/concurrency-models-threads-locks-and-actors|Concurrency Models: Threads, Locks, and Actors]] - the higher-level taxonomy these primitives implement
 - [[cs/languages/common/concurrency-in-practice|Concurrency in Practice]] - how Python, Rust, and C++ expose and constrain these tools
 - [[cs/security/race-conditions-and-toctou|Race Conditions and TOCTOU]] - the bug class these primitives exist to prevent
-- [[context-switching|Context Switching]] - the sleep-versus-spin cost that decides between a mutex and a spinlock
+- [[cs/systems/context-switching|Context Switching]] - the sleep-versus-spin cost that decides between a mutex and a spinlock
 
 ## Sources
 

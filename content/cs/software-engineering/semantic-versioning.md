@@ -8,10 +8,7 @@ tags:
   - software-engineering
 date: 2026-04-22
 updated:
-aliases:
-  - SemVer
-  - Semantic Versioning 2.0.0
-  - MAJOR.MINOR.PATCH
+aliases: []
 ---
 
 A version number is usually treated as a label. SemVer treats it as a contract. The specification opens on the failure mode it exists to prevent, "[[cs/languages/common/build-systems-and-dependency-management|a dreaded place called dependency hell]]," and names the two ways you get there. Pin your dependencies too tightly and you hit **version lock**, "the inability to upgrade a package without having to release new versions of every dependent package." Pin them too loosely and you hit **version promiscuity**, "assuming compatibility with more future versions than is reasonable." Both come from the same root cause: the version string carried no information a tool could act on.
@@ -64,11 +61,11 @@ A last piece of pedantry the spec is explicit about: `v1.2.3` is not a semantic 
 
 ## Related Notes
 
-- [[api-design|API Design]] - the declared public API is the surface SemVer's numbers are measured against
+- [[cs/software-engineering/api-design|API Design]] - the declared public API is the surface SemVer's numbers are measured against
 - [[cs/languages/common/build-systems-and-dependency-management|Build Systems and Dependency Management]] - resolvers and lockfiles are what consume the version contract
-- [[version-control-fundamentals|Version Control Fundamentals]] - tags are where versions are stamped into history
-- [[continuous-integration|Continuous Integration]] - the pipeline that decides a release is fit to be numbered
-- [[software-architecture|Software Architecture]] - module boundaries determine how much surface each version has to promise about
+- [[cs/software-engineering/version-control-fundamentals|Version Control Fundamentals]] - tags are where versions are stamped into history
+- [[cs/software-engineering/continuous-integration|Continuous Integration]] - the pipeline that decides a release is fit to be numbered
+- [[cs/software-engineering/software-architecture|Software Architecture]] - module boundaries determine how much surface each version has to promise about
 
 ## Sources
 

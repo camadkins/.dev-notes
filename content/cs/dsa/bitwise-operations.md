@@ -1,5 +1,5 @@
 ---
-title: Bitwise Operations - Core Logic, Manipulation, and Low-Level Tricks
+title: Bitwise Operations
 description: Foundational binary operators (AND, OR, XOR, NOT, shifts) and bit manipulation techniques for optimization, masking, set representation, and data encoding.
 draft: false
 comments: true
@@ -222,7 +222,7 @@ for (int sub = mask; sub; sub = (sub - 1) & mask) {
 
 ## Related Notes
 
-- [[algorithm-efficiency|Algorithm Efficiency]]
-- [[dynamic-programming|Dynamic Programming]]
-- [[recursion|Recursion]]
-- [[array-operations|Array Operations]]
+- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]
+- [[cs/dsa/dynamic-programming|Dynamic Programming]]
+- [[cs/dsa/recursion|Recursion]]
+- [[cs/dsa/array-operations|Array Operations]]

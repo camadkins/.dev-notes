@@ -31,7 +31,7 @@ $$\ell(\theta) = \ln L(\theta) = \sum_{i=1}^n \ln f(x_i;\, \theta)$$
 
 Since $\ln$ is monotonically increasing, maximizing $\ell(\theta)$ is equivalent to maximizing $L(\theta)$.
 
-![Log-likelihood curve with peak at theta-hat MLE](assets/likelihood-curve.svg)
+![Log-likelihood curve with peak at theta-hat MLE](cs/statistics/assets/likelihood-curve.svg)
 
 ## Key Formulas
 
@@ -80,7 +80,7 @@ The MLE says the best estimate of the failure probability is 16%. This is exactl
 
 ## Related Notes
 
-- [[bayesian-inference|Bayesian Inference]] - Bayesian estimation uses priors instead of pure likelihood maximization
-- [[probability-distributions|Probability Distributions]] - MLE estimates the parameters of these distribution families
-- [[regression-fundamentals|Regression Fundamentals]] - under normality, OLS and MLE yield identical coefficient estimates
-- [[normal-distribution|Normal Distribution]] - canonical MLE example for $\mu$ and $\sigma^2$
+- [[cs/statistics/bayesian-inference|Bayesian Inference]] - Bayesian estimation uses priors instead of pure likelihood maximization
+- [[cs/statistics/probability-distributions|Probability Distributions]] - MLE estimates the parameters of these distribution families
+- [[cs/statistics/regression-fundamentals|Regression Fundamentals]] - under normality, OLS and MLE yield identical coefficient estimates
+- [[cs/statistics/normal-distribution|Normal Distribution]] - canonical MLE example for $\mu$ and $\sigma^2$

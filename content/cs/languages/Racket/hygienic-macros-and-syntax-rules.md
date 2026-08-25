@@ -10,9 +10,7 @@ tags:
 date: 2026-06-02
 updated:
 aliases:
-  - Racket syntax-rules
   - define-syntax-rule
-  - Macro Hygiene in Racket
 ---
 
 The three-line macro every Racket tutorial starts with is a good place to see the entire problem:

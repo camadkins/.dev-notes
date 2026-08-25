@@ -9,10 +9,7 @@ tags:
   - memory
 date: 2026-07-02
 updated:
-aliases:
-  - C++ Vtables
-  - Virtual Function Dispatch
-  - vptr
+aliases: []
 ---
 
 A C++ object with no virtual functions is exactly its members, laid end to end with padding. Add one `virtual` and the object grows a field you did not write, the constructor gains an assignment you did not ask for, and a member call turns into a load, a load, and an indirect jump. None of that is in the standard. All of it is in every implementation you will ever compile against.

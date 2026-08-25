@@ -9,10 +9,7 @@ tags:
   - build-systems
 date: 2026-08-15
 updated:
-aliases:
-  - Python Wheels
-  - virtualenv
-  - pyproject.toml
+aliases: []
 ---
 
 For most of Python's history, installing a package meant running a program the package author wrote. `setup.py` was Python source, `pip install` executed it, and whatever that script did on the way to placing files in `site-packages` was between you and the author. The wheel format exists to end that arrangement, and reading its rationale makes the motivation explicit: Python needs a package format that is easier to install than sdist, because sdists require the distutils and setuptools build systems, running arbitrary code to build-and-install, and re-compile, code just so it can be installed into a new virtualenv. The verdict on that design is blunt. This system of conflating build-install is slow, hard to maintain, and hinders innovation in both build systems and installers.

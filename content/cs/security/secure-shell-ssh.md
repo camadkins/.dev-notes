@@ -10,8 +10,6 @@ date: 2026-02-16
 updated:
 aliases:
   - SSH
-  - Secure Shell
-  - SSH Protocol
 ---
 
 [[cs/history/history-of-the-internet|Telnet and rlogin]] sent your password across the wire in the clear. Anyone on the path read it. SSH replaced them, and [[cs/standards/what-a-standard-actually-is|RFC 4251]] states the goal plainly: it is "a protocol for secure remote login and other secure network services over an insecure network." The interesting part is not that SSH encrypts, it is *where the security actually comes from*. Encryption alone buys nothing if you handed the key to an impostor. SSH's entire guarantee rests on one earlier step, verifying that the machine you reached is the machine you meant.
@@ -21,7 +19,7 @@ aliases:
 
 ## The three components
 
-The split matters because each layer has a different job and a different failure mode. The transport layer runs first, negotiating "key exchange method, public key algorithm, symmetric encryption algorithm, message authentication algorithm, and hash algorithm," then establishing an encrypted, integrity-protected channel using [[diffie-hellman-and-key-exchange|Diffie-Hellman key exchange]]. Only after that channel exists does user authentication happen, which is why your password or key never crosses an unencrypted link. The connection layer then rides inside, letting a single SSH session carry your shell, [[cs/networking/ports-and-sockets|a port forward]], and an `scp` transfer as separate channels.
+The split matters because each layer has a different job and a different failure mode. The transport layer runs first, negotiating "key exchange method, public key algorithm, symmetric encryption algorithm, message authentication algorithm, and hash algorithm," then establishing an encrypted, integrity-protected channel using [[cs/security/diffie-hellman-and-key-exchange|Diffie-Hellman key exchange]]. Only after that channel exists does user authentication happen, which is why your password or key never crosses an unencrypted link. The connection layer then rides inside, letting a single SSH session carry your shell, [[cs/networking/ports-and-sockets|a port forward]], and an `scp` transfer as separate channels.
 
 Server authentication happens in the transport layer, not the user layer. That ordering is the whole point: the server proves who it is *before* you prove who you are, so you never surrender a credential to an unverified peer.
 
@@ -29,7 +27,7 @@ Server authentication happens in the transport layer, not the user layer. That o
 
 "The server host key is used during key exchange to verify that the client is really talking to the correct server. For this to be possible, the client must have a priori knowledge of the server's public host key." That last clause is the hard problem. How does the client obtain the right host key in the first place?
 
-RFC 4251 offers two trust models. The first is a local database associating each hostname with its host key: "This method requires no centrally administered infrastructure, and no third-party coordination." The downside is the database "may become burdensome to maintain." The second delegates to a certification authority, where "the client only knows the CA root key, and can verify the validity of all host keys certified by accepted CAs," easing maintenance but placing "a lot of trust ... on the central infrastructure." This is the same tension [[pki-and-x509-certificates|PKI]] resolves for the web, and SSH deliberately made it optional rather than mandatory.
+RFC 4251 offers two trust models. The first is a local database associating each hostname with its host key: "This method requires no centrally administered infrastructure, and no third-party coordination." The downside is the database "may become burdensome to maintain." The second delegates to a certification authority, where "the client only knows the CA root key, and can verify the validity of all host keys certified by accepted CAs," easing maintenance but placing "a lot of trust ... on the central infrastructure." This is the same tension [[cs/security/pki-and-x509-certificates|PKI]] resolves for the web, and SSH deliberately made it optional rather than mandatory.
 
 ## Trust on first use, and its gap
 
@@ -42,11 +40,11 @@ The spec is candid about the cost. Accepting a key unchecked on first contact "s
 
 ## Related Notes
 
-- [[diffie-hellman-and-key-exchange|Diffie-Hellman and Key Exchange]] - the transport-layer mechanism that establishes SSH's session keys
-- [[pki-and-x509-certificates|PKI and X.509 Certificates]] - the CA trust model SSH offers as an alternative to local host-key databases
-- [[digital-signatures|Digital Signatures]] - how public-key host authentication proves server identity
-- [[symmetric-vs-asymmetric-cryptography|Symmetric vs Asymmetric Cryptography]] - why SSH negotiates a symmetric cipher after an asymmetric handshake
-- [[tls-and-the-https-handshake|TLS and the HTTPS Handshake]] - the parallel handshake the web took, with mandatory CA trust instead of TOFU
+- [[cs/security/diffie-hellman-and-key-exchange|Diffie-Hellman and Key Exchange]] - the transport-layer mechanism that establishes SSH's session keys
+- [[cs/security/pki-and-x509-certificates|PKI and X.509 Certificates]] - the CA trust model SSH offers as an alternative to local host-key databases
+- [[cs/security/digital-signatures|Digital Signatures]] - how public-key host authentication proves server identity
+- [[cs/security/symmetric-vs-asymmetric-cryptography|Symmetric vs Asymmetric Cryptography]] - why SSH negotiates a symmetric cipher after an asymmetric handshake
+- [[cs/systems/tls-and-the-https-handshake|TLS and the HTTPS Handshake]] - the parallel handshake the web took, with mandatory CA trust instead of TOFU
 
 ## Sources
 

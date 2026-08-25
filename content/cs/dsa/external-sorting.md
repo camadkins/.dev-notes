@@ -1,5 +1,5 @@
 ---
-title: External Sorting - Scaling Sorts Beyond Main Memory  
+title: External Sorting
 description: Techniques for sorting data that does not fit in RAM by staging work between disk and memory using runs, multiway merging, and I/O-aware algorithms.  
 draft: false  
 comments: true
@@ -307,12 +307,12 @@ Suppose:
 
 ## Related Notes
 
-- [[merge-sort|Merge Sort]]
+- [[cs/dsa/merge-sort|Merge Sort]]
     
-- [[bplus-tree|B+ Tree]]
+- [[cs/dsa/bplus-tree|B+ Tree]]
     
-- [[b-tree|B-Tree]]
+- [[cs/dsa/b-tree|B-Tree]]
     
-- [[binary-heap|Binary Heap]]
+- [[cs/dsa/binary-heap|Binary Heap]]
     
-- [[algorithm-efficiency|Algorithm Efficiency]]
+- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]

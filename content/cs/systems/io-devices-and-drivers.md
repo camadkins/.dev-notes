@@ -9,9 +9,7 @@ tags:
   - computer-architecture
 date: 2026-01-19
 updated:
-aliases:
-  - Device Drivers
-  - Direct Memory Access
+aliases: []
 ---
 
 Devices are slow, and the CPU is not. Every mechanism in this note exists because of that gap, and each one is a different answer to the same question: who does the waiting, and what do they do while they wait? Polling says the CPU waits and does nothing. Interrupts say the CPU leaves and comes back when summoned. DMA says the CPU does not participate in the transfer at all. Those three form a progression, and each step buys CPU time by adding hardware and complexity.
@@ -56,7 +54,7 @@ Polling also generalizes past device I/O. A **polling cycle** is "the time in wh
 
 ## Interrupts: the device summons the CPU
 
-The alternative is for the device to signal the CPU rather than the CPU to ask. Interrupt-driven I/O is what polling is measured against, and drivers are where the handling lives, since drivers "usually provide the interrupt handling required for any necessary asynchronous time-dependent hardware interface." The mechanics of delivery, vectoring, and handler execution are their own subject, covered in [[interrupts-and-traps|interrupts and traps]].
+The alternative is for the device to signal the CPU rather than the CPU to ask. Interrupt-driven I/O is what polling is measured against, and drivers are where the handling lives, since drivers "usually provide the interrupt handling required for any necessary asynchronous time-dependent hardware interface." The mechanics of delivery, vectoring, and handler execution are their own subject, covered in [[cs/systems/interrupts-and-traps|interrupts and traps]].
 
 What matters here is that interrupts fix the *waiting* problem without fixing the *transfer* problem. The CPU is now free between events, but it still executes every data movement itself, one unit at a time, in the handler. For a keyboard that is fine. For a gigabit network card it is not.
 
@@ -89,11 +87,11 @@ Cycle stealing "essentially interleaves instruction and data transfers. The CPU 
 >
 > Two fixes, and which one you get is a property of the machine. "Cache-coherent systems implement a method in hardware, called bus snooping, whereby external writes are signaled to the cache controller which then performs a cache invalidation for DMA writes or cache flush for DMA reads." Otherwise it lands on you: "non-coherent systems leave this to software, where the OS must then ensure that the cache lines are flushed before an outgoing DMA transfer is started and invalidated before a memory range affected by an incoming DMA transfer is accessed. The OS must make sure that the memory range is not accessed by any running threads in the meantime."
 >
-> The software path is not cheap: it "introduces some overhead to the DMA operation, as most hardware requires a loop to invalidate each cache line individually." Hybrids exist too, "where the secondary L2 cache is coherent while the L1 cache (typically on-CPU) is managed by software." This is [[cache-coherence|cache coherence]] arriving from an unexpected direction, since the incoherent party is a peripheral rather than another core.
+> The software path is not cheap: it "introduces some overhead to the DMA operation, as most hardware requires a loop to invalidate each cache line individually." Hybrids exist too, "where the secondary L2 cache is coherent while the L1 cache (typically on-CPU) is managed by software." This is [[cs/systems/cache-coherence|cache coherence]] arriving from an unexpected direction, since the incoherent party is a peripheral rather than another core.
 
 ## Where drivers run
 
-Privilege placement is not a driver-by-driver decision. It "is largely decided by the type of kernel an operating system uses. An operating system that uses a monolithic kernel, such as the Linux kernel, will typically run device drivers with the same privilege as all other kernel objects. By contrast, a system designed around microkernel, such as Minix, will run drivers as processes independent from the kernel." That is the [[kernel-architectures-monolithic-and-microkernel|monolithic versus microkernel]] split showing up as a concrete consequence.
+Privilege placement is not a driver-by-driver decision. It "is largely decided by the type of kernel an operating system uses. An operating system that uses a monolithic kernel, such as the Linux kernel, will typically run device drivers with the same privilege as all other kernel objects. By contrast, a system designed around microkernel, such as Minix, will run drivers as processes independent from the kernel." That is the [[cs/systems/kernel-architectures-monolithic-and-microkernel|monolithic versus microkernel]] split showing up as a concrete consequence.
 
 Even so, "because drivers require low-level access to hardware functions in order to operate, drivers typically operate in a highly privileged environment and can cause system operational issues if something goes wrong. In contrast, misbehavior in most user-level software on modern operating systems can be stopped without greatly affecting the rest of the system." And user mode is not a complete escape, because "even drivers executing in user mode can crash a system if the device is erroneously programmed."
 
@@ -106,12 +104,12 @@ Writing them is genuinely hard, and not only technically: "writing a device driv
 
 ## Related Notes
 
-- [[interrupts-and-traps|Interrupts and Traps]] - the signaling mechanism that replaced polling and that DMA uses for completion
-- [[kernel-architectures-monolithic-and-microkernel|Kernel Architectures]] - the design decision that sets driver privilege level
-- [[cache-coherence|Cache Coherence]] - the same staleness problem, here caused by a device rather than a core
-- [[system-calls-and-the-kernel-boundary|System Calls and the Kernel Boundary]] - how a program reaches the driver in the first place
-- [[file-systems|File Systems]] - the layer built on top of block device drivers
-- [[concurrency-primitives|Concurrency Primitives]] - busy-waiting appears here too, with the same trade
+- [[cs/systems/interrupts-and-traps|Interrupts and Traps]] - the signaling mechanism that replaced polling and that DMA uses for completion
+- [[cs/systems/kernel-architectures-monolithic-and-microkernel|Kernel Architectures]] - the design decision that sets driver privilege level
+- [[cs/systems/cache-coherence|Cache Coherence]] - the same staleness problem, here caused by a device rather than a core
+- [[cs/systems/system-calls-and-the-kernel-boundary|System Calls and the Kernel Boundary]] - how a program reaches the driver in the first place
+- [[cs/systems/file-systems|File Systems]] - the layer built on top of block device drivers
+- [[cs/systems/concurrency-primitives|Concurrency Primitives]] - busy-waiting appears here too, with the same trade
 
 ## Sources
 

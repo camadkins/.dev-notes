@@ -6,13 +6,9 @@ comments: true
 tags:
   - cs
   - software-engineering
-  - version-control
 date: 2026-05-08
 updated:
-aliases:
-  - Feature Flags
-  - Feature Toggles
-  - Trunk-Based Development
+aliases: []
 ---
 
 Two practices that are usually taught separately are actually one practice with a conditional in the middle. Trunk-based development wants every developer integrating to a shared branch constantly, which means half-finished work lands in the branch you deploy from. Feature flags are what make that survivable: they are "a powerful technique, allowing teams to modify system behavior without changing code," and the specific category built for this job, the release toggle, exists to "allow incomplete and un-tested codepaths to be shipped to production as latent code which may never be turned on."
@@ -52,7 +48,7 @@ He also names the cost that stays after the flag is flipped: "while feature flag
 > [!example] The conditional that should not stay a conditional
 > Hodgson's worked case is an invoice emailer that asks the flag system how to behave. The problem is coupling: the emailer "has one extra concept it needs to be aware of - feature flagging - and an extra module it is coupled to," which makes it "harder to work with and think about in isolation, including making it harder to test." Scaled up, "we will see more and more modules becoming coupled to the feature flagging system as a global dependency."
 >
-> His fix is [[dependency-injection-and-inversion-of-control|inversion of control]]. Rather than the emailer reaching out to the decision object, "it has those decisions injected into it at construction time via a config object," after which the emailer "has no knowledge whatsoever about feature flagging. It just knows that some aspects of its behavior can be configured at runtime." Testing follows for free: you exercise both paths "just by passing a different configuration option during test."
+> His fix is [[cs/software-engineering/dependency-injection-and-inversion-of-control|inversion of control]]. Rather than the emailer reaching out to the decision object, "it has those decisions injected into it at construction time via a config object," after which the emailer "has no knowledge whatsoever about feature flagging. It just knows that some aspects of its behavior can be configured at runtime." Testing follows for free: you exercise both paths "just by passing a different configuration option during test."
 >
 > A prior step matters as much. "One common mistake with Feature Toggles is to couple the place where a toggling decision is made (the Toggle Point) with the logic behind the decision (the Toggle Router)." Naming the decision (`includeOrderCancellationInEmail`) rather than the flag gives "a singular place to manage it," so the reason can later change from static configuration to an A/B experiment to an operational concern without touching the caller.
 
@@ -70,20 +66,20 @@ Flags "have a tendency to multiply rapidly, particularly when first introduced. 
 
 The countermeasures are all forms of forced expiry. "Some teams have a rule of always adding a toggle removal task onto the team's backlog whenever a Release Toggle is first introduced. Other teams put 'expiration dates' on their toggles. Some go as far as creating 'time bombs' which will fail a test (or even refuse to start an application!) if a feature flag is still around after its expiration date." The strongest version is a hard cap: "placing a limit on the number of feature flags a system is allowed to have at any one time. Once that limit is reached if someone wants to add a new toggle they will first need to do the work to remove an existing flag."
 
-Note what that implies about the accounting. A flag is borrowed structure repaid by deletion, which makes an un-removed flag a specific and unusually legible form of [[technical-debt|technical debt]]: you can count them, date them, and fail a build on them. Very little other debt admits that.
+Note what that implies about the accounting. A flag is borrowed structure repaid by deletion, which makes an un-removed flag a specific and unusually legible form of [[cs/software-engineering/technical-debt|technical debt]]: you can count them, date them, and fail a build on them. Very little other debt admits that.
 
 > [!warning] Category migration is a real event
 > A toggle does not always stay what it was. Hodgson's recommendations section walks a Recommended Products feature from a release toggle, to an experiment toggle "to validate that it was helping drive revenue," to an ops toggle "so that we can turn it off when we're under extreme load." If the decision logic was decoupled properly, "these differences in toggle category should have had no impact on the Toggle Point code at all." The management side is another matter: transitioning from release to experiment means "the way the toggle is configured will change, and likely move to a different area - perhaps into an Admin UI rather than a yaml file in source control," and "product folks will likely now manage the configuration rather than developers." The next hop "will mean another change in how the toggle is configured, where that configuration lives, and who manages the configuration."
 
 ## Related Notes
 
-- [[continuous-integration|Continuous Integration]] - the practice trunk-based development is a renaming of, per Fowler
-- [[continuous-delivery-and-deployment|Continuous Delivery and Deployment]] - separating release from deployment is a CD principle
-- [[version-control-fundamentals|Version Control Fundamentals]] - branches, mainline, and the merge cost flags avoid
-- [[technical-debt|Technical Debt]] - the carrying cost model applied to flags
-- [[testing-strategies|Testing Strategies]] - the combinatorial validation burden flags add
-- [[dependency-injection-and-inversion-of-control|Dependency Injection and Inversion of Control]] - Hodgson's fix for flag coupling
-- [[coupling-and-cohesion|Coupling and Cohesion]] - a global flag module is a global dependency
+- [[cs/software-engineering/continuous-integration|Continuous Integration]] - the practice trunk-based development is a renaming of, per Fowler
+- [[cs/software-engineering/continuous-delivery-and-deployment|Continuous Delivery and Deployment]] - separating release from deployment is a CD principle
+- [[cs/software-engineering/version-control-fundamentals|Version Control Fundamentals]] - branches, mainline, and the merge cost flags avoid
+- [[cs/software-engineering/technical-debt|Technical Debt]] - the carrying cost model applied to flags
+- [[cs/software-engineering/testing-strategies|Testing Strategies]] - the combinatorial validation burden flags add
+- [[cs/software-engineering/dependency-injection-and-inversion-of-control|Dependency Injection and Inversion of Control]] - Hodgson's fix for flag coupling
+- [[cs/software-engineering/coupling-and-cohesion|Coupling and Cohesion]] - a global flag module is a global dependency
 
 ## Sources
 

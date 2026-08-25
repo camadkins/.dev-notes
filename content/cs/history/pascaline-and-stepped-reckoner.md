@@ -8,9 +8,7 @@ tags:
   - history
 date: 2026-04-19
 updated:
-aliases:
-  - Pascaline
-  - Stepped Reckoner
+aliases: []
 ---
 
 In the seventeenth century, two philosophers built machines that did arithmetic. They proved something that seems obvious now and was radical then: [[cs/pl/programming-paradigms-models-of-computation|calculation could be delegated to a deterministic mechanism]] that does not think, only turns.
@@ -32,9 +30,9 @@ The carry is the genuinely hard part of mechanized arithmetic. Adding two digits
 
 ## Related Notes
 
-- [[leibniz-and-binary|Leibniz and Binary]], the number system Leibniz also gave computing
-- [[antikythera-mechanism-analog-computation|The Antikythera Mechanism]], an even older computing machine
-- [[von-neumann-architecture|Von Neumann Architecture]], where arithmetic finally went electronic
+- [[cs/history/leibniz-and-binary|Leibniz and Binary]], the number system Leibniz also gave computing
+- [[cs/history/antikythera-mechanism-analog-computation|The Antikythera Mechanism]], an even older computing machine
+- [[cs/history/von-neumann-architecture|Von Neumann Architecture]], where arithmetic finally went electronic
 - [[cs/history/index|History of Computing]], the section index
 
 ## Sources

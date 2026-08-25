@@ -10,7 +10,6 @@ date: 2026-08-15
 updated:
 aliases:
   - 802.1AX
-  - LACP Standard
   - 802.3ad
 ---
 

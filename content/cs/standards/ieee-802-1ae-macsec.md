@@ -9,9 +9,7 @@ tags:
 date: 2026-08-08
 updated:
 aliases:
-  - MACsec
   - 802.1AE
-  - SecTAG
 ---
 
 Most link-layer security arrives as a bolt-on. MACsec is the opposite: it inserts itself into the frame between the addresses and the payload, so that everything a switch would normally read is either still readable or explicitly protected, and the frame remains something an Ethernet bridge can forward. The document that specifies it is notable for what it deliberately leaves out.

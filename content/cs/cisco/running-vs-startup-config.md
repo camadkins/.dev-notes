@@ -9,10 +9,8 @@ tags:
 date: 2026-02-19
 updated:
 aliases:
-  - copy running-config startup-config
   - startup-config
-  - configuration register
-  - "0x2142"
+  - 0x2142
 ---
 
 The single most common way to lose an afternoon on Cisco gear is to fix something, verify it works, walk away, and have the box reload. Nothing you typed survives. This is not a bug and it is not a quirk of one platform. A Cisco device holds two distinct configuration files in two distinct kinds of memory, and every command you enter lands in only one of them.
@@ -34,7 +32,7 @@ Cisco frames divergence between the two as a feature rather than an accident, an
 
 Two consequences fall out of that being a file copy.
 
-First, it runs from privileged EXEC, not from configuration mode. If you are sitting at `Router(config)#` after a change, you have to leave configuration mode first. See [[ios-cli-modes|IOS CLI modes]] for the ladder.
+First, it runs from privileged EXEC, not from configuration mode. If you are sitting at `Router(config)#` after a change, you have to leave configuration mode first. See [[cs/cisco/ios-cli-modes|IOS CLI modes]] for the ladder.
 
 Second, the direction matters enormously, and the two directions are not symmetric.
 
@@ -94,7 +92,7 @@ The bits that matter most:
 
 Bit 6 is the one people know by its resulting value. `0x2142` behaves like `0x2102` except that it also "Ignores the contents of Non-Volatile RAM (NVRAM) (ignores configuration)," and Cisco notes directly that "configuration register 0x2142 is used for Password Recovery procedures as it can ignore the contents of NVRAM."
 
-That is worth sitting with as a security fact rather than a trivia item. Physical access to the console port plus a reboot equals a device that boots with no configuration and therefore no passwords, after which the intact startup configuration can be copied into the running configuration and edited. Every password on a Cisco device is a control against remote access, not against someone standing at the rack. See [[secure-boot-and-the-chain-of-trust|secure boot and the chain of trust]] for what an actual defense against that class of attack requires, and [[console-ssh-and-device-access|console and device access]] for the console port's privileged position.
+That is worth sitting with as a security fact rather than a trivia item. Physical access to the console port plus a reboot equals a device that boots with no configuration and therefore no passwords, after which the intact startup configuration can be copied into the running configuration and edited. Every password on a Cisco device is a control against remote access, not against someone standing at the rack. See [[cs/security/secure-boot-and-the-chain-of-trust|secure boot and the chain of trust]] for what an actual defense against that class of attack requires, and [[cs/cisco/console-ssh-and-device-access|console and device access]] for the console port's privileged position.
 
 The boot field is the other half. Set it to `0x0` and "at the next power cycle or reload, the router boots to the ROMmon (bootstrap program)," where "you must use a terminal or PC that is connected to the router console port" and manually boot an image. Set it to anything from `0x1` to `0xF` and the router "sequentially processes each `boot system` command in global configuration mode that is stored in the configuration file until the system boots successfully," falling back to the first image in flash.
 
@@ -115,11 +113,11 @@ From ROMmon, the equivalent is `confreg`.
 
 ## Related Notes
 
-- [[ios-cli-modes|IOS CLI Modes]] - why the save command runs from privileged EXEC and not from config mode
-- [[console-ssh-and-device-access|Console, SSH, and Device Access]] - the console port that the configuration register hands total control to
-- [[show-and-debug-methodology|show and debug Methodology]] - `show version` and the rest of the read-only toolkit
-- [[secure-boot-and-the-chain-of-trust|Secure Boot and the Chain of Trust]] - what it takes to make a boot sequence actually trustworthy
-- [[version-control-fundamentals|Version Control Fundamentals]] - the discipline `configure replace` rollback is a crude approximation of
+- [[cs/cisco/ios-cli-modes|IOS CLI Modes]] - why the save command runs from privileged EXEC and not from config mode
+- [[cs/cisco/console-ssh-and-device-access|Console, SSH, and Device Access]] - the console port that the configuration register hands total control to
+- [[cs/cisco/show-and-debug-methodology|show and debug Methodology]] - `show version` and the rest of the read-only toolkit
+- [[cs/security/secure-boot-and-the-chain-of-trust|Secure Boot and the Chain of Trust]] - what it takes to make a boot sequence actually trustworthy
+- [[cs/software-engineering/version-control-fundamentals|Version Control Fundamentals]] - the discipline `configure replace` rollback is a crude approximation of
 
 ## Sources
 

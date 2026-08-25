@@ -9,11 +9,7 @@ tags:
   - type-theory
 date: 2026-08-14
 updated:
-aliases:
-  - __class_getitem__
-  - types.GenericAlias
-  - PEP 560
-  - get_type_hints
+aliases: []
 ---
 
 ```python

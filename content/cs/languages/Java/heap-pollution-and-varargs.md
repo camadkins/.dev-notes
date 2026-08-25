@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-07-11
 updated:
-aliases:
-  - Java Heap Pollution
-  - SafeVarargs
+aliases: []
 ---
 
 Most of what [[cs/languages/Java/reifiable-types-and-what-erasure-forbids|erasure forbids]] it forbids outright. You cannot write `new T[10]`, you cannot write `new List<String>[2]`, you cannot ask `instanceof List<Integer>`. The compiler refuses and you go find another way. Generic varargs is the construct where that strategy runs out, because the array the compiler needs is one it creates for you, at a call site, in code you did not write.

@@ -10,9 +10,7 @@ tags:
   - type-theory
 date: 2026-07-11
 updated:
-aliases:
-  - Five Generic Implementations
-  - How Languages Implement Generics
+aliases: []
 ---
 
 Write a function that returns the smaller of two values. You want it to work on integers, on floating point numbers, and on anything else with an order. The abstraction every answer implements is [[cs/pl/parametric-polymorphism-adts|parametric polymorphism]], and there are five distinct implementations of it in production right now. They do not differ because some language designers were smarter. They differ because each team was optimizing a different constraint, and the constraint that decided the answer was usually not performance.

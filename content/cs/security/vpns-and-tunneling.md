@@ -11,10 +11,6 @@ date: 2026-06-14
 updated:
 aliases:
   - VPN
-  - virtual private network
-  - tunneling
-  - WireGuard
-  - IPsec
 ---
 
 A tunnel is a simple trick with a large payoff: wrap each packet of a private conversation [[cs/networking/osi-and-tcp-ip-models|inside another packet]], encrypt the wrapper, and send it across a network you do not trust. To the untrusted network in between, you are shipping opaque blobs to one endpoint. To the two endpoints, once they unwrap and decrypt, it is as if a private wire ran directly between them. That is a VPN, and the interesting engineering question is not *that* it encrypts but *how it decides* which packets belong to which peer.
@@ -36,18 +32,18 @@ IPsec takes the other road. The WireGuard paper's own critique is that IPsec is 
 
 ## Why small is a security property
 
-WireGuard's design thesis is that a VPN you can *read* is a VPN you can *trust*. The paper's headline claim: "WireGuard can be simply implemented for Linux in less than 4,000 lines of code, making it easily audited and verified." Set that against IPsec plus IKE, which run to tens of thousands of lines across multiple daemons. Fewer lines mean fewer places for a bug, and a codebase small enough to be [[cs/software-engineering/code-review|reviewed end to end]] is a codebase whose security claims can actually be checked rather than merely asserted. WireGuard also fixes its cipher suite (Curve25519 for [[diffie-hellman-and-key-exchange|key exchange]], ChaCha20-Poly1305 for the [[symmetric-vs-asymmetric-cryptography|symmetric]] transform) rather than negotiating it, removing the downgrade attacks and misconfiguration that cipher agility invites.
+WireGuard's design thesis is that a VPN you can *read* is a VPN you can *trust*. The paper's headline claim: "WireGuard can be simply implemented for Linux in less than 4,000 lines of code, making it easily audited and verified." Set that against IPsec plus IKE, which run to tens of thousands of lines across multiple daemons. Fewer lines mean fewer places for a bug, and a codebase small enough to be [[cs/software-engineering/code-review|reviewed end to end]] is a codebase whose security claims can actually be checked rather than merely asserted. WireGuard also fixes its cipher suite (Curve25519 for [[cs/security/diffie-hellman-and-key-exchange|key exchange]], ChaCha20-Poly1305 for the [[cs/security/symmetric-vs-asymmetric-cryptography|symmetric]] transform) rather than negotiating it, removing the downgrade attacks and misconfiguration that cipher agility invites.
 
 > [!warning] Simplicity is a deliberate tradeoff, not a free lunch
 > WireGuard's minimalism is bought by giving things up: no cipher negotiation, no built-in dynamic address assignment, no crypto agility to swap a broken primitive without a version bump. IPsec's complexity buys interoperability across decades of vendors and standards. The right choice depends on whether you value an auditable core or maximal configurability. The general lesson holds beyond VPNs: every line of security-critical code you cannot audit is a line you are trusting on faith.
 
 ## Related Notes
 
-- [[firewalls|Firewalls]] - the chokepoint a VPN tunnel passes through as opaque, uninspectable traffic
-- [[diffie-hellman-and-key-exchange|Diffie-Hellman and Key Exchange]] - how the two endpoints agree on a shared key over a hostile network
-- [[symmetric-vs-asymmetric-cryptography|Symmetric vs Asymmetric Cryptography]] - the public-key identity plus symmetric bulk encryption a VPN combines
-- [[tls-and-the-https-handshake|TLS and the HTTPS Handshake]] - the other dominant way to build an encrypted authenticated channel
-- [[onion-routing-and-anonymity-networks|Onion Routing and Anonymity Networks]] - tunneling taken further, to hide the route itself and not only the content
+- [[cs/security/firewalls|Firewalls]] - the chokepoint a VPN tunnel passes through as opaque, uninspectable traffic
+- [[cs/security/diffie-hellman-and-key-exchange|Diffie-Hellman and Key Exchange]] - how the two endpoints agree on a shared key over a hostile network
+- [[cs/security/symmetric-vs-asymmetric-cryptography|Symmetric vs Asymmetric Cryptography]] - the public-key identity plus symmetric bulk encryption a VPN combines
+- [[cs/systems/tls-and-the-https-handshake|TLS and the HTTPS Handshake]] - the other dominant way to build an encrypted authenticated channel
+- [[cs/systems/onion-routing-and-anonymity-networks|Onion Routing and Anonymity Networks]] - tunneling taken further, to hide the route itself and not only the content
 
 ## Sources
 

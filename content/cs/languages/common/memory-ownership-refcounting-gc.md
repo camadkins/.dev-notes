@@ -9,9 +9,7 @@ tags:
   - memory
 date: 2026-07-22
 updated:
-aliases:
-  - Memory Management in Practice
-  - Ownership Refcounting GC
+aliases: []
 ---
 
 Every program that puts data on the heap eventually has to take it back off. Free too early and a later access reads freed memory. Free too late, or never, and the program leaks until it dies. Free twice and the allocator's bookkeeping corrupts. The question "who frees this, and when" has exactly one correct answer per allocation, and getting it wrong is the source of most of the memory-corruption bugs that show up in security advisories. Rust, C++, and Python each answer the question differently, and the difference is not a detail. It shapes the whole feel of the language.

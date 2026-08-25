@@ -109,5 +109,5 @@ The station knows nothing about display internals - it only calls `update`. New 
 ## Related Notes
 
 - [[cs/pl/objects-classes-and-dispatch|Objects, Classes & Dispatch]] - the OOP substrate patterns build on
-- [[software-architecture|Software Architecture]] - patterns at the system level rather than class level
-- [[api-design|API Design]] - where pattern choices surface as public contracts
+- [[cs/software-engineering/software-architecture|Software Architecture]] - patterns at the system level rather than class level
+- [[cs/software-engineering/api-design|API Design]] - where pattern choices surface as public contracts

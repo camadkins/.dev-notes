@@ -9,10 +9,7 @@ tags:
   - memory
 date: 2026-08-04
 updated:
-aliases:
-  - PyObject
-  - Reference Counting in CPython
-  - CPython Memory Model
+aliases: []
 ---
 
 In CPython there is no such thing as a value that is not an object, and no such thing as an object that is not a pointer. The C API documentation states the representation plainly: most Python/C API functions have one or more arguments as well as a return value of type `PyObject *`, and this type is a pointer to an opaque data type representing an arbitrary Python object. Uniformity is the stated reason. Since all Python object types are treated the same way by the Python language in most situations, including assignments, scope rules, and argument passing, it is only fitting that they should be represented by a single C type.

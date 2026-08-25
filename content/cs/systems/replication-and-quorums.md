@@ -9,10 +9,7 @@ tags:
   - distributed-systems
 date: 2026-05-03
 updated:
-aliases:
-  - Replication
-  - Quorum
-  - Read/Write Quorum
+aliases: []
 ---
 
 Replication is keeping more than one copy of the same data so the system survives a lost machine, serves reads from nearby, and [[cs/networking/load-balancing-l4-and-l7|spreads load]]. The copies are the easy part. The hard part is that the moment two clients can write, the copies can disagree, and you need a rule that decides whose write wins and which reads are allowed to see it. Quorums are the arithmetic that makes that rule provable rather than hopeful.
@@ -22,7 +19,7 @@ Replication is keeping more than one copy of the same data so the system survive
 
 ## Active, passive, and the primary-backup default
 
-Replication comes in two shapes. **Passive replication** processes each request on one replica and ships the resulting state to the others. **Active replication** processes the same request at every replica, which requires every replica to be a deterministic state machine seeing events in the same order. That ordering requirement is exactly [[distributed-consensus|state machine replication]], usually built on a replicated log of Paxos rounds.
+Replication comes in two shapes. **Passive replication** processes each request on one replica and ships the resulting state to the others. **Active replication** processes the same request at every replica, which requires every replica to be a deterministic state machine seeing events in the same order. That ordering requirement is exactly [[cs/systems/distributed-consensus|state machine replication]], usually built on a replicated log of Paxos rounds.
 
 When one leader is elected to handle every request, the system is **primary-backup** (also primary-replica): the primary does the work and streams a log of updates to standby backups that take over on failure. This dominates high-availability clusters. Its weakness is plain arithmetic. Only one replica actually does work, so fault tolerance costs a full duplicate of capacity, and if part of the update log is lost during a failure the backup may diverge from the primary and transactions can be lost.
 
@@ -48,17 +45,17 @@ Quorum voting, due to Gifford in 1979, gives each copy of a data item a vote. A 
 Together these preserve one-copy serializability: the replicated item behaves like a single copy. In the common phrasing with `N` replicas, this is `R + W > N` for read-your-writes freshness and `W > N/2` to serialize writes. Set `W = N` and reads can be served from any single replica but writes need every node up; set `W` to a bare majority and you tolerate failures on both sides. The same voting idea also drives quorum-based **commit**: a distributed transaction commits only if a majority of sites vote to, with commit and abort quorums `Vc` and `Va` obeying `Va + Vc > V` so a transaction can never both commit and abort.
 
 > [!example] A five-replica store, N = 5
-> Choose `W = 3` and `R = 3`. Then `R + W = 6 > 5`, so any read of three replicas and any write to three replicas share at least one node, and that shared node holds the latest write. The store survives two replicas being down for either operation. Drop to `W = 2` and the overlap guarantee breaks: two reads and a write could miss each other, and a read can return stale data. That is the leaderless AP configuration, and it is why such systems need [[consistency-models|conflict resolution]] like vector clocks on top.
+> Choose `W = 3` and `R = 3`. Then `R + W = 6 > 5`, so any read of three replicas and any write to three replicas share at least one node, and that shared node holds the latest write. The store survives two replicas being down for either operation. Drop to `W = 2` and the overlap guarantee breaks: two reads and a write could miss each other, and a read can return stale data. That is the leaderless AP configuration, and it is why such systems need [[cs/systems/consistency-models|conflict resolution]] like vector clocks on top.
 
 > [!warning]
-> Quorum overlap guarantees a read *sees* a recent write; it does not by itself impose a global order on concurrent writes. Leaderless systems still need [[logical-clocks-lamport-and-vector|vector clocks]] or CRDTs to reconcile writes that were concurrent, because "latest" is undefined without a causal order.
+> Quorum overlap guarantees a read *sees* a recent write; it does not by itself impose a global order on concurrent writes. Leaderless systems still need [[cs/systems/logical-clocks-lamport-and-vector|vector clocks]] or CRDTs to reconcile writes that were concurrent, because "latest" is undefined without a causal order.
 
 ## Related Notes
 
-- [[distributed-consensus|Distributed Consensus]] covers the leader-election and state-machine-replication machinery that single-leader replication depends on
-- [[cap-theorem|CAP Theorem]] is the constraint that forces the sync/async and leader/leaderless choices, in both its partition and latency branches
-- [[consistency-models|Consistency Models]] defines what "stale read" and "converged" actually mean along the quorum spectrum
-- [[logical-clocks-lamport-and-vector|Logical Clocks: Lamport and Vector]] supply the concurrency detection leaderless replication needs for conflict resolution
+- [[cs/systems/distributed-consensus|Distributed Consensus]] covers the leader-election and state-machine-replication machinery that single-leader replication depends on
+- [[cs/systems/cap-theorem|CAP Theorem]] is the constraint that forces the sync/async and leader/leaderless choices, in both its partition and latency branches
+- [[cs/systems/consistency-models|Consistency Models]] defines what "stale read" and "converged" actually mean along the quorum spectrum
+- [[cs/systems/logical-clocks-lamport-and-vector|Logical Clocks: Lamport and Vector]] supply the concurrency detection leaderless replication needs for conflict resolution
 
 ## Sources
 

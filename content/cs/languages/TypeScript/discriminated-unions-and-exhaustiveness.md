@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-07-15
 updated:
-aliases:
-  - Tagged Unions in TypeScript
-  - Exhaustiveness Checking in TypeScript
+aliases: []
 ---
 
 Model a shape as one interface with optional fields and the type checker cannot help you. "The problem with this encoding of Shape is that the type-checker doesn't have any way to know whether or not radius or sideLength are present based on the kind property." Optionality says a field might be missing; it says nothing about which combinations of present and absent fields are legal.

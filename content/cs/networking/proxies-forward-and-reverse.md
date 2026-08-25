@@ -8,11 +8,7 @@ tags:
   - networking
 date: 2026-06-14
 updated:
-aliases:
-  - proxy server
-  - forward proxy
-  - reverse proxy
-  - TLS termination proxy
+aliases: []
 ---
 
 A proxy is a middleman for requests: instead of a client connecting straight to a server, it hands the request to a proxy that carries it out on the client's behalf. That much is simple. What confuses people is that the same idea, an intermediary that relays requests, points in two opposite directions depending on whose side it is on. One kind stands in front of the clients and shields them. The other stands in front of the servers and shields them. Knowing which is which comes down to a single question: which end does it hide?
@@ -30,14 +26,14 @@ This is the proxy a corporate network puts in front of its employees, or a user 
 
 A reverse proxy points the other way. It appears to clients to be an ordinary web server, but it merely forwards each request to one or more real servers behind it and returns their responses as if they came from the proxy itself, leaving the client with no knowledge of the origin server. It is installed in the vicinity of the web servers it fronts and serves a restricted set of sites, whereas a forward proxy serves clients reaching out to the whole Internet.
 
-The payoff is that the real web servers can hide behind [[cs/security/firewalls|a firewall]] on an internal network, and only the reverse proxy is directly exposed to the Internet. That single exposed choke point is also what makes it hard to locate origin servers, and application-firewall features on the proxy can absorb attacks like [[load-balancing-l4-and-l7|DDoS floods]] before they reach the backends.
+The payoff is that the real web servers can hide behind [[cs/security/firewalls|a firewall]] on an internal network, and only the reverse proxy is directly exposed to the Internet. That single exposed choke point is also what makes it hard to locate origin servers, and application-firewall features on the proxy can absorb attacks like [[cs/networking/load-balancing-l4-and-l7|DDoS floods]] before they reach the backends.
 
 ## The roles that pile onto a reverse proxy
 
 Because every client request already passes through it, the reverse proxy is where a cluster of jobs naturally lands.
 
-- **Load balancing.** It distributes incoming requests across several backend servers, often rewriting the URL of each request to match the internal location of the resource. Large sites and [[cdn-and-edge-caching|content delivery networks]] use reverse proxies together with other techniques to balance load.
-- **TLS termination.** A web server may not perform [[tls-and-the-https-handshake|TLS]] encryption itself and instead offload it to a reverse proxy, which centralizes certificate management and reduces the TLS-related work on the backends. This is the TLS termination proxy.
+- **Load balancing.** It distributes incoming requests across several backend servers, often rewriting the URL of each request to match the internal location of the resource. Large sites and [[cs/networking/cdn-and-edge-caching|content delivery networks]] use reverse proxies together with other techniques to balance load.
+- **TLS termination.** A web server may not perform [[cs/systems/tls-and-the-https-handshake|TLS]] encryption itself and instead offload it to a reverse proxy, which centralizes certificate management and reduces the TLS-related work on the backends. This is the TLS termination proxy.
 - **Caching.** It can keep a cache of static and dynamic content, known as web acceleration, which further reduces load on the internal servers and the internal network.
 
 > [!warning] The reverse proxy sees everything, which cuts both ways
@@ -45,10 +41,10 @@ Because every client request already passes through it, the reverse proxy is whe
 
 ## Related Notes
 
-- [[load-balancing-l4-and-l7|Load Balancing, L4 and L7]] - the request distribution a reverse proxy commonly performs
-- [[cdn-and-edge-caching|CDN and Edge Caching]] - a globally distributed reverse-proxy cache in front of origin servers
-- [[tls-and-the-https-handshake|TLS and the HTTPS Handshake]] - the encryption a TLS termination proxy offloads from backends
-- [[nat-and-port-translation|NAT and Port Translation]] - a different intermediary that also rewrites what the far end sees
+- [[cs/networking/load-balancing-l4-and-l7|Load Balancing, L4 and L7]] - the request distribution a reverse proxy commonly performs
+- [[cs/networking/cdn-and-edge-caching|CDN and Edge Caching]] - a globally distributed reverse-proxy cache in front of origin servers
+- [[cs/systems/tls-and-the-https-handshake|TLS and the HTTPS Handshake]] - the encryption a TLS termination proxy offloads from backends
+- [[cs/networking/nat-and-port-translation|NAT and Port Translation]] - a different intermediary that also rewrites what the far end sees
 
 ## Sources
 

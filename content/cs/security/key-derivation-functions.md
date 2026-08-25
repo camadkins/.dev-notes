@@ -11,19 +11,18 @@ date: 2026-06-11
 updated:
 aliases:
   - KDF
-  - key derivation function
   - HKDF
   - extract-then-expand
 ---
 
-A [[diffie-hellman-and-key-exchange|Diffie-Hellman exchange]] hands you a shared secret. It is tempting to use that number directly as an AES key. Do not. The DH output is secret but it is not uniformly random, and a session usually needs several keys anyway, one to encrypt each direction, maybe one to authenticate. A key derivation function is the piece that turns one imperfect secret into several proper keys.
+A [[cs/security/diffie-hellman-and-key-exchange|Diffie-Hellman exchange]] hands you a shared secret. It is tempting to use that number directly as an AES key. Do not. The DH output is secret but it is not uniformly random, and a session usually needs several keys anyway, one to encrypt each direction, maybe one to authenticate. A key derivation function is the piece that turns one imperfect secret into several proper keys.
 
 > [!note] The idea
 > A KDF takes "some source of initial keying material and derives from it one or more cryptographically strong secret keys." HKDF does this in two distinct stages, extract then expand. Extract concentrates the possibly non-uniform entropy of the input into one uniform pseudorandom key; expand stretches that key into as many independent output keys as the protocol needs. Skipping extraction, and feeding a raw secret straight into a cipher, is the mistake HKDF is built to prevent.
 
 ## Extract, because the input is not uniform
 
-The subtle part is why extraction exists at all. "In many applications, the input keying material is not necessarily [[cs/statistics/probability-distributions|distributed uniformly]], and the attacker may have some partial knowledge about it (for example, a Diffie-Hellman value computed by a key exchange protocol)." A DH shared secret lives in a structured group, not in the flat space of all bit strings, so its bits are correlated in ways a key must not be. The extract stage runs it through [[message-authentication-codes-hmac|HMAC]] to "concentrate the possibly dispersed [[cs/military-computing/shannon-and-information-theory|entropy]] of the input keying material into a short, but cryptographically strong, pseudorandom key." Only after that is the material safe to treat as a key.
+The subtle part is why extraction exists at all. "In many applications, the input keying material is not necessarily [[cs/statistics/probability-distributions|distributed uniformly]], and the attacker may have some partial knowledge about it (for example, a Diffie-Hellman value computed by a key exchange protocol)." A DH shared secret lives in a structured group, not in the flat space of all bit strings, so its bits are correlated in ways a key must not be. The extract stage runs it through [[cs/security/message-authentication-codes-hmac|HMAC]] to "concentrate the possibly dispersed [[cs/military-computing/shannon-and-information-theory|entropy]] of the input keying material into a short, but cryptographically strong, pseudorandom key." Only after that is the material safe to treat as a key.
 
 ## Expand, with context binding
 
@@ -34,11 +33,11 @@ Once you hold one uniform pseudorandom key, expand generates the rest. The cleve
 
 ## Related Notes
 
-- [[diffie-hellman-and-key-exchange|Diffie-Hellman and Key Exchange]], the source of the non-uniform secret HKDF has to extract from
-- [[message-authentication-codes-hmac|Message Authentication Codes and HMAC]], the primitive HKDF is built on
-- [[cryptographic-hash-functions|Cryptographic Hash Functions]], the underlying compression HKDF inherits its assumptions from
-- [[password-hashing-and-salting|Password Hashing and Salting]], a related but distinct problem where the KDF must also be deliberately slow
-- [[authenticated-encryption-aead|Authenticated Encryption and AEAD]], the consumer of the independent keys HKDF produces
+- [[cs/security/diffie-hellman-and-key-exchange|Diffie-Hellman and Key Exchange]], the source of the non-uniform secret HKDF has to extract from
+- [[cs/security/message-authentication-codes-hmac|Message Authentication Codes and HMAC]], the primitive HKDF is built on
+- [[cs/security/cryptographic-hash-functions|Cryptographic Hash Functions]], the underlying compression HKDF inherits its assumptions from
+- [[cs/security/password-hashing-and-salting|Password Hashing and Salting]], a related but distinct problem where the KDF must also be deliberately slow
+- [[cs/security/authenticated-encryption-aead|Authenticated Encryption and AEAD]], the consumer of the independent keys HKDF produces
 
 ## Sources
 

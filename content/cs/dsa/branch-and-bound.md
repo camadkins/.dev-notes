@@ -1,5 +1,5 @@
 ---
-title: Branch and Bound - Systematic Search with Pruning
+title: Branch and Bound
 description: Optimization framework that explores solution spaces through branching and bounds, pruning subproblems guaranteed not to improve the best solution.
 draft: false
 comments: true
@@ -201,12 +201,12 @@ function knapsackB&B(i, currW, currV):
 
 ## Related Notes
 
-- [[backtracking-algorithms|Backtracking Algorithms]]
+- [[cs/dsa/backtracking-algorithms|Backtracking Algorithms]]
 
-- [[greedy-algorithms|Greedy Algorithms]]
+- [[cs/dsa/greedy-algorithms|Greedy Algorithms]]
 
-- [[dynamic-programming|Dynamic Programming]]
+- [[cs/dsa/dynamic-programming|Dynamic Programming]]
 
-- [[algorithm-efficiency|Algorithm Efficiency]]
+- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]
 
-- [[knapsack-problem|Knapsack Problem]]
+- [[cs/dsa/knapsack-problem|Knapsack Problem]]

@@ -8,9 +8,7 @@ tags:
   - networking
 date: 2026-02-18
 updated:
-aliases:
-  - OSI model
-  - TCP/IP model
+aliases: []
 ---
 
 Two machines can only talk if they agree on the rules at every level, from [[cs/systems/physical-layer-of-the-internet|the voltage on the wire]] to the meaning of a web request. Rather than write one giant rulebook, network designers split the rules into layers, where each layer solves one problem and treats the layer below it as a service it does not have to understand. Two layering schemes get taught side by side. One is a formal reference model that names seven layers. The other is the four-layer family of protocols that carries real traffic.
@@ -35,7 +33,7 @@ The Internet protocol suite, commonly called TCP/IP, is the framework that organ
 | Internet | Addressing and routing across networks | IP, ICMP |
 | Link | Delivery within one physical segment | Ethernet, Wi-Fi, ARP |
 
-Each layer talks only to its peer on the other machine and leans on the layer beneath it. The application does not know whether the bits ride fiber or radio, and the wire does not know whether it carries email or video. That separation is what lets one layer change without disturbing the others. This is the same four-layer scheme the Defense Department standardized as the [[dod-model-and-tcp-ip-standardization|DoD model]].
+Each layer talks only to its peer on the other machine and leans on the layer beneath it. The application does not know whether the bits ride fiber or radio, and the wire does not know whether it carries email or video. That separation is what lets one layer change without disturbing the others. This is the same four-layer scheme the Defense Department standardized as the [[cs/military-computing/dod-model-and-tcp-ip-standardization|DoD model]].
 
 ## Why TCP/IP is what runs
 
@@ -48,11 +46,11 @@ The suite's protocols were built, deployed, and iterated by the Internet Enginee
 
 ## Related Notes
 
-- [[network-protocols|Network Protocols]] - the layered stack in general, plus TCP vs UDP and DNS
-- [[ip-addressing-and-subnetting|IP Addressing and Subnetting]] - the internet layer's addressing scheme in depth
-- [[tcp-three-way-handshake|The TCP Three-Way Handshake]] - how the transport layer opens a connection
-- [[dod-model-and-tcp-ip-standardization|The DoD Model and the TCP/IP Flag Day]] - how the four-layer model became law
-- [[physical-layer-of-the-internet|The Physical Layer of the Internet]] - what actually sits under the link layer
+- [[cs/systems/network-protocols|Network Protocols]] - the layered stack in general, plus TCP vs UDP and DNS
+- [[cs/networking/ip-addressing-and-subnetting|IP Addressing and Subnetting]] - the internet layer's addressing scheme in depth
+- [[cs/networking/tcp-three-way-handshake|The TCP Three-Way Handshake]] - how the transport layer opens a connection
+- [[cs/military-computing/dod-model-and-tcp-ip-standardization|The DoD Model and the TCP/IP Flag Day]] - how the four-layer model became law
+- [[cs/systems/physical-layer-of-the-internet|The Physical Layer of the Internet]] - what actually sits under the link layer
 
 ## Sources
 

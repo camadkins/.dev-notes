@@ -8,11 +8,10 @@ tags:
   - machine-learning
 date: 2026-07-13
 aliases:
-  - sgd
   - stochastic-gradient-descent
 ---
 
-Picture the loss as a landscape: every point is a choice of model parameters, and the height at that point is how badly the model performs there. Training is finding a low spot. Gradient descent is the blindfolded hiker strategy (CS231n's analogy): feel the slope under your feet, take a small step downhill, repeat. It never sees the whole landscape, only the local slope, yet that is enough to train everything from [[simple-linear-regression]] to the deepest networks in [[ai-vs-ml-vs-dl|deep learning]].
+Picture the loss as a landscape: every point is a choice of model parameters, and the height at that point is how badly the model performs there. Training is finding a low spot. Gradient descent is the blindfolded hiker strategy (CS231n's analogy): feel the slope under your feet, take a small step downhill, repeat. It never sees the whole landscape, only the local slope, yet that is enough to train everything from [[cs/statistics/simple-linear-regression]] to the deepest networks in [[cs/machine-learning/ai-vs-ml-vs-dl|deep learning]].
 
 > [!note] The idea
 > Gradient descent is a first-order iterative method for minimizing a differentiable function. Repeatedly update the parameters opposite the gradient of the loss:
@@ -21,11 +20,11 @@ Picture the loss as a landscape: every point is a choice of model parameters, an
 
 ## The Update Rule
 
-The gradient $\nabla J(\mathbf{w})$ is [[cs/math/derivatives-and-gradients|the vector of partial derivatives]] $\left[\frac{\partial J}{\partial w_i}\right]_{i=1}^n$, one per parameter (vectors and their geometry live in [[linear-algebra-fundamentals]]). Each component answers one question: if I nudge this weight, how much does the loss change? Stepping against that vector reduces the loss, at least for a small enough step. The method is old, first suggested by Cauchy in 1847, and it earns its keep today because computing a gradient is cheap even when the parameter space has billions of dimensions, where solving for the minimum directly is hopeless.
+The gradient $\nabla J(\mathbf{w})$ is [[cs/math/derivatives-and-gradients|the vector of partial derivatives]] $\left[\frac{\partial J}{\partial w_i}\right]_{i=1}^n$, one per parameter (vectors and their geometry live in [[cs/math/linear-algebra-fundamentals]]). Each component answers one question: if I nudge this weight, how much does the loss change? Stepping against that vector reduces the loss, at least for a small enough step. The method is old, first suggested by Cauchy in 1847, and it earns its keep today because computing a gradient is cheap even when the parameter space has billions of dimensions, where solving for the minimum directly is hopeless.
 
 [[cs/math/convexity-and-optimization-basics|For a convex bowl like the squared-error surface of linear regression]], this walk converges to the global minimum. Neural network losses are not convex, but the same procedure still finds parameters that work remarkably well in practice.
 
-![Gradient descent stepping down a convex loss curve, with big steps on the steep part and small steps near the flat minimum](assets/gradient-descent-loss-curve.svg)
+![Gradient descent stepping down a convex loss curve, with big steps on the steep part and small steps near the flat minimum](cs/machine-learning/assets/gradient-descent-loss-curve.svg)
 
 ## The Learning Rate
 
@@ -60,12 +59,12 @@ All of them are still gradient descent at heart. They change how the step is sha
 
 ## Related Notes
 
-- [[loss-functions]] define the surface being descended
-- [[simple-linear-regression]] is the cleanest case, a convex bowl with one global minimum
-- [[linear-algebra-fundamentals]] for gradients as vectors of partials
-- [[bias-variance-tradeoff]] on why perfectly minimizing training loss can backfire
-- [[train-validation-test]] for how validation performance steers stopping and tuning
-- [[supervised-learning]] supplies the labeled data the loss is computed on
+- [[cs/machine-learning/loss-functions]] define the surface being descended
+- [[cs/statistics/simple-linear-regression]] is the cleanest case, a convex bowl with one global minimum
+- [[cs/math/linear-algebra-fundamentals]] for gradients as vectors of partials
+- [[cs/machine-learning/bias-variance-tradeoff]] on why perfectly minimizing training loss can backfire
+- [[cs/machine-learning/train-validation-test]] for how validation performance steers stopping and tuning
+- [[cs/machine-learning/supervised-learning]] supplies the labeled data the loss is computed on
 
 ## Sources
 

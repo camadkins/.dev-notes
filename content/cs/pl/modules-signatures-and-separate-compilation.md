@@ -241,9 +241,9 @@ Steps:
 
 ## Diagram Concepts
 
-![Signature exposes a subset of the implementation: hidden helpers are dimmed, exposed items have arrows from the public interface.](assets/modules-interface.svg)
+![Signature exposes a subset of the implementation: hidden helpers are dimmed, exposed items have arrows from the public interface.](cs/pl/assets/modules-interface.svg)
 
-![Separate compilation pipeline: interface compiles first to .cmi, then implementation and clients compile against it, and the linker produces the final executable.](assets/modules-compilation.svg)
+![Separate compilation pipeline: interface compiles first to .cmi, then implementation and clients compile against it, and the linker produces the final executable.](cs/pl/assets/modules-compilation.svg)
 
 
 ---
@@ -254,7 +254,7 @@ Steps:
     
 - [[cs/pl/type-systems-goals-guarantees|Type Systems: Goals & Guarantees]]
     
-- [[abstract-machines-cek-secd|Abstract Machines: CEK & SECD]]
+- [[cs/pl/abstract-machines-cek-secd|Abstract Machines: CEK & SECD]]
     
 - [[cs/pl/compilation-vs-interpretation|Compilation vs Interpretation]]
 

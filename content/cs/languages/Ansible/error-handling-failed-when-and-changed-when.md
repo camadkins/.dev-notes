@@ -9,9 +9,7 @@ tags:
   - error-handling
 date: 2026-08-04
 updated:
-aliases:
-  - failed_when
-  - changed_when
+aliases: []
 ---
 
 A module returns a dictionary. Two of its keys, `failed` and `changed`, are not really data about the world. They are the module author's opinion about the data, and Ansible gives you two keywords to overrule that opinion per task. Understanding which one matters more than the other is the whole point.

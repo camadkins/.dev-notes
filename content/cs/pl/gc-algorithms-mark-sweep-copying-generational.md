@@ -108,7 +108,7 @@ Write barriers record such updates to a *remembered set* or *card table*, ensuri
 
 ---
 
-![Tri-color marking invariant and generational heap layout](assets/gc-tricolor-generational.svg)
+![Tri-color marking invariant and generational heap layout](cs/pl/assets/gc-tricolor-generational.svg)
 
 ---
 
@@ -139,7 +139,7 @@ Proper GC tuning balances:
 
 ## See also
 - [[cs/pl/garbage-collection-concepts|Garbage Collection: Concepts]]
-- [[abstract-machines-cek-secd|Abstract Machines: CEK and SECD]]
+- [[cs/pl/abstract-machines-cek-secd|Abstract Machines: CEK and SECD]]
 - [[cs/pl/evaluation-order-and-strictness|Evaluation Order & Strictness]]
 
 ## Sources

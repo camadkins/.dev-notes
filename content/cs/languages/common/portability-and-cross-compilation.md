@@ -9,9 +9,7 @@ tags:
   - build-systems
 date: 2026-03-08
 updated:
-aliases:
-  - Target Triples
-  - Cross-Compilation
+aliases: []
 ---
 
 `x86_64-unknown-linux-gnu`. Four fields separated by hyphens, and every one of them is a promise about the machine that will eventually run your code: what instructions it decodes, who made it, what operating system [[cs/systems/system-calls-and-the-kernel-boundary|mediates its syscalls]], and which C library and calling convention the binary expects to find. Change any field and you are compiling a different program, even though the source did not move.

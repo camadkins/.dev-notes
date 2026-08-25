@@ -8,10 +8,7 @@ tags:
   - languages
 date: 2026-06-17
 updated:
-aliases:
-  - Partial Specialization
-  - Explicit Specialization
-  - Why Function Templates Cannot Be Partially Specialized
+aliases: []
 ---
 
 The smallest useful specialization in C++ is a two-line answer to a yes-or-no question about a type:

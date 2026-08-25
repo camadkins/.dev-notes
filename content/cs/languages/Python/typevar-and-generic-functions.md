@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-06-24
 updated:
-aliases:
-  - Python TypeVar
-  - Bound vs Constrained TypeVar
+aliases: []
 ---
 
 The first thing to unlearn is that `T` names a type. It does not. It names a *position* that a checker will fill in later, and the entire value of writing it comes from writing it twice.

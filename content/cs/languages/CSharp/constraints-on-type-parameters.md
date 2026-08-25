@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-06-19
 updated:
-aliases:
-  - where Clauses in C#
-  - Generic Constraints
+aliases: []
 ---
 
 The usual way to teach `where` is as a gate: this constraint keeps the wrong types out. That framing explains the compile errors and none of the design. Constraints exist because of a limitation on the inside of the generic body, not the outside. Without one, the documentation says, "the compiler can only assume the members of System.Object," so an unconstrained `T` can be assigned, boxed, and passed along, and nothing else. Every `where` clause buys back a specific set of operations.

@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-06-16
 updated:
-aliases:
-  - Java Streams
-  - java.util.stream
+aliases: []
 ---
 
 Most tours of `java.util.stream` spend their time on the verbs: `filter`, `map`, `sorted`, `distinct`. Those are the least interesting part of the design, a fixed list you cannot extend, each a thin wrapper over the same machinery. The two pieces you can implement yourself sit at the ends of the pipeline, and that is where the design decisions live.

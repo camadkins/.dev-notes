@@ -7,11 +7,7 @@ tags:
   - cs
   - deep-learning
 date: 2026-07-13
-aliases:
-  - word embeddings
-  - word2vec
-  - embedding space
-  - vector semantics
+aliases: []
 ---
 
 A neural network cannot read the word "apricot." It needs numbers. The obvious encoding, a one-hot vector with a single 1 in a vocabulary of a hundred thousand words, has two fatal flaws: the vectors are enormous, and every pair of them is orthogonal, so "car" and "automobile" look exactly as unrelated as "car" and "jam." An embedding replaces that with a short dense vector, learned from data, where words used in similar contexts end up near each other. Distance in the space becomes a stand-in for similarity of meaning.
@@ -25,26 +21,26 @@ The older route to vector semantics is counting. A term-document matrix records 
 
 ## word2vec: predict, don't count
 
-The word2vec approach of Mikolov et al. (2013, at Google) flips counting into prediction. Rather than tallying how often a word appears near "apricot," train a model to predict how likely it is to. The paper proposed two architectures: continuous bag-of-words (CBOW), which predicts the current word from its surrounding context words, and skip-gram, which predicts the context words from the current word. Either way the model is a shallow network whose learned weight matrix, one row per vocabulary word, is the embedding table. The follow-up paper made training cheap with negative sampling: treat words that genuinely co-occur as positive examples, randomly sample other words as negatives, and train a logistic classifier to tell them apart, which pushes real word-context pairs together in the space and random pairs apart. Training is just [[gradient-descent]] on that classification [[cs/machine-learning/loss-functions|loss]], and it scaled: the original setup learned high-quality vectors from a 1.6-billion-word corpus in under a day. GloVe from Stanford is the other widely used pretrained embedding of that generation.
+The word2vec approach of Mikolov et al. (2013, at Google) flips counting into prediction. Rather than tallying how often a word appears near "apricot," train a model to predict how likely it is to. The paper proposed two architectures: continuous bag-of-words (CBOW), which predicts the current word from its surrounding context words, and skip-gram, which predicts the context words from the current word. Either way the model is a shallow network whose learned weight matrix, one row per vocabulary word, is the embedding table. The follow-up paper made training cheap with negative sampling: treat words that genuinely co-occur as positive examples, randomly sample other words as negatives, and train a logistic classifier to tell them apart, which pushes real word-context pairs together in the space and random pairs apart. Training is just [[cs/machine-learning/gradient-descent]] on that classification [[cs/machine-learning/loss-functions|loss]], and it scaled: the original setup learned high-quality vectors from a 1.6-billion-word corpus in under a day. GloVe from Stanford is the other widely used pretrained embedding of that generation.
 
 ## The embedding space
 
 The learned space has structure nobody explicitly put there. Project it to two dimensions and words cluster by meaning: positive sentiment words together, negative ones together, function words off in their own region. Some relationships come out as directions, the famous example being vector("King") minus vector("Man") plus vector("Woman") landing closest to vector("Queen"). The same geometry also absorbs whatever biases live in the training corpus, which is worth remembering before treating the space as neutral.
 
-![A 2D projection of an embedding space, with positive words, negative words, and function words forming separate clusters.](assets/embedding-space.svg)
+![A 2D projection of an embedding space, with positive words, negative words, and function words forming separate clusters.](cs/deep-learning/assets/embedding-space.svg)
 
 Nothing about the trick is specific to words. Anything with a notion of context can be embedded: node2vec (Grover and Leskovec, 2016) embeds graph nodes by treating random walks as sentences, so nodes with similar neighborhoods get similar vectors. Embeddings are the purest example of learned [[cs/machine-learning/features-and-representations|representations]]: the network discovers the useful dimensions instead of a human designing them.
 
 > [!example] Embeddings that knew chemistry before we did
 > Tshitoyan et al. (Nature, 2019) trained word embeddings on millions of materials science abstracts, with no chemistry knowledge built in. The space recovered concepts like the structure of the periodic table on its own, and embeddings trained only on papers published before a cutoff year could recommend materials for applications (such as thermoelectrics) years before those materials were actually reported for that use.
 
-One limit worth naming: word2vec and GloVe are static embeddings, one vector per word regardless of usage, so "bank" gets a single vector whether the sentence is about rivers or deposits. Contextual models like BERT assign a different vector per usage. In a sequence model, the embedding layer is the front door: a [[recurrent-neural-networks|recurrent network]] reading text consumes one embedding per token, either trained along with the rest of the [[artificial-neural-networks|network]] or loaded pretrained.
+One limit worth naming: word2vec and GloVe are static embeddings, one vector per word regardless of usage, so "bank" gets a single vector whether the sentence is about rivers or deposits. Contextual models like BERT assign a different vector per usage. In a sequence model, the embedding layer is the front door: a [[cs/deep-learning/recurrent-neural-networks|recurrent network]] reading text consumes one embedding per token, either trained along with the rest of the [[cs/deep-learning/artificial-neural-networks|network]] or loaded pretrained.
 
 ## Related Notes
 
 - [[cs/machine-learning/features-and-representations|Features and Representations]], embeddings as the canonical learned representation
-- [[recurrent-neural-networks|Recurrent Neural Networks]], the sequence models that consume embeddings token by token
-- [[artificial-neural-networks|Artificial Neural Networks]], the machinery word2vec's shallow network is built from
+- [[cs/deep-learning/recurrent-neural-networks|Recurrent Neural Networks]], the sequence models that consume embeddings token by token
+- [[cs/deep-learning/artificial-neural-networks|Artificial Neural Networks]], the machinery word2vec's shallow network is built from
 - [[cs/machine-learning/gradient-descent|Gradient Descent]], how the vectors get trained
 - [[cs/machine-learning/loss-functions|Loss Functions]], the classification objective behind negative sampling
 - [[cs/math/linear-algebra-fundamentals|Linear Algebra Fundamentals]], dot products and cosine similarity as the comparison tools

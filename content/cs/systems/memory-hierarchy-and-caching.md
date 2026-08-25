@@ -10,10 +10,7 @@ tags:
   - memory
 date: 2026-06-11
 updated:
-aliases:
-  - Memory Hierarchy
-  - Cache Line
-  - Locality of Reference
+aliases: []
 ---
 
 There is no single kind of memory in a computer, and the reason is economic before it is technical. Fast memory is small and expensive; large memory is cheap and slow. You cannot buy a terabyte of register-speed storage, and you would not want to run a program out of a [[cs/history/magnetic-disk-storage|hard drive]]. So machines stack several kinds of memory into a ladder and try to keep the data you are about to use near the top. That ladder is the memory hierarchy, and caching is the machinery that decides what lives where.
@@ -32,7 +29,7 @@ Wikipedia gives four major storage levels:
 - **On-line mass storage**: secondary storage (an SSD or disk).
 - **Off-line bulk storage**: tertiary and off-line storage (archival media).
 
-Each step down is larger, cheaper per byte, and slower. Registers answer in a single cycle; a cache reference in a handful; main memory in a range "which may be tens to hundreds of times slower" than cache; disk slower again by orders of magnitude. Designing for performance "requires considering the restrictions of the memory hierarchy, i.e. the size and capabilities of each component." [[virtual-memory|Virtual memory]] extends the same idea downward, treating RAM as a cache for pages that actually live on disk.
+Each step down is larger, cheaper per byte, and slower. Registers answer in a single cycle; a cache reference in a handful; main memory in a range "which may be tens to hundreds of times slower" than cache; disk slower again by orders of magnitude. Designing for performance "requires considering the restrictions of the memory hierarchy, i.e. the size and capabilities of each component." [[cs/systems/virtual-memory|Virtual memory]] extends the same idea downward, treating RAM as a cache for pages that actually live on disk.
 
 ## Why it works: locality
 
@@ -56,13 +53,13 @@ Every access then resolves one of two ways. "If the processor finds that the mem
 
 ## The through-line
 
-Registers, cache, RAM, and disk are the same trick applied at four scales: put a small fast thing in front of a big slow thing, and rely on locality to make the small fast thing catch most of the requests. Multi-level caches (L1, L2, L3) are that trick nested inside itself, since "higher-level caches" are "organized as a hierarchy of more cache levels." Cache coherence, discussed in [[cache-coherence|its own note]], is the complication that appears once several cores each keep their own copy of the same line.
+Registers, cache, RAM, and disk are the same trick applied at four scales: put a small fast thing in front of a big slow thing, and rely on locality to make the small fast thing catch most of the requests. Multi-level caches (L1, L2, L3) are that trick nested inside itself, since "higher-level caches" are "organized as a hierarchy of more cache levels." Cache coherence, discussed in [[cs/systems/cache-coherence|its own note]], is the complication that appears once several cores each keep their own copy of the same line.
 
 ## Related Notes
 
-- [[virtual-memory|Virtual Memory]] - the same caching idea one level down, with RAM as a cache for pages on disk
-- [[cache-coherence|Cache Coherence]] - what breaks when multiple cores cache the same line
-- [[context-switching|Context Switching]] - why a cold cache and TLB after a switch is so costly
+- [[cs/systems/virtual-memory|Virtual Memory]] - the same caching idea one level down, with RAM as a cache for pages on disk
+- [[cs/systems/cache-coherence|Cache Coherence]] - what breaks when multiple cores cache the same line
+- [[cs/systems/context-switching|Context Switching]] - why a cold cache and TLB after a switch is so costly
 
 ## Sources
 

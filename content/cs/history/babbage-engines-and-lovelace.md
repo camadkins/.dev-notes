@@ -8,10 +8,7 @@ tags:
   - history
 date: 2026-05-15
 updated:
-aliases:
-  - Analytical Engine
-  - Ada Lovelace
-  - Note G
+aliases: []
 ---
 
 A full century before electronic computers, Charles Babbage designed a general-purpose programmable machine, and Ada Lovelace wrote the first program for it. Neither was ever built in their lifetimes, but the ideas were exactly right.
@@ -29,14 +26,14 @@ In 1843 Lovelace published Note G, [[cs/dsa/recurrence-relations|an algorithm to
 
 ## Why it matters
 
-The idea that a machine could be general, and directed by a program you swap out rather than rebuilt, is the idea every computer rests on. It would be realized electronically a century later in the [[von-neumann-architecture|stored-program computer]]. The Defense Department's [[ada-and-language-standardization|Ada programming language]] is named in Lovelace's honor.
+The idea that a machine could be general, and directed by a program you swap out rather than rebuilt, is the idea every computer rests on. It would be realized electronically a century later in the [[cs/history/von-neumann-architecture|stored-program computer]]. The Defense Department's [[cs/military-computing/ada-and-language-standardization|Ada programming language]] is named in Lovelace's honor.
 
 ## Related Notes
 
-- [[von-neumann-architecture|Von Neumann Architecture]], where the stored program became real
-- [[ada-and-language-standardization|Ada and Language Standardization]], the modern language named for Lovelace
-- [[al-khwarizmi-and-the-algorithm|Al-Khwarizmi and the Algorithm]], the concept Lovelace put into code
-- [[history-genealogy-of-languages|History and Genealogy of Languages]], where programming languages begin
+- [[cs/history/von-neumann-architecture|Von Neumann Architecture]], where the stored program became real
+- [[cs/military-computing/ada-and-language-standardization|Ada and Language Standardization]], the modern language named for Lovelace
+- [[cs/history/al-khwarizmi-and-the-algorithm|Al-Khwarizmi and the Algorithm]], the concept Lovelace put into code
+- [[cs/pl/history-genealogy-of-languages|History and Genealogy of Languages]], where programming languages begin
 - [[cs/history/index|History of Computing]], the section index
 
 ## Sources

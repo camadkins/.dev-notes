@@ -8,10 +8,7 @@ tags:
   - languages
 date: 2026-07-11
 updated:
-aliases:
-  - racket/generic
-  - "gen:dict"
-  - Generic Method Fallbacks
+aliases: []
 ---
 
 This is legal Racket, and the empty brackets are not a typo:

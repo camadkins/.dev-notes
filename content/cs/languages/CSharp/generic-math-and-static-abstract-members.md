@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-07-24
 updated:
-aliases:
-  - INumber
-  - Static Virtual Interface Members
+aliases: []
 ---
 
 For twenty years a C# programmer could not write a generic `Sum`. Constraints could demand a constructor, a base class, a value type, an interface, a memory layout. None of them could demand that `T` supports `+`. The obstacle was not that operators are special. It was that operators are static, and an interface could describe instance members only, so there was no way to write down the requirement.

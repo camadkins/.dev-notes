@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-08-08
 updated:
-aliases:
-  - min_specialization
-  - Overlapping Impls
+aliases: []
 ---
 
 Coherence says one implementation applies for a given trait and type, and overlapping implementations are an error. Specialization proposes a controlled exception: let implementations overlap, and when several apply, use the most specific one. The blanket implementation supplies a `default` method, a narrower implementation overrides it, and code that was written once against the general case gets custom treatment where a better version exists.

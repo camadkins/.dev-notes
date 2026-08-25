@@ -12,7 +12,6 @@ aliases:
   - E01
   - EWF
   - AFF4
-  - Forensic Image Format
 ---
 
 An image is a file that claims to be a disk. The claim has two parts, and only one of them is about the bytes. The first part is "these are the sectors." The second part is "and here is everything that happened while I read them." Raw images can make the first claim and cannot make the second. The forensic container formats exist entirely for the second.

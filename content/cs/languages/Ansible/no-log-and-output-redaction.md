@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-07-30
 updated:
-aliases:
-  - Ansible no_log
-  - Output Redaction
+aliases: []
 ---
 
 A vaulted secret stops being protected the moment it is used. The documentation says so without hedging: encryption with [[cs/languages/Ansible/vault-and-secret-management|Ansible Vault]] only protects data at rest, and once the content is decrypted, which the docs call data in use, play and plugin authors are responsible for avoiding any secret disclosure. The same sentence names the mechanism it expects you to reach for and points at `no_log` for details on hiding output.

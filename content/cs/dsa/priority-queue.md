@@ -10,7 +10,6 @@ tags:
 date: 2025-10-16
 updated: 2026-01-06
 aliases: []
-
 ---
 
 ## Overview
@@ -237,7 +236,7 @@ PQ retrieval is typically **not stable**. To get stability:
 
 ## Practical Use Cases
 
-- **Graph algorithms**: [[dijkstras-algorithm|Dijkstra's Algorithm]] (needs `DECREASE_KEY` or lazy), [[prims-algorithm|Prim's Algorithm]] (keys = cheapest frontier edges), A* (priority = `g+h`).
+- **Graph algorithms**: [[cs/dsa/dijkstras-algorithm|Dijkstra's Algorithm]] (needs `DECREASE_KEY` or lazy), [[cs/dsa/prims-algorithm|Prim's Algorithm]] (keys = cheapest frontier edges), A* (priority = `g+h`).
 
 - **[[cs/systems/process-scheduling-algorithms|Scheduling]]**: CPU run queues, event-driven simulators, job schedulers (priority/time).
 
@@ -269,10 +268,10 @@ A priority queue abstracts **"give me the best next item"** with operations opti
 
 ## Related Notes
 
-- [[binary-heap|Binary Heap]]
+- [[cs/dsa/binary-heap|Binary Heap]]
 
-- [[d-ary-heap|D-ary Heap]]
+- [[cs/dsa/d-ary-heap|D-ary Heap]]
 
-- [[dijkstras-algorithm|Dijkstra's Algorithm]]
+- [[cs/dsa/dijkstras-algorithm|Dijkstra's Algorithm]]
 
-- [[prims-algorithm|Prim's Algorithm]]
+- [[cs/dsa/prims-algorithm|Prim's Algorithm]]

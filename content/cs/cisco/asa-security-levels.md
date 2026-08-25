@@ -10,7 +10,6 @@ date: 2026-03-11
 updated:
 aliases:
   - security-level
-  - ASA security level
   - same-security-traffic
 ---
 
@@ -71,16 +70,16 @@ In transparent mode the abstraction is different. "In transparent mode, the BVI 
 The implicit permit narrows to match. "For bridge group member interfaces, this implicit permit from a higher to a lower security interface applies to interfaces within the same bridge group only. There are no implicit permits between a bridge group member interface and a routed interface or a member of a different bridge group."
 
 > [!tip] How to reason about it
-> Ask two questions of any flow before you look at a single ACL. Which direction is it going relative to the levels, and are the two interfaces at the same level? Those answers determine whether your rule base is even consulted. See [[asa-access-rules-and-acls|ASA access rules]] for what happens after the level check passes.
+> Ask two questions of any flow before you look at a single ACL. Which direction is it going relative to the levels, and are the two interfaces at the same level? Those answers determine whether your rule base is even consulted. See [[cs/cisco/asa-access-rules-and-acls|ASA access rules]] for what happens after the level check passes.
 
 ## Related Notes
 
-- [[asa-access-rules-and-acls|ASA Access Rules and ACLs]] - the rule base that runs after the security-level check
-- [[asa-nat|NAT on the ASA]] - why access rules match real addresses, not translated ones
-- [[firewalls|Firewalls]] - the general stateful-firewall model the ASA implements
-- [[vlans-and-vlan-design|VLANs and VLAN Design]] - the segments an ASA interface usually terminates
-- [[zero-trust-architecture|Zero Trust Architecture]] - the argument against trusting a network by its position in an ordering
-- [[privilege-separation-and-least-privilege|Privilege Separation and Least Privilege]] - the principle a default-permit direction works against
+- [[cs/cisco/asa-access-rules-and-acls|ASA Access Rules and ACLs]] - the rule base that runs after the security-level check
+- [[cs/cisco/asa-nat|NAT on the ASA]] - why access rules match real addresses, not translated ones
+- [[cs/security/firewalls|Firewalls]] - the general stateful-firewall model the ASA implements
+- [[cs/cisco/vlans-and-vlan-design|VLANs and VLAN Design]] - the segments an ASA interface usually terminates
+- [[cs/security/zero-trust-architecture|Zero Trust Architecture]] - the argument against trusting a network by its position in an ordering
+- [[cs/security/privilege-separation-and-least-privilege|Privilege Separation and Least Privilege]] - the principle a default-permit direction works against
 
 ## Sources
 

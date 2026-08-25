@@ -6,17 +6,13 @@ comments: true
 tags:
   - cs
   - deep-learning
-  - training
   - optimization
 date: 2026-07-23
 updated:
-aliases:
-  - Faster Optimizers
-  - Adam Optimizer
-  - Learning Rate Scheduling
+aliases: []
 ---
 
-[[gradient-descent|Gradient descent]] introduces the optimizer family at a glance: momentum, AdaGrad, RMSProp, Adam, each a tweak to how the step is taken. This note is the level Géron's Chapter 11 and the CSCE 479/879 lectures actually work at, the update rules written out, because for deep networks the choice of optimizer and the schedule of its learning rate are among the highest-leverage decisions you make. Plain stochastic gradient descent trains a deep net eventually; the right optimizer trains it in a fraction of the steps.
+[[cs/machine-learning/gradient-descent|Gradient descent]] introduces the optimizer family at a glance: momentum, AdaGrad, RMSProp, Adam, each a tweak to how the step is taken. This note is the level Géron's Chapter 11 and the CSCE 479/879 lectures actually work at, the update rules written out, because for deep networks the choice of optimizer and the schedule of its learning rate are among the highest-leverage decisions you make. Plain stochastic gradient descent trains a deep net eventually; the right optimizer trains it in a fraction of the steps.
 
 The reason these exist is that the raw gradient is a poor guide on the [[cs/math/convexity-and-optimization-basics|loss surfaces]] deep networks produce. Those surfaces have long narrow ravines where SGD zig-zags across the walls instead of moving down the floor, and vast plateaus where the gradient is tiny and progress crawls. Each optimizer below is a specific fix for one of those pathologies, and they stack into Adam.
 
@@ -64,11 +60,11 @@ The 1cycle policy is worth naming on its own. Smith's super-convergence work rai
 
 ## Related Notes
 
-- [[gradient-descent|Gradient Descent]] - the base loop and the one-line tour of this same family, from the machine-learning side
-- [[vanishing-and-exploding-gradients|Vanishing and Exploding Gradients]] - initialization sets the surface up; the optimizer takes the steps across it
-- [[backpropagation|Backpropagation]] - the algorithm that produces the gradient each optimizer consumes
-- [[regularization-in-deep-learning|Regularization in Deep Learning]] - early stopping and the regularizing side effect of a high mid-cycle learning rate
-- [[artificial-neural-networks|Artificial Neural Networks]] - the deep networks whose loss surfaces make these optimizers necessary
+- [[cs/machine-learning/gradient-descent|Gradient Descent]] - the base loop and the one-line tour of this same family, from the machine-learning side
+- [[cs/deep-learning/vanishing-and-exploding-gradients|Vanishing and Exploding Gradients]] - initialization sets the surface up; the optimizer takes the steps across it
+- [[cs/deep-learning/backpropagation|Backpropagation]] - the algorithm that produces the gradient each optimizer consumes
+- [[cs/deep-learning/regularization-in-deep-learning|Regularization in Deep Learning]] - early stopping and the regularizing side effect of a high mid-cycle learning rate
+- [[cs/deep-learning/artificial-neural-networks|Artificial Neural Networks]] - the deep networks whose loss surfaces make these optimizers necessary
 
 ## Sources
 

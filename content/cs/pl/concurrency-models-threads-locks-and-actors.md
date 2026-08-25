@@ -153,7 +153,7 @@ CSP strikes a middle ground: it enforces communication discipline like actors bu
 
 ## Comparing Models
 
-![Three-column comparison: threads+locks, actors, CSP](assets/concurrency-models-timeline.svg)
+![Three-column comparison: threads+locks, actors, CSP](cs/pl/assets/concurrency-models-timeline.svg)
 
 |Feature|Threads + Locks|Actors|CSP|
 |---|---|---|---|
@@ -188,7 +188,7 @@ CSP strikes a middle ground: it enforces communication discipline like actors bu
 
 ## See also
 
-- [[abstract-machines-cek-secd|Abstract Machines: CEK and SECD]]
+- [[cs/pl/abstract-machines-cek-secd|Abstract Machines: CEK and SECD]]
     
 - [[cs/pl/operational-semantics-big-step-small-step|Operational Semantics: Big-Step & Small-Step]]
     

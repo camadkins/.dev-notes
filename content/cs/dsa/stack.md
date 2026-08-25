@@ -171,7 +171,7 @@ Cache and locality:
 
 ## Practical Use Cases
 
-- **Call stacks (recursion)**: function frames are effectively a stack; recursion depth corresponds to stack height. See [[recursion|Recursion]] for depth concerns.
+- **Call stacks (recursion)**: function frames are effectively a stack; recursion depth corresponds to stack height. See [[cs/dsa/recursion|Recursion]] for depth concerns.
 
 - **Expression evaluation**: postfix (RPN) evaluators push operands and pop on operators; infix-to-postfix conversion uses **operator stacks**.
 
@@ -222,10 +222,10 @@ Stacks implement **LIFO** access with a minimal, efficient API. Array-backed sta
 
 ## Related Notes
 
-- [[stack-using-array|Stack Using Array]]
+- [[cs/dsa/stack-using-array|Stack Using Array]]
 
-- [[stack-using-linked-list|Stack Using Linked List]]
+- [[cs/dsa/stack-using-linked-list|Stack Using Linked List]]
 
-- [[recursion|Recursion]]
+- [[cs/dsa/recursion|Recursion]]
 
-- [[depth-first-search-algorithms|Depth-First Search Algorithms]]
+- [[cs/dsa/depth-first-search-algorithms|Depth-First Search Algorithms]]

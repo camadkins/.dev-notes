@@ -12,9 +12,6 @@ date: 2026-06-24
 updated:
 aliases:
   - SSA
-  - Static Single Assignment
-  - Phi Function
-  - Intermediate Representation
 ---
 
 A compiler with `m` source languages and `n` targets would need `m * n` translators if each went straight from one to the other. Routing everything through a shared middle language turns that into `m + n`. That is the practical argument for an intermediate representation, and it is the smaller half of the story.
@@ -64,7 +61,7 @@ The list of optimizations enabled or strongly enhanced by SSA is the reason it t
 
 The rule breaks at merges. If one branch assigns `y1` and the other assigns `y2`, a use in the block below could refer to either, depending on which path control took.
 
-![A diamond control-flow graph where two branches define y1 and y2 and the merge block introduces a phi function](assets/ssa-phi-merge.svg)
+![A diamond control-flow graph where two branches define y1 and y2 and the merge block introduces a phi function](cs/pl/assets/ssa-phi-merge.svg)
 
 The fix is a special statement inserted in the merge block, a **Φ (Phi) function**, which generates a new definition `y3` by choosing either `y1` or `y2` depending on past control flow. The block below can then simply use `y3`. No Φ is needed for a variable with only one version reaching the point, since Φ(x2, x2) = x2.
 

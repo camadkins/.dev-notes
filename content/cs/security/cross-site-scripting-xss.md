@@ -11,10 +11,9 @@ date: 2026-05-02
 updated:
 aliases:
   - XSS
-  - cross-site scripting
 ---
 
-XSS is the browser's version of the same mistake [[sql-injection|SQL injection]] makes against a database: untrusted data crosses the line from content into code. Here [[cs/pl/compilation-vs-interpretation|the interpreter]] is the victim's browser, and the code runs inside the victim's session, with their cookies, their logged-in identity, their same-origin permissions. The three-way taxonomy everyone memorizes, stored, reflected, DOM-based, is not trivia. It is a classification by where the attacker's data enters the page, and that entry point dictates the defense.
+XSS is the browser's version of the same mistake [[cs/security/sql-injection|SQL injection]] makes against a database: untrusted data crosses the line from content into code. Here [[cs/pl/compilation-vs-interpretation|the interpreter]] is the victim's browser, and the code runs inside the victim's session, with their cookies, their logged-in identity, their same-origin permissions. The three-way taxonomy everyone memorizes, stored, reflected, DOM-based, is not trivia. It is a classification by where the attacker's data enters the page, and that entry point dictates the defense.
 
 > [!note] The idea
 > XSS is an injection where the malicious payload becomes script executing under the victim's origin. The stored/reflected/DOM split classifies the data's path into the page, and because the flaw is that untrusted data was written into a page without being neutralized for its surroundings, the fix is output encoding chosen by the exact context the data lands in, not a single global escape.
@@ -42,10 +41,10 @@ If the bug is unneutralized data reaching an interpreter, the fix is to neutrali
 
 ## Related Notes
 
-- [[sql-injection|SQL Injection]], the same data-becomes-code confusion aimed at a database
-- [[cross-site-request-forgery-csrf|Cross-Site Request Forgery (CSRF)]], a distinct web attack often confused with XSS
-- [[owasp-top-10|The OWASP Top 10]], where XSS lives inside the A03 Injection class
-- [[tls-and-the-https-handshake|TLS and the HTTPS Handshake]], the origin boundary XSS runs inside of
+- [[cs/security/sql-injection|SQL Injection]], the same data-becomes-code confusion aimed at a database
+- [[cs/security/cross-site-request-forgery-csrf|Cross-Site Request Forgery (CSRF)]], a distinct web attack often confused with XSS
+- [[cs/security/owasp-top-10|The OWASP Top 10]], where XSS lives inside the A03 Injection class
+- [[cs/systems/tls-and-the-https-handshake|TLS and the HTTPS Handshake]], the origin boundary XSS runs inside of
 
 ## Sources
 

@@ -177,7 +177,7 @@ Result:
 
 because both `a` and `b` point to the same ℓ.
 
-![Aliasing: two identifiers pointing to the same store location](assets/mutation-aliasing.svg)
+![Aliasing: two identifiers pointing to the same store location](cs/pl/assets/mutation-aliasing.svg)
 
 Aliasing is powerful but dangerous: it couples parts of a program through shared state.  
 Optimizations and reasoning become harder because order now matters.
@@ -297,7 +297,7 @@ This bridges imperative effects and functional purity, making mutations _explici
     
 - [[cs/pl/operational-semantics-big-step-small-step|Operational Semantics: Big-Step & Small-Step]]
     
-- [[evaluation-order-and-strictness | Evaluation Order & Strictness]]
+- [[cs/pl/evaluation-order-and-strictness| Evaluation Order & Strictness]]
 
 ---
 

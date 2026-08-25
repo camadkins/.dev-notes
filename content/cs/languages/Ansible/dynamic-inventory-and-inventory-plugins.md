@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-08-11
 updated:
-aliases:
-  - Ansible Dynamic Inventory
-  - Inventory Plugins
+aliases: []
 ---
 
 A static inventory file is a literal. You write down the hosts, Ansible reads them, and the set of machines your play targets is exactly what is in the file. That works until the machines stop being written down.

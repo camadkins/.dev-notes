@@ -9,9 +9,7 @@ tags:
   - memory
 date: 2026-06-24
 updated:
-aliases:
-  - Drop Order
-  - Destructors in Rust
+aliases: []
 ---
 
 C++ gets RAII from a promise about destructors and a programmer who routes every cleanup obligation through it. Rust gets the same technique for free, because the ownership system already establishes exactly one owner for every value and already knows when that owner's scope ends. The `Drop` implementation is not a discipline you adopt; it is a hook on machinery the compiler runs whether you write one or not.

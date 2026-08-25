@@ -113,9 +113,9 @@ Consider a 3-node key-value store partitioned into `{A}` and `{B, C}`:
 
 ## Related Notes
 
-- [[graphs|Graphs]] - distributed systems are modeled as graphs of communicating nodes; graph connectivity determines partition behavior
-- [[network-protocols|Network Protocols]] - the transport layer that consensus messages travel over
-- [[processes-and-threads|Processes & Threads]] - each node in a distributed system is itself a process or set of threads
+- [[cs/dsa/graphs|Graphs]] - distributed systems are modeled as graphs of communicating nodes; graph connectivity determines partition behavior
+- [[cs/systems/network-protocols|Network Protocols]] - the transport layer that consensus messages travel over
+- [[cs/systems/processes-and-threads|Processes & Threads]] - each node in a distributed system is itself a process or set of threads
 
 ## Sources
 

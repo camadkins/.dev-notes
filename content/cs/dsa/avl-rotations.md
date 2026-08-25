@@ -36,7 +36,7 @@ When inserting or deleting a node:
 | LR | Right subtree of left child grew | Left rotation on child, then right rotation |
 | RL | Left subtree of right child grew | Right rotation on child, then left rotation |
 
-![AVL height and balance factors: balanced tree vs imbalanced tree triggering LL rotation](assets/avl-height-balance.svg)
+![AVL height and balance factors: balanced tree vs imbalanced tree triggering LL rotation](cs/dsa/assets/avl-height-balance.svg)
 
 ### Right Rotation (LL Case)
 Occurs when inserting into the **left subtree** of a node’s left child.
@@ -99,7 +99,7 @@ Triggered when inserting into the **left subtree of the right child**:
 > [!note]  
 > LR and RL rotations are effectively _mirror images_ of each other.
 
-![AVL rotation cases: LL, RR, LR, RL with before/after tree states](assets/avl-rotations.svg)
+![AVL rotation cases: LL, RR, LR, RL with before/after tree states](cs/dsa/assets/avl-rotations.svg)
 
 ---
 
@@ -194,8 +194,8 @@ function insert(node, key):
 
 ## Related Notes
 
-- [[avl-tree|AVL Tree]]
+- [[cs/dsa/avl-tree|AVL Tree]]
     
-- [[rb-tree|Red-Black Tree]]
+- [[cs/dsa/rb-tree|Red-Black Tree]]
     
-- [[tree-traversal|Tree Traversal]]
+- [[cs/dsa/tree-traversal|Tree Traversal]]

@@ -81,9 +81,9 @@ The cycle of agreement, invalidation, and renegotiation illustrates the structur
 
 ## Related Notes
 
-- [[cyber-sovereignty|Cyber Sovereignty]] - censorship infrastructure and surveillance infrastructure are often the same systems deployed for different purposes
-- [[ai-governance|AI Governance]] - AI-powered surveillance tools (facial recognition, predictive policing) are a primary driver of AI regulation
-- [[semiconductor-supply-chains|Semiconductor Supply Chains]] - hardware supply-chain integrity is a surveillance and countersurveillance concern
+- [[cs/geopolitics/cyber-sovereignty|Cyber Sovereignty]] - censorship infrastructure and surveillance infrastructure are often the same systems deployed for different purposes
+- [[cs/geopolitics/ai-governance|AI Governance]] - AI-powered surveillance tools (facial recognition, predictive policing) are a primary driver of AI regulation
+- [[cs/geopolitics/semiconductor-supply-chains|Semiconductor Supply Chains]] - hardware supply-chain integrity is a surveillance and countersurveillance concern
 - [[cs/military-computing/cryptography-codebreaking-and-the-nsa|Cryptography, Codebreaking, and the NSA]] - the signals-intelligence lineage the Five Eyes grew out of
 - [[cs/military-computing/rsa-and-computational-hardness|RSA and Computational Hardness]] - why a backdoor that only good actors can use cannot exist
 - [[cs/history/history-of-the-internet|History of the Internet]] - the backbone and undersea cables upstream collection taps

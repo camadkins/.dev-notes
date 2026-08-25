@@ -9,10 +9,7 @@ tags:
   - type-theory
 date: 2026-08-04
 updated:
-aliases:
-  - Go comparable
-  - cmp.Ordered
-  - Strictly Comparable
+aliases: []
 ---
 
 `comparable` and `cmp.Ordered` look like siblings. Both are constraints, both name a family of types by a capability, and both appear in the same position in a type parameter list. They are not siblings. One is predeclared, defined by the specification, and denotes a set no user could write down. The other is a few lines of ordinary Go in the standard library, maintained by hand, with a comment admitting it will need editing when the language changes.

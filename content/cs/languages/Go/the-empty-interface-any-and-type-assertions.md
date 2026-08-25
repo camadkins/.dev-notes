@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-07-30
 updated:
-aliases:
-  - Go Empty Interface
-  - Go Type Switch
+aliases: []
 ---
 
 For twelve years, the way you wrote a container in Go that held anything was to hold `interface{}`. Every `sort.Interface` implementation, every `encoding/json` decode target, every "generic" list in every internal utilities package went through the empty interface and came back out through an assertion. The pattern was so universal that Go 1.18 gave it a shorter spelling: the predeclared `any`, which the spec describes as an alias for the empty interface, not a named type of its own.

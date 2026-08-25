@@ -8,9 +8,7 @@ tags:
   - military
 date: 2026-03-14
 updated:
-aliases:
-  - software crisis
-  - NATO Software Engineering Conferences
+aliases: []
 ---
 
 By the late 1960s, hardware was racing ahead of the software meant to run on it. Machines kept getting more powerful, and the programs they needed kept getting larger and more tangled, faster than anyone knew how to write them well. Projects ran over budget and behind schedule and shipped late and unreliable. The gap between what computers could do and what their software could be trusted to do had become its own emergency, and in 1968 NATO called a meeting to confront it.
@@ -32,10 +30,10 @@ This is the hinge where programming began to be treated as engineering. Once the
 
 ## Related Notes
 
-- [[margaret-hamilton-and-reliable-software|Margaret Hamilton and Ultra-Reliable Software]], who used the term software engineering in the same years
-- [[software-architecture|Software Architecture]], one discipline that grew from this shift
-- [[testing-strategies|Testing Strategies]], another
-- [[design-patterns|Design Patterns]], documented engineering practice for software
+- [[cs/military-computing/margaret-hamilton-and-reliable-software|Margaret Hamilton and Ultra-Reliable Software]], who used the term software engineering in the same years
+- [[cs/software-engineering/software-architecture|Software Architecture]], one discipline that grew from this shift
+- [[cs/software-engineering/testing-strategies|Testing Strategies]], another
+- [[cs/software-engineering/design-patterns|Design Patterns]], documented engineering practice for software
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

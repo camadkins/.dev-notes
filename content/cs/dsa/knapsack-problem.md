@@ -9,7 +9,6 @@ tags:
 date: 2025-10-16
 updated: 2025-11-19
 aliases: []
-
 ---
 
 ## Overview
@@ -26,7 +25,7 @@ These variants differ sharply in tractability and strategy: **Fractional** admit
 
 ## Motivation
 
-Knapsack models **resource allocation**: budgets, cargo loading, ad placement under time caps, memory-limited caching, and even [[cs/pl/intermediate-representations-and-ssa|compiler optimizations]] (instruction selection). Understanding when **greedy** suffices and when **dynamic programming** is necessary is a core skill that bridges [[greedy-algorithms|Greedy Algorithms]] and [[dynamic-programming|Dynamic Programming]].
+Knapsack models **resource allocation**: budgets, cargo loading, ad placement under time caps, memory-limited caching, and even [[cs/pl/intermediate-representations-and-ssa|compiler optimizations]] (instruction selection). Understanding when **greedy** suffices and when **dynamic programming** is necessary is a core skill that bridges [[cs/dsa/greedy-algorithms|Greedy Algorithms]] and [[cs/dsa/dynamic-programming|Dynamic Programming]].
 
 ## Definition and Formalism
 
@@ -131,7 +130,7 @@ function KNAPSACK_UNBOUNDED(w[1..n], v[1..n], W):
 
 ### Branch & Bound for 0/1 (Large `W`, small `n`)
 
-Use DFS over item order with an **upper bound** from **fractional** [[cs/math/linear-programming-and-duality|relaxation]] to prune. Effective when `n` is modest and structure exists; see [[branch-and-bound|Branch and Bound]].
+Use DFS over item order with an **upper bound** from **fractional** [[cs/math/linear-programming-and-duality|relaxation]] to prune. Effective when `n` is modest and structure exists; see [[cs/dsa/branch-and-bound|Branch and Bound]].
 
 ### Bitset Optimization (0/1 with integer values)
 
@@ -166,10 +165,10 @@ Knapsack DP patterns generalize to **budgeted optimization**, **subset-sum**, an
 
 ## Related Notes
 
-- [[greedy-algorithms|Greedy Algorithms]]
+- [[cs/dsa/greedy-algorithms|Greedy Algorithms]]
 
-- [[dynamic-programming|Dynamic Programming]]
+- [[cs/dsa/dynamic-programming|Dynamic Programming]]
 
-- [[branch-and-bound|Branch and Bound]]
+- [[cs/dsa/branch-and-bound|Branch and Bound]]
 
-- [[algorithm-efficiency|Algorithm Efficiency]]
+- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]

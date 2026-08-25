@@ -9,10 +9,7 @@ tags:
   - computer-architecture
 date: 2026-04-03
 updated:
-aliases:
-  - Interrupts
-  - Traps and Exceptions
-  - Interrupt Handling
+aliases: []
 ---
 
 A CPU running a program is single-minded: it fetches the next instruction, executes it, repeats. Interrupts are the mechanism that lets the outside world, and the program's own mistakes, break into that loop. Without them the processor would have to poll every device in a busy wait to notice anything, wasting the cycles it spends asking "anything yet?"
@@ -28,13 +25,13 @@ Whatever the trigger, the hardware does the same dance. It finishes or suspends 
 
 ## Sorting by source
 
-**Hardware interrupts** come from outside the processor. A hardware interrupt is "a condition related to the state of the hardware that may be signaled by an external hardware device," a disk finishing a read, a network packet arriving, a timer firing, a key being pressed. These are asynchronous: they bear no relation to what the program was doing when they hit. The periodic timer interrupt is the one that makes preemptive [[process-scheduling-algorithms|scheduling]] possible, it is what lets the OS reliably take the CPU back from a running process.
+**Hardware interrupts** come from outside the processor. A hardware interrupt is "a condition related to the state of the hardware that may be signaled by an external hardware device," a disk finishing a read, a network packet arriving, a timer firing, a key being pressed. These are asynchronous: they bear no relation to what the program was doing when they hit. The periodic timer interrupt is the one that makes preemptive [[cs/systems/process-scheduling-algorithms|scheduling]] possible, it is what lets the OS reliably take the CPU back from a running process.
 
 Some hardware interrupts can be temporarily disabled by setting an interrupt mask; those are maskable. A few cannot: "Some interrupt signals are not affected by the interrupt mask and therefore cannot be disabled; these are called non-maskable interrupts (NMIs). These indicate high-priority events which cannot be ignored under any circumstances."
 
-**Software interrupts (traps)** are raised by the processor itself while executing instructions. "A software interrupt is requested by the processor itself upon executing particular instructions or when certain conditions are met." The intentional kind is a program deliberately executing a special instruction to invoke a handler: "Such instructions function similarly to subroutine calls and are used for a variety of purposes, such as requesting operating system services and interacting with device drivers." This is exactly the trap a [[system-calls-and-the-kernel-boundary|system call]] uses to cross into the kernel.
+**Software interrupts (traps)** are raised by the processor itself while executing instructions. "A software interrupt is requested by the processor itself upon executing particular instructions or when certain conditions are met." The intentional kind is a program deliberately executing a special instruction to invoke a handler: "Such instructions function similarly to subroutine calls and are used for a variety of purposes, such as requesting operating system services and interacting with device drivers." This is exactly the trap a [[cs/systems/system-calls-and-the-kernel-boundary|system call]] uses to cross into the kernel.
 
-**[[cs/pl/exceptions-handlers-and-non-local-control|Exceptions]]** are the unintentional software interrupts: the ones "triggered by program execution errors or by the virtual memory system." A [[cs/standards/ieee-754-rounding-and-exceptions|divide-by-zero]], an invalid memory access, or a page fault all raise one. Some are fatal to the program, surfacing as errors like an access violation. Others are handled invisibly, "the normal resolution of a page fault is to make the required page accessible in physical memory" and quietly restart the instruction, which is how [[virtual-memory|demand paging]] works.
+**[[cs/pl/exceptions-handlers-and-non-local-control|Exceptions]]** are the unintentional software interrupts: the ones "triggered by program execution errors or by the virtual memory system." A [[cs/standards/ieee-754-rounding-and-exceptions|divide-by-zero]], an invalid memory access, or a page fault all raise one. Some are fatal to the program, surfacing as errors like an access violation. Others are handled invisibly, "the normal resolution of a page fault is to make the required page accessible in physical memory" and quietly restart the instruction, which is how [[cs/systems/virtual-memory|demand paging]] works.
 
 ## The interrupt vector table
 
@@ -53,9 +50,9 @@ When a signal arrives, how does the CPU find the right handler? Through a lookup
 
 ## Related Notes
 
-- [[system-calls-and-the-kernel-boundary|System Calls and the Kernel Boundary]] - the intentional software trap that raises privilege and enters the kernel
-- [[process-scheduling-algorithms|Process Scheduling Algorithms]] - the timer hardware interrupt is what makes preemption possible
-- [[virtual-memory|Virtual Memory]] - the page fault is an exception the OS resolves by loading the missing page
+- [[cs/systems/system-calls-and-the-kernel-boundary|System Calls and the Kernel Boundary]] - the intentional software trap that raises privilege and enters the kernel
+- [[cs/systems/process-scheduling-algorithms|Process Scheduling Algorithms]] - the timer hardware interrupt is what makes preemption possible
+- [[cs/systems/virtual-memory|Virtual Memory]] - the page fault is an exception the OS resolves by loading the missing page
 
 ## Sources
 

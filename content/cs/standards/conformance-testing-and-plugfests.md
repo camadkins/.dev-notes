@@ -9,10 +9,7 @@ tags:
   - testing
 date: 2026-08-05
 updated:
-aliases:
-  - Conformance Testing
-  - Plugfest
-  - Certification Mark
+aliases: []
 ---
 
 A datasheet says the product conforms. Somebody had to make that sentence true, and the machinery that makes it true is not one thing. There is a test suite, which asks whether a single product satisfies the checkable clauses of a document. There is a certification program, which licenses a trademark on the strength of a test run. And there is a plugfest, where engineers from competing vendors put their boxes in one room and find out whether any of it works together. The three answer different questions, they are run by different organizations, and a vendor can pass the first two while failing the third.

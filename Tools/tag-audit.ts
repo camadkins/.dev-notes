@@ -23,7 +23,10 @@ import { homedir } from "node:os";
 
 const expand = (p: string) => (p.startsWith("~") ? join(homedir(), p.slice(1)) : p);
 const ARGS = process.argv.slice(2).filter((a) => !a.startsWith("-"));
-const GARDEN = expand(ARGS[0] ?? "~/Desktop/dev-notes");
+// Default to the repo we are standing in, so the same command works locally and on a CI
+// runner. Falling back to a fixed ~ path resolved to /home/runner/... and failed the job.
+import { existsSync } from "node:fs";
+const GARDEN = expand(ARGS[0] ?? (existsSync(join(process.cwd(), "content")) ? process.cwd() : "~/Desktop/dev-notes"));
 const CONTENT = join(GARDEN, "content");
 const FIX = process.argv.includes("--fix");
 const JSON_OUT = process.argv.includes("--json");
@@ -53,14 +56,27 @@ const SECTION_FOR = (relDir: string): string | null => {
 };
 
 const ALLOWLIST = new Set([
-  "ai", "security", "networking", "cryptography", "concurrency", "distributed-systems",
-  "operating-systems", "compilers", "type-theory", "formal-methods", "optimization",
-  "interpretability", "reinforcement-learning", "supervised-learning", "unsupervised-learning",
-  "generative-models", "computer-architecture", "memory", "serialization", "error-handling",
-  "build-systems", "testing", "version-control", "web", "databases", "algorithms",
-  "data-structures", "complexity", "discrete-math", "linear-algebra", "probability", "training",
-  // blessed from existing curation (cross-cutting or sub-section organizers)
-  "philosophy", "regression", "science", "courses",
+  "algorithms",
+  "build-systems",
+  "compilers",
+  "computer-architecture",
+  "concurrency",
+  "cryptography",
+  "data-structures",
+  "databases",
+  "distributed-systems",
+  "error-handling",
+  "formal-methods",
+  "golf",
+  "languages",
+  "memory",
+  "operating-systems",
+  "optimization",
+  "serialization",
+  "testing",
+  "type-theory",
+  "unsupervised-learning",
+  "web",
 ]);
 
 // non-canonical -> canonical (or "" to drop as section-internal / noise)
@@ -106,6 +122,9 @@ for (const f of glob.scanSync(CONTENT)) {
   const abs = join(CONTENT, f);
   const rel = f.replace(/\\/g, "/");
   if (rel === "index.md") { files--; continue; } // garden home page, no root/section
+  // private/ holds raw lecture notes (Quartz ignorePatterns already excludes them from
+  // the build). They are Harvest feedstock, not garden notes, so the taxonomy does not apply.
+  if (rel === "private" || rel.startsWith("private/")) { files--; continue; }
   const relDir = dirname(rel);
   const text = readFileSync(abs, "utf8");
   const fmMatch = text.match(/^---\n([\s\S]*?)\n---/);

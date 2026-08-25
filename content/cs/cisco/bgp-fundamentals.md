@@ -9,9 +9,6 @@ tags:
 date: 2026-06-09
 updated:
 aliases:
-  - BGP on IOS
-  - AS path
-  - eBGP vs iBGP
   - next-hop-self
 ---
 
@@ -102,11 +99,11 @@ Below AS path length, the tie-break continues: routes not tied for the lowest Or
 
 ## Related Notes
 
-- [[static-routing-and-administrative-distance|Static Routing and Administrative Distance]] - why eBGP sits at AD 20 and iBGP at 200
-- [[ospf-fundamentals|OSPF Fundamentals]] - the IGP that has to resolve the BGP next hop for any of this to work
-- [[eigrp-fundamentals|EIGRP Fundamentals]] - the other interior option, and a different answer to loop freedom
-- [[routing-and-longest-prefix-match|Routing and Longest-Prefix Match]] - what a selected BGP path actually installs into
-- [[ip-addressing-and-subnetting|IP Addressing and Subnetting]] - the CIDR prefixes BGP was rebuilt around
+- [[cs/cisco/static-routing-and-administrative-distance|Static Routing and Administrative Distance]] - why eBGP sits at AD 20 and iBGP at 200
+- [[cs/cisco/ospf-fundamentals|OSPF Fundamentals]] - the IGP that has to resolve the BGP next hop for any of this to work
+- [[cs/cisco/eigrp-fundamentals|EIGRP Fundamentals]] - the other interior option, and a different answer to loop freedom
+- [[cs/networking/routing-and-longest-prefix-match|Routing and Longest-Prefix Match]] - what a selected BGP path actually installs into
+- [[cs/networking/ip-addressing-and-subnetting|IP Addressing and Subnetting]] - the CIDR prefixes BGP was rebuilt around
 
 ## Sources
 

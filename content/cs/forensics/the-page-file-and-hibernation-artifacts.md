@@ -8,10 +8,7 @@ tags:
   - forensics
 date: 2026-07-30
 updated:
-aliases:
-  - pagefile.sys
-  - hiberfil.sys
-  - Swap File Forensics
+aliases: []
 ---
 
 The clean division between volatile and non-volatile evidence is a teaching device. Two mechanisms present in every general-purpose operating system violate it constantly, and both do so for reasons that have nothing to do with forensics: memory management writes RAM to disk to reclaim physical pages, and power management writes RAM to disk to survive a power loss.

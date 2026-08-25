@@ -9,10 +9,7 @@ tags:
   - compilers
 date: 2026-08-18
 updated:
-aliases:
-  - consteval
-  - if constexpr
-  - Immediate Functions
+aliases: []
 ---
 
 Template metaprogramming computed with types because types were the only thing the compiler would evaluate. Recursive class templates carrying integer constants, specializations as base cases, `enum` members standing in for return values: an entire functional language reconstructed out of the instantiation machinery, because ordinary C++ was not available before the program ran. `constexpr` is the language taking that job back and giving it to functions.

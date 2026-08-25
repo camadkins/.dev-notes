@@ -10,7 +10,6 @@ date: 2026-04-25
 updated:
 aliases:
   - SOSUS
-  - Sound Surveillance System
 ---
 
 A submarine is quiet, but it is not silent. Its machinery makes faint, low-frequency sound that carries a long way through water. Hearing that sound across an ocean, and telling it apart from waves, whales, and merchant ships, is a signal-processing problem. The Cold War system that solved it, SOSUS, was a proving ground for the frequency-domain analysis at the heart of modern signal processing.
@@ -28,13 +27,13 @@ The analysis was done by equipment called the Low Frequency Analyzer and Recorde
 
 ## Detection in noise
 
-Underneath the hardware is one of the core problems of signal processing and statistics: detection, the [[hypothesis-testing|decision of whether a faint signal is actually present]] in a sea of noise, or whether you are fooling yourself. SOSUS made that decision continuously, at continental scale, for decades, before being officially declassified in 1991.
+Underneath the hardware is one of the core problems of signal processing and statistics: detection, the [[cs/statistics/hypothesis-testing|decision of whether a faint signal is actually present]] in a sea of noise, or whether you are fooling yourself. SOSUS made that decision continuously, at continental scale, for decades, before being officially declassified in 1991.
 
 ## Related Notes
 
-- [[cryptography-codebreaking-and-the-nsa|Cryptography, Codebreaking, and the NSA]], the other great signals-analysis discipline
-- [[hypothesis-testing|Hypothesis Testing]], the statistics of deciding signal from noise
-- [[bayesian-inference|Bayesian Inference]], updating belief as faint evidence arrives
+- [[cs/military-computing/cryptography-codebreaking-and-the-nsa|Cryptography, Codebreaking, and the NSA]], the other great signals-analysis discipline
+- [[cs/statistics/hypothesis-testing|Hypothesis Testing]], the statistics of deciding signal from noise
+- [[cs/statistics/bayesian-inference|Bayesian Inference]], updating belief as faint evidence arrives
 - [[cs/military-computing/index|Computing and the U.S. Military]], the cluster index
 
 ## Sources

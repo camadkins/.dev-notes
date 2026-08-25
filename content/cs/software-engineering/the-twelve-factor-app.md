@@ -8,10 +8,7 @@ tags:
   - software-engineering
 date: 2026-04-16
 updated:
-aliases:
-  - Twelve-Factor App
-  - 12 Factor
-  - Twelve Factors
+aliases: []
 ---
 
 The twelve-factor app is "a methodology for building software-as-a-service apps," written by Adam Wiggins and last updated in 2017. Its opening premise dates it precisely: "in the modern era, software is commonly delivered as a service: called web apps, or software-as-a-service." That sentence is doing the work of a scope statement. The document is not general software engineering advice, it is advice for one deployment shape, and reading it as universal is the most common way to misapply it.
@@ -46,7 +43,7 @@ The document is explicit about its provenance, and the provenance explains the e
 
 The failure mode they were written to prevent is named. The document "is a triangulation on ideal practices for app development, paying particular attention to the dynamics of the organic growth of an app over time, the dynamics of collaboration between developers working on the app's codebase, and avoiding the cost of software erosion." Its aim was "to raise awareness of some systemic problems we've seen in modern application development, to provide a shared vocabulary for discussing those problems, and to offer a set of broad conceptual solutions to those problems with accompanying terminology." The format credit goes to "Martin Fowler's books *Patterns of Enterprise Application Architecture* and *Refactoring*," which is why it reads as a pattern catalog rather than a specification.
 
-Shared vocabulary is worth pausing on. Half the value of the document was terminological. "Backing service," "deploy" as a noun, "one-off process," and "dev/prod parity" all became words teams could argue in, which is the same function [[design-patterns|design patterns]] served a decade earlier.
+Shared vocabulary is worth pausing on. Half the value of the document was terminological. "Backing service," "deploy" as a noun, "one-off process," and "dev/prod parity" all became words teams could argue in, which is the same function [[cs/software-engineering/design-patterns|design patterns]] served a decade earlier.
 
 ## Factor III, and the litmus test that still works
 
@@ -78,7 +75,7 @@ The technical core is a warning against convenient substitutions. "The twelve-fa
 
 ## What held and what did not
 
-The factors that describe a boundary rather than a mechanism have aged best, because a boundary survives a change of implementation. "Treat backing services as attached resources" says nothing about which database or which broker. "Execute the app as one or more stateless processes" and "scale out via the process model" name a scaling model without naming a scheduler. "Maximize robustness with fast startup and graceful shutdown" is a statement of what a process must tolerate having done to it, which is the interesting property whether the thing doing it is a platform or an orchestrator. "Strictly separate build and run stages" describes the stage split a [[continuous-delivery-and-deployment|delivery pipeline]] is built around. "Treat logs as event streams" pushes routing and storage out of the app, which is the same boundary an [[observability-logging-metrics-tracing|observability]] pipeline draws.
+The factors that describe a boundary rather than a mechanism have aged best, because a boundary survives a change of implementation. "Treat backing services as attached resources" says nothing about which database or which broker. "Execute the app as one or more stateless processes" and "scale out via the process model" name a scaling model without naming a scheduler. "Maximize robustness with fast startup and graceful shutdown" is a statement of what a process must tolerate having done to it, which is the interesting property whether the thing doing it is a platform or an orchestrator. "Strictly separate build and run stages" describes the stage split a [[cs/software-engineering/continuous-delivery-and-deployment|delivery pipeline]] is built around. "Treat logs as event streams" pushes routing and storage out of the app, which is the same boundary an [[cs/software-engineering/observability-logging-metrics-tracing|observability]] pipeline draws.
 
 The factors that named a mechanism have travelled less well, and the config chapter shows why: its case for environment variables is comparative, resting on properties (hard to commit by accident, language- and OS-agnostic) that a different storage mechanism could also claim, while the litmus test it offers alongside is independent of any mechanism at all. Read that chapter closely and you get two artifacts of very different durability sitting in the same section. The refusal to group config into named environments is the other mechanism-level prescription, and it is the one the document argues hardest for and the ecosystem adopted least.
 
@@ -86,12 +83,12 @@ The summary that follows from the document's own framing is that the twelve fact
 
 ## Related Notes
 
-- [[continuous-delivery-and-deployment|Continuous Delivery and Deployment]] - the practice dev/prod parity and build/release/run separation exist to enable
-- [[observability-logging-metrics-tracing|Observability: Logging, Metrics, and Tracing]] - what "treat logs as event streams" became
+- [[cs/software-engineering/continuous-delivery-and-deployment|Continuous Delivery and Deployment]] - the practice dev/prod parity and build/release/run separation exist to enable
+- [[cs/software-engineering/observability-logging-metrics-tracing|Observability: Logging, Metrics, and Tracing]] - what "treat logs as event streams" became
 - [[cs/languages/common/build-systems-and-dependency-management|Build Systems and Dependency Management]] - factor II, explicit declaration and isolation of dependencies
-- [[software-architecture|Software Architecture]] - the factors are constraints on deployment shape, not on internal design
-- [[design-patterns|Design Patterns]] - the pattern-catalog format the document borrows from Fowler
-- [[feature-flags-and-trunk-based-development|Feature Flags and Trunk-Based Development]] - the other half of separating deploy from release
+- [[cs/software-engineering/software-architecture|Software Architecture]] - the factors are constraints on deployment shape, not on internal design
+- [[cs/software-engineering/design-patterns|Design Patterns]] - the pattern-catalog format the document borrows from Fowler
+- [[cs/software-engineering/feature-flags-and-trunk-based-development|Feature Flags and Trunk-Based Development]] - the other half of separating deploy from release
 - [[cs/systems/virtualization-vms-and-containers|Virtualization, VMs, and Containers]] - the execution environment that generalized the platform this was written for
 
 ## Sources

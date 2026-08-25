@@ -147,7 +147,7 @@ Now:
 
 ```
 
-![Environment and store split: ρ maps names to addresses, σ maps addresses to values](assets/env-store-split.svg)
+![Environment and store split: ρ maps names to addresses, σ maps addresses to values](cs/pl/assets/env-store-split.svg)
 
 ---
 
@@ -205,7 +205,7 @@ When `inc 5` executes:
 - Argument `y = 5` extends it temporarily.
 - The body computes `x + y = 6`.
 
-![Closure capturing environment: function paired with its defining scope](assets/env-closure.svg)
+![Closure capturing environment: function paired with its defining scope](cs/pl/assets/env-closure.svg)
 
 > [!tip]
 > Closures are how functional languages implement lexical scope: functions *carry their own environment*.
@@ -351,7 +351,7 @@ When a call returns, the frame is popped, restoring the previous ρ.
 
 Languages with first-class functions [[cs/languages/Go/escape-analysis-and-stack-allocation|store environments on the heap]] (to allow returning closures), while stack-based languages reclaim them after return.
 
-![Nested environment frames: global, function, and block with parent links](assets/env-binding-chain.svg)
+![Nested environment frames: global, function, and block with parent links](cs/pl/assets/env-binding-chain.svg)
 
 ---
 
@@ -390,7 +390,7 @@ Together, they form the conceptual bridge from _syntax_ to _execution_.
     
 - [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus: Syntax & Substitution]]
     
-- [[abstract-machines-cek-secd|Abstract Machines: CEK & SECD]]
+- [[cs/pl/abstract-machines-cek-secd|Abstract Machines: CEK & SECD]]
     
 - [[cs/pl/continuations-cps|Continuations & CPS]]
     

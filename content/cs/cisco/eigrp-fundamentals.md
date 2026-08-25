@@ -11,9 +11,6 @@ updated:
 aliases:
   - EIGRP
   - DUAL
-  - feasible successor
-  - feasibility condition
-  - stuck in active
 ---
 
 Watch what [[cs/networking/ospf-and-link-state-routing|a classic distance-vector protocol]] does when a path dies. Cisco's own worked example with RIP: Router Two loses all connectivity with the destination until it times out the route of its routing table (three update periods, or 90 seconds), and Router Three re-advertises the route, which occurs every 30 seconds in RIP. Excluding hold-down, it takes between 90 and 120 seconds to switch to the surviving path that was there the whole time.
@@ -108,11 +105,11 @@ One arithmetic detail that will make your hand calculation disagree with the box
 
 ## Related Notes
 
-- [[ospf-fundamentals|OSPF Fundamentals]] - the link-state alternative, and the contrast in how each treats a timer mismatch
-- [[static-routing-and-administrative-distance|Static Routing and Administrative Distance]] - internal EIGRP at 90 and external at 170, the values a floating static must clear
-- [[bgp-fundamentals|BGP Fundamentals]] - path vector, the third answer to the loop-freedom problem
-- [[routing-and-longest-prefix-match|Routing and Longest-Prefix Match]] - what the successor actually installs into
-- [[show-and-debug-methodology|Show and Debug Methodology]] - running a command repeatedly to watch a counter, as the SIA hunt requires
+- [[cs/cisco/ospf-fundamentals|OSPF Fundamentals]] - the link-state alternative, and the contrast in how each treats a timer mismatch
+- [[cs/cisco/static-routing-and-administrative-distance|Static Routing and Administrative Distance]] - internal EIGRP at 90 and external at 170, the values a floating static must clear
+- [[cs/cisco/bgp-fundamentals|BGP Fundamentals]] - path vector, the third answer to the loop-freedom problem
+- [[cs/networking/routing-and-longest-prefix-match|Routing and Longest-Prefix Match]] - what the successor actually installs into
+- [[cs/cisco/show-and-debug-methodology|Show and Debug Methodology]] - running a command repeatedly to watch a counter, as the SIA hunt requires
 
 ## Sources
 

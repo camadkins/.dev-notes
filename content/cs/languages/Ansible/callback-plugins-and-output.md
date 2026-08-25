@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-06-11
 updated:
-aliases:
-  - Ansible Callbacks
-  - stdout_callback
+aliases: []
 ---
 
 Nothing in Ansible's core writes to your terminal. Callback plugins enable adding new behaviors to Ansible when responding to events, and by default, callback plugins control most of the output you see when running the command line programs. Take the callbacks away and a playbook run would execute correctly and print nothing.

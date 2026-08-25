@@ -8,10 +8,7 @@ tags:
   - security
 date: 2026-05-08
 updated:
-aliases:
-  - ARP spoofing
-  - ARP poisoning
-  - ARP cache poisoning
+aliases: []
 ---
 
 Inside a local network, IP addresses are an abstraction. Ethernet frames are delivered to hardware (MAC) addresses, so before one host can send an IP packet to another on the same segment, it must learn the target's MAC. That translation is the job of the [[cs/networking/arp-and-mac-addressing|Address Resolution Protocol]], and ARP was designed in 1982 for a network where everyone on the wire was assumed to be honest. That assumption is the whole vulnerability.
@@ -25,24 +22,24 @@ RFC 826 describes ARP's resolution as a table lookup: a host checks its translat
 
 Two properties fall out of those sentences. There is no authentication of the sender, and the newest claim wins. Nothing in the protocol asks whether the reply was solicited, whether the sender is entitled to speak for that IP, or whether the mapping changed suspiciously. A host that receives "IP .1 is at MAC aa:aa" simply believes it and overwrites what it knew. The protocol is not broken; it is working exactly as specified, on a threat model where no attacker exists.
 
-![ARP poisoning: the attacker sends a forged ARP reply mapping the gateway's IP to the attacker's MAC, so the victim's traffic to the gateway is diverted through the attacker.](assets/arp-poisoning.svg)
+![ARP poisoning: the attacker sends a forged ARP reply mapping the gateway's IP to the attacker's MAC, so the victim's traffic to the gateway is diverted through the attacker.](cs/security/assets/arp-poisoning.svg)
 
 ## From forged reply to on-path attacker
 
 The attack built on that design has a name. ARP spoofing "is a technique by which an attacker sends (spoofed) Address Resolution Protocol (ARP) messages onto a local area network," aiming to "associate the attacker's MAC address with the IP address of another host, such as the default gateway, causing any traffic meant for that IP address to be sent to the attacker instead." Poison both directions, victim-to-gateway and gateway-to-victim, and the attacker sits squarely in the flow.
 
-Once there, the consequences are the full menu of an on-path position: an attacker "may allow an attacker to [[cs/law/the-wiretap-act-and-interception|intercept data frames]] on a network, modify the traffic, or stop all traffic." That is why ARP spoofing is rarely the end goal. It is a doorway: "often, the attack is used as an opening for other attacks, such as denial of service, man in the middle, or session hijacking attacks." It is one of the most common ways to become the [[man-in-the-middle-attacks|man in the middle]] on a LAN without breaking any cryptography.
+Once there, the consequences are the full menu of an on-path position: an attacker "may allow an attacker to [[cs/law/the-wiretap-act-and-interception|intercept data frames]] on a network, modify the traffic, or stop all traffic." That is why ARP spoofing is rarely the end goal. It is a doorway: "often, the attack is used as an opening for other attacks, such as denial of service, man in the middle, or session hijacking attacks." It is one of the most common ways to become the [[cs/security/man-in-the-middle-attacks|man in the middle]] on a LAN without breaking any cryptography.
 
 > [!warning] The blast radius is exactly the broadcast domain
 > ARP spoofing does not scale across the internet. It "can only be used on networks that use ARP, and requires the attacker to have direct access to the local network segment to be attacked." That is its containment and its danger: it needs a foothold on your local segment (an unlocked jack, a compromised host, an open Wi-Fi), but given that foothold, a switched network offers no protocol-level defense. The real mitigations live outside ARP entirely: authenticated encryption end to end (so an intercepted flow is useless), plus switch features like dynamic ARP inspection that add the validation the protocol itself omits.
 
 ## Related Notes
 
-- [[man-in-the-middle-attacks|Man-in-the-Middle Attacks]] - the position ARP poisoning delivers the attacker into
-- [[network-protocols|Network Protocols]] - where ARP sits in the layered stack, translating IP to hardware addresses
-- [[tls-and-the-https-handshake|TLS and the HTTPS Handshake]] - the end-to-end defense that makes an intercepted LAN flow useless
-- [[zero-trust-architecture|Zero-Trust Architecture]] - the model that refuses to trust the local segment ARP assumes is friendly
-- [[wifi-security-wpa2-wpa3|Wi-Fi Security: WPA2 and WPA3]] - the wireless case of the same problem, a shared medium anyone in range can join
+- [[cs/security/man-in-the-middle-attacks|Man-in-the-Middle Attacks]] - the position ARP poisoning delivers the attacker into
+- [[cs/systems/network-protocols|Network Protocols]] - where ARP sits in the layered stack, translating IP to hardware addresses
+- [[cs/systems/tls-and-the-https-handshake|TLS and the HTTPS Handshake]] - the end-to-end defense that makes an intercepted LAN flow useless
+- [[cs/security/zero-trust-architecture|Zero-Trust Architecture]] - the model that refuses to trust the local segment ARP assumes is friendly
+- [[cs/security/wifi-security-wpa2-wpa3|Wi-Fi Security: WPA2 and WPA3]] - the wireless case of the same problem, a shared medium anyone in range can join
 
 ## Sources
 

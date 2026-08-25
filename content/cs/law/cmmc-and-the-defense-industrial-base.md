@@ -10,7 +10,6 @@ date: 2026-08-16
 updated:
 aliases:
   - CMMC
-  - Cybersecurity Maturity Model Certification
 ---
 
 A defense contractor reading about the Cybersecurity Maturity Model Certification for the first time usually asks what new controls it imposes. The regulation answers that question in one sentence, and the answer at the level most companies land on is: none.

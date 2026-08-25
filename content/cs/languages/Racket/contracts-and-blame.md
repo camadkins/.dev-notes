@@ -9,9 +9,7 @@ tags:
 date: 2026-01-19
 updated:
 aliases:
-  - Racket Contracts
   - contract-out
-  - Blame Assignment
 ---
 
 An assertion says a value is wrong. A contract says *who* is wrong. That difference is the entire design, and it is why Racket's contract system is organized around [[cs/pl/modules-signatures-and-separate-compilation|module boundaries]] rather than around function bodies.

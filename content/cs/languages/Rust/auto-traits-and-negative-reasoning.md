@@ -9,9 +9,7 @@ tags:
   - concurrency
 date: 2026-08-15
 updated:
-aliases:
-  - Auto Traits
-  - Negative Impls
+aliases: []
 ---
 
 Rust's trait system is open in a specific sense: any crate may add an implementation, subject to the orphan rule, so the fact that a type does not implement a trait today is never a fact you can build on. It is the absence of evidence, and the next release of some dependency may supply the evidence. That is why you cannot write `where T: !Clone`, and why an impl that fires only when no other impl matches is not expressible.

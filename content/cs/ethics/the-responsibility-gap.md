@@ -6,15 +6,9 @@ comments: true
 tags:
   - cs
   - ethics
-  - philosophy
-  - ai
 date: 2026-06-30
 updated:
-aliases:
-  - responsibility gap
-  - killer robots
-  - Sparrow responsibility gap
-  - autonomous weapons responsibility
+aliases: []
 ---
 
 Picture an autonomous weapon that decides, on its own, to bomb a column of soldiers who have laid down their arms and clearly surrendered. There was no targeting error, no glitch. The machine had reasons of a kind, weighed the situation, and killed anyway. Had a human done this [[cs/law/cyber-operations-and-the-law-of-armed-conflict|it would be a war crime]] and we would know exactly whose door to knock on. But the machine chose its own target, [[cs/deep-learning/reinforcement-learning|learned its own behavior from experience]], and diverged from anything its programmers wrote. So who committed the crime? The coder who never anticipated it, the officer who could not predict it, or the machine, which cannot be jailed or made to suffer? The uncomfortable answer Robert Sparrow presses is that harm occurred, someone should answer for it, and no one can be justly held to account. That hole where the blame should sit is the responsibility gap.
@@ -36,7 +30,7 @@ The programmer goes first. It is tempting to say the fault lies with whoever des
 
 The commanding officer is the next and most natural candidate, since we already hold officers responsible when [[cs/military-computing/ford-rangekeeper-analog-fire-control|long-range weapons like artillery]] kill people other than the intended target. The risk is accepted when the order to fire is given. But Sparrow notices this move sits uneasily with the whole selling point of "smart" weapons. Treating an autonomous weapon exactly like a dumb shell that might land off target implies there is no real moral difference between them. What distinguishes the autonomous system is precisely that it chooses its own targets, and the more autonomy it exercises, the less the officer's orders determine what it does. "The more autonomous the systems become," he argues, "the larger this risk looms," until it is no longer fair to hold the officer responsible for a decision they did not make and could not control.
 
-That leaves the machine itself, and here Sparrow makes the argument that reaches out of the ethics of war and into the metaphysics of mind. We can imagine a machine being causally responsible for a death, but holding it morally responsible means treating it as an appropriate object of punishment, and punishment is the crux. On the most plausible accounts, for a punishment to count as punishment rather than as mere damage, the thing being punished must be capable of suffering as a result, suffering of a kind we would find morally compelling. Docking a machine's pay or scrambling its programming is not punishment if there is no one home to be made worse off. So holding the machine accountable requires that it can suffer, which requires that it has an inner life of the sort we cannot confirm it has. This is exactly where the responsibility question hands off to the question of moral status, because accountability turns out to presuppose the capacity to suffer, and whether a machine can suffer is the same [[consciousness-access-vs-phenomenal|phenomenal consciousness]] question that decides whether an AI has moral standing at all. A system might make battlefield decisions of superhuman sophistication and still, on Sparrow's reckoning, fall short of what accountability demands. His conclusion follows from the wreckage: because being able to justly hold someone responsible is a necessary condition of fighting a just war, and no one can be so held here, deploying such systems is unethical. Killing without accountability treats the enemy dead like vermin, without the minimal respect that even war owes them, and it makes the people who build and field these weapons careless in a way that costs lives.
+That leaves the machine itself, and here Sparrow makes the argument that reaches out of the ethics of war and into the metaphysics of mind. We can imagine a machine being causally responsible for a death, but holding it morally responsible means treating it as an appropriate object of punishment, and punishment is the crux. On the most plausible accounts, for a punishment to count as punishment rather than as mere damage, the thing being punished must be capable of suffering as a result, suffering of a kind we would find morally compelling. Docking a machine's pay or scrambling its programming is not punishment if there is no one home to be made worse off. So holding the machine accountable requires that it can suffer, which requires that it has an inner life of the sort we cannot confirm it has. This is exactly where the responsibility question hands off to the question of moral status, because accountability turns out to presuppose the capacity to suffer, and whether a machine can suffer is the same [[cs/ethics/consciousness-access-vs-phenomenal|phenomenal consciousness]] question that decides whether an AI has moral standing at all. A system might make battlefield decisions of superhuman sophistication and still, on Sparrow's reckoning, fall short of what accountability demands. His conclusion follows from the wreckage: because being able to justly hold someone responsible is a necessary condition of fighting a just war, and no one can be so held here, deploying such systems is unethical. Killing without accountability treats the enemy dead like vermin, without the minimal respect that even war owes them, and it makes the people who build and field these weapons careless in a way that costs lives.
 
 ## Königs's optimistic reply
 
@@ -58,12 +52,12 @@ The debate reads as though it is about killer robots, but its load-bearing move 
 
 ## Related Notes
 
-- [[consciousness-access-vs-phenomenal|Consciousness: Access vs Phenomenal]], why accountability's dependence on the capacity to suffer routes the responsibility gap through the phenomenal-consciousness question
-- [[could-an-llm-be-conscious|Could an LLM Be Conscious?]], the live argument about whether today's systems have whatever suffering, and therefore punishability, would require
-- [[can-ai-be-a-moral-agent|Can AI Be a Moral Agent?]], the general question the responsibility gap is one instance of, whether a machine can be answerable for what it does
-- [[the-biological-substrate-objection|The Biological Substrate Objection]], the view that silicon cannot host the electrochemical processing suffering might need, which would settle the machine-as-defendant question
-- [[cyber-warfare-and-the-fifth-domain|Cyber Warfare and the Fifth Domain]], another arena where autonomous systems act at machine speed and the question of who is accountable gets sharp
-- [[ai-governance|AI Governance]], why an unclosable accountability gap is a policy problem for deploying autonomous systems and not only a thought experiment
+- [[cs/ethics/consciousness-access-vs-phenomenal|Consciousness: Access vs Phenomenal]], why accountability's dependence on the capacity to suffer routes the responsibility gap through the phenomenal-consciousness question
+- [[cs/ethics/could-an-llm-be-conscious|Could an LLM Be Conscious?]], the live argument about whether today's systems have whatever suffering, and therefore punishability, would require
+- [[cs/ethics/can-ai-be-a-moral-agent|Can AI Be a Moral Agent?]], the general question the responsibility gap is one instance of, whether a machine can be answerable for what it does
+- [[cs/ethics/the-biological-substrate-objection|The Biological Substrate Objection]], the view that silicon cannot host the electrochemical processing suffering might need, which would settle the machine-as-defendant question
+- [[cs/military-computing/cyber-warfare-and-the-fifth-domain|Cyber Warfare and the Fifth Domain]], another arena where autonomous systems act at machine speed and the question of who is accountable gets sharp
+- [[cs/geopolitics/ai-governance|AI Governance]], why an unclosable accountability gap is a policy problem for deploying autonomous systems and not only a thought experiment
 
 ## Sources
 

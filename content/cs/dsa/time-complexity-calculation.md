@@ -9,14 +9,13 @@ tags:
 date: 2025-10-16
 updated: 2025-12-05
 aliases: []
-
 ---
 
 ## Overview
 **Time complexity calculation** turns code into a mathematical bound on the number of basic operations. The workflow is mechanical: (1) choose a **cost model**, (2) **count** dominant actions (comparisons, array accesses, arithmetic), (3) **express** counts as **sums** (for loops) or **recurrences** (for recursion), and (4) **simplify** using asymptotics. This note provides a practical playbook with patterns, examples, and pitfalls so the process is consistent and auditably correct.
 
 > [!note]
-> Report the **case** (worst, average, best) and the **model** (RAM/bit/I-O). Tie the bound to **parameters that matter** (e.g., arrays: `n`; graphs: `n` and `m`; strings: `n` and `m`). See [[time-complexity-analysis|Time Complexity Analysis]].
+> Report the **case** (worst, average, best) and the **model** (RAM/bit/I-O). Tie the bound to **parameters that matter** (e.g., arrays: `n`; graphs: `n` and `m`; strings: `n` and `m`). See [[cs/dsa/time-complexity-analysis|Time Complexity Analysis]].
 
 ## Motivation
 - **Repeatable reasoning:** a standard recipe reduces mistakes on exams and in code reviews.
@@ -137,7 +136,7 @@ Average-case: weight by `P(cond)`.
 
 ### 3) Independent parameters
 
-Prefer `Θ(n + m)` over collapsing to `Θ(n^2)` when `m` (edges) governs cost, as in BFS/DFS. See [[graph-traversals-bfs-dfs|Graph Traversals - BFS & DFS]].
+Prefer `Θ(n + m)` over collapsing to `Θ(n^2)` when `m` (edges) governs cost, as in BFS/DFS. See [[cs/dsa/graph-traversals-bfs-dfs|Graph Traversals - BFS & DFS]].
 
 ## Implementation or Practical Context
 
@@ -206,7 +205,7 @@ T(n) = a T(n/b) + f(n)
 - If `f(n) = Ω(n^{log_b a + ε})` + regularity → `Θ(f(n))`
 
 
-See [[recurrence-relations|Recurrence Relations]] and [[recurrences-master-theorem|Recurrences - Master Theorem]].
+See [[cs/dsa/recurrence-relations|Recurrence Relations]] and [[cs/dsa/recurrences-master-theorem|Recurrences - Master Theorem]].
 
 ## Example or Illustration (Worked Patterns)
 
@@ -253,7 +252,7 @@ search(depth):
         search(depth+1)
 ```
 
-Nodes visited: `1 + b + b^2 + … + b^d = Θ(b^d)` (geometric). See [[backtracking-algorithms|Backtracking Algorithms]].
+Nodes visited: `1 + b + b^2 + … + b^d = Θ(b^d)` (geometric). See [[cs/dsa/backtracking-algorithms|Backtracking Algorithms]].
 
 ## Implementation Notes
 
@@ -266,7 +265,7 @@ Nodes visited: `1 + b + b^2 + … + b^d = Θ(b^d)` (geometric). See [[backtracki
 
 ## Broader Implications
 
-- **Algorithm selection by regime:** Use insertion sort for tiny `n`, switch to `O(n log n)` sort as `n` grows. Hybrids like **[[cs/languages/Cpp/stl-algorithms|introsort]]** pick the best behavior across regimes (see [[quick-sort|Quick Sort]] and [[heapsort|Heapsort]]).
+- **Algorithm selection by regime:** Use insertion sort for tiny `n`, switch to `O(n log n)` sort as `n` grows. Hybrids like **[[cs/languages/Cpp/stl-algorithms|introsort]]** pick the best behavior across regimes (see [[cs/dsa/quick-sort|Quick Sort]] and [[cs/dsa/heapsort|Heapsort]]).
 
 - **From asymptotics to engineering:** Once the class is acceptable, focus on **layout, caches, branches, and parallelization** to shrink constants.
 
@@ -287,10 +286,10 @@ To calculate time complexity:
 
 ## Related Notes
 
-- [[asymptotic-notation|Asymptotic Notation]]
+- [[cs/dsa/asymptotic-notation|Asymptotic Notation]]
 
-- [[time-complexity-analysis|Time Complexity Analysis]]
+- [[cs/dsa/time-complexity-analysis|Time Complexity Analysis]]
 
-- [[recurrence-relations|Recurrence Relations]]
+- [[cs/dsa/recurrence-relations|Recurrence Relations]]
 
-- [[algorithm-efficiency|Algorithm Efficiency]]
+- [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]

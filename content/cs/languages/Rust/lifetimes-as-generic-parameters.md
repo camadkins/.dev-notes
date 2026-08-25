@@ -9,9 +9,7 @@ tags:
   - type-theory
 date: 2026-07-21
 updated:
-aliases:
-  - Rust Variance
-  - Why Is 'static a Bound
+aliases: []
 ---
 
 Most people meet `'a` as punctuation the compiler demands and eventually stops demanding. The mental model that follows is that lifetimes are annotations, comments the borrow checker happens to read. The grammar says otherwise. Functions, type aliases, structs, enumerations, unions, traits, and implementations may be parameterized by types, constants, and lifetimes, all three declared in one list, with the order restricted to lifetime parameters first and then type and const parameters intermixed. `struct Ref<'a, T> where T: 'a` has two parameters, not one parameter and a note.

@@ -1,5 +1,5 @@
 ---
-title: Stack - Push & Pop
+title: Stack Operations
 description: Implement and reason about push/pop operations and invariants for array- and list-backed stacks.
 draft: false
 comments: true
@@ -232,10 +232,10 @@ Stacks give **LIFO** access with minimal API: `PUSH`, `POP`, and `PEEK`. Array-b
 
 ## Related Notes
 
-- [[stack|Stack]]
+- [[cs/dsa/stack|Stack]]
 
-- [[push-and-pop-operations|Push and Pop Operations]]
+- [[cs/dsa/push-and-pop-operations|Push and Pop Operations]]
 
-- [[dynamic-arrays|Dynamic Arrays]]
+- [[cs/dsa/dynamic-arrays|Dynamic Arrays]]
 
-- [[depth-first-search-algorithms|Depth-First Search Algorithms]]
+- [[cs/dsa/depth-first-search-algorithms|Depth-First Search Algorithms]]

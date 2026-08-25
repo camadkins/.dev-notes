@@ -9,10 +9,6 @@ tags:
 date: 2026-07-13
 aliases:
   - activation-function
-  - sigmoid
-  - relu
-  - tanh
-  - nonlinearity
 ---
 
 Every unit in a network computes a weighted sum and then does one more thing: it passes that sum through an activation function. This small step is what earns a deep network its name. Without it, stacking layers is pointless, because [[cs/math/matrices-and-linear-transformations|a pile of linear maps is still just one linear map]], and a hundred layers would collapse into the power of a single line. The activation function is the nonlinearity that lets each layer bend the space a little, so that many layers together can bend it into whatever shape the data demands.
@@ -22,7 +18,7 @@ Every unit in a network computes a weighted sum and then does one more thing: it
 
 ## Why Nonlinearity Is Required
 
-Compose two linear functions and you get another linear function. Multiply matrices $W_2(W_1 \mathbf{x}) = (W_2 W_1)\mathbf{x}$ and the two layers are mathematically identical to one layer with weights $W_2 W_1$ (this is just how linear maps compose, see [[linear-algebra-fundamentals]]). So a network of purely linear units, however deep, can only ever represent a linear function. Inserting a nonlinear activation between the layers breaks that collapse, and it is the reason a multilayer network can represent things a single [[artificial-neural-networks|unit]] cannot.
+Compose two linear functions and you get another linear function. Multiply matrices $W_2(W_1 \mathbf{x}) = (W_2 W_1)\mathbf{x}$ and the two layers are mathematically identical to one layer with weights $W_2 W_1$ (this is just how linear maps compose, see [[cs/math/linear-algebra-fundamentals]]). So a network of purely linear units, however deep, can only ever represent a linear function. Inserting a nonlinear activation between the layers breaks that collapse, and it is the reason a multilayer network can represent things a single [[cs/deep-learning/artificial-neural-networks|unit]] cannot.
 
 ## Sigmoid
 
@@ -30,11 +26,11 @@ Compose two linear functions and you get another linear function. Multiply matri
 
 $$\sigma(x) = \frac{1}{1 + e^{-x}}$$
 
-It squashes any real input into the open interval $(0, 1)$, which reads naturally as a probability, and it has the convenient derivative $\sigma'(x) = \sigma(x)\,(1 - \sigma(x))$. That clean derivative is a gift to [[backpropagation]], which is one reason sigmoid dominated early networks.
+It squashes any real input into the open interval $(0, 1)$, which reads naturally as a probability, and it has the convenient derivative $\sigma'(x) = \sigma(x)\,(1 - \sigma(x))$. That clean derivative is a gift to [[cs/deep-learning/backpropagation]], which is one reason sigmoid dominated early networks.
 
 Its flaw shows up in depth. For large positive or negative inputs the curve flattens, and when the output saturates near 0 or 1 the derivative goes to nearly zero. A near-zero local derivative kills the gradient flowing through that unit, and across many layers these small factors multiply into the vanishing gradient problem, where early layers barely learn at all.
 
-![Sigmoid and tanh flatten at their extremes while ReLU keeps a constant slope on its positive side](assets/activation-shapes.svg)
+![Sigmoid and tanh flatten at their extremes while ReLU keeps a constant slope on its positive side](cs/deep-learning/assets/activation-shapes.svg)
 
 ## Tanh
 
@@ -56,7 +52,7 @@ The variants patch the dying problem by giving the negative side a nonzero respo
 
 ## Output Units Are a Separate Choice
 
-Hidden-layer activations and output-layer activations answer different questions. Hidden units are about learning features, where ReLU shines. Output units are about matching the shape of the target: a linear output for regression, a single sigmoid for a binary probability, and a softmax for a distribution over $k$ classes, $\text{softmax}(z)_i = e^{z_i} / \sum_j e^{z_j}$, which is a smooth differentiable stand-in for picking the argmax. The output activation is chosen to fit the [[cs/machine-learning/loss-functions|loss]], often so that minimizing the loss corresponds to [[maximum-likelihood-estimation]]. These three output choices are exactly [[cs/machine-learning/regression|linear, logistic, and softmax regression]]; a neural-net classifier's output layer is softmax regression by another name.
+Hidden-layer activations and output-layer activations answer different questions. Hidden units are about learning features, where ReLU shines. Output units are about matching the shape of the target: a linear output for regression, a single sigmoid for a binary probability, and a softmax for a distribution over $k$ classes, $\text{softmax}(z)_i = e^{z_i} / \sum_j e^{z_j}$, which is a smooth differentiable stand-in for picking the argmax. The output activation is chosen to fit the [[cs/machine-learning/loss-functions|loss]], often so that minimizing the loss corresponds to [[cs/statistics/maximum-likelihood-estimation]]. These three output choices are exactly [[cs/machine-learning/regression|linear, logistic, and softmax regression]]; a neural-net classifier's output layer is softmax regression by another name.
 
 > [!example]
 > Push the same two inputs through each function to see saturation in action. At a small input $x = 0.5$: $\sigma(0.5) \approx 0.62$, $\tanh(0.5) \approx 0.46$, $\text{ReLU}(0.5) = 0.5$. At a large input $x = 6$: $\sigma(6) \approx 0.9975$, $\tanh(6) \approx 0.99999$, $\text{ReLU}(6) = 6$.
@@ -65,13 +61,13 @@ Hidden-layer activations and output-layer activations answer different questions
 
 ## Related Notes
 
-- [[artificial-neural-networks]] apply an activation to every unit's weighted sum
-- [[backpropagation]] multiplies these functions' local derivatives on the backward pass
-- [[gradient-descent]] is what the surviving gradients drive
-- [[loss-functions]] pair with the output activation to define the training objective
-- [[maximum-likelihood-estimation]] explains why softmax and sigmoid outputs are principled
-- [[linear-algebra-fundamentals]] for why stacked linear maps collapse without a nonlinearity
-- [[ai-vs-ml-vs-dl]] for the broader deep learning context
+- [[cs/deep-learning/artificial-neural-networks]] apply an activation to every unit's weighted sum
+- [[cs/deep-learning/backpropagation]] multiplies these functions' local derivatives on the backward pass
+- [[cs/machine-learning/gradient-descent]] is what the surviving gradients drive
+- [[cs/machine-learning/loss-functions]] pair with the output activation to define the training objective
+- [[cs/statistics/maximum-likelihood-estimation]] explains why softmax and sigmoid outputs are principled
+- [[cs/math/linear-algebra-fundamentals]] for why stacked linear maps collapse without a nonlinearity
+- [[cs/machine-learning/ai-vs-ml-vs-dl]] for the broader deep learning context
 
 ## Sources
 

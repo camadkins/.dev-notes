@@ -13,9 +13,9 @@ aliases: []
 
 ## Intuition
 
-Take *any* population - skewed, bimodal, uniform, it doesn't matter - and repeatedly draw random samples of size $n$. Compute the sample mean each time. As $n$ grows, those sample means form a distribution that looks increasingly **normal**, regardless of what the original population looked like. This is the Central Limit Theorem (CLT), and it is the reason the [[normal-distribution|normal distribution]] dominates statistics: even when individual data aren't Gaussian, averages of enough data points are.
+Take *any* population - skewed, bimodal, uniform, it doesn't matter - and repeatedly draw random samples of size $n$. Compute the sample mean each time. As $n$ grows, those sample means form a distribution that looks increasingly **normal**, regardless of what the original population looked like. This is the Central Limit Theorem (CLT), and it is the reason the [[cs/statistics/normal-distribution|normal distribution]] dominates statistics: even when individual data aren't Gaussian, averages of enough data points are.
 
-![Progression showing convergence of sample means to normal distribution as n increases](assets/clt-convergence.svg)
+![Progression showing convergence of sample means to normal distribution as n increases](cs/statistics/assets/clt-convergence.svg)
 
 ## Definition
 
@@ -77,7 +77,7 @@ Notice that increasing the sample to $n = 64$ would tighten the standard error t
 
 ## Related Notes
 
-- [[normal-distribution|Normal Distribution]] - the distribution the CLT converges to
-- [[hypothesis-testing|Hypothesis Testing]] - CLT justifies z-tests and t-tests
-- [[probability-distributions|Probability Distributions]] - CLT connects non-normal populations to the normal family
-- [[bayesian-inference|Bayesian Inference]] - large-sample posteriors become approximately normal (Bernstein–von Mises theorem)
+- [[cs/statistics/normal-distribution|Normal Distribution]] - the distribution the CLT converges to
+- [[cs/statistics/hypothesis-testing|Hypothesis Testing]] - CLT justifies z-tests and t-tests
+- [[cs/statistics/probability-distributions|Probability Distributions]] - CLT connects non-normal populations to the normal family
+- [[cs/statistics/bayesian-inference|Bayesian Inference]] - large-sample posteriors become approximately normal (Bernstein–von Mises theorem)

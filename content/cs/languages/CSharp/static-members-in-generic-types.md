@@ -8,9 +8,7 @@ tags:
   - languages
 date: 2026-07-15
 updated:
-aliases:
-  - Per-Instantiation Statics
-  - Static Fields in Generic Classes
+aliases: []
 ---
 
 Put a static field in a generic class and ask how many of it there are. The question has three plausible answers: one for the whole class, one for every instance, or one for every set of type arguments. C# picks the third, and the choice is not a corner case in the specification. It is a small storage mechanism hiding in plain sight, keyed by types, allocated by the runtime, and free at the point of use.

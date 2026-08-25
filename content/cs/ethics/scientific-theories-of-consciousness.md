@@ -6,15 +6,9 @@ comments: true
 tags:
   - cs
   - ethics
-  - philosophy
-  - ai
 date: 2026-06-29
 updated:
 aliases:
-  - scientific theories of consciousness
-  - global workspace theory
-  - higher-order theory
-  - integrated information theory
   - GWT
   - HOT
   - IIT
@@ -29,7 +23,7 @@ Once you accept that the hard part of consciousness is the felt side rather than
 
 Global Workspace Theory locates consciousness in the spread of information. Bernard Baars introduced the theory in 1988 as a cognitive architecture, with a theater metaphor at its center: many specialized processes run in the dark, and a state becomes conscious when it reaches the lit stage, where its content is broadcast to the rest of the system. The slogan version is that consciousness is what happens when information goes from being held in one local process to being made available, all at once, to many. Stanislas Dehaene later developed the brain-based "global neuronal workspace" version, grounding the broadcast in long-range cortical connectivity rather than leaving it as an abstract architecture.
 
-The verdict on machines is the permissive one. If what makes a state conscious is that its information is globally available to drive reasoning, reporting, and the control of behavior, then there is nothing in principle that ties that property to neurons. A system built with a genuine workspace, a central place where content is broadcast to many subsystems rather than kept siloed, would have the feature the theory says matters. This is the theory that sits closest to the [[consciousness-access-vs-phenomenal|access consciousness]] story, and it inherits that story's optimism about [[functionalism-and-multiple-realizability|multiple realizability]]: if the property is functional, the substrate is negotiable. Whether broadcast is *sufficient* for the felt side, rather than merely the access side, is exactly where the theory's critics push.
+The verdict on machines is the permissive one. If what makes a state conscious is that its information is globally available to drive reasoning, reporting, and the control of behavior, then there is nothing in principle that ties that property to neurons. A system built with a genuine workspace, a central place where content is broadcast to many subsystems rather than kept siloed, would have the feature the theory says matters. This is the theory that sits closest to the [[cs/ethics/consciousness-access-vs-phenomenal|access consciousness]] story, and it inherits that story's optimism about [[cs/ethics/functionalism-and-multiple-realizability|multiple realizability]]: if the property is functional, the substrate is negotiable. Whether broadcast is *sufficient* for the felt side, rather than merely the access side, is exactly where the theory's critics push.
 
 ## Higher-order: consciousness as a thought about a state
 
@@ -47,7 +41,7 @@ The architectural consequence is the famous one. Imagine information flowing one
 
 ## Three verdicts on machine consciousness
 
-The reason to hold all three theories at once is that they disagree precisely where it counts for AI. Global Workspace leaves the door open: build a real workspace and you may have built the thing that matters. Higher-Order narrows the door to systems with the right kind of self-model, turning a yes-or-no question into one about the quality of self-representation. Integrated Information takes the door off its hinges and inspects the wiring, and on its verdict a great deal of contemporary AI fails outright. Most large neural networks, including the feedforward transformer stacks behind the [[deep-learning-revolution|deep learning revolution]], push activations forward through layers without the dense recurrent loops IIT says are required, so by Phi they could be near-zero conscious no matter how fluent their output. That is the sharpest single split in the whole debate: a system could be behaviorally indistinguishable from a person and rated conscious by a broadcast theory while being rated an unconscious zombie by an integration theory, on the same hardware, for the same task. Whether any of this applies to today's models is the live question that [[could-an-llm-be-conscious|the LLM-consciousness debate]] inherits, and it runs straight into [[the-biological-substrate-objection|the biological substrate objection]] and the broader question of how mind relates to [[physicalism-and-the-mind|the physical]].
+The reason to hold all three theories at once is that they disagree precisely where it counts for AI. Global Workspace leaves the door open: build a real workspace and you may have built the thing that matters. Higher-Order narrows the door to systems with the right kind of self-model, turning a yes-or-no question into one about the quality of self-representation. Integrated Information takes the door off its hinges and inspects the wiring, and on its verdict a great deal of contemporary AI fails outright. Most large neural networks, including the feedforward transformer stacks behind the [[cs/history/deep-learning-revolution|deep learning revolution]], push activations forward through layers without the dense recurrent loops IIT says are required, so by Phi they could be near-zero conscious no matter how fluent their output. That is the sharpest single split in the whole debate: a system could be behaviorally indistinguishable from a person and rated conscious by a broadcast theory while being rated an unconscious zombie by an integration theory, on the same hardware, for the same task. Whether any of this applies to today's models is the live question that [[cs/ethics/could-an-llm-be-conscious|the LLM-consciousness debate]] inherits, and it runs straight into [[cs/ethics/the-biological-substrate-objection|the biological substrate objection]] and the broader question of how mind relates to [[cs/ethics/physicalism-and-the-mind|the physical]].
 
 > [!example] One system, three theories, three verdicts
 > 1. **A feedforward neural net that passes every behavioral test.** Global Workspace might count it conscious if its information is broadcast widely. Higher-Order asks whether its self-monitoring is the right kind. Integrated Information rates its Phi near zero and rules it out flat, because feedforward flow does not integrate at the physical level.
@@ -57,12 +51,12 @@ The reason to hold all three theories at once is that they disagree precisely wh
 
 ## Related Notes
 
-- [[consciousness-access-vs-phenomenal|Consciousness: Access vs Phenomenal]], the distinction that sets up why a physical marker for the felt side is what these theories are hunting for
-- [[functionalism-and-multiple-realizability|Functionalism and Multiple Realizability]], the substrate-neutral view that Global Workspace leans on and that Integrated Information rejects
-- [[could-an-llm-be-conscious|Could an LLM Be Conscious?]], where these three verdicts get applied to the systems we actually have
-- [[the-biological-substrate-objection|The Biological Substrate Objection]], the claim that only biology supports the felt side, which IIT's wiring requirement partly echoes
-- [[physicalism-and-the-mind|Physicalism and the Mind]], the background commitment that consciousness is a physical fact these theories try to pin down
-- [[deep-learning-revolution|The Deep Learning Revolution]], the feedforward architectures whose Phi verdict is at stake
+- [[cs/ethics/consciousness-access-vs-phenomenal|Consciousness: Access vs Phenomenal]], the distinction that sets up why a physical marker for the felt side is what these theories are hunting for
+- [[cs/ethics/functionalism-and-multiple-realizability|Functionalism and Multiple Realizability]], the substrate-neutral view that Global Workspace leans on and that Integrated Information rejects
+- [[cs/ethics/could-an-llm-be-conscious|Could an LLM Be Conscious?]], where these three verdicts get applied to the systems we actually have
+- [[cs/ethics/the-biological-substrate-objection|The Biological Substrate Objection]], the claim that only biology supports the felt side, which IIT's wiring requirement partly echoes
+- [[cs/ethics/physicalism-and-the-mind|Physicalism and the Mind]], the background commitment that consciousness is a physical fact these theories try to pin down
+- [[cs/history/deep-learning-revolution|The Deep Learning Revolution]], the feedforward architectures whose Phi verdict is at stake
 
 ## Sources
 
