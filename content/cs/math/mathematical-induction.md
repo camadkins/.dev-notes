@@ -78,7 +78,7 @@ This directly mirrors how recursive functions process [[cs/pl/parametric-polymor
 
 ## CS Proof Patterns
 
-**Loop invariants.** Induction on iteration count proves that a loop maintains a property. The base case is the state before the first iteration; the step shows that if the invariant holds at iteration $k$, it holds at $k+1$. This is how you prove that a while loop in an algorithm actually computes what you claim it does.
+**[[cs/dsa/loop-invariant|Loop invariants]].** Induction on iteration count proves that a loop maintains a property. The base case is the state before the first iteration; the step shows that if the invariant holds at iteration $k$, it holds at $k+1$. This is how you prove that a while loop in an algorithm actually computes what you claim it does.
 
 **Algorithm correctness.** For [[cs/dsa/divide-and-conquer|divide-and-conquer]] or recursive algorithms, strong induction on input size shows that if the algorithm is correct on all inputs smaller than $n$, it is correct on input $n$.
 

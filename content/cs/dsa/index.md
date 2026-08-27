@@ -15,6 +15,10 @@ DS&A studies how to represent data and design algorithms that scale. The notes b
 
 ### Foundations
 
+- [[cs/dsa/problem-instance|Problem and Instance]] - the split every complexity claim is stated over
+- [[cs/dsa/decision-search-and-optimization-problems|Decision, Search & Optimization Problems]] - sorting problems by answer shape
+- [[cs/dsa/algorithm-correctness|Algorithm Correctness]] - partial correctness, termination, and why testing is not proof
+- [[cs/dsa/loop-invariant|Loop Invariant]] - initialization, maintenance, termination
 - [[cs/dsa/recursion|Recursion]] - recursive thinking, base cases, stack frames
 - [[cs/dsa/functions|Functions]] - abstraction, composition, parameter passing
 - [[cs/dsa/pass-by-value-and-pass-by-reference|Pass by Value & Reference]]
@@ -33,6 +37,7 @@ DS&A studies how to represent data and design algorithms that scale. The notes b
 - [[cs/dsa/amortized-analysis-methods|Amortized Analysis]]
 - [[cs/dsa/recurrence-relations|Recurrence Relations]]
 - [[cs/dsa/recurrences-master-theorem|Master Theorem]]
+- [[cs/dsa/combinatorial-explosion|Combinatorial Explosion]] - why exhaustive methods fail at modest sizes
 
 ### Linear Data Structures
 
@@ -101,6 +106,7 @@ DS&A studies how to represent data and design algorithms that scale. The notes b
 
 ### Algorithmic Paradigms
 
+- [[cs/dsa/brute-force-search|Brute Force Search]] - the baseline the others are measured against
 - [[cs/dsa/divide-and-conquer|Divide & Conquer]]
 - [[cs/dsa/dynamic-programming|Dynamic Programming]] - [[cs/dsa/knapsack-problem|Knapsack Problem]]
 - [[cs/dsa/greedy-algorithms|Greedy Algorithms]] - [[cs/dsa/huffman-coding|Huffman Coding]]

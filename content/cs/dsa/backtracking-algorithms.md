@@ -13,7 +13,7 @@ date: 2025-10-16
 
 ## Definition
 
-**Backtracking** is a general algorithmic technique for solving **constraint satisfaction** and **[[cs/math/combinatorics|combinatorial enumeration]]** problems by **incrementally building a partial solution** and abandoning branches as soon as they can no longer lead to a valid (or improved) solution (**pruning**). It performs a **depth-first exploration** of a decision tree, undoing choices ("backtracking") when a dead end is reached.
+**Backtracking** is a general algorithmic technique for solving **constraint satisfaction** and **[[cs/math/combinatorics|combinatorial enumeration]]** problems by **incrementally building a partial solution** and abandoning branches as soon as they can no longer lead to a valid (or improved) solution (**pruning**). It performs a **depth-first exploration** of a decision tree, undoing choices ("backtracking") when a dead end is reached. This is what separates it from [[cs/dsa/brute-force-search|brute force search]], which enumerates the whole candidate set without discarding any of it unexamined.
 
 > [!note] Core idea
 > Explore a **decision tree** with recursion; abandon partial assignments that cannot lead to a valid solution (**pruning**), and backtrack to try alternatives.

@@ -15,7 +15,7 @@ aliases: []
 
 A **Constraint Satisfaction Problem (CSP)** encodes a decision problem as a set of **variables** with **domains** and a set of **constraints** restricting which combinations of values are allowed. A **solution** is a total assignment of all variables that satisfies all constraints. CSPs unify problems like [[cs/math/graph-theory|map coloring]], scheduling, timetabling, Sudoku, and n-queens under a common modeling and algorithmic toolkit.
 
-CSP algorithms exploit **structure** - constraint graphs, variable/constraint orderings, and local consistency - to prune search and reduce combinatorial explosion. When exact search is expensive, **local search** (e.g., min-conflicts) often finds high-quality solutions quickly.
+CSP algorithms exploit **structure** - constraint graphs, variable/constraint orderings, and local consistency - to prune search and reduce [[cs/dsa/combinatorial-explosion|combinatorial explosion]]. When exact search is expensive, **local search** (e.g., min-conflicts) often finds high-quality solutions quickly.
 
 ## Motivation
 

@@ -207,6 +207,10 @@ function knapsackB&B(i, currW, currV):
 
 - [[cs/dsa/dynamic-programming|Dynamic Programming]]
 
+- [[cs/dsa/brute-force-search|Brute Force Search]] - the unpruned search this bounds
+
+- [[cs/dsa/combinatorial-explosion|Combinatorial Explosion]] - the growth the bound function exists to fight
+
 - [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]
 
 - [[cs/dsa/knapsack-problem|Knapsack Problem]]

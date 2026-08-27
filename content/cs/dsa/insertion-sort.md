@@ -133,7 +133,7 @@ Consider `A = [7, 3, 5, 2, 3]`.
 
 ## Applications
 
-- **Educational baseline:** Introduces loop invariants and stability.
+- **Educational baseline:** Introduces [[cs/dsa/loop-invariant|loop invariants]] and stability.
 
 - **Tiny arrays:** Sorting very small ranges inside larger algorithms (partition remainders, short buckets).
 

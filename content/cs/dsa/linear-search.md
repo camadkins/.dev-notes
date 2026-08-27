@@ -194,4 +194,6 @@ Linear search scans sequentially, stops on the first hit, and costs `Θ(n)` in t
 
 - [[cs/dsa/searching|Searching]]
 
+- [[cs/dsa/brute-force-search|Brute Force Search]] - the general paradigm this is the table-lookup case of
+
 - [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]

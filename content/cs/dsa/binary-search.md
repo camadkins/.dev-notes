@@ -63,7 +63,7 @@ function binarySearch(A, target):
 
 ## Correctness & Invariants
 
-Binary search correctness depends on **loop invariants** - properties that hold before and after each iteration.
+Binary search correctness depends on **[[cs/dsa/loop-invariant|loop invariants]]** - properties that hold before and after each iteration.
 
 ### Invariant (Half-Open Form `[lo, hi)`)
 

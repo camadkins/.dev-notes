@@ -9,7 +9,9 @@ tags:
   - dsa
 date: 2025-10-16
 updated: 2026-01-21
-aliases: []
+aliases:
+  - Driving Function
+  - Master Theorem
 ---
 
 ## Overview

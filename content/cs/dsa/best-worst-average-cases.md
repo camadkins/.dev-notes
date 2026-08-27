@@ -180,3 +180,4 @@ Great engineering calls out the case, the assumptions, and the **mitigations** u
 - [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]
 - [[cs/dsa/quick-sort|Quick Sort]]
 - [[cs/dsa/hash-tables|Hash Tables]]
+- [[cs/dsa/problem-instance|Problem and Instance]] - the set these three cases quantify over

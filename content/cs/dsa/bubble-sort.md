@@ -145,7 +145,7 @@ Input: `[5, 2, 9, 1, 5, 6]`
 
 - Early termination can reduce runtime to O(n) on sorted input.
 
-- Despite its inefficiency, it illustrates **loop invariants**, **stability**, and **complexity growth** intuitively.
+- Despite its inefficiency, it illustrates **[[cs/dsa/loop-invariant|loop invariants]]**, **stability**, and **complexity growth** intuitively.
 
 ---
 
