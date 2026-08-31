@@ -122,7 +122,7 @@ Two perspectives:
 
 - **Equivalences:**
 
-    - DP on DAG shortest paths ↔ **Dijkstra** on DAG (with topological order).
+    - DP on DAG shortest paths = relaxing edges in **topological order**; unlike **Dijkstra**, this needs no non-negativity assumption.
 
     - Some greedy or divide-and-conquer methods can be derived as special cases when additional properties (e.g., matroid, quadrangle inequality) hold.
 

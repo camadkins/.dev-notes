@@ -131,7 +131,7 @@ This is **call-by-sharing**: aliasing on the object, isolation on the variable b
 |**Python**|**Call-by-sharing** (object reference).|Mutating a **mutable** object (list, dict) is visible; rebinding name is local.|Use `copy`/`deepcopy` to defend; prefer returning new objects.|
 |**JavaScript**|Values are passed by value; object values are **references**.|Mutations of object/array visible; rebinding local not.|Use spread/clones to defend.|
 |**Go**|**Value** by default; use `*T` for by-reference behavior.|Yes with pointers or slices/maps (which are small descriptors pointing to backing storage).|Slices, maps, channels are **reference-like**.|
-|**Rust**|**Move** by default (cheap for `Copy` types). Borrow with `&T`/`&mut T`.|Only with `&mut` (exclusive borrow) or by owning/mutating then returning.|Borrow checker prevents unsound aliasing.|
+|**Rust**|**Move** by default; `Copy` types (integers, small PODs) are copied instead. Borrow with `&T`/`&mut T`.|Only with `&mut` (exclusive borrow) or by owning/mutating then returning.|Borrow checker prevents unsound aliasing.|
 |**C#**|**Value** by default; `ref`/`out` for by-reference.|Yes with `ref` or with reference-type objects' fields.|`struct` (value type) vs `class` (reference type).|
 |**Swift**|**Value** by default; `inout` for by-reference behavior.|Yes with `inout`; `struct` is value type, `class` is reference.|Copy-on-write in stdlib collections.|
 

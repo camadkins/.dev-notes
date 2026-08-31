@@ -141,7 +141,8 @@ Start: `head=0, tail=0, n=0`
 `DEQ()` → read `A[0]=9`, `head=1`, `n=1`
 `ENQ(7)` → write `A[2]`, `tail=3`, `n=2`
 `ENQ(1)` → write `A[3]`, `tail=0`, `n=3` (wrap)
-`ENQ(5)` → if cap fixed: **overflow**; if resizing: `RESIZE` then place `5`.
+`ENQ(5)` → write `A[0]`, `tail=1`, `n=4` (all four slots in use; this convention counts `n`, so it does not reserve a slot)
+`ENQ(3)` → `n == cap`, so if cap fixed: **overflow**; if resizing: `RESIZE` then place `3`.
 
 **Linked-list trace**
 Start empty: `head=tail=NIL`.

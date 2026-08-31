@@ -85,7 +85,7 @@ void scale_in_place(float* xs, size_t n, float c) {
 
 ```c
 // Reallocate and update caller's pointer.
-// Returns new length; sets *buf to new storage or NULL on failure.
+// Returns the resulting capacity; on failure leaves *buf and *cap unchanged.
 size_t ensure_capacity(uint8_t** buf, size_t* cap, size_t need) {
     if (*cap >= need) return *cap;
     size_t new_cap = (*cap ? *cap * 2 : 64);
@@ -159,7 +159,7 @@ void memmove_like(uint8_t* dst, const uint8_t* src, size_t n) {
 
 - Mark inputs `const`.
 
-- Use `const` to allow **aliasing safely** (compiler can assume read-only).
+- `const` documents intent and lets the compiler reject writes through `p`; it does **not** promise the pointee is unmodified through some other alias. Use C's `restrict` when you need to assert non-aliasing for optimization.
 
 - Do not cast away `const` unless the original object was non-const and you control its lifetime.
 
@@ -190,7 +190,7 @@ Pointers cross thread boundaries as raw capabilities. If multiple threads write 
 
 - **Rust**: uses **borrows** instead of raw pointers in safe code (`&T`, `&mut T`) with compile-time lifetime checks; raw pointers exist in `unsafe`.
 
-- **Java/C#/Swift**: ordinary references act as pointers to objects; arrays are reference types (mutations visible). Interop with native code uses explicit pointer wrappers.
+- **Java/C#**: ordinary references act as pointers to objects; arrays are reference types (mutations visible). **Swift** differs: `class` instances are references, but `Array`, `String`, and `Dictionary` are value types with copy-on-write, so a passed-in array does not alias the caller's. Interop with native code uses explicit pointer wrappers.
 
 
 ## Implementation Notes
@@ -229,6 +229,11 @@ Pointers-as-parameters are a powerful **capability**: they enable in-place updat
 - When the callee must **rebind** the caller's pointer, pass a **pointer to pointer** (`T**`) (or equivalent in your language).
     With these habits, pointer-based APIs are both **fast** and **safe** enough for systems work and high-performance DS&A code.
 
+
+## Sources
+
+- Array, Apple Developer Documentation (Swift standard library). https://developer.apple.com/documentation/swift/array . Backs the claim that Swift's `Array` is a value type using copy-on-write rather than a reference type.
+- restrict type qualifier (since C99), cppreference.com. https://en.cppreference.com/w/c/language/restrict . Backs the claim that non-aliasing is asserted with `restrict`, not with `const`.
 
 ## Related Notes
 

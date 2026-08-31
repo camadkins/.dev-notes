@@ -43,7 +43,7 @@ For a general rooted tree with children list `Children(u)` in a fixed order:
 - Visit all `v in Children(u)` in order, then visit `u`.
 
 
-The **sequence** produced is a **topological order of the parent-of relation** (every parent appears after its descendants).
+In the **sequence** produced, every parent appears after its descendants, so it is the **reverse** of a topological order of the parent-of relation: reading it backwards gives a topological order, and preorder is the traversal that produces one directly.
 
 ## Example or Illustration
 
@@ -242,7 +242,7 @@ function EVAL(u):
 > **Null checks on descent.** Always guard `u.left`/`u.right` accesses; pushing `NIL` complicates logic and wastes work.
 
 > [!warning]
-> **Two-stack order mistakes.** Pushing `left` before `right` into `S1` yields **Right->Left->Root** on pop. To get correct postorder, push **left then right** but remember `S2` reverses the sequence; verify with a small example.
+> **Two-stack order mistakes.** Push **left then right** into `S1`: `S2` then fills in **Root->Right->Left**, and popping `S2` reverses that into **Left->Right->Root**. Pushing right before left instead makes `S1` behave like the standard iterative preorder, so `S2` pops out reversed preorder, which is not postorder. Verify with a small example.
 
 > [!warning]
 > **Stack overflow on deep trees.** Switch to iterative or tail-recursive style for adversarial inputs.
@@ -273,3 +273,13 @@ Postorder traversal visits **children before parent**, enabling bottom-up algori
 - [[cs/dsa/tree-traversal|Tree Traversal]]
 
 - [[cs/dsa/binary-tree|Binary Tree]]
+
+## Sources
+
+- Tree traversal, Wikipedia. https://en.wikipedia.org/wiki/Tree_traversal . Backs the definition of post-order as LRN (traverse the left subtree, traverse the right subtree, then visit the node), the note that post-order is useful for producing the postfix expression of a binary expression tree, and the one-stack iterative form given here, whose guard matches the article's iterativePostorder: descend left while pushing, then at the top of the stack move right only if the right child exists and was not the last node visited, otherwise visit and pop. It also backs the corrected topological-order claim, since it states that the *pre-order* traversal is the topologically sorted one because a parent is processed before any of its children, which rules out postorder being one. And it backs the corrected two-stack warning, because its iterativePreorder pushes the right child before the left, so a two-stack scheme that does the same is running preorder into the second stack and pops out reversed preorder rather than postorder.
+- Topological sorting, Wikipedia. https://en.wikipedia.org/wiki/Topological_sorting . Backs the corrected wording that reading the postorder sequence backwards gives a topological order. The article's depth-first-search algorithm, attributed to CLRS, prepends each node to the output list only after all the nodes that depend on it have been considered, which is exactly building the topological order as the reverse of the finishing (postorder) sequence.
+- Tree (abstract data type), Wikipedia. https://en.wikipedia.org/wiki/Tree_%28abstract_data_type%29 . Backs the general rooted-tree formulation this note gives alongside the binary case, defining a post-order walk as one in which the children are traversed before their respective parents, and backs the requirement of a stable children ordering, since an ordered tree is one in which an ordering is specified for the children of each vertex.
+- Reverse Polish notation, Wikipedia. https://en.wikipedia.org/wiki/Reverse_Polish_notation . Backs the postfix serialization motivation: in postfix notation operators follow their operands, no parentheses are needed as long as each operator has a fixed number of operands, and the notation is evaluated with a stack, which is why a postorder emission of an expression tree feeds a stack machine directly.
+- Threaded binary tree, Wikipedia. https://en.wikipedia.org/wiki/Threaded_binary_tree . Backs the Morris postorder section's mechanism and the restoration warning: threading reuses child pointers that would otherwise be null in order to traverse without recursion and without the extra storage proportional to the tree's depth, which means the pointers are temporarily modified and must be reset.
+- Binary tree, Wikipedia. https://en.wikipedia.org/wiki/Binary_tree . Backs the height convention behind the `HEIGHT(u)` computation, which returns `-1` for an empty subtree so that a tree consisting of only a root node has height 0, and backs the memory-locality note about array-represented trees, since those are stored in breadth-first order rather than in any depth-first order.
+- Dangling pointer, Wikipedia. https://en.wikipedia.org/wiki/Dangling_pointer . Backs the deletion motivation: freeing a parent before its children leaves references to memory that has already been released, which is the dangling-pointer condition postorder teardown avoids.

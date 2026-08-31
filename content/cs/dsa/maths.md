@@ -156,11 +156,11 @@ There are two common conventions for `x div d` and `x mod d` (with `d>0`):
 
 ### Floors, Ceilings, and Off-by-One
 
-- `floor((n-1)/k)` counts **full groups** of size `k` in `n` items.
+- `floor(n/k)` counts **full groups** of size `k` in `n` items.
 
 - `ceil(n/k)` counts groups if you **allow a partial** last group - commonly used for chunking arrays into pages of size `k`.
 
-- `ceil(log2 n)` comparisons for binary search worst-case (on `n>=1`).
+- `floor(log2 n) + 1 = ceil(log2 (n+1))` comparisons for binary search worst-case (on `n>=1`).
 
 - Inclusive ranges `[L..R]` have size `R-L+1`.
 

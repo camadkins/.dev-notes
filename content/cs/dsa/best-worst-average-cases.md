@@ -61,7 +61,7 @@ Common modeling patterns:
 - **Stochastic process for inputs**: e.g., keys are i.i.d. from a distribution $D$ (state $D$ explicitly).
 - **Randomized algorithms**: expected runtime is over the algorithm's **own randomness** for **any input** (Yao's principle relates this to distributional inputs).
 - **Randomized quicksort**: expectation over random pivot choices; average $O(n\log n)$ for every fixed input.
-- **Cuckoo hashing**: expected $O(1)$ lookup under specific independence assumptions on hash functions.
+- **Cuckoo hashing**: worst-case $O(1)$ lookup (a key lives in one of two fixed slots), with insertion expected $O(1)$ under specific independence assumptions on hash functions.
 
 > [!tip] Be explicit about assumptions
 > - If you randomize the algorithm (e.g., randomized pivot), you can analyze **expected runtime over the algorithm's coins** for **any fixed input** - this sidesteps unknown input distributions.
@@ -88,7 +88,7 @@ Common modeling patterns:
 
 ### Insertion sort
 - **Worst**: $O(n^2)$ comparisons/shifts on reverse-sorted arrays.
-- **Average**: $O(n^2)$ over random permutations, but with a smaller constant than selection sort.
+- **Average**: $O(n^2)$ over random permutations, performing about half as many comparisons as selection sort, though at the cost of more writes.
 - **Best**: $O(n)$ on already sorted arrays (adaptive behavior).
 
 > [!example] Mini trace: insertion sort on nearly-sorted data
@@ -134,10 +134,10 @@ Common modeling patterns:
 - **Three-way partitioning**: improves **average** when duplicates abound by shrinking recursion on equal keys.
 
 #### Hash tables: expected vs worst-case
-- Under **simple uniform hashing**, expected chain length is `α`; operations are `$Θ(1)$`.
+- Under **simple uniform hashing**, expected chain length is `α` and search takes average-case `$Θ(1 + α)$`, which is `$Θ(1)$` only while `α` is held to a constant.
 - In adversarial settings (crafted collisions), degrade to `$Θ(n)$`. Mitigations:
   - **Randomized hash functions** (e.g., multiplicative hashing with secret seeds).
-  - **Cuckoo hashing** (expected O(1), worst-case rehash).
+  - **Cuckoo hashing** (worst-case O(1) lookup, expected O(1) insertion, with an occasional full rehash).
   - **Tree-bucket fallback** (RB-tree per bucket) to cap worst-case at `$O(\log n)$`. See [[cs/dsa/hash-tables|Hash Tables]].
 
 ## Common Misunderstandings
@@ -181,3 +181,18 @@ Great engineering calls out the case, the assumptions, and the **mitigations** u
 - [[cs/dsa/quick-sort|Quick Sort]]
 - [[cs/dsa/hash-tables|Hash Tables]]
 - [[cs/dsa/problem-instance|Problem and Instance]] - the set these three cases quantify over
+
+## Sources
+
+- Jessica Su, CS 161 Lecture 1, Stanford University (portions from CLRS). https://web.stanford.edu/class/archive/cs/cs161/cs161.1168/lecture1.pdf . Backs the three-case framing itself: worst-case as the maximum over inputs of a given size, best-case as the minimum, and average-case as an expectation that presupposes a probability distribution on inputs, with the uniform-over-permutations assumption called out as an assumption rather than a fact.
+- Jessica Su, CS 161 Lecture 9, Stanford University (portions from CLRS). https://web.stanford.edu/class/archive/cs/cs161/cs161.1168/lecture9.pdf . Backs the separate-chaining case study: the load factor a = n/m, the simple uniform hashing assumption stated explicitly as an assumption, expected chain length a, average-case search time Theta(1 + a) for both successful and unsuccessful search, and the worst case in which every key hashes to one slot so search degrades to O(n). This is what the note's chaining bound was corrected to.
+- Best, worst and average case, Wikipedia. https://en.wikipedia.org/wiki/Best,_worst_and_average_case . Backs the motivation section: worst-case bounds as the guarantee relied on for real-time and latency-critical systems, average-case as the typical-workload measure that depends on the assumed distribution, and best-case as rarely a useful guarantee.
+- Cuckoo hashing, Wikipedia. https://en.wikipedia.org/wiki/Cuckoo_hashing . Refuted the note's earlier claim that cuckoo hashing gives expected O(1) lookup: the scheme is defined by worst-case constant lookup time, since a key can only be in one of two table positions, while it is insertion that succeeds in expected constant time (including the possibility of a rebuild) so long as the load factor stays below 50%.
+- Quicksort, Wikipedia. https://en.wikipedia.org/wiki/Quicksort . Backs the quicksort case study: quadratic worst case when a first-or-last-element pivot meets an already sorted array or an array of identical elements, average O(n log n), and the pivot rules (median-of-three, pseudomedian of nine, random pivot) that make the bad split unlikely. It also backs the existence of adversarial data generators such as McIlroy's antiquicksort, which is the concrete form of the note's warning against assuming the worst case never happens.
+- Insertion sort, Wikipedia. https://en.wikipedia.org/wiki/Insertion_sort . Backs the insertion sort case row: linear best case on sorted input, quadratic worst case on reverse-sorted input, adaptivity in the form of O(kn) time when no element is more than k places from its sorted position, and the corrected comparison with selection sort, insertion sort averaging about half as many comparisons but performing O(n^2) writes against selection sort's O(n).
+- Adaptive sort, Wikipedia. https://en.wikipedia.org/wiki/Adaptive_sort . Backs the mini-trace claim that insertion sort's cost on nearly-sorted data is described in terms of the number of inversions in the input rather than n^2.
+- Introsort, Wikipedia. https://en.wikipedia.org/wiki/Introsort . Backs the library and portfolio claims: introsort starts with quicksort, switches to heapsort once recursion depth exceeds a bound based on log of the element count, and switches to insertion sort below a small threshold, giving quicksort-like typical performance with a worst-case O(n log n) guarantee.
+- Smoothed analysis, Wikipedia. https://en.wikipedia.org/wiki/Smoothed_analysis . Backs the smoothed-analysis callout word for word in substance: it is a hybrid of worst-case and average-case analysis measuring expected performance under slight random perturbations of worst-case inputs, and it is the standard explanation for why the simplex algorithm runs in roughly linear observed steps despite exponential worst-case complexity.
+- Yao's principle, Wikipedia. https://en.wikipedia.org/wiki/Yao%27s_principle . Backs the parenthetical that Yao's principle relates a randomized algorithm's expected cost on its worst-case input to a deterministic algorithm's average-case cost on a hardest input distribution.
+- Red-black tree, Wikipedia. https://en.wikipedia.org/wiki/Red%E2%80%93black_tree . Backs the claim that self-balancing trees give worst-case rather than merely average-case guarantees: the height bound makes search, insertion, and deletion worst-case logarithmic, which is why they are used where worst-case time matters.
+- Breadth-first search, Wikipedia. https://en.wikipedia.org/wiki/Breadth-first_search . Backs the graph-traversal row, O(|V| + |E|) time for the traversal with space governed by the vertex count, so density rather than input ordering drives the actual cost.

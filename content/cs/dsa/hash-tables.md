@@ -103,8 +103,9 @@ function DELETE(T, k):
 ## Example (Stepwise)
 
 **Chaining.** Let `m=5`, keys `{17, 42, 9, 14}` with `h(k)=k mod 5`.
-Buckets: `B[0]={}`, `B[1]={}`, `B[2]={17}`, `B[3]={}`, `B[4]={9,14,42}` (after inserts).
-Searching `42` inspects `B[2]`? No - `42 mod 5 = 2`? Actually `42 mod 5 = 2`, so it lives in `B[2]` (correcting the example): insert order yields `B[2]={17,42}`, `B[4]={9,14}`. Average chain length `α = n/m = 4/5 = 0.8`.
+Since `17 mod 5 = 2`, `42 mod 5 = 2`, `9 mod 5 = 4`, and `14 mod 5 = 4`, insert order yields
+`B[0]={}`, `B[1]={}`, `B[2]={17,42}`, `B[3]={}`, `B[4]={9,14}`.
+Searching `42` therefore scans `B[2]`. Average chain length `α = n/m = 4/5 = 0.8`.
 
 **Open addressing (linear probing, `m=7`).** Insert keys `{10, 24, 31, 18}` with `h(k)=k mod 7`.
 
@@ -121,7 +122,7 @@ Searching `42` inspects `B[2]`? No - `42 mod 5 = 2`? Actually `42 mod 5 = 2`, so
 
 Assume a good hash function and simple uniform hashing.
 
-- **Expected time:** `search`, `insert`, `delete` are **O(1)** expected for both chaining and open addressing when the load factor `α` is bounded (e.g., `α ≤ 1` for open addressing; `α` modest for chaining).
+- **Expected time:** `search`, `insert`, `delete` are **O(1)** expected for both chaining and open addressing when the load factor `α` is bounded by a constant (for open addressing, bounded **away from 1** - with linear probing the expected cost of an unsuccessful search grows like `1/(1-α)²`, which blows up as `α → 1`; `α` modest for chaining).
 
 - **Worst case:** **O(n)** if all keys land in one bucket or if probing scans the entire table ([[cs/security/denial-of-service-and-ddos|adversarial inputs]] or poor `h`).
 
@@ -237,3 +238,7 @@ Hash tables give near-constant-time operations by mapping keys to array indices 
 - [[cs/dsa/dynamic-arrays|Dynamic Arrays]]
 
 - [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]
+
+## Sources
+
+- Linear probing, Wikipedia. https://en.wikipedia.org/wiki/Linear_probing . Backs the load-factor caveat in the complexity section: in terms of the load factor alpha, the expected time for a successful search is O(1 + 1/(1 - alpha)) and for an unsuccessful search or an insertion it is O(1 + 1/(1 - alpha)^2), so expected constant time holds only while alpha stays bounded away from 1.

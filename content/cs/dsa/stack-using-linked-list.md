@@ -152,8 +152,9 @@ When does a linked stack outperform arrays?
     ```pseudo
     method tryPop(out x: T) -> bool:
         if head == NIL: return false
-        x = head.value
-        head = head.next
+        node = head
+        x = node.value
+        head = node.next
         free(node)
         n = n - 1
         return true

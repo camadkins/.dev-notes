@@ -267,7 +267,7 @@ Lookup of `k3` is a fast scan of bucket `T[2]`.
 
 ### Example 2 - Linear probing cluster
 
-Table `m=8`, linear probing. Insert at indices: `3,3,3,4,4` → occupied run `[3,4,5]` develops; future inserts that hash to `3–5` will **walk the cluster**, showing **primary clustering**.
+Table `m=8`, linear probing. Insert at indices: `3,3,3,4,4` → the keys land in slots `3,4,5` (the three hashing to 3) and then `6,7` (the two hashing to 4), so an occupied run `[3,4,5,6,7]` develops; future inserts that hash to `3–7` will **walk the cluster**, showing **primary clustering**.
 
 ## Summary
 

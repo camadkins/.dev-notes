@@ -99,7 +99,7 @@ Suppose each `push` sometimes triggers a **cleanup** that removes obsolete marke
 ---
 
 ### 4) Other patterns
-- **Binary counter increments.** Incrementing a k-bit binary counter \(m\) times flips each bit at most \(m/2, m/4, \dots\) times → total flips \(< 2m\) → amortized \(O(1)\).  
+- **Binary counter increments.** Starting from zero and incrementing \(m\) times, bit 0 flips on every increment, bit 1 on every second one, and bit \(i\) on every \(2^i\)-th one, so bit \(i\) flips \(\lfloor m/2^i \rfloor\) times → total flips \(< 2m\) → amortized \(O(1)\), even though a single increment costs \(Θ(\log m)\) in the worst case.
 - **Hash tables with resizing.** As long as load factor is kept in a constant range (by doubling/halving), `insert`/`find` remain **expected** \(O(1)\); rehash cost is amortized across inserts (requires probabilistic model or simple uniform hashing assumptions).
 
 ---
@@ -121,3 +121,14 @@ Suppose each `push` sometimes triggers a **cleanup** that removes obsolete marke
 - [[cs/dsa/best-worst-average-cases|Best/Worst/Average Cases]]
 - [[cs/dsa/dynamic-arrays|Dynamic Arrays]]
 - [[cs/dsa/disjoint-set|Union-Find]]
+
+## Sources
+
+- Amortized Analysis, Cornell CS 3110 Lecture 20 (Spring 2011). https://www.cs.cornell.edu/courses/cs3110/2011sp/lectures/lec20-amortized/amortized.htm . Backs the whole Definition section: amortized analysis as a worst-case analysis of a sequence of operations, the three named techniques (aggregate, accounting or banker's, potential or physicist's), the 3-unit charge for the extensible array with the exact breakdown of what each unit buys, and the potential method as stated here, with Phi(h0) = 0, Phi never negative, amortized time defined as actual cost plus the change in potential, and the telescoping sum showing total amortized time is an upper bound on total actual time. It also gives the same potential function this note uses, Phi = 2n - m for the doubling array, and works both cases to amortized 3.
+- Jeff Erickson, Algorithms Lecture 9: Amortized Analysis, University of Illinois. https://jeffe.cs.illinois.edu/teaching/algorithms/notes/09-amortize.pdf . Backs the corrected binary-counter example: bit B[0] flips on every increment, B[1] every other, and B[i] every 2^i-th, so n increments flip B[i] exactly floor(n / 2^i) times and the total is strictly less than 2n, giving amortized constant time against a Theta(log n) worst case for one increment. It also backs the Pitfalls entry directly, stating that this sense of averaging involves no probability at all and averages over a sequence of operations rather than over the possible running times of a single one.
+- Amortized analysis, Wikipedia. https://en.wikipedia.org/wiki/Amortized_analysis . Backs the framing that a worst-case-per-operation bound is too pessimistic, the aggregate method as total cost over n operations divided by n, the accounting method's non-negative credit making amortized cost an upper bound on actual cost, and the dynamic-array geometric-series argument giving O(1) average per push.
+- Potential method, Wikipedia. https://en.wikipedia.org/wiki/Potential_method . Backs the potential method as the accounting method with the credit computed as a function of the structure's state, and gives the binary counter its own potential-function treatment reaching the same amortized constant.
+- Dynamic array, Wikipedia. https://en.wikipedia.org/wiki/Dynamic_array . Backs the growth model in the first example: geometric expansion by a constant factor on overflow, with copying, yielding amortized constant-time append, and the point that changing the growth factor changes the analysis.
+- Disjoint-set data structure, Wikipedia. https://en.wikipedia.org/wiki/Disjoint-set_data_structure . Backs the union-find result: for a sequence of m make-set, union, or find operations on a forest of n nodes with path compression and union by rank, the total time is O(m alpha(n)), a bound Tarjan proved and showed tight, and the note's intuition that each find rebalances the structure so later operations get cheaper.
+- Ackermann function, Wikipedia. https://en.wikipedia.org/wiki/Ackermann_function . Backs the parenthetical about alpha: the inverse Ackermann function is less than 5 for any practical input size, because A(4,4) already exceeds anything that arises.
+- Jessica Su, CS 161 Lecture 9, Stanford University (portions from CLRS). https://web.stanford.edu/class/archive/cs/cs161/cs161.1168/lecture9.pdf . Backs the hash-table row in the Other patterns list: the load factor a = n/m, the simple uniform hashing assumption that the expected-time result rests on, and expected Theta(1 + a) search, which is the probabilistic model the note says is required alongside the amortized rehash argument.

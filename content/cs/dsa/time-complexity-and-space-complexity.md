@@ -85,7 +85,7 @@ Sum `1+2+…+n = n(n+1)/2` → `$Θ(n^2)$` time.
 4. **Binary search** halves the interval every iteration → `$Θ(\log n)$` time, `$Θ(1)$` extra space.
 
 5. **Merge sort** solves `2` subproblems of size `n/2` and merges in linear time:
-    `$T(n)=2T(n/2)+Θ(n)$` → `$Θ(n \log n)$` time; auxiliary space `$Θ(n)$` (array) or `$Θ(\log n)$` (linked lists or bottom-up techniques).
+    `$T(n)=2T(n/2)+Θ(n)$` → `$Θ(n \log n)$` time; auxiliary space `$Θ(n)$` (array) or `$Θ(1)$` (linked lists, where merging relinks nodes rather than copying into a buffer).
 
 ## Properties and Relationships
 
@@ -219,3 +219,22 @@ Time and space complexity abstract away machine idiosyncrasies to expose **growt
 - [[cs/dsa/space-complexity|Space Complexity]]
 
 - [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]
+
+## Sources
+
+- Time complexity, Wikipedia. https://en.wikipedia.org/wiki/Time_complexity . Backs the Overview and Definition sections: counting elementary operations under a fixed-cost assumption, worst case as the maximum over inputs of a size, average case as an average over a specified set of inputs, and the shift to asymptotic behavior because exact functions are impractical and small inputs rarely matter.
+- Space complexity, Wikipedia. https://en.wikipedia.org/wiki/Space_complexity . Backs the space-accounting breakdown: total space includes the memory occupied by the input, called input space, while auxiliary space is everything else the algorithm uses during execution, which is why the note insists you say which you are reporting.
+- Jessica Su, CS 161 Lecture 1, Stanford University (portions from CLRS). https://web.stanford.edu/class/archive/cs/cs161/cs161.1168/lecture1.pdf . Backs the formal definitions of O, Omega and Theta as used here, and the misunderstanding entry that O is an upper bound including all smaller classes while only Theta communicates tight growth.
+- Random-access machine, Wikipedia. https://en.wikipedia.org/wiki/Random-access_machine . Backs the unit-cost RAM model in which arithmetic, comparison, assignment, and indexing are Theta(1) on fixed-width machine words.
+- External memory algorithm, Wikipedia. https://en.wikipedia.org/wiki/External_memory_algorithm . Backs the I/O model row precisely, including the sorting bound the note quotes: a machine with internal memory M and block size B whose running time is the number of block transfers, in which external sorting via an (M/B)-way merge achieves the asymptotically optimal O((N/B) log_{M/B}(N/B)).
+- Merge sort, Wikipedia. https://en.wikipedia.org/wiki/Merge_sort . Backs the merge sort example and refuted the note's earlier auxiliary-space figure for the linked-list variant: the page gives O(n) auxiliary for the array version and O(1) auxiliary with linked lists, since merging there relinks nodes rather than copying into a buffer.
+- Binary search, Wikipedia. https://en.wikipedia.org/wiki/Binary_search . Backs the fourth example, O(log n) time from halving the interval each iteration with O(1) space because only a fixed number of index variables is kept, regardless of array size.
+- Recursion Trees and the Master Method, Cornell CS 3110 Lecture 20 (Spring 2012). https://www.cs.cornell.edu/courses/cs3110/2012sp/lectures/lec20-master/lec20.html . Backs the recurrence patterns section and the pointer to the Master Theorem for the aT(n/b) + f(n) form, including the recursion-tree derivation of the three cases and the extra condition needed when the combine step dominates.
+- Jeff Erickson, Algorithms Lecture 9: Amortized Analysis, University of Illinois. https://jeffe.cs.illinois.edu/teaching/algorithms/notes/09-amortize.pdf . Backs the amortized-against-average-case contrast the note draws twice: amortized averaging is over a sequence of operations with no probability involved, which is the sense in which it is distribution-free.
+- Disjoint-set data structure, Wikipedia. https://en.wikipedia.org/wiki/Disjoint-set_data_structure . Backs the union-find figure, O(m * alpha(n)) for a sequence of m operations on n elements.
+- Jessica Su, CS 161 Lecture 9, Stanford University (portions from CLRS). https://web.stanford.edu/class/archive/cs/cs161/cs161.1168/lecture9.pdf . Backs the hash-table parameterized bound, expected constant-time operations while the load factor stays low against O(n) in the worst case.
+- Breadth-first search, Wikipedia. https://en.wikipedia.org/wiki/Breadth-first_search . Backs the graph parameterization Theta(n + m) with n vertices and m edges.
+- Analysis of parallel algorithms, Wikipedia. https://en.wikipedia.org/wiki/Analysis_of_parallel_algorithms . Backs the work and span analysis: work T_1 as the total operation count equal to single-processor time, span T_infinity as the critical path, and the span law that no number of processors beats the span, which is the sense in which wall clock is bounded below by it.
+- CPU cache, Wikipedia. https://en.wikipedia.org/wiki/CPU_cache . Backs the cache-locality claim that a miss stalls the processor long enough to have executed hundreds of instructions, which is why contiguous arrays beat pointer chasing at the same big-O.
+- Branch predictor, Wikipedia. https://en.wikipedia.org/wiki/Branch_predictor . Backs the branching entry on misprediction penalties for unpredictable data-dependent branches.
+- Locality of reference, Wikipedia. https://en.wikipedia.org/wiki/Locality_of_reference . Backs the data-layout claim in Broader Implications, that arrangement in memory drives cache utilization independently of the asymptotic class.

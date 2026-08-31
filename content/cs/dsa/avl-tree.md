@@ -33,7 +33,7 @@ Whenever an insertion or deletion violates this rule, **rotations** restore bala
 Because of these rules, the height `h` satisfies:
 ```
 
-h ≤ 1.44 log₂(n + 2) − 0.328
+h < 1.44 log₂(n + 2) − 0.328   (height counted in levels: height(null) = 0, a single node has height 1)
 
 ````
 which is asymptotically `O(log n)`.
@@ -111,8 +111,8 @@ Deletion can cause **cascading** rebalances:
 
 ```
 Delete(10)
-→ imbalance at 30 (balance_factor = +2)
-→ perform a rotation at 30, then continue fixing ancestors as needed
+→ imbalance at 20 (balance_factor = −2)
+→ left rotation at 20, then continue fixing ancestors as needed
 ```
 
 ## Pitfalls
@@ -146,3 +146,7 @@ Delete(10)
 - [[cs/dsa/tree-traversal|Tree Traversal]]
 
 - [[cs/dsa/splay-tree|Splay Tree]]
+
+## Sources
+
+- AVL tree, Wikipedia. https://en.wikipedia.org/wiki/AVL_tree . Backs the height bound h < 1.44 log₂(n + 2) − 0.328, stated there as h < log_φ(n + 2) − 0.3277 with height counted as the maximal number of levels, and the 1962 Adelson-Velsky and Landis attribution.

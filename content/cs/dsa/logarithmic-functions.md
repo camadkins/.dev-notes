@@ -164,7 +164,7 @@ function DECIMAL_DIGITS(n):     // n >= 1
 ## Common Misunderstandings
 
 > [!warning]
-> **Base confusion in asymptotics.** `O(log n)` hides constant factors. `log2 n` and `log10 n` differ by `ln(10)` which is approximately 2.3026 - **constant**, not a different class.
+> **Base confusion in asymptotics.** `O(log n)` hides constant factors. `log2 n` and `log10 n` differ by the factor `log2(10) = ln(10)/ln(2)` which is approximately 3.3219 - **constant**, not a different class.
 
 > [!warning]
 > **Domain errors.** `log_b(0)` is **undefined** and `log_b(x)` for `x<0` is not real (without complex numbers). Guard inputs in code.
@@ -189,7 +189,7 @@ Because `log` transforms multiplication into addition, it underpins:
 
 - **Complexity transforms:** analyzing multiplicative shrinkage as additive depth (`#levels = log_b n`).
 
-- **[[cs/military-computing/shannon-and-information-theory|Information theory]]:** `log2` measures information in **bits**; entropy sums `p_i log p_i`.
+- **[[cs/military-computing/shannon-and-information-theory|Information theory]]:** `log2` measures information in **bits**; entropy is `-sum(p_i log2 p_i)`.
 
 - **Scale compression:** Logging axes turns exponential curves into lines - useful for profiling with exponentially growing inputs.
 

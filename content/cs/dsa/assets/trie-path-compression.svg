@@ -197,7 +197,7 @@
 <text x="525" y="258" class="anno-center">branch point</text>
 
 <!-- Summary annotation -->
-<text x="525" y="472" class="anno-center">3 nodes, 3 edges</text>
+<text x="525" y="472" class="anno-center">4 nodes, 3 edges</text>
 <text x="525" y="488" class="desc">vs 11+ nodes in standard form</text>
 
 </svg>

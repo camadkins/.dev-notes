@@ -253,7 +253,7 @@ Let `L` be key length, `σ = |Σ|` the alphabet size, and `n` the number of keys
 
 ## Summary
 
-Tries offer **predictable `Θ(L)`** operations and powerful **prefix-aware** features that hash tables and ordinary trees lack. They shine when keys share prefixes, when you must **enumerate by prefix**, or when lexicographic order is first-class. The main cost is **memory**, driven by the alphabet and node representation. With careful engineering—**sparse children**, **path compression**, **arenas**, and appropriate **text normalization**—tries become a practical and robust foundation for sets and maps of strings.
+Tries offer **predictable `Θ(L)`** operations and powerful **prefix-aware** features that hash tables and ordinary trees lack. They shine when keys share prefixes, when you must **enumerate by prefix**, or when lexicographic order is first-class. The main cost is **memory**, driven by the alphabet and node representation. With careful engineering (**sparse children**, **path compression**, **arenas**, and appropriate **text normalization**), tries become a practical and robust foundation for sets and maps of strings.
 
 ## See also
 

@@ -52,7 +52,7 @@ graph TD
     linkStyle 0,2 stroke:#f9a825,stroke-width:3px
     linkStyle 1,4 stroke:#4fc3f7,stroke-width:3px
 ```
-*Yellow path 26(B)→17(R)→14(B)→NIL: bh = 2. Blue path 26(B)→41(B)→30(R)→NIL: bh = 2. Both paths share the same black-height despite different lengths — property (5) in action.*
+*Yellow path 26(B)→17(R)→14(B)→NIL: bh = 2. Blue path 26(B)→41(B)→30(R)→NIL: bh = 2. Both paths share the same black-height despite different lengths. That is property (5) in action.*
 
 ## Core Operations
 
@@ -145,7 +145,7 @@ function RB_INSERT(T, z):
     T.root.color = BLACK
 ```
 
-**Case 1 — Uncle is RED (recolor only):**
+**Case 1: Uncle is RED (recolor only)**
 
 ```mermaid
 graph LR
@@ -169,9 +169,9 @@ graph LR
     classDef red fill:#c62828,stroke:#aaa,color:#fff,font-weight:bold
     classDef nil fill:none,stroke:none,color:transparent
 ```
-*No rotations — push the violation upward by recoloring. Continue fixup at g.*
+*No rotations. Push the violation upward by recoloring. Continue fixup at g.*
 
-**Case 2 — Triangle → rotate to line:**
+**Case 2: Triangle → rotate to line**
 
 ```mermaid
 graph LR
@@ -197,7 +197,7 @@ graph LR
 ```
 *Triangle (z is right child of p, p is left child of g) becomes a line via one rotation. Falls through to Case 3.*
 
-**Case 3 — Line → rotate at grandparent + recolor:**
+**Case 3: Line → rotate at grandparent + recolor**
 
 ```mermaid
 graph LR
@@ -221,7 +221,7 @@ graph LR
     classDef red fill:#c62828,stroke:#aaa,color:#fff,font-weight:bold
     classDef nil fill:none,stroke:none,color:transparent
 ```
-*Rotate at grandparent, swap p/g colors. Red-red violation resolved — p is now black root of the subtree.*
+*Rotate at grandparent, swap p/g colors. Red-red violation resolved: p is now the black root of the subtree.*
 
 ### Deletion (BST delete + fixup)
 
@@ -333,7 +333,7 @@ flowchart TD
     style Case4 fill:#e8f5e9,stroke:#2e7d32,color:#333
     style Start fill:#f3e5f5,stroke:#7b1fa2,color:#333
 ```
-*Case 1 converts a red sibling to black, reducing to Cases 2–4. Case 3 rotates the near red nephew to the far position, reducing to Case 4. Case 4 is terminal — one rotation and recolor discharges the double black. Case 2 pushes the extra black up (may loop).*
+*Case 1 converts a red sibling to black, reducing to Cases 2–4. Case 3 rotates the near red nephew to the far position, reducing to Case 4. Case 4 is terminal: one rotation and recolor discharges the double black. Case 2 pushes the extra black up (may loop).*
 
 ## Example (Stepwise)
 
@@ -343,7 +343,7 @@ flowchart TD
     
 - Insert **38** (red child of black → OK).
     
-- Insert **31**: parent **38** is red and uncle (right of 41) is **NIL (black)**; triangle about `(41 ← 38 → 31)`. Rotate **right at 38** to line up, then **left at 41**, recolor to make new root black, children red.
+- Insert **31**: parent **38** is red and uncle (right of 41) is **NIL (black)**; `41 → 38 → 31` is a left-left **line**, so Case 3 applies directly. Recolor `38` black and `41` red, then rotate **right at 41**: the subtree becomes root `38` (black) with red children `31` and `41`.
     
 - Insert **12**: recolor with red uncle if encountered, else rotate/recolor depending on orientation. In a few steps, invariants hold and height stays small.
     
@@ -352,7 +352,7 @@ flowchart TD
 
 - Successor swap if needed; splice out successor `y`.
     
-- If the removed node was black, run delete fixup. Follow the sibling cases to discharge double black with at most **two rotations** and a few recolors.
+- If the removed node was black, run delete fixup. Follow the sibling cases to discharge double black with at most **three rotations** and a few recolors.
     
 
 > [!tip]  
@@ -408,7 +408,7 @@ Let `n` be the number of nodes.
 
 ### Comparators
 
-- Require a **[[cs/math/relations-and-equivalence|strict weak ordering]]** comparator (transitive, antisymmetric). Comparator bugs can violate BST invariants and break balancing logic.
+- Require a **[[cs/math/relations-and-equivalence|strict weak ordering]]** comparator (irreflexive, transitive, with incomparability itself transitive). Comparator bugs can violate BST invariants and break balancing logic.
     
 
 ### Deletion corner cases
@@ -476,3 +476,7 @@ Red–black trees are **height-balanced BSTs** that guarantee `O(log n)` operati
 - [[cs/dsa/splay-tree|Splay Tree]]
     
 - [[cs/dsa/trees|Trees]]
+
+## Sources
+
+- Red-black tree, Wikipedia. https://en.wikipedia.org/wiki/Red%E2%80%93black_tree . Backs the rotation counts (at most two rotations to rebalance an insertion, at most three for a deletion) and the height bound h ≤ 2 log₂(n + 1).

@@ -21,7 +21,7 @@ The **Knapsack Problem** asks: given `n` items with **weights** `w[i]` and **val
 
 - **Unbounded (Unbounded/Complete) Knapsack:** items can be taken **multiple times** (unlimited copies).
 
-These variants differ sharply in tractability and strategy: **Fractional** admits a greedy optimum via value/weight ratios; **0/1** is NP-hard (pseudo-polynomial DP exists); **Unbounded** has efficient DP with unbounded transitions. This note provides precise problem statements, correct algorithms, and practical guidance on when to use each.
+These variants differ sharply in tractability and strategy: **Fractional** admits a greedy optimum via value/weight ratios; **0/1** is NP-hard (pseudo-polynomial DP exists); **Unbounded** is NP-hard as well, with its own pseudo-polynomial DP over unbounded transitions. This note provides precise problem statements, correct algorithms, and practical guidance on when to use each.
 
 ## Motivation
 
@@ -47,16 +47,16 @@ Knapsack models **resource allocation**: budgets, cargo loading, ad placement un
 
 - **Fractional:** solvable optimally by **greedy** sorting by `v[i]/w[i]` in `O(n log n)` (or `O(n)` selection with linear-time median).
 
-- **Unbounded:** `O(nW)` DP with transitions that reuse the current row.
+- **Unbounded:** NP-hard; **pseudo-polynomial** `O(nW)` DP with transitions that reuse the current row.
 
 ## Example or Illustration
 
 Small 0/1 instance: `W=7`, items
 `(w,v) = (1,1), (3,4), (4,5), (5,7)`.
 
-- Greedy by ratio picks `(3,4)` (1.33), then `(4,5)` (1.25) → uses capacity 7, value **9** (optimal here, but by luck).
+- Ratios are `1.0, 1.33, 1.25, 1.4`, so greedy by ratio picks `(5,7)` first, then only `(1,1)` still fits → value **8**, while `(3,4) + (4,5)` fills the knapsack exactly for value **9**. Greedy already fails here.
 
-- Another instance shows failure: `W=10`, items `(w,v) = (9,19), (6,12), (6,12)`. Greedy-by-ratio picks `9,19` (ratio 2.11) leaving 1 capacity ⇒ value **19**, while picking both `(6,12)` yields **24** (optimal). Greedy fails for **0/1**.
+- The gap can be made wider: `W=12`, items `(w,v) = (9,19), (6,12), (6,12)`. Greedy-by-ratio picks `(9,19)` (ratio 2.11) leaving 3 capacity ⇒ value **19**, while picking both `(6,12)` fits in weight 12 and yields **24** (optimal). Greedy fails for **0/1**.
 
 ## Properties and Relationships
 

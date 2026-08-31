@@ -100,7 +100,7 @@ Space affects **cache behavior**:
 ### Common patterns
 - **Graph traversals**: BFS uses a queue with up to `Θ(|V| + |E|)` storage in sparse graphs (dominated by `Θ(|V|)` for the queue and `Θ(|V|)` for visited). DFS recursion uses `Θ(|V|)` worst-case stack depth; iterative DFS uses an explicit stack of the same order.
 - **Prefix sums / scans**: `Θ(1)` or `Θ(k)` extra depending on whether outputs overwrite inputs or are written to a separate array of the same length (`Θ(n)` total space).
-- **String algorithms**: KMP uses `Θ(|Σ|)` or `Θ(m)` for the failure table, where `m` is the pattern length; Boyer–Moore stores shift tables sized by alphabet.
+- **String algorithms**: KMP uses `Θ(m)` for the failure table, where `m` is the pattern length; the real-time variant that keeps a separate failure table per alphabet symbol costs `Θ(m·|Σ|)`. Boyer–Moore is `Θ(k + m)`, the bad-character table sized by the alphabet `k` plus the good-suffix table sized by the pattern.
 - **Counting and radix**: Counting sort keeps a `Θ(k)` frequency array, where `k` is the key range; radix uses `Θ(b)` per pass for bucket counts in addition to an output buffer `Θ(n)`.
 
 ### Engineering for low space
@@ -148,3 +148,26 @@ Space complexity captures the **working memory** required by algorithms. Disting
 - [[cs/dsa/recursion|Recursion]]
 - [[cs/dsa/memory-allocation|Memory Allocation]]
 - [[cs/dsa/merge-sort|Merge Sort]]
+
+## Sources
+
+- Space complexity, Wikipedia. https://en.wikipedia.org/wiki/Space_complexity . Backs the auxiliary-versus-total distinction the Overview and Properties sections rest on: auxiliary space is the memory an algorithm needs beyond the input, total space counts the input as well, and which one is being reported has to be stated.
+- In-place algorithm, Wikipedia. https://en.wikipedia.org/wiki/In-place_algorithm . Backs the sense of in-place the note argues for in its misunderstandings section: the strictest reading allows only constant extra space counting pointers, the broader and usual reading allows a small non-constant amount, typically O(log n), and quicksort is called in-place despite needing O(log n) stack pointers for its recursion.
+- Merge sort, Wikipedia. https://en.wikipedia.org/wiki/Merge_sort . Backs the illustration's second case, the Theta(n) auxiliary buffer the array version of merge sort needs, and the linked-list variant's smaller footprint.
+- Quicksort, Wikipedia. https://en.wikipedia.org/wiki/Quicksort . Backs the third case: in-place partitioning with O(log n) auxiliary space in Hoare's formulation, degrading toward linear stack depth when splits are unbalanced and the smaller-side-first guard is absent.
+- Binary search algorithm, Wikipedia. https://en.wikipedia.org/wiki/Binary_search . Backs the first case, constant auxiliary space when written iteratively against one stack frame per halving in the recursive form.
+- Counting sort, Wikipedia. https://en.wikipedia.org/wiki/Counting_sort . Backs the Theta(k) frequency array in the counting and radix pattern, where k is the key range.
+- Knuth-Morris-Pratt algorithm, Wikipedia. https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm . Refuted the note's earlier claim that KMP's failure table is Theta(|Sigma|) or Theta(m): the page gives worst-case space Theta(m) in the pattern length, and the per-alphabet-symbol table belongs to the real-time variant, which is where the alphabet factor enters.
+- Boyer-Moore string-search algorithm, Wikipedia. https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string-search_algorithm . Backs the corrected Boyer-Moore figure, worst-case space Theta(k + m) for the bad-character table sized by the alphabet k together with the good-suffix table.
+- pthread_create(3), Linux manual page, man7.org. https://man7.org/linux/man-pages/man3/pthread_create.3.html . Backs the upper end of the stack-limit range in the overflow warning: on Linux the default thread stack size comes from the stack size resource limit, which is 8 MB.
+- Thread Stack Size, Microsoft Learn (Win32 processes and threads). https://learn.microsoft.com/en-us/windows/win32/procthread/thread-stack-size . Backs the lower end of the same range: the default stack reservation size used by the Windows linker is 1 MB.
+- Tail call, Wikipedia. https://en.wikipedia.org/wiki/Tail_call . Backs the caution that tail recursion can compile to a loop but that tail-call elimination is not universal and cannot be assumed.
+- Hirschberg's algorithm, Wikipedia. https://en.wikipedia.org/wiki/Hirschberg%27s_algorithm . Backs the Broader Implications claim about space-reduced dynamic programming: it keeps Needleman-Wunsch's O(nm) time while needing only O(min{n, m}) space, and is the space-efficient way to compute a longest common subsequence.
+- HyperLogLog, Wikipedia. https://en.wikipedia.org/wiki/HyperLogLog . Backs HyperLogLog as the cardinality sketch that trades exactness for sublinear working memory.
+- Count-min sketch, Wikipedia. https://en.wikipedia.org/wiki/Count%E2%80%93min_sketch . Backs Count-Min Sketch as the sublinear frequency-estimation structure named alongside it.
+- External sorting, Wikipedia. https://en.wikipedia.org/wiki/External_sorting . Backs the external merge sort description: sort chunks that fit in memory, write them out, then merge the runs, with the design driven by sequential rather than random access.
+- Reservoir sampling, Wikipedia. https://en.wikipedia.org/wiki/Reservoir_sampling . Backs reservoir sampling as the single-pass streaming technique holding only o(n) state.
+- L (complexity), Wikipedia. https://en.wikipedia.org/wiki/L_%28complexity%29 . Backs L as the class decidable with a logarithmic amount of writable space, enough for a constant number of pointers into the input, which is the theoretical anchor for the note's claim that log-space corresponds in practice to on-the-fly traversals.
+- PSPACE, Wikipedia. https://en.wikipedia.org/wiki/PSPACE . Backs PSPACE as the class solvable using a polynomial amount of space.
+- Breadth-first search, Wikipedia. https://en.wikipedia.org/wiki/Breadth-first_search . Backs the graph-traversal pattern's space figure, which is governed by the vertex count for the queue and visited marks.
+- Locality of reference, Wikipedia. https://en.wikipedia.org/wiki/Locality_of_reference . Backs the memory-hierarchy section: contiguous sequential access is the case caches are built for, which is why a smaller or better laid out working set wins over pointer chasing at the same asymptotic space.

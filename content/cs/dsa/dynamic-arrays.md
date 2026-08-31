@@ -129,7 +129,7 @@ Let `n` be the number of elements, `C` capacity.
 - **Space:** O(C) words; overhead is `C − n` slack.
 
 
-**Amortized analysis (accounting method).** Charge each append a small **tax** to prepay future moves. With doubling (`α = 2`), each element moves at most **O(1)** times per lifetime (1 on its insertion growth, then again at later doublings), so total cost over `n` appends is O(n), yielding **O(1)** per append amortized.
+**Amortized analysis (accounting method).** Charge each append a small **tax** to prepay future moves. With doubling (`α = 2`), the growths encountered while reaching size `n` copy `1 + 2 + 4 + … + n/2 + n < 2n` elements in total, so the cost of `n` appends is O(n), yielding **O(1)** per append amortized. Note that a *single* long-lived element is moved once per doubling, so Θ(log n) times over the array's lifetime; it is the **total** move count that stays linear.
 
 **Cache locality.** Iteration over contiguous memory is highly cache-friendly; dynamic arrays outperform pointer-chasing containers for scans and SIMD-able workloads.
 

@@ -172,7 +172,7 @@ function MATMUL(C, A, B):              // A m×k, B k×n, C m×n
                 C[i][j] += a * B[t][j]
 ```
 
-- The loop order `i–t–j` (a.k.a. **ijk** with hoisted `a`) improves reuse of `A[i][t]` and gives row-major friendly access to `B[t][j]` if `B` is laid out row-major; otherwise block both `A` and `B` by tiles to keep [[cs/systems/memory-hierarchy-and-caching|cache lines hot]].
+- The loop order `i–t–j` (a.k.a. **ikj**, with `a = A[i][t]` hoisted out of the inner loop) improves reuse of `A[i][t]` and gives row-major friendly access to `B[t][j]` if `B` is laid out row-major; otherwise block both `A` and `B` by tiles to keep [[cs/systems/memory-hierarchy-and-caching|cache lines hot]].
 
 
 > [!tip]

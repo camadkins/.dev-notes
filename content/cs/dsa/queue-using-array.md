@@ -110,7 +110,9 @@ Assume `cap=5`, start with `head=tail=0`, `n=0`.
 
 6. `ENQ(5)` → write `A[4]`, `tail=0` (wrap), `n=4`.
 
-7. `ENQ(6)` → if fixed-capacity, **overflow** (`n==cap`). If resizing, call `RESIZE` and append.
+7. `ENQ(6)` → write `A[0]`, `tail=1`, `n=5` (the size-counter form uses all `cap` slots, so this one still fits).
+
+8. `ENQ(8)` → now `n == cap`: if fixed-capacity, **overflow**. If resizing, call `RESIZE` and append.
 
 
 ## Complexity and Performance

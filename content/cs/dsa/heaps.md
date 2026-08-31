@@ -22,7 +22,7 @@ A **heap** is a tree-based structure that keeps the **highest-priority** (max-he
 2. **Shape property:** The tree is **complete** - all levels filled except possibly the last, which is filled left to right.
 
 
-These properties enable an efficient **array representation** with simple index arithmetic, constant extra space, and `O(log n)` updates. Heaps back priority queues, **[[cs/systems/process-scheduling-algorithms|schedulers]]**, **Dijkstra's algorithm** on dense-enough graphs, **median-of-stream** (with two heaps), and **top-k** selection. See also [[cs/dsa/binary-heap|Binary Heap]] and the linear-time builder [[cs/dsa/heapify|Heapify]].
+These properties enable an efficient **array representation** with simple index arithmetic, constant extra space, and `O(log n)` updates. Heaps back priority queues, **[[cs/systems/process-scheduling-algorithms|schedulers]]**, **Dijkstra's algorithm** on sparse graphs, **median-of-stream** (with two heaps), and **top-k** selection. See also [[cs/dsa/binary-heap|Binary Heap]] and the linear-time builder [[cs/dsa/heapify|Heapify]].
 
 ## Motivation
 
@@ -138,7 +138,7 @@ function SIFT_UP(A, i):
 
 - **Scheduling/dispatch:** Use a **min-heap** keyed by next deadline or wake time for event loops and timer wheels (small heaps).
 
-- **Dijkstra / A*:** A **min-heap** keyed by tentative distance or `g+h` score. For very sparse graphs and huge `n`, pairing heaps or Fibonacci heaps can theoretically help **decrease-key** heavy workloads; in practice, well-engineered binary heaps perform best.
+- **Dijkstra / A*:** A **min-heap** keyed by tentative distance or `g+h` score. For dense graphs, where decrease-key operations greatly outnumber extractions, pairing heaps or Fibonacci heaps can theoretically help; in practice, well-engineered binary heaps perform best.
 
 - **Streaming top-k:** Maintain a **min-heap of size k** storing the current k largest elements; compare each new item to `heap[0]`.
 
@@ -185,3 +185,7 @@ Heaps pair a **local order constraint** (parent vs children) with a **complete-t
 - [[cs/dsa/heapsort|Heapsort]]
 
 - [[cs/dsa/priority-queue|Priority Queue]]
+
+## Sources
+
+- Dijkstra's algorithm, Wikipedia. https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm . Backs the graph-density direction this note gives twice: the simple array implementation runs in Theta(V^2), and it is for sparse graphs, those with far fewer than V^2 edges, that storing adjacency lists and using a binary, pairing, or Fibonacci heap as the priority queue makes Dijkstra faster. It also backs the Fibonacci-heap remark, since the Fredman and Tarjan bound of Theta(E + V log V) improves on the binary heap by a wider margin as E grows toward V^2.

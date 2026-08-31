@@ -24,7 +24,7 @@ While asymptotic notation (O, Θ, Ω) describes *growth rates*, true efficiency 
 Efficient algorithms scale to larger inputs, reduce resource usage, and deliver predictable performance under diverse workloads and environments. Understanding efficiency guides choices among multiple correct algorithms by revealing how costs evolve as `n` grows, how constants and memory behavior influence real timings, and which trade-offs (time vs space, preprocessing vs query time) are sensible for a given system.
 
 > [!note] Why asymptotics matter in practice
-> We compare how **work scales with n**, not just a single machine’s runtime. This separates **design quality** from hardware or implementation quirks.
+> We compare how **work scales with n** rather than a single machine’s runtime. This separates **design quality** from hardware or implementation quirks.
 
 ---
 
@@ -105,7 +105,7 @@ Examples:
 > ![Five growth curves plotted against input size, constant through quadratic](cs/dsa/assets/efficiency-perf-vs-input.svg)
 
 > [!tip]  
-> Benchmark on realistic workloads, not just random data.
+> Benchmark on realistic workloads, not random data alone.
 
 ### Space Efficiency
 
@@ -201,3 +201,17 @@ Choose based on _context_: memory-constrained systems (embedded) may prioritize 
     
 - [[cs/dsa/space-complexity|Space Complexity]]
     
+
+## Sources
+
+- Big O notation, Wikipedia. https://en.wikipedia.org/wiki/Big_O_notation . Backs O, Θ, and Ω as descriptions of growth rate with constant factors and lower-order terms discarded, and the pitfall that O is an upper bound rather than an identity while Θ is the two-sided bound.
+- Analysis of algorithms, Wikipedia. https://en.wikipedia.org/wiki/Analysis_of_algorithms . Backs the framing of asymptotic analysis as machine-independent comparison of how work scales with input size, and the use of a stated unit-cost model in which primitive operations are counted.
+- Random-access machine, Wikipedia. https://en.wikipedia.org/wiki/Random-access_machine . Backs the RAM model named in the Model and Assumptions callout as the standard abstract machine for this kind of counting.
+- Locality of reference, Wikipedia. https://en.wikipedia.org/wiki/Locality_of_reference . Backs the definitions of spatial and temporal locality, and the point that sequential access to contiguous elements such as row-major matrix traversal improves cache utilization and reduces misses.
+- CPU cache, Wikipedia. https://en.wikipedia.org/wiki/CPU_cache . Backs the claim that a cache miss stalls the processor and that modern CPUs can execute hundreds of instructions in the time it takes to fetch a single cache line from main memory, which is why memory access pattern can dominate instruction count.
+- Sorting algorithm, Wikipedia. https://en.wikipedia.org/wiki/Sorting_algorithm . Backs both trade-off tables: merge sort's O(n) additional space, heapsort's O(n log n) worst case, quicksort's average O(n log n) with modest O(log n) space and typically unstable in-place partitioning, insertion sort's use on small data sets, counting sort running in O(|S| + n) time and O(|S|) memory, and the definition of stability.
+- Quicksort, Wikipedia. https://en.wikipedia.org/wiki/Quicksort . Backs worst-case O(n^2) against average O(n log n), and that input ordering drives it: a last-element pivot degrades to quadratic on already sorted arrays or arrays of identical elements.
+- Hash table, Wikipedia. https://en.wikipedia.org/wiki/Hash_table . Backs expected constant-time lookup in a well-dimensioned table against O(n) worst case when collisions pile into one slot.
+- Timsort, Wikipedia. https://en.wikipedia.org/wiki/Timsort . Backs Timsort as the hybrid example, combining merge sort with insertion sort and run detection.
+- Amortized analysis, Wikipedia. https://en.wikipedia.org/wiki/Amortized_analysis . Backs the pitfall that amortized analysis averages running times of operations over a sequence on a persistent structure, which is a different thing from averaging over input instances.
+- Profiling (computer programming), Wikipedia. https://en.wikipedia.org/wiki/Profiling_%28computer_programming%29 . Backs profilers as the tool for locating hot spots, and gprof specifically as a call-graph execution profiler.

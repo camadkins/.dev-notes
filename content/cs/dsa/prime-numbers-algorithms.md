@@ -54,7 +54,7 @@ An integer `n ≥ 2` is composite iff it has a factor `p ≤ √n`.
 
 Reduce the set of candidates by removing numbers divisible by small bases.
 
-- **Mod 6 wheel**: after handling 2 and 3, check only residues `±1 (mod 6)` → ~1/3 of odds remain.
+- **Mod 6 wheel**: after handling 2 and 3, check only residues `±1 (mod 6)` → 1/3 of all integers, i.e. two-thirds of the odds, remain.
 
 - Larger wheels (e.g., mod 30: skip multiples of 2,3,5) reduce trial count further but increase indexing complexity.
 
@@ -64,9 +64,9 @@ Reduce the set of candidates by removing numbers divisible by small bases.
 
 **Trial division with mod-6 wheel:** Candidates: `5,7,11,13,17,19,23,25,...` (i.e., `6k±1`). Stop once `p*p > n`.
 
-- For `n=221`, test 5 (no), 7 (no), 11 (yes, 221=11×20+1 → actually 221 = 13×17; our sequence hits 13 next and finds divisor).
+- For `n=221`, test 5 (no), 7 (no), 11 (no: `221 = 11×20 + 1`), 13 (yes: `221 = 13×17`) → **composite**.
 
-- For `n=223`, stop at `p=15` since `15*15>223`; no divisor found → **prime**.
+- For `n=223`, candidates 5, 7, 11, 13 all fail to divide; the next candidate is 17 and `17*17 = 289 > 223`, so stop - no divisor found → **prime**.
 
 > [!warning]
 > **Edge cases**: `n < 2` is **not prime**; `2` and `3` are primes; even `n > 2` and `n % 3 == 0` imply composite early.
@@ -145,9 +145,11 @@ function SIEVE_SEGMENTED(N, S):
 
 For **64-bit integers**, Miller-Rabin with a **small fixed base set** is deterministic.
 
-- A common set: test bases `a ∈ {2, 3, 5, 7, 11, 13, 17}` is sufficient for all `n < 2^64`.
+- The first twelve primes, `a ∈ {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37}`, are sufficient for all `n < 318,665,857,834,031,151,167,461`, which covers every 64-bit `n`.
 
-- Even smaller curated sets exist; any of the standard sets work in practice.
+- Shorter prefixes cover smaller ranges: `{2,3,5,7}` is enough below `3,215,031,751`, and `{2,3,5,7,11,13,17}` only up to `341,550,071,728,321` - well short of `2^64`.
+
+- Smaller non-consecutive curated sets exist (seven bases suffice below `2^64`); pick a published set together with the bound it was verified against.
 
 > [!tip]
 > Always **trial-divide by small primes** first (e.g., all primes ≤ 1000). This removes trivial composites and reduces Miller-Rabin rounds.
@@ -184,6 +186,8 @@ Run with `k` independent random bases `a`; if all return **probably_prime**, dec
 - `p=3`: mark `9,12,15,...`.
 
 - `p=5`: mark `25,30,35,40,45,50`.
+
+- `p=7` (the loop runs to `floor(sqrt(50)) = 7`): mark `49`.
     Remaining true flags are primes: `[2,3,5,7,11,13,17,19,23,29,31,37,41,43,47]`.
 
 ### Miller-Rabin factorization
@@ -283,3 +287,7 @@ For `n−1 = d·2^s`, example `n=561` (Carmichael):
 - [[cs/dsa/counting-sort|Counting Sort]]
 
 - [[cs/dsa/logarithmic-functions|Logarithmic Functions]]
+
+## Sources
+
+- Miller-Rabin primality test, Wikipedia. https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test . Backs the corrected deterministic base sets. It records that the bases 2, 3, 5, 7, 11, 13, 17 are verified only for n below 341,550,071,728,321, that testing the first twelve primes through 37 suffices for all n below 2^64 and, per Sorenson and Webster, for all n below 318,665,857,834,031,151,167,461, and that seven non-consecutive bases also suffice below 2^64.

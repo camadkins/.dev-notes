@@ -46,7 +46,7 @@ Let `A[0 … n−1]` be an array of `n` elements, each occupying `s` bytes.
 > This model explains why random access is O(1).
 
 > [!warning]
-> In languages like C, no bounds check occurs at runtime; in Java or Python, an `IndexError` is raised.
+> In languages like C, no bounds check occurs at runtime; Java throws an `ArrayIndexOutOfBoundsException` and Python raises an `IndexError`.
 
 ### Memory Layout & Addressing
 Given base address `B`, element size `s`, and index `i`, the address of `A[i]` is `B + i×s`.

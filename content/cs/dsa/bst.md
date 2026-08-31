@@ -11,7 +11,7 @@ aliases: []
 
 ## Overview
 A **Binary Search Tree (BST)** is a hierarchical data structure that stores elements in a **sorted** manner, allowing efficient **search**, **insertion**, and **deletion** operations.  
-Each node has up to two children — **left** and **right** — arranged by the **BST invariant**:
+Each node has up to two children, **left** and **right**, arranged by the **BST invariant**:
 
 ```
 
@@ -47,9 +47,9 @@ struct Node {
 |Search|O(log n)|O(n)|O(1)|
 |Insert|O(log n)|O(n)|O(1)|
 |Delete|O(log n)|O(n)|O(1)|
-|Traversal|O(n)|O(n)|O(1)|
+|Traversal|O(n)|O(n)|O(h)|
 
-The efficiency depends on tree height — ideally `O(log n)` but can degrade to `O(n)` if the tree becomes skewed.
+The efficiency depends on tree height: ideally `O(log n)`, but it can degrade to `O(n)` if the tree becomes skewed.
 
 ---
 
@@ -65,7 +65,7 @@ function search(node, key):
         return search(node.right, key)
 ```
 
-The search path follows comparisons — left for smaller, right for larger.
+The search path follows comparisons: left for smaller, right for larger.
 
 ![BST structure showing search path for key 37: 50 → 25 → 37](cs/dsa/assets/bst-structure.svg)
 
@@ -98,7 +98,7 @@ There are three common approaches:
     
 
 > [!warning]  
-> Duplicate-handling must be consistent — mixing policies can silently violate ordering.
+> Duplicate-handling must be consistent; mixing policies can silently violate ordering.
 
 ![Inserting 42 into the chain 40, 50, 60, descending right then left](cs/dsa/assets/bst-insertion-trace.svg)
 
@@ -210,7 +210,7 @@ Inorder traversal yields `[10, 25, 37, 50, 60, 75, 90]`.
 > **Parent link updates:** If nodes store parent references, update them during insertions and deletions.
 
 > [!warning]  
-> **Unbalanced growth:** Sequential insertions (`1, 2, 3, ...`) degrade to O(n) time — use balancing or randomization.
+> **Unbalanced growth:** Sequential insertions (`1, 2, 3, ...`) degrade to O(n) time. Use balancing or randomization.
 
 > [!warning]  
 > **Incorrect duplicate handling:** Failing to define a side (left/right) for equal keys breaks ordering.
@@ -241,3 +241,13 @@ Inorder traversal yields `[10, 25, 37, 50, 60, 75, 90]`.
 - [[cs/dsa/linked-list|Linked List]]
     
 - [[cs/dsa/heapify|Heapify]]
+
+## Sources
+
+- Binary search tree, Wikipedia. https://en.wikipedia.org/wiki/Binary_search_tree . Backs the BST invariant that every key in a node's left subtree is smaller and every key in its right subtree is larger, the operations table (average `Θ(log n)` for search, insert and delete against `O(n)` in the worst case), the reason for the degradation (arbitrary insertion order can make the tree degenerate into something with the same worst-case complexity as a linked list), the three deletion cases with the inorder successor or predecessor used when the node has two children, and the statement that an inorder walk visits all nodes in non-decreasing key order.
+- CS 161 Lecture 8, Binary Search Trees, Jessica Su, Stanford University (some parts copied from CLRS). https://web.stanford.edu/class/archive/cs/cs161/cs161.1168/lecture8.pdf . Backs the height claims in the Height and Balance section, since it states that these operations run in time proportional to the height of the tree, that in the best case the tree is complete and the height is `Θ(log n)`, and that in the worst case the tree is a linear chain and the height is `Θ(n)`. It also backs the search descent rule (compare against the node, go left if smaller and right if larger, stop at NIL), that search runs in `O(h)`, the `Θ(n)` running time of the inorder tree walk, and the two-children deletion case, including the detail that the successor cannot have a left child.
+- Tree traversal, Wikipedia. https://en.wikipedia.org/wiki/Tree_traversal . Backs the traversal table's three orders and the corrected traversal space cell. The article states that all of its recursive and iterative traversal implementations require stack space proportional to the height of the tree, which is why the table now reads `O(h)` rather than `O(1)` for traversal.
+- Random binary search tree, Wikipedia. https://en.wikipedia.org/wiki/Random_binary_search_tree . Backs the tip that random insertion order keeps the height logarithmic: inserting `n` keys in uniformly random order gives an expected root-to-node path length of at most `2 log n + O(1)` and, with high probability, a height of about `4.311 log n` in natural logarithms.
+- AVL tree, Wikipedia. https://en.wikipedia.org/wiki/AVL_tree . Backs the claim that self-balancing variants mitigate skew by maintaining bounded height, since an AVL tree keeps the heights of any node's two child subtrees within one of each other and therefore does lookup, insertion and deletion in `O(log n)` in both the average and the worst case.
+- Red-black tree, Wikipedia. https://en.wikipedia.org/wiki/Red%E2%80%93black_tree . Backs the same claim for the other named family: the colouring requirements force the path to the farthest leaf to be at most twice the path to the nearest, giving `h ∈ O(log n)`, a property ordinary binary search trees do not have.
+- Order statistic tree, Wikipedia. https://en.wikipedia.org/wiki/Order_statistic_tree . Backs the note under Node Structure that implementations may store subtree metadata such as size, and what that metadata buys, namely rank and select queries answered by keeping `size[x] = size[left[x]] + size[right[x]] + 1` up to date.

@@ -32,7 +32,7 @@ It extends the **B-tree** by ensuring that **all actual data (records)** reside 
     
 3. Leaf nodes store **keys + data pointers**, and one **next-leaf pointer**.
     
-4. Root may have fewer keys (at least two children unless empty).
+4. Root may have fewer keys (at least two children unless it is itself a leaf).
     
 
 ---
@@ -65,7 +65,7 @@ To search for key `k`:
     
     - Half the keys move to a new sibling leaf.
         
-    - Middle key is **promoted** to the parent.
+    - The first key of the new right leaf is **copied** up to the parent as a separator; it stays in the leaf. (Only an internal-node split moves its median key up.)
         
 4. Propagate splits upward recursively if necessary.
     
@@ -172,10 +172,10 @@ This design supports efficient **ordered scans** - a major reason B+ Trees domin
 |Range queries|Inefficient|Very efficient|
 |Node size|Larger|Smaller (no data in internal nodes)|
 |Storage utilization|Slightly lower|Higher|
-|Use case|In-memory balanced trees|Disk-based indexes|
+|Use case|Lookups that can stop at an internal node|Disk-based indexes and ordered scans|
 
 > [!note]  
-> Most **database engines (MySQL, PostgreSQL)** and **filesystems (NTFS, HFS+, ext4)** use B+ trees under the hood.
+> Most **database engines (MySQL, PostgreSQL)** and **filesystems (NTFS, HFS+)** use B+ trees under the hood.
 
 ---
 
@@ -185,13 +185,13 @@ This design supports efficient **ordered scans** - a major reason B+ Trees domin
 
 1. Start empty - insert `[10, 20, 5]` into first leaf.
     
-2. On inserting 6 → split leaf into `[5,6]` and `[10,20]`; promote `10`.
+2. On inserting 6 → overflow at 4 keys → split leaf into `[5,6]` and `[10,20]`; copy `10` up as the separator.
     
 3. Insert 12 → fits right leaf `[10,12,20]`.
     
-4. Insert 30 → overflow → split right leaf, promote `20`.
+4. Insert 30 → overflow `[10,12,20,30]` → split into `[10,12]` and `[20,30]`; copy `20` up. Root is now `[10, 20]`.
     
-5. Insert 7, 17 → propagate splits as necessary.
+5. Insert 7 → leaf `[5,6,7]`; insert 17 → leaf `[10,12,17]`. Both fit, so no further splits.
     
 
 > [!tip]  

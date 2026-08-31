@@ -67,7 +67,7 @@ function INTERVAL_SCHEDULING(intervals):
     return S
 ```
 
-**Why it works (exchange sketch):** Let `G` be the greedy set and `O` any optimal set. Compare both in finish-time order. The first time they differ, replace `O`'s earlier-finished conflicting interval with `G`'s choice - this never reduces the room for future intervals. Repeating yields a set the same size as `O` but beginning with `G`'s choices, hence greedy is optimal.
+**Why it works (exchange sketch):** Let `G` be the greedy set and `O` any optimal set. Compare both in finish-time order. The first time they differ, `G`'s interval finishes no later than `O`'s, so replace `O`'s conflicting interval with `G`'s choice - this never reduces the room for future intervals. Repeating yields a set the same size as `O` but beginning with `G`'s choices, hence greedy is optimal.
 
 ### Huffman Coding (optimal prefix-free compression)
 
@@ -86,7 +86,7 @@ function HUFFMAN(freqs):
     return Q.extract_min()   // root of optimal code tree
 ```
 
-**Why it works (greedy-choice + exchange):** An optimal tree has the **two lowest-frequency symbols as siblings at maximum depth**. Merging them first and treating the pair as one symbol preserves optimality; induction finishes the proof.
+**Why it works (greedy-choice + exchange):** There is an optimal tree in which the **two lowest-frequency symbols are siblings at maximum depth** (with ties, other optimal trees need not look like this). Merging them first and treating the pair as one symbol preserves optimality; induction finishes the proof.
 
 ### Minimum Spanning Tree (Kruskal/Prim)
 

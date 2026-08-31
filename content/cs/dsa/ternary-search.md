@@ -78,9 +78,9 @@ function PEAK_UNIMODAL(A):         // A increases then decreases (strict)
 
 **Continuous:** Maximize `f(x) = -(x - 2)^2 + 5` on `[0, 5]` with `eps = 0.01`.
 
-1. `m1 = 5/3 ≈ 1.667`, `m2 = 10/3 ≈ 3.333`. `f(m1)=4.778`, `f(m2)=4.778` → keep `[1.667, 3.333]`.
+1. `m1 = 5/3 ≈ 1.667`, `m2 = 10/3 ≈ 3.333`. `f(m1) ≈ 4.889`, `f(m2) ≈ 3.222` → `f(m1) > f(m2)`, so keep `[0, 3.333]`.
 
-2. New `m1 ≈ 2.222`, `m2 ≈ 2.778`. `f(m1)=4.938`, `f(m2)=4.938` → keep `[2.222, 2.778]`.
+2. New `m1 ≈ 1.111`, `m2 ≈ 2.222`. `f(m1) ≈ 4.210`, `f(m2) ≈ 4.951` → `f(m1) < f(m2)`, so keep `[1.111, 3.333]`.
 
 3. Continue until `r - l ≤ 0.01`; result approaches `x* = 2`.
 
@@ -100,7 +100,7 @@ function PEAK_UNIMODAL(A):         // A increases then decreases (strict)
 
     - After `k` iterations, interval length is `(2/3)^k (r0 - l0)`.
         To stop at window `eps`: `k ≥ log((r0 - l0)/eps) / log(3/2)`.
-        Each iteration evaluates `f` **twice** (but you can reuse one evaluation across iterations by carrying `f(m2)` forward), so time is `O(k)` evaluations.
+        Each iteration evaluates `f` **twice**, and the trisection points of the new interval never coincide with the old ones, so no evaluation carries forward: the cost is `2k` evaluations.
 
     - Space `O(1)`.
 
@@ -115,7 +115,7 @@ function PEAK_UNIMODAL(A):         // A increases then decreases (strict)
 
 ## Optimizations or Variants
 
-- **Golden-section search (continuous):** Uses a fixed ratio `φ = (√5 − 1)/2` to place interior points. With careful reuse, it needs **one new evaluation per iteration** vs. two in naive ternary, while achieving the same convergence factor. Prefer it when `f` is expensive to evaluate.
+- **Golden-section search (continuous):** Places the interior points so that the three interval widths stay in a fixed proportion set by the golden ratio `φ = (1 + √5)/2`, which shrinks the bracket by a factor of `φ − 1 ≈ 0.618` per step. Because the proportions are preserved, one probe from the previous step is reusable, so it needs **one new evaluation per iteration** against ternary's two, at a slightly better per-iteration shrink than ternary's `2/3 ≈ 0.667`. Prefer it when `f` is expensive to evaluate.
 
 - **Parabolic interpolation (Brent's method):** Blends golden-section steps with quadratic fits to accelerate on smooth functions, with reliable fallbacks - often the default in numerical libraries.
 
@@ -126,7 +126,7 @@ function PEAK_UNIMODAL(A):         // A increases then decreases (strict)
 - **Derivative information (optional):** If you can compute `f'`, a bracketed **ternary** can be replaced by bisection on `f'`'s sign change or by **Newton** once close - faster but requires smoothness and care.
 
 > [!tip]
-> Cache `f(m2)` from the previous round: after narrowing, one of the new trisection points coincides with a prior point. This reduces to **one fresh evaluation per iteration**, similar in spirit to golden-section.
+> Plain ternary search cannot recycle probes: narrowing `[l, r]` to `[m1, r]` puts the new trisection points at `l + 5(r-l)/9` and `l + 7(r-l)/9`, neither of which is the old `m2` at `l + 6(r-l)/9`. If evaluations are the bottleneck, switch to **golden-section search**, whose ratio is chosen precisely so that one probe survives each step.
 
 ## Applications
 
@@ -173,3 +173,8 @@ Ternary search is a clean **divide-and-conquer** routine for **unimodal** object
 - [[cs/dsa/time-complexity-analysis|Time Complexity Analysis]]
 
 - [[cs/dsa/recurrences-master-theorem|Recurrences - Master Theorem]]
+
+## Sources
+
+- Golden-section search, Wikipedia. https://en.wikipedia.org/wiki/Golden-section_search . Backs the golden-section comparison: the three interval widths are held in the proportion set by the golden ratio phi = (1 + sqrt 5)/2 = 1.618..., the bracket shrinks by the factor phi - 1 = 0.618... per step, and holding those proportions across iterations is what lets one already-evaluated probe be reused each round.
+- Ternary search, Wikipedia. https://en.wikipedia.org/wiki/Ternary_search . Backs the trisection points m1 = l + (r-l)/3 and m2 = r - (r-l)/3, the three comparison cases that let you discard a third of the interval, and the recurrence T(n) = T(2n/3) + O(1) = Theta(log n) behind the complexity section.

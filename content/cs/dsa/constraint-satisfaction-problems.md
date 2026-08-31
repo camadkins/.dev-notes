@@ -169,7 +169,7 @@ Works spectacularly on **n-queens** and many scheduling/timetabling instances.
 
 - **"Arc consistency finds solutions."** It only prunes; finding a solution still needs search or specialized propagation strong enough to force singletons.
 
-- **"Bigger domains are always harder."** Sometimes adding values enables more consistent pairings, allowing stronger propagation. Hardness depends on **constraint tightness** and **graph structure**, not just domain size.
+- **"Bigger domains are always harder."** Sometimes adding values enables more consistent pairings, allowing stronger propagation. Hardness depends on **constraint tightness** and **graph structure**, not domain size alone.
 
 - **"Local search can't solve CSPs with many constraints."** Min-conflicts excels when a **nearby** satisfying assignment exists; restarts and randomization help escape local minima.
 

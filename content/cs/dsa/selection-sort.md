@@ -116,7 +116,7 @@ To make it **stable**, instead of swapping the min into position `i`, **remove**
 The algorithm performs **linear scans** of the tail each pass. Using **contiguous arrays** (as usual) already helps; there is limited room for locality improvement compared to divide-and-conquer sorts that partition and work in caches more effectively.
 
 > [!tip]
-> If you care about write-count **and** asymptotics, consider **cycle sort** for minimal writes (still `Θ(n^2)` comparisons) or **heapsort** for `Θ(n log n)` comparisons with `O(n)` swaps.
+> If you care about write-count **and** asymptotics, consider **cycle sort** for minimal writes (still `Θ(n^2)` comparisons) or **heapsort** for `Θ(n log n)` comparisons and `Θ(n log n)` exchanges.
 
 ## Applications
 
@@ -178,3 +178,14 @@ Selection sort is an in-place algorithm that repeatedly **selects the minimum** 
 - [[cs/dsa/heapsort|Heapsort]]
 
 - [[cs/dsa/quick-sort|Quick Sort]]
+
+## Sources
+
+- Selection sort, Wikipedia. https://en.wikipedia.org/wiki/Selection_sort . Backs the sorted-prefix / unsorted-tail structure with the boundary moving one element right per pass, the comparison count `(n-1) + (n-2) + … + 1 = n(n-1)/2 = O(n²)`, the `O(1)` auxiliary space and not-stable classification from the infobox, the guard `if (jMin != i)` before swapping in the reference C implementation, the write comparison against insertion sort (`n-1` swaps versus up to `n(n-1)/2`, each swap being two writes) and the EEPROM/flash motivation, the point that selection sort "will perform identically regardless of the order of the array" so it gains nothing on nearly sorted data, the stable variant that inserts the minimum and shifts the intervening values up at a cost of `Θ(n²)` writes, and the double selection sort variant that finds both minimum and maximum per pass for half as many passes and a net 25% saving.
+- Sorting algorithm, Wikipedia. https://en.wikipedia.org/wiki/Sorting_algorithm . Backs "exactly n-1 swaps": the classification table's selection sort row reads `n²` for best, average, and worst, `O(1)` memory, not stable, with the note "Noted for its simplicity and small number of element moves. Makes exactly n-1 swaps."
+- 2.1 Elementary Sorts, Robert Sedgewick and Kevin Wayne, Algorithms 4th edition, Princeton University. https://algs4.cs.princeton.edu/21elementary/ . Backs the independent-of-input-order analysis with the proposition "Selection sort uses ~n²/2 compares and n exchanges to sort an array of length n", and the observation that insertion sort and selection sort run within a small constant factor of one another on randomly ordered arrays.
+- Cycle sort, Wikipedia. https://en.wikipedia.org/wiki/Cycle_sort . Backs the write-minimal alternative: cycle sort is theoretically optimal in the total number of writes (each value written zero or one times), while remaining `Θ(n²)` in best, average, and worst time.
+- 2.4 Priority Queues, Robert Sedgewick and Kevin Wayne, Algorithms 4th edition, Princeton University. https://algs4.cs.princeton.edu/24pq/ . Backs the corrected heapsort figure, stating that heapsort uses fewer than 2 n lg n compares and exchanges to sort n items, so heapsort's exchange count is `Θ(n log n)`, not linear. Also backs heapsort as the same select-the-extremum idea run through a heap.
+- Lecture 10: Sorting III: Sorting Lower Bounds, Counting Sort, Radix Sort, MIT 6.006 Fall 2009. https://courses.csail.mit.edu/6.006/fall09/lecture_notes/lecture10.pdf . Backs the instability of standard selection sort with the concrete counterexample in Figure 4: swapping the selected extremum into place reverses two equal keys.
+- Insertion sort, Wikipedia. https://en.wikipedia.org/wiki/Insertion_sort . Backs the contrast drawn in this note's applications section: insertion sort writes to the array `O(n²)` times while selection sort writes only `O(n)` times, "for this reason selection sort may be preferable in cases where writing to memory is significantly more expensive than reading, such as with EEPROM or flash memory".
+- Quickselect, Wikipedia. https://en.wikipedia.org/wiki/Quickselect . Backs the partial-selection advice: to get the k smallest elements without a full sort, quickselect recurses into only one partition side for `O(n)` average time.

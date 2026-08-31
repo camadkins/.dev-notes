@@ -99,11 +99,11 @@ function DELETE(root, key):
 
 - From the root, two branches labeled `"b"` and `"s"`.
     
-- Under `"b"`, children compress to `"be"`, `"bi"`, `"bu"`.
+- Under `"b"`, the child edges are `"e"`, `"id"`, and `"u"`, reaching the loci `"be"`, `"bid"`, and `"bu"`.
     
 - Inserting `"belt"` against `"bell"` triggers a mid-node split at `"bel"` (as illustrated above).
     
-- A longest-prefix query for `"stu"` follows `"s" → "t"` and stops before `"sto"`; completions live under the `"st"` locus.
+- A longest-prefix query for `"stu"` matches `"s"`, then matches only the `"t"` of the edge label `"to"` before diverging; the keys sharing the prefix `"st"` sit below that edge.
     
 
 ![Standard trie vs compressed trie for {bear, bell, bid}: 9 nodes height 5 vs 6 nodes height 4](cs/dsa/assets/ctrie-vs-standard.svg)

@@ -24,7 +24,7 @@ Both rely on two structural facts:
 
 - **Cut property**: In _any_ cut, the **lightest crossing edge** is safe to include in some MST.
 
-- **Cycle property**: In _any_ cycle, the **heaviest edge** is excluded from _all_ MSTs.
+- **Cycle property**: In _any_ cycle, an edge **strictly heavier than every other edge of that cycle** is excluded from _all_ MSTs. The strictness matters: if the maximum weight on the cycle is tied, a heaviest edge may still sit in an MST.
 
 These properties justify each algorithm's local choice and are the basis for correctness proofs.
 
@@ -45,7 +45,7 @@ Let `G=(V,E,w)` with nonnegative (or arbitrary) edge weights. An MST is a spanni
 **Cut (S, V\S).** A set of vertices `S ⊂ V` defines a cut; edges with one endpoint in `S` and the other in `V\S` are said to **cross** the cut.
 
 **Cut property (safe edge).** For any cut `(S, V\S)`, the **lightest** crossing edge is **safe** - it can appear in **some** MST.
-**Cycle property (forbidden edge).** For any cycle, the **heaviest** edge cannot belong to **any** MST.
+**Cycle property (forbidden edge).** For any cycle, an edge whose weight is **strictly larger than the weight of every other edge of that cycle** cannot belong to **any** MST.
 
 These are dual ways to reason about safe inclusion vs exclusion.
 
@@ -113,7 +113,7 @@ Imagine a five-vertex graph. The **lightest cut edge** across `{A,B}` and `{C,D,
 
 - With **binary heap** PQ and adjacency lists: `O(m log n)`.
 
-- With **Fibonacci heap**: `O(m + n log n)` (theoretical; large constants).
+- With **Fibonacci heap** and adjacency lists: `O(m + n log n)` (theoretical; large constants).
     **Dense graphs** with adjacency matrices can use a simple `O(n^2)` Prim (scan all keys per step), which is effective when `m ≈ n^2`.
 
 > [!warning]
@@ -181,3 +181,14 @@ MST construction rests on **cut** and **cycle** properties. **Kruskal** greedily
 - [[cs/dsa/prims-algorithm|Prim's Algorithm]]
 
 - [[cs/dsa/graph-representations|Graph Representations]]
+
+
+## Sources
+
+- Minimum spanning tree, Wikipedia. https://en.wikipedia.org/wiki/Minimum_spanning_tree . Backs the two structural facts and the uniqueness discussion. Its cut property states that for any cut, an edge in the cut-set whose weight is strictly smaller than every other cut-set edge belongs to all MSTs, and adds that when more than one edge ties for minimum weight across a cut, each such edge is contained in some minimum spanning tree, which is the safe-edge phrasing this note uses. Its cycle property is the source for the strictness correction made above: the edge ruled out is one whose weight is larger than any of the individual weights of all other edges of the cycle. It also backs the uniqueness claim (distinct edge weights give exactly one MST, generalizing to forests), the multiplicity claim (with all weights equal, every spanning tree is minimum), that a spanning tree on `n` vertices has `n - 1` edges, and the clustering application via single-linkage hierarchical clustering.
+- Jeff Erickson, Algorithms, Chapter 7: Minimum Spanning Trees. https://jeffe.cs.illinois.edu/teaching/algorithms/book/07-mst.pdf . Backs the safe/useless vocabulary this note's correctness sketches run on, defining an edge as safe when it is the minimum-weight edge with exactly one endpoint in some component of the evolving forest and useless when both endpoints are already in the same component, then proving that the MST contains every safe edge and no useless edge. It backs the negative-weight remark directly, since it defines the input weight function as assigning a real weight to each edge which may be positive, negative, or zero. It backs the uniqueness lemma and the deterministic tie-breaking device that lets an algorithm assuming distinct weights run on a graph with ties. On costs it gives Kruskal as `O(E log E) = O(E log V)` dominated by the initial sort with the disjoint-set work smaller, Prim (Jarnik) as `O(E log E) = O(E log V)` with a binary heap and `O(E + V log V)` with a Fibonacci heap because insert and decrease-key become constant amortized there, and Boruvka as `O(E log V)`.
+- Kruskal's algorithm, Wikipedia. https://en.wikipedia.org/wiki/Kruskal%27s_algorithm . Backs the algorithm as stated and its cost line: it finds a minimum spanning forest and therefore a minimum spanning tree when the graph is connected, adds in each step the lowest-weight edge that will not form a cycle, and its running time is dominated by sorting the edges, `O(E log E)`, with the disjoint-set loop contributing only `O(E alpha(V))`. It also backs the bucketed-weights tip (with integer weights small enough for counting or radix sort the total drops to `O(E alpha(V))`) and the Filter-Kruskal variant attributed to Osipov, Sanders, and Singler, including its quicksort-style partitioning and its suitability for parallelization.
+- Prim's algorithm, Wikipedia. https://en.wikipedia.org/wiki/Prim%27s_algorithm . Backs the Prim cost table with each bound's precondition attached, which is the point this note now makes explicit: an adjacency matrix with linear search gives `O(|V|^2)`, a binary heap with an adjacency list gives `O((|V| + |E|) log |V|) = O(|E| log |V|)`, and a Fibonacci heap with an adjacency list gives `O(|E| + |V| log |V|)`. It also backs the disconnected-input pitfall, since the most basic form of Prim's algorithm finds a minimum spanning tree only in connected graphs and must be rerun per component to yield a forest, and the decrease-key description of the relax step.
+- Disjoint-set data structure, Wikipedia. https://en.wikipedia.org/wiki/Disjoint-set_data_structure . Backs the DSU requirement and the `alpha(n)` figure: a disjoint-set forest performs union and find in near-constant amortized time, `O(m alpha(n))` total for `m` operations, and tree height is controlled by union by size or union by rank while path compression flattens the find path, which is why omitting either degrades the bound.
+- Borůvka's algorithm, Wikipedia. https://en.wikipedia.org/wiki/Bor%C5%AFvka%27s_algorithm . Backs the Boruvka variant described in the hybrids section: each round finds the connected components of the current forest and the cheapest edge leaving each one, each repetition reduces the number of trees within a component to at most half its former value, and the running time is `O(|E| log |V|)`. It also records that the algorithm is frequently called Sollin's algorithm especially in the parallel computing literature, which is the parallel-friendliness this note claims.
+- Matroid, Wikipedia. https://en.wikipedia.org/wiki/Matroid . Backs the matroid view: every finite graph or multigraph yields a cycle matroid whose independent sets are exactly the forests, that is, the edge sets containing no simple cycle, and a maximum-weight independent set in a weighted matroid is found by a greedy algorithm, a property that in fact characterizes matroids. Kruskal's edge-order scan is that greedy algorithm run on the graphic matroid, with weights negated so the extremum is a minimum.

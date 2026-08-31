@@ -232,6 +232,6 @@
 
   <!-- Legend -->
   <text x="480" y="600" class="desc">Gold border = terminal node (suffix endpoint)  |  s₀..s₆ = suffix start index in "banana$"</text>
-  <text x="480" y="618" class="desc">23 nodes for a 7-char string — repeated substrings like "ana" cause Theta(|T|^2) blowup</text>
+  <text x="480" y="618" class="desc">23 nodes for a 7-char string — one node per distinct substring, which grows as Theta(|T|^2)</text>
 
 </svg>

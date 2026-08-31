@@ -210,7 +210,7 @@ After deletion:
 > [!note] Sentinel sketch (unsafe in bounds-checked languages)
 > 
 > ```
-> // reserve A[n] for the sentinel temporarily
+> // overwrite the last slot with the sentinel temporarily
 > T key = x; T last = A[n-1]; A[n-1] = x;
 > int i = 0; while (A[i] != x) ++i;
 > A[n-1] = last;

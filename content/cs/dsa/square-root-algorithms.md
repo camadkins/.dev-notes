@@ -110,7 +110,7 @@ function ISQRT_RESTORING(n):
     shift = (bit_length(n) - 1) // 2
     while shift >= 0:
         rem = (rem << 2) | ((n >> (shift*2)) & 3)   // bring next 2 bits
-        cand = (res << 1) | 1                       // trial divisor
+        cand = (res << 2) | 1                       // trial divisor = 4*res + 1
         if rem >= cand:
             rem = rem - cand
             res = (res << 1) | 1
@@ -128,7 +128,7 @@ function ISQRT_RESTORING(n):
 `lo=1, hi=19` → `mid=10`, `10 ≤ 3?` no → `hi=9` → `mid=5`, `5 ≤ 7?` yes → `lo=5` → `mid=7`, `7 ≤ 5?` no → `hi=6` → `mid=6`, `6 ≤ 6?` yes → `lo=6`, stop with `6`, since `6²=36 ≤ 37 < 49`.
 
 **Newton (x = 10):**
-Start `y=4`. Iterates: `3.25`, `3.1625`, `3.16227766…`. Two to three iterations get full double precision.
+Start `y=4`. Iterates: `3.25`, `3.1634615…`, `3.1622779…`, then `3.1622776601684…`. Errors run `8.8e-2`, `1.2e-3`, `2.2e-7`, `7.6e-15`, so from this rough seed it takes five iterations to land within an ULP of the true root; a tighter initial guess removes the early steps.
 
 > [!tip]
 > Newton's method converges **quadratically** near the root: once close, each step roughly **doubles** the number of correct digits.
@@ -151,7 +151,7 @@ Start `y=4`. Iterates: `3.25`, `3.1625`, `3.16227766…`. Two to three iteration
 
 - **Mixed strategy:** use 2-3 Newton steps from a rough `y0` (e.g., bit-based) then finalize with a **binary-search polish** between `⌊y⌋−1` and `⌈y⌉+1`.
 
-- **Vectorized sqrt:** on platforms with SIMD, use hardware `sqrtps/sqrtsd` then refine with one Newton step for accuracy across lanes.
+- **Vectorized sqrt:** on platforms with SIMD, use hardware packed square roots (`sqrtps` for floats, `sqrtpd` for doubles) then refine with one Newton step for accuracy across lanes.
 
 - **Fast inverse sqrt:** compute `1/√x` (graphics classic); multiply by `x` to get `√x` if needed. Requires careful constant tuning and one Newton step for accuracy.
 
@@ -186,7 +186,7 @@ Start `y=4`. Iterates: `3.25`, `3.1625`, `3.16227766…`. Two to three iteration
 
 - **API surface:** Provide `isqrt_floor`, `isqrt_ceil`, `sqrt_safe(double)`. Expose **prediction-free** integer paths for deterministic timing.
 
-- **Language quirks:** Some languages offer `isqrt` in the standard library (e.g., C++20 `std::sqrt` for floats, `std::bit_width` helps seeding; Python `math.isqrt` implements a bit-by-bit/NR hybrid).
+- **Language quirks:** Some languages offer an integer square root in the standard library: Python's `math.isqrt` (3.8+) uses an adaptive-precision pure-integer Newton iteration with a final check-and-correct step. C++ has no integer sqrt, only floating `std::sqrt`, though C++20's `std::bit_width` helps seed one.
 
 - **Big integers:** Use Newton with big-int division; convergence remains fast because each step roughly doubles digits. Normalize by base-`B` digits to keep divisions balanced.
 
@@ -213,3 +213,7 @@ Correctness hinges on **overflow-safe comparisons**, **clear rounding semantics*
 - [[cs/dsa/time-complexity-analysis|Time Complexity Analysis]]
 
 - [[cs/dsa/maths|Math Basics for DS&A]]
+
+## Sources
+
+- CPython, Modules/mathmodule.c. https://github.com/python/cpython/blob/3.12/Modules/mathmodule.c . Backs the description of `math.isqrt`: the implementation comment describes an adaptive-precision pure-integer version of Newton's iteration with a final check-and-correct step, and notes the iteration count is exactly floor(log2(log2(n))) for n > 1.

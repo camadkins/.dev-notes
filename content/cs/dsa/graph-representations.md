@@ -84,7 +84,7 @@ Adj[4]: {}
 |Check/Fetch weight of `(u,v)`|`Theta(deg(u))` (or `log deg(u)` with a set/map)|`Theta(1)`|
 |Insert edge `(u,v)`|Amortized `Theta(1)` (push)|`Theta(1)`|
 |Delete edge `(u,v)`|`Theta(deg(u))` unless indexed|`Theta(1)`|
-|Add vertex|`Theta(1)` (push empty list)|`Theta(n)` to expand each row/col|
+|Add vertex|`Theta(1)` (push empty list)|`Theta(n)` to expand each row/col when preallocated; `Theta(n^2)` if the array must be resized and copied|
 |Remove vertex|`Theta(deg(u) + in-edges)`|`Theta(n)` to clear row/col|
 
 ### Directed vs Undirected
@@ -112,7 +112,7 @@ Adj[4]: {}
 
 - **BFS/DFS:** Prefer **AL** for sparse graphs: time `Theta(n + m)` vs `Theta(n^2)` for AM (since AM scans each row).
 
-- **Dijkstra:** AL with a priority queue is `Theta((n + m) log n)`; AM version is `Theta(n^2)` and is competitive only when the graph is dense or `n` is small.
+- **Dijkstra:** AL with a **binary heap** priority queue is `Theta((n + m) log n)`; swapping in a **Fibonacci heap** drops it to `Theta(m + n log n)`. The AM version that scans an array for the minimum instead of using a heap is `Theta(n^2)` and is competitive only when the graph is dense or `n` is small.
 
 - **Floyd–Warshall / Warshall:** Naturally matrix-based; initializing `dist`/`reach` comes "for free" with AM. See [[cs/dsa/floyd-warshall|Floyd–Warshall Algorithm]].
 
@@ -163,3 +163,13 @@ Representation choices ripple into:
 - [[cs/dsa/graph-traversals-bfs-dfs|Graph Traversals (BFS & DFS)]]
 
 - [[cs/dsa/dijkstras-algorithm|Dijkstra's Algorithm]]
+
+## Sources
+
+- Jeff Erickson, Algorithms, Chapter 5: Basic Graph Algorithms. https://jeffe.cs.illinois.edu/teaching/algorithms/book/05-graphs.pdf . Backs the operation-cost table nearly line for line: adjacency-list space `Theta(V + E)` against adjacency-matrix space `Theta(V^2)` held regardless of the actual edge count, neighbor listing in `Theta(1 + deg(v))` from a list against `Theta(V)` from a matrix row, constant-time edge tests from a matrix, and the improvement of the list-side edge test to `O(1 + log deg(u))` with a balanced search tree or to expected `O(1)` with a hash table. It also backs the traversal comparison in the Algorithmic Fit section, since it gives whatever-first search as `O(V + E)` under a standard adjacency list and `O(V^2 + E)` when the same graph is stored as an adjacency matrix.
+- Adjacency list, Wikipedia. https://en.wikipedia.org/wiki/Adjacency_list . Backs the sparse-versus-dense trade-off framing of this note: adjacency-list space is proportional to edges plus vertices while an array-backed matrix is proportional to the square of the vertex count, neighbor listing from a list costs time proportional to the vertex's degree while a matrix requires scanning a full row, and the matrix answers adjacency in constant time where a list is slower.
+- Adjacency matrix, Wikipedia. https://en.wikipedia.org/wiki/Adjacency_matrix . Backs the symmetry rule `M[u][v] = M[v][u]` for undirected graphs, the storage claim that a one-bit-per-entry matrix packs into about `|V|^2 / 8` bytes and gains locality of reference from that compactness (the bit-packing point in the Cache/Memory section), and the observation that adjacency lists need less storage on a large sparse graph because they never spend space on absent edges.
+- Graph (abstract data type), Wikipedia. https://en.wikipedia.org/wiki/Graph_%28abstract_data_type%29 . Backs the summary recommendation that lists are preferred for sparse graphs and a matrix for dense ones or when edge-existence lookups must be fast, and backs the vertex-insertion row of the table, which it gives as `O(|V|^2)` for a matrix on the grounds that the matrix must be resized and copied.
+- Dijkstra's algorithm, Wikipedia. https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm . Backs the Dijkstra row's dependence on the queue, not on the graph alone: with adjacency lists and a binary heap the bound is `Theta((|E| + |V|) log |V|)`, a Fibonacci heap improves it to `Theta(|E| + |V| log |V|)`, and the simple version storing the vertex set as an array is `Theta(|V|^2)`.
+- Floyd-Warshall algorithm, Wikipedia. https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm . Backs the claim that Floyd-Warshall is the matrix-shaped choice, running in `Theta(|V|^3)` with `Theta(|V|^2)` space and tending to beat repeated Dijkstra in practice when the graph is dense, while Dijkstra dominates when the graph is sparse.
+- Transitive closure, Wikipedia. https://en.wikipedia.org/wiki/Transitive_closure . Backs the algebraic-methods case for preferring a matrix: the closure is typically stored as a Boolean matrix so that reachability is answered in constant time, it can be computed by the Floyd-Warshall algorithm in `O(n^3)`, and reducing the problem to adjacency-matrix multiplication is what lets fast matrix-multiplication algorithms apply.

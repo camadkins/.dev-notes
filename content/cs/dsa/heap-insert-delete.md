@@ -156,7 +156,7 @@ Start with an empty max-heap. Insert the sequence `8, 3, 10, 1, 6, 14, 4, 7, 13`
 **Now `EXTRACT_MAX` twice:**
 
 - Extract #1: swap root with last (6), shrink, sift-down from 0:
-    `[13,7,10,6,3,8,4,1]` -> compare children (7,10) choose 13? Actually root=6: swap with `13`? Careful: after swap the array pre-sift is `[6,13,10,7,3,8,4,1]`. Sift-down: compare 13 and 10 -> move 13 up, then compare 7 and 3 vs `6` -> move 7 up, place `6`:
+    Pre-sift: `[6,13,10,7,3,8,4,1]` -> compare 13 and 10 -> move 13 up, then compare 7 and 3 vs `6` -> move 7 up, place `6`:
     Result: `[13,7,10,6,3,8,4,1]`.
 
 - Extract #2: swap root with last (1), shrink, sift-down from 0:

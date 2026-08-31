@@ -82,7 +82,7 @@
 <!-- s-node -> sell-node: "ell" -->
 <text class="edge-label" x="470" y="155">"ell"</text>
 <!-- s-node -> st-node: "t" -->
-<text class="edge-label" x="550" y="155">"t"</text>
+<text class="edge-label" x="550" y="155">"to"</text>
 
 <!-- be-node -> bear-node: "ar" -->
 <text class="edge-label" x="100" y="235">"ar"</text>
@@ -95,9 +95,9 @@
 <text class="edge-label" x="305" y="235">"y"</text>
 
 <!-- st-node -> stock-node: "ock" -->
-<text class="edge-label" x="545" y="235">"ock"</text>
+<text class="edge-label" x="545" y="235">"ck"</text>
 <!-- st-node -> stop-node: "op" -->
-<text class="edge-label" x="595" y="235">"op"</text>
+<text class="edge-label" x="595" y="235">"p"</text>
 
 <!-- ===== NODES ===== -->
 

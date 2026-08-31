@@ -34,9 +34,9 @@ Mastering them allows for efficient **state encoding**, **compression**, and **a
 >
 > - **Word size**: use fixed-width types (`uint32_t`, `uint64_t`) when shifts depend on width.
 >
-> - **Signed right shift**: implementation-defined in C/C++; prefer unsigned for portable logical shifts.
+> - **Signed right shift**: implementation-defined in C and in C++ before C++20 (C++20 defines it as an arithmetic shift); Java's `>>` is always arithmetic and `>>>` logical. Prefer unsigned for portable logical shifts.
 >
-> - **Shift range**: shifting by >= word size is undefined; guard indices.
+> - **Shift range**: shifting by >= word size is undefined in C/C++; guard indices. Java instead masks the distance to the low 5 bits for `int` and 6 bits for `long`.
 >
 > - **Two's complement**: most platforms use it; tricks like `x & -x` rely on two's complement.
 
@@ -162,7 +162,7 @@ Used heavily in **graphics**, **[[cs/systems/network-protocols|network protocols
 |Arithmetic (signed) shift|Fills left bits with sign bit|`1110 1000 >> 2 = 1111 1010`|
 
 > [!warning]
-> In C/C++, right-shifting negative values is **implementation-defined**. Always use unsigned integers for portable bit shifts.
+> In C, and in C++ before C++20, right-shifting a negative value is **implementation-defined** (in practice arithmetic). C++20 defines it as an arithmetic shift, and Java always has. Use unsigned integers for portable bit shifts.
 
 ## Subset Iteration
 
@@ -205,13 +205,13 @@ for (int sub = mask; sub; sub = (sub - 1) & mask) {
 > **0 value**: Always handle separately - some bit tricks assume at least one bit is set.
 
 > [!warning]
-> **Overflow**: `(1 << 31)` in 32-bit signed int is undefined - use unsigned types or 64-bit integers. `(1 << n)` overflows if `n ≥ word size`.
+> **Overflow**: `(1 << 31)` on a 32-bit signed `int` is undefined in C - use unsigned types or 64-bit integers. `(1 << n)` with `n ≥ word size` is undefined in C/C++, not merely an overflow.
 
 > [!warning]
-> **Precedence confusion**: `a & 1 << k` means `(a & 1) << k`, not `a & (1 << k)`. Use parentheses explicitly.
+> **Precedence confusion**: `&` binds **looser** than both `<<` and `==`, so `a & 1 << k` already means `a & (1 << k)`, but `a & 1 == 0` parses as `a & (1 == 0)`. Use parentheses explicitly.
 
 > [!warning]
-> **Signed shifts**: Right shifts of negative numbers are implementation-defined in C/C++. Prefer unsigned for logical shifts.
+> **Signed shifts**: Right shifts of negative numbers are implementation-defined in C and in C++ before C++20. Prefer unsigned for logical shifts.
 
 ## Summary
 
@@ -226,3 +226,8 @@ for (int sub = mask; sub; sub = (sub - 1) & mask) {
 - [[cs/dsa/dynamic-programming|Dynamic Programming]]
 - [[cs/dsa/recursion|Recursion]]
 - [[cs/dsa/array-operations|Array Operations]]
+
+## Sources
+
+- Arithmetic operators, cppreference. https://en.cppreference.com/w/cpp/language/operator_arithmetic.html . Backs the shift semantics. Until C++20, `a >> b` for negative `a` is implementation-defined; since C++20 it is `a/2^b` rounded toward negative infinity, that is, an arithmetic right shift.
+- The Java Language Specification, section 15.19 Shift Operators, Oracle. https://docs.oracle.com/javase/specs/jls/se21/html/jls-15.html . Backs the Java contrast. The shift distance is masked to the low five bits for `int` and six bits for `long`, `>>` shifts with sign extension giving floor(n / 2^s), and `>>>` shifts with zero extension.

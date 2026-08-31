@@ -99,7 +99,7 @@ Let `n = |V|`, `m = |E|`.
     
 - With a **d-ary heap**: `extract_min = O(d log_d n)`, `decrease_key = O(log_d n)`. Choose `d` to balance operations (see [[cs/dsa/d-ary-heap|D-ary Heap]]).
     
-- With **Fibonacci / pairing heaps** (amortized): **Time:** `O(m + n log n)` due to `O(1)` amortized `decrease_key`.
+- With a **Fibonacci heap**: **Time:** `O(m + n log n)`, because `decrease_key` is `O(1)` amortized there while `extract_min` stays `O(log n)` amortized. **Pairing heaps** do not reach this bound: their `decrease_key` is provably not `O(1)` amortized (there is an `Omega(log log n)` lower bound), and the best proved upper bound is `O(2^(2*sqrt(log log n)))`, which is `o(log n)` but above constant. They are chosen for practical speed, not for this bound.
     
 - **Dense graphs** with adjacency matrix: `O(n^2)` array-scan version (no PQ) is competitive when `m ≈ n^2`.
     
@@ -108,7 +108,7 @@ Let `n = |V|`, `m = |E|`.
 
 - **Early exit:** If only the distance to a target `t` is required, stop when `t` is popped (settled).
     
-- **Edge bucketing:** For **integer weights in `[0..C]`**, use buckets (Dial’s algorithm) to get `O(m + nC)` or radix-heap variants for `O(m log C + n log C)`.
+- **Edge bucketing:** For **integer weights in `[0..C]`**, Dial’s algorithm uses a bucket queue to get `O(m + nC)`. Combining a radix heap with a Fibonacci heap gives `O(m + n*sqrt(log C))`, and a van Emde Boas tree as the queue gives `O(m + n log C / log log nC)`.
     
 - **0-1 BFS:** If weights are only `0` or `1`, a deque yields `O(n + m)` (special case distinct from general Dijkstra).
     
@@ -149,7 +149,7 @@ Let `n = |V|`, `m = |E|`.
 
 - **PQ choice:** Binary heap is simple and fast in practice; **d-ary heaps** (e.g., `d=4` or `8`) can reduce height and speed `decrease_key`-heavy workloads; Fibonacci/pairing heaps favor extremely many `decrease_key` operations.
     
-- **Graph storage:** Use adjacency lists for sparse graphs to achieve `O(m log n)` complexity.
+- **Graph storage:** Use adjacency lists for sparse graphs. With a **binary heap** on top of them the worst case is `O((n + m) log n)`, which simplifies to `O(m log n)` **only on connected graphs**, where `m >= n - 1`.
     
 - **Parent recovery:** Store `π[v]` on each improvement to rebuild shortest paths. If multiple equal shortest paths exist, tie-break consistently for stable trees.
     
@@ -169,3 +169,15 @@ Dijkstra’s algorithm grows a **settled set** outward from the source, always e
 - [[cs/dsa/d-ary-heap|D-ary Heap]]
     
 - [[cs/dsa/graph-representations|Graph Representations]]
+
+## Sources
+
+- Dijkstra's algorithm, Wikipedia. https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm . Backs the entire complexity section together with the precondition each bound carries. It states that the complexity bound depends mainly on the data structure used for the vertex set, that the simplest version storing that set as a linked list or array runs in `Theta(|E| + |V|^2) = Theta(|V|^2)` (the dense adjacency-matrix row), that with adjacency lists and a binary heap the worst case is `Theta((|E| + |V|) log |V|)` and simplifies to `Theta(|E| log |V|)` only for connected graphs (the precondition added to the graph-storage note), and that a Fibonacci heap improves this to `Theta(|E| + |V| log |V|)`. It is the source for the corrected integer-weight variants: Dial's algorithm with a bucket queue at `O(|E| + |V|C)`, a radix heap combined with a Fibonacci heap at `O(|E| + |V| sqrt(log C))`, and a van Emde Boas tree at `O(|E| + |V| log C / log log |V|C)`, none of which is the figure this note previously gave for radix heaps. It also backs the push-many pattern (adding nodes unconditionally and checking after extraction that the popped priority still equals `dist[u]`), the lazy-initialization variant that starts the queue with only the source, the bidirectional variant with its two frontiers and settled sets, and the non-negativity requirement in the correctness argument.
+- Jessica Su, CS 161 Lecture 11: BFS, Dijkstra's algorithm, Stanford University (portions from CLRS). https://web.stanford.edu/class/archive/cs/cs161/cs161.1168/lecture11.pdf . Backs the operation counts the complexity section rests on: `Insert` is called `n` times, `ExtractMin` `n` times since each vertex is dequeued exactly once, and `DecreaseKey` up to `m` times since that is the total length of all adjacency lists. From those counts it derives each bound with its queue named: `O(n^2 + m) = O(n^2)` for an array, `O((n + m) log n)` for an ordinary heap where `ExtractMin` and `DecreaseKey` are `O(log n)`, and `O(m + n log n)` for a Fibonacci heap. It also backs the shortest-path-tree claim about the parent pointers.
+- Jeff Erickson, Algorithms, Chapter 8: Shortest Paths. https://jeffe.cs.illinois.edu/teaching/algorithms/book/08-sssp.pdf . Backs the settled-set argument and the same bounds from a second CLRS-adjacent source: Dijkstra performs at most `E` decrease-key, `V` insert, and `E` extract-min operations, so a standard binary heap supporting each in `O(log V)` yields `O(E log V)`, and a Fibonacci heap improves this to `O(E + V log V)`. It also records that Dijkstra's original formulation scanned the wavefront by brute force and ran in `O(V^2)`, which is faster than the binary-heap implementation when the graph is dense, and it backs the relaxation-and-tense-edge framing of the main loop.
+- Fibonacci heap, Wikipedia. https://en.wikipedia.org/wiki/Fibonacci_heap . Backs the amortized costs that produce the `O(m + n log n)` row: insert and decrease-key are `O(1)` amortized while delete-min is `O(log n)` amortized.
+- Pairing heap, Wikipedia. https://en.wikipedia.org/wiki/Pairing_heap . Backs the correction separating pairing heaps from Fibonacci heaps. It records that the constant-time conjecture for pairing-heap decrease-key was disproved, that Fredman proved an `Omega(log log n)` amortized lower bound for that operation, and that Pettie's upper bound is `O(2^(2 sqrt(log log n)))`, alongside the note that Fibonacci heaps are the structure performing decrease-key in `O(1)` amortized time. It also backs the practical remark in the PQ-choice paragraph, since it reports experiments finding pairing heaps often faster than theoretically superior pointer-based heaps.
+- d-ary heap, Wikipedia. https://en.wikipedia.org/wiki/D-ary_heap . Backs the d-ary row exactly: insert and decrease-priority cost `O(log n / log d)`, delete-min costs `O(d log n / log d)`, and balancing the two by taking `d = m/n` gives Dijkstra a total of `O(m log_(m/n) n)`, an improvement over the binary-heap `O(m log n)` when edges greatly outnumber vertices. It also backs the cache remark, since it notes d-ary heaps have better memory-cache behavior than binary heaps.
+- 0-1 BFS, Algorithms for Competitive Programming (cp-algorithms). https://cp-algorithms.com/graph/01_bfs.html . Backs the 0-1 BFS variant: when every edge weight is `0` or `1`, single-source shortest paths can be found in `O(|E|)` with an ordinary deque, appending at the front for a weight-zero edge and at the back for a weight-one edge, because in that setting the distances held in the queue span at most one value.
+- Johnson's algorithm, Wikipedia. https://en.wikipedia.org/wiki/Johnson%27s_algorithm . Backs the subroutine application and the reweighting pitfall: Johnson's method reweights edges using Bellman-Ford so that all weights become non-negative while shortest paths are preserved, then runs Dijkstra from each vertex, which is why negative edges must be removed by reweighting rather than fed to Dijkstra directly.
+- Bellman-Ford algorithm, Wikipedia. https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm . Backs the negative-edge warning, since Bellman-Ford is the single-source method that admits negative weights and detects a reachable negative cycle, where Dijkstra's greedy choice is invalid.

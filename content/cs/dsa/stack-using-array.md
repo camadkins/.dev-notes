@@ -137,7 +137,7 @@ Let `n` be the number of operations and `N` the final number of elements.
 
 ### Amortized analysis (brief)
 
-Each resize from `cap` to `2·cap` copies `cap` elements. Charge an **amortized credit** of 1 copy per `push`. The next `cap` pushes will collectively pay for the `cap`-element copy when growth happens; hence amortized `O(1)` per `push`. A symmetric argument applies to halving (with hysteresis) if implemented carefully.
+Each resize from `cap` to `2·cap` copies `cap` elements. Charge an **amortized credit** of 2 copies per `push`. Right after a resize the array holds `cap` elements in `2·cap` slots, so the next `cap` pushes bank `2·cap` credits, exactly the cost of the `2·cap`-element copy at the following growth; hence amortized `O(1)` per `push`. A symmetric argument applies to halving (with hysteresis) if implemented carefully.
 
 ## Implementation Details or Trade-offs
 

@@ -125,7 +125,7 @@ function DECREASE_KEY(H, handle, newKey):
 
 3. Insert `10` → `[3, 7, 10]`
 
-4. Insert `1` → `[1, 3, 10, 7]` (bubble above 3, then 7)
+4. Insert `1` → `[1, 3, 10, 7]` (bubble above 7, then 3)
 
 5. Insert `5` → `[1, 3, 10, 7, 5]`
 

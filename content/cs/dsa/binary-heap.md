@@ -78,7 +78,7 @@ It is typically implemented using an **array**, enabling efficient index arithme
 > ```
 
 > [!note] Build-heap (heapify)
-> Build in **O(n)** by sifting down from the last parent: `for i in reverse(parent(n-1)..0): siftDown(i)`. Each sift-down costs O(height of its subtree), and since most nodes sit near the leaves, the total work sums to O(n) — not O(n log n).
+> Build in **O(n)** by sifting down from the last parent: `for i in reverse(parent(n-1)..0): siftDown(i)`. Each sift-down costs O(height of its subtree), and since most nodes sit near the leaves, the total work sums to O(n), not O(n log n).
 
 ---
 
@@ -86,7 +86,7 @@ It is typically implemented using an **array**, enabling efficient index arithme
 
 |Operation|Time|Notes|
 |---|---|---|
-|push/insert|O(log n)|Sift-up along a root-to-leaf path|
+|push/insert|O(log n)|Sift-up along a leaf-to-root path|
 |pop/extract-min(max)|O(log n)|Sift-down to restore order|
 |peek|O(1)|Root access|
 |build-heap|**O(n)**|Bottom-up heapify|

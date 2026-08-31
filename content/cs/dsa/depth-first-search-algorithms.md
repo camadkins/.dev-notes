@@ -46,9 +46,10 @@ function DFS_VISIT(G, u):
         else if color[v] == GRAY:
             edge_class(u,v) = BACK
         else:  // color[v] == BLACK
-            // Use discovery/finish times to distinguish:
-            // if d[u] < d[v] and f[v] not set yet (or f[v] > f[u]): FORWARD else CROSS
-            if d[u] < d[v] and f[v] is not yet set:
+            // v is finished, so f[v] is already set; the discovery times decide.
+            // d[u] < d[v] means v is a descendant of u -> FORWARD
+            // d[v] < d[u] means v finished before u was discovered -> CROSS
+            if d[u] < d[v]:
                 edge_class(u,v) = FORWARD
             else:
                 edge_class(u,v) = CROSS
@@ -85,7 +86,7 @@ Edges like `d→c` encountered while `c` is GRAY classify as **back**; an edge f
 
 Let `n = |V|` and `m = |E|`.
 
-- **Time:** `O(n + m)` (each vertex/edge processed a constant number of times).
+- **Time:** `O(n + m)` **with the graph in adjacency lists** (each vertex/edge processed a constant number of times). Stored as an adjacency matrix instead, finding the neighbors of a vertex costs `O(n)` per vertex and the traversal becomes `O(n^2 + m)`.
     
 - **Space:** `O(n)` for color/parent/timestamps; recursion uses up to `O(n)` call frames (or an explicit stack of the same size).
     
@@ -145,3 +146,12 @@ DFS performs a **deep** exploration that yields a DFS forest, timestamps, and ed
 - [[cs/dsa/topological-sorting|Topological Sorting]]
     
 - [[cs/dsa/recursion|Recursion]]
+
+## Sources
+
+- Jeff Erickson, Algorithms, Chapter 6: Depth-First Search. https://jeffe.cs.illinois.edu/teaching/algorithms/book/06-dfs.pdf . Backs the white/gray/black state model as new, active, and finished defined against the clock, the fact that a vertex is active exactly while it sits on the recursion stack so the active vertices always form a directed path, the interval nesting that makes ancestry readable from `d[.]` and `f[.]`, and the four edge classes. It is the source for the correction made to the FORWARD/CROSS branch of the pseudocode: a forward edge satisfies `d[u] < d[v] < f[v] < f[u]`, meaning `v` is already finished and `f[v]` is set when the edge is examined, while a cross edge satisfies `f[v] < d[u]`, so the discovery times alone separate the two cases. It also backs the topological-order application, that every DAG has a topological ordering and the reversal of any postordering is one, and the acyclicity test in `O(V + E)`.
+- Depth-first search, Wikipedia. https://en.wikipedia.org/wiki/Depth-first_search . Backs the `O(|V| + |E|)` time and `O(|V|)` space bounds, the classification of edges into tree, forward, back, and cross relative to the DFS spanning tree, the undirected special case in which every edge is a tree edge or a back edge with no forward or cross edges, reverse postordering producing a topological sorting of a DAG, and the iterative implementation that keeps a stack of neighbor iterators in order to reproduce the recursive traversal exactly.
+- Jeff Erickson, Algorithms, Chapter 5: Basic Graph Algorithms. https://jeffe.cs.illinois.edu/teaching/algorithms/book/05-graphs.pdf . Backs the representation precondition added to the time bound. It gives the traversal as `O(V + E)` under a standard adjacency list and states that the running time rises to `O(V^2 + E)` if the graph is stored as an adjacency matrix, since a matrix forces a full row scan per vertex regardless of degree. It also states that unless said otherwise its graph-algorithm time bounds all assume a standard adjacency list, which is the convention this note follows.
+- Strongly connected component, Wikipedia. https://en.wikipedia.org/wiki/Strongly_connected_component . Backs the Kosaraju/Tarjan scaffolding note: several DFS-based algorithms compute strongly connected components in linear time, Kosaraju's using two depth-first searches where the first fixes the order in which the second visits vertices, and Tarjan's using a single pass with a stack and low numbers.
+- Biconnected component, Wikipedia. https://en.wikipedia.org/wiki/Biconnected_component . Backs the articulation-points application: the classic Hopcroft-Tarjan algorithm runs in linear time on a depth-first search, maintaining each vertex's depth in the DFS tree together with the lowpoint, the lowest depth reachable from any descendant, which is the low-link comparison this note describes.
+- Topological sorting, Wikipedia. https://en.wikipedia.org/wiki/Topological_sorting . Backs the claim that the DFS-based method (prepending each vertex on exit, which is reverse postorder) runs in linear time and is the algorithm described in CLRS, and that a topological ordering exists if and only if the graph is acyclic.

@@ -146,7 +146,7 @@ Given weights `w[i]`, values `v[i]`, and capacity `W`, maximize total value with
 
 **Branching:** at each level `i`, decide **include** or **exclude** item `i`.
 
-**Bounding:** fractional knapsack upper bound:
+**Bounding:** fractional knapsack upper bound, valid only when items are **sorted by decreasing `v/w` ratio** (otherwise the expression below is not an upper bound):
 
 ```text
 bound(node) = current_value + remaining_capacity * (next_item_value / next_item_weight)
@@ -162,7 +162,7 @@ function knapsackB&B(i, currW, currV):
         best = currV
     if i == n:
         return
-    ub = currV + (W - currW) * (v[i] / w[i])  // optimistic bound
+    ub = currV + (W - currW) * (v[i] / w[i])  // optimistic bound; requires items sorted by decreasing v/w
     if ub <= best:
         return  // prune
     knapsackB&B(i+1, currW + w[i], currV + v[i])  // include

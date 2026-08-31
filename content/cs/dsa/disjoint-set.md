@@ -81,7 +81,7 @@ Start with elements `{0,1,2,3,4,5}` as singletons.
 
 ## Complexity and Performance
 
-- **Time (amortized):** With **path compression** + **union by rank/size**, any sequence of `p` operations on `n` elements runs in $O((n + p),\alpha(n))$, which is effectively **constant** per operation for all practical input sizes.
+- **Time (amortized):** With **path compression** + **union by rank/size**, any sequence of `p` operations on `n` elements runs in $O((n + p)\,\alpha(n))$, which is effectively **constant** per operation for all practical input sizes.
     
 - **Space:** `O(n)` for `parent` plus `rank`/`size`.
     
@@ -94,7 +94,7 @@ Start with elements `{0,1,2,3,4,5}` as singletons.
     
     - _Full compression_ (as above) sets every node on the path directly to the root.
         
-    - _Path halving_ / _path splitting_ adjust every other node; often faster in tight loops due to fewer recursive calls.
+    - _Path halving_ points every **other** node on the path at its grandparent; _path splitting_ points **every** node at its grandparent. Both are one-pass and often faster in tight loops due to fewer recursive calls.
         
 - **Iterative find:** Re-implement `FIND` iteratively to avoid recursion limits; second pass compresses parents to the root.
     
@@ -137,3 +137,7 @@ Union–Find represents components as **parent-pointer forests** and achieves **
     
 - [[cs/dsa/graph-representations|Graph Representations]]
     
+
+## Sources
+
+- Disjoint-set data structure, Wikipedia. https://en.wikipedia.org/wiki/Disjoint-set_data_structure . Backs the distinction between the two one-pass Find variants of Tarjan and van Leeuwen: path splitting replaces every parent pointer on the path with a pointer to the node's grandparent, while path halving replaces only every other one.

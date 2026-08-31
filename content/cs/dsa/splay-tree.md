@@ -12,7 +12,7 @@ aliases: []
 
 ## Overview
 
-A **splay tree** is a binary search tree (BST) that **self-adjusts** by performing a **splay** operation after every access (search, insert, delete). Splaying repeatedly rotates the accessed node `x` toward the root using one of three local patterns—**zig**, **zig–zig**, or **zig–zag**—until `x` becomes the root. While a single operation can take linear time in the worst case, any **sequence** of `m` operations on a tree with `n` keys costs **amortized `O(log n)` per operation**. Splay trees adapt to **temporal locality** and offer powerful “static/working-set” performance properties without storing balance information.
+A **splay tree** is a binary search tree (BST) that **self-adjusts** by performing a **splay** operation after every access (search, insert, delete). Splaying repeatedly rotates the accessed node `x` toward the root using one of three local patterns (**zig**, **zig–zig**, or **zig–zag**) until `x` becomes the root. While a single operation can take linear time in the worst case, any **sequence** of `m` operations on a tree with `n` keys costs **amortized `O(log n)` per operation**. Splay trees adapt to **temporal locality** and offer powerful “static/working-set” performance properties without storing balance information.
 
 > [!note]  
 > Splay trees maintain the standard **BST invariant**: for every node `u`, all keys in `u.left` are `< u.key` and all keys in `u.right` are `> u.key`.
@@ -31,7 +31,7 @@ struct Node {
 }
 ```
 
-No explicit balance factors or colors are kept—**shape is implicit** and continuously adjusted by splaying.
+No explicit balance factors or colors are kept: **shape is implicit** and continuously adjusted by splaying.
 
 - **Root**: last accessed node after every public operation.
     

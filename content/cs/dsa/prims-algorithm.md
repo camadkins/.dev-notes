@@ -154,7 +154,7 @@ Memory: `Θ(n)` for `key`, `parent`, `inTree` plus graph storage (`Θ(m)` for li
 
 - **Pairing heap**: simple, fast decrease-key empirically; popular alternative to Fibonacci heaps.
 
-- **d-ary heap**: good when **decrease-key** frequency is low: cheaper `extract_min` amortized by fewer levels.
+- **d-ary heap**: good when **decrease-key** frequency is high: fewer levels make decrease-key cheaper (`O(log n / log d)`), at the cost of a pricier `extract_min` (`O(d log n / log d)`), which pays off on dense graphs.
 
 - **Bucket queues**: if weights are **small nonnegative integers**, buckets approach `O(m + C)` where `C` is max weight (Dial-like ideas).
 
@@ -172,7 +172,7 @@ Prim's classical form is hard to parallelize due to the single global frontier, 
 
 - **Image/vision**: building region adjacency MSTs for segmentation.
 
-- **Clustering (single-linkage)**: run Prim until `k` components remain (or cut the `k−1` largest edges afterward).
+- **Clustering (single-linkage)**: build the MST, then cut its `k−1` largest edges to leave `k` clusters.
 
 - **Approximation frameworks**: MSTs underlie **metric TSP** 2-approximation and **Steiner tree** heuristics.
 
@@ -218,3 +218,7 @@ Prim grows an MST from a seed by **repeatedly picking the lightest cut edge**, t
 - [[cs/dsa/graph-representations|Graph Representations]]
 
 - [[cs/dsa/graphs|Graphs - Overview]]
+
+## Sources
+
+- d-ary heap, Wikipedia. https://en.wikipedia.org/wiki/D-ary_heap . Backs the corrected d-ary heap trade-off: decrease-priority costs O(log n / log d) while delete-min costs O(d log n / log d), so a d-ary heap helps precisely when decrease-key operations outnumber extract-min operations.

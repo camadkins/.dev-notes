@@ -107,7 +107,7 @@ Let `V = {0,1,2,3,4}` and edges
 
 - Check `(u,v)` is an edge: AL `Theta(deg(u))` (or `O(1)` with a hash set per row); AM `Theta(1)`.
 
-- Add/remove vertex: AL `Theta(1)`/`Theta(deg(u)+in(u))`; AM `Theta(n)` row/col work.
+- Add/remove vertex: AL `Theta(1)`/`Theta(deg(u)+in(u))`; AM `Theta(n)` row/col work **when the matrix is preallocated to a maximum `n`**. If the `n x n` array has to be resized and copied to admit the new vertex, adding a vertex costs `Theta(n^2)`.
 
 
 **Degree/neighbor mini-snippets (pseudocode).**
@@ -156,3 +156,17 @@ Graphs model entities and relationships with almost no baggage. Know the basics 
 - [[cs/dsa/dijkstras-algorithm|Dijkstra's Algorithm]]
 
 - [[cs/dsa/floyd-warshall|Floyd–Warshall Algorithm]]
+
+## Sources
+
+- Graph theory, Wikipedia. https://en.wikipedia.org/wiki/Graph_theory . Backs the formalism `G = (V, E)` with `E` a set of pairs drawn from `V`, the undirected/directed split into unordered pairs versus ordered pairs, weighted graphs as graphs carrying a numeric weight per edge, and the simple-graph restriction to no parallel edges and no self-loops.
+- Multigraph, Wikipedia. https://en.wikipedia.org/wiki/Multigraph . Backs multigraph as a graph permitted to have multiple edges (also called parallel edges) between the same pair of end nodes, and the convention under which a pseudograph is the multigraph that is additionally permitted to have loops.
+- Degree (graph theory), Wikipedia. https://en.wikipedia.org/wiki/Degree_%28graph_theory%29 . Backs degree as the number of edges incident to a vertex, and the split of a directed vertex's degree into in-degree (incoming edges) and out-degree (outgoing edges), which is what `deg+(u)` and `deg-(u)` name here.
+- Handshaking lemma, Wikipedia. https://en.wikipedia.org/wiki/Handshaking_lemma . Backs both total-degree identities used as sanity checks: the degree sum formula `Sum_u deg(u) = 2m` for undirected graphs, and the directed form in which the sum of in-degrees and the sum of out-degrees each equal the number of edges.
+- Connectivity (graph theory), Wikipedia. https://en.wikipedia.org/wiki/Connectivity_%28graph_theory%29 . Backs connectedness of an undirected graph as every pair of vertices being joined by a path, and the directed notion of strong connectedness.
+- Strongly connected component, Wikipedia. https://en.wikipedia.org/wiki/Strongly_connected_component . Backs the claim that a directed graph decomposes into strongly connected components and that Kosaraju's and Tarjan's algorithms compute them, both by depth-first search.
+- Jeff Erickson, Algorithms, Chapter 5: Basic Graph Algorithms. https://jeffe.cs.illinois.edu/teaching/algorithms/book/05-graphs.pdf . Backs the whole operation-cost comparison in this note: adjacency-list space `Theta(n + m)` against adjacency-matrix space `Theta(n^2)` regardless of how many edges the graph actually has, listing a vertex's neighbors in time proportional to its degree from a list against a full `Theta(n)` row scan in a matrix, and the constant-time edge test a matrix gives. It also carries the standing precondition this note's traversal costs depend on, that all its graph-algorithm time bounds assume a standard adjacency list unless stated otherwise.
+- Adjacency list, Wikipedia. https://en.wikipedia.org/wiki/Adjacency_list . Backs the sparse-versus-dense guidance: adjacency-list space is proportional to vertices plus edges while an array-backed adjacency matrix is proportional to the square of the vertex count, so lists are significantly more space-efficient on sparse graphs.
+- Breadth-first search, Wikipedia. https://en.wikipedia.org/wiki/Breadth-first_search . Backs BFS from a source giving shortest paths measured in number of edges, which is the hop-count claim made here, and the `O(|V| + |E|)` traversal cost behind using BFS or DFS to enumerate components.
+- Dijkstra's algorithm, Wikipedia. https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm . Backs Dijkstra as the choice for shortest paths under non-negative weights, and the note that BFS is the special case of it on unweighted graphs where the priority queue degenerates to a FIFO queue, which is why equal-weight edges are the condition for BFS distances to be shortest paths.
+- Floyd-Warshall algorithm, Wikipedia. https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm . Backs Floyd-Warshall as the all-pairs method that admits negative edge weights provided the graph has no negative cycles, which is the case this note routes to it.

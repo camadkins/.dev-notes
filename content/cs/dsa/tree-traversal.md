@@ -19,11 +19,11 @@ aliases: []
 Each order admits a **recursive** version (via the program stack) and an **iterative** version (using an explicit **stack** or **queue**). The choice affects stack depth, memory use, and control over side effects.
 
 > [!note]
-> Throughout, assume a binary-tree node with fields `Node.left`, `Node.right`, and possibly `Node.children[]` for general trees. For binary search trees (BSTs), **inorder** yields keys in sorted order; see [[cs/dsa/inorder|Traversal — Inorder]] and [[cs/dsa/binary-tree|Binary Tree]].
+> Throughout, assume a binary-tree node with fields `Node.left`, `Node.right`, and possibly `Node.children[]` for general trees. For binary search trees (BSTs), **inorder** yields keys in sorted order; see [[cs/dsa/inorder|Traversal: Inorder]] and [[cs/dsa/binary-tree|Binary Tree]].
 
 ## Motivation
 Picking the right traversal gives you:
-- **Correctness by construction:** e.g., postorder naturally ensures children are processed **before** their parent—ideal for deletion or bottom-up DP.
+- **Correctness by construction:** e.g., postorder naturally ensures children are processed **before** their parent, which is ideal for deletion or bottom-up DP.
 - **Clarity of intent:** preorder aligns with **serialization** (“emit root before its subtree”), inorder with **BST iteration**, level order with **shortest number of edges from root** properties.
 - **Performance predictability:** DFS uses at most the **height** of the tree in extra memory; BFS uses at most the size of the **widest level**.
 
@@ -43,19 +43,14 @@ All standard traversals are **Θ(n)** time for `n` nodes and, in trees without c
 ## Example or Illustration
 Consider a binary tree with values:
 ```
-
+        8
+       / \
+      3   10
+     / \    \
+    1   6    14
+       / \   /
+      4   7 13
 ```
-  8
-/   \
-```
-
-3 10  
-/ \  
-1 6 14  
-/ \ /  
-4 7 13
-
-````
 - **Preorder:** 8, 3, 1, 6, 4, 7, 10, 14, 13  
 - **Inorder:** 1, 3, 4, 6, 7, 8, 10, 13, 14  (sorted because it’s a BST)  
 - **Postorder:** 1, 4, 7, 6, 3, 13, 14, 10, 8  
@@ -193,7 +188,7 @@ function LEVEL_ORDER_WITH_LEVELS(root):
 
 ## Accumulation Patterns (What to Do During `visit`)
 
-- **Aggregates:** subtree sizes, sums, min/max—often simplest in **postorder** (children computed first).
+- **Aggregates:** subtree sizes, sums, min/max; often simplest in **postorder** (children computed first).
     
 - **Structural checks:** BST validity (inorder should be non-decreasing), heap property, balance factors.
     
@@ -240,7 +235,7 @@ For `n` nodes:
 > **Mixing orders accidentally.** Tiny changes in push order flip traversal results (e.g., pushing left before right vs the reverse). Write small tests asserting expected sequences.
 
 > [!warning]  
-> **Stateful visits with side effects.** If `visit` mutates structure (e.g., deleting nodes), ensure the traversal order still visits all intended nodes safely—**postorder** is safest for destructive operations.
+> **Stateful visits with side effects.** If `visit` mutates structure (e.g., deleting nodes), ensure the traversal order still visits all intended nodes safely. **Postorder** is safest for destructive operations.
 
 > [!warning]  
 > **Inorder assumptions outside BSTs.** Only BSTs guarantee sorted order under inorder; for arbitrary binary trees, inorder is just a convention.
@@ -267,23 +262,33 @@ For `n` nodes:
 
 Traversal orders are **contracts** about when a node is visited relative to its children:
 
-- **Preorder**: visit **before** children — ideal for cloning, serialization, and pre-compute passes.
+- **Preorder**: visit **before** children, ideal for cloning, serialization, and pre-compute passes.
     
-- **Inorder**: visit **between** children — exposes sorted order in BSTs.
+- **Inorder**: visit **between** children, which exposes sorted order in BSTs.
     
-- **Postorder**: visit **after** children — natural for deletions, frees, and bottom-up DP.
+- **Postorder**: visit **after** children, natural for deletions, frees, and bottom-up DP.
     
-- **Level order (BFS)**: visit by **depth** — best for breadth properties, shortest-edge layers, and level-wise aggregation.
+- **Level order (BFS)**: visit by **depth**, best for breadth properties, shortest-edge layers, and level-wise aggregation.
     
 
 All run in `Θ(n)` time; pick recursive vs iterative to balance simplicity, depth safety, and memory. Combine traversal with **accumulation** to implement practical algorithms cleanly and safely.
 
 ## See also
 
-- [[cs/dsa/preorder|Traversal — Preorder]]
+- [[cs/dsa/preorder|Traversal: Preorder]]
     
-- [[cs/dsa/inorder|Traversal — Inorder]]
+- [[cs/dsa/inorder|Traversal: Inorder]]
     
-- [[cs/dsa/postorder|Traversal — Postorder]]
+- [[cs/dsa/postorder|Traversal: Postorder]]
     
-- [[cs/dsa/graph-traversals-bfs-dfs|Graph Traversals — BFS & DFS]]
+- [[cs/dsa/graph-traversals-bfs-dfs|Graph Traversals: BFS & DFS]]
+
+## Sources
+
+- Tree traversal, Wikipedia. https://en.wikipedia.org/wiki/Tree_traversal . Backs the three depth-first orders exactly as defined here (pre-order NLR, in-order LNR, post-order LRN), the level-order/breadth-first order using a FIFO queue, the claim that inorder retrieves the keys of a binary search tree in ascending order, and the iterative implementations: the explicit-stack preorder that pushes the right child first so the left is processed first, the drill-left explicit-stack inorder, and the one-stack postorder that tracks the last visited node and moves right only when the right child exists and was not the last node visited. It also backs the space accounting used in the Complexity section, since it states that all of those implementations need stack space proportional to the height of the tree while level order needs space proportional to the maximum number of nodes at a given depth, which it notes can be as much as half the total number of nodes.
+- Tree (abstract data type), Wikipedia. https://en.wikipedia.org/wiki/Tree_%28abstract_data_type%29 . Backs the framing of traversal as walking the tree, and the definitions this note generalises to k-ary trees, namely that a pre-order walk traverses each parent before its children, a post-order walk traverses children before their parents, in-order is defined specifically in terms of a left and a right subtree and so assumes a binary tree, and a level-order walk is a breadth-first search visiting nodes level by level. It also backs the height and depth vocabulary used throughout.
+- Threaded binary tree, Wikipedia. https://en.wikipedia.org/wiki/Threaded_binary_tree . Backs the Morris traversal entry: threading makes null right child pointers point to the inorder successor and null left pointers to the inorder predecessor, which removes the stack whose size is otherwise proportional to the tree's height. It also records that Knuth asked in 1968 for a stackless inorder traversal that leaves the tree unmodified and that Morris published the threading solution in 1979.
+- Binary tree, Wikipedia. https://en.wikipedia.org/wiki/Binary_tree . Backs the serialization claim under Accumulation Patterns, that preorder with null markers yields a unique encoding: the article's EncodeSuccinct emits a bit per node in preorder with 0 for a null child, and DecodeSuccinct reads that same stream back into the original tree, which is the proof that no information is lost.
+- Binary heap, Wikipedia. https://en.wikipedia.org/wiki/Binary_heap . Backs the claim that level order gives a compact layout for complete trees, since a binary heap is by its shape property a complete binary tree and is therefore stored in an array in breadth-first order with no pointers and no wasted slots.
+- Breadth-first search, Wikipedia. https://en.wikipedia.org/wiki/Breadth-first_search . Backs the level-order description used here: BFS starts at the root and explores all nodes at the present depth before moving to the next depth level, and needs extra memory, usually a queue, to hold child nodes encountered but not yet explored.
+- Binary search tree, Wikipedia. https://en.wikipedia.org/wiki/Binary_search_tree . Backs the pitfall about inorder assumptions outside BSTs and the structural-check example, since the sorted-order guarantee comes from the binary-search-tree property itself and holds only for trees that satisfy it.

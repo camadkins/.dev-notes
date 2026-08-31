@@ -111,7 +111,7 @@ function DECREASE_KEY(A, i, new_key, d):
 ```pseudo
 function BUILD_HEAP(A, d):
     n = length(A)
-    for i from (n-1)/d downto 0:
+    for i from (n-2)/d downto 0:          // PARENT(n-1), the last internal node
         SIFT_DOWN(A, i, n, d)
 ```
 
@@ -122,18 +122,18 @@ Start with `d = 3` (ternary heap) and array `A = [2, 5, 9, 7, 6, 12]` (already a
 
 1. Append → `A = [2, 5, 9, 7, 6, 12, 4]`, index `i=6`.
 
-2. SIFT_UP: `PARENT(6) = 2` (value `9`). Swap `4` and `9` → `A = [2, 5, 4, 7, 6, 12, 9]`.
+2. SIFT_UP: `PARENT(6) = (6-1)/3 = 1` (value `5`). Swap `4` and `5` → `A = [2, 4, 9, 7, 6, 12, 5]`.
 
-3. New `i=2`, parent `PARENT(2)=0` (value `2`). Stop (`4 ≥ 2`). Heap property restored.
+3. New `i=1`, parent `PARENT(1)=0` (value `2`). Stop (`4 ≥ 2`). Heap property restored.
 
 
 **Extract-min:**
 
-1. Save `2`, move last element `9` to root → `[9, 5, 4, 7, 6, 12]`.
+1. Save `2`, move last element `5` to root → `[5, 4, 9, 7, 6, 12]`.
 
-2. SIFT_DOWN at `i=0`: children indices `1..3` → values `5, 4, 7`; pick smallest `4` (index 2). Swap → `[4, 5, 9, 7, 6, 12]`.
+2. SIFT_DOWN at `i=0`: children indices `1..3` → values `4, 9, 7`; pick smallest `4` (index 1). Swap → `[4, 5, 9, 7, 6, 12]`.
 
-3. New `i=2`: children `6..8` (none). Stop. Result is a valid min-heap.
+3. New `i=1`: children indices `4..6`, of which `4..5` exist → values `6, 12`; smallest is `6 ≥ 5`. Stop. Result is a valid min-heap.
 
 ## Complexity and Performance
 
@@ -194,10 +194,10 @@ Let `n` be the number of elements.
 > **Index math bugs:** Mind `0`-indexing. Children are `d*i+1 .. min(d*i+d, n-1)`. Off-by-one errors at the tail are common.
 
 > [!warning]
-> **Oversized `d`:** Very large `d` can slow down extract-min due to `d` comparisons per level; pick `d` based on workload, not just height.
+> **Oversized `d`:** Very large `d` can slow down extract-min due to `d` comparisons per level; pick `d` based on workload, not height alone.
 
 > [!warning]
-> **`d = 1` is invalid:** The heap wouldn't progress; require `d ≥ 2`.
+> **`d = 1` degenerates:** each node has a single child, so the structure becomes a sorted chain and both insert and extract-min cost `O(n)`; require `d ≥ 2`.
 
 ## Summary
 

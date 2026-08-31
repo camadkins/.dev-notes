@@ -1,6 +1,6 @@
 ---
 title: Types of Tries
-description: Standard (explicit-edge), compressed/radix (path-compressed), and suffix tries—trade-offs in memory, depth, and operations.
+description: Standard (explicit-edge), compressed/radix (path-compressed), and suffix tries, with trade-offs in memory, depth, and operations.
 draft: false
 tags:
   - cs
@@ -43,7 +43,7 @@ Let `Σ` be the alphabet and `S` a set of keys.
 ### Suffix trie (of a single text `T` with sentinel `$`)
 - Insert all suffixes `T[i..]` for `i=0..|T|`.
 - Any **substring** `T[i..j]` is a **prefix** of some suffix and thus corresponds to a path from the root.
-- Worst-case size is `Θ(|T|^2)` nodes/edges for large alphabets (many repeated contexts).
+- Worst-case size is `Θ(|T|^2)` nodes/edges: a text of length `|T|` can have that many distinct substrings, and an uncompressed trie spends one node on each.
 
 > [!tip]
 > Always append a **unique sentinel** symbol `$` that does not appear in `T` when building suffix variants. It ensures that no suffix is a prefix of another and simplifies terminal handling.
@@ -52,7 +52,7 @@ Let `Σ` be the alphabet and `S` a set of keys.
 Consider keys `{to, tea, ted, ten, in, inn}` over lowercase ASCII.
 
 - **Standard trie:** Path labels are single characters: root→`t`→`e` branches to `a/d/n`. Depth equals key length (2–3). Node count grows with every new character that diverges.
-- **Compressed trie:** The chain `t → e → a` can remain separate from `t → e → d` by labeling edges `"te"` then `"a"`/`"d"`/`"n"`, or by compressing `"to"` as a single edge from `t`. Node count drops; search compares **substrings** per edge.
+- **Compressed trie:** `t` is a branch point (`to` versus `te…`), so the edge from the root stays `"t"`; below it, `"o"` reaches `to` and `"e"` reaches the branch on `"a"`/`"d"`/`"n"`. On the other side, `i → n` is a single-child chain and collapses into one edge `"in"`. Node count drops; search compares **substrings** per edge.
 - **Suffix trie** (for `”banana$”`): Insert `$`, `a$`, `na$`, `ana$`, `nana$`, `anana$`, `banana$`. Substring `”ana”` appears as a path multiple times via different suffix starts.
 
 ![A suffix trie for banana$ with the repeated ana subtree marked](cs/dsa/assets/suffix-trie-fanout.svg)
@@ -96,7 +96,7 @@ Consider keys `{to, tea, ted, ten, in, inn}` over lowercase ASCII.
 
 ## Common Misunderstandings
 > [!warning]
-> **“Radix tries change big-O of lookup.”** No—the big-O in key length remains `Θ(L)`. They reduce *depth* and *pointer traversals*, often improving constants.
+> **“Radix tries change big-O of lookup.”** No: the big-O in key length remains `Θ(L)`. They reduce *depth* and *pointer traversals*, often improving constants.
 
 > [!warning]
 > **“Suffix tries are practical for large texts.”** They are not; space is quadratic in the worst case. Use a **suffix tree** or **suffix array**.
@@ -109,7 +109,7 @@ Consider keys `{to, tea, ted, ten, in, inn}` over lowercase ASCII.
 
 ## Broader Implications
 - **Data-engineering fit:** Domain-specific **normalization** (case-folding, tokenization to bytes) shrinks effective `|Σ|`, improving both memory and speed for all trie variants.
-- **Persistence and versioning:** Path-copying tries (standard or compressed) enable **[[cs/languages/Racket/immutable-data-and-persistent-structures|immutable]]** versions with structural sharing—useful for configuration maps and IDE index snapshots.
+- **Persistence and versioning:** Path-copying tries (standard or compressed) enable **[[cs/languages/Racket/immutable-data-and-persistent-structures|immutable]]** versions with structural sharing, useful for configuration maps and IDE index snapshots.
 - **Ranking and top-k:** Augment nodes with `subtreeWeight` or frequency counters to support ranked autocomplete; costs apply equally to standard and compressed structures.
 
 ## Summary
@@ -123,4 +123,4 @@ The right choice hinges on alphabet size, key length/distribution, memory budget
 - [[cs/dsa/standard-trie|Standard Trie]]
 - [[cs/dsa/compressed-trie|Compressed Trie]]
 - [[cs/dsa/suffix-trie|Suffix Trie]]
-- [[cs/dsa/tries|Tries — Overview]]
+- [[cs/dsa/tries|Tries: Overview]]

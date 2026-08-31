@@ -14,7 +14,7 @@ aliases: []
 A **standard trie** (a.k.a. *prefix tree*) stores strings so that each edge corresponds to a character and each root-to-node path spells a **prefix** of some key. Tries provide **prefix-friendly** lookup: exact membership, prefix queries, and lexicographic iteration in time proportional to the **length of the query**, not the number of stored keys. The trade-off is **memory**: naive node designs allocate a child slot per alphabet symbol, which can be expensive on large alphabets or sparse branches.
 
 > [!note]
-> A “standard trie” here means **uncompressed**—every character consumes one edge. For space-optimized variants see [[cs/dsa/compressed-trie|Compressed Trie]] and for substring indexing see [[cs/dsa/suffix-trie|Suffix Trie]].
+> A “standard trie” here means **uncompressed**: every character consumes one edge. For space-optimized variants see [[cs/dsa/compressed-trie|Compressed Trie]] and for substring indexing see [[cs/dsa/suffix-trie|Suffix Trie]].
 
 ## Structure Definition
 Each node represents a **prefix** `p`. It stores:

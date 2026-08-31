@@ -28,7 +28,7 @@ A circular list may be **singly** or **doubly** linked:
   Each `Node` additionally stores `prev`, with `head.prev == tail` and `tail.next == head`. DCLLs support O(1) deletion with only a pointer to the node itself (no predecessor search).
 
 - **Optional sentinel**
-  A **sentinel (dummy) head** of height 0 that always exists and points to itself in the empty case. This unifies edge cases: empty, singleton, and general operations can be written without per-case special logic.
+  A **sentinel (dummy) head** node that always exists and points to itself in the empty case. This unifies edge cases: empty, singleton, and general operations can be written without per-case special logic.
 
 **Notation.** Use 0-indexed naming for examples; `head` denotes an entry point (any node may serve as an entry pointer in a circle). Nodes hold `value` and pointers `next` (and optionally `prev`).
 

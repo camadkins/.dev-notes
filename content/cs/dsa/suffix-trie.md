@@ -130,7 +130,7 @@ As these are inserted, shared prefixes (like `a→n→a`) **merge**. Now:
 
 Let `n = |S|` and `m = |P|`.
 
-- **Build:** `Θ(n²)` time and space in the worst case (e.g., all characters identical). Even for random text, size is usually large.
+- **Build:** `Θ(n²)` time, and `Θ(n²)` space in the worst case (e.g., all characters distinct, so no two suffixes share a prefix). A highly repetitive string like `aaaa$` is the cheap case, needing only `Θ(n)` nodes; for most text the size is close to quadratic.
     
 - **Substring existence:** `Θ(m)` time (path walk), independent of `n`.
     

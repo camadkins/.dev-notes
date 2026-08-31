@@ -74,17 +74,20 @@ function EXTENDED_GCD(a, b):
 
 Run `EXTENDED_GCD(17, 43)`:
 
-|step|old_r|r|q|old_x|x|old_y|y|
-|--:|--:|--:|--:|--:|--:|--:|--:|
-|init|17|43|-|1|0|0|1|
-|1|43|17|2|0|1|1|-2|
-|2|17|9|1|1|-1|-2|3|
-|3|9|8|1|-1|2|3|-5|
-|4|8|1|8|2|-17|-5|43|
-|5|1|0|-|-17|-|43|-|
+Each row shows the state **after** the step, with `q` the quotient used in that step.
 
-Return `(g,x,y)=(1,-17,43)`. Since `g=1`, the inverse is `x ≡ -17 ≡ 26 (mod 43)`.
-Check: `17·26 = 442 ≡ 1 (mod 43)`.
+|step|q|old_r|r|old_x|x|old_y|y|
+|--:|--:|--:|--:|--:|--:|--:|--:|
+|init|-|17|43|1|0|0|1|
+|1|0|43|17|0|1|1|0|
+|2|2|17|9|1|-2|0|1|
+|3|1|9|8|-2|3|1|-1|
+|4|1|8|1|3|-5|-1|2|
+|5|8|1|0|-5|43|2|-17|
+
+Return `(g,x,y)=(1,-5,2)`, taken from `old_r, old_x, old_y` after the loop; the final `x,y` are discarded.
+Since `g=1`, the inverse is `x ≡ -5 ≡ 38 (mod 43)`.
+Check: `17·(-5) + 43·2 = 1`, and `17·38 = 646 = 15·43 + 1 ≡ 1 (mod 43)`.
 
 ## Complexity Analysis
 

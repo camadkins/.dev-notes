@@ -123,7 +123,7 @@ Let `n` be the number of operations.
 
 - **Space**:
 
-    - Array: `Θ(cap)` reserved; load factor near 1 if growth policy is geometric.
+    - Array: `Θ(cap)` reserved; geometric growth keeps the load factor `top/cap` at or above 1/2, since it falls to exactly 1/2 right after a doubling.
 
     - Linked: `Θ(n)` plus per-node overhead (pointers, allocator headers).
 
@@ -146,7 +146,7 @@ Cache and locality:
 
 ### Shrink policy
 
-- Shrinking when `top < cap/4` reduces memory but risks **thrash** on workloads that hover near thresholds. Many libraries **do not shrink automatically**; expose a `trimToSize()` method instead.
+- Shrinking by halving when `top < cap/4` reduces memory *without* **thrash**: the shrunken array is left half full, so an alternating push/pop workload cannot force a resize on every operation. Shrinking at `top < cap/2` is the policy that oscillates. Many libraries still **do not shrink automatically**; they expose a `trimToSize()` method instead.
 
 
 ### Error handling
@@ -219,6 +219,10 @@ function UNDO(state, undoStack):
 ## Summary
 
 Stacks implement **LIFO** access with a minimal, efficient API. Array-backed stacks offer **cache-friendly speed** and amortized `O(1)` growth; linked stacks offer **constant-time worst-case ops** and stable pointers at the cost of per-node overhead. Robust designs define clear behavior for **underflow/overflow**, choose sensible **resize/shrink** policies, and consider **thread safety** and **memory locality**. Stacks are a foundational tool for recursion elimination, parsing, backtracking, and many core algorithms.
+
+## Sources
+
+- Bags, Queues, and Stacks, Algorithms 4th edition (Sedgewick and Wayne), Princeton University. https://algs4.cs.princeton.edu/13stacks/ . Backs the resizing policy: double the array when it is full, halve it when it is less than one-quarter full.
 
 ## Related Notes
 

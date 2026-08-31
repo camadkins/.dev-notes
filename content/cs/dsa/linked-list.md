@@ -225,7 +225,7 @@ function MIDDLE(L):
     while fast != NIL and fast.next != NIL:
         slow = slow.next
         fast = fast.next.next
-    return slow    // middle (left-middle on even length)
+    return slow    // middle (right-middle on even length)
 ```
 
 ### Cycle detection (Floyd's tortoise & hare)

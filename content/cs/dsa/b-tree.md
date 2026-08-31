@@ -12,7 +12,7 @@ aliases: []
 
 ## Overview
 A **B-tree** is a **self-balancing multiway search tree** that generalizes binary search trees to support **multiple keys per node**.  
-It minimizes [[cs/history/magnetic-disk-storage|disk I/O]] by storing large blocks of sorted keys together—ideal for databases and [[cs/systems/file-systems|filesystems]] where nodes map directly to disk pages.
+It minimizes [[cs/history/magnetic-disk-storage|disk I/O]] by storing large blocks of sorted keys together, which is ideal for databases and [[cs/systems/file-systems|filesystems]] where nodes map directly to disk pages.
 
 > [!note]
 > B-trees are optimized for external memory: instead of minimizing CPU comparisons, they minimize the number of disk reads required to locate data.
@@ -20,7 +20,7 @@ It minimizes [[cs/history/magnetic-disk-storage|disk I/O]] by storing large bloc
 ---
 
 ## Motivation
-Standard binary search trees degrade to height `O(n)` in the worst case, while AVL and Red-Black trees—though balanced—are inefficient for disk storage, as each node often triggers separate disk access.
+Standard binary search trees degrade to height `O(n)` in the worst case, while AVL and Red-Black trees, though balanced, are inefficient for disk storage, as each node often triggers separate disk access.
 
 A B-tree solves this by:
 - Storing many keys per node (reducing height).
@@ -59,21 +59,16 @@ The root can have fewer keys (≥1) and fewer children.
 For `m = 4`, each node can contain up to 3 keys and 4 children.
 
 ```
-
-```
       [17 | 35]
      /     |     \
-```
-
 [5 | 12] [20 | 28] [40 | 50 | 60]
-
-````
+```
 
 Searching for 28:
 - Compare in root `[17 | 35]` → between → follow middle child `[20 | 28]` → found.
 
 > [!tip]
-> B-trees reduce the number of node visits dramatically—depth grows logarithmically with branching factor `m`.
+> B-trees reduce the number of node visits dramatically: depth grows logarithmically with branching factor `m`.
 
 ---
 
@@ -134,7 +129,7 @@ function insertNonFull(x, k):
         
 
 > [!warning]  
-> Deletion rebalancing can cascade upward — similar to insert splitting, but reversed.
+> Deletion rebalancing can cascade upward, similar to insert splitting but reversed.
 
 ---
 
@@ -165,7 +160,7 @@ function insertNonFull(x, k):
 
 ### File Systems
 
-- File allocation tables and metadata indices use B-tree variants.
+- Directory indices and file metadata use B-tree variants.
     
 - Example: **HFS+, NTFS, ext4**.
     
@@ -177,7 +172,7 @@ function insertNonFull(x, k):
 ## B-Tree vs Other Trees
 
 | Property | B-Tree | BST | AVL | Red-Black | B+Tree |  
-|-----------|---------|------|-------------|---------|  
+|---|---|---|---|---|---|
 | Keys per node | Multiple | 1 | 1 | 1 | Multiple |  
 | Disk alignment | Yes | No | No | No | Yes |  
 | Balance guarantee | Strict | Unbounded | Height-balanced | Loosely balanced | Strict |  

@@ -99,7 +99,7 @@ class StackUsingQueues:
 
 **Cost:** `push` is `Θ(1)`; `pop`/`peek` are `Θ(n)`.
 
-### C) One-queue rotation (balanced; fast pop)
+### C) One-queue rotation (costly push; fast pop)
 
 Rotate after each `push` so top becomes front.
 
@@ -146,7 +146,7 @@ Consider the **one-queue rotation** with operations: `push(1), push(2), push(3),
 
 
 > [!note]
-> The invariant "**top at front**" keeps `pop` and `peek` trivial. The rotation amortizes the reordering cost into `push`.
+> The invariant "**top at front**" keeps `pop` and `peek` trivial. The rotation moves the whole reordering cost into `push`, which pays `Θ(n)` on every call rather than amortizing it away.
 
 ## Complexity and Performance
 

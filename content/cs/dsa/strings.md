@@ -53,7 +53,7 @@ Two canonical **storage layouts**:
 ### 3) Small-String Optimization (SSO)
 - Very short strings stored **inline** in the object's header to avoid heap allocation (improves locality). Longer strings spill to heap.
 
-### 4) Immune vs mutable
+### 4) Immutable vs mutable
 - **Immutable** (e.g., Java, Python): safe sharing and substrings; copy-on-write or interning reduces duplication.
 - **Mutable** (e.g., C `char*`, Rust `String`): efficient in-place edits but require careful aliasing and bounds checks.
 

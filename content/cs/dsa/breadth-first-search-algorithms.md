@@ -27,9 +27,9 @@ Implemented with a **queue**, BFS provides:
 Let `G = (V, E)` be a directed or undirected graph. Choose a source `s ∈ V`.
 
 State tracked by BFS:
-- `dist[v]` — distance in edges from `s` to `v` (`∞` if unreached),
-- `parent[v]` — predecessor of `v` on a shortest path from `s`,
-- `visited[v]` — whether `v` has been discovered (enqueued).
+- `dist[v]`: distance in edges from `s` to `v` (`∞` if unreached),
+- `parent[v]`: predecessor of `v` on a shortest path from `s`,
+- `visited[v]`: whether `v` has been discovered (enqueued).
 
 **Invariants** maintained during the algorithm:
 1. The **queue** contains vertices in **nondecreasing `dist`**.
@@ -118,7 +118,7 @@ function reconstructPath(parent, s, t):
 
 Assume **adjacency lists** with `n = |V|`, `m = |E|`.
 
-- **Time:** `Θ(n + m)` — each vertex enqueued once; each edge examined at most twice (undirected) or once (directed).
+- **Time:** `Θ(n + m)`. Each vertex is enqueued once, and each edge is examined at most twice (undirected) or once (directed).
     
 - **Space:** `Θ(n)` for `dist`, `parent`, `visited`, plus the queue.
     
@@ -213,7 +213,7 @@ for each v in V:
 ## Worked Example
 
 Consider `G` (undirected), `V = {A, B, C, D, E, F}`, edges:  
-`A—B`, `A—C`, `B—D`, `C—E`, `E—F`.
+`A-B`, `A-C`, `B-D`, `C-E`, `E-F`.
 
 BFS from `A`:
 
@@ -290,3 +290,13 @@ Shortest path `A → F` reconstructed by chasing parents: `F ← E ← C ← A` 
     
 - [[cs/dsa/adjacency-matrix|Adjacency Matrix]]
     
+
+## Sources
+
+- Breadth-first search, Wikipedia. https://en.wikipedia.org/wiki/Breadth-first_search . Backs the definition of BFS as exploring all nodes at the present depth before moving to the next depth level with a queue holding the frontier, the `O(|V| + |E|)` time and `O(|V|)` space figures in the complexity section, the requirement to check whether a vertex has been explored before enqueueing it rather than delaying the check until dequeue (the mark-at-enqueue tip and the matching pitfall), and the parent links tracing a shortest path back to the root, which is the parent-tree reconstruction. It also states that the input is assumed to be given as an adjacency list, adjacency matrix, or similar representation, which is why this note has to name the representation before quoting a bound.
+- Jessica Su, CS 161 Lecture 11: BFS, Dijkstra's algorithm, Stanford University (portions from CLRS). https://web.stanford.edu/class/archive/cs/cs161/cs161.1168/lecture11.pdf . Backs the `Theta(m + n)` bound together with its accounting: each vertex is added to the queue at most once over the whole run because only white vertices are enqueued and a vertex never turns white again, so queue work is `O(n)`, and the inner for loop runs `O(m)` times because each adjacency list is iterated through at most once and the lists hold `m` entries in aggregate. It also backs the shortest-path claim for unweighted graphs and the parent pointers forming the shortest-path tree.
+- Jeff Erickson, Algorithms, Chapter 5: Basic Graph Algorithms. https://jeffe.cs.illinois.edu/teaching/algorithms/book/05-graphs.pdf . Backs the adjacency-list versus adjacency-matrix comparison in the complexity section, which is the precondition on the `Theta(n + m)` figure. It gives the traversal as `O(V + E)` when the graph is in a standard adjacency list, states explicitly that the running time increases to `O(V^2 + E)` when the graph is stored as an adjacency matrix, and separately notes that the breadth-first spanning tree built from the parent edges contains shortest paths from the start vertex to every other vertex in its component. It also backs the disconnected-graph section, since restarting the search at every unmarked vertex still costs only `O(V + E)` in total and produces a spanning forest.
+- Dijkstra's algorithm, Wikipedia. https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm . Backs the weighted-graph warning and the routing advice that follows it: BFS is the special case of Dijkstra on unweighted graphs where the priority queue degenerates into a FIFO queue, and Dijkstra is the method for non-negative weights, which is why unequal weights break the BFS distance guarantee.
+- Bellman-Ford algorithm, Wikipedia. https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm . Backs the fallback named for negative edge weights, since Bellman-Ford computes single-source shortest paths where some edge weights are negative and reports a negative cycle when one is reachable.
+- Bipartite graph, Wikipedia. https://en.wikipedia.org/wiki/Bipartite_graph . Backs the bipartite-testing application and the parity coloring recipe: a graph is bipartite exactly when it is 2-colorable and exactly when it has no odd cycle, and the test can be run with breadth-first search giving each node the opposite color to its parent in breadth-first order, where an edge to a previously colored vertex of the same color exhibits an odd cycle.
+- std::deque, cppreference.com. https://en.cppreference.com/w/cpp/container/deque . Backs the queue-choice implementation note, since it specifies insertion or removal of elements at the end or the beginning as constant `O(1)`.

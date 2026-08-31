@@ -171,7 +171,7 @@ For **overwrite** mode, if full before ENQ `X`, advancing `head` first discards 
 
 ### Multi-Producer / Multi-Consumer
 
-- SPSC is straightforward. **MPSC/MCSP/MPMC** require additional synchronization (CAS, tickets, or per-producer slots). Prefer queues designed specifically for MPMC if needed.
+- SPSC is straightforward. **MPSC/SPMC/MPMC** require additional synchronization (CAS, tickets, or per-producer slots). Prefer queues designed specifically for MPMC if needed.
 
 
 ### Testing & Verification (Boundary Conditions)

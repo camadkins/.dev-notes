@@ -89,7 +89,7 @@ Backtracking is often **exponential in the worst case**, but pruning can reduce 
 
 > [!tip] Useful heuristics
 >
-> - **Ordering**: try most-constrained variables/choices first (fail fast; MRV/LCV in CSPs).
+> - **Ordering**: try the most-constrained **variable** first to fail fast (MRV in CSPs), and order that variable's **values** by the one that rules out fewest options for its neighbors (LCV).
 >
 > - **Constraint propagation**: maintain domains and eliminate inconsistent options early (forward checking, arc consistency).
 >

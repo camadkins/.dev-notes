@@ -185,9 +185,9 @@ test "wrap-around correctness":
     Q = new_ring(8)
     for i in 0..5: ENQUEUE(i)
     for i in 0..3: assert DEQUEUE() == i
-    for i in 6..11: ENQUEUE(i)
+    for i in 6..10: ENQUEUE(i)   // 7 live items, the reserved-slot capacity of an N=8 ring
     // Now force wrap-around; dequeue all and check ascending order
-    expected = [3,4,5,6,7,8,9,10,11]
+    expected = [4,5,6,7,8,9,10]
     for v in expected: assert DEQUEUE() == v
     assert is_empty(Q)
 ```
