@@ -13,7 +13,7 @@ aliases: []
 
 ## Intuition
 
-Bayesian inference treats **probability as a measure of belief** rather than a long-run frequency. You start with a belief about how the world works (a prior), observe data, and then update that belief proportionally to how well each possible explanation predicts what you saw. The result is a full distribution over possible answers - not just a single point estimate - so you always know how certain or uncertain you are.
+Bayesian inference treats **probability as a measure of belief** rather than a long-run frequency. You start with a belief about how the world works (a prior), observe data, and then update that belief proportionally to how well each possible explanation predicts what you saw. The result is a full distribution over possible answers rather than a single point estimate, so you always know how certain or uncertain you are.
 
 The core mechanic is simple: explanations that predicted the data well gain probability mass; explanations that predicted poorly lose it. As more data arrives, the prior matters less and the data dominates. This is the self-correcting property of Bayesian reasoning.
 

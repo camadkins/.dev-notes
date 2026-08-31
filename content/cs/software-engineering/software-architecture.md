@@ -15,7 +15,7 @@ aliases: []
 
 Architecture is the set of decisions that are **expensive to change later** - how a system is decomposed into components, how those components communicate, and where the boundaries of responsibility lie. A function name is cheap to rename; whether your system is a monolith or a mesh of services is not.
 
-Good architecture makes the system's intent legible. When you open the source tree, the folder structure should whisper what the system *does*, not just what framework it uses. The patterns below represent recurring answers to the question: "How should we carve up this system?"
+Good architecture makes the system's intent legible. When you open the source tree, the folder structure should whisper what the system *does*, rather than which framework it uses. The patterns below represent recurring answers to the question: "How should we carve up this system?"
 
 ---
 

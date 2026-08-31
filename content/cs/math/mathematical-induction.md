@@ -50,7 +50,7 @@ $$\text{Strong IH: } \forall j \in [n_0, k],\; P(j) \implies P(k+1)$$
 > *Inductive step*: Assume every integer $j$ with $2 \leq j \leq k$ is a product of primes. Consider $k + 1$. If it's prime, done. If not, then $k + 1 = a \cdot b$ where $2 \leq a, b \leq k$. By the strong IH, both $a$ and $b$ are products of primes, so $k + 1$ is as well. QED.
 
 > [!tip]
-> Use strong induction whenever your recursive structure doesn't just depend on the "previous" case. Divide-and-conquer algorithms (merge sort splits in half, not just peeling off one element) naturally call for strong induction in their correctness proofs.
+> Use strong induction whenever your recursive structure doesn't just depend on the "previous" case. Divide-and-conquer algorithms (merge sort splits in half rather than peeling off one element) naturally call for strong induction in their correctness proofs.
 
 ## Structural Induction
 
