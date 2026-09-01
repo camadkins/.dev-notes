@@ -7,7 +7,7 @@ tags:
   - cs
   - software-engineering
 date: 2026-03-12
-updated:
+updated: 2026-08-31
 aliases: []
 ---
 
@@ -17,13 +17,15 @@ Version control solves a deceptively simple problem: **how do multiple people ch
 
 Understanding Git means understanding the DAG. Every command - `commit`, `branch`, `merge`, `rebase`, `cherry-pick` - is an operation on this graph. Once the data model clicks, the commands stop feeling arbitrary.
 
+This note stays at the level of the model and the workflows built on it. The command-by-command working reference is [[cs/software-engineering/git-command-reference|Git Command Reference]], and the individual pieces of the model each have their own note, listed at the bottom of this one.
+
 ---
 
 ## Core Idea
 
 ### The Object Model
 
-Git stores four types of objects, all [[cs/security/cryptographic-hash-functions|content-addressed by SHA-1 hash]]:
+Git stores four types of objects, all [[cs/software-engineering/git-objects-and-content-addressable-storage|content-addressed by SHA-1 hash]]:
 
 | Object | Contains |
 |--------|----------|
@@ -32,7 +34,7 @@ Git stores four types of objects, all [[cs/security/cryptographic-hash-functions
 | **Commit** | A tree pointer, parent commit pointer(s), author, timestamp, message. |
 | **Tag** | A named pointer to a commit with optional annotation. |
 
-A commit is a snapshot, not a diff. Git computes diffs on the fly by comparing trees. This makes operations like `checkout` and `log` fast regardless of history length.
+A commit is a snapshot rather than a diff. Git computes diffs on the fly by comparing trees, which makes operations like `checkout` and `log` fast regardless of history length. What follows from naming objects by their own hash - deduplication, immutable history, and a single hash that vouches for a whole tree - is the subject of [[cs/software-engineering/git-objects-and-content-addressable-storage|Git Objects and Content-Addressable Storage]].
 
 ### The DAG
 
@@ -48,7 +50,9 @@ A ← B ← C ← D       (main)
 - **Branch point:** `C` is the common ancestor of `D` and `F`.
 - **Merge commit:** has two parents, joining divergent lines.
 
-Branches are just movable pointers to commits. Creating a branch is [[cs/dsa/asymptotic-notation|O(1)]] - it writes 41 bytes (a SHA reference). This cheapness is why Git encourages branching for everything.
+Branches are movable pointers to commits. Creating a branch is [[cs/dsa/asymptotic-notation|O(1)]] - it writes 41 bytes (a SHA reference). This cheapness is why Git encourages branching for everything, and [[cs/software-engineering/refs-and-branches-as-pointers|Refs and Branches as Pointers]] follows the consequence through to why almost nothing in Git is destructive.
+
+Turning this graph into the lines `git log` prints is a [[cs/dsa/topological-sorting|topological sort]], which is the argument of [[cs/software-engineering/the-commit-dag|The Commit DAG]].
 
 ### Branching Strategies
 
@@ -62,6 +66,8 @@ Branches are just movable pointers to commits. Creating a branch is [[cs/dsa/asy
 > The best branching strategy is the one your team can actually follow. Complex models create ceremony that teams circumvent under deadline pressure - and circumvented process is worse than no process.
 
 ### Merge vs Rebase
+
+The mechanical difference is one commit versus a set of new ones, and the choice between them is a choice about what history is for. [[cs/software-engineering/merge-vs-rebase|Merge vs Rebase]] takes that argument apart; the short version:
 
 - **Merge** creates a new commit with two parents, preserving the full branch topology.
 - **Rebase** replays commits onto a new base, producing a linear history but rewriting commit hashes.
@@ -105,12 +111,20 @@ git checkout main && git pull
 git branch -d fix/login-timeout
 ```
 
-Each step maps to a DAG operation: branch creation (new pointer), commit (new node), push (sync with remote graph), merge (join nodes), delete branch (remove pointer - commits remain).
+Each step maps to a DAG operation: branch creation (new pointer), commit (new node), push (sync with remote graph), merge (join nodes), delete branch (remove pointer - commits remain). [[cs/software-engineering/git-command-reference|Git Command Reference]] gives the same treatment for every command, grouped by which of the four writable locations each one changes.
 
 ---
 
 ## Related Notes
 
+- [[cs/software-engineering/git-command-reference|Git Command Reference]] - the working reference this note is the concept half of
+- [[cs/software-engineering/git-objects-and-content-addressable-storage|Git Objects and Content-Addressable Storage]] - the object model in full
+- [[cs/software-engineering/the-commit-dag|The Commit DAG]] - the graph, and what ordering it for display costs
+- [[cs/software-engineering/the-three-trees|The Three Trees]] - working directory, index, and HEAD
+- [[cs/software-engineering/refs-and-branches-as-pointers|Refs and Branches as Pointers]] - the only mutable layer in the system
+- [[cs/software-engineering/merge-vs-rebase|Merge vs Rebase]] - history as record against history as narrative
+- [[cs/software-engineering/the-reflog|The Reflog]] - the local undo log for every ref change
+- [[cs/software-engineering/git-bisect-as-binary-search|Git Bisect as Binary Search]] - the algorithm hiding in a debugging command
 - [[cs/software-engineering/testing-strategies|Testing Strategies]] - CI pipelines run tests on every branch before merge
 - [[cs/software-engineering/software-architecture|Software Architecture]] - repository structure reflects architectural boundaries
 - [[cs/software-engineering/api-design|API Design]] - versioning APIs relates to release branching strategies

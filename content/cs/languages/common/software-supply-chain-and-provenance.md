@@ -45,7 +45,8 @@ Provenance is the complementary claim about origin. In SLSA's model it is tamper
 - [[cs/geopolitics/semiconductor-supply-chains|Semiconductor Supply Chains]] - the hardware mirror of the same trust problem, at the level of fabs and export controls
 - [[cs/military-computing/stuxnet-and-cyber-physical-exploitation|Stuxnet and Cyber-Physical Exploitation]] - what a patient supply-chain-style attack looks like when it chains plausible steps
 - [[cs/languages/common/c-abi-and-ffi|The C ABI and Foreign Function Interfaces]] - dependencies are code you did not write running with your privileges, the same trust boundary from the linking side
-- [[cs/software-engineering/version-control-fundamentals|Version Control Fundamentals]] - the content-addressed commit hashes that pinning and provenance both build on
+- [[cs/software-engineering/git-objects-and-content-addressable-storage|Git Objects and Content-Addressable Storage]] - the content-addressed hashes that pinning and provenance both build on
+- [[cs/software-engineering/version-control-fundamentals|Version Control Fundamentals]] - the branching and release model a pinned dependency is cut from
 
 ## Sources
 

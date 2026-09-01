@@ -35,7 +35,7 @@ The development guide names the tradeoff without hedging: the result is fast pro
 
 Binary size is not only a disk concern. Instructions are fetched through the same cache hierarchy as data ([[cs/systems/memory-hierarchy-and-caching|Memory Hierarchy and Caching]]), so a hot loop calling four instantiations of the same algorithm occupies four times the instruction footprint of one, even though each copy individually runs at the speed the zero-cost claim promises. Speed per call and speed per working set are different quantities, and monomorphization optimizes the first.
 
-The compiler exposes levers that trade the other direction. `-C opt-level=s` optimizes for binary size and `-C opt-level=z` does so more aggressively, with the documented caveat that `z` often results in larger binaries than `s`. Link-time optimization uses whole-program analysis to produce better optimized code at the cost of longer linking time, with `thin` LTO taking substantially less time than `fat` while achieving similar gains. None of these remove instantiations, they compress what the instantiations produced.
+The compiler exposes levers that trade the other direction. `-C opt-level=s` optimizes for binary size and `-C opt-level=z` does so more aggressively, with the documented caveat that `z` often results in larger binaries than `s`. Link-time optimization uses whole-program analysis to produce better optimized code at the cost of longer linking time, with `thin` LTO taking substantially less time than `fat` while achieving similar gains. None of these remove instantiations, they compress what the instantiations produced. The compression is possible because the duplicate instantiations are ordinary symbols in ordinary object files, and deduplicating identical definitions across those files is [[cs/systems/linkers-and-loaders|work the linker was already doing]].
 
 The design lever that does remove instantiations belongs to the author, not the flag: hoist the type-independent body of a generic function into a non-generic inner function and keep the generic wrapper thin. Every instantiation then duplicates only the wrapper.
 
@@ -56,6 +56,7 @@ Rust sits at the extreme of that axis on purpose. It has no runtime to consult, 
 - [[cs/systems/memory-hierarchy-and-caching|Memory Hierarchy and Caching]] - why instruction footprint is a performance quantity rather than a storage one
 - [[cs/pl/parametric-polymorphism-adts|Parametric Polymorphism and Algebraic Data Types]] - the type-theory reading of what generics promise before any compiler decides how to implement them
 - [[cs/languages/Rust/traits-and-generic-bounds|Traits and Generic Bounds in Rust]] - where bounds are checked once at the definition, and what `dyn` costs instead
+- [[cs/systems/linkers-and-loaders|Linkers and Loaders]] - the stage that sees every instantiation as a symbol and gets to fold the duplicates
 
 ## Sources
 

@@ -12,7 +12,7 @@ updated:
 aliases: []
 ---
 
-C# 8 added a question mark to reference type declarations and produced years of confusion about what it means, because the syntax borrows from nullable value types where it does something real. `int?` is `Nullable<int>`, a different type with different storage. `string?` is `System.String`. So is `string`. The compiler enforces distinctions between them that the runtime knows nothing about.
+C# 8 added a question mark to reference type declarations and produced years of confusion about what it means, because the syntax borrows from nullable value types where it does something real. `int?` is `Nullable<int>`, a different type with different storage. `string?` is `System.String`. So is `string`. The compiler enforces distinctions between them that the runtime knows nothing about. Neither one is [[cs/pl/option-and-maybe-types|an option type]], the sum-typed answer to the same question, and the gap between annotating a type and adding a constructor to it is most of what the confusion is about.
 
 > [!note] The idea
 > Nullable reference types are entirely a compile-time feature, and the runtime behavior of your program is unchanged by them. There is no runtime difference between a non-nullable reference type and a nullable one, and the compiler does not add any runtime checking for non-nullable reference types. What you get is a static analysis that tracks a two-valued null-state through your code and warns when your usage contradicts your declarations. That is why the feature ships as warnings rather than errors, why it needs an escape hatch, and why two documented holes in it are unfixable without changing the runtime.
@@ -65,6 +65,7 @@ One footnote complicates the pure compile-time framing in a useful way. The anno
 - [[cs/pl/type-systems-goals-guarantees|Type Systems: Goals & Guarantees]] - the frame for judging a checker that warns instead of rejecting.
 - [[cs/pl/type-soundness-progress-preservation|Type Soundness: Progress & Preservation]] - the property this analysis explicitly does not have.
 - [[cs/languages/Python/type-hints-and-gradual-typing|Type Hints and Gradual Typing]] - the same retrofit in a language that never had a static checker at all.
+- [[cs/pl/option-and-maybe-types|Option and Maybe Types]] - the real sum type this feature approximates, and the nesting test that separates them.
 - [[cs/languages/Rust/error-handling-result-and-question-mark|Error Handling in Rust: Result, Option, and ?]] - what absence looks like when the language had it from the start.
 
 ## Sources

@@ -66,6 +66,7 @@ Now the negative space, which is the part that matters in a report. An image has
 - [[cs/security/certificate-transparency|Certificate Transparency]] uses the same Merkle construction for a different adversary.
 - [[cs/dsa/huffman-coding|Huffman Coding]] underlies the per-chunk compression that makes a container smaller than the disk.
 - [[cs/systems/file-systems|File Systems]] define the structures that a bit stream image preserves and a logical backup discards.
+- [[cs/software-engineering/git-objects-and-content-addressable-storage|Git Objects and Content-Addressable Storage]] makes the same integrity claim about a repository, and runs into the same limit on what a digest proves.
 
 ## Sources
 

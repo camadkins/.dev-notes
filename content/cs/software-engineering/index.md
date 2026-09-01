@@ -38,8 +38,19 @@ Software engineering is where computer science meets craft - the discipline of t
 
 ### Version Control
 
-- [[cs/software-engineering/version-control-fundamentals|Version Control Fundamentals]]
+- [[cs/software-engineering/version-control-fundamentals|Version Control Fundamentals]] - the concept note: the DAG, the object model in outline, and branching strategies
+- [[cs/software-engineering/git-command-reference|Git Command Reference]] - every command sorted by which of git's four writable locations it changes
 - [[cs/software-engineering/monorepo-vs-polyrepo|Monorepo vs Polyrepo]] - what each repository strategy optimizes, and the tooling each demands
+
+The git model, one idea per note, in the order they build on each other:
+
+- [[cs/software-engineering/git-objects-and-content-addressable-storage|Git Objects and Content-Addressable Storage]] - naming an object by the hash of its content, and everything that follows
+- [[cs/software-engineering/the-commit-dag|The Commit DAG]] - history as a partial order, and why `git log` output is a topological sort
+- [[cs/software-engineering/refs-and-branches-as-pointers|Refs and Branches as Pointers]] - the only mutable layer, and the idea that removes most git fear
+- [[cs/software-engineering/the-three-trees|The Three Trees]] - working directory, index, and HEAD, which is what makes `reset` confusing
+- [[cs/software-engineering/merge-vs-rebase|Merge vs Rebase]] - history as record against history as narrative, and what each costs
+- [[cs/software-engineering/the-reflog|The Reflog]] - the local undo log nobody knows exists
+- [[cs/software-engineering/git-bisect-as-binary-search|Git Bisect as Binary Search]] - a CSCE423 algorithm people run at work without noticing
 
 ### DevOps & Deployment
 

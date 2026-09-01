@@ -257,6 +257,7 @@ Tries offer **predictable `Θ(L)`** operations and powerful **prefix-aware** fea
 
 ## See also
 
+- [[cs/dsa/persistent-data-structures|Persistent Data Structures]] - the trie with hashed keys and a 32-way branching factor, used as an immutable map
 - [[cs/dsa/standard-trie|Standard Trie]]
     
 - [[cs/dsa/compressed-trie|Compressed Trie]]

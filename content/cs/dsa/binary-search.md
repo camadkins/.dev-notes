@@ -240,3 +240,5 @@ Always ensure the search space **strictly shrinks** each iteration.
 - [[cs/dsa/array-operations|Array Operations]]
 
 - [[cs/dsa/bst|Binary Search Tree]]
+
+- [[cs/software-engineering/git-bisect-as-binary-search|Git Bisect as Binary Search]] - the monotone-predicate form running over a commit graph instead of an array

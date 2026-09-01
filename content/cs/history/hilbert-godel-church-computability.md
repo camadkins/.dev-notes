@@ -30,10 +30,11 @@ In 1936 Alonzo Church and Alan Turing, working independently, proved that no gen
 
 ## Why it matters
 
-This is the theoretical bedrock of computer science. [[cs/history/turing-and-computability|Turing's machine]] and Church's [[cs/pl/lambda-calculus-syntax-substitution|lambda calculus]] are two faces of one idea of the computable, and the discovery that computation has hard limits is as foundational as anything that came after it.
+This is the theoretical bedrock of computer science. The mathematics the three results left behind, the split between decidable and merely semidecidable questions, reduction as the way to prove a new problem hard, and Rice's theorem generalizing the halting result to every non-trivial property of a program, is carried in [[cs/math/decidability-and-computability|decidability and computability]]. [[cs/history/turing-and-computability|Turing's machine]] and Church's [[cs/pl/lambda-calculus-syntax-substitution|lambda calculus]] are two faces of one idea of the computable, and the discovery that computation has hard limits is as foundational as anything that came after it.
 
 ## Related Notes
 
+- [[cs/math/decidability-and-computability|Decidability and Computability]], the mathematical treatment of the limits this story discovered
 - [[cs/history/turing-and-computability|Turing and Computability]], one model of the computable
 - [[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus]], Church's equivalent model
 - [[cs/history/boole-and-boolean-algebra|George Boole and the Algebra of Logic]], an earlier step in mathematizing reasoning

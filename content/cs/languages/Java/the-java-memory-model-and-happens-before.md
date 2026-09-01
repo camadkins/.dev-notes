@@ -55,13 +55,14 @@ The atomicity guarantee is narrower and stranger. For a non-volatile `long` or `
 
 ## Where the model touches the machine
 
-Two smaller rules show the model reaching down. Word tearing is forbidden: adjacent elements of a `byte` array must be independently updatable, so a JVM on a processor without byte stores cannot implement the update as a read-modify-write of the enclosing word. References are always atomic regardless of volatility, which lets safe publication be a question of ordering rather than torn pointers. Both push cost onto the implementation to keep the programmer's picture simple, and the machinery that pays, the fences the JIT emits at each release and acquire, sits a layer down in [[cs/systems/cache-coherence|cache coherence]].
+Two smaller rules show the model reaching down. Word tearing is forbidden: adjacent elements of a `byte` array must be independently updatable, so a JVM on a processor without byte stores cannot implement the update as a read-modify-write of the enclosing word. References are always atomic regardless of volatility, which lets safe publication be a question of ordering rather than torn pointers. Both push cost onto the implementation to keep the programmer's picture simple, and the machinery that pays, the fences the JIT emits at each release and acquire, sits a layer down in [[cs/systems/memory-barriers-and-weak-memory-models|hardware memory barriers and the weak memory models they exist to correct]].
 
 ## Related Notes
 
 - [[cs/systems/logical-clocks-lamport-and-vector|Logical Clocks: Lamport and Vector]] - where the happens-before partial order comes from
 - [[cs/pl/concurrency-models-threads-locks-and-actors|Concurrency Models: Threads, Locks, and Actors]] - the design space the JMM commits Java to
-- [[cs/systems/cache-coherence|Cache Coherence]] - the hardware layer the model refuses to describe
+- [[cs/systems/memory-barriers-and-weak-memory-models|Memory Barriers and Weak Memory Models]] - the hardware layer the model refuses to describe, and the fences an implementer emits to meet it
+- [[cs/systems/cache-coherence|Cache Coherence]] - the neighbouring hardware guarantee, covering one address rather than ordering across two
 - [[cs/languages/Java/virtual-threads-and-structured-concurrency|Virtual Threads and Structured Concurrency]] - the same guarantees, many more threads
 - [[cs/systems/concurrency-primitives|Concurrency Primitives]] - monitors, locks, and the release/acquire pairs that generate the edges
 - [[cs/languages/Rust/send-sync-and-fearless-concurrency|Send, Sync, and Fearless Concurrency]] - enforcing the same discipline in the type system instead

@@ -49,7 +49,7 @@ Behavior preservation is a claim, and a claim needs evidence. Two things supply 
 
 Automated refactoring tools, now built into most IDEs, perform many common transformations mechanically. Fowler calls these "a really valuable part of my toolkit allowing me to carry out refactoring faster," while being clear they are not the foundation: "such tools aren't essential." He works regularly in languages without tool support.
 
-What he falls back on in those languages is the actual foundation: "I rely on taking small steps, and using frequent testing to detect mistakes." That is the pairing that makes the whole practice work. Small steps bound how much can be wrong at once; a fast test suite tells you within seconds which step broke it. Neither is sufficient alone. Small steps without tests just means you find the breakage later with no idea which of forty steps caused it, and a good test suite without small steps still leaves you [[cs/dsa/binary-search|bisecting a large diff]].
+What he falls back on in those languages is the actual foundation: "I rely on taking small steps, and using frequent testing to detect mistakes." That is the pairing that makes the whole practice work. Small steps bound how much can be wrong at once; a fast test suite tells you within seconds which step broke it. Neither is sufficient alone. Small steps without tests just means you find the breakage later with no idea which of forty steps caused it, and a good test suite without small steps still leaves you [[cs/software-engineering/git-bisect-as-binary-search|bisecting a large diff]].
 
 ## The economic case
 

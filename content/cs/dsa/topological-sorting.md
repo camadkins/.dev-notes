@@ -211,6 +211,8 @@ Topological sorting linearizes a DAG's precedence constraints. **Kahn's algorith
 
 - [[cs/dsa/dynamic-programming|Dynamic Programming]]
 
+- [[cs/software-engineering/the-commit-dag|The Commit DAG]] - `git log --topo-order` is this algorithm, with the tie-break as a user-visible option
+
 ## Sources
 
 - Topological sorting, Wikipedia. https://en.wikipedia.org/wiki/Topological_sorting . Backs the definition that every edge `(u, v)` puts `u` before `v`, the existence condition (a topological ordering is possible if and only if the graph is a directed acyclic graph), the linear `O(|V| + |E|)` running time of the usual algorithms, and the non-uniqueness note, since it states that a solution in the output list is not necessarily unique and that the ready structure may be a set, a queue, or a stack, with a different order resulting from each. It also backs both algorithms as presented here: Kahn's 1962 method of repeatedly removing vertices with no incoming edges and returning an error when the loop ends with edges remaining, and the DFS method that prepends each vertex once all vertices depending on it are placed, running in linear time because each edge and node is visited once. The lexicographic tie-break variant is likewise named there, as a component of the Coffman-Graham algorithm.

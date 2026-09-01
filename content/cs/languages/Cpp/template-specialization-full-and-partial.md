@@ -29,7 +29,7 @@ Full specialization has a long list. cppreference states that a function templat
 
 Partial specialization has a short one. It allows customizing class and variable templates for a given category of template arguments, and that is all. Function templates are absent, and so the standard idiom for "a different implementation for pointers" is a second overload, not a second specialization.
 
-The argument list of a partial specialization is constrained in ways that mostly amount to *it has to be deducible and it has to actually specialize something*. cppreference lists them: the argument list cannot be identical to the non-specialized argument list, the specialization has to be more specialized than the primary template, default arguments cannot appear, a pack expansion must be the last argument, and a non-type argument expression may use template parameters only as long as the parameter appears at least once outside a non-deduced context. So `template<int I> struct A<I + 5, I * 2>` is an error, because `I` is not deducible from either position.
+The argument list of a partial specialization is constrained in ways that mostly amount to *it has to be deducible and it has to actually specialize something*. cppreference lists them: the argument list cannot be identical to the non-specialized argument list, the specialization has to be more specialized than the primary template, default arguments cannot appear, a pack expansion must be the last argument, and a non-type argument expression may use template parameters only as long as the parameter appears at least once outside a non-deduced context. So `template<int I> struct A<I + 5, I * 2>` is an error, because `I` is not deducible from either position. Both restrictions are borrowed wholesale from [[cs/languages/Cpp/template-argument-deduction-and-ctad|template argument deduction]], which is where non-deduced contexts are defined and where an arithmetic expression over a parameter stops being invertible.
 
 One rule catches people writing library code: cppreference states that partial template specializations are not found by name lookup, and only if the primary template is found by name lookup are its partial specializations considered. A `using` declaration that makes the primary visible makes the partial specializations visible too, even ones declared afterwards in a different namespace block.
 
@@ -66,6 +66,7 @@ Rust reached the same design question from the other side and has not shipped an
 
 ## Related Notes
 
+- [[cs/languages/Cpp/template-argument-deduction-and-ctad|Template Argument Deduction and CTAD]] - the machinery a partial specialization's argument list has to be deducible by
 - [[cs/languages/Cpp/type-traits-and-tag-dispatch|Type Traits and Tag Dispatch]] - what full and partial specialization were mostly used to build
 - [[cs/languages/Cpp/sfinae-and-enable-if|SFINAE and enable_if]] - a specialization used for its failure rather than its result
 - [[cs/languages/Cpp/concepts-and-requires-clauses|Concepts and requires Clauses]] - constraint subsumption, the second partial order C++ uses to pick an implementation

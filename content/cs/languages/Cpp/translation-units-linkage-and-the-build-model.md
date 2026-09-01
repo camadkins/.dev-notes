@@ -46,7 +46,7 @@ The C++20 notion of a TU-local entity makes the hazard explicit. An entity is TU
 
 ## What the model costs, and what it buys
 
-The bill is a rough product: cost per translation unit, times number of translation units, with headers counted once per unit rather than once per project. That is why C++ projects grow forward-declaration discipline, precompiled headers, and the pimpl idiom, all of which are ways to shrink the transitive include set rather than to make compilation faster. It is also why the build is fundamentally a dependency graph over files, ordered by something equivalent to [[cs/dsa/topological-sorting|topological sorting]], and why touching one widely included header invalidates half of it.
+The bill is a rough product: cost per translation unit, times number of translation units, with headers counted once per unit rather than once per project. That is why C++ projects grow forward-declaration discipline, precompiled headers, and the pimpl idiom, all of which are ways to shrink the transitive include set rather than to make compilation faster. It is also why the build is fundamentally a dependency graph over files, ordered by something equivalent to [[cs/dsa/topological-sorting|topological sorting]], and why touching one widely included header invalidates half of it. What happens after every unit has been compiled, when the undefined symbols each one emitted have to find their definitions, is [[cs/systems/linkers-and-loaders|the linker's half of the model]].
 
 What it buys is the property [[cs/pl/compilation-vs-interpretation|separate compilation]] exists for: "Translation units can be separately translated and then later linked to produce an executable program." Any translation unit can be rebuilt without the others, in parallel, on any machine, and libraries can ship as object code with headers rather than as source. That was the right trade when a compile was measured in minutes on one machine and the alternative was recompiling the world. Modules revisit the trade without abandoning it, and that is where [[cs/languages/Cpp/modules-and-the-include-model|modules and the include model]] picks up.
 
@@ -56,6 +56,7 @@ What it buys is the property [[cs/pl/compilation-vs-interpretation|separate comp
 - [[cs/languages/Cpp/the-one-definition-rule|The One Definition Rule]] - the consistency requirement the two-level model cannot check
 - [[cs/languages/Cpp/modules-and-the-include-model|Modules and the Include Model]] - the C++20 attempt to charge for a header once
 - [[cs/languages/common/c-abi-and-ffi|The C ABI and Foreign Function Interfaces]] - what external language linkage actually selects
+- [[cs/systems/linkers-and-loaders|Linkers and Loaders]] - the stage after compilation, where the undefined symbols in each object file get resolved
 - [[cs/dsa/topological-sorting|Topological Sorting]] - the ordering every build tool computes over the include graph
 - [[cs/languages/Cpp/templates-code-bloat-and-link-time|Templates, Code Bloat, and Link Time]] - why phase 9 spends its time discarding duplicates
 

@@ -239,6 +239,8 @@ Hash tables give near-constant-time operations by mapping keys to array indices 
 
 - [[cs/dsa/algorithm-efficiency|Algorithm Efficiency]]
 
+- [[cs/software-engineering/git-objects-and-content-addressable-storage|Git Objects and Content-Addressable Storage]] - a store that drops the key and therefore drops collision handling
+
 ## Sources
 
 - Linear probing, Wikipedia. https://en.wikipedia.org/wiki/Linear_probing . Backs the load-factor caveat in the complexity section: in terms of the load factor alpha, the expected time for a successful search is O(1 + 1/(1 - alpha)) and for an unsuccessful search or an insertion it is O(1 + 1/(1 - alpha)^2), so expected constant time holds only while alpha stays bounded away from 1.

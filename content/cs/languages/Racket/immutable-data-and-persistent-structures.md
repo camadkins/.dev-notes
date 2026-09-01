@@ -39,7 +39,7 @@ A hash table maps each of its keys to a single value, with key equivalence via `
 
 The Reference gives the performance claim twice, at two levels of precision, and the pair is more useful than either alone. Immutable hash tables support effectively constant-time access and update, just like mutable hash tables; the constant on immutable operations is usually larger, but the functional nature of immutable hash tables can pay off in certain algorithms. Then the honest version: immutable hash tables actually provide logarithmic access and update, and log N is bounded by the address space at under 30 or 62.
 
-That is the argument for persistent structures stated as an engineer would state it. The logarithm is real, but its argument is bounded by how many distinct addresses the machine has, so the asymptotic gap against [[cs/dsa/hash-tables|a mutable hash table]] closes into a constant factor with a known ceiling of about 30 or 62 steps. Whether the factor is worth paying is then a question about the algorithm, not about the data structure.
+That is the argument for persistent structures stated as an engineer would state it. The logarithm is real, but its argument is bounded by how many distinct addresses the machine has, so the asymptotic gap against [[cs/dsa/hash-tables|a mutable hash table]] closes into a constant factor with a known ceiling of about 30 or 62 steps. The structural reason the bound is even smaller in practice belongs to [[cs/dsa/persistent-data-structures|the persistent structures themselves]]: a hash array mapped trie branches 32 ways per level, so the ceiling is a base-32 logarithm and a table holding a billion keys is six levels deep. Whether the factor is worth paying is then a question about the algorithm, not about the data structure.
 
 Two further costs are documented and are easy to forget. For `equal?`-based hashing, the built-in hash functions on strings, pairs, lists, vectors, and prefab or transparent structures take time proportional to the size of the value. The hash code for a compound structure depends on hashing each item of the container, though the depth of that recursive hashing is limited to avoid problems with cyclic data. So a table keyed by long lists pays a per-operation cost proportional to key size on top of the logarithmic lookup, and that cost is invisible in the big-O statement.
 
@@ -54,6 +54,7 @@ Persistent structures lose on tight accumulation loops with a single owner, wher
 ## Related Notes
 
 - [[cs/dsa/linked-list|Linked Lists]] - the structure `cons` builds, and the tail sharing immutability makes safe
+- [[cs/dsa/persistent-data-structures|Persistent Data Structures]] - structural sharing, path copying, and the HAMT that puts the logarithm in base 32
 - [[cs/dsa/hash-tables|Hash Tables]] - the mutable baseline the persistent version is measured against
 - [[cs/dsa/amortized-analysis-methods|Amortized Analysis]] - the accounting that lets `list?` charge traversal to allocation
 - [[cs/dsa/asymptotic-notation|Asymptotic Notation]] - and why a bound the machine caps can be read as a constant

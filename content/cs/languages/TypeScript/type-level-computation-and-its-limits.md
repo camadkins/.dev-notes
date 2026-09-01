@@ -38,7 +38,7 @@ The immediate corollary is stated in the issue as well: "Besides (and a necessar
 
 ## Why there is a budget and not a proof
 
-If the type level is Turing complete, deciding whether an arbitrary type resolves is [[cs/history/hilbert-godel-church-computability|the halting problem]] in a new costume. A compiler facing an undecidable question has three options: refuse the expressive power, run forever on some inputs, or approximate. TypeScript approximates, and says so in the language of engineering rather than theory.
+If the type level is Turing complete, deciding whether an arbitrary type resolves is [[cs/math/decidability-and-computability|the halting problem]] in a new costume. A compiler facing an undecidable question has three options: refuse the expressive power, run forever on some inputs, or approximate. TypeScript approximates, and says so in the language of engineering rather than theory. Rice's theorem is the general form of the constraint: every non-trivial question about what a program does is undecidable, so a checker gets to choose which direction it is wrong in and nothing else.
 
 The 4.5 release notes: "TypeScript often needs to gracefully fail when it detects possibly infinite recursion, or any type expansions that can take a long time and affect your editor experience. As a result, TypeScript has heuristics to make sure it doesn't go off the rails when trying to pick apart an infinitely-deep type, or working with types that generate a lot of intermediate results."
 
@@ -72,7 +72,8 @@ The interesting question about a TypeScript type is no longer whether it can be 
 - [[cs/languages/TypeScript/conditional-types|Conditional Types]] - the branching primitive that recursion is built on
 - [[cs/languages/TypeScript/template-literal-types|Template Literal Types]] - the data type most type-level recursion chews through
 - [[cs/languages/TypeScript/keyof-typeof-and-indexed-access|keyof, typeof, and Indexed Access]] - the dispatch mechanism the original Turing-completeness proof used
-- [[cs/history/hilbert-godel-church-computability|Hilbert, Gödel, Church, and the Limits of Computation]] - why no compiler can answer the question the budget is standing in for
+- [[cs/math/decidability-and-computability|Decidability and Computability]] - why no compiler can answer the question the budget is standing in for, and the four documented ways around it
+- [[cs/history/hilbert-godel-church-computability|Hilbert, Gödel, Church, and the Limits of Computation]] - how the result was arrived at, and by whom
 - [[cs/dsa/recursion|Recursion]] - the accumulator rewrite, and why one branch shape is cheaper than another
 - [[cs/math/mathematical-induction|Mathematical Induction]] - the proof a human can construct and the checker will not
 

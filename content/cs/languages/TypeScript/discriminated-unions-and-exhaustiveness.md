@@ -60,7 +60,7 @@ Then add a third variant. Declare a `Triangle` with `kind: "triangle"`, widen `S
 
 ## What it does not check
 
-The tag is data, and it arrives from wherever your data arrives from. TypeScript verifies that the branch you took matches the tag you tested; it does not verify that the object came with the tag it claims. Parse a JSON body, assert it into `Shape`, and a payload with `kind: "circle"` and no `radius` narrows to `Circle` and reads `undefined` for the radius, because the check happened at compile time against a type that was asserted rather than proven. This is the ordinary [[cs/languages/TypeScript/erasure-at-runtime-and-type-guards|erasure boundary]], and it is the same boundary that makes trusting shapes decoded from a wire format an [[cs/security/insecure-deserialization|input validation problem]] rather than a typing one. Exhaustiveness protects the code you write against changes to the model. Nothing protects the model against the network.
+The tag is data, and it arrives from wherever your data arrives from. TypeScript verifies that the branch you took matches the tag you tested; it does not verify that the object came with the tag it claims. Parse a JSON body, assert it into `Shape`, and a payload with `kind: "circle"` and no `radius` narrows to `Circle` and reads `undefined` for the radius, because the check happened at compile time against a type that was asserted rather than proven. This is the ordinary [[cs/languages/TypeScript/erasure-at-runtime-and-type-guards|erasure boundary]], and it is the same boundary that makes trusting shapes decoded from a wire format an [[cs/security/input-validation-and-trust-boundaries|input validation problem]] rather than a typing one. Exhaustiveness protects the code you write against changes to the model. Nothing protects the model against the network.
 
 Two smaller caveats. Exhaustiveness only means anything for a closed union, so a union that some other module can extend gives you nothing; sealing the set is the precondition. And the `never` assignment must be a statement the compiler evaluates, which is why the idiom writes a `const` rather than a comment: an exhaustiveness check that is not compiled is not a check.
 
@@ -70,6 +70,7 @@ Two smaller caveats. Exhaustiveness only means anything for a closed union, so a
 - [[cs/languages/Rust/pattern-matching-and-enums|Pattern Matching and Enums in Rust]] - exhaustiveness as a language rule rather than an idiom you opt into
 - [[cs/languages/Java/records-sealed-types-and-pattern-matching|Records, Sealed Types, and Pattern Matching]] - sealing a hierarchy so the compiler can enumerate the variants
 - [[cs/languages/TypeScript/the-any-unknown-never-triangle|The any, unknown, never Triangle]] - the assignability rules that make the never trick work at all
+- [[cs/security/input-validation-and-trust-boundaries|Input Validation and Trust Boundaries]] - where the tag has to be checked, since the compiler only checks that you branched on it
 - [[cs/security/insecure-deserialization|Insecure Deserialization]] - what happens when the tag on an untrusted object is taken at face value
 - [[cs/languages/TypeScript/union-and-intersection-types|Union and Intersection Types]] - the untagged union this pattern is compensating for
 

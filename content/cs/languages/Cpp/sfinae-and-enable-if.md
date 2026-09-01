@@ -23,7 +23,7 @@ The rule exists so that a template which cannot possibly apply gets out of the w
 
 cppreference is precise about the mechanics, and the details matter because SFINAE is order-sensitive in a way most language features are not.
 
-Function template parameters are substituted twice: explicitly specified template arguments are substituted before template argument deduction, and deduced arguments plus arguments obtained from defaults are substituted after it. Substitution occurs in all types used in the function type, which includes the return type and every parameter type, in all types used in the template parameter declarations, and in all types used in the template argument list of a partial specialization, plus since C++11 the corresponding expressions in each of those positions.
+Function template parameters are substituted twice: explicitly specified template arguments are substituted before [[cs/languages/Cpp/template-argument-deduction-and-ctad|template argument deduction]], and deduced arguments plus arguments obtained from defaults are substituted after it. Substitution occurs in all types used in the function type, which includes the return type and every parameter type, in all types used in the template parameter declarations, and in all types used in the template argument list of a partial specialization, plus since C++11 the corresponding expressions in each of those positions.
 
 A substitution failure, in cppreference's definition, is any situation where the type or expression above would be ill-formed, with a required diagnostic, if written using the substituted arguments.
 
@@ -84,6 +84,7 @@ cppreference's own recommendation section is short and final: where applicable, 
 
 ## Related Notes
 
+- [[cs/languages/Cpp/template-argument-deduction-and-ctad|Template Argument Deduction and CTAD]] - the pass whose failure SFINAE is a rule about, and the non-deduced contexts it stops at
 - [[cs/languages/Cpp/template-specialization-full-and-partial|Template Specialization, Full and Partial]] - the two lines `enable_if` is built from
 - [[cs/languages/Cpp/type-traits-and-tag-dispatch|Type Traits and Tag Dispatch]] - the other pre-concepts answer, and the one cppreference prefers
 - [[cs/languages/Cpp/concepts-and-requires-clauses|Concepts and requires Clauses]] - substitution failure promoted from trick to declared interface

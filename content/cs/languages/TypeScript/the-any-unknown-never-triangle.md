@@ -45,7 +45,7 @@ Its usefulness is entirely in what its appearance tells you. A narrowing that re
 
 Every program has a perimeter: a parsed response body, a message off a socket, a value read from `localStorage`, a field from a config file. On the outside there is no type information, and on the inside there has to be one. What you write at that seam decides what the rest of the type system is worth.
 
-Annotate the perimeter as `any` and the assurance evaporates, silently and transitively. The compiler will happily let a number-shaped hole flow into a function expecting a string, into a template, into a query. This is the same category of failure as [[cs/security/insecure-deserialization|trusting the shape of deserialized input]]: the danger is not that the data is wrong, it is that a component downstream was written under a guarantee that no longer holds, and no tool reports the moment the guarantee was dropped. A type assertion is worth the same as `any` here, since asserting `as User` on a parsed body performs no check either.
+Annotate the perimeter as `any` and the assurance evaporates, silently and transitively. The compiler will happily let a number-shaped hole flow into a function expecting a string, into a template, into a query. This is the same category of failure as [[cs/security/input-validation-and-trust-boundaries|letting data cross a trust boundary without being validated]]: the danger is not that the data is wrong, it is that a component downstream was written under a guarantee that no longer holds, and no tool reports the moment the guarantee was dropped. A type assertion is worth the same as `any` here, since asserting `as User` on a parsed body performs no check either.
 
 Annotate it as `unknown` and the compiler forces the validation to exist. It will not let a single field be read until something narrows the value, which turns a diffuse question about discipline into a concrete list of places the checker refuses to compile. That is the practical argument for `unknown` over `any` at every I/O boundary. The same argument applies to a caught exception, which is a value arriving from outside the current function with no declared shape and every reason to be narrowed before it is read.
 
@@ -56,6 +56,7 @@ Annotate it as `unknown` and the compiler forces the validation to exist. It wil
 
 - [[cs/languages/TypeScript/structural-typing-and-assignability|Structural Typing and Assignability]] - the two compatibility relations, and how `any` is the difference between them
 - [[cs/languages/TypeScript/discriminated-unions-and-exhaustiveness|Discriminated Unions and Exhaustiveness]] - the pattern that turns `never` from a curiosity into a maintenance tool
+- [[cs/security/input-validation-and-trust-boundaries|Input Validation and Trust Boundaries]] - the line `any` at the perimeter erases, and what has to happen for data to cross it
 - [[cs/security/insecure-deserialization|Insecure Deserialization]] - what an unchecked assumption about the shape of external data costs
 - [[cs/math/set-theory-basics|Set Theory Basics]] - universal and empty sets, and why they behave inversely under union and intersection
 - [[cs/languages/Go/the-empty-interface-any-and-type-assertions|The Empty Interface, any, and Type Assertions]] - a different language solving the same problem with a checked assertion instead of a flag

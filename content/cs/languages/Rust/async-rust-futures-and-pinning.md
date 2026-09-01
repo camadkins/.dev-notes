@@ -21,7 +21,7 @@ Async Rust looks like a runtime feature and is almost entirely a type-system fea
 
 A future is a value that might not have finished computing yet. The trait is one required associated type and one required method. `poll` attempts to resolve the future into a final value, and does not block if the value is not ready. Instead, the current task is scheduled to be woken up when it is possible to make further progress by polling again, using a `Waker` obtained from the `Context` handed to `poll`. The return is `Poll::Pending` or `Poll::Ready(val)`, and once a future has finished, clients should not poll it again.
 
-The pivotal design word in the documentation is inert. Futures alone are inert; they must be actively polled for the underlying computation to make progress. Nothing runs because you created a future. This is the split that separates Rust from a language where an async call schedules work on an ambient runtime: here, the future is a value describing work, and something else has to drive it. An implementation of `poll` should strive to return quickly and should not block, because whatever thread is driving it is also driving everything else.
+The pivotal design word in the documentation is inert. Futures alone are inert; they must be actively polled for the underlying computation to make progress. Nothing runs because you created a future. This is the split that separates Rust from a language where an async call schedules work on an ambient runtime: here, the future is a value describing work, and something else has to drive it. An implementation of `poll` should strive to return quickly and should not block, because whatever thread is driving it is also driving everything else. The `Waker` is the seam where this meets the operating system: something has to know that the socket became readable, and that something is [[cs/systems/non-blocking-io-and-the-event-loop|the readiness-notification interface the runtime's reactor is parked in]].
 
 What `async fn` compiles to is a state machine. Each `.await` is a suspension point where control returns to the caller with `Pending`, so the generated struct has a variant per suspension point holding exactly the locals that are live across it. The same transform appears in [[cs/languages/CSharp/async-await-and-the-state-machine|C# async methods]] and, in a more general form, in [[cs/pl/coroutines-and-generators|coroutines and generators]]. It is a mechanical translation from a function whose stack frame persists across suspension into a value that carries the frame with it, which is what makes async cheap: no OS stack, just a struct sized at compile time.
 
@@ -54,6 +54,7 @@ The whole apparatus is a good illustration of a language solving a problem out o
 - [[cs/languages/Rust/drop-order-and-raii-in-rust|Drop Order and RAII in Rust]] - the drop step that the pinning contract depends on
 - [[cs/pl/continuations-cps|Continuations and CPS]] - what an await point is capturing, stated without the machinery
 - [[cs/pl/concurrency-models-threads-locks-and-actors|Concurrency Models: Threads, Locks, and Actors]] - where polled futures sit among the alternatives
+- [[cs/systems/non-blocking-io-and-the-event-loop|Non-Blocking IO and the Event Loop]] - the kernel side of the runtime Rust deliberately does not ship
 
 ## Sources
 

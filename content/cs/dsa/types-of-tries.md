@@ -109,7 +109,7 @@ Consider keys `{to, tea, ted, ten, in, inn}` over lowercase ASCII.
 
 ## Broader Implications
 - **Data-engineering fit:** Domain-specific **normalization** (case-folding, tokenization to bytes) shrinks effective `|Σ|`, improving both memory and speed for all trie variants.
-- **Persistence and versioning:** Path-copying tries (standard or compressed) enable **[[cs/languages/Racket/immutable-data-and-persistent-structures|immutable]]** versions with structural sharing, useful for configuration maps and IDE index snapshots.
+- **Persistence and versioning:** Path-copying tries (standard or compressed) enable **[[cs/dsa/persistent-data-structures|immutable versions with structural sharing]]**, useful for configuration maps and IDE index snapshots; the hash array mapped trie is the variant built for exactly this, hashing keys so the path length is a base-32 logarithm rather than a key length.
 - **Ranking and top-k:** Augment nodes with `subtreeWeight` or frequency counters to support ranked autocomplete; costs apply equally to standard and compressed structures.
 
 ## Summary
@@ -120,6 +120,7 @@ Consider keys `{to, tea, ted, ten, in, inn}` over lowercase ASCII.
 The right choice hinges on alphabet size, key length/distribution, memory budget, and query mix (exact, prefix, substring). All retain the trie hallmark: predictable, prefix-aware behavior that general-purpose maps cannot match.
 
 ## See also
+- [[cs/dsa/persistent-data-structures|Persistent Data Structures]]
 - [[cs/dsa/standard-trie|Standard Trie]]
 - [[cs/dsa/compressed-trie|Compressed Trie]]
 - [[cs/dsa/suffix-trie|Suffix Trie]]
