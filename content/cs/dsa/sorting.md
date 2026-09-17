@@ -42,15 +42,15 @@ Let array `A[0..n−1]` and strict weak ordering `<`. A sorting algorithm permut
 
 |Algorithm|Family|Stable|In-place|Avg Time|Worst Time|Extra Space|Notes|
 |---|---|--:|--:|--:|--:|--:|---|
-|[[cs/dsa/insertion-sort|Insertion Sort]]|Comparison|✓|✓|Θ(n²)|Θ(n²)|O(1)|
-|[[cs/dsa/selection-sort|Selection Sort]]|Comparison|✗ (default)|✓|Θ(n²)|Θ(n²)|O(1)|
-|[[cs/dsa/bubble-sort|Bubble Sort]]|Comparison|✓ (with stable swap)|✓|Θ(n²)|Θ(n²)|O(1)|
-|[[cs/dsa/merge-sort|Merge Sort]]|Comparison|✓|✗ (array)|Θ(n log n)|Θ(n log n)|Θ(n)|
-|[[cs/dsa/quick-sort|Quick Sort]]|Comparison|✗ (default)|✓|Θ(n log n)|Θ(n²)|O(log n) stack|
-|[[cs/dsa/heapsort|Heapsort]]|Comparison|✗|✓|Θ(n log n)|Θ(n log n)|O(1)|
-|[[cs/dsa/counting-sort|Counting Sort]]|Counting-based|✓|✗|Θ(n + k)|Θ(n + k)|Θ(n + k)|
-|[[cs/dsa/radix-sort|Radix Sort]]|Counting-based|✓ (with stable pass)|✗|Θ(d·(n + b))|Θ(d·(n + b))|Θ(n + b)|
-|[[cs/dsa/bucket-sort|Bucket Sort]]|Distribution|✓ (in-bucket stable)|✗/✓|Θ(n) expected|Θ(n²) worst|Θ(n + m)|
+|[[cs/dsa/insertion-sort\|Insertion Sort]]|Comparison|✓|✓|Θ(n²)|Θ(n²)|O(1)|
+|[[cs/dsa/selection-sort\|Selection Sort]]|Comparison|✗ (default)|✓|Θ(n²)|Θ(n²)|O(1)|
+|[[cs/dsa/bubble-sort\|Bubble Sort]]|Comparison|✓ (with stable swap)|✓|Θ(n²)|Θ(n²)|O(1)|
+|[[cs/dsa/merge-sort\|Merge Sort]]|Comparison|✓|✗ (array)|Θ(n log n)|Θ(n log n)|Θ(n)|
+|[[cs/dsa/quick-sort\|Quick Sort]]|Comparison|✗ (default)|✓|Θ(n log n)|Θ(n²)|O(log n) stack|
+|[[cs/dsa/heapsort\|Heapsort]]|Comparison|✗|✓|Θ(n log n)|Θ(n log n)|O(1)|
+|[[cs/dsa/counting-sort\|Counting Sort]]|Counting-based|✓|✗|Θ(n + k)|Θ(n + k)|Θ(n + k)|
+|[[cs/dsa/radix-sort\|Radix Sort]]|Counting-based|✓ (with stable pass)|✗|Θ(d·(n + b))|Θ(d·(n + b))|Θ(n + b)|
+|[[cs/dsa/bucket-sort\|Bucket Sort]]|Distribution|✓ (in-bucket stable)|✗/✓|Θ(n) expected|Θ(n²) worst|Θ(n + m)|
 
 > [!tip]
 > Hybrid engines (production compilers, stdlibs) often use **introsort** (quicksort + heap fallback) and cut over to **insertion sort** for small partitions. This keeps `n log n` worst-case and small constants.

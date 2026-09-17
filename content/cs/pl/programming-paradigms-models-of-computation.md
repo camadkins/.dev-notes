@@ -39,8 +39,8 @@ These layers recur in every paradigm, from procedural loops to functional recurs
 
 | Model | Origin | Foundation | Paradigm Connection |
 |--------|---------|-------------|---------------------|
-| **[[cs/history/turing-and-computability|Turing Machine]]** | 1936 – A. Turing | Stepwise state transitions on tape | Imperative & procedural languages |
-| **[[cs/pl/lambda-calculus-syntax-substitution|Lambda Calculus]]** | 1930s – Alonzo Church | Function abstraction and application | Functional languages |
+| **[[cs/history/turing-and-computability\|Turing Machine]]** | 1936 – A. Turing | Stepwise state transitions on tape | Imperative & procedural languages |
+| **[[cs/pl/lambda-calculus-syntax-substitution\|Lambda Calculus]]** | 1930s – Alonzo Church | Function abstraction and application | Functional languages |
 | **Predicate Logic** | 1950s | Rule-based inference and unification | Logic programming (Prolog, Datalog) |
 
 All three are **computationally equivalent** (Church–Turing thesis): any function computable in one can be expressed in the others, but each emphasizes a different *style of reasoning*.

@@ -113,9 +113,9 @@ Runtime isn’t everything - some algorithms trade speed for memory.
 
 |Algorithm|Time|Space|Trade-off|
 |---|---|---|---|
-|[[cs/dsa/merge-sort|Merge Sort]]|O(n log n)|O(n)|Simpler recursion, more memory|
-|[[cs/dsa/heapsort|Heap Sort]]|O(n log n)|O(1)|Slower constant, less memory|
-|[[cs/dsa/counting-sort|Counting Sort]]|O(n + k)|O(k)|Fast for small key ranges|
+|[[cs/dsa/merge-sort\|Merge Sort]]|O(n log n)|O(n)|Simpler recursion, more memory|
+|[[cs/dsa/heapsort\|Heap Sort]]|O(n log n)|O(1)|Slower constant, less memory|
+|[[cs/dsa/counting-sort\|Counting Sort]]|O(n + k)|O(k)|Fast for small key ranges|
 
 Choose based on _context_: memory-constrained systems (embedded) may prioritize O(1) space.
 
@@ -157,10 +157,10 @@ Choose based on _context_: memory-constrained systems (embedded) may prioritize 
 
 |Algorithm|Time|Space|Stability|Practical Use|
 |---|---|---|---|---|
-|[[cs/dsa/quick-sort|QuickSort]]|O(n log n) avg|O(log n)|No|General-purpose|
-|[[cs/dsa/merge-sort|MergeSort]]|O(n log n)|O(n)|Yes|External sorting|
-|[[cs/dsa/heapsort|HeapSort]]|O(n log n)|O(1)|No|Memory-limited systems|
-|[[cs/dsa/insertion-sort|InsertionSort]]|O(n²)|O(1)|Yes|Small datasets|
+|[[cs/dsa/quick-sort\|QuickSort]]|O(n log n) avg|O(log n)|No|General-purpose|
+|[[cs/dsa/merge-sort\|MergeSort]]|O(n log n)|O(n)|Yes|External sorting|
+|[[cs/dsa/heapsort\|HeapSort]]|O(n log n)|O(1)|No|Memory-limited systems|
+|[[cs/dsa/insertion-sort\|InsertionSort]]|O(n²)|O(1)|Yes|Small datasets|
 
 > [!tip]  
 > Hybrid algorithms (e.g., **Timsort**) combine multiple strategies to balance constants and asymptotic growth.

@@ -21,7 +21,7 @@ Most git references are alphabetical, which is the one ordering that hides the t
 | Location | Holds | Mutable? | Can a command lose data here? |
 |----------|-------|----------|-------------------------------|
 | Object database (`.git/objects`) | Blobs, trees, commits, tags, each named by the hash of its content | Append-only | Only via garbage collection, and only for objects no ref and no reflog entry reaches |
-| Refs (`.git/refs`, `HEAD`) | Branch names, tags, remote-tracking names, `HEAD` | Yes | Moving a ref never deletes a commit; the [[cs/software-engineering/the-reflog|reflog]] records the old value |
+| Refs (`.git/refs`, `HEAD`) | Branch names, tags, remote-tracking names, `HEAD` | Yes | Moving a ref never deletes a commit; the [[cs/software-engineering/the-reflog\|reflog]] records the old value |
 | Index | The flattened manifest that becomes the next commit's tree | Yes | Yes, staged-but-uncommitted content has no reflog |
 | Working tree | Ordinary files on disk | Yes | Yes, uncommitted edits are outside git entirely |
 
