@@ -159,8 +159,11 @@ plugins:
     layout:
       position: beforeBody
       priority: 10
-  - source: "@quartz-community/content-meta"
+  - source: ./plugins/content-meta-edit
     enabled: true
+    options:
+      editRepository: https://github.com/camadkins/.dev-notes
+      editBranch: dev
     layout:
       position: beforeBody
       priority: 20
@@ -245,7 +248,7 @@ plugins:
         - tags
         - aliases
       excludedProperties: []
-      hidePropertiesView: false
+      hidePropertiesView: true
       delimiters: ---
       language: yaml
     order: 5

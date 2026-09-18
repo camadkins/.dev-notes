@@ -1,0 +1,52 @@
+{
+  "name": "content-meta-edit",
+  "version": "0.1.0",
+  "description": "Fork of @quartz-community/content-meta 0.1.0 that adds an Edit note link",
+  "type": "module",
+  "license": "MIT",
+  "private": true,
+  "exports": {
+    ".": "./dist/index.js",
+    "./components": "./dist/components/index.js",
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "quartz": {
+    "name": "content-meta-edit",
+    "displayName": "Content Meta (edit link)",
+    "category": "component",
+    "version": "1.0.0",
+    "quartzVersion": ">=5.0.0",
+    "dependencies": [],
+    "defaultOrder": 50,
+    "defaultEnabled": true,
+    "defaultOptions": {
+      "showReadingTime": true,
+      "showComma": true
+    },
+    "components": {
+      "ContentMeta": {
+        "displayName": "Content Meta",
+        "defaultPosition": "beforeBody",
+        "defaultPriority": 20
+      }
+    },
+    "optionSchema": {
+      "showReadingTime": {
+        "type": "boolean"
+      },
+      "showComma": {
+        "type": "boolean"
+      },
+      "editRepository": {
+        "type": "string"
+      },
+      "editBranch": {
+        "type": "string"
+      },
+      "editPathPrefix": {
+        "type": "string"
+      }
+    }
+  }
+}
